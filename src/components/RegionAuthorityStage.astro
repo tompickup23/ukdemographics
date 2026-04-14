@@ -305,10 +305,10 @@ const payload = JSON.stringify({
 
   type AuthorityMetricId = "total" | "rate" | "hotel";
 
-  const windowWithRegionAuthorityFlag = window as Window & { __asylumstatsRegionAuthorityInit?: boolean };
+  const windowWithRegionAuthorityFlag = window as Window & { __ukdRegionAuthorityInit?: boolean };
 
-  if (!windowWithRegionAuthorityFlag.__asylumstatsRegionAuthorityInit) {
-    windowWithRegionAuthorityFlag.__asylumstatsRegionAuthorityInit = true;
+  if (!windowWithRegionAuthorityFlag.__ukdRegionAuthorityInit) {
+    windowWithRegionAuthorityFlag.__ukdRegionAuthorityInit = true;
 
     const SVG_NS = "http://www.w3.org/2000/svg";
     const metricConfig: Record<

@@ -335,6 +335,19 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
+  <!-- Asylum Stats cross-link -->
+  <div class="as-cross-link">
+    <div class="as-cross-inner">
+      <span class="as-cross-label">Asylum and immigration data</span>
+      <span class="as-cross-desc">
+        Asylum seekers on support, hotel costs, grant rates, and the True Cost of Asylum for this area.
+      </span>
+      <a href={`https://asylumstats.co.uk/places/${slugifyAreaName(area.areaName)}/`} class="as-cross-btn" rel="noopener">
+        View {area.areaName} on Asylum Stats &rarr;
+      </a>
+    </div>
+  </div>
+
   <DataFreshness
     updated={(rawProjections as any).lastUpdated ?? "2026-04-14"}
     source="Census 2021, ONS SNPP, DfE School Census"

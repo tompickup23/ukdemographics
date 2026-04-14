@@ -146,10 +146,10 @@ const mapSelectionLabel =
     regionName?: string;
     trigger?: string;
   };
-  const windowWithRegionMapExplorerFlag = window as Window & { __asylumstatsRegionMapExplorerInit?: boolean };
+  const windowWithRegionMapExplorerFlag = window as Window & { __ukdRegionMapExplorerInit?: boolean };
 
-  if (!windowWithRegionMapExplorerFlag.__asylumstatsRegionMapExplorerInit) {
-    windowWithRegionMapExplorerFlag.__asylumstatsRegionMapExplorerInit = true;
+  if (!windowWithRegionMapExplorerFlag.__ukdRegionMapExplorerInit) {
+    windowWithRegionMapExplorerFlag.__ukdRegionMapExplorerInit = true;
 
     const activateView = (root: HTMLElement, viewId: string) => {
       const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>("[data-region-map-view-button]"));

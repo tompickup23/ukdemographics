@@ -345,10 +345,10 @@ const payload = JSON.stringify({
 
   type AuthorityMetricId = "total" | "rate" | "hotel";
 
-  const windowWithHomeMapFlag = window as Window & { __asylumstatsHomeMapInit?: boolean };
+  const windowWithHomeMapFlag = window as Window & { __ukdHomeMapInit?: boolean };
 
-  if (!windowWithHomeMapFlag.__asylumstatsHomeMapInit) {
-    windowWithHomeMapFlag.__asylumstatsHomeMapInit = true;
+  if (!windowWithHomeMapFlag.__ukdHomeMapInit) {
+    windowWithHomeMapFlag.__ukdHomeMapInit = true;
 
     const SVG_NS = "http://www.w3.org/2000/svg";
     const metricConfig: Record<

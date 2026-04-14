@@ -24,10 +24,10 @@ const { id, label = "Deep dive", title, summary, open = false } = Astro.props;
 </details>
 
 <script>
-  const windowWithDrawerFlag = window as Window & { __asylumstatsDataDrawerInit?: boolean };
+  const windowWithDrawerFlag = window as Window & { __ukdDataDrawerInit?: boolean };
 
-  if (!windowWithDrawerFlag.__asylumstatsDataDrawerInit) {
-    windowWithDrawerFlag.__asylumstatsDataDrawerInit = true;
+  if (!windowWithDrawerFlag.__ukdDataDrawerInit) {
+    windowWithDrawerFlag.__ukdDataDrawerInit = true;
 
     const openDrawerForHashTarget = () => {
       if (!window.location.hash) {

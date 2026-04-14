@@ -538,10 +538,10 @@ const mapInteractionCaption =
   };
   type FocusTrigger = "hover" | "focus" | "click" | "program";
 
-  const windowWithRegionMapFlag = window as Window & { __asylumstatsRegionMapInit?: boolean };
+  const windowWithRegionMapFlag = window as Window & { __ukdRegionMapInit?: boolean };
 
-  if (!windowWithRegionMapFlag.__asylumstatsRegionMapInit) {
-    windowWithRegionMapFlag.__asylumstatsRegionMapInit = true;
+  if (!windowWithRegionMapFlag.__ukdRegionMapInit) {
+    windowWithRegionMapFlag.__ukdRegionMapInit = true;
     const REGION_MAP_WIDTH = 620;
     const REGION_MAP_HEIGHT = 760;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

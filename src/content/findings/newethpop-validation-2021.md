@@ -8,7 +8,6 @@ verdict: alert
 source_url: "https://reshare.ukdataservice.ac.uk/852508/"
 source_label: "NEWETHPOP (University of Leeds)"
 summary: "The NEWETHPOP cohort-component model, the UK's most cited academic ethnic projection, over-predicted White British population share in 282 out of 296 local authorities. NEWETHPOP MAE: 2.58pp. Our Hamilton-Perry v7.0 model achieves MAE 1.71pp. 33% more accurate. using Census 2011 DC2101EW (18 groups, observed) and Census 2021 custom dataset (20 groups, direct)."
-video_url: "/videos/newethpop_validation_reel.mp4"
 ---
 
 **The UK diversified faster than the best academic model predicted.**

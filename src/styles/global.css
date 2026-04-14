@@ -4336,6 +4336,27 @@ tr:last-child td {
 }
 .footer-cross-site a { color: var(--accent); text-decoration: none; font-weight: 600; }
 .footer-cross-site a:hover { text-decoration: underline; }
+
+/* Asylum Stats cross-link banner on place pages */
+.as-cross-link {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(6, 182, 212, 0.03) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: var(--radius-sm);
+}
+.as-cross-inner { display: flex; flex-direction: column; gap: 0.5rem; }
+.as-cross-label { font-family: "Sora", sans-serif; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #06b6d4; }
+.as-cross-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
+.as-cross-btn {
+  display: inline-block; margin-top: 0.25rem; padding: 0.5rem 1rem;
+  font-size: 0.85rem; font-weight: 700; color: #f5f7fb;
+  background: #06b6d4; border-radius: 8px; text-decoration: none;
+  transition: background 180ms;
+  width: fit-content;
+}
+.as-cross-btn:hover { background: #0891b2; }
+
 .footer-legal {
   font-size: 0.78rem;
   opacity: 0.5;
