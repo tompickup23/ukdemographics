@@ -10,6 +10,12 @@ import {
 } from "../../lib/ethnic-projections";
 import { buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
 import rawProjections from "../../data/live/ethnic-projections.json";
+import economicProfile from "../../data/live/economic-profile.json";
+import housingDemand from "../../data/live/housing-demand.json";
+import schoolPressure from "../../data/live/school-pressure.json";
+import healthDemand from "../../data/live/health-demand.json";
+import languageProjections from "../../data/live/language-projections.json";
+import fiscalResilience from "../../data/live/fiscal-resilience.json";
 
 export function getStaticPaths() {
   return getPublicPlaceAreas().map((area) => ({
@@ -28,6 +34,14 @@ const nativityData = getNativityData(area.areaCode);
 const shiftShareData = getShiftShareData(area.areaCode);
 const diversityIndex = getDiversityIndex(area.areaCode);
 const englishProficiency = getEnglishProficiency(area.areaCode);
+
+// New dashboard data
+const econ = (economicProfile as any).areas?.[area.areaCode];
+const housing = (housingDemand as any).areas?.[area.areaCode];
+const school = (schoolPressure as any).areas?.[area.areaCode];
+const health = (healthDemand as any).areas?.[area.areaCode];
+const language = (languageProjections as any).areas?.[area.areaCode];
+const pressure = (fiscalResilience as any).areas?.[area.areaCode];
 
 const headlineStat = projData?.headlineStat;
 const population = projData?.current?.total_population ?? area.population ?? 0;
@@ -231,9 +245,99 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
+  <!-- Service demand pressure -->
+  {pressure && (
+    <section class="section" id="pressure">
+      <h2>Service demand pressure</h2>
+      <div class="pressure-banner" style={`border-left: 4px solid ${pressure.serviceDemandPressureScore >= 70 ? 'var(--coral)' : pressure.serviceDemandPressureScore >= 45 ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
+        <span class="pressure-score">{pressure.serviceDemandPressureScore}/100</span>
+        <span class="pressure-category">{pressure.category}</span>
+        <span class="pressure-rank">Rank {pressure.pressureRank} of 320</span>
+      </div>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Ethnic change</span><span class="data-value">{pressure.components?.ethnicChangeContribution}/20</span></div>
+        <div class="data-item"><span class="data-label">Asylum</span><span class="data-value">{pressure.components?.asylumConcentration}/20</span></div>
+        <div class="data-item"><span class="data-label">School</span><span class="data-value">{pressure.components?.schoolPressure}/20</span></div>
+        <div class="data-item"><span class="data-label">Language</span><span class="data-value">{pressure.components?.languagePressure}/20</span></div>
+        <div class="data-item"><span class="data-label">Housing</span><span class="data-value">{pressure.components?.housingPressure}/20</span></div>
+      </div>
+    </section>
+  )}
+
+  <!-- Economic profile -->
+  {econ?.summary && (
+    <section class="section" id="economy">
+      <h2>Economic profile</h2>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Avg employment rate</span><span class="data-value">{econ.summary.avgEmploymentRate}%</span></div>
+        <div class="data-item"><span class="data-label">Avg home ownership</span><span class="data-value">{econ.summary.avgOwnershipRate}%</span></div>
+        <div class="data-item"><span class="data-label">Avg social rent</span><span class="data-value">{econ.summary.avgSocialRentRate}%</span></div>
+        <div class="data-item"><span class="data-label">Degree or above</span><span class="data-value">{econ.summary.avgDegreeRate}%</span></div>
+        <div class="data-item"><span class="data-label">No qualifications</span><span class="data-value">{econ.summary.avgNoQualsRate}%</span></div>
+      </div>
+    </section>
+  )}
+
+  <!-- Housing demand -->
+  {housing?.dataAvailable && (
+    <section class="section" id="housing">
+      <h2>Housing demand projection</h2>
+      <p class="section-desc">Census 2021 tenure patterns by ethnicity, projected to 2041 from demographic composition change.</p>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Ownership (2021)</span><span class="data-value">{housing.currentTenure?.ownershipPct}%</span></div>
+        <div class="data-item"><span class="data-label">Social rent (2021)</span><span class="data-value">{housing.currentTenure?.socialRentPct}%</span></div>
+        <div class="data-item"><span class="data-label">Private rent (2021)</span><span class="data-value">{housing.currentTenure?.privateRentPct}%</span></div>
+        {housing.projectedTenure2041 && (
+          <>
+            <div class="data-item"><span class="data-label">Ownership (2041)</span><span class="data-value" style="color: var(--accent-3);">{housing.projectedTenure2041.ownershipPct}%</span></div>
+            <div class="data-item"><span class="data-label">Social rent (2041)</span><span class="data-value" style="color: var(--accent-3);">{housing.projectedTenure2041.socialRentPct}%</span></div>
+            <div class="data-item"><span class="data-label">Social rent change</span><span class="data-value" style={`color: ${(housing.socialRentChangePp ?? 0) > 0 ? 'var(--coral)' : 'var(--accent-2)'}`}>{housing.socialRentChangePp > 0 ? '+' : ''}{housing.socialRentChangePp}pp</span></div>
+          </>
+        )}
+      </div>
+      {housing.housingImplication && <p class="section-note">{housing.housingImplication}</p>}
+    </section>
+  )}
+
+  <!-- School pressure -->
+  {school?.dataAvailable && (
+    <section class="section" id="schools">
+      <h2>School demographics</h2>
+      <p class="section-desc">DfE School Census {school.year}. {fmtInt(school.totalPupils)} pupils.</p>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">WBI pupils</span><span class="data-value">{school.wbiPupilsPct?.toFixed(1)}%</span></div>
+        <div class="data-item"><span class="data-label">Minority pupils</span><span class="data-value" style="color: var(--accent);">{school.minorityPupilsPct?.toFixed(1)}%</span></div>
+        {school.ealDemandGrowthPp != null && (
+          <div class="data-item"><span class="data-label">EAL growth (projected)</span><span class="data-value" style="color: var(--accent-3);">+{school.ealDemandGrowthPp.toFixed(1)}pp</span></div>
+        )}
+        <div class="data-item"><span class="data-label">WBI gap (school vs population)</span><span class="data-value">{school.wbiGap?.toFixed(1)}pp</span></div>
+      </div>
+      {school.insight && <p class="section-note">{school.insight}</p>}
+    </section>
+  )}
+
+  <!-- Language projections -->
+  {language?.dataAvailable && (
+    <section class="section" id="language">
+      <h2>English proficiency</h2>
+      <div class="data-grid">
+        {Object.entries(language.currentProficiency).map(([level, pct]) => (
+          <div class="data-item">
+            <span class="data-label">{level.replace(/_/g, " ")}</span>
+            <span class="data-value">{typeof pct === "number" ? `${(pct as number).toFixed(1)}%` : String(pct)}</span>
+          </div>
+        ))}
+        {language.projectedNonEnglishIncrease > 0 && (
+          <div class="data-item"><span class="data-label">Projected non-English growth</span><span class="data-value" style="color: var(--accent-3);">+{language.projectedNonEnglishIncrease}pp</span></div>
+        )}
+      </div>
+      {language.interpreterImplication && <p class="section-note">{language.interpreterImplication}</p>}
+    </section>
+  )}
+
   <DataFreshness
     updated={(rawProjections as any).lastUpdated ?? "2026-04-14"}
-    source="Census 2021, ONS SNPP"
+    source="Census 2021, ONS SNPP, DfE School Census"
     sourceUrl="https://www.ons.gov.uk/census"
   />
 </BaseLayout>
@@ -280,6 +384,14 @@ function fmtInt(n: number | undefined | null): string {
   .data-item { display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
   .data-label { font-size: 0.85rem; color: var(--ink-soft); text-transform: capitalize; }
   .data-value { font-family: "Sora", sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+
+  .pressure-banner {
+    background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 1.25rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .pressure-score { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--ink); }
+  .pressure-category { font-size: 0.92rem; font-weight: 700; color: var(--ink-soft); }
+  .pressure-rank { font-size: 0.82rem; color: var(--muted); }
 
   @media (max-width: 640px) {
     .metrics-grid { grid-template-columns: repeat(2, 1fr); }
