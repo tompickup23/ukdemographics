@@ -2,18 +2,16 @@ import type { APIRoute, GetStaticPaths } from "astro";
 import satori from "satori";
 import sharp from "sharp";
 import { readFileSync } from "node:fs";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 import { getCollection } from "astro:content";
-import { loadRouteDashboard, loadLocalRouteLatest } from "../../lib/route-data";
 import { getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
 
-// Brand colors from brand_system.py
+// Brand colors — UK Demographics (indigo)
 const COLORS = {
   bg: "#04070d",
   surface: "#0b1220",
-  accent: "#06b6d4",
-  accentLight: "#7dd3fc",
+  accent: "#4f46e5",
+  accentLight: "#818cf8",
   text: "#f5f7fb",
   muted: "#91a7c4",
   alert: "#f59e0b",
@@ -28,12 +26,10 @@ const verdictColor: Record<string, string> = {
   info: COLORS.accent
 };
 
-// Load TTF fonts (Satori requires TTF/OTF, not woff2)
 let manropeBold: ArrayBuffer | null = null;
 let soraBold: ArrayBuffer | null = null;
 
 function loadFont(name: string): ArrayBuffer {
-  // Resolve fonts from process.cwd() (project root) — works in both dev and build
   const fontFile = name === "Manrope" ? "Manrope-Bold.ttf" : "Sora-ExtraBold.ttf";
   const fontPath = join(process.cwd(), "src", "assets", "fonts", fontFile);
   return readFileSync(fontPath).buffer as ArrayBuffer;
@@ -46,7 +42,6 @@ function ensureFonts() {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const findings = await getCollection("findings");
-  const routeDashboard = loadRouteDashboard();
 
   const findingPaths = findings.map((f) => ({
     params: { slug: `findings/${f.id.replace(/\.md$/, "")}` },
@@ -58,22 +53,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
   }));
 
-  const latestQuarter = routeDashboard.nationalSystemDynamics.latestQuarter;
-  const localRouteLatest = loadLocalRouteLatest();
-
-  // Rank all areas by supported asylum (descending) for rank labels
-  const rankedAreas = [...localRouteLatest.areas].sort((a, b) => b.supportedAsylum - a.supportedAsylum);
-  const rankMap = new Map(rankedAreas.map((a, i) => [a.areaCode, i + 1]));
-
-  // Generate OG images for public place pages
   const publicAreas = getPublicPlaceAreas();
   const placePaths = publicAreas.map((area) => ({
     params: { slug: `places/${slugifyAreaName(area.areaName)}` },
     props: {
       title: area.areaName,
-      stat: area.supportedAsylum.toLocaleString(),
-      statLabel: `On asylum support - Rank ${rankMap.get(area.areaCode) ?? "?"} of ${localRouteLatest.areas.length} - ${area.supportedAsylumRate?.toFixed(1) ?? "?"} per 10,000`,
-      verdict: (area.supportedAsylumRate ?? 0) > 30 ? "critical" : (area.supportedAsylumRate ?? 0) > 10 ? "alert" : "info"
+      stat: area.wbiPct2021 != null ? `${area.wbiPct2021.toFixed(1)}%` : "n/a",
+      statLabel: `White British 2021 · Population ${(area.population ?? 0).toLocaleString()}`,
+      verdict: (area.wbiPct2021 ?? 100) < 50 ? "critical" : (area.wbiPct2021 ?? 100) < 70 ? "alert" : "info"
     }
   }));
 
@@ -81,19 +68,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     {
       params: { slug: "home" },
       props: {
-        title: "Follow YOUR money",
-        stat: `${latestQuarter.supportedAsylum.toLocaleString()}`,
-        statLabel: "On asylum support",
+        title: "Population data for every community",
+        stat: `${publicAreas.length}`,
+        statLabel: "Local authorities with projections",
         verdict: "info"
-      }
-    },
-    {
-      params: { slug: "routes" },
-      props: {
-        title: "The routes into Britain",
-        stat: `${(routeDashboard.nationalCards[0]?.value ?? 0).toLocaleString()}`,
-        statLabel: "Small boat arrivals",
-        verdict: "alert"
       }
     },
     ...findingPaths,
@@ -128,7 +106,6 @@ export const GET: APIRoute = async ({ props }) => {
           fontFamily: "Manrope"
         },
         children: [
-          // Top: Logo area
           {
             type: "div",
             props: {
@@ -152,9 +129,9 @@ export const GET: APIRoute = async ({ props }) => {
                       color: COLORS.bg,
                       fontFamily: "Sora",
                       fontWeight: 800,
-                      fontSize: "18px"
+                      fontSize: "16px"
                     },
-                    children: "AS"
+                    children: "UKD"
                   }
                 },
                 {
@@ -174,7 +151,7 @@ export const GET: APIRoute = async ({ props }) => {
                             fontSize: "16px",
                             color: COLORS.text
                           },
-                          children: "asylumstats"
+                          children: "UK Demographics"
                         }
                       },
                       {
@@ -185,7 +162,7 @@ export const GET: APIRoute = async ({ props }) => {
                             color: COLORS.muted,
                             letterSpacing: "0.05em"
                           },
-                          children: "Follow YOUR money"
+                          children: "Population data for every community"
                         }
                       }
                     ]
@@ -194,7 +171,6 @@ export const GET: APIRoute = async ({ props }) => {
               ]
             }
           },
-          // Middle: Content
           {
             type: "div",
             props: {
@@ -248,7 +224,6 @@ export const GET: APIRoute = async ({ props }) => {
               ]
             }
           },
-          // Bottom: Accent bar
           {
             type: "div",
             props: {
@@ -268,7 +243,7 @@ export const GET: APIRoute = async ({ props }) => {
                       color: COLORS.accent,
                       fontWeight: 600
                     },
-                    children: "asylumstats.co.uk"
+                    children: "ukdemographics.co.uk"
                   }
                 },
                 {
@@ -278,7 +253,7 @@ export const GET: APIRoute = async ({ props }) => {
                       fontSize: "12px",
                       color: COLORS.muted
                     },
-                    children: "Every number sourced."
+                    children: "Every projection sourced."
                   }
                 }
               ]

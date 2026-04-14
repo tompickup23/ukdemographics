@@ -1,48 +1,15 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import PlainEnglish from "../../components/PlainEnglish.astro";
 import DataFreshness from "../../components/DataFreshness.astro";
 import ShareButton from "../../components/ShareButton.astro";
-import MpCard from "../../components/MpCard.astro";
-import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
-import PageContents from "../../components/PageContents.astro";
-import BenchmarkStrip from "../../components/BenchmarkStrip.astro";
-import ProjectionChart from "../../components/ProjectionChart.astro";
-import ScenarioSelector from "../../components/ScenarioSelector.astro";
-import CostCalculator from "../../components/CostCalculator.astro";
-import ShiftShareChart from "../../components/ShiftShareChart.astro";
-import TrendChart from "../../components/TrendChart.astro";
-import { buildSupportedAsylumStockDescription } from "../../lib/asylum-support-logic";
-import { getAreaTrendSummary } from "../../lib/area-series";
-import { getAreaRegionalPrimeProviderCoverage } from "../../lib/entity-analytics";
-import { getEntityProfileByReference, getEntityProfiles } from "../../lib/entities";
-import { loadLocalRouteLatest } from "../../lib/route-data";
-import { loadHotelEntityLedger } from "../../lib/hotel-data";
-import { buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
 import {
-  getEthnicProjection, getEthnicCompositionTimeline,
-  getReligionData, getNativityData, getStochasticData,
+  getEthnicProjection,
+  getReligionData, getNativityData,
   getShiftShareData, getDiversityIndex, getEnglishProficiency,
-  getMigrationProfile, getSocioeconomicData
 } from "../../lib/ethnic-projections";
-import { getCrimeProfile, getCrimeRatePercentile } from "../../lib/crime-data";
-import { getSendProfile, getSendGrowthPercentile } from "../../lib/send-data";
-import { getAscProfile, getAscSpendPercentile } from "../../lib/asc-data";
-import { computePressureScore } from "../../lib/pressure-index";
-import { getMPsForArea } from "../../lib/mp-data";
-import schoolValidationData from "../../data/live/school-validation.json";
-import scenarioSummaries from "../../data/live/scenario-summaries.json";
-import migrationEthnicity from "../../data/live/migration-ethnicity.json";
-import schoolFertilityProxy from "../../data/live/school-fertility-proxy.json";
-import {
-  formatOrdinal,
-  getDistributionStats,
-  getPercentileRank
-} from "../../lib/route-analytics";
-
-const localRouteLatest = loadLocalRouteLatest();
-const hotelLedger = loadHotelEntityLedger();
+import { buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
+import rawProjections from "../../data/live/ethnic-projections.json";
 
 export function getStaticPaths() {
   return getPublicPlaceAreas().map((area) => ({
@@ -51,1020 +18,272 @@ export function getStaticPaths() {
   }));
 }
 
-const { area } = Astro.props;
-const hotelSites = hotelLedger.sites.filter(
-  (site) => site.areaCode === area.areaCode || site.areaName === area.areaName
-);
-const hotelArea = hotelLedger.areas.find(
-  (a) => a.areaCode === area.areaCode || a.areaName === area.areaName
-);
-const currentHotelSites = hotelSites.filter((site) => site.status === "current");
-const namedSiteCount = currentHotelSites.length;
-const unnamedSiteCount = hotelArea?.unnamedSiteCount ?? 0;
+const { area } = Astro.props as { area: DemographicAreaSummary };
+const projData = (rawProjections as any).areas?.[area.areaCode];
 
-const regionalAreas = [...localRouteLatest.areas]
-  .filter((candidate) => candidate.regionName === area.regionName)
-  .sort((a, b) => b.supportedAsylum - a.supportedAsylum);
-const regionalRank = regionalAreas.findIndex((candidate) => candidate.areaCode === area.areaCode) + 1;
-const regionalPeerRows = (() => {
-  const leadingPeers = regionalAreas.slice(0, 5);
-  if (leadingPeers.some((candidate) => candidate.areaCode === area.areaCode)) return leadingPeers;
-  return [...leadingPeers, area];
-})();
-
-const areaRank =
-  [...localRouteLatest.areas]
-    .sort((a, b) => b.supportedAsylum - a.supportedAsylum)
-    .findIndex((candidate) => candidate.areaCode === area.areaCode) + 1;
-const contingencyRank =
-  [...localRouteLatest.areas]
-    .sort((a, b) => b.contingencyAccommodation - a.contingencyAccommodation)
-    .findIndex((candidate) => candidate.areaCode === area.areaCode) + 1;
-
-const pathwayBreakdown = [
-  { label: "Supported asylum", value: area.supportedAsylum },
-  { label: "Homes for Ukraine", value: area.homesForUkraineArrivals },
-  { label: "Afghan programme", value: area.afghanProgrammePopulation },
-  { label: "Resettlement cumulative", value: area.resettlementCumulativeTotal ?? 0 }
-];
-const maxPathwayValue = Math.max(...pathwayBreakdown.map((item) => item.value), 1);
-
-const areaTrend = getAreaTrendSummary(area.areaCode);
-const schoolValidation = (schoolValidationData as any).areas?.find((a: any) => a.areaCode === area.areaCode);
-
-const regionalPrimeProviderCoverage = getAreaRegionalPrimeProviderCoverage(
-  area, getEntityProfiles(), localRouteLatest.areas, hotelLedger.areas
-);
-
-const supportedStats = getDistributionStats(localRouteLatest.areas.map((c) => c.supportedAsylum));
-const supportedRateStats = getDistributionStats(localRouteLatest.areas.map((c) => c.supportedAsylumRate ?? 0));
-const contingencyStats = getDistributionStats(localRouteLatest.areas.map((c) => c.contingencyAccommodation));
-const supportedPercentile = getPercentileRank(localRouteLatest.areas.map((c) => c.supportedAsylum), area.supportedAsylum);
-const ratePercentile = getPercentileRank(localRouteLatest.areas.map((c) => c.supportedAsylumRate ?? 0), area.supportedAsylumRate ?? 0);
-const contingencySharePct = area.supportedAsylum
-  ? Number(((area.contingencyAccommodation / area.supportedAsylum) * 100).toFixed(1))
-  : 0;
-const supportedPercentileLabel = formatOrdinal(supportedPercentile);
-const ratePercentileLabel = formatOrdinal(ratePercentile);
-const regionalPeerMax = Math.max(...regionalPeerRows.map((c) => c.supportedAsylum), 1);
-
+// Demographic data
 const ethnicProjection = getEthnicProjection(area.areaCode);
-const ethnicTimeline = getEthnicCompositionTimeline(area.areaCode);
-const wbThreshold = ethnicProjection?.thresholds.find((t) => t.label === "White British <50%") ?? null;
-const significantShift = wbThreshold && wbThreshold.year <= 2070;
 const religionData = getReligionData(area.areaCode);
 const nativityData = getNativityData(area.areaCode);
-const stochasticData = getStochasticData(area.areaCode);
 const shiftShareData = getShiftShareData(area.areaCode);
 const diversityIndex = getDiversityIndex(area.areaCode);
-const englishProf = getEnglishProficiency(area.areaCode);
-const migrationProfile = getMigrationProfile(area.areaCode);
-const socioData = getSocioeconomicData(area.areaCode);
+const englishProficiency = getEnglishProficiency(area.areaCode);
 
-// Build ProjectionChart line data
-const ethChartLines = ethnicTimeline ? (() => {
-  const groups = ["white_british", "white_other", "asian", "black", "mixed", "other"] as const;
-  const colors: Record<string, string> = { white_british: "#06b6d4", white_other: "#8b9cb3", asian: "#f59e0b", black: "#a78bfa", mixed: "#10b981", other: "#6b7280" };
-  const labels: Record<string, string> = { white_british: "White British", white_other: "White Other", asian: "Asian", black: "Black", mixed: "Mixed", other: "Other" };
-  return groups.filter(g => Math.max(...ethnicTimeline.map(t => t.groups[g])) > 3).map(g => ({
-    label: labels[g], color: colors[g],
-    points: ethnicTimeline.map(t => ({ year: Number(t.year), value: t.groups[g] }))
-  }));
-})() : [];
+const headlineStat = projData?.headlineStat;
+const population = projData?.current?.total_population ?? area.population ?? 0;
+const wbi2021 = projData?.current?.groups?.white_british ?? area.wbiPct2021;
+const wbi2041 = projData?.projections?.["2041"]?.white_british ?? area.wbiPct2041;
+const wbi2051 = projData?.projections?.["2051"]?.white_british;
 
-const ethConfidenceBand = stochasticData
-  ? [2031, 2041, 2051].filter(y => stochasticData[y]).map(y => ({
-      year: y, low: stochasticData[y].wbi.p10, high: stochasticData[y].wbi.p90
-    }))
-  : undefined;
+const canonicalUrl = buildAbsoluteUrl(`/places/${slugifyAreaName(area.areaName)}/`);
+const pageDescription = `${area.areaName} demographic profile: population ${population?.toLocaleString()}, White British ${wbi2021?.toFixed(1)}% (2021) → ${wbi2051?.toFixed(1) ?? "?"}% (2051 projected). Ethnic composition, religion, nativity, shift-share analysis.`;
 
-const relChartLines = religionData ? (() => {
-  const relGroups = [
-    { key: "Christian", color: "#7dd3fc", label: "Christian" },
-    { key: "No religion", color: "#6b7280", label: "No religion" },
-    { key: "Muslim", color: "#f59e0b", label: "Muslim" },
-    { key: "Hindu", color: "#a78bfa", label: "Hindu" },
-    { key: "Sikh", color: "#10b981", label: "Sikh" }
-  ];
-  const years = [2021, 2031, 2041, 2051].filter(y => religionData[y]);
-  return relGroups
-    .filter(g => years.some(y => (religionData[y]?.[g.key] ?? 0) > 3))
-    .map(g => ({ label: g.label, color: g.color, points: years.map(y => ({ year: y, value: religionData[y]?.[g.key] ?? 0 })) }));
-})() : [];
-
-const natChartLines = nativityData ? (() => {
-  const years = [2021, 2031, 2041, 2051].filter(y => nativityData[y]);
-  return [
-    { label: "UK-born", color: "#06b6d4", points: years.map(y => ({ year: y, value: nativityData[y].ukBornPct })) },
-    { label: "Foreign-born", color: "#f59e0b", points: years.map(y => ({ year: y, value: nativityData[y].foreignBornPct })) }
-  ];
-})() : [];
-const crimeProfile = getCrimeProfile(area.areaCode);
-const crimePercentile = getCrimeRatePercentile(area.areaCode);
-const sendProfile = getSendProfile(area.areaCode);
-const sendPercentile = getSendGrowthPercentile(area.areaCode);
-const ascProfile = getAscProfile(area.areaCode);
-const ascPercentile = getAscSpendPercentile(area.areaCode);
-const pressureScore = computePressureScore(
-  area.areaCode,
-  area.areaName,
-  area.supportedAsylumRate,
-  localRouteLatest.areas.map((a) => a.supportedAsylumRate ?? 0)
-);
-
-// MP data
-const areaMPs = getMPsForArea(area.areaName);
-const primaryMP = areaMPs.length > 0 ? areaMPs[0] : null;
-
-const pageDescription = `${area.areaName}: ${area.supportedAsylum.toLocaleString()} on asylum support, rank ${areaRank} nationally.${primaryMP ? ` MP: ${primaryMP.mpName} (${primaryMP.party}).` : ""} Hotels, demographics, crime, SEND, social care.`;
-const pageStructuredData = buildPlaceStructuredData(area, {
-  canonicalUrl: buildAbsoluteUrl(Astro.url.pathname),
+const structuredData = buildPlaceStructuredData(area, {
+  canonicalUrl,
   description: pageDescription,
   socialImageUrl: buildAbsoluteUrl(`/og/places/${slugifyAreaName(area.areaName)}.png`),
-  snapshotDate: localRouteLatest.snapshotDate,
-  areaRank,
-  contingencyRank,
-  namedSiteCount,
-  unnamedSiteCount
+  snapshotDate: (rawProjections as any).lastUpdated ?? "2026-04-14",
 });
 
-const placeSections = [
-  { id: "place-summary", label: "Summary" },
-  ...(areaTrend ? [{ id: "recent-trend", label: "Trend" }] : []),
-  { id: "local-numbers", label: "Local numbers" },
-  ...(ethnicProjection ? [{ id: "tabpanel-demographics", label: "Demographics" }] : []),
-  ...(socioData?.economicActivity ? [{ id: "tabpanel-economy", label: "Economy" }] : []),
-  ...((crimeProfile || sendProfile || ascProfile) ? [{ id: "tabpanel-services", label: "Services" }] : []),
-  { id: "tabpanel-benchmarks", label: "Benchmarks" }
-];
-
-function getSiteEntityProfiles(site: (typeof hotelSites)[number]) {
-  const matches = [
-    ...site.entityLinks.map((link) => getEntityProfileByReference(link.entityName, link.companyNumber)),
-    site.primeProvider ? getEntityProfileByReference(site.primeProvider.provider, null) : null
-  ].filter((profile): profile is NonNullable<typeof profile> => profile !== null && profile !== undefined);
-  return [...new Map(matches.map((profile) => [profile.entityId, profile])).values()];
+function fmtPct(n: number | undefined | null): string {
+  return n != null ? `${n.toFixed(1)}%` : "n/a";
+}
+function fmtInt(n: number | undefined | null): string {
+  return n != null ? n.toLocaleString("en-GB") : "n/a";
 }
 ---
 
 <BaseLayout
-  title={`Asylum seekers in ${area.areaName} — ${area.supportedAsylum.toLocaleString()} on support | asylumstats`}
+  title={`${area.areaName} — demographic profile`}
   description={pageDescription}
-  structuredData={pageStructuredData}
+  image={`/og/places/${slugifyAreaName(area.areaName)}.png`}
+  structuredData={structuredData}
 >
-  <!-- HEADER -->
   <Breadcrumbs items={[
+    { label: "Home", href: "/" },
     { label: "Places", href: "/places/" },
-    { label: area.regionName, href: `/places/regions/${area.regionName.toLowerCase().replace(/\s+/g, "-")}/` },
     { label: area.areaName }
   ]} />
 
-  <section class="page-top">
-    <section class="page-head">
-      <span class="kicker">{area.regionName}</span>
+  <div class="place-header">
+    <div class="place-identity">
       <h1>{area.areaName}</h1>
-      <div class="page-head-meta">
-        <DataFreshness
-          updated={localRouteLatest.snapshotDate ?? "2025-12-31"}
-          source="Home Office"
-          sourceUrl="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025"
-        />
-        <ShareButton
-          url={buildAbsoluteUrl(Astro.url.pathname)}
-          title={`${area.areaName} - asylumstats`}
-          text={`${area.areaName}: ${area.supportedAsylum.toLocaleString()} on asylum support, rank ${areaRank} nationally. See the full data.`}
-          compact
-        />
-      </div>
-    </section>
-
-    <aside class="page-rail">
-      <article class="panel panel-pad">
-        <div class="stat-strip">
-          <article class="stat-tile">
-            <span class="tiny">UK rank</span>
-            <strong>{areaRank.toLocaleString()}</strong>
-          </article>
-          <article class="stat-tile">
-            <span class="tiny">On support</span>
-            <strong>{area.supportedAsylum.toLocaleString()}</strong>
-          </article>
-          <article class="stat-tile">
-            <span class="tiny">Rate /10k</span>
-            <strong>{area.supportedAsylumRate ?? "n/a"}</strong>
-          </article>
-          <article class="stat-tile">
-            <span class="tiny">Contingency</span>
-            <strong>{area.contingencyAccommodation.toLocaleString()}</strong>
-          </article>
-          {wbThreshold && (
-            <article class="stat-tile" style="border-left: 2px solid var(--coral);">
-              <span class="tiny">WB minority by</span>
-              <strong style="color: var(--coral);">~{wbThreshold.year}</strong>
-            </article>
-          )}
-        </div>
-      </article>
-    </aside>
-  </section>
-
-  <!-- MP -->
-  {primaryMP && (
-    <section class="mp-section">
-      <MpCard
-        name={primaryMP.mpName}
-        party={primaryMP.party}
-        constituency={primaryMP.constituencyName}
-        photoUrl={primaryMP.photoUrl ?? undefined}
-      />
-      {areaMPs.length > 1 && (
-        <p class="mp-note">{areaMPs.length} MPs cover constituencies in or overlapping {area.areaName}.</p>
-      )}
-    </section>
-  )}
-
-  <PageContents title="Sections" sections={placeSections} />
-
-  <!-- SUMMARY -->
-  <section id="place-summary" class="section section-anchor">
-    <PlainEnglish
-      headline={`${area.supportedAsylum.toLocaleString()} people housed on asylum support in ${area.areaName}`}
-      body={`Rank ${areaRank} of ${localRouteLatest.areas.length} councils nationally. The rate of ${area.supportedAsylumRate ?? "n/a"} per 10,000 puts ${area.areaName} in the ${ratePercentileLabel} percentile. That means ${ratePercentile >= 90 ? "this area carries more asylum seekers per head than 90% of the country" : ratePercentile >= 70 ? "this area carries more than most" : ratePercentile >= 30 ? "a moderate load compared to the national picture" : "fewer than most areas"}.${wbThreshold ? ` White British projected to be a minority by approximately ${wbThreshold.year}.` : ""}${area.contingencyAccommodation > 0 ? ` ${area.contingencyAccommodation.toLocaleString()} in contingency accommodation (hotels, not housing).` : ""} At roughly £150/person/day, that costs the taxpayer an estimated £${Math.round(area.supportedAsylum * 150 * 365 / 1_000_000)}M per year for this area alone.`}
-      tone={ratePercentile >= 80 ? "alert" : ratePercentile >= 50 ? "info" : "success"}
-    />
-    <CostCalculator
-      areaName={area.areaName}
-      supportedAsylum={area.supportedAsylum}
-      hotelSites={namedSiteCount + unnamedSiteCount}
-    />
-  </section>
-
-  <!-- TREND -->
-  {areaTrend && (
-    <section id="recent-trend" class="split section section-anchor">
-      <TrendChart
-        points={areaTrend.points.map((point) => ({ label: point.label, value: point.value }))}
-        title={areaTrend.deltaFromPrevious !== null && areaTrend.deltaFromPrevious > 0 ? `${area.areaName}: asylum numbers still rising` : areaTrend.deltaFromPrevious !== null && areaTrend.deltaFromPrevious < 0 ? `${area.areaName}: asylum numbers falling` : `${area.areaName}: asylum numbers holding steady`}
-        description={buildSupportedAsylumStockDescription(areaTrend.latestPeriodLabel, areaTrend.hasIllustrativeData)}
-        tone={(areaTrend.deltaFromPrevious ?? areaTrend.deltaFromFirst) > 0 ? "warm" : "teal"}
-        annotations={[
-          { label: "Rwanda scheme", pointLabel: "Jun 2022" },
-          { label: "Albania deal", pointLabel: "Dec 2022" },
-          { label: "Bibby Stockholm", pointLabel: "Sept 2023", color: "rgba(239,68,68,0.4)" },
-          { label: "Rwanda scrapped", pointLabel: "Sept 2024", color: "rgba(239,68,68,0.5)" },
-        ]}
-      />
-      <article class="panel panel-pad">
-        <h2>Trend</h2>
-        <div class="metric-list">
-          <div class="metric-item">
-            <span class="metric-value">
-              {areaTrend.deltaFromPrevious !== null
-                ? `${areaTrend.deltaFromPrevious >= 0 ? "+" : ""}${areaTrend.deltaFromPrevious.toLocaleString()}`
-                : "—"}
-            </span>
-            <span class="metric-label">Latest quarter change</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">
-              {areaTrend.deltaFromFirst >= 0 ? "+" : ""}{areaTrend.deltaFromFirst.toLocaleString()}
-            </span>
-            <span class="metric-label">Change across series</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">{areaTrend.officialAnchorCount}</span>
-            <span class="metric-label">Official data points</span>
-          </div>
-        </div>
-      </article>
-    </section>
-  )}
-
-  <!-- LOCAL NUMBERS -->
-  <section id="local-numbers" class="section section-anchor">
-    <div class="section-head">
-      <div>
-        <h2>Local numbers</h2>
-      </div>
+      <span class="place-region">{area.regionName} &middot; {area.countryName}</span>
     </div>
-    <div class="grid-2">
-      <article class="feature-card accent">
-        <h3>Accommodation split</h3>
-        <div class="data-list">
-          <div class="data-row">
-            <span>Dispersal accommodation</span>
-            <span class="data-row-value">{area.dispersalAccommodation.toLocaleString()}</span>
-          </div>
-          <div class="data-row">
-            <span>Initial accommodation</span>
-            <span class="data-row-value">{area.initialAccommodation.toLocaleString()}</span>
-          </div>
-          <div class="data-row">
-            <span>Subsistence only</span>
-            <span class="data-row-value">{area.subsistenceOnly.toLocaleString()}</span>
-          </div>
-          <div class="data-row">
-            <span>Contingency accommodation</span>
-            <span class="data-row-value">{area.contingencyAccommodation.toLocaleString()}</span>
-          </div>
-        </div>
-      </article>
+    <ShareButton
+      url={canonicalUrl}
+      title={`${area.areaName} demographic profile — UK Demographics`}
+      text={`${area.areaName}: WBI ${fmtPct(wbi2021)} (2021) → ${fmtPct(wbi2051)} (2051). See the full profile.`}
+      compact
+    />
+  </div>
 
-      <article class="feature-card">
-        <h3>Pathway breakdown</h3>
-        {pathwayBreakdown.map((item) => (
-          <div class="metric-bar">
-            <div style="min-width: 10rem;">
-              <strong>{item.label}</strong>
-              <div class="tiny">{item.value.toLocaleString()}</div>
-            </div>
-            <div class="metric-track">
-              <div class="metric-fill" style={`width: ${(item.value / maxPathwayValue) * 100}%`}></div>
-            </div>
+  {headlineStat && (
+    <div class="headline-banner">
+      <span class="headline-value">{headlineStat.value}</span>
+      <span class="headline-trend">{headlineStat.trend}</span>
+    </div>
+  )}
+
+  <!-- Key metrics -->
+  <section class="metrics-grid">
+    <div class="metric-card">
+      <span class="metric-value">{fmtInt(population)}</span>
+      <span class="metric-label">Population (2021 Census)</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-value" style="color: var(--accent);">{fmtPct(wbi2021)}</span>
+      <span class="metric-label">White British (2021)</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-value" style="color: var(--accent-3);">{fmtPct(wbi2041)}</span>
+      <span class="metric-label">White British (2041 projected)</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-value" style="color: var(--coral);">{fmtPct(wbi2051)}</span>
+      <span class="metric-label">White British (2051 projected)</span>
+    </div>
+  </section>
+
+  <!-- Ethnic composition -->
+  {ethnicProjection && (
+    <section class="section" id="ethnic-composition">
+      <h2>Ethnic composition</h2>
+      <p class="section-desc">Census 2021 observed data with Hamilton-Perry projections to 2061.</p>
+      <div class="data-grid">
+        {Object.entries(ethnicProjection.current?.groups ?? {}).map(([group, pct]) => (
+          <div class="data-item">
+            <span class="data-label">{group.replace(/_/g, " ")}</span>
+            <span class="data-value">{typeof pct === "number" ? `${pct.toFixed(1)}%` : String(pct)}</span>
           </div>
         ))}
-      </article>
-    </div>
-
-    <div class="grid-2" style="margin-top: 1rem;">
-      <article class="feature-card">
-        <h3>Other routes</h3>
-        <div class="data-list">
-          <div class="data-row">
-            <span>Homes for Ukraine</span>
-            <span class="data-row-value">{area.homesForUkraineArrivals.toLocaleString()}</span>
-          </div>
-          <div class="data-row">
-            <span>Afghan programme</span>
-            <span class="data-row-value">{area.afghanProgrammePopulation.toLocaleString()}</span>
-          </div>
-          <div class="data-row">
-            <span>Resettlement cumulative</span>
-            <span class="data-row-value">{(area.resettlementCumulativeTotal ?? 0).toLocaleString()}</span>
-          </div>
-        </div>
-      </article>
-      <article class="feature-card">
-        <h3>Population context</h3>
-        <div class="data-list">
-          <div class="data-row">
-            <span>All pathways total</span>
-            <span class="data-row-value">{area.allThreePathwaysTotal.toLocaleString()}</span>
-          </div>
-          <div class="data-row">
-            <span>Share of local population</span>
-            <span class="data-row-value">{area.shareOfPopulationPct ?? "n/a"}%</span>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- ═══ TABBED SECTIONS ═══ -->
-  <div class="place-tabs" data-tab-group>
-    <div class="tab-bar" role="tablist">
-      {ethnicProjection && <button role="tab" type="button" class="tab-btn" aria-selected="true" aria-controls="tabpanel-demographics" data-tab="demographics">Demographics</button>}
-      {(socioData?.economicActivity || ethnicProjection?.schoolEthnicity) && <button role="tab" type="button" class="tab-btn" aria-selected={!ethnicProjection ? "true" : "false"} aria-controls="tabpanel-economy" data-tab="economy">Economy</button>}
-      {(crimeProfile || sendProfile || ascProfile) && <button role="tab" type="button" class="tab-btn" aria-selected="false" aria-controls="tabpanel-services" data-tab="services">Services</button>}
-      <button role="tab" type="button" class="tab-btn" aria-selected="false" aria-controls="tabpanel-benchmarks" data-tab="benchmarks">Benchmarks</button>
-    </div>
-
-    <!-- HOTELS REMOVED - insufficient place-specific data -->
-
-    <!-- TAB: Demographics (default/first) -->
-    <div id="tabpanel-demographics" role="tabpanel" class="tab-panel" data-tab-panel="demographics">
-
-  {ethnicProjection && ethChartLines.length > 0 && (
-    <section id="demographic-profile" class="section section-anchor">
-      <div class="section-head">
-        <div>
-          <h2>Ethnic composition projection</h2>
-          <p class="lede">
-            {area.areaName}: WBI {ethnicProjection.current.groups.white_british.toFixed(1)}% (2021)
-            → {ethnicProjection.projections?.["2051"]?.white_british?.toFixed(1) ?? "?"}% (2051).
-            {wbThreshold ? ` White British minority by ~${wbThreshold.year}.` : ""}
-            {stochasticData?.[2051] ? ` 80% CI: ${stochasticData[2051].wbi.p10}–${stochasticData[2051].wbi.p90}%.` : ""}
-          </p>
-        </div>
       </div>
-      <ProjectionChart
-        title={`Ethnic composition - ${area.areaName}`}
-        lines={ethChartLines}
-        confidenceBand={ethConfidenceBand}
-        nowYear={2021}
-        yLabel="% of population"
-      />
-      {ethnicTimeline && ethnicTimeline.length > 0 && (
-        <div style="margin-top: 1.25rem;">
-          <EthnicityTimeline timeline={ethnicTimeline} areaName={area.areaName} />
+      {ethnicProjection.projections?.["2051"] && (
+        <div style="margin-top: 1rem;">
+          <h3 style="font-size: 0.92rem; font-weight: 700; color: var(--ink-soft); margin: 0 0 0.5rem;">Projected 2051</h3>
+          <div class="data-grid">
+            {Object.entries(ethnicProjection.projections["2051"]).map(([group, pct]) => (
+              <div class="data-item">
+                <span class="data-label">{group.replace(/_/g, " ")}</span>
+                <span class="data-value" style="color: var(--coral);">{typeof pct === "number" ? `${pct.toFixed(1)}%` : String(pct)}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      )}
-      <details class="method-note" style="margin-top: 0.5rem;">
-        <summary class="tiny" style="cursor: pointer; opacity: 0.6;">Model: Hamilton-Perry single-year CCRs, 1,000 Monte Carlo simulations, SNPP-constrained</summary>
-        <p class="tiny" style="margin-top: 0.4rem; opacity: 0.5;">
-          Census 2011 to 2021 cohort change ratios. Shaded band = 80% confidence interval from stochastic perturbation. Not a forecast.
-        </p>
-      </details>
-
-      {scenarioSummaries?.areas?.[area.areaCode] && (
-        <ScenarioSelector
-          areaCode={area.areaCode}
-          areaName={area.areaName}
-          scenarioData={scenarioSummaries.areas[area.areaCode]}
-          centralScenario={scenarioSummaries.centralScenario}
-        />
       )}
     </section>
   )}
 
-  <!-- RELIGION -->
-  <!-- RELIGION - ProjectionChart -->
-  {religionData && relChartLines.length > 0 && (
-    <section id="religion-profile" class="section section-anchor">
-      <div class="section-head">
-        <div>
-          <h2>Religion projection</h2>
-          <p class="lede">
-            Muslim {religionData[2021]?.Muslim?.toFixed(1)}% (2021) → {religionData[2051]?.Muslim?.toFixed(1)}% (2051).
-            Christian {religionData[2021]?.Christian?.toFixed(1)}% → {religionData[2051]?.Christian?.toFixed(1)}%.
-          </p>
-        </div>
-      </div>
-      <ProjectionChart title={`Religion - ${area.areaName}`} lines={relChartLines} nowYear={2021} yLabel="%" />
-    </section>
-  )}
-
-  <!-- NATIVITY -->
-  <!-- NATIVITY - ProjectionChart -->
-  {nativityData && natChartLines.length > 0 && (
-    <section id="nativity-profile" class="section section-anchor">
-      <div class="section-head">
-        <div>
-          <h2>Nativity</h2>
-          <p class="lede">
-            {nativityData[2021] ? `${nativityData[2021].foreignBornPct}% foreign-born (2021).` : ""}
-            {diversityIndex ? ` Diversity: ${diversityIndex.diversityLevel} (entropy ${diversityIndex.entropy}).` : ""}
-            {englishProf ? ` ${englishProf.mainLanguageEnglishPct}% main language English.` : ""}
-          </p>
-        </div>
-      </div>
-      <ProjectionChart title={`UK-born vs foreign-born - ${area.areaName}`} lines={natChartLines} nowYear={2021} yLabel="%" height={180} />
-      {migrationProfile && (
-        <p class="tiny" style="margin-top: 0.5rem; opacity: 0.5;">
-          {migrationProfile.maturityLevel}: {migrationProfile.implication}
-        </p>
-      )}
-      {(migrationEthnicity as any)?.areas?.[area.areaCode] && (() => {
-        const mig = (migrationEthnicity as any).areas[area.areaCode];
-        const groups = mig.groups || {};
-        return (
-          <details class="method-note" style="margin-top: 0.5rem;">
-            <summary class="tiny" style="cursor: pointer; opacity: 0.6;">
-              Census 2021 mobility: {mig.internalMigrantsPct}% moved within UK, {mig.internationalMigrantsPct}% arrived from abroad
-            </summary>
-            <div class="data-list" style="margin-top: 0.4rem;">
-              {Object.entries(groups).sort(([,a]: any, [,b]: any) => (b.internalPct + b.internationalPct) - (a.internalPct + a.internationalPct)).map(([group, d]: any) => (
-                <div class="data-row">
-                  <span style="font-size: 0.78rem; text-transform: capitalize;">{group.replace("_", " ")}</span>
-                  <span style="font-size: 0.78rem; opacity: 0.7;">
-                    {d.internalPct}% internal, {d.internationalPct}% international
-                  </span>
-                </div>
-              ))}
-            </div>
-          </details>
-        );
-      })()}
-    </section>
-  )}
-
-  <!-- WHY IT'S CHANGING - ShiftShareChart -->
+  <!-- Shift-share analysis -->
   {shiftShareData && (
-    <section id="change-drivers" class="section section-anchor">
-      <ShiftShareChart
-        total={shiftShareData.totalChangePp}
-        national={shiftShareData.nationalEffectPp}
-        structural={shiftShareData.structuralEffectPp}
-        local={shiftShareData.localEffectPp}
-        areaName={area.areaName}
-      />
-      <p class="tiny" style="opacity: 0.5;">
+    <section class="section" id="shift-share">
+      <h2>What's driving change?</h2>
+      <p class="section-desc">
+        Shift-share decomposes demographic change into national trend, structural composition, and local factors.
         Dominant driver: <strong>{shiftShareData.dominantDriver}</strong>.
-        Shift-share methodology following Franklin (2014).
       </p>
+      <div class="shift-stats">
+        <div class="shift-item">
+          <span class="shift-value">{shiftShareData.totalChangePp > 0 ? "+" : ""}{shiftShareData.totalChangePp.toFixed(1)}pp</span>
+          <span class="shift-label">Total WBI change</span>
+        </div>
+        <div class="shift-item">
+          <span class="shift-value">{shiftShareData.nationalEffectPp > 0 ? "+" : ""}{shiftShareData.nationalEffectPp.toFixed(1)}pp</span>
+          <span class="shift-label">National effect</span>
+        </div>
+        <div class="shift-item">
+          <span class="shift-value">{shiftShareData.structuralEffectPp > 0 ? "+" : ""}{shiftShareData.structuralEffectPp.toFixed(1)}pp</span>
+          <span class="shift-label">Structural effect</span>
+        </div>
+        <div class="shift-item">
+          <span class="shift-value">{shiftShareData.localEffectPp > 0 ? "+" : ""}{shiftShareData.localEffectPp.toFixed(1)}pp</span>
+          <span class="shift-label">Local effect</span>
+        </div>
+      </div>
     </section>
   )}
 
-    </div><!-- end tabpanel-demographics -->
-
-    <!-- TAB: Economy -->
-    <div id="tabpanel-economy" role="tabpanel" class="tab-panel" data-tab-panel="economy" hidden>
-
-  {socioData?.economicActivity && (
-    <section id="socioeconomic" class="section section-anchor">
-      <div class="section-head">
-        <div>
-          <h2>Economy & housing by ethnicity</h2>
-          <p class="lede">Census 2021 employment, homeownership, and qualifications by ethnic group.</p>
-        </div>
+  <!-- Diversity index -->
+  {diversityIndex && (
+    <section class="section" id="diversity">
+      <h2>Diversity index</h2>
+      <div class="diversity-card">
+        <span class="diversity-level">{diversityIndex.diversityLevel}</span>
+        <span class="diversity-detail">Shannon entropy: {diversityIndex.entropy.toFixed(2)} &middot; Dissimilarity: {diversityIndex.dissimilarity.toFixed(1)}</span>
       </div>
-      <div class="grid-2">
-        {socioData.economicActivity && (
-          <article class="feature-card">
-            <h3>Employment rate</h3>
-            <div class="data-list">
-              {Object.entries(socioData.economicActivity).slice(0, 6).map(([eth, data]) => (
-                <div class="data-row">
-                  <span style="font-size: 0.85rem;">{eth}</span>
-                  <span class="data-row-value">{(data as any).employmentRate}%</span>
-                </div>
-              ))}
-            </div>
-          </article>
-        )}
-        {socioData.housingTenure && (
-          <article class="feature-card">
-            <h3>Homeownership rate</h3>
-            <div class="data-list">
-              {Object.entries(socioData.housingTenure).slice(0, 6).map(([eth, data]) => (
-                <div class="data-row">
-                  <span style="font-size: 0.85rem;">{eth}</span>
-                  <span class="data-row-value">{(data as any).ownershipRate}%</span>
-                </div>
-              ))}
-            </div>
-          </article>
-        )}
-      </div>
-      {socioData.qualifications && (
-        <article class="feature-card" style="margin-top: 1rem;">
-          <h3>Degree+ qualification rate</h3>
-          <div class="data-list">
-            {Object.entries(socioData.qualifications).slice(0, 6).map(([eth, data]) => (
-              <div class="data-row">
-                <span style="font-size: 0.85rem;">{eth}</span>
-                <span class="data-row-value">{(data as any).degreeOrAbovePct}%</span>
-              </div>
-            ))}
+    </section>
+  )}
+
+  <!-- Religion -->
+  {religionData && (
+    <section class="section" id="religion">
+      <h2>Religion</h2>
+      <p class="section-desc">Census 2021 religious composition with projections.</p>
+      <div class="data-grid">
+        {Object.entries(religionData).filter(([k]) => k !== "source").slice(0, 8).map(([religion, pct]) => (
+          <div class="data-item">
+            <span class="data-label">{religion.replace(/_/g, " ")}</span>
+            <span class="data-value">{typeof pct === "number" ? `${pct.toFixed(1)}%` : String(pct)}</span>
           </div>
-          <details class="method-note">
-            <summary class="tiny" style="cursor: pointer; opacity: 0.6;">Source</summary>
-            <p class="tiny" style="margin-top: 0.4rem; opacity: 0.5;">Census 2021 RM018 (economic activity), RM134 (tenure), RM049 (qualifications) by ethnic group. Observed, not projected.</p>
-          </details>
-        </article>
+        ))}
+      </div>
+      {projData?.muslimPct2051 != null && (
+        <p class="section-note">Muslim population projected: {projData.muslimPct2051.toFixed(1)}% by 2051</p>
       )}
     </section>
   )}
 
-  <!-- SCHOOL ETHNICITY -->
-  {ethnicProjection?.schoolEthnicity && (
-    <section id="school-ethnicity" class="section section-anchor">
-      <div class="section-head">
-        <div>
-          <h2>School ethnicity</h2>
-          <p class="lede">
-            DfE School Census {ethnicProjection.schoolEthnicity.year}: {ethnicProjection.schoolEthnicity.totalPupils?.toLocaleString()} pupils.
-            {ethnicProjection.schoolEthnicity.groups?.["White British"] !== undefined
-              ? ` ${ethnicProjection.schoolEthnicity.groups["White British"]}% White British.`
-              : ""}
-            {ethnicProjection.schoolEthnicity.wbiGap > 5
-              ? ` Schools are ${ethnicProjection.schoolEthnicity.wbiGap}pp more diverse than the general population.`
-              : ""}
-          </p>
+  <!-- Nativity -->
+  {nativityData && (
+    <section class="section" id="nativity">
+      <h2>Country of birth</h2>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">UK-born (2021)</span>
+          <span class="data-value">{fmtPct(100 - (projData?.foreignBornPct2021 ?? 0))}</span>
         </div>
-      </div>
-      <div class="grid-2">
-        <article class="feature-card">
-          <h3>Pupil ethnicity</h3>
-          <div class="data-list">
-            {Object.entries(ethnicProjection.schoolEthnicity.groups || {}).sort((a, b) => (b[1] as number) - (a[1] as number)).map(([group, pct]) => (
-              <div class="data-row">
-                <span style="font-size: 0.85rem;">{group}</span>
-                <span class="data-row-value">{pct}%</span>
-              </div>
-            ))}
+        <div class="data-item">
+          <span class="data-label">Foreign-born (2021)</span>
+          <span class="data-value">{fmtPct(projData?.foreignBornPct2021)}</span>
+        </div>
+        {projData?.foreignBornPct2051 != null && (
+          <div class="data-item">
+            <span class="data-label">Foreign-born (2051 projected)</span>
+            <span class="data-value">{fmtPct(projData.foreignBornPct2051)}</span>
           </div>
-        </article>
-        <article class="feature-card">
-          <h3>What this means</h3>
-          <p class="lede" style="font-size: 0.9rem;">
-            {ethnicProjection.schoolEthnicity.insight ?? ""}
-          </p>
-          {ethnicProjection.impactProjections?.schoolDiversity && (
-            <div class="metric-list">
-              <div class="metric-item">
-                <span class="metric-value">{ethnicProjection.impactProjections.schoolDiversity.currentMinorityPupilsPct}%</span>
-                <span class="metric-label">Minority pupils now</span>
-              </div>
-              <div class="metric-item">
-                <span class="metric-value">{ethnicProjection.impactProjections.schoolDiversity.projectedMinorityPupils2041Pct}%</span>
-                <span class="metric-label">Projected 2041</span>
-              </div>
-            </div>
-          )}
-          {schoolValidation?.pipelineGap && (
-            <div style="margin-top: 1rem; padding: 0.75rem; background: var(--surface-alt, #f5f5f5); border-radius: 0.5rem;">
-              <p class="tiny" style="font-weight: 600; margin-bottom: 0.3rem;">Demographic pipeline</p>
-              <div class="metric-list">
-                <div class="metric-item">
-                  <span class="metric-value">{schoolValidation.pipelineGap.primaryWBIPct}%</span>
-                  <span class="metric-label">Primary WBI</span>
-                </div>
-                <div class="metric-item">
-                  <span class="metric-value">{schoolValidation.pipelineGap.secondaryWBIPct}%</span>
-                  <span class="metric-label">Secondary WBI</span>
-                </div>
-              </div>
-              <p class="tiny" style="margin-top: 0.4rem; opacity: 0.7;">{schoolValidation.pipelineGap.signal}</p>
-            </div>
-          )}
-          {(schoolFertilityProxy as any)?.areas?.[area.areaCode] && (() => {
-            const sfp = (schoolFertilityProxy as any).areas[area.areaCode];
-            return sfp.annualWbiChangePp !== 0 ? (
-              <div style="margin-top: 0.75rem; padding: 0.5rem 0.75rem; background: rgba(6,182,212,0.04); border-radius: 6px; border: 1px solid rgba(6,182,212,0.1);">
-                <p class="tiny" style="margin: 0;">
-                  <strong>Fertility proxy (10-year school trend):</strong> WBI share in primary schools changing at {sfp.annualWbiChangePp > 0 ? "+" : ""}{sfp.annualWbiChangePp}pp/year.
-                  {sfp.annualWbiChangePp < -1 ? " Rapid diversification in young cohorts — the demographic wave is accelerating." :
-                   sfp.annualWbiChangePp < 0 ? " Gradual diversification in school-age population." :
-                   " WBI share stable or increasing in schools."}
-                </p>
-              </div>
-            ) : null;
-          })()}
-          <details class="method-note">
-            <summary class="tiny" style="cursor: pointer; opacity: 0.6;">Source &amp; validation</summary>
-            <p class="tiny" style="margin-top: 0.4rem; opacity: 0.5;">
-              DfE School Census 2024/25. State-funded schools. Upper-tier LA level.
-              {schoolValidation?.comparison?.white_british?.censusChildPct != null
-                ? ` Validated against Census 2021 ages 4-15: Census WBI ${schoolValidation.comparison.white_british.censusChildPct}% vs school ${schoolValidation.comparison.white_british.schoolPct}% (${schoolValidation.comparison.white_british.gapPp > 0 ? '+' : ''}${schoolValidation.comparison.white_british.gapPp}pp gap).`
-                : ""}
-            </p>
-          </details>
-        </article>
-      </div>
-    </section>
-  )}
-
-  <!-- IMPACT PROJECTIONS -->
-  {ethnicProjection?.impactProjections && (
-    <section id="impact-projections" class="section section-anchor">
-      <div class="section-head">
-        <div>
-          <h2>Service demand impact</h2>
-          <p class="lede">Projected impact of demographic change on local services.</p>
-        </div>
-      </div>
-      <div class="story-grid">
-        {ethnicProjection.impactProjections.interpreterDemand && (
-          <article class="story-card">
-            <span class="tiny">Language services</span>
-            <strong style="font-size: 1.2rem;">{ethnicProjection.impactProjections.interpreterDemand.currentNonEnglishPct}%</strong>
-            <p class="tiny">non-English speakers</p>
-            <p class="tiny" style="opacity: 0.6;">{ethnicProjection.impactProjections.interpreterDemand.implication}</p>
-          </article>
-        )}
-        {ethnicProjection.impactProjections.housingDemand && (
-          <article class="story-card">
-            <span class="tiny">Housing pressure</span>
-            <strong style="font-size: 1.2rem;">+{ethnicProjection.impactProjections.housingDemand.foreignBornGrowthPp}pp</strong>
-            <p class="tiny">foreign-born growth to 2051</p>
-            <p class="tiny" style="opacity: 0.6;">{ethnicProjection.impactProjections.housingDemand.implication}</p>
-          </article>
-        )}
-        {ethnicProjection.impactProjections.schoolDiversity && (
-          <article class="story-card">
-            <span class="tiny">EAL demand</span>
-            <strong style="font-size: 1.2rem;">+{ethnicProjection.impactProjections.schoolDiversity.ealDemandGrowthPp}pp</strong>
-            <p class="tiny">EAL growth</p>
-            <p class="tiny" style="opacity: 0.6;">{ethnicProjection.impactProjections.schoolDiversity.implication}</p>
-          </article>
         )}
       </div>
     </section>
   )}
 
-    </div><!-- end tabpanel-economy -->
-
-    <!-- TAB: Services -->
-    <div id="tabpanel-services" role="tabpanel" class="tab-panel" data-tab-panel="services" hidden>
-
-  {crimeProfile && (
-    <section id="crime-profile" class="section section-anchor">
-      <div class="section-head">
-        <div>
-          <h2>Crime</h2>
-          <p class="lede">
-            {crimeProfile.totalCrimeRate.toFixed(1)} crimes per 1,000 residents
-            {crimePercentile !== null ? ` (${crimePercentile}th percentile)` : ""}.
-            {crimeProfile.yearOnYearChange !== 0
-              ? ` ${crimeProfile.yearOnYearChange > 0 ? "Up" : "Down"} ${Math.abs(crimeProfile.yearOnYearChange).toFixed(1)}% year-on-year.`
-              : ""}
-          </p>
-        </div>
-      </div>
-      <div class="grid-2">
-        <article class="feature-card">
-          <h3>Crime breakdown</h3>
-          <div class="stacked-bars">
-            {crimeProfile.breakdown.map((item) => {
-              const maxRate = Math.max(...crimeProfile.breakdown.map((b) => b.rate));
-              return (
-                <div class="stacked-bar-row">
-                  <div class="stacked-bar-label" style="min-width: 8rem;">
-                    <span style="font-size: 0.78rem;">{item.type}</span>
-                  </div>
-                  <div class="stacked-bar" style="background: var(--panel-soft);">
-                    <div class="bar-seg asian" style={`width: ${(item.rate / maxRate) * 100}%`}></div>
-                  </div>
-                  <div class="stacked-bar-pct">{item.rate.toFixed(1)}</div>
-                </div>
-              );
-            })}
+  <!-- English proficiency -->
+  {englishProficiency && (
+    <section class="section" id="english">
+      <h2>English proficiency</h2>
+      <div class="data-grid">
+        {Object.entries(englishProficiency).filter(([k]) => k !== "source").map(([level, pct]) => (
+          <div class="data-item">
+            <span class="data-label">{level.replace(/_/g, " ")}</span>
+            <span class="data-value">{typeof pct === "number" ? `${pct.toFixed(1)}%` : String(pct)}</span>
           </div>
-        </article>
-        <article class="feature-card">
-          <h3>Key metrics</h3>
-          <div class="metric-list">
-            <div class="metric-item">
-              <span class="metric-value">{crimeProfile.totalCrimeRate.toFixed(1)}</span>
-              <span class="metric-label">Per 1,000 residents</span>
-            </div>
-            <div class="metric-item">
-              <span class="metric-value">{crimeProfile.hateCrimeCount.toLocaleString()}</span>
-              <span class="metric-label">Hate crimes</span>
-            </div>
-            <div class="metric-item">
-              <span class="metric-value">{crimeProfile.violentCrimeRate.toFixed(1)}</span>
-              <span class="metric-label">Violent crime /1,000</span>
-            </div>
-          </div>
-          <details class="method-note">
-            <summary class="tiny" style="cursor: pointer; opacity: 0.6;">Source</summary>
-            <p class="tiny" style="margin-top: 0.4rem; opacity: 0.5;">ONS recorded crime, {crimeProfile.period}. Correlation with asylum dispersal does not imply causation.</p>
-          </details>
-        </article>
+        ))}
       </div>
     </section>
   )}
 
-  <!-- SEND -->
-  {sendProfile && (
-    <section id="send-profile" class="section section-anchor">
-      <div class="section-head">
-        <div>
-          <h2>SEND pressure</h2>
-          <p class="lede">
-            EHCP rate: {sendProfile.ehcpRatePer10k} per 10,000 pupils{sendPercentile !== null ? ` (${sendPercentile}th percentile)` : ""}.
-            5-year growth: +{sendProfile.fiveYearGrowthPct.toFixed(1)}%.
-          </p>
-        </div>
-      </div>
-      <div class="grid-2">
-        <article class="feature-card">
-          <div class="chip-row">
-            <span class="chip accent">{sendProfile.period}</span>
-            {sendProfile.fiveYearGrowthPct > 40 && <span class="chip coral">Rapid growth</span>}
-          </div>
-          <h3>Primary need types</h3>
-          <div class="stacked-bars">
-            {sendProfile.primaryNeeds.filter((n) => n.pct > 5).map((need) => (
-              <div class="stacked-bar-row">
-                <div class="stacked-bar-label" style="min-width: 8rem;">
-                  <span style="font-size: 0.78rem;">{need.need}</span>
-                </div>
-                <div class="stacked-bar" style="background: var(--panel-soft);">
-                  <div class="bar-seg mixed" style={`width: ${need.pct}%`}></div>
-                </div>
-                <div class="stacked-bar-pct">{need.pct.toFixed(1)}%</div>
-              </div>
-            ))}
-          </div>
-        </article>
-        <article class="feature-card">
-          <h3>Key metrics</h3>
-          <div class="metric-list">
-            <div class="metric-item">
-              <span class="metric-value">{sendProfile.totalEhcps.toLocaleString()}</span>
-              <span class="metric-label">Total EHCPs</span>
-            </div>
-            <div class="metric-item">
-              <span class="metric-value">{sendProfile.asdPrevalencePct.toFixed(1)}%</span>
-              <span class="metric-label">ASD as primary need</span>
-            </div>
-          </div>
-          <details class="method-note">
-            <summary class="tiny" style="cursor: pointer; opacity: 0.6;">Source</summary>
-            <p class="tiny" style="margin-top: 0.4rem; opacity: 0.5;">DfE SEN2 return, {sendProfile.period}. Rising EHCPs reflect multiple factors, not solely population change.</p>
-          </details>
-        </article>
-      </div>
-    </section>
-  )}
-
-  <!-- SOCIAL CARE -->
-  {ascProfile && (
-    <section id="asc-profile" class="section section-anchor">
-      <div class="section-head">
-        <div>
-          <h2>Social care</h2>
-          <p class="lede">
-            Adult social care: £{ascProfile.grossSpendPerCapita} per capita{ascPercentile !== null ? ` (${ascPercentile}th percentile)` : ""}.
-          </p>
-        </div>
-      </div>
-      <article class="feature-card">
-        <div class="metric-list" style="grid-template-columns: repeat(2, 1fr);">
-          <div class="metric-item">
-            <span class="metric-value">£{ascProfile.grossSpendPerCapita}</span>
-            <span class="metric-label">Gross spend per capita</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">{ascProfile.residentialRatePer10k65}</span>
-            <span class="metric-label">Residential per 10k 65+</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">{ascProfile.qualityOfLifeScore.toFixed(1)}</span>
-            <span class="metric-label">Quality of life (ASCOF 1A)</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">{ascProfile.dtocDaysAnnual.toLocaleString()}</span>
-            <span class="metric-label">Delayed transfer days</span>
-          </div>
-        </div>
-        <details class="method-note">
-          <summary class="tiny" style="cursor: pointer; opacity: 0.6;">Source</summary>
-          <p class="tiny" style="margin-top: 0.4rem; opacity: 0.5;">NHS Digital SALT/ASCOF, {ascProfile.period}.</p>
-        </details>
-      </article>
-    </section>
-  )}
-
-  <!-- PRESSURE INDEX -->
-  {pressureScore.availableModules >= 3 && (
-    <section id="pressure-index" class="section section-anchor">
-      <div class="section-head">
-        <div>
-          <h2>Pressure index</h2>
-          <p class="lede">
-            Combined score across {pressureScore.availableModules} domains: {pressureScore.compositeScore.toFixed(1)}/100.
-          </p>
-        </div>
-      </div>
-      <article class="feature-card">
-        <div class="chip-row">
-          {pressureScore.compositeScore > 70 && <span class="chip coral">High pressure</span>}
-        </div>
-        <div class="metric-list" style="grid-template-columns: repeat(3, 1fr);">
-          {pressureScore.components.asylumRate !== null && (
-            <div class="metric-item">
-              <span class="metric-value" style="font-size: 1.3rem;">{pressureScore.components.asylumRate.toFixed(1)}</span>
-              <span class="metric-label">Asylum rate /10k</span>
-            </div>
-          )}
-          {pressureScore.components.demographicChangeRate !== null && (
-            <div class="metric-item">
-              <span class="metric-value" style="font-size: 1.3rem;">-{pressureScore.components.demographicChangeRate.toFixed(2)}pp</span>
-              <span class="metric-label">WB annual change</span>
-            </div>
-          )}
-          {pressureScore.components.crimeRate !== null && (
-            <div class="metric-item">
-              <span class="metric-value" style="font-size: 1.3rem;">{pressureScore.components.crimeRate.toFixed(1)}</span>
-              <span class="metric-label">Crime /1,000</span>
-            </div>
-          )}
-          {pressureScore.components.sendGrowth !== null && (
-            <div class="metric-item">
-              <span class="metric-value" style="font-size: 1.3rem;">+{pressureScore.components.sendGrowth.toFixed(1)}%</span>
-              <span class="metric-label">SEND 5yr growth</span>
-            </div>
-          )}
-          {pressureScore.components.ascSpend !== null && (
-            <div class="metric-item">
-              <span class="metric-value" style="font-size: 1.3rem;">£{pressureScore.components.ascSpend}</span>
-              <span class="metric-label">ASC /capita</span>
-            </div>
-          )}
-        </div>
-        <details class="method-note">
-          <summary class="tiny" style="cursor: pointer; opacity: 0.6;">Methodology</summary>
-          <p class="tiny" style="margin-top: 0.4rem; opacity: 0.5;">
-            Each domain converted to percentile rank (0-100). Composite = unweighted mean. Measures correlation, not causation.
-          </p>
-        </details>
-      </article>
-    </section>
-  )}
-
-    </div><!-- end tabpanel-services -->
-
-    <!-- TAB: Benchmarks -->
-    <div id="tabpanel-benchmarks" role="tabpanel" class="tab-panel" data-tab-panel="benchmarks" hidden>
-
-  <section id="local-benchmarks" class="section section-anchor">
-    <div class="section-head">
-      <div>
-        <h2>National benchmarks</h2>
-      </div>
-    </div>
-    <div class="benchmark-grid">
-      <BenchmarkStrip
-        label="Supported asylum count"
-        description="National distribution."
-        value={area.supportedAsylum}
-        min={supportedStats.min}
-        median={supportedStats.median}
-        p90={supportedStats.p90}
-        max={supportedStats.max}
-        valueLabel={area.supportedAsylum.toLocaleString()}
-      />
-      <BenchmarkStrip
-        label="Supported asylum rate"
-        description="Per 10,000 residents."
-        value={area.supportedAsylumRate ?? 0}
-        min={supportedRateStats.min}
-        median={supportedRateStats.median}
-        p90={supportedRateStats.p90}
-        max={supportedRateStats.max}
-        valueLabel={area.supportedAsylumRate !== null ? `${area.supportedAsylumRate}` : "n/a"}
-        tone="teal"
-      />
-      <BenchmarkStrip
-        label="Contingency accommodation"
-        description="Hotel and contingency placements."
-        value={area.contingencyAccommodation}
-        min={contingencyStats.min}
-        median={contingencyStats.median}
-        p90={contingencyStats.p90}
-        max={contingencyStats.max}
-        valueLabel={area.contingencyAccommodation.toLocaleString()}
-        tone="warm"
-      />
-    </div>
-  </section>
-
-  <!-- REGIONAL PEERS -->
-  <section id="regional-peers" class="section section-anchor">
-    <div class="section-head">
-      <div>
-        <h2>Regional peers</h2>
-        <p class="lede">Top {regionalPeerRows.length} in {area.regionName} by supported asylum.</p>
-      </div>
-    </div>
-    <div class="panel panel-pad">
-      {regionalPeerRows.map((peer) => (
-        <div class="metric-bar">
-          <div style="min-width: 11rem;">
-            <strong>{peer.areaName}</strong>
-            <div class="tiny">
-              {peer.areaCode === area.areaCode
-                ? `This area | ${peer.supportedAsylum.toLocaleString()}`
-                : peer.supportedAsylum.toLocaleString()}
-            </div>
-          </div>
-          <div class="metric-track">
-            <div class="metric-fill" style={`width: ${(peer.supportedAsylum / regionalPeerMax) * 100}%`}></div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-    </div><!-- end tabpanel-benchmarks -->
-  </div><!-- end place-tabs -->
-
-  <script>
-    // Tab switching
-    document.querySelectorAll("[data-tab-group]").forEach((group) => {
-      const buttons = group.querySelectorAll<HTMLButtonElement>("[data-tab]");
-      const panels = group.querySelectorAll<HTMLElement>("[data-tab-panel]");
-
-      function activateTab(tabId: string) {
-        buttons.forEach((b) => b.setAttribute("aria-selected", "false"));
-        panels.forEach((p) => (p.hidden = true));
-        const btn = group.querySelector(`[data-tab="${tabId}"]`);
-        if (btn) btn.setAttribute("aria-selected", "true");
-        const panel = group.querySelector(`[data-tab-panel="${tabId}"]`);
-        if (panel) (panel as HTMLElement).hidden = false;
-      }
-
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => activateTab(btn.dataset.tab!));
-      });
-
-      // Section nav links that target tab panels should activate the tab
-      document.querySelectorAll('.page-contents-links a[href^="#tabpanel-"]').forEach((link) => {
-        link.addEventListener("click", (e) => {
-          const href = (link as HTMLAnchorElement).getAttribute("href");
-          if (!href) return;
-          const tabId = href.replace("#tabpanel-", "");
-          activateTab(tabId);
-          // Scroll to the tab group
-          (group as HTMLElement).scrollIntoView({ behavior: "smooth", block: "start" });
-          e.preventDefault();
-        });
-      });
-    });
-  </script>
-
+  <DataFreshness
+    updated={(rawProjections as any).lastUpdated ?? "2026-04-14"}
+    source="Census 2021, ONS SNPP"
+    sourceUrl="https://www.ons.gov.uk/census"
+  />
 </BaseLayout>
+
+<style>
+  .place-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
+  .place-identity h1 { font-family: "Sora", sans-serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin: 0; color: var(--ink); }
+  .place-region { font-size: 0.88rem; color: var(--muted); }
+
+  .headline-banner {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .headline-value { font-family: "Sora", sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+  .headline-trend { font-size: 0.88rem; color: var(--muted); }
+
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; margin-bottom: 2rem; }
+  .metric-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; display: flex; flex-direction: column; gap: 0.2rem; }
+  .metric-value { font-family: "Sora", sans-serif; font-size: 1.5rem; font-weight: 800; line-height: 1; color: var(--ink); }
+  .metric-label { font-size: 0.82rem; color: var(--muted); }
+
+  .section { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+  .section h2 { font-family: "Sora", sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--ink); margin: 0 0 0.5rem; }
+  .section-desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1rem; max-width: 700px; }
+  .section-note { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; }
+
+  .shift-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
+  .shift-item { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; text-align: center; }
+  .shift-value { display: block; font-family: "Sora", sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+  .shift-label { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+
+  .diversity-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; }
+  .diversity-level { display: block; font-family: "Sora", sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--accent); text-transform: capitalize; }
+  .diversity-detail { font-size: 0.82rem; color: var(--muted); }
+
+  .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.5rem; }
+  .data-item { display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+  .data-label { font-size: 0.85rem; color: var(--ink-soft); text-transform: capitalize; }
+  .data-value { font-family: "Sora", sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .metric-value { font-size: 1.2rem; }
+    .shift-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

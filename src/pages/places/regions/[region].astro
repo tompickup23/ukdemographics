@@ -1,224 +1,63 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
-import DataFreshness from "../../../components/DataFreshness.astro";
-import PlainEnglish from "../../../components/PlainEnglish.astro";
-import { slugifyAreaName } from "../../../lib/site";
-import { getPlaceDirectory, type PlaceDirectoryRegion } from "../../../lib/place-directory";
-import { loadLocalRouteLatest } from "../../../lib/route-data";
-import rawProjections from "../../../data/live/ethnic-projections.json";
+import { getPublicPlaceAreas, getPublicPlaceRegions, buildPublicPlaceRegionSlug, slugifyAreaName } from "../../../lib/site";
 
-const localRouteLatest = loadLocalRouteLatest();
+const allAreas = getPublicPlaceAreas();
+const regions = getPublicPlaceRegions();
 
 export function getStaticPaths() {
-  return getPlaceDirectory().regions.map((region) => ({
-    params: { region: region.regionSlug },
-    props: { region }
+  const regions = getPublicPlaceRegions();
+  return regions.map((region) => ({
+    params: { region: buildPublicPlaceRegionSlug(region.regionName) },
+    props: { regionName: region.regionName }
   }));
 }
 
-const { region } = Astro.props as { region: PlaceDirectoryRegion };
-
-// Sort areas by asylum support (descending)
-const areasSorted = [...region.areas].sort((a, b) => b.area.supportedAsylum - a.area.supportedAsylum);
-const maxAreaAsylum = areasSorted[0]?.area.supportedAsylum ?? 1;
-const totalRegional = region.supportedAsylum;
-
-// Compute regional WBI
-const allAreas = (rawProjections as any).areas as Record<string, any>;
-let wbiSum2021 = 0, wbiSum2051 = 0, wbiCount = 0;
-for (const row of region.areas) {
-  const proj = allAreas[row.area.areaCode];
-  if (!proj?.current?.groups?.white_british) continue;
-  wbiSum2021 += proj.current.groups.white_british;
-  wbiSum2051 += proj.projections?.["2051"]?.white_british ?? proj.current.groups.white_british;
-  wbiCount++;
-}
-const regionWbi2021 = wbiCount > 0 ? wbiSum2021 / wbiCount : null;
-const regionWbi2051 = wbiCount > 0 ? wbiSum2051 / wbiCount : null;
-
-const pageDescription = `${region.regionName}: ${totalRegional.toLocaleString()} asylum seekers on support across ${region.areas.length} local authorities. Rate: ${region.supportedAsylumRate?.toFixed(1)} per 10,000.`;
+const { regionName } = Astro.props;
+const regionAreas = allAreas
+  .filter(a => a.regionName === regionName)
+  .sort((a, b) => (a.wbiPct2021 ?? 100) - (b.wbiPct2021 ?? 100));
+const totalPop = regionAreas.reduce((s, a) => s + (a.population ?? 0), 0);
 ---
 
 <BaseLayout
-  title={`${region.regionName} | asylumstats`}
-  description={pageDescription}
+  title={`${regionName} — regional demographic profile`}
+  description={`${regionName}: ${regionAreas.length} local authorities, population ${totalPop.toLocaleString()}. Ethnic composition projections to 2061.`}
 >
   <Breadcrumbs items={[
+    { label: "Home", href: "/" },
     { label: "Places", href: "/places/" },
-    { label: "Regional", href: "/regional/" },
-    { label: region.regionName }
+    { label: regionName }
   ]} />
 
-  <section class="page-top">
-    <section class="page-head">
-      <span class="kicker">{region.countryName}</span>
-      <h1>{region.regionName}</h1>
-      <DataFreshness
-        updated={localRouteLatest.snapshotDate ?? "2025-12-31"}
-        source="Home Office"
-        sourceUrl="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025"
-      />
-    </section>
-    <aside class="page-rail">
-      <article class="panel panel-pad">
-        <div class="stat-strip">
-          <article class="stat-tile">
-            <span class="tiny">On support</span>
-            <strong>{totalRegional.toLocaleString()}</strong>
-          </article>
-          <article class="stat-tile">
-            <span class="tiny">Rate /10k</span>
-            <strong>{region.supportedAsylumRate?.toFixed(1) ?? "-"}</strong>
-          </article>
-          <article class="stat-tile">
-            <span class="tiny">Areas</span>
-            <strong>{region.areas.length}</strong>
-          </article>
-          {regionWbi2021 !== null && (
-            <article class="stat-tile">
-              <span class="tiny">WBI 2051</span>
-              <strong>{regionWbi2051?.toFixed(0)}%</strong>
-            </article>
-          )}
-        </div>
-      </article>
-    </aside>
-  </section>
+  <h1>{regionName}</h1>
+  <p class="desc">{regionAreas.length} local authorities &middot; Population {(totalPop / 1_000_000).toFixed(1)}M</p>
 
-  <PlainEnglish
-    headline={`${totalRegional.toLocaleString()} people on asylum support in ${region.regionName}`}
-    body={`${region.areas.length} local authorities in this region. Rate of ${region.supportedAsylumRate?.toFixed(1) ?? "-"} per 10,000 residents.${regionWbi2021 !== null ? ` Average White British share: ${regionWbi2021.toFixed(0)}% (2021) projected to ${regionWbi2051?.toFixed(0)}% by 2051.` : ""} At roughly £150/person/day, asylum support in this region alone costs an estimated £${Math.round(totalRegional * 150 * 365 / 1_000_000)}M per year.`}
-    tone={totalRegional > 10000 ? "alert" : totalRegional > 3000 ? "info" : "success"}
-  />
-
-  <!-- AREA RANKING -->
-  <section class="section shell">
-    <h2 class="reg-section-title">Local authorities ranked by asylum seekers on support</h2>
-    <div class="reg-area-list">
-      {areasSorted.map((row, i) => {
-        const a = row.area;
-        const pct = (a.supportedAsylum / maxAreaAsylum) * 100;
-        const proj = allAreas[a.areaCode];
-        const wbiNow = proj?.current?.groups?.white_british;
-        const wbi51 = proj?.projections?.["2051"]?.white_british;
-        return (
-          <a href={`/places/${slugifyAreaName(a.areaName)}/`} class="reg-area-row">
-            <span class="reg-area-rank">{i + 1}</span>
-            <div class="reg-area-info">
-              <span class="reg-area-name">{a.areaName}</span>
-              <span class="reg-area-bar-track">
-                <span class="reg-area-bar-fill" style={`width: ${pct}%`}></span>
-              </span>
-            </div>
-            <span class="reg-area-count">{a.supportedAsylum.toLocaleString()}</span>
-            <span class="reg-area-rate">{a.supportedAsylumRate?.toFixed(1) ?? "-"}</span>
-            {wbiNow !== undefined && (
-              <span class="reg-area-wbi">{wbiNow.toFixed(0)}% → {wbi51?.toFixed(0) ?? "?"}%</span>
-            )}
-          </a>
-        );
-      })}
+  <div class="area-table">
+    <div class="area-table-header">
+      <span>Area</span><span>WBI 2021</span><span>WBI 2041</span><span>Population</span>
     </div>
-    <p class="reg-area-caption">
-      Click any area for the full profile. Rate = per 10,000 residents. WBI = White British Index (2021 → 2051 projected).
-    </p>
-  </section>
+    {regionAreas.map((area) => (
+      <a href={`/places/${slugifyAreaName(area.areaName)}/`} class="area-row">
+        <span class="area-name">{area.areaName}</span>
+        <span class="area-wbi">{area.wbiPct2021?.toFixed(1) ?? "-"}%</span>
+        <span class="area-wbi-proj">{area.wbiPct2041?.toFixed(1) ?? "-"}%</span>
+        <span class="area-pop">{area.population?.toLocaleString() ?? "-"}</span>
+      </a>
+    ))}
+  </div>
 </BaseLayout>
 
 <style>
-  .reg-section-title {
-    font-family: "Sora", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: var(--ink);
-    margin: 0 0 1rem;
-  }
-  .reg-area-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  .reg-area-row {
-    display: grid;
-    grid-template-columns: 28px 1fr 70px 55px 90px;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.55rem 0;
-    text-decoration: none;
-    color: var(--ink);
-    border-bottom: 1px solid var(--border);
-    transition: background 120ms;
-  }
-  .reg-area-row:hover {
-    background: rgba(6, 182, 212, 0.04);
-  }
-  .reg-area-rank {
-    font-family: "Sora", sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--muted);
-    text-align: center;
-  }
-  .reg-area-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    min-width: 0;
-  }
-  .reg-area-name {
-    font-size: 0.88rem;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .reg-area-bar-track {
-    display: block;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .reg-area-bar-fill {
-    display: block;
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), rgba(6, 182, 212, 0.3));
-    border-radius: 4px;
-    min-width: 2px;
-  }
-  .reg-area-count {
-    font-family: "Sora", sans-serif;
-    font-size: 0.88rem;
-    font-weight: 800;
-    color: var(--accent);
-    text-align: right;
-  }
-  .reg-area-rate {
-    font-size: 0.82rem;
-    color: var(--muted);
-    text-align: right;
-  }
-  .reg-area-wbi {
-    font-size: 0.78rem;
-    color: var(--muted);
-    text-align: right;
-    white-space: nowrap;
-  }
-  .reg-area-caption {
-    font-size: 0.78rem;
-    color: var(--muted);
-    opacity: 0.5;
-    margin-top: 0.75rem;
-  }
-
-  @media (max-width: 640px) {
-    .reg-area-row {
-      grid-template-columns: 24px 1fr 55px 45px;
-      gap: 0.3rem;
-    }
-    .reg-area-wbi { display: none; }
-    .reg-area-name { font-size: 0.82rem; }
-    .reg-area-count { font-size: 0.82rem; }
-  }
+  h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.25rem; }
+  .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
+  .area-table { max-width: 700px; }
+  .area-table-header { display: grid; grid-template-columns: 1fr 80px 80px 100px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
+  .area-row { display: grid; grid-template-columns: 1fr 80px 80px 100px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
+  .area-row:hover { background: rgba(79, 70, 229, 0.06); }
+  .area-name { font-weight: 600; font-size: 0.88rem; }
+  .area-wbi { font-family: "Sora", sans-serif; font-weight: 700; color: var(--accent); font-size: 0.88rem; }
+  .area-wbi-proj { font-family: "Sora", sans-serif; font-weight: 700; color: var(--coral); font-size: 0.88rem; }
+  .area-pop { font-size: 0.82rem; color: var(--muted); }
 </style>

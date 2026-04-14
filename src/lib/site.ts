@@ -80,19 +80,34 @@ export function getPublicPlaceAreas(): DemographicAreaSummary[] {
   const raw = JSON.parse(fs.readFileSync(dataPath, "utf8"));
   const areas: DemographicAreaSummary[] = [];
 
-  // ethnic-projections.json has an `areas` array with areaCode, areaName, region, country, scenarios
-  if (Array.isArray(raw.areas)) {
-    for (const area of raw.areas) {
+  // Build region lookup from local-route-latest (only source of regionName)
+  const regionLookup = new Map<string, { regionName: string; countryName: string }>();
+  const routePath = path.resolve("src/data/live/local-route-latest.json");
+  if (fs.existsSync(routePath)) {
+    const routeData = JSON.parse(fs.readFileSync(routePath, "utf8"));
+    for (const routeArea of routeData.areas ?? []) {
+      regionLookup.set(routeArea.areaCode, {
+        regionName: routeArea.regionName ?? "Unknown",
+        countryName: routeArea.countryName ?? "England",
+      });
+    }
+  }
+
+  // ethnic-projections.json has areas as object keyed by area code (e.g. "E08000025")
+  if (raw.areas && typeof raw.areas === "object" && !Array.isArray(raw.areas)) {
+    for (const [areaCode, areaData] of Object.entries(raw.areas)) {
+      const data = areaData as Record<string, any>;
+      const region = regionLookup.get(areaCode);
       areas.push({
-        areaCode: area.areaCode ?? area.code,
-        areaName: area.areaName ?? area.name,
-        regionName: area.regionName ?? area.region ?? "Unknown",
-        countryName: area.countryName ?? area.country ?? "England",
-        population: area.population,
-        wbiPct2021: area.wbiPct2021 ?? area.scenarios?.central?.wbi?.[0],
-        wbiPct2041: area.wbiPct2041 ?? area.scenarios?.central?.wbi?.[20],
-        diversityIndex2021: area.diversityIndex2021,
-        diversityIndex2041: area.diversityIndex2041,
+        areaCode,
+        areaName: data.areaName ?? areaCode,
+        regionName: region?.regionName ?? "Unknown",
+        countryName: region?.countryName ?? "England",
+        population: data.current?.total_population,
+        wbiPct2021: data.current?.groups?.white_british,
+        wbiPct2041: data.projections?.["2041"]?.white_british,
+        diversityIndex2021: data.diversityIndex?.entropy,
+        diversityIndex2041: undefined,
       });
     }
   }

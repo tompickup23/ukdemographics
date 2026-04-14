@@ -1,5 +1,4 @@
-import { getPlaceDirectory } from "./place-directory";
-import { getPublicPlaceAreas } from "./site";
+import { getPublicPlaceAreas, getPublicPlaceRegions, buildPublicPlaceRegionPath, slugifyAreaName } from "./site";
 import { getEthnicProjection } from "./ethnic-projections";
 
 export interface SiteSearchEntry {
@@ -9,12 +8,11 @@ export interface SiteSearchEntry {
   kicker: string;
   description: string;
   priority: number;
-  // Area-specific fields for preview cards
   areaCode?: string;
   areaName?: string;
   regionName?: string;
-  supportedAsylum?: number;
-  supportedAsylumRate?: number | null;
+  population?: number;
+  wbiPct2021?: number;
   wbiNow?: number | null;
   wbi2051?: number | null;
   searchText: string;
@@ -26,132 +24,112 @@ const STATIC_PAGE_ENTRIES: SiteSearchEntry[] = [
     title: "Home",
     kind: "page",
     kicker: "Overview",
-    description: "Place-led homepage with the regional map, featured local authorities, and system reading rules.",
+    description: "National demographic projections, area search, and key findings.",
     priority: 120,
-    searchText: "home overview places regions local authorities map system methodology sources"
+    searchText: "home overview national projections demographic ethnic composition"
   },
   {
     href: "/places/",
     title: "Places",
     kind: "page",
-    kicker: "Region and place directory",
-    description: "Browse regions, open place pages, and carry hotel visibility inside the local reading.",
+    kicker: "Area directory",
+    description: "Browse all local authorities with demographic projections to 2061.",
     priority: 119,
-    searchText: "places regions map local authorities supported asylum contingency hotel visibility place directory"
+    searchText: "places areas local authorities directory browse regions"
+  },
+  {
+    href: "/national/",
+    title: "National",
+    kind: "page",
+    kicker: "National outlook",
+    description: "England-wide demographic projections and fastest-changing areas.",
+    priority: 116,
+    searchText: "national england projections white british ethnic change fastest"
   },
   {
     href: "/compare/",
     title: "Compare",
     kind: "page",
-    kicker: "Advanced place explorer",
-    description: "Advanced compare surface for filtered local-authority views once the map and region directory are clear.",
+    kicker: "Area comparison",
+    description: "Compare demographic projections across multiple areas side-by-side.",
     priority: 111,
-    searchText: "compare advanced places local authorities pressure supported asylum contingency explorer filters"
-  },
-  {
-    href: "/routes/",
-    title: "Routes",
-    kind: "page",
-    kicker: "National chapters",
-    description: "Official route families, stock-flow logic, trend charts, and national system context.",
-    priority: 116,
-    searchText: "routes national route families small boats asylum trend charts backlog support appeals returns"
+    searchText: "compare areas side by side demographic projections"
   },
   {
     href: "/releases/",
     title: "Releases",
     kind: "page",
     kicker: "Update diary",
-    description: "Release log tracking when national tables, local authority data, and the site itself moved.",
+    description: "Release log tracking data updates and model improvements.",
     priority: 110,
-    searchText: "releases update diary freshness chronology release log"
+    searchText: "releases update diary freshness chronology"
   },
   {
     href: "/sources/",
     title: "Sources",
     kind: "page",
     kicker: "Source ledger",
-    description:
-      "Source inventory showing what evidence is in scope, which regional feeds are worth mining, and where historic backfill and archive-only hotel leads live.",
+    description: "Data sources — Census, ONS, DfE, NHS Digital.",
     priority: 108,
-    searchText:
-      "sources source ledger evidence scope source inventory regional migration partnerships historic backfill archive nwrsmp workbooks dashboards migration observatory aida archived hotel map"
+    searchText: "sources ons census dfe nhs data"
   },
   {
     href: "/methodology/",
     title: "Methodology",
     kind: "page",
-    kicker: "Scope rules",
-    description: "Editorial and data rules for route specificity, local relevance, and publishability.",
+    kicker: "Model methodology",
+    description: "Hamilton-Perry CCR model, validation, limitations.",
     priority: 109,
-    searchText: "methodology scope rules route specificity local relevance publishability"
+    searchText: "methodology hamilton perry model validation census ccr"
   }
 ];
 
-function buildPlaceDescription(
-  supportedAsylum: number,
-  supportedAsylumRate: number | null,
-  contingencyAccommodation: number
-): string {
-  const rateLabel = supportedAsylumRate !== null ? `${supportedAsylumRate} per 10,000` : "rate not published";
-  return `${supportedAsylum.toLocaleString()} on supported asylum, ${rateLabel}, ${contingencyAccommodation.toLocaleString()} in contingency accommodation.`;
-}
-
 export function getPublicSearchEntries(): SiteSearchEntry[] {
-  const placeDirectory = getPlaceDirectory();
   const placeEntries = getPublicPlaceAreas().map((area) => {
     const ep = getEthnicProjection(area.areaCode);
+    const wbiNow = ep?.current?.groups?.white_british ?? area.wbiPct2021 ?? null;
+    const wbi2051 = ep?.projections?.["2051"]?.white_british ?? null;
     return {
-    href: `/places/${area.areaName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}/`,
-    title: area.areaName,
-    kind: "place" as const,
-    kicker: `${area.regionName} | ${area.countryName}`,
-    description: buildPlaceDescription(
-      area.supportedAsylum,
-      area.supportedAsylumRate,
-      area.contingencyAccommodation
-    ),
-    priority: Math.min(99, Math.max(20, Math.round(area.supportedAsylum / 40))),
-    areaCode: area.areaCode,
-    areaName: area.areaName,
-    regionName: area.regionName,
-    supportedAsylum: area.supportedAsylum,
-    supportedAsylumRate: area.supportedAsylumRate,
-    wbiNow: ep?.current?.groups?.white_british ?? null,
-    wbi2051: ep?.projections?.["2051"]?.white_british ?? null,
-    searchText: [
-      area.areaName,
-      area.areaCode,
-      area.regionName,
-      area.countryName,
-      "place",
-      "local authority",
-      "supported asylum",
-      "contingency accommodation",
-      "homes for ukraine",
-      "afghan programme"
-    ]
-      .join(" ")
-      .toLowerCase()
-  };
+      href: `/places/${slugifyAreaName(area.areaName)}/`,
+      title: area.areaName,
+      kind: "place" as const,
+      kicker: `${area.regionName} | ${area.countryName}`,
+      description: `Population ${(area.population ?? 0).toLocaleString()}, WBI ${wbiNow?.toFixed(1) ?? "?"}% (2021)`,
+      priority: Math.min(99, Math.max(20, Math.round((area.population ?? 0) / 10000))),
+      areaCode: area.areaCode,
+      areaName: area.areaName,
+      regionName: area.regionName,
+      population: area.population,
+      wbiPct2021: area.wbiPct2021,
+      wbiNow,
+      wbi2051,
+      searchText: [
+        area.areaName,
+        area.areaCode,
+        area.regionName,
+        area.countryName,
+        "place",
+        "local authority",
+        "demographic",
+        "projections"
+      ]
+        .join(" ")
+        .toLowerCase()
+    };
   });
-  const regionEntries = placeDirectory.regions.map((region) => ({
-    href: region.regionPath,
+
+  const regionEntries = getPublicPlaceRegions().map((region) => ({
+    href: buildPublicPlaceRegionPath(region.regionName),
     title: region.regionName,
     kind: "region" as const,
     kicker: `${region.countryName} region`,
-    description: `${region.supportedAsylum.toLocaleString()} on supported asylum across ${region.publicPlaceCount.toLocaleString()} public place pages, with ${region.hotelLinkedPlaceCount.toLocaleString()} place pages already carrying hotel evidence.`,
+    description: `${region.publicPlaceCount} local authorities in ${region.regionName}.`,
     priority: 112,
     searchText: [
       region.regionName,
       region.countryName,
       "region",
-      "regional map",
-      "regional pressure",
-      "supported asylum",
-      "contingency accommodation",
-      "hotel visibility",
-      "place directory"
+      "regional"
     ]
       .join(" ")
       .toLowerCase()
@@ -163,7 +141,6 @@ export function getPublicSearchEntries(): SiteSearchEntry[] {
     if (left.kind !== right.kind) {
       return kindOrder[left.kind] - kindOrder[right.kind];
     }
-
     return right.priority - left.priority || left.title.localeCompare(right.title);
   });
 }

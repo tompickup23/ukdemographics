@@ -1,325 +1,45 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import DataFreshness from "../components/DataFreshness.astro";
-import { getPlaceDirectory } from "../lib/place-directory";
-import { getRegionPressureSummaries } from "../lib/route-analytics";
-import { loadLocalRouteLatest } from "../lib/route-data";
-import rawProjections from "../data/live/ethnic-projections.json";
+import { getPublicPlaceAreas, getPublicPlaceRegions, buildPublicPlaceRegionPath } from "../lib/site";
 
-const localRouteLatest = loadLocalRouteLatest();
-const placeDirectory = getPlaceDirectory();
-const regionalPressure = getRegionPressureSummaries(localRouteLatest.areas);
+const areas = getPublicPlaceAreas();
+const regions = getPublicPlaceRegions();
 
-// Compute WBI % per region (2021 and projected 2051)
-const allAreas = (rawProjections as any).areas as Record<string, any>;
-const regionWBI = new Map<string, { wbi2021: number; wbi2051: number; count: number }>();
-for (const area of localRouteLatest.areas) {
-  const proj = allAreas[area.areaCode];
-  if (!proj?.current?.groups?.white_british) continue;
-  const region = area.regionName;
-  if (!regionWBI.has(region)) regionWBI.set(region, { wbi2021: 0, wbi2051: 0, count: 0 });
-  const r = regionWBI.get(region)!;
-  r.wbi2021 += proj.current.groups.white_british;
-  r.wbi2051 += proj.projections?.["2051"]?.white_british ?? proj.current.groups.white_british;
-  r.count++;
-}
-for (const [, r] of regionWBI) { r.wbi2021 /= r.count; r.wbi2051 /= r.count; }
-
-// Sort regions by asylum support (descending)
-const regionsSorted = [...placeDirectory.regions].sort((a, b) => b.supportedAsylum - a.supportedAsylum);
-const maxRegionalAsylum = regionsSorted[0]?.supportedAsylum ?? 1;
-
-// Total national
-const totalAsylum = localRouteLatest.areas.reduce((sum, a) => sum + a.supportedAsylum, 0);
+// Compute region-level demographic stats
+const regionStats = regions.map((region) => {
+  const regionAreas = areas.filter(a => a.regionName === region.regionName);
+  const totalPop = regionAreas.reduce((s, a) => s + (a.population ?? 0), 0);
+  const weightedWbi = totalPop > 0
+    ? regionAreas.reduce((s, a) => s + (a.wbiPct2021 ?? 0) * (a.population ?? 0), 0) / totalPop
+    : 0;
+  return { ...region, totalPop, weightedWbi, areaCount: regionAreas.length };
+}).sort((a, b) => a.weightedWbi - b.weightedWbi);
 ---
 
 <BaseLayout
-  title="Regional Overview - asylumstats"
-  description="Asylum data by UK region. Which regions carry the heaviest load. 12 regions ranked by asylum seekers on support."
+  title="Regional demographic overview"
+  description={`Demographic composition by region across ${regions.length} regions and ${areas.length} local authorities.`}
 >
-  <section class="page-top">
-    <section class="page-head">
-      <span class="kicker">Regional</span>
-      <h1>The regional picture</h1>
-      <p>
-        {totalAsylum.toLocaleString()} asylum seekers on support nationally. Not evenly distributed.
-        Some regions carry five times the load of others. Nobody voted for that.
-      </p>
-      <DataFreshness
-        updated={localRouteLatest.snapshotDate ?? "2025-12-31"}
-        source="Home Office"
-        sourceUrl="https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025"
-      />
-    </section>
-  </section>
+  <h1>Regional demographic overview</h1>
+  <p class="desc">Population-weighted White British share by region. Click a region for local authority detail.</p>
 
-  <!-- REGIONAL RANKING BAR CHART -->
-  <section class="section shell">
-    <h2 class="reg-section-title">Regions ranked by asylum seekers on support</h2>
-    <div class="reg-bars">
-      {regionsSorted.map((region, i) => {
-        const pct = (region.supportedAsylum / maxRegionalAsylum) * 100;
-        const sharePct = ((region.supportedAsylum / totalAsylum) * 100).toFixed(1);
-        const wbi = regionWBI.get(region.regionName);
-        return (
-          <a href={region.regionPath} class="reg-bar-row">
-            <span class="reg-rank">{i + 1}</span>
-            <span class="reg-name">{region.regionName}</span>
-            <span class="reg-bar-track">
-              <span class="reg-bar-fill" style={`width: ${pct}%`}></span>
-            </span>
-            <span class="reg-count">{region.supportedAsylum.toLocaleString()}</span>
-            <span class="reg-share">{sharePct}%</span>
-          </a>
-        );
-      })}
-    </div>
-    <p class="reg-caption">Click any region to see its local authorities. Share = % of national total.</p>
-  </section>
-
-  <!-- REGION CARDS -->
-  <section class="section shell">
-    <h2 class="reg-section-title">Regional profiles</h2>
-    <div class="region-grid">
-      {regionsSorted.map((region) => {
-        const wbi = regionWBI.get(region.regionName);
-        return (
-        <a href={region.regionPath} class="region-card">
-          <div class="region-card-head">
-            <h3>{region.regionName}</h3>
-            <span class="chip tiny">{region.countryName}</span>
-          </div>
-          <div class="region-stats">
-            <div class="region-stat">
-              <strong>{region.supportedAsylum.toLocaleString()}</strong>
-              <span>on support</span>
-            </div>
-            <div class="region-stat">
-              <strong>{region.supportedAsylumRate?.toFixed(1) ?? "-"}</strong>
-              <span>per 10k</span>
-            </div>
-            <div class="region-stat">
-              <strong>{region.publicPlaceCount}</strong>
-              <span>areas</span>
-            </div>
-          </div>
-          {wbi && (
-            <div class="region-demo">
-              <div class="region-wbi-bar">
-                <span class="region-wbi-label">WBI 2021</span>
-                <span class="region-wbi-track">
-                  <span class="region-wbi-fill" style={`width: ${wbi.wbi2021}%`}></span>
-                </span>
-                <span class="region-wbi-pct">{wbi.wbi2021.toFixed(0)}%</span>
-              </div>
-              <div class="region-wbi-bar">
-                <span class="region-wbi-label">WBI 2051</span>
-                <span class="region-wbi-track">
-                  <span class="region-wbi-fill region-wbi-projected" style={`width: ${wbi.wbi2051}%`}></span>
-                </span>
-                <span class="region-wbi-pct">{wbi.wbi2051.toFixed(0)}%</span>
-              </div>
-            </div>
-          )}
-          {region.leadArea && (
-            <div class="region-lead">
-              <span class="tiny">Highest: <strong>{region.leadArea.area.areaName}</strong> ({region.leadArea.area.supportedAsylum.toLocaleString()} on support)</span>
-            </div>
-          )}
-        </a>
-        );
-      })}
-    </div>
-  </section>
+  <div class="region-grid">
+    {regionStats.map((region) => (
+      <div class="region-card">
+        <span class="region-name">{region.regionName}</span>
+        <span class="region-stat">{region.weightedWbi.toFixed(1)}%</span>
+        <span class="region-detail">WBI (pop-weighted) &middot; {region.areaCount} areas &middot; Pop {(region.totalPop / 1_000_000).toFixed(1)}M</span>
+      </div>
+    ))}
+  </div>
 </BaseLayout>
 
 <style>
-  /* RANKING BARS */
-  .reg-section-title {
-    font-family: "Sora", sans-serif;
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: var(--ink);
-    margin: 0 0 1rem;
-    letter-spacing: -0.02em;
-  }
-  .reg-bars {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-  .reg-bar-row {
-    display: grid;
-    grid-template-columns: 28px 140px 1fr 80px 50px;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.45rem 0;
-    text-decoration: none;
-    color: var(--ink);
-    transition: opacity 180ms;
-  }
-  .reg-bar-row:hover { opacity: 0.8; }
-  .reg-rank {
-    font-family: "Sora", sans-serif;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--muted);
-    text-align: center;
-  }
-  .reg-name {
-    font-size: 0.88rem;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .reg-bar-track {
-    display: block;
-    height: 24px;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .reg-bar-fill {
-    display: block;
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), rgba(6, 182, 212, 0.3));
-    border-radius: 4px;
-    min-width: 4px;
-    transition: width 400ms ease;
-  }
-  .reg-count {
-    font-family: "Sora", sans-serif;
-    font-size: 0.92rem;
-    font-weight: 800;
-    color: var(--accent);
-    text-align: right;
-  }
-  .reg-share {
-    font-size: 0.78rem;
-    color: var(--muted);
-    text-align: right;
-  }
-  .reg-caption {
-    font-size: 0.78rem;
-    color: var(--muted);
-    opacity: 0.5;
-    margin-top: 0.5rem;
-  }
-
-  /* REGION CARDS */
-  .region-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    padding-bottom: 3rem;
-  }
-  .region-card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 1.25rem;
-    text-decoration: none;
-    color: var(--ink);
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    transition: border-color 180ms, transform 120ms;
-  }
-  .region-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-  .region-card-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .region-card-head h3 {
-    font-family: "Sora", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin: 0;
-  }
-  .region-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-  }
-  .region-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-  }
-  .region-stat strong {
-    font-family: "Sora", sans-serif;
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: var(--accent);
-  }
-  .region-stat span {
-    font-size: 0.78rem;
-    color: var(--muted);
-  }
-
-  /* WBI BARS */
-  .region-demo {
-    border-top: 1px solid var(--border);
-    padding-top: 0.65rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-  .region-wbi-bar {
-    display: grid;
-    grid-template-columns: 60px 1fr 40px;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  .region-wbi-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--muted);
-  }
-  .region-wbi-track {
-    display: block;
-    height: 14px;
-    background: rgba(239, 68, 68, 0.1);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .region-wbi-fill {
-    display: block;
-    height: 100%;
-    background: var(--accent);
-    border-radius: 3px;
-  }
-  .region-wbi-projected {
-    background: var(--accent-3);
-    opacity: 0.7;
-  }
-  .region-wbi-pct {
-    font-family: "Sora", sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-align: right;
-    color: var(--muted);
-  }
-
-  .region-lead {
-    border-top: 1px solid var(--border);
-    padding-top: 0.5rem;
-  }
-
-  /* MOBILE */
-  @media (max-width: 640px) {
-    .reg-bar-row {
-      grid-template-columns: 24px 100px 1fr 60px 40px;
-      gap: 0.3rem;
-    }
-    .reg-name { font-size: 0.82rem; }
-    .reg-bar-track { height: 18px; }
-    .reg-count { font-size: 0.82rem; }
-    .region-grid { grid-template-columns: 1fr; }
-  }
+  h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
+  .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
+  .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; }
+  .region-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.25rem; }
+  .region-name { font-weight: 700; font-size: 1rem; color: var(--ink); }
+  .region-stat { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+  .region-detail { font-size: 0.82rem; color: var(--muted); }
 </style>

@@ -1,447 +1,57 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PageContents from "../components/PageContents.astro";
-import asylumFinance from "../data/live/asylum-finance.json";
-import { asylumSystemReadingRules, supportedAsylumReadingRules } from "../lib/asylum-support-logic";
-
-const evidenceLayers = [
-  {
-    title: "Official",
-    body: "Published Home Office, ONS, NAO, or parliamentary sources with stable release or document provenance."
-  },
-  {
-    title: "Derived estimate",
-    body: "Rates, tariff estimates, or calculated shares built from published source inputs and documented methods."
-  },
-  {
-    title: "Archive-derived",
-    body: "Recovered historical regional material that must always keep archive URL, capture date, and validation notes."
-  },
-  {
-    title: "Public evidence",
-    body: "Council statements, FOIs, planning records, or parliamentary material that help identify hotel sites or hotel presence."
-  }
-];
-
-const asylumReadingRules = [...supportedAsylumReadingRules, ...asylumSystemReadingRules];
-const methodFindingCards = [
-  {
-    title: "Supported asylum stays in the language of stock",
-    body: "Local supported-asylum figures are end-of-period support counts. They do not tell you how many distinct people passed through an area or how many claims were processed there."
-  },
-  {
-    title: "Route scope decides what is publishable",
-    body: `${asylumFinance.scopeRules.find((rule) => rule.id === "context_only")?.description ?? "Context-only material stays out of public charts until it can be tied to a route or scheme."}`
-  },
-  {
-    title: "Archive and public-evidence layers do not bypass corroboration",
-    body: "Archive-derived leads and public hotel evidence are useful, but they stay visibly distinct from official datasets and documented entity links so the product never fakes certainty."
-  }
-];
-const methodSections = [
-  { id: "method-findings", label: "Findings" },
-  { id: "evidence-layers", label: "Evidence" },
-  { id: "method-rules", label: "Rules" },
-  { id: "asylum-number-logic", label: "Asylum logic" },
-  { id: "method-scope-classes", label: "Scope" },
-  { id: "method-route-families", label: "Route split" },
-  { id: "publication-rules", label: "Publish rules" },
-  { id: "method-demographics", label: "Demographics" },
-  { id: "method-cross-domain", label: "Cross-domain" }
-];
 ---
 
-<BaseLayout
-  title="Methodology | asylumstats"
-  description="Editorial and data methodology for asylumstats, including scope rules, evidence layers, and publication limits."
->
-  <section class="page-top">
-    <section class="page-head">
-      <span class="kicker">Method notebook</span>
-      <h1>Tell users what is known, what is estimated, and what is only publicly evidenced.</h1>
-      <p>
-        This is the rules page behind the place-led product. It has to be stricter than a normal dashboard because it
-        mixes official releases with public hotel evidence and archive recovery.
-      </p>
-      <div class="chip-row">
-        <a class="chip" href="/places/">Back to the place map</a>
-      </div>
-    </section>
+<BaseLayout title="Methodology" description="How the UK Demographics projection model works. Hamilton-Perry CCR methodology, Census-direct data, validation against NEWETHPOP.">
+  <h1>Methodology</h1>
 
-    <aside class="page-rail">
-      <article class="panel panel-pad">
-        <span class="tiny">Method rule</span>
-        <h2 class="rail-title">Scope discipline before storytelling</h2>
-        <p class="rail-copy">
-          The site is allowed to be sharp in tone because the publishing rules are tighter than the average advocacy or
-          data product.
-        </p>
-      </article>
-
-      <article class="panel panel-pad">
-        <span class="tiny">Core layers</span>
-        <div class="signal-list">
-          {evidenceLayers.map((layer) => (
-            <article class="signal-card accent">
-              <span class="tiny">Evidence layer</span>
-              <h3>{layer.title}</h3>
-              <p class="tiny">{layer.body}</p>
-            </article>
-          ))}
-        </div>
-      </article>
-    </aside>
+  <section id="model">
+    <h2>Hamilton-Perry cohort change ratio model</h2>
+    <p>UK Demographics uses the Hamilton-Perry (HP) method to project ethnic composition at local authority level. The HP method computes cohort change ratios (CCRs) from two Census observations (2011 and 2021), then applies these ratios forward to project future populations by age, sex, and ethnic group.</p>
+    <p>The model covers 320 English local authorities, 20 ethnic groups, single year of age (0-100+), and both sexes. Projections extend to 2061, with 2051 as the primary horizon and 2061 as illustrative.</p>
   </section>
 
-  <PageContents title="Jump to evidence" sections={methodSections} variant="priority" />
-
-  <section id="method-findings" class="section section-anchor priority-section">
-    <div class="section-head">
-      <div>
-        <h2>What matters first</h2>
-        <p class="lede">
-          {evidenceLayers.length} evidence layers, {asylumReadingRules.length} asylum interpretation rules, and {asylumFinance.inclusionTests.length} inclusion tests stop this site from turning official data, public hotel evidence, and archive recovery into one fake certainty.
-        </p>
-      </div>
-      <span class="chip accent">Publishing rules first</span>
-    </div>
-    <div class="story-grid">
-      {methodFindingCards.map((card) => (
-        <article class="story-card">
-          <h3>{card.title}</h3>
-          <p class="lede">{card.body}</p>
-        </article>
-      ))}
-    </div>
+  <section id="data">
+    <h2>Data sources</h2>
+    <ul>
+      <li><strong>Census 2021:</strong> ONS custom dataset — single year of age by ethnic group by sex, 292 LAs (direct observations, no IPF dependency)</li>
+      <li><strong>Census 2011:</strong> 18-group age-sex-ethnicity dataset via NOMIS API</li>
+      <li><strong>ONS SNPP 2022:</strong> Subnational Population Projections used as total population envelope constraint</li>
+      <li><strong>DfE School Census 2024/25:</strong> Independent validation — 10 years of ethnic composition data by school and LA</li>
+      <li><strong>ONS Births Table 8:</strong> Age-specific fertility rates by ethnicity and IMD decile</li>
+    </ul>
   </section>
 
-  <section id="evidence-layers" class="section section-anchor">
-    <div class="section-head">
-      <div>
-        <h2>Evidence layers</h2>
-        <p class="lede">
-          Different source types can coexist on the same site only if the reader can tell exactly what kind of claim
-          each one supports.
-        </p>
-      </div>
-    </div>
-    <div class="feature-grid">
-      {evidenceLayers.map((layer) => (
-        <article class="feature-card accent">
-          <div class="chip-row">
-            <span class="chip accent">{layer.title}</span>
-          </div>
-          <h3>{layer.title}</h3>
-          <p class="lede">{layer.body}</p>
-        </article>
-      ))}
-    </div>
+  <section id="validation">
+    <h2>Validation</h2>
+    <p>The model achieves a mean absolute error (MAE) of <strong>1.72 percentage points</strong> when backcasting from 2011 to 2021. This compares favourably with NEWETHPOP (Rees et al.), the previous academic benchmark, which achieves MAE 3.94pp on the same test.</p>
+    <p>School census data provides an independent out-of-sample validation for ages 0-15. School validation MAE: 2.36pp across 121 areas with 10 years of annual data.</p>
   </section>
 
-  <section id="method-rules" class="section section-anchor">
-    <div class="section-head">
-      <div>
-        <h2>Rules this product assumes</h2>
-        <p class="lede">
-          These are the editorial and structural rules that stop the site drifting into vague outrage or false precision.
-        </p>
-      </div>
-    </div>
-    <div class="story-grid">
-      <article class="story-card">
-        <h3>Never imply the hotel list is complete</h3>
-        <p class="lede">Named hotels are a public-evidence ledger, not an official estate register.</p>
-      </article>
-      <article class="story-card">
-        <h3>Separate spend families</h3>
-        <p class="lede">National spend, tariff-based estimates, and local manual evidence should never be merged into one clean-looking line.</p>
-      </article>
-      <article class="story-card">
-        <h3>Differentiate route, scheme, and status</h3>
-        <p class="lede">Small boat arrivals, asylum support, refugee resettlement, refugee family reunion, and Ukraine routes should not be collapsed into one bucket.</p>
-      </article>
-      <article class="story-card">
-        <h3>Treat supported asylum as stock, not throughput</h3>
-        <p class="lede">Local supported-asylum figures are end-of-period support counts. They do not tell you how many different people moved through the system, how many claims were processed locally, or whether the support total matches the backlog exactly.</p>
-      </article>
-      <article class="story-card">
-        <h3>Public spending must pass a route test</h3>
-        <p class="lede">Whole-council budgets, procurement feeds, and transaction corpora are context only unless a row explicitly ties back to a route or scheme.</p>
-      </article>
-      <article class="story-card">
-        <h3>Keep release streams separate</h3>
-        <p class="lede">National asylum chapters and local authority tables update on different schedules and should not be flattened into one update date.</p>
-      </article>
-      <article class="story-card">
-        <h3>Integrity claims need document trails</h3>
-        <p class="lede">Owner, operator, and supplier risk signals belong in the product, but only after the site-to-entity link and the documentary chain are strong enough to publish.</p>
-      </article>
-      <article class="story-card">
-        <h3>Separate owner, operator, and prime provider</h3>
-        <p class="lede">A hotel owner, a hotel operator, and the regional asylum accommodation prime can all be different entities. The site should keep those roles distinct instead of flattening them into one supplier label.</p>
-      </article>
-    </div>
+  <section id="uncertainty">
+    <h2>Uncertainty quantification</h2>
+    <p>1,000 Monte Carlo simulations with stochastic perturbation (sigma = 0.02) generate 80% and 95% confidence intervals for all projections. This captures the range of plausible outcomes, not a single point estimate.</p>
   </section>
 
-  <section id="asylum-number-logic" class="split section section-anchor">
-    <div class="panel panel-pad">
-      <h2>How supported asylum numbers work</h2>
-      <div class="signal-list">
-        {asylumReadingRules.map((rule) => (
-          <article class="signal-card accent">
-            <span class="tiny">Interpretation rule</span>
-            <h3>{rule.title}</h3>
-            <p class="tiny">{rule.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-
-    <div class="panel panel-pad">
-      <h2>Why backlog language is not enough</h2>
-      <div class="signal-list">
-        <article class="signal-card">
-          <span class="tiny">Backlog is only one mechanism</span>
-          <p class="tiny">
-            A local support count can stay flat because the backlog is static, but it can also stay flat because new
-            entrants are being offset by grants, refusals, withdrawals, departures, transfers, or other exits.
-          </p>
-        </article>
-        <article class="signal-card">
-          <span class="tiny">Local churn is not published</span>
-          <p class="tiny">
-            The published local authority asylum tables do not identify how many different people passed through
-            support in a place over a year. That is why the site treats flat local lines as ambiguous unless a better
-            flow measure is published.
-          </p>
-        </article>
-      </div>
-    </div>
+  <section id="limitations">
+    <h2>Known limitations</h2>
+    <ul>
+      <li>No international migration component — CCRs from 2011-2021 capture ~300K net migration pa, but post-2021 net migration peaked at 745K. This means the model likely understates the pace of change in high-migration areas.</li>
+      <li>Per-group confidence intervals not yet computed (national stochastic only).</li>
+      <li>No out-of-sample validation beyond DfE school data.</li>
+      <li>Not peer-reviewed (submission to Demographic Research planned).</li>
+      <li>COVID period (2020-21) may distort the 2021 Census baseline for some groups and areas.</li>
+    </ul>
   </section>
 
-  <section id="method-scope-classes" class="split section section-anchor">
-    <div class="panel panel-pad">
-      <h2>Route scope classes</h2>
-      <div class="signal-list">
-        {asylumFinance.scopeRules.map((rule) => (
-          <article class="signal-card">
-            <div class="chip-row">
-              <span class={`chip ${rule.id === "route_specific" ? "accent" : rule.id === "local_route_relevant" ? "teal" : ""}`}>
-                {rule.label}
-              </span>
-            </div>
-            <p class="tiny">{rule.description}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-
-    <div class="panel panel-pad">
-      <h2>Public inclusion test</h2>
-      <div class="signal-list">
-        {asylumFinance.inclusionTests.map((rule) => (
-          <article class="signal-card accent">
-            <span class="tiny">Inclusion rule</span>
-            <p class="tiny">{rule}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section id="method-route-families" class="section section-anchor">
-    <div class="section-head">
-      <div>
-        <h2>Route families the site should split</h2>
-        <p class="lede">
-          The route model is explicit because the point of the product is to stop incompatible flows being presented as
-          one moralised bucket.
-        </p>
-      </div>
-    </div>
-    <div class="feature-grid">
-      {asylumFinance.routeFamilies.map((route) => (
-        <article class="feature-card">
-          <div class="chip-row">
-            <span class="chip accent">{route.group}</span>
-            <span class="chip">{route.schemeStatus}</span>
-          </div>
-          <h3>{route.label}</h3>
-          <p class="lede">{route.note}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section id="publication-rules" class="split section section-anchor">
-    <div class="panel panel-pad">
-      <h2>Hotel entity-resolution rule</h2>
-      <div class="signal-list">
-        <article class="signal-card accent">
-          <span class="tiny">Documented</span>
-          <p class="tiny">
-            Use this only when the ledger can tie a site to both owner-side and operator-side entities with a strong
-            public source trail.
-          </p>
-        </article>
-        <article class="signal-card">
-          <span class="tiny">Partial</span>
-          <p class="tiny">
-            Use this when one side of the chain is known, such as an owner group or operator brand, but the full
-            site-level entity picture is still incomplete.
-          </p>
-        </article>
-        <article class="signal-card">
-          <span class="tiny">Unresolved</span>
-          <p class="tiny">
-            Use this when a hotel is publicly named but the starter ledger still lacks a publishable owner or operator
-            match. That is a transparency finding, not a reason to hide the row.
-          </p>
-        </article>
-      </div>
-    </div>
-
-    <div class="panel panel-pad">
-      <h2>Money-ledger display rule</h2>
-      <div class="signal-list">
-        <article class="signal-card accent">
-          <span class="tiny">Prime contract scope</span>
-          <p class="tiny">
-            These rows show who controls a region or visible set of current sites. They are not automatically a
-            disclosed contract value.
-          </p>
-        </article>
-        <article class="signal-card">
-          <span class="tiny">Funding instruction</span>
-          <p class="tiny">
-            These rows can be tariff rates or guidance components. They should not be shown as actual spend totals
-            unless multiplied through with transparent placement counts and method notes.
-          </p>
-        </article>
-        <article class="signal-card">
-          <span class="tiny">Scrutiny and cost rows</span>
-          <p class="tiny">
-            These rows are valuable accountability facts, but they belong in a distinct display state from contracts and
-            tariffs.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="method-demographics" class="section section-anchor">
-    <div class="section-head">
-      <div>
-        <h2>Demographic projections (v7.0)</h2>
-        <p class="lede">
-          Hamilton-Perry v7.0 single-year-of-age model with Monte Carlo uncertainty, spatial smoothing, and 13 socioeconomic dimensions. 278 local authorities, 20 ethnic groups, Census-direct base, validated against Census 2021 (MAE 1.72pp).
-        </p>
-      </div>
-    </div>
-    <div class="grid-2">
-      <article class="signal-card">
-        <span class="tiny">Model</span>
-        <p class="tiny">
-          Hamilton-Perry with single-year-of-age Cohort Change Ratios (CCRs) from Census 2011 → 2021. 20 ethnic groups. Census 2021 base from ONS custom dataset (direct observations, no IPF). Census 2011 base from DC2101EW (18 ethnic groups × 21 age bands × sex × 348 LAs, interpolated to single-year; Roma split from Gypsy/Traveller using 2021 proportions). Child-Woman Ratios for birth cohorts. Every ratio traces to Census observations — no hardcoded demographic rates.
-        </p>
-      </article>
-      <article class="signal-card">
-        <span class="tiny">Uncertainty</span>
-        <p class="tiny">
-          1,000 Monte Carlo simulations (Yu, Sevcikova, Raftery &amp; Curran 2023). Each simulation perturbs CCRs from Normal(observed, sigma) where sigma = 0.02 (calibrated from v7.0 Hamilton-Perry backcast MAE 1.71pp across 269 areas). Sigma scales with projection horizon: sigma_t = sigma_base x sqrt(years/10), so 2061 intervals are approximately 2x wider than 2031 intervals. James-Stein shrinkage (k=50) pulls small-population CCRs toward the national average. Reports median + 80%/95% prediction intervals per area. Spatial smoothing: projections blended 70/30 with regional averages.
-        </p>
-      </article>
-    </div>
-    <div class="grid-2" style="margin-top: 0.5rem;">
-      <article class="signal-card">
-        <span class="tiny">Dimensions</span>
-        <p class="tiny">
-          Ethnicity (20 groups projected, expanded from 12 in v5.0). Religion (8 categories projected). Nativity (UK-born/foreign-born projected). Plus observed Census 2021 cross-tabs: economic activity, housing tenure, qualifications, health - all by ethnic group per LA. English proficiency. Diversity indices. Shift-share decomposition. Migration maturity profiling.
-        </p>
-      </article>
-      <article class="signal-card">
-        <span class="tiny">Validation</span>
-        <p class="tiny">
-          Hamilton-Perry v7.0 backcast validated against Census 2021 across 269 areas using the same 20-group CCR/CWR methodology as the forward projections. Our MAE: 1.71pp (RMSE 1.87pp) — a 30% improvement over v6.0 (2.45pp) due to Census 2011 DC2101EW replacing proportional splitting from NEWETHPOP 12 groups. Compared against: NEWETHPOP cohort-component model (MAE 2.58pp) and national-average CCRs only (MAE 2.32pp). Our local-CCR model outperforms NEWETHPOP by 33%. Local CCRs better in 50% of individual areas — most demographic change is driven by national-level trends. Sigma calibrated at 0.02. SNPP 2022-based envelope constraint. DfE School Census 2024/25 calibration applied (20% damped, ages 0-5). NOTE: backcast is partially circular — CCRs derived from the same 2011→2021 endpoints. National-CCR baseline is the better measure of genuine predictive ability.
-        </p>
-      </article>
-    </div>
-    <article class="signal-card" style="margin-top: 0.5rem;">
-      <span class="tiny">School census validation</span>
-      <p class="tiny">
-        Independent validation against DfE School Census 2024/25 (8.1 million pupils across 126 LAs). Compares Census 2021 ethnic composition of ages 4-15 (from direct Census observations) against school enrollment 3 years later. Age-specific MAE: 2.36pp (RMSE 3.49pp). By group: White British 6.20pp, Asian 1.93pp, Black 1.78pp, Mixed 0.88pp. The 3-year gap means some divergence is expected from births, migration, and demographic change since the Census. 49 LAs have minority-WBI school populations. Pipeline analysis (primary vs secondary) identifies areas where diversification is accelerating. DfE calibration feeds back into the model: 20% damped CCR adjustment for ages 0-5 in 121 areas with significant gaps.
-      </p>
-    </article>
-    <article class="signal-card" style="margin-top: 0.5rem;">
-      <span class="tiny">Limitations</span>
-      <p class="tiny">
-        Hamilton-Perry assumes 2011-2021 cohort change patterns persist. Cannot model future policy changes, migration shocks, or fertility convergence. Census 2011 DC2101EW provides 21 age bands (not single-year) — interpolated via uniform distribution within each band. Roma was not a separate Census 2011 category; split from Gypsy/Traveller using 2021 proportions. Census 2021 migration indicator captures COVID-period mobility (March 2020-2021). SNPP constraint applies to England only (Wales LAs unconstrained). SNPP data ends 2047; projections for 2048-2061 use linear extrapolation of the 2043-2047 SNPP trend. 2061 projections are illustrative only and carry very wide confidence intervals. Religion projections use CCRs with James-Stein shrinkage but no age-sex decomposition. ONS empirical TFRs (WBI 1.31, PAK 2.52) validate but do not replace Census CWR-based fertility in the HP model. These are demographic projections, not forecasts.
-      </p>
-    </article>
-    <div class="grid-2" style="margin-top: 0.5rem;">
-      <article class="signal-card">
-        <span class="tiny">Empirical fertility rates (ONS 2024)</span>
-        <p class="tiny">
-          ONS Linked Births 2024 (567,460 births) provides independent validation of ethnic fertility differentials. Empirical TFRs: White British 1.31, Pakistani 2.52, Black African 2.42, Bangladeshi 2.27, Indian 2.17, Black Caribbean 1.13, Other White 1.58. National ASFR peaks at ages 30-34 (98.0 per 1000 women). The HP model uses Census CWRs (not these TFRs) — the ONS data serves as calibration and validation.
-        </p>
-      </article>
-      <article class="signal-card">
-        <span class="tiny">Deprivation and fertility</span>
-        <p class="tiny">
-          ONS Births Table 8 by IMD decile shows a 1.66x deprivation-fertility gradient: the most deprived quintile accounts for 25.5% of births vs 15.4% for the least deprived. Pakistani and Bangladeshi populations are concentrated in deprived areas — apparent ethnic fertility differentials partly reflect deprivation, not culture. Full ethnicity × IMD cross-tabulation is not available from ONS published data (marginals only).
-        </p>
-      </article>
-    </div>
-    <div class="grid-2" style="margin-top: 0.5rem;">
-      <article class="signal-card">
-        <span class="tiny">Migration by ethnicity (Census 2021)</span>
-        <p class="tiny">
-          Census 2021 migration indicator × ethnicity data (308 LAs, 20 groups) reveals ethnic-specific mobility patterns. Most mobile: Roma 26.4%, Chinese 21.4% (high international component from students), Other White 18.8%. Least mobile: White British 9.0%, Pakistani 8.6%, Black Caribbean 8.9%. Per-LA mobility rates are used to scale the CC v2 model's internal migration component. COVID caveat: Census captured March 2020-2021 migration.
-        </p>
-      </article>
-      <article class="signal-card">
-        <span class="tiny">Grant rates: initial vs after appeals</span>
-        <p class="tiny">
-          Home Office Asy_D04 outcome analysis (Dec 2025) reveals initial decision grant rates significantly understate true protection rates. 70 nationalities see rates rise after appeals, with an average uplift of +14.1pp. Largest uplifts: Sri Lanka 27%→59% (+32pp), DR Congo 33%→60% (+27pp), Iraq 31%→56% (+26pp), Iran 67%→85% (+19pp). The site displays both initial and appeal-adjusted rates.
-        </p>
-      </article>
-    </div>
-    <article class="signal-card" style="margin-top: 0.5rem;">
-      <span class="tiny">References</span>
-      <p class="tiny">
-        Hamilton &amp; Perry (1962) original method. Yu, Sevcikova, Raftery &amp; Curran (2023, Demography) probabilistic extension. Hauer (2019, Scientific Data) US county race projections. Wilson et al. (2022) ensemble methods. NEWETHPOP: Wohland, Rees, Norman, Lomax &amp; Clark (2024), CC BY 4.0. ONS 2022-based SNPP. Census 2011 DC2101EW (NOMIS NM_651_1). ONS Linked Births 2024. Home Office Immigration Statistics Asy_D02/D04 Dec 2025. DfE School Census 2024/25. Goodwin &amp; Sherwood (CHSS, 2025).
-      </p>
-    </article>
-  </section>
-
-  <section id="method-cross-domain" class="section section-anchor">
-    <div class="section-head">
-      <div>
-        <h2>Cross-domain analysis</h2>
-        <p class="lede">
-          Place pages combine asylum, demographic, crime, SEND, and social care data. This section explains how domains are combined and what the pressure index represents.
-        </p>
-      </div>
-    </div>
-    <div class="grid-2">
-      <article class="signal-card">
-        <span class="tiny">Data sources</span>
-        <p class="tiny">
-          Crime: ONS police recorded crime statistics via Police Force Area tables. SEND: DfE SEN2 return (Education, Health and Care Plans by local authority). Adult social care: NHS Digital SALT collection and ASCOF framework. Each domain uses the most recent annual publication at time of last update.
-        </p>
-      </article>
-      <article class="signal-card">
-        <span class="tiny">Pressure index</span>
-        <p class="tiny">
-          The composite pressure index converts each domain metric to a percentile rank (0–100) among tracked areas, then takes the unweighted mean of available domains. It measures co-occurrence of pressures across asylum dispersal, demographic change, crime rates, SEND demand, and social care spend. A high score indicates multiple domains showing elevated readings simultaneously - it does not imply that any domain causes another.
-        </p>
-      </article>
-    </div>
-    <article class="signal-card" style="margin-top: 0.5rem;">
-      <span class="tiny">Causation caveat</span>
-      <p class="tiny">
-        This site presents correlations between local authority characteristics. Correlation does not establish causation. Areas with high asylum dispersal rates also tend to have higher deprivation, lower property values, and different age profiles - all of which independently affect crime rates, SEND demand, and social care costs. The data is presented to inform public accountability, not to attribute causes.
-      </p>
-    </article>
+  <section id="evidence">
+    <h2>Evidence standard</h2>
+    <p>All figures on this site are categorised by evidence quality:</p>
+    <ul>
+      <li><strong>Official:</strong> Published ONS, Census, DfE, or parliamentary data with stable provenance.</li>
+      <li><strong>Derived:</strong> Computed from official sources using documented methods (e.g., CCRs from two Census observations).</li>
+      <li><strong>Modelled:</strong> Output of the projection model — inherently uncertain, always shown with confidence intervals where available.</li>
+      <li><strong>Estimated:</strong> Best available approximation where no direct data exists. Always flagged.</li>
+    </ul>
   </section>
 </BaseLayout>

@@ -1,89 +1,49 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import releases from "../data/mock/releases.json";
 import { buildAbsoluteUrl, buildReleaseCollectionStructuredData } from "../lib/site";
 
-const latestRelease = releases[0];
-const pageDescription =
-  "Release diary for asylumstats covering national data updates, local authority snapshots, and hotel evidence changes.";
+const releases = [
+  {
+    date: "2026-04-14",
+    title: "UK Demographics launch",
+    summary: "Initial release: 320 local authority demographic profiles with ethnic projections to 2061.",
+    sourceUrl: "https://ukdemographics.co.uk"
+  }
+];
+
+const pageDescription = "Release diary for UK Demographics covering model updates, data refreshes, and new features.";
 const pageStructuredData = buildReleaseCollectionStructuredData(releases, {
   canonicalUrl: buildAbsoluteUrl("/releases/"),
   description: pageDescription,
-  socialImageUrl: buildAbsoluteUrl("/og-card.png")
+  socialImageUrl: buildAbsoluteUrl("/og-card.svg")
 });
 ---
 
 <BaseLayout
-  title="Releases | asylumstats"
+  title="Releases"
   description={pageDescription}
   structuredData={pageStructuredData}
 >
-  <section class="page-top">
-    <section class="page-head">
-      <span class="kicker">Release diary</span>
-      <h1>Log what changed and which parts of the site should move with it.</h1>
-      <p>
-        Release discipline matters because national asylum numbers, local authority tables, hotel scrutiny documents,
-        and local public evidence do not all update together.
-      </p>
-    </section>
+  <h1>Releases</h1>
+  <p class="desc">Model updates, data refreshes, and new features.</p>
 
-    <aside class="page-rail">
-      <article class="panel panel-pad">
-        <span class="tiny">Release cadence</span>
-        <div class="stat-strip">
-          <article class="stat-tile">
-            <span class="tiny">Logged releases</span>
-            <strong>{releases.length.toLocaleString()}</strong>
-            <p class="tiny">Manual release diary entries currently on the site.</p>
-          </article>
-          {latestRelease && (
-            <article class="stat-tile">
-              <span class="tiny">Latest entry</span>
-              <strong>{latestRelease.date}</strong>
-              <p class="tiny">{latestRelease.title}</p>
-            </article>
-          )}
-        </div>
+  <div class="release-list">
+    {releases.map((release) => (
+      <article class="release-card">
+        <time class="release-date">{release.date}</time>
+        <h2 class="release-title">{release.title}</h2>
+        <p class="release-summary">{release.summary}</p>
       </article>
-
-      {latestRelease && (
-        <article class="panel panel-pad">
-          <span class="tiny">Latest release</span>
-          <h2 class="rail-title">{latestRelease.title}</h2>
-          <p class="rail-copy">{latestRelease.summary}</p>
-          <a class="source-pill" href={latestRelease.sourceUrl}>Source</a>
-        </article>
-      )}
-    </aside>
-  </section>
-
-  <section class="section">
-    <div class="section-head">
-      <div>
-        <h2>Release timeline</h2>
-        <p class="lede">
-          The diary should tell users what moved, when it moved, and what evidence layer drove the change.
-        </p>
-      </div>
-    </div>
-    <div class="timeline">
-      {releases.map((release) => (
-        <article class="timeline-item">
-          <div class="timeline-date">{release.date}</div>
-          <div class={`timeline-card ${release === latestRelease ? "accent" : ""}`}>
-            <div class="chip-row">
-              <span class="chip">{release.date}</span>
-              {release === latestRelease && <span class="chip accent">Latest</span>}
-            </div>
-            <h3>{release.title}</h3>
-            <p class="lede">{release.summary}</p>
-            <p class="tiny">
-              <a class="source-pill" href={release.sourceUrl}>Source</a>
-            </p>
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
+    ))}
+  </div>
 </BaseLayout>
+
+<style>
+  h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
+  .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
+  .release-list { max-width: 700px; }
+  .release-card { padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+  .release-date { font-size: 0.82rem; color: var(--muted); }
+  .release-title { font-family: "Sora", sans-serif; font-size: 1.1rem; font-weight: 700; margin: 0.25rem 0; color: var(--ink); }
+  .release-summary { font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
+</style>
