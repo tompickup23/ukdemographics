@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/council_election_result.schema.json",
+  "title": "Council Election Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "body_id",
+    "election_year",
+    "election_type"
+  ],
+  "properties": {
+    "election_result_id": { "type": "string" },
+    "body_id": { "type": "string" },
+    "election_year": { "type": "integer" },
+    "election_type": { "type": "string" },
+    "ward_name": { "type": ["string", "null"] },
+    "party": { "type": ["string", "null"] },
+    "candidate_name": { "type": ["string", "null"] },
+    "votes": { "type": ["integer", "null"] },
+    "vote_share": { "type": ["number", "null"] },
+    "seats_won": { "type": ["integer", "null"] },
+    "turnout": { "type": ["number", "null"] },
+    "source_url": { "type": ["string", "null"], "format": "uri" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,54 @@
+---
+interface InvestigationStep {
+  label: string;
+  body: string;
+  href: string;
+  cta: string;
+}
+
+interface Props {
+  kicker: string;
+  title: string;
+  summary: string;
+  chips?: string[];
+  tone?: "" | "accent" | "teal" | "warm";
+  steps: InvestigationStep[];
+  footnote?: string;
+  footerLinks?: Array<{ href: string; label: string }>;
+}
+
+const { kicker, title, summary, chips = [], tone = "", steps, footnote, footerLinks = [] } = Astro.props;
+---
+
+<article class:list={["feature-card", "trail-card", tone]}>
+  <div class="chip-row">
+    <span class={`chip ${tone === "accent" ? "accent" : tone === "teal" ? "teal" : tone === "warm" ? "warm" : ""}`}>
+      {kicker}
+    </span>
+    {chips.map((chip) => (
+      <span class="chip">{chip}</span>
+    ))}
+  </div>
+  <h3>{title}</h3>
+  <p class="lede">{summary}</p>
+  <ol class="trail-steps">
+    {steps.map((step, index) => (
+      <li class="trail-step">
+        <span class="trail-index">{String(index + 1).padStart(2, "0")}</span>
+        <div>
+          <strong>{step.label}</strong>
+          <p>{step.body}</p>
+          <a class="source-pill" href={step.href}>{step.cta}</a>
+        </div>
+      </li>
+    ))}
+  </ol>
+  {footnote && <p class="tiny">{footnote}</p>}
+  {footerLinks.length > 0 && (
+    <div class="chip-row">
+      {footerLinks.map((link) => (
+        <a class="source-pill" href={link.href}>{link.label}</a>
+      ))}
+    </div>
+  )}
+</article>

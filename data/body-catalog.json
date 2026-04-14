@@ -1,0 +1,21 @@
+[
+  {
+    "bodyId": "lancashire_cc",
+    "slug": "lancashire-cc",
+    "name": "Lancashire County Council",
+    "shortName": "Lancashire CC",
+    "councilTier": "county",
+    "region": "North West England",
+    "country": "England",
+    "status": "live",
+    "scopeClass": "context_only",
+    "sourceRepo": "https://github.com/tompickup23/lancashire/tree/gh-pages/lancashirecc/data",
+    "upstreamSite": "https://tompickup23.github.io/lancashire/lancashirecc/",
+    "domains": [
+      "spending",
+      "budgets",
+      "budget_mapping"
+    ],
+    "notes": "Canonical ingestion from the upstream Lancashire transparency pack. This is background context infrastructure, not route-specific published spend."
+  }
+]

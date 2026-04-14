@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/asylum_contract_award.schema.json",
+  "title": "Asylum Contract or Funding Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_id",
+    "record_type",
+    "title",
+    "buyer_name",
+    "scope_class",
+    "status",
+    "generated_at"
+  ],
+  "properties": {
+    "contract_id": { "type": "string" },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "prime_contract_scope",
+        "funding_instruction",
+        "scrutiny_estimate",
+        "cost_indicator",
+        "local_response_contract",
+        "other"
+      ]
+    },
+    "title": { "type": "string" },
+    "buyer_name": { "type": "string" },
+    "buyer_body_id": { "type": ["string", "null"] },
+    "supplier_id": { "type": ["string", "null"] },
+    "supplier_name": { "type": ["string", "null"] },
+    "supplier_company_number": { "type": ["string", "null"] },
+    "supplier_role": {
+      "type": ["string", "null"],
+      "enum": [
+        "prime_provider",
+        "hotel_operator",
+        "freeholder",
+        "owner_group",
+        "brand_operator",
+        "subcontractor",
+        "public_body",
+        "other",
+        null
+      ]
+    },
+    "route_family": { "type": ["string", "null"] },
+    "scheme_label": { "type": ["string", "null"] },
+    "scope_class": {
+      "type": "string",
+      "enum": ["route_specific", "local_route_relevant", "context_only"]
+    },
+    "status": { "type": "string" },
+    "notice_type": { "type": ["string", "null"] },
+    "award_date": { "type": ["string", "null"], "format": "date" },
+    "published_date": { "type": ["string", "null"], "format": "date" },
+    "period_label": { "type": ["string", "null"] },
+    "value_gbp": { "type": ["number", "null"] },
+    "value_kind": {
+      "type": ["string", "null"],
+      "enum": [
+        "award_value",
+        "forecast_total",
+        "daily_cost_average",
+        "tariff",
+        "grant",
+        "unknown",
+        null
+      ]
+    },
+    "geography_scope": { "type": ["string", "null"] },
+    "site_ids": { "type": ["array", "null"], "items": { "type": "string" } },
+    "source_title": { "type": ["string", "null"] },
+    "source_url": { "type": ["string", "null"], "format": "uri" },
+    "confidence": {
+      "type": ["string", "null"],
+      "enum": ["low", "medium", "high", null]
+    },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

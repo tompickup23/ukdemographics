@@ -1,0 +1,13 @@
+{
+  "name": "UK Demographics",
+  "short_name": "UKD",
+  "description": "Population data for every community — ethnic projections, school demand, housing pressure across 320 local authorities",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#04070d",
+  "theme_color": "#4f46e5",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/apple-touch-icon.svg", "type": "image/svg+xml", "sizes": "180x180" }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/hotel_site.schema.json",
+  "title": "Hotel Site Ledger Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "site_id",
+    "site_name",
+    "area_name",
+    "region_name",
+    "country_name",
+    "status",
+    "evidence_class",
+    "confidence",
+    "date_last_public",
+    "source_title",
+    "source_url"
+  ],
+  "properties": {
+    "site_id": {
+      "type": "string"
+    },
+    "site_name": {
+      "type": "string"
+    },
+    "site_type": {
+      "type": ["string", "null"]
+    },
+    "area_name": {
+      "type": "string"
+    },
+    "area_code": {
+      "type": ["string", "null"]
+    },
+    "region_name": {
+      "type": "string"
+    },
+    "country_name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["current", "historical", "unknown"]
+    },
+    "evidence_class": {
+      "type": "string",
+      "enum": [
+        "named_current",
+        "named_historical",
+        "unnamed_count_only",
+        "parliamentary_reference",
+        "media_only_provisional"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "people_housed_reported": {
+      "type": ["number", "null"]
+    },
+    "date_first_public": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "date_last_public": {
+      "type": "string",
+      "format": "date"
+    },
+    "operator_name": {
+      "type": ["string", "null"]
+    },
+    "source_title": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  }
+}

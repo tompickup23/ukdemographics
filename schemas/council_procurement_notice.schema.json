@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/council_procurement_notice.schema.json",
+  "title": "Council Procurement Notice",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "notice_id",
+    "body_id",
+    "title",
+    "status",
+    "published_date"
+  ],
+  "properties": {
+    "notice_id": { "type": "string" },
+    "body_id": { "type": "string" },
+    "source_id": { "type": ["string", "null"] },
+    "title": { "type": "string" },
+    "description": { "type": ["string", "null"] },
+    "notice_type": { "type": ["string", "null"] },
+    "status": { "type": "string" },
+    "published_date": { "type": "string", "format": "date" },
+    "deadline_date": { "type": ["string", "null"], "format": "date" },
+    "awarded_date": { "type": ["string", "null"], "format": "date" },
+    "value_low_gbp": { "type": ["number", "null"] },
+    "value_high_gbp": { "type": ["number", "null"] },
+    "awarded_value_gbp": { "type": ["number", "null"] },
+    "awarded_supplier": { "type": ["string", "null"] },
+    "awarded_to_sme": { "type": ["boolean", "null"] },
+    "suitable_for_sme": { "type": ["boolean", "null"] },
+    "cpv_codes": { "type": ["string", "null"] },
+    "cpv_description": { "type": ["string", "null"] },
+    "postcode": { "type": ["string", "null"] },
+    "region": { "type": ["string", "null"] },
+    "source_notice_url": { "type": ["string", "null"], "format": "uri" }
+  }
+}

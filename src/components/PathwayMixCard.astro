@@ -1,0 +1,59 @@
+---
+interface Segment {
+  label: string;
+  value: number;
+  tone?: "accent" | "teal" | "warm" | "soft";
+  detail?: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  segments: Segment[];
+  note?: string;
+  totalLabel?: string;
+}
+
+const { title, description, segments, note, totalLabel = "tracked total" } = Astro.props;
+
+const visibleSegments = segments.filter((segment) => segment.value > 0);
+const total = visibleSegments.reduce((sum, segment) => sum + segment.value, 0);
+
+function formatValue(value: number): string {
+  return value.toLocaleString();
+}
+---
+
+<figure class="viz-card pathway-mix-card">
+  <div class="viz-head">
+    <div>
+      <h3>{title}</h3>
+      {description && <p class="tiny">{description}</p>}
+    </div>
+    <span class="chip">{total.toLocaleString()} {totalLabel}</span>
+  </div>
+
+  <div class="pathway-mix-track" role="img" aria-label={`${title} pathway mix`}>
+    {visibleSegments.map((segment) => (
+      <span
+        class={`pathway-mix-segment tone-${segment.tone ?? "accent"}`}
+        style={`width: ${total ? (segment.value / total) * 100 : 0}%`}
+      ></span>
+    ))}
+  </div>
+
+  <div class="pathway-mix-legend">
+    {visibleSegments.map((segment) => (
+      <div class="pathway-mix-row">
+        <div class="pathway-mix-label">
+          <span class={`pathway-mix-swatch tone-${segment.tone ?? "accent"}`}></span>
+          <span>{segment.label}</span>
+        </div>
+        <strong>{formatValue(segment.value)}</strong>
+        {segment.detail && <span class="tiny">{segment.detail}</span>}
+      </div>
+    ))}
+  </div>
+
+  {note && <figcaption class="tiny pathway-mix-note">{note}</figcaption>}
+</figure>

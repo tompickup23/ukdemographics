@@ -1,0 +1,10 @@
+dataset_id,dataset_name,scope_class,layer_class,coverage,publicly_included,use_case,notes
+illegal-entry-and-protection-routes,Illegal entry and protection routes chapter,route_specific,official,UK,yes,Small boats protection grants and family reunion context,Use for irregular route analysis
+asylum-and-resettlement-local,Data on asylum and resettlement in local authority areas,route_specific,official_local,Local authority and region,yes,Compare asylum and resettlement pressure by place,Keep release lag separate from national release stream
+local-immigration-groups,Local authority data on immigration groups,route_specific,official_local,Local authority and region,yes,Asylum support Afghan programme and Homes for Ukraine local splits,Best current local route-layer source
+safe-and-legal-humanitarian-routes,Safe and legal humanitarian routes chapter,route_specific,official,UK,yes,Refugee schemes Afghan pathways and Ukraine route context,Keep route families distinct
+home-office-accommodation-contracts,Asylum accommodation and support contracts,route_specific,official_contract,Regional provider geography,yes,Provider-region accountability for asylum hotels,Asylum accommodation only not refugee schemes
+nao-asylum-accommodation,NAO asylum accommodation investigation,route_specific,official_scrutiny,UK,yes,Hotel cost share and procurement drift,Asylum accommodation accountability
+hotel-ledger-council-statements,Council statements and FOIs on asylum hotels or refugee housing,local_route_relevant,public_evidence,Selected places,yes,Named and unnamed hotel evidence and route-specific housing evidence,Public evidence not a complete official estate
+lancashire-general-spend,Lancashire County Council general spend corpus,context_only,context_infrastructure,Single authority,no,Background council accountability model,Do not present as route-specific spend
+generic-council-contracts-finder,Generic council Contracts Finder notices,context_only,context_infrastructure,Single authority,no,Background procurement context only,Promote only rows proven to be tied to a route or scheme

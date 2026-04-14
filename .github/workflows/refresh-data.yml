@@ -1,0 +1,37 @@
+name: Refresh data
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Fetch and transform routes
+        run: npm run ingest:routes
+      - name: Fetch and transform regional sources
+        run: npm run ingest:regionalsources
+      - name: Fetch and transform hotels
+        run: npm run ingest:hotels
+      - name: Transform money ledger
+        run: npm run ingest:money
+      - name: Check for data changes
+        id: changes
+        run: |
+          git diff --quiet src/data/live/ data/marts/ data/canonical/ data/raw/manifests/ || echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Commit and push updated data
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/live/ data/marts/ data/canonical/ data/raw/manifests/
+          git commit -m "data: refresh route + hotel + money data $(date -u +%Y-%m-%d)"
+          git push

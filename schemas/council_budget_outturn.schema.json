@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/council_budget_outturn.schema.json",
+  "title": "Council Budget Outturn Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "body_id",
+    "source_id",
+    "financial_year",
+    "service_name"
+  ],
+  "properties": {
+    "budget_record_id": { "type": "string" },
+    "body_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "financial_year": { "type": "string" },
+    "service_name": { "type": "string" },
+    "budget_family": { "type": ["string", "null"] },
+    "net_budget_gbp": { "type": ["number", "null"] },
+    "gross_expenditure_gbp": { "type": ["number", "null"] },
+    "income_gbp": { "type": ["number", "null"] },
+    "reserves_gbp": { "type": ["number", "null"] },
+    "council_tax_requirement_gbp": { "type": ["number", "null"] },
+    "data_status": { "type": ["string", "null"], "enum": ["official", "derived", "provisional", "final", null] },
+    "source_url": { "type": ["string", "null"], "format": "uri" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

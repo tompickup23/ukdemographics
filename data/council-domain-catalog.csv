@@ -1,0 +1,17 @@
+domain_id,label,observed_files,grain,cadence,body_scope,cross_body,priority,notes
+spending_transactions,Spending transactions,spending-YYYY-MM.json,one published payment line,monthly,body,false,A,Core accountability fact table
+spending_index,Spending search index,spending-index.json,one optimized search/index record,monthly_or_on_publish,body,false,A,Publish mart not canonical raw
+budget_outturn_local,Local budget summaries,budgets.json|budgets_summary.json,body x year x service,annual,body,false,A,Local body finance layer
+budget_outturn_govuk,GOV.UK finance outturn,budgets_govuk.json,body x year x service,annual,body,true,A,Official comparable finance base
+budget_mapping,Budget crosswalk,budget_mapping.json,raw label x mapped finance category,on_rebuild,body,false,A,Strategic bridge between spend and budget
+budget_variance,Budget variance and model checks,budget_variance.json|budget_efficiency.json|budget_insights.json,body x category,on_rebuild,body,true,B,Derived analytical mart
+procurement_notices,Procurement notices,procurement.json,one notice or award,frequent,body,false,A,Contracts Finder-derived procurement layer
+supplier_profiles,Supplier profiles,supplier_index.json,one supplier x generation,on_rebuild,cross_body,true,A,Cross-body supplier comparison layer
+meetings,Meetings and committees,meetings.json,one meeting and committee membership,weekly_or_frequent,body,false,B,Meeting calendar and committee structure
+votes,Recorded votes,voting.json,one vote event plus councillor vote records,on_rebuild,body,false,B,High-value accountability layer
+councillors,Councillor reference,councillors.json|councillor_profiles.json,one councillor,on_change,body,false,A,Reference dimension for civic products
+integrity,Integrity profiles,integrity.json,one councillor x generation,on_rebuild,body,true,A,High-differentiation derived layer
+elections,Election results,elections.json,one election event and result summary,on_release,body,true,B,Historic election comparison layer
+wards_and_boundaries,Wards and geography,wards.json|ward_boundaries.json,one ward or boundary feature,as_needed,body,true,B,Geography dimension and map layer
+editorial_articles,Editorial outputs,articles-index.json|articles/*.json,one article,on_publish,body,true,C,Generated or curated content layer
+foi_templates,FOI helper outputs,foi_templates.json,one template,on_publish,body,true,C,Explicit status metadata needed when empty

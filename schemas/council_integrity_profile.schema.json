@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/council_integrity_profile.schema.json",
+  "title": "Council Integrity Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "councillor_id",
+    "body_id",
+    "generated_at",
+    "risk_level"
+  ],
+  "properties": {
+    "integrity_profile_id": { "type": "string" },
+    "councillor_id": { "type": "string" },
+    "body_id": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "risk_level": { "type": "string", "enum": ["low", "medium", "elevated", "high"] },
+    "integrity_score": { "type": ["number", "null"] },
+    "priority_score": { "type": ["number", "null"] },
+    "total_flags": { "type": ["integer", "null"] },
+    "critical_flags": { "type": ["integer", "null"] },
+    "high_flags": { "type": ["integer", "null"] },
+    "supplier_conflicts": { "type": ["integer", "null"] },
+    "undeclared_interests": { "type": ["integer", "null"] },
+    "recommended_actions": { "type": ["array", "null"], "items": { "type": "string" } },
+    "key_findings": { "type": ["array", "null"], "items": { "type": "string" } },
+    "source_families": { "type": ["array", "null"], "items": { "type": "string" } },
+    "notes": { "type": ["string", "null"] }
+  }
+}

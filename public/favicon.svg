@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- UK Demographics — Favicon (population bars at 32px) -->
+  <rect width="32" height="32" rx="6" fill="#04070d"/>
+  <rect x="4" y="18" width="5" height="11" rx="1.5" fill="#4f46e5"/>
+  <rect x="11" y="12" width="5" height="17" rx="1.5" fill="#4f46e5" opacity="0.8"/>
+  <rect x="18" y="7" width="5" height="22" rx="1.5" fill="#4f46e5" opacity="0.6"/>
+  <rect x="25" y="3" width="5" height="26" rx="1.5" fill="#4f46e5" opacity="0.4"/>
+  <path d="M6.5 17 L13.5 11 L20.5 6 L27.5 2" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <circle cx="6.5" cy="17" r="1.5" fill="#818cf8"/>
+  <circle cx="27.5" cy="2" r="1.5" fill="#10b981"/>
+</svg>

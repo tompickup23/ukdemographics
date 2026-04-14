@@ -1,0 +1,66 @@
+{
+  "facts": [
+    {
+      "label": "Hotels in use",
+      "value": "197",
+      "period": "As of 2026-01-05",
+      "detail": "Official count reported to the Home Affairs Committee.",
+      "sourceUrl": "https://publications.parliament.uk/pa/cm5901/cmselect/cmhaff/541/report.html"
+    },
+    {
+      "label": "People in hotels",
+      "value": "31,000",
+      "period": "End of Dec 2025",
+      "detail": "Around 29% of supported people were in hotels.",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025-summary-of-latest-statistics"
+    },
+    {
+      "label": "Daily hotel cost",
+      "value": "GBP 5.77m",
+      "period": "2024/25 average",
+      "detail": "Down from GBP 8.3m per day in 2023/24.",
+      "sourceUrl": "https://homeofficemedia.blog.gov.uk/2025/06/12/factsheet-asylum-accommodation-and-support/"
+    },
+    {
+      "label": "Hotel cost share",
+      "value": "76%",
+      "period": "First 7 months of 2024/25",
+      "detail": "Hotels housed 35% of those in asylum accommodation.",
+      "sourceUrl": "https://www.nao.org.uk/reports/investigation-into-asylum-accommodation/"
+    },
+    {
+      "label": "10-year contract forecast",
+      "value": "GBP 15.3bn",
+      "period": "NAO estimate",
+      "detail": "Up from GBP 4.5bn in the original contract forecast.",
+      "sourceUrl": "https://www.nao.org.uk/reports/investigation-into-asylum-accommodation/"
+    }
+  ],
+  "providers": [
+    {
+      "provider": "Serco",
+      "regions": ["North West", "Midlands", "East of England"],
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts"
+    },
+    {
+      "provider": "Mears",
+      "regions": ["North East", "Yorkshire and The Humber", "Scotland", "Northern Ireland"],
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts"
+    },
+    {
+      "provider": "Clearsprings",
+      "regions": ["South of England", "Wales"],
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts"
+    }
+  ],
+  "storylines": [
+    {
+      "title": "Cost concentration",
+      "body": "Hotels account for far more than their share of the accommodation bill, which gives the product a clear value-for-money angle."
+    },
+    {
+      "title": "Promise versus reality",
+      "body": "Hotel use fell from the 2023 peak, but the estate remains large and costly enough to justify a standing tracker."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/integrity_signal.schema.json",
+  "title": "Integrity Signal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["signal_id", "signal_type", "severity", "subject_type", "subject_id", "generated_at"],
+  "properties": {
+    "signal_id": { "type": "string" },
+    "signal_type": { "type": "string" },
+    "severity": { "type": "string", "enum": ["info", "warning", "elevated", "high"] },
+    "subject_type": { "type": "string", "enum": ["site", "supplier", "contract", "public_body", "person"] },
+    "subject_id": { "type": "string" },
+    "headline": { "type": ["string", "null"] },
+    "detail": { "type": ["string", "null"] },
+    "route_family": { "type": ["string", "null"] },
+    "confidence": { "type": ["string", "null"], "enum": ["low", "medium", "high", null] },
+    "source_urls": { "type": ["array", "null"], "items": { "type": "string", "format": "uri" } },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

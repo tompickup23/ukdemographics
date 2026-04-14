@@ -1,0 +1,30 @@
+{
+  "headline": "The asylum backlog is growing",
+  "stats": [
+    {
+      "value": "127,834",
+      "label": "People waiting for an initial asylum decision",
+      "color": "coral"
+    },
+    {
+      "value": "4.5",
+      "label": "Average years waiting for a decision",
+      "color": "warning"
+    },
+    {
+      "value": "68%",
+      "label": "Of initial decisions are grants of protection",
+      "color": "accent"
+    },
+    {
+      "value": "£580M",
+      "label": "Annual cost of the asylum backlog",
+      "color": "coral"
+    }
+  ],
+  "verdict": "Decisions delayed. Costs escalate.",
+  "source": "Home Office quarterly statistics",
+  "output_path": "reels/backlog.mp4",
+  "format": "portrait",
+  "watermark": "asylumstats.co.uk"
+}

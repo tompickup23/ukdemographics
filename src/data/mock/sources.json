@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Immigration system statistics",
+    "type": "official national",
+    "coverage": "UK",
+    "use": "National asylum applications, backlog, support, and hotel figures.",
+    "sourceUrl": "https://www.gov.uk/government/collections/immigration-system-statistics"
+  },
+  {
+    "name": "Data on asylum and resettlement in local authority areas",
+    "type": "official local",
+    "coverage": "Local authority, region, nation",
+    "use": "Area comparison pages and local rankings.",
+    "sourceUrl": "https://www.gov.uk/government/statistics/data-on-asylum-and-resettlement-in-local-authority-areas"
+  },
+  {
+    "name": "National Audit Office investigation into asylum accommodation",
+    "type": "official scrutiny",
+    "coverage": "UK",
+    "use": "Cost ratios, procurement drift, and accountability framing.",
+    "sourceUrl": "https://www.nao.org.uk/reports/investigation-into-asylum-accommodation/"
+  },
+  {
+    "name": "Home Affairs Committee report on asylum accommodation",
+    "type": "official scrutiny",
+    "coverage": "UK",
+    "use": "Current hotel count and committee findings.",
+    "sourceUrl": "https://publications.parliament.uk/pa/cm5901/cmselect/cmhaff/541/report.html"
+  },
+  {
+    "name": "Council statements and FOI publications",
+    "type": "public evidence",
+    "coverage": "Selected places",
+    "use": "Named-site hotel ledger and unnamed area sightings.",
+    "sourceUrl": "https://www.eppingforestdc.gov.uk/news/joint-open-letter-bell-hotel-and-phoenix-hotel/"
+  }
+]

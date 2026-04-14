@@ -1,0 +1,564 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageContents from "../components/PageContents.astro";
+import ProjectionChart from "../components/ProjectionChart.astro";
+import { loadRouteDashboard } from "../lib/route-data";
+import { loadMoneyLedger } from "../lib/money-data";
+import { getSeriesDelta } from "../lib/route-analytics";
+import { getCollection } from "astro:content";
+import { getSignificantDemographicShifts } from "../lib/ethnic-projections";
+import rawProjections from "../data/live/ethnic-projections.json";
+import grantRateData from "../data/live/grant-rates-nationality.json";
+import schoolValidationData from "../data/live/school-validation.json";
+
+const routeDashboard = loadRouteDashboard();
+const moneyLedger = loadMoneyLedger();
+const findings = (await getCollection("findings")).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+const latestQuarter = routeDashboard.nationalSystemDynamics.latestQuarter;
+const stockFlowCards = routeDashboard.nationalSystemDynamics.stockFlowCards;
+const featuredRoutes = [...routeDashboard.routeFamilies]
+  .sort((a, b) => b.latestValue - a.latestValue)
+  .slice(0, 4);
+const illegalMethods = [...routeDashboard.illegalEntryMethodsLatestYear].sort((a, b) => b.value - a.value);
+const maxMethodValue = Math.max(...illegalMethods.map((row) => row.value), 1);
+const latestQuarterDecisionBreakdown = routeDashboard.nationalSystemDynamics.latestQuarterDecisionBreakdown;
+const maxDecisionValue = Math.max(...latestQuarterDecisionBreakdown.map((row) => row.value), 1);
+
+type MoneyRecordWithValue = (typeof moneyLedger.records)[number] & { valueGbp: number };
+const highValueRecords = moneyLedger.records
+  .filter((record): record is MoneyRecordWithValue => typeof record.valueGbp === "number")
+  .sort((a, b) => b.valueGbp - a.valueGbp)
+  .slice(0, 4);
+const topSuppliers = moneyLedger.supplierProfiles.slice(0, 4);
+
+const dailyCostRecord = moneyLedger.records.find(
+  (r: any) => r.valueKind === "daily_cost_average" && r.valueGbp > 0
+);
+const dailyCostGbp = dailyCostRecord?.valueGbp ?? 5_770_000;
+
+function fmtGbp(n: number) {
+  if (n >= 1_000_000_000) return `£${(n / 1_000_000_000).toFixed(1)}B`;
+  if (n >= 1_000_000) return `£${(n / 1_000_000).toFixed(1)}M`;
+  return `£${n.toLocaleString("en-GB")}`;
+}
+
+const verdictColor: Record<string, string> = {
+  alert: "var(--accent-3)",
+  critical: "#ef4444",
+  resolved: "#10b981",
+  info: "var(--accent)"
+};
+
+// Aggregate national demographic projections
+const allAreas = rawProjections.areas as Record<string, any>;
+const projYears = [2021, 2031, 2041, 2051];
+const nationalEthLines = (() => {
+  const groups = ["white_british", "asian", "black", "mixed", "white_other"] as const;
+  const colors: Record<string, string> = { white_british: "#06b6d4", asian: "#f59e0b", black: "#a78bfa", mixed: "#10b981", white_other: "#8b9cb3" };
+  const labels: Record<string, string> = { white_british: "White British", asian: "Asian", black: "Black", mixed: "Mixed", white_other: "White Other" };
+
+  return groups.map(g => ({
+    label: labels[g], color: colors[g],
+    points: projYears.map(y => {
+      const yearKey = String(y);
+      let total = 0, groupTotal = 0;
+      for (const area of Object.values(allAreas)) {
+        if (y === 2021) {
+          total += (area as any).current?.total_population || 0;
+          groupTotal += ((area as any).current?.groups_absolute?.[g]) || ((area as any).current?.total_population || 0) * ((area as any).current?.groups?.[g] || 0) / 100;
+        } else if ((area as any).projections?.[yearKey]) {
+          // Use projection percentages with 2021 population as weight
+          const pop = (area as any).current?.total_population || 0;
+          total += pop;
+          groupTotal += pop * ((area as any).projections[yearKey]?.[g] || 0) / 100;
+        }
+      }
+      return { year: y, value: total > 0 ? Math.round(groupTotal / total * 1000) / 10 : 0 };
+    })
+  }));
+})();
+
+const wbBelow50Count = Object.values(allAreas).filter((a: any) =>
+  a.projections?.["2051"]?.white_british < 50
+).length;
+
+const significantShifts = getSignificantDemographicShifts(2060);
+
+const grantRates = grantRateData as any;
+const topGrantRates = (grantRates.leagueTable || []).slice(0, 8);
+const bottomGrantRates = [...(grantRates.leagueTable || [])].sort((a: any, b: any) => a.grantRatePct - b.grantRatePct).slice(0, 8);
+const topClaimants = (grantRates.volumeRanking || []).slice(0, 8);
+const hasAppealData = grantRates.summary?.nationalitiesWithAppealData > 0;
+const biggestUplifts = hasAppealData
+  ? (grantRates.leagueTable || [])
+      .filter((r: any) => r.appealUpliftPp > 10 && r.substantiveDecisions >= 200)
+      .sort((a: any, b: any) => b.appealUpliftPp - a.appealUpliftPp)
+      .slice(0, 8)
+  : [];
+const schoolStats = (schoolValidationData as any).validationStats;
+
+const sections = [
+  { id: "national-overview", label: "Overview" },
+  { id: "national-demographics", label: "Demographics" },
+  { id: "national-routes", label: "Routes" },
+  { id: "national-grant-rates", label: "Grant rates" },
+  { id: "national-spending", label: "Spending" },
+  { id: "national-findings", label: "Findings" }
+];
+---
+
+<BaseLayout
+  title="UK asylum statistics — national overview, grant rates, ethnic projections | asylumstats"
+  description={`UK asylum system: ${latestQuarter.supportedAsylum.toLocaleString()} on support, ${latestQuarter.awaitingInitialDecision.toLocaleString()} awaiting decision, ${fmtGbp(dailyCostGbp)}/day on hotels.`}
+>
+  <section class="page-top">
+    <section class="page-head">
+      <span class="kicker">National</span>
+      <h1>The national asylum picture</h1>
+      <p>Routes, spending, and findings - all in one place.</p>
+    </section>
+  </section>
+
+  <PageContents title="Sections" sections={sections} />
+
+  <!-- OVERVIEW: Key national stats -->
+  <section id="national-overview" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>System overview</h2>
+        <p class="lede">Quarter-end snapshot: {latestQuarter.stockPeriodLabel}.</p>
+      </div>
+    </div>
+    <div class="stats-grid">
+      <article class="stat-card stat-card--accent">
+        <span class="stat-value">{latestQuarter.supportedAsylum.toLocaleString()}</span>
+        <span class="stat-label">On asylum support</span>
+      </article>
+      <article class="stat-card stat-card--warn">
+        <span class="stat-value">{latestQuarter.awaitingInitialDecision.toLocaleString()}</span>
+        <span class="stat-label">Awaiting decision</span>
+      </article>
+      <article class="stat-card stat-card--coral">
+        <span class="stat-value">{latestQuarter.hotelAccommodation.toLocaleString()}</span>
+        <span class="stat-label">In hotels</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-value">{fmtGbp(dailyCostGbp)}</span>
+        <span class="stat-label">Daily hotel cost</span>
+      </article>
+    </div>
+
+    <div class="story-grid" style="margin-top: 1.5rem;">
+      {stockFlowCards.slice(0, 4).map((card) => (
+        <article class="story-card">
+          <span class="tiny">{card.label}</span>
+          <strong style="font-size: 1.4rem;">{card.value.toLocaleString()}{card.valueSuffix ?? ""}</strong>
+          <p class="tiny" style="opacity: 0.6;">{card.period}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- DEMOGRAPHICS -->
+  <section id="national-demographics" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>Demographic outlook</h2>
+        <p class="lede">
+          National ethnic composition trajectory from Census 2021 base.
+          {wbBelow50Count} areas projected below 50% White British by 2051.
+        </p>
+      </div>
+    </div>
+
+    <ProjectionChart
+      title="National ethnic composition (England & Wales)"
+      lines={nationalEthLines}
+      nowYear={2021}
+      yLabel="% of population"
+    />
+
+    {significantShifts.length > 0 && (
+      <div class="story-grid" style="margin-top: 1rem;">
+        {significantShifts.slice(0, 4).map((shift) => (
+          <article class="story-card">
+            <div class="chip-row">
+              <span class="chip accent">{shift.thresholdYear}</span>
+              <span class="chip">{shift.confidence}</span>
+            </div>
+            <strong>{shift.areaName}</strong>
+            <p class="tiny" style="opacity: 0.6;">
+              WBI {shift.currentWbPct.toFixed(0)}% → below 50% by {shift.thresholdYear}.
+              Declining {shift.annualDeclinePp.toFixed(1)}pp/year.
+            </p>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <!-- ROUTES -->
+  <section id="national-routes" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>Routes</h2>
+        <p class="lede">How people enter the asylum system and what happens to their claims.</p>
+      </div>
+      <a class="source-pill" href="/routes/">Full routes detail &rarr;</a>
+    </div>
+
+    <div class="grid-2">
+      <article class="feature-card">
+        <h3>Illegal entry methods</h3>
+        <p class="tiny" style="opacity: 0.6;">Latest year</p>
+        <div class="stacked-bars">
+          {illegalMethods.slice(0, 5).map((method) => (
+            <div class="stacked-bar-row">
+              <div class="stacked-bar-label" style="min-width: 8rem;">
+                <span style="font-size: 0.78rem;">{method.method}</span>
+              </div>
+              <div class="stacked-bar" style="background: var(--panel-soft);">
+                <div class="bar-seg asian" style={`width: ${(method.value / maxMethodValue) * 100}%`}></div>
+              </div>
+              <div class="stacked-bar-pct">{method.value.toLocaleString()}</div>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <h3>Decision outcomes</h3>
+        <p class="tiny" style="opacity: 0.6;">{latestQuarter.quarterLabel ?? ""}</p>
+        <div class="stacked-bars">
+          {latestQuarterDecisionBreakdown.map((row) => (
+            <div class="stacked-bar-row">
+              <div class="stacked-bar-label" style="min-width: 8rem;">
+                <span style="font-size: 0.78rem;">{row.label}</span>
+              </div>
+              <div class="stacked-bar" style="background: var(--panel-soft);">
+                <div class="bar-seg mixed" style={`width: ${(row.value / maxDecisionValue) * 100}%`}></div>
+              </div>
+              <div class="stacked-bar-pct">{row.value.toLocaleString()}</div>
+            </div>
+          ))}
+        </div>
+      </article>
+    </div>
+
+    <div class="story-grid" style="margin-top: 1rem;">
+      {featuredRoutes.map((route) => {
+        const delta = getSeriesDelta(route.series);
+        return (
+          <article class="story-card">
+            <div class="chip-row">
+              <span class="chip accent">{route.label}</span>
+            </div>
+            <strong style="font-size: 1.3rem;">{route.latestValue.toLocaleString()}</strong>
+            <p class="tiny" style="opacity: 0.6;">
+              {route.latestPeriod}
+              {delta !== null ? ` | ${delta >= 0 ? "+" : ""}${delta.toLocaleString()} from previous` : ""}
+            </p>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- GRANT RATES BY NATIONALITY -->
+  <section id="national-grant-rates" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>Grant rates by nationality</h2>
+        <p class="lede">
+          {grantRates.summary?.nationalitiesInLeagueTable} nationalities assessed (2020-2025).
+          {grantRates.summary?.genuineRefugeeNationalities} with 75%+ grant rate,
+          {grantRates.summary?.likelyEconomicMigrationNationalities} with under 25%.
+          Initial decisions only — appeal outcomes raise true rates.
+        </p>
+      </div>
+    </div>
+
+    {/* Grant rate toggle: initial vs after appeals */}
+    <div class="grant-rate-toggle" style="margin-bottom: 0.75rem;">
+      <button class="tab-btn grant-tab active" data-grant-view="initial" aria-pressed="true">Initial decisions</button>
+      <button class="tab-btn grant-tab" data-grant-view="true" aria-pressed="false">After appeals</button>
+    </div>
+
+    <div class="grid-2" id="grant-initial-view">
+      <article class="feature-card">
+        <h3>Highest grant rates</h3>
+        <p class="tiny" style="opacity: 0.6;">Nationalities most likely granted protection (initial decision)</p>
+        <div class="data-list">
+          {topGrantRates.map((row: any) => (
+            <div class="data-row">
+              <span style="font-size: 0.85rem;">{row.nationality}</span>
+              <span class="data-row-value" style="color: var(--accent-success, #10B981);">{row.grantRatePct}%</span>
+            </div>
+          ))}
+        </div>
+      </article>
+      <article class="feature-card">
+        <h3>Lowest grant rates</h3>
+        <p class="tiny" style="opacity: 0.6;">Nationalities most likely refused (initial decision)</p>
+        <div class="data-list">
+          {bottomGrantRates.map((row: any) => (
+            <div class="data-row">
+              <span style="font-size: 0.85rem;">{row.nationality}</span>
+              <span class="data-row-value" style="color: var(--coral, #EF4444);">{row.grantRatePct}%</span>
+            </div>
+          ))}
+        </div>
+      </article>
+    </div>
+
+    <div class="grid-2" id="grant-true-view" style="display: none;">
+      <article class="feature-card">
+        <h3>Highest true grant rates</h3>
+        <p class="tiny" style="opacity: 0.6;">After appeals — the real protection rate</p>
+        <div class="data-list">
+          {(grantRates.leagueTable || [])
+            .filter((r: any) => r.trueGrantRatePct != null)
+            .sort((a: any, b: any) => b.trueGrantRatePct - a.trueGrantRatePct)
+            .slice(0, 8)
+            .map((row: any) => (
+              <div class="data-row">
+                <span style="font-size: 0.85rem;">{row.nationality}</span>
+                <span class="data-row-meta">
+                  <span style="color: var(--muted); font-size: 0.72rem; text-decoration: line-through;">{row.grantRatePct}%</span>
+                  <span style="color: var(--accent-success, #10B981); font-weight: 600; margin-left: 0.3rem;">{row.trueGrantRatePct}%</span>
+                </span>
+              </div>
+            ))}
+        </div>
+      </article>
+      <article class="feature-card">
+        <h3>Biggest appeal uplifts</h3>
+        <p class="tiny" style="opacity: 0.6;">Where appeals change the story most</p>
+        <div class="data-list">
+          {biggestUplifts.map((row: any) => (
+            <div class="data-row">
+              <span style="font-size: 0.85rem;">{row.nationality}</span>
+              <span class="data-row-meta">
+                <span style="color: var(--muted); font-size: 0.78rem;">{row.grantRatePct}%</span>
+                <span style="color: var(--muted); font-size: 0.78rem;"> → </span>
+                <span style="color: var(--accent-success, #10B981); font-weight: 600;">{row.trueGrantRatePct}%</span>
+                <span style="color: #f59e0b; font-size: 0.72rem; margin-left: 0.3rem;">+{row.appealUpliftPp}pp</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </article>
+    </div>
+
+    <script>
+      document.querySelectorAll('.grant-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.grant-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+          const view = btn.getAttribute('data-grant-view');
+          document.getElementById('grant-initial-view')!.style.display = view === 'initial' ? '' : 'none';
+          document.getElementById('grant-true-view')!.style.display = view === 'true' ? '' : 'none';
+        });
+      });
+    </script>
+
+    {/* Appeal uplift data now shown in the toggle above */}
+
+    <article class="feature-card" style="margin-top: 1rem;">
+      <h3>Top claimant nationalities (all time)</h3>
+      <div class="stacked-bars">
+        {topClaimants.map((row: any) => {
+          const maxVol = topClaimants[0]?.totalDecisions || 1;
+          return (
+            <div class="stacked-bar-row">
+              <div class="stacked-bar-label" style="min-width: 8rem;">
+                <span style="font-size: 0.78rem;">{row.nationality}</span>
+              </div>
+              <div class="stacked-bar" style="background: var(--panel-soft);">
+                <div class="bar-seg asian" style={`width: ${(row.totalDecisions / maxVol) * 100}%`}></div>
+              </div>
+              <div class="stacked-bar-pct" style="min-width: 5rem; text-align: right;">
+                {row.totalDecisions.toLocaleString()} <span class="tiny" style="opacity:0.5">({row.grantRatePct}%)</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <details class="method-note" style="margin-top: 0.5rem;">
+        <summary class="tiny" style="cursor: pointer; opacity: 0.6;">Methodology</summary>
+        <p class="tiny" style="margin-top: 0.4rem; opacity: 0.5;">{grantRates.methodology}</p>
+        {(grantRates.caveats || []).map((c: string) => (
+          <p class="tiny" style="margin-top: 0.2rem; opacity: 0.5;">{c}</p>
+        ))}
+      </details>
+    </article>
+  </section>
+
+  <!-- SPENDING -->
+  <section id="national-spending" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>Spending</h2>
+        <p class="lede">Where the money goes - contracts, suppliers, and the hotel bill.</p>
+      </div>
+      <a class="source-pill" href="/spending/">Full spending detail &rarr;</a>
+    </div>
+
+    <div class="grid-2">
+      <article class="feature-card">
+        <h3>Top contracts by value</h3>
+        <div class="data-list">
+          {highValueRecords.map((record) => (
+            <div class="data-row">
+              <span style="font-size: 0.85rem;">{record.title}</span>
+              <span class="data-row-value">{fmtGbp(record.valueGbp)}</span>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <h3>Key suppliers</h3>
+        <div class="data-list">
+          {topSuppliers.map((supplier) => (
+            <div class="data-row">
+              <div>
+                <span style="font-size: 0.85rem;">{supplier.entityName}</span>
+                <div class="tiny" style="opacity: 0.6;">{supplier.siteCount} site{supplier.siteCount === 1 ? "" : "s"} | {supplier.publicContractCount} contract{supplier.publicContractCount === 1 ? "" : "s"}</div>
+              </div>
+              <a class="source-pill" href={`/entities/${supplier.supplierId}/`}>Profile</a>
+            </div>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FINDINGS -->
+  <section id="national-findings" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>Findings</h2>
+        <p class="lede">Data-backed research. Every number sourced.</p>
+      </div>
+      <a class="source-pill" href="/findings/">All findings &rarr;</a>
+    </div>
+
+    <div class="findings-grid">
+      {findings.slice(0, 6).map((finding) => (
+        <a href={`/findings/${finding.id.replace(/\.md$/, "")}/`} class="finding-card">
+          <div class="finding-meta">
+            <span class="finding-category">{finding.data.category}</span>
+            <span class="finding-date">{finding.data.date}</span>
+          </div>
+          <h3 class="finding-headline">{finding.data.headline}</h3>
+          <div class="finding-stat-row">
+            <span class="finding-stat" style={`color: ${verdictColor[finding.data.verdict]}`}>
+              {finding.data.stat_value}
+            </span>
+            <span class="finding-stat-label">{finding.data.stat_label}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- FOOTER LINKS to secondary pages -->
+  <section class="section shell" style="padding-bottom: 3rem;">
+    <h3 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5; margin-bottom: 1rem;">More detail</h3>
+    <div class="chip-row" style="flex-wrap: wrap; gap: 0.5rem;">
+      <a class="source-pill" href="/routes/">Routes explorer</a>
+      <a class="source-pill" href="/spending/">Spending ledger</a>
+      <a class="source-pill" href="/entities/">Entity profiles</a>
+      <a class="source-pill" href="/compare/">Compare places</a>
+      <a class="source-pill" href="/sources/">Sources</a>
+      <a class="source-pill" href="/methodology/">Methodology</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .stat-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .stat-value {
+    font-family: "Sora", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .stat-card--accent { border-left: 3px solid var(--accent); }
+  .stat-card--warn { border-left: 3px solid var(--accent-3); }
+  .stat-card--coral { border-left: 3px solid #ef4444; }
+
+  .findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .finding-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color 180ms, transform 120ms;
+  }
+  .finding-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .finding-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+  }
+  .finding-category {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+  .finding-date { color: var(--muted); }
+  .finding-headline {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .finding-stat-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  .finding-stat {
+    font-family: "Sora", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+  .finding-stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+</style>

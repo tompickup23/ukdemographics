@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import releases from "../data/mock/releases.json";
+import { buildAbsoluteUrl, buildReleaseCollectionStructuredData } from "../lib/site";
+
+const latestRelease = releases[0];
+const pageDescription =
+  "Release diary for asylumstats covering national data updates, local authority snapshots, and hotel evidence changes.";
+const pageStructuredData = buildReleaseCollectionStructuredData(releases, {
+  canonicalUrl: buildAbsoluteUrl("/releases/"),
+  description: pageDescription,
+  socialImageUrl: buildAbsoluteUrl("/og-card.png")
+});
+---
+
+<BaseLayout
+  title="Releases | asylumstats"
+  description={pageDescription}
+  structuredData={pageStructuredData}
+>
+  <section class="page-top">
+    <section class="page-head">
+      <span class="kicker">Release diary</span>
+      <h1>Log what changed and which parts of the site should move with it.</h1>
+      <p>
+        Release discipline matters because national asylum numbers, local authority tables, hotel scrutiny documents,
+        and local public evidence do not all update together.
+      </p>
+    </section>
+
+    <aside class="page-rail">
+      <article class="panel panel-pad">
+        <span class="tiny">Release cadence</span>
+        <div class="stat-strip">
+          <article class="stat-tile">
+            <span class="tiny">Logged releases</span>
+            <strong>{releases.length.toLocaleString()}</strong>
+            <p class="tiny">Manual release diary entries currently on the site.</p>
+          </article>
+          {latestRelease && (
+            <article class="stat-tile">
+              <span class="tiny">Latest entry</span>
+              <strong>{latestRelease.date}</strong>
+              <p class="tiny">{latestRelease.title}</p>
+            </article>
+          )}
+        </div>
+      </article>
+
+      {latestRelease && (
+        <article class="panel panel-pad">
+          <span class="tiny">Latest release</span>
+          <h2 class="rail-title">{latestRelease.title}</h2>
+          <p class="rail-copy">{latestRelease.summary}</p>
+          <a class="source-pill" href={latestRelease.sourceUrl}>Source</a>
+        </article>
+      )}
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <h2>Release timeline</h2>
+        <p class="lede">
+          The diary should tell users what moved, when it moved, and what evidence layer drove the change.
+        </p>
+      </div>
+    </div>
+    <div class="timeline">
+      {releases.map((release) => (
+        <article class="timeline-item">
+          <div class="timeline-date">{release.date}</div>
+          <div class={`timeline-card ${release === latestRelease ? "accent" : ""}`}>
+            <div class="chip-row">
+              <span class="chip">{release.date}</span>
+              {release === latestRelease && <span class="chip accent">Latest</span>}
+            </div>
+            <h3>{release.title}</h3>
+            <p class="lede">{release.summary}</p>
+            <p class="tiny">
+              <a class="source-pill" href={release.sourceUrl}>Source</a>
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

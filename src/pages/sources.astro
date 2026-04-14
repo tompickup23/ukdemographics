@@ -1,0 +1,630 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageContents from "../components/PageContents.astro";
+import regionalSourceWatch from "../data/live/regional-source-watch.json";
+import sourceScope from "../data/live/source-scope.json";
+
+type WatchRow = {
+  entryId: string;
+  organisation: string;
+  regionName: string;
+  coverage: string;
+  currentUrl: string;
+  historicUrl: string;
+  historicPriority: string;
+  formats: string[];
+  routeFocus: string[];
+  recommendedUse: string;
+  notes: string;
+};
+
+const scopeGroups = [
+  {
+    id: "route_specific",
+    label: "Route specific",
+    description: "Direct asylum, refugee, or route-specific evidence that can support public charts and claims."
+  },
+  {
+    id: "local_route_relevant",
+    label: "Local route relevant",
+    description: "Place-level sources that are safe to publish when tied to a route or scheme with clear logic."
+  },
+  {
+    id: "context_only",
+    label: "Context only",
+    description: "Useful research or infrastructure sources that stay out of the public product unless promoted."
+  }
+];
+
+const sourcesByScope = scopeGroups.map((group) => ({
+  ...group,
+  rows: sourceScope.filter((source) => source.scope === group.id)
+}));
+
+const typeCounts = [...new Set(sourceScope.map((source) => source.type))].map((type) => ({
+  type,
+  count: sourceScope.filter((source) => source.type === type).length
+}));
+
+const latestNwrsmpWorkbook = regionalSourceWatch.nwrsmp.documents[0] ?? null;
+const nwrsmpSupportedSeries = regionalSourceWatch.nwrsmp.supportedSeries;
+const combinedHistoricLeadCount =
+  regionalSourceWatch.summary.nwrsmpHistoricWorkbookCount +
+  regionalSourceWatch.summary.archiveToolCount +
+  regionalSourceWatch.summary.archivedResearchInputCount;
+const partnerAssetGroups = [...new Set(regionalSourceWatch.regionalPartnerAssets.map((row) => row.organisation))]
+  .map((organisation) => ({
+    organisation,
+    rows: regionalSourceWatch.regionalPartnerAssets.filter((row) => row.organisation === organisation)
+  }))
+  .sort((left, right) => left.organisation.localeCompare(right.organisation));
+
+const watchSections: Array<{
+  id: string;
+  title: string;
+  description: string;
+  chipClass: "accent" | "teal";
+  rows: WatchRow[];
+}> = [
+  {
+    id: "regional-partners",
+    title: "Strategic migration partnerships and regional data hubs",
+    description:
+      "These are the regional bodies and adjacent organisations most likely to surface usable asylum and refugee spreadsheets, dashboards, or methods worth porting into the site.",
+    chipClass: "accent",
+    rows: regionalSourceWatch.regionalPartners
+  },
+  {
+    id: "similar-organisations",
+    title: "Synthesis and method layers",
+    description:
+      "These pages are valuable because they point back to official datasets, explain caveats, and capture asylum accommodation evidence that is harder to reconstruct from raw tables alone.",
+    chipClass: "teal",
+    rows: regionalSourceWatch.similarOrganisations
+  }
+];
+const sourceFindingCards = [
+  {
+    title: "Regional history is already feeding the live product",
+    body: `${regionalSourceWatch.summary.nwrsmpSupportedSeriesPointCount.toLocaleString()} official quarter-end supported-asylum values from the North West workbook series now feed live place trends instead of sitting as a dead file register.`
+  },
+  {
+    title: "Partner pages are now concrete source inputs",
+    body: `${regionalSourceWatch.summary.regionalPartnerAssetCount} partner assets and ${regionalSourceWatch.summary.migrationObservatoryGuideLinkCount} Migration Observatory guide links are now extracted as specific dashboards, tables, and briefings rather than vague recommendations.`
+  },
+  {
+    title: "Archive leads still have to clear a publication gate",
+    body: `${regionalSourceWatch.summary.archivedResearchInputCount} archive-only discovery input and ${regionalSourceWatch.summary.archiveToolCount} recovery tools stay in the research layer until a route-specific or document-backed public claim can be defended.`
+  }
+];
+const sourceSections = [
+  { id: "source-findings", label: "Findings" },
+  { id: "scope-classes", label: "Scope classes" },
+  { id: "nwrsmp-history", label: "NW history" },
+  { id: "regional-watchlist", label: "Watchlist" },
+  { id: "partner-assets", label: "Partner assets" },
+  { id: "migration-observatory", label: "Observatory" },
+  { id: "archive-tools", label: "Archive tools" },
+  { id: "source-ledger", label: "Ledger" }
+];
+
+function formatIsoDate(value: string) {
+  if (!value) {
+    return "Undated";
+  }
+
+  return new Date(`${value}T00:00:00Z`).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC"
+  });
+}
+
+function formatLabelList(values: string[]) {
+  return values.length ? values.join(" • ") : "No tags recorded";
+}
+---
+
+<BaseLayout
+  title="Sources | asylumstats"
+  description="Source ledger for asylumstats showing which datasets are route specific, locally route relevant, or context only."
+>
+  <section class="page-top">
+    <section class="page-head">
+      <span class="kicker">Source notebook</span>
+      <h1>Every published source needs a scope label before it gets a chart.</h1>
+      <p>
+        The core publishing rule is simple: route-specific and explicitly local route-relevant sources can appear on
+        public pages. Context-only sources stay in the research layer unless a row can be promoted with a clear route
+        or scheme link.
+      </p>
+      <div class="chip-row">
+        <a class="chip" href="/places/">Back to the place map</a>
+      </div>
+    </section>
+
+    <aside class="page-rail">
+      <article class="panel panel-pad">
+        <span class="tiny">Source governance snapshot</span>
+        <div class="stat-strip">
+          <article class="stat-tile">
+            <span class="tiny">Tracked sources</span>
+            <strong>{sourceScope.length.toLocaleString()}</strong>
+            <p class="tiny">Rows in the current public source ledger.</p>
+          </article>
+          <article class="stat-tile">
+            <span class="tiny">Route specific</span>
+            <strong>{sourcesByScope.find((group) => group.id === "route_specific")?.rows.length ?? 0}</strong>
+            <p class="tiny">Direct publishable route evidence.</p>
+          </article>
+          <article class="stat-tile">
+            <span class="tiny">Context only</span>
+            <strong>{sourcesByScope.find((group) => group.id === "context_only")?.rows.length ?? 0}</strong>
+            <p class="tiny">Research-layer sources kept off public charts.</p>
+          </article>
+          <article class="stat-tile">
+            <span class="tiny">NWRSMP snapshots</span>
+            <strong>{regionalSourceWatch.summary.nwrsmpWorkbookCount}</strong>
+            <p class="tiny">Recoverable North West workbook releases.</p>
+          </article>
+          <article class="stat-tile">
+            <span class="tiny">Historic leads</span>
+            <strong>{combinedHistoricLeadCount}</strong>
+            <p class="tiny">Archive tools, older workbook snapshots, and archive-only discovery inputs.</p>
+          </article>
+          <article class="stat-tile">
+            <span class="tiny">Historic quarter points</span>
+            <strong>{regionalSourceWatch.summary.nwrsmpSupportedSeriesPointCount.toLocaleString()}</strong>
+            <p class="tiny">Official supported-asylum area values extracted from the workbook series.</p>
+          </article>
+          <article class="stat-tile">
+            <span class="tiny">Partner assets</span>
+            <strong>{regionalSourceWatch.summary.regionalPartnerAssetCount}</strong>
+            <p class="tiny">Dashboards, hubs, and official source links extracted from partner pages.</p>
+          </article>
+        </div>
+      </article>
+
+      <article class="panel panel-pad">
+        <span class="tiny">Publication rule</span>
+        <h2 class="rail-title">Scope before visualisation</h2>
+        <p class="rail-copy">
+          This product only becomes trustworthy if every source is classified before it is allowed to shape a public
+          claim.
+        </p>
+      </article>
+    </aside>
+  </section>
+
+  <PageContents title="Jump to evidence" sections={sourceSections} variant="priority" />
+
+  <section id="source-findings" class="section section-anchor priority-section">
+    <div class="section-head">
+      <div>
+        <h2>What matters first</h2>
+        <p class="lede">
+          {regionalSourceWatch.summary.nwrsmpSupportedSeriesPointCount.toLocaleString()} official quarter-end place values now feed live trends, {regionalSourceWatch.summary.regionalPartnerAssetCount} partner assets are extracted into the source ledger, and archive-only inputs still stay behind a publication gate until separately verified.
+        </p>
+      </div>
+      <span class="chip accent">Scope before charts</span>
+    </div>
+    <div class="story-grid">
+      {sourceFindingCards.map((card) => (
+        <article class="story-card">
+          <h3>{card.title}</h3>
+          <p class="lede">{card.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="scope-classes" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>Scope classes</h2>
+        <p class="lede">
+          These classes decide whether a source is ready for public use, needs tighter route framing, or belongs in the
+          background research layer only.
+        </p>
+      </div>
+    </div>
+    <div class="feature-grid">
+      {sourcesByScope.map((group) => (
+        <article class="feature-card accent">
+          <div class="chip-row">
+            <span class={`chip ${group.id === "route_specific" ? "accent" : group.id === "local_route_relevant" ? "teal" : ""}`}>
+              {group.label}
+            </span>
+            <span class="chip">{group.rows.length} sources</span>
+          </div>
+          <h3>{group.label}</h3>
+          <p class="lede">{group.description}</p>
+          <div class="signal-list">
+            {group.rows.slice(0, 3).map((source) => (
+              <article class="signal-card">
+                <span class="tiny">{source.type}</span>
+                <h3>{source.name}</h3>
+                <p class="tiny">{source.use}</p>
+              </article>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="nwrsmp-history" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>North West workbook history</h2>
+        <p class="lede">
+          The North West RSMP data page is the clearest recurring regional workbook series currently in scope. It gives
+          the site a usable historic spine instead of only the latest release.
+        </p>
+      </div>
+    </div>
+    <div class="feature-grid">
+      <article class="feature-card accent">
+        <div class="chip-row">
+          <span class="chip accent">Current regional series</span>
+          <span class="chip">{regionalSourceWatch.summary.nwrsmpWorkbookCount} snapshots tracked</span>
+        </div>
+        <h3>{regionalSourceWatch.nwrsmp.pageTitle}</h3>
+        <p class="lede">{regionalSourceWatch.nwrsmp.introNote}</p>
+        <div class="chip-row">
+          <a class="source-pill" href={regionalSourceWatch.nwrsmp.pageUrl}>Open data page</a>
+          {regionalSourceWatch.nwrsmp.dashboardUrl && (
+            <a class="source-pill" href={regionalSourceWatch.nwrsmp.dashboardUrl}>Open Tableau dashboard</a>
+          )}
+        </div>
+      </article>
+
+      {latestNwrsmpWorkbook && (
+        <article class="feature-card">
+          <div class="chip-row">
+            <span class="chip teal">Latest workbook</span>
+            <span class="chip">{formatIsoDate(latestNwrsmpWorkbook.publishedAt)}</span>
+          </div>
+          <h3>{latestNwrsmpWorkbook.title}</h3>
+          <p class="lede">
+            Latest recoverable regional workbook snapshot for historic backfill, local authority comparison, and
+            route-specific cross-checking.
+          </p>
+          <div class="chip-row">
+            <a class="source-pill" href={latestNwrsmpWorkbook.sourceUrl}>Open workbook</a>
+          </div>
+        </article>
+      )}
+
+      <article class="feature-card">
+        <div class="chip-row">
+          <span class="chip accent">Extracted official history</span>
+          <span class="chip">{nwrsmpSupportedSeries.areaCount} current areas</span>
+        </div>
+        <h3>{regionalSourceWatch.summary.nwrsmpSupportedSeriesPointCount.toLocaleString()} quarter-end values now feed the live place trends</h3>
+        <p class="lede">
+          The site is now ingesting official supported-asylum history from {nwrsmpSupportedSeries.firstPeriodLabel} to{" "}
+          {nwrsmpSupportedSeries.latestPeriodLabel}, rather than only tracking workbook files as research leads.
+        </p>
+        <div class="chip-row">
+          {nwrsmpSupportedSeries.primaryWorkbookPublishedAt && (
+            <span class="chip">{formatIsoDate(nwrsmpSupportedSeries.primaryWorkbookPublishedAt)} primary source workbook</span>
+          )}
+          {nwrsmpSupportedSeries.primaryWorkbookUrl && (
+            <a class="source-pill" href={nwrsmpSupportedSeries.primaryWorkbookUrl}>Open source workbook</a>
+          )}
+        </div>
+      </article>
+    </div>
+
+    <div class="split section">
+      <div class="panel panel-pad">
+        <h2>Historic workbook register</h2>
+        <p class="lede">
+          These snapshots are ordered newest first so overwritten public files do not erase the older regional series.
+        </p>
+        <div class="table-card">
+          <table>
+            <caption>Recovered North West RSMP workbook snapshots with direct links to each preserved public file.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Published</th>
+                <th scope="col">Workbook</th>
+                <th scope="col">Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              {regionalSourceWatch.nwrsmp.documents.map((document) => (
+                <tr>
+                  <td>{formatIsoDate(document.publishedAt)}</td>
+                  <th scope="row">{document.title}</th>
+                  <td>
+                    <a class="source-pill" href={document.sourceUrl}>Open workbook</a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel panel-pad">
+        <h2>Provenance rule</h2>
+        <div class="signal-list">
+          <article class="signal-card accent">
+            <span class="tiny">Regional secondary layer</span>
+            <h3>Use the workbook series to discover and verify patterns, not to hide the original owner.</h3>
+            <p class="tiny">{regionalSourceWatch.nwrsmp.provenanceNote}</p>
+          </article>
+          <article class="signal-card">
+            <span class="tiny">Historic benefit</span>
+            <h3>{regionalSourceWatch.summary.nwrsmpHistoricWorkbookCount} older snapshots stay visible</h3>
+            <p class="tiny">
+              That matters because many partnership sites only surface the newest file and quietly overwrite the old
+              one.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="regional-watchlist" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>Regional and synthesis watchlist</h2>
+        <p class="lede">
+          This is the shortlist of regional partnerships and similar organisations most likely to expand asylum and
+          refugee coverage beyond the current official tables.
+        </p>
+      </div>
+    </div>
+    <div class="feature-grid">
+      {watchSections.map((section) => (
+        <article class={`feature-card ${section.chipClass === "accent" ? "accent" : ""}`}>
+          <div class="chip-row">
+            <span class={`chip ${section.chipClass}`}>{section.rows.length} leads</span>
+          </div>
+          <h3>{section.title}</h3>
+          <p class="lede">{section.description}</p>
+          <div class="signal-list">
+            {section.rows.map((row) => (
+              <article class="signal-card">
+                <div class="chip-row">
+                  <span class={`chip ${section.chipClass}`}>{row.regionName}</span>
+                  <span class="chip">{row.historicPriority} historic priority</span>
+                </div>
+                <h3>{row.organisation}</h3>
+                <p class="tiny">{row.coverage}</p>
+                <p class="tiny">{row.recommendedUse}</p>
+                <p class="tiny">{row.notes}</p>
+                <div class="chip-row">
+                  <span class="chip">{formatLabelList(row.routeFocus)}</span>
+                  <span class="chip">{formatLabelList(row.formats)}</span>
+                </div>
+                <div class="chip-row">
+                  <a class="source-pill" href={row.currentUrl}>Open current page</a>
+                  <a class="source-pill" href={row.historicUrl}>Historic route</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="partner-assets" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>Partner-extracted dashboards and local tables</h2>
+        <p class="lede">
+          These assets are now being extracted directly from partner pages, so the site tracks concrete dashboards and
+          source links rather than only keeping a generic watchlist entry for each organisation.
+        </p>
+      </div>
+      <span class="chip accent">{regionalSourceWatch.summary.regionalPartnerAssetCount} extracted partner assets</span>
+    </div>
+    <div class="feature-grid">
+      {partnerAssetGroups.map((group) => (
+        <article class="feature-card accent">
+          <div class="chip-row">
+            <span class="chip accent">{group.rows.length} assets</span>
+            <span class="chip">{group.rows[0]?.regionName}</span>
+          </div>
+          <h3>{group.organisation}</h3>
+          <div class="signal-list">
+            {group.rows.map((row) => (
+              <article class="signal-card">
+                <div class="chip-row">
+                  <span class="chip teal">{row.assetType.replaceAll("_", " ")}</span>
+                  <span class="chip">{formatLabelList(row.routeFocus)}</span>
+                </div>
+                <h3>{row.assetTitle}</h3>
+                <p class="tiny">{row.notes}</p>
+                <div class="chip-row">
+                  <a class="source-pill" href={row.assetUrl}>Open asset</a>
+                  <a class="source-pill" href={row.pageUrl}>Source page</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="migration-observatory" class="split section section-anchor">
+    <div class="panel panel-pad">
+      <h2>Migration Observatory traced local tables</h2>
+      <p class="lede">
+        The local data guide is now treated as a structured tracing layer. These are the concrete asylum, refugee, and
+        local migration links pulled out of the guide rather than left as a general recommendation.
+      </p>
+      <div class="signal-list">
+        {regionalSourceWatch.migrationObservatoryGuideLinks.map((row, index) => (
+          <article class={`signal-card${index === 0 ? " accent" : ""}`}>
+            <div class="chip-row">
+              <span class="chip accent">{row.assetType.replaceAll("_", " ")}</span>
+              <span class="chip">{formatLabelList(row.routeFocus)}</span>
+            </div>
+            <h3>{row.assetTitle}</h3>
+            <p class="tiny">{row.notes}</p>
+            <div class="chip-row">
+              <a class="source-pill" href={row.assetUrl}>Open traced link</a>
+              <a class="source-pill" href={row.pageUrl}>Open guide page</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="panel panel-pad">
+      <h2>What the guide is now doing</h2>
+      <div class="signal-list">
+        <article class="signal-card accent">
+          <span class="tiny">Traceability</span>
+          <h3>{regionalSourceWatch.summary.migrationObservatoryGuideLinkCount} concrete links are now pulled out of the guide</h3>
+          <p class="tiny">
+            That means the guide can point users toward specific asylum, refugee, UASC, and local migration tables
+            instead of remaining a vague background recommendation.
+          </p>
+        </article>
+        <article class="signal-card">
+          <span class="tiny">Scope control</span>
+          <h3>The guide stays a synthesis layer, but its traced links can still be promoted individually</h3>
+          <p class="tiny">
+            This keeps the distinction clear between a useful explainer page and the underlying official tables that
+            are safe to chart or cite directly.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="archive-tools" class="split section section-anchor">
+    <div class="panel panel-pad">
+      <h2>Historic recovery tools</h2>
+      <div class="signal-list">
+        {regionalSourceWatch.archiveTools.map((tool) => (
+          <article class="signal-card accent">
+            <div class="chip-row">
+              <span class="chip accent">{tool.historicPriority} priority</span>
+              <span class="chip">{tool.regionName}</span>
+            </div>
+            <h3>{tool.organisation}</h3>
+            <p class="tiny">{tool.coverage}</p>
+            <p class="tiny">{tool.recommendedUse}</p>
+            <p class="tiny">{tool.notes}</p>
+            <div class="chip-row">
+              <a class="source-pill" href={tool.currentUrl}>Open tool</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="panel panel-pad">
+      <h2>Archive-only discovery inputs</h2>
+      <div class="signal-list">
+        {regionalSourceWatch.archivedResearchInputs.map((row) => (
+          <article class="signal-card">
+            <div class="chip-row">
+              <span class="chip teal">Verification required</span>
+              <span class="chip">{row.regionName}</span>
+            </div>
+            <h3>{row.organisation}</h3>
+            <p class="tiny">{row.coverage}</p>
+            <p class="tiny">{row.recommendedUse}</p>
+            <p class="tiny">{row.notes}</p>
+            <div class="chip-row">
+              <a class="source-pill" href={row.currentUrl}>Open archived snapshot</a>
+              <a class="source-pill" href={row.historicUrl}>Browse archive captures</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="split section">
+    <div class="panel panel-pad">
+      <h2>Source types in use</h2>
+      <div class="signal-list">
+        {typeCounts.map((row) => (
+          <article class="signal-card">
+            <div class="chip-row">
+              <span class="chip accent">{row.count} rows</span>
+            </div>
+            <h3>{row.type}</h3>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="panel panel-pad">
+      <h2>What this protects against</h2>
+      <div class="signal-list">
+        <article class="signal-card accent">
+          <span class="tiny">Mixing problem</span>
+          <h3>Generic infrastructure stops pretending to be asylum evidence</h3>
+          <p class="tiny">
+            Councils, contracts, and public finance systems only move onto public pages when they can be tied back to a
+            route or scheme clearly enough to defend.
+          </p>
+        </article>
+        <article class="signal-card">
+          <span class="tiny">Archive discipline</span>
+          <h3>Discovery leads do not become claims by accident</h3>
+          <p class="tiny">
+            Archive-only maps and overwritten downloads can generate leads, but they still need an explicit
+            corroboration step before they shape a public hotel record or place claim.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="source-ledger" class="section section-anchor">
+    <div class="section-head">
+      <div>
+        <h2>Source ledger</h2>
+        <p class="lede">
+          This is the underlying register of sources, their scope label, and how they are allowed to influence the
+          public site.
+        </p>
+      </div>
+    </div>
+    <div class="table-card">
+      <table>
+        <caption>Source register showing each dataset, its scope label, and the way it is allowed to shape public pages.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Source</th>
+            <th scope="col">Type</th>
+            <th scope="col">Scope</th>
+            <th scope="col">Public use</th>
+            <th scope="col">Used for</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sourceScope.map((source) => (
+            <tr>
+              <th scope="row">
+                <strong>{source.name}</strong>
+                <div class="tiny">
+                  <a class="source-pill" href={source.sourceUrl}>Open source</a>
+                </div>
+              </th>
+              <td>{source.type}</td>
+              <td>{source.scope}</td>
+              <td>{source.publiclyIncluded}</td>
+              <td>{source.use}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</BaseLayout>

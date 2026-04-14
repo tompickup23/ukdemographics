@@ -1,0 +1,41 @@
+[
+  {
+    "date": "2026-04-14",
+    "title": "Model v7.0: Census 2011 DC2101EW, per-LA migration, 25 findings",
+    "summary": "Major model upgrade. Census 2011 DC2101EW (18 groups, observed) replaces NEWETHPOP proportional splitting. MAE improved 2.45 to 1.71pp. Per-LA ethnic migration rates from Census 2021. Scenario selector on every place page. Cost calculator. Backlog clock. Postcode resolver. Grant rate appeal toggle. 25 findings live."
+  },
+  {
+    "date": "2026-04-14",
+    "title": "Asy_D04 outcome analysis: true grant rates after appeals",
+    "summary": "Home Office outcome analysis (Dec 2025) integrated. 103 nationalities with initial + appeal-adjusted grant rates. Average uplift +14.1pp. Iran 67% initial to 85% after appeals. Sri Lanka 27% to 59%."
+  },
+  {
+    "date": "2026-04-14",
+    "title": "ONS Births 2024 fertility data integrated",
+    "summary": "Empirical TFRs from ONS Linked Births 2024. White British TFR 1.31, Pakistani 2.52. National ASFRs by age band. IMD deprivation fertility gradient 1.66x. 567,460 births analysed."
+  },
+  {
+    "date": "2026-02-26",
+    "title": "National asylum statistics updated",
+    "summary": "Year ending December 2025 figures published, including 107,200 people on support and 31,000 in hotels.",
+    "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025-summary-of-latest-statistics"
+  },
+  {
+    "date": "2026-01-23",
+    "title": "Committee report confirms 197 hotels in use",
+    "summary": "Home Affairs Committee report captures the official count of hotels in use as of 5 January 2026.",
+    "sourceUrl": "https://publications.parliament.uk/pa/cm5901/cmselect/cmhaff/541/report.html"
+  },
+  {
+    "date": "2025-11-27",
+    "title": "Local authority asylum and resettlement tables updated",
+    "summary": "Latest public local release remained the year ending September 2025, with Glasgow still highest by count.",
+    "sourceUrl": "https://www.gov.uk/government/statistics/data-on-asylum-and-resettlement-in-local-authority-areas"
+  },
+  {
+    "date": "2025-06-12",
+    "title": "Home Office publishes hotel cost factsheet",
+    "summary": "Average daily hotel cost for 2024/25 published at GBP 5.77 million.",
+    "sourceUrl": "https://homeofficemedia.blog.gov.uk/2025/06/12/factsheet-asylum-accommodation-and-support/"
+  }
+]

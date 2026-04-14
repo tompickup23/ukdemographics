@@ -1,0 +1,734 @@
+{
+  "generatedAt": "2026-02-28T17:32:15.601Z",
+  "summary": {
+    "totalRecords": 11,
+    "primeContractRows": 3,
+    "fundingInstructionRows": 6,
+    "scrutinyOrCostRows": 2,
+    "rowsWithDisclosedValue": 6,
+    "uniqueSuppliers": 9,
+    "linkedNamedSites": 4,
+    "routeFamiliesCovered": 4
+  },
+  "records": [
+    {
+      "recordId": "money_aasc-serco-regions",
+      "recordType": "prime_contract_scope",
+      "title": "Asylum accommodation and support contract regional scope: Serco",
+      "buyerName": "Home Office",
+      "buyerBodyId": "home_office",
+      "supplierId": "supplier_serco",
+      "supplierName": "Serco",
+      "supplierCompanyNumber": null,
+      "supplierRole": "prime_provider",
+      "routeFamily": "asylum_support",
+      "schemeLabel": null,
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "contract_scope",
+      "awardDate": null,
+      "publishedDate": null,
+      "periodLabel": "Current regional contract structure",
+      "valueGbp": null,
+      "valueKind": null,
+      "geographyScope": "East of England; Midlands; North West",
+      "siteIds": [
+        "bell-hotel-epping",
+        "phoenix-hotel-north-weald"
+      ],
+      "linkedSites": [
+        {
+          "siteId": "bell-hotel-epping",
+          "siteName": "Bell Hotel",
+          "areaName": "Epping Forest",
+          "regionName": "East of England",
+          "entityCoverage": "partial"
+        },
+        {
+          "siteId": "phoenix-hotel-north-weald",
+          "siteName": "Phoenix Hotel",
+          "areaName": "Epping Forest",
+          "regionName": "East of England",
+          "entityCoverage": "unresolved"
+        }
+      ],
+      "sourceTitle": "Asylum accommodation and support contracts",
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts",
+      "confidence": "high",
+      "notes": "Current regional responsibility in the public contract structure. The starter ledger uses this to map visible current hotel sites to a prime provider."
+    },
+    {
+      "recordId": "money_aasc-mears-regions",
+      "recordType": "prime_contract_scope",
+      "title": "Asylum accommodation and support contract regional scope: Mears",
+      "buyerName": "Home Office",
+      "buyerBodyId": "home_office",
+      "supplierId": "supplier_mears",
+      "supplierName": "Mears",
+      "supplierCompanyNumber": null,
+      "supplierRole": "prime_provider",
+      "routeFamily": "asylum_support",
+      "schemeLabel": null,
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "contract_scope",
+      "awardDate": null,
+      "publishedDate": null,
+      "periodLabel": "Current regional contract structure",
+      "valueGbp": null,
+      "valueKind": null,
+      "geographyScope": "North East; Yorkshire and The Humber; Scotland; Northern Ireland",
+      "siteIds": [
+        "cedar-court-wakefield"
+      ],
+      "linkedSites": [
+        {
+          "siteId": "cedar-court-wakefield",
+          "siteName": "Cedar Court Hotel",
+          "areaName": "Wakefield",
+          "regionName": "Yorkshire and The Humber",
+          "entityCoverage": "partial"
+        }
+      ],
+      "sourceTitle": "Asylum accommodation and support contracts",
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts",
+      "confidence": "high",
+      "notes": "Current regional responsibility in the public contract structure. The starter ledger uses this to map visible current hotel sites to a prime provider."
+    },
+    {
+      "recordId": "money_aasc-clearsprings-regions",
+      "recordType": "prime_contract_scope",
+      "title": "Asylum accommodation and support contract regional scope: Clearsprings",
+      "buyerName": "Home Office",
+      "buyerBodyId": "home_office",
+      "supplierId": "supplier_clearsprings_ready_homes",
+      "supplierName": "Clearsprings Ready Homes",
+      "supplierCompanyNumber": null,
+      "supplierRole": "prime_provider",
+      "routeFamily": "asylum_support",
+      "schemeLabel": null,
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "contract_scope",
+      "awardDate": null,
+      "publishedDate": null,
+      "periodLabel": "Current regional contract structure",
+      "valueGbp": null,
+      "valueKind": null,
+      "geographyScope": "South of England; Wales",
+      "siteIds": [
+        "stanwell-hotel-spelthorne"
+      ],
+      "linkedSites": [
+        {
+          "siteId": "stanwell-hotel-spelthorne",
+          "siteName": "Stanwell Hotel",
+          "areaName": "Spelthorne",
+          "regionName": "South East",
+          "entityCoverage": "partial"
+        }
+      ],
+      "sourceTitle": "Asylum accommodation and support contracts",
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts",
+      "confidence": "high",
+      "notes": "Current regional responsibility in the public contract structure. The starter ledger uses this to map visible current hotel sites to a prime provider."
+    },
+    {
+      "recordId": "money_nao-accommodation-forecast",
+      "recordType": "scrutiny_estimate",
+      "title": "10-year asylum accommodation contract forecast",
+      "buyerName": "Home Office",
+      "buyerBodyId": "home_office",
+      "supplierId": null,
+      "supplierName": null,
+      "supplierCompanyNumber": null,
+      "supplierRole": null,
+      "routeFamily": "asylum_support",
+      "schemeLabel": null,
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "nao_scrutiny",
+      "awardDate": null,
+      "publishedDate": "2024-11-08",
+      "periodLabel": "10-year forecast as at 2024-11-08",
+      "valueGbp": 15300000000,
+      "valueKind": "forecast_total",
+      "geographyScope": "UK",
+      "siteIds": [],
+      "linkedSites": [],
+      "sourceTitle": "Investigation into asylum accommodation",
+      "sourceUrl": "https://www.nao.org.uk/reports/investigation-into-asylum-accommodation/",
+      "confidence": "high",
+      "notes": "NAO said the 10-year accommodation contract forecast rose from GBP 4.5 billion to GBP 15.3 billion."
+    },
+    {
+      "recordId": "money_home-office-daily-hotel-cost",
+      "recordType": "cost_indicator",
+      "title": "Average daily asylum hotel cost",
+      "buyerName": "Home Office",
+      "buyerBodyId": "home_office",
+      "supplierId": null,
+      "supplierName": null,
+      "supplierCompanyNumber": null,
+      "supplierRole": null,
+      "routeFamily": "asylum_support",
+      "schemeLabel": null,
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "media_factsheet",
+      "awardDate": null,
+      "publishedDate": "2025-06-12",
+      "periodLabel": "2024/25 average",
+      "valueGbp": 5770000,
+      "valueKind": "daily_cost_average",
+      "geographyScope": "UK",
+      "siteIds": [],
+      "linkedSites": [],
+      "sourceTitle": "Factsheet: asylum accommodation and support",
+      "sourceUrl": "https://homeofficemedia.blog.gov.uk/2025/06/12/factsheet-asylum-accommodation-and-support/",
+      "confidence": "high",
+      "notes": "Home Office said hotel use averaged GBP 5.77 million per day in 2024/25."
+    },
+    {
+      "recordId": "money_homes-for-ukraine-tariff-2025-26",
+      "recordType": "funding_instruction",
+      "title": "Homes for Ukraine standard local-authority tariff",
+      "buyerName": "Ministry of Housing Communities and Local Government",
+      "buyerBodyId": "mhclg",
+      "supplierId": "supplier_participating_local_authorities",
+      "supplierName": "Participating local authorities",
+      "supplierCompanyNumber": null,
+      "supplierRole": "public_body",
+      "routeFamily": "homes_for_ukraine",
+      "schemeLabel": "Homes for Ukraine",
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "grant_determination",
+      "awardDate": null,
+      "publishedDate": "2026-02-03",
+      "periodLabel": "2025/26 standard arrivals tariff",
+      "valueGbp": 5900,
+      "valueKind": "tariff",
+      "geographyScope": "England",
+      "siteIds": [],
+      "linkedSites": [],
+      "sourceTitle": "Homes for Ukraine Funding Arrangements 2025 to 2026 for tariffs 1 July 2025 to 30 September 2025",
+      "sourceUrl": "https://www.gov.uk/government/publications/homes-for-ukraine-funding-arrangements-2025-to-2026-for-tariffs-1-july-2025-to-30-september-2025/homes-for-ukraine-funding-arrangements-2025-to-2026-for-tariffs-1-july-2025-to-30-september-2025",
+      "confidence": "high",
+      "notes": "Current guidance says the standard tariff is GBP 5,900 for arrivals on or after 1 January 2023. Legacy cohorts and minors can attract different amounts."
+    },
+    {
+      "recordId": "money_uk-resettlement-funding-2025-26",
+      "recordType": "funding_instruction",
+      "title": "UK resettlement programmes funding instruction 2025 to 2026",
+      "buyerName": "Home Office",
+      "buyerBodyId": "home_office",
+      "supplierId": "supplier_participating_local_authorities",
+      "supplierName": "Participating local authorities",
+      "supplierCompanyNumber": null,
+      "supplierRole": "public_body",
+      "routeFamily": "uk_resettlement_scheme",
+      "schemeLabel": "UK resettlement programmes",
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "funding_instruction",
+      "awardDate": null,
+      "publishedDate": "2025-07-11",
+      "periodLabel": "2025/26 funding instruction",
+      "valueGbp": null,
+      "valueKind": "unknown",
+      "geographyScope": "UK",
+      "siteIds": [],
+      "linkedSites": [],
+      "sourceTitle": "UK resettlement programmes: funding instructions 2025 to 2026",
+      "sourceUrl": "https://www.gov.uk/government/publications/uk-resettlement-programmes-funding-instructions-2025-to-2026/uk-resettlement-programmes-funding-instructions-2025-to-2026",
+      "confidence": "high",
+      "notes": "The starter ledger records the live official funding instruction but does not yet normalize the component tariff table into separate machine-readable rows."
+    },
+    {
+      "recordId": "money_asylum-grant-baseline-2025-26",
+      "recordType": "funding_instruction",
+      "title": "Asylum Grant 2025 to 2026 baseline payment",
+      "buyerName": "Home Office",
+      "buyerBodyId": "home_office",
+      "supplierId": "supplier_participating_local_authorities",
+      "supplierName": "Participating local authorities",
+      "supplierCompanyNumber": null,
+      "supplierRole": "public_body",
+      "routeFamily": "asylum_support",
+      "schemeLabel": "Asylum Grant 2025 to 2026",
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "funding_instruction",
+      "awardDate": null,
+      "publishedDate": "2025-03-31",
+      "periodLabel": "2025/26 baseline payment",
+      "valueGbp": 1200,
+      "valueKind": "tariff",
+      "geographyScope": "England; Scotland; Wales",
+      "siteIds": [],
+      "linkedSites": [],
+      "sourceTitle": "Funding Instruction for Local Authorities: Asylum Grant 2025 to 2026",
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-dispersal-grant-funding-instruction/funding-instruction-for-local-authorities-asylum-grant-2025-to-2026-accessible-html",
+      "confidence": "high",
+      "notes": "Accessible guidance says local authorities receive GBP 1,200 per accommodated asylum seeker present on 30 March 2025."
+    },
+    {
+      "recordId": "money_asylum-grant-growth-bedspace-2025-26",
+      "recordType": "funding_instruction",
+      "title": "Asylum Grant 2025 to 2026 additional occupied bedspace payment",
+      "buyerName": "Home Office",
+      "buyerBodyId": "home_office",
+      "supplierId": "supplier_participating_local_authorities",
+      "supplierName": "Participating local authorities",
+      "supplierCompanyNumber": null,
+      "supplierRole": "public_body",
+      "routeFamily": "asylum_support",
+      "schemeLabel": "Asylum Grant 2025 to 2026",
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "funding_instruction",
+      "awardDate": null,
+      "publishedDate": "2025-03-31",
+      "periodLabel": "Monthly marginal bedspace payment",
+      "valueGbp": 100,
+      "valueKind": "tariff",
+      "geographyScope": "England; Scotland; Wales",
+      "siteIds": [],
+      "linkedSites": [],
+      "sourceTitle": "Funding Instruction for Local Authorities: Asylum Grant 2025 to 2026",
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-dispersal-grant-funding-instruction/funding-instruction-for-local-authorities-asylum-grant-2025-to-2026-accessible-html",
+      "confidence": "high",
+      "notes": "Accessible guidance says local authorities receive GBP 100 per additional occupied bedspace per month above the 31 March 2025 baseline."
+    },
+    {
+      "recordId": "money_afghan-programmes-funding-2024-25",
+      "recordType": "funding_instruction",
+      "title": "Afghan schemes funding instruction 2024 to 2025",
+      "buyerName": "Home Office",
+      "buyerBodyId": "home_office",
+      "supplierId": "supplier_participating_local_authorities",
+      "supplierName": "Participating local authorities",
+      "supplierCompanyNumber": null,
+      "supplierRole": "public_body",
+      "routeFamily": "afghan_resettlement_programme",
+      "schemeLabel": "Afghan schemes",
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "funding_instruction",
+      "awardDate": null,
+      "publishedDate": "2024-11-11",
+      "periodLabel": "2024/25 funding instruction page updated 2025-09-01",
+      "valueGbp": null,
+      "valueKind": "unknown",
+      "geographyScope": "UK",
+      "siteIds": [],
+      "linkedSites": [],
+      "sourceTitle": "Afghan schemes: funding instructions 2024 to 2025",
+      "sourceUrl": "https://www.gov.uk/government/publications/afghan-schemes-funding-instructions-2024-to-2025/afghan-schemes-funding-instructions-2024-to-2025",
+      "confidence": "medium",
+      "notes": "Current official page for Afghan pathway local-authority funding. The starter ledger has not yet normalized scheme-specific tariff components."
+    },
+    {
+      "recordId": "money_homes-for-ukraine-welcome-payment",
+      "recordType": "funding_instruction",
+      "title": "Homes for Ukraine welcome payment per guest",
+      "buyerName": "Ministry of Housing Communities and Local Government",
+      "buyerBodyId": "mhclg",
+      "supplierId": "supplier_participating_local_authorities",
+      "supplierName": "Participating local authorities",
+      "supplierCompanyNumber": null,
+      "supplierRole": "public_body",
+      "routeFamily": "homes_for_ukraine",
+      "schemeLabel": "Homes for Ukraine",
+      "scopeClass": "route_specific",
+      "status": "active",
+      "noticeType": "grant_guidance",
+      "awardDate": null,
+      "publishedDate": "2023-01-16",
+      "periodLabel": "Current guest welcome payment",
+      "valueGbp": 200,
+      "valueKind": "grant",
+      "geographyScope": "UK",
+      "siteIds": [],
+      "linkedSites": [],
+      "sourceTitle": "Homes for Ukraine: Councillor guidance",
+      "sourceUrl": "https://www.gov.uk/guidance/homes-for-ukraine-councillor-guidance",
+      "confidence": "high",
+      "notes": "Councils provide a one-off GBP 200 welcome payment to each guest on arrival. The guidance page used here was last updated on 2025-09-15."
+    }
+  ],
+  "supplierProfiles": [
+    {
+      "supplierId": "supplier_serco",
+      "entityName": "Serco",
+      "entityRole": "prime_provider",
+      "companyNumber": null,
+      "routeFamilies": [
+        "asylum_support"
+      ],
+      "siteCount": 2,
+      "publicContractCount": 1,
+      "publicContractValueGbp": null,
+      "riskLevel": "low",
+      "integritySignalCount": 0,
+      "sourceUrls": [
+        "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts"
+      ],
+      "siteIds": [
+        "bell-hotel-epping",
+        "phoenix-hotel-north-weald"
+      ],
+      "notes": "Current regional responsibility in the public contract structure. The starter ledger uses this to map visible current hotel sites to a prime provider."
+    },
+    {
+      "supplierId": "supplier_cedar_court_hotels",
+      "entityName": "Cedar Court Hotels",
+      "entityRole": "hotel_operator",
+      "companyNumber": null,
+      "routeFamilies": [
+        "asylum_support"
+      ],
+      "siteCount": 1,
+      "publicContractCount": 0,
+      "publicContractValueGbp": null,
+      "riskLevel": "elevated",
+      "integritySignalCount": 1,
+      "sourceUrls": [
+        "https://www.cedarcourthotels.co.uk/hotels/wakefield/"
+      ],
+      "siteIds": [
+        "cedar-court-wakefield"
+      ],
+      "notes": "Official hotel site places the Wakefield property inside the Cedar Court Hotels collection but does not clearly expose the current operating company in this starter ledger."
+    },
+    {
+      "supplierId": "supplier_clearsprings",
+      "entityName": "Clearsprings",
+      "entityRole": "prime_provider",
+      "companyNumber": null,
+      "routeFamilies": [
+        "asylum_support"
+      ],
+      "siteCount": 1,
+      "publicContractCount": 0,
+      "publicContractValueGbp": null,
+      "riskLevel": "low",
+      "integritySignalCount": 0,
+      "sourceUrls": [
+        "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts"
+      ],
+      "siteIds": [
+        "stanwell-hotel-spelthorne"
+      ],
+      "notes": null
+    },
+    {
+      "supplierId": "supplier_clearsprings_ready_homes",
+      "entityName": "Clearsprings Ready Homes",
+      "entityRole": "prime_provider",
+      "companyNumber": null,
+      "routeFamilies": [
+        "asylum_support"
+      ],
+      "siteCount": 1,
+      "publicContractCount": 1,
+      "publicContractValueGbp": null,
+      "riskLevel": "low",
+      "integritySignalCount": 0,
+      "sourceUrls": [
+        "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts"
+      ],
+      "siteIds": [
+        "stanwell-hotel-spelthorne"
+      ],
+      "notes": "Current regional responsibility in the public contract structure. The starter ledger uses this to map visible current hotel sites to a prime provider."
+    },
+    {
+      "supplierId": "supplier_mears",
+      "entityName": "Mears",
+      "entityRole": "prime_provider",
+      "companyNumber": null,
+      "routeFamilies": [
+        "asylum_support"
+      ],
+      "siteCount": 1,
+      "publicContractCount": 1,
+      "publicContractValueGbp": null,
+      "riskLevel": "low",
+      "integritySignalCount": 0,
+      "sourceUrls": [
+        "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts"
+      ],
+      "siteIds": [
+        "cedar-court-wakefield"
+      ],
+      "notes": "Current regional responsibility in the public contract structure. The starter ledger uses this to map visible current hotel sites to a prime provider."
+    },
+    {
+      "supplierId": "supplier_01265742",
+      "entityName": "Millennium & Copthorne Hotels Limited",
+      "entityRole": "brand_operator",
+      "companyNumber": "01265742",
+      "routeFamilies": [
+        "asylum_support"
+      ],
+      "siteCount": 1,
+      "publicContractCount": 0,
+      "publicContractValueGbp": null,
+      "riskLevel": "elevated",
+      "integritySignalCount": 1,
+      "sourceUrls": [
+        "https://find-and-update.company-information.service.gov.uk/company/01265742"
+      ],
+      "siteIds": [
+        "copthorne-gatwick"
+      ],
+      "notes": "Brand-level match only until the exact parliamentary-reference site is resolved to a specific property and operator record."
+    },
+    {
+      "supplierId": "supplier_03929881",
+      "entityName": "Somani Hotels Limited",
+      "entityRole": "freeholder",
+      "companyNumber": "03929881",
+      "routeFamilies": [
+        "asylum_support"
+      ],
+      "siteCount": 1,
+      "publicContractCount": 0,
+      "publicContractValueGbp": null,
+      "riskLevel": "medium",
+      "integritySignalCount": 0,
+      "sourceUrls": [
+        "https://www.eppingforestdc.gov.uk/news/joint-open-letter-bell-hotel-and-phoenix-hotel/",
+        "https://find-and-update.company-information.service.gov.uk/company/03929881"
+      ],
+      "siteIds": [
+        "bell-hotel-epping"
+      ],
+      "notes": "Epping Forest District Council identifies Somani Hotels Limited as the Bell Hotel owner in the public dispute. | Active hotel company corroborating the named owner link."
+    },
+    {
+      "supplierId": "supplier_oc331910",
+      "entityName": "Splendid Hospitality Group LLP",
+      "entityRole": "owner_group",
+      "companyNumber": "OC331910",
+      "routeFamilies": [
+        "asylum_support"
+      ],
+      "siteCount": 1,
+      "publicContractCount": 0,
+      "publicContractValueGbp": null,
+      "riskLevel": "elevated",
+      "integritySignalCount": 1,
+      "sourceUrls": [
+        "https://www.hotelowner.co.uk/102005-splendid-hospitality-group-acquires-the-stanwell-hotel-near-heathrow/",
+        "https://find-and-update.company-information.service.gov.uk/company/OC331910"
+      ],
+      "siteIds": [
+        "stanwell-hotel-spelthorne"
+      ],
+      "notes": "Hotel trade press reported the group's acquisition of the Stanwell Hotel in 2019. | Active hospitality group corroborating the group-level ownership link."
+    },
+    {
+      "supplierId": "supplier_participating_local_authorities",
+      "entityName": "Participating local authorities",
+      "entityRole": "public_body",
+      "companyNumber": null,
+      "routeFamilies": [
+        "homes_for_ukraine",
+        "uk_resettlement_scheme",
+        "asylum_support",
+        "afghan_resettlement_programme"
+      ],
+      "siteCount": 0,
+      "publicContractCount": 6,
+      "publicContractValueGbp": null,
+      "riskLevel": "low",
+      "integritySignalCount": 0,
+      "sourceUrls": [
+        "https://www.gov.uk/government/publications/homes-for-ukraine-funding-arrangements-2025-to-2026-for-tariffs-1-july-2025-to-30-september-2025/homes-for-ukraine-funding-arrangements-2025-to-2026-for-tariffs-1-july-2025-to-30-september-2025",
+        "https://www.gov.uk/government/publications/uk-resettlement-programmes-funding-instructions-2025-to-2026/uk-resettlement-programmes-funding-instructions-2025-to-2026",
+        "https://www.gov.uk/government/publications/asylum-dispersal-grant-funding-instruction/funding-instruction-for-local-authorities-asylum-grant-2025-to-2026-accessible-html",
+        "https://www.gov.uk/government/publications/afghan-schemes-funding-instructions-2024-to-2025/afghan-schemes-funding-instructions-2024-to-2025",
+        "https://www.gov.uk/guidance/homes-for-ukraine-councillor-guidance"
+      ],
+      "siteIds": [],
+      "notes": "Current guidance says the standard tariff is GBP 5,900 for arrivals on or after 1 January 2023. Legacy cohorts and minors can attract different amounts. | The starter ledger records the live official funding instruction but does not yet normalize the component tariff table into separate machine-readable rows. | Accessible guidance says local authorities receive GBP 1,200 per accommodated asylum seeker present on 30 March 2025. | Accessible guidance says local authorities receive GBP 100 per additional occupied bedspace per month above the 31 March 2025 baseline. | Current official page for Afghan pathway local-authority funding. The starter ledger has not yet normalized scheme-specific tariff components. | Councils provide a one-off GBP 200 welcome payment to each guest on arrival. The guidance page used here was last updated on 2025-09-15."
+    }
+  ],
+  "routeGroups": [
+    {
+      "routeFamily": "asylum_support",
+      "recordCount": 7,
+      "rowsWithValue": 4
+    },
+    {
+      "routeFamily": "homes_for_ukraine",
+      "recordCount": 2,
+      "rowsWithValue": 2
+    },
+    {
+      "routeFamily": "uk_resettlement_scheme",
+      "recordCount": 1,
+      "rowsWithValue": 0
+    },
+    {
+      "routeFamily": "afghan_resettlement_programme",
+      "recordCount": 1,
+      "rowsWithValue": 0
+    }
+  ],
+  "recordTypeGroups": [
+    {
+      "recordType": "prime_contract_scope",
+      "recordCount": 3
+    },
+    {
+      "recordType": "scrutiny_estimate",
+      "recordCount": 1
+    },
+    {
+      "recordType": "cost_indicator",
+      "recordCount": 1
+    },
+    {
+      "recordType": "funding_instruction",
+      "recordCount": 6
+    }
+  ],
+  "investigativeLeads": [
+    {
+      "id": "prime-values-undisclosed",
+      "title": "Prime regional contracts are mapped, but values are still not normalized in the starter public ledger",
+      "detail": "3 current prime-provider rows are linked to visible hotel geography without a disclosed contract value in this starter ledger.",
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts",
+      "severity": "warning"
+    },
+    {
+      "id": "funding-rows-still-opaque",
+      "title": "Official funding instructions exist, but several tariff tables still need normalization",
+      "detail": "2 funding-instruction rows are in scope but still need machine-readable component tables before place-level funding comparisons are safe to publish.",
+      "sourceUrl": "https://www.gov.uk/government/publications/uk-resettlement-programmes-funding-instructions-2025-to-2026/uk-resettlement-programmes-funding-instructions-2025-to-2026",
+      "severity": "info"
+    },
+    {
+      "id": "current-hotel-resolution-gap",
+      "title": "Current named hotels still outpace documented operator and owner chains",
+      "detail": "4 current named hotel sites are visible in the live ledger but still sit in partial or unresolved entity coverage.",
+      "sourceUrl": "https://www.eppingforestdc.gov.uk/news/joint-open-letter-bell-hotel-and-phoenix-hotel/",
+      "severity": "warning"
+    },
+    {
+      "id": "local-response-procurement-gap",
+      "title": "Local response contracts remain the biggest money gap",
+      "detail": "The public ledger has prime-provider scope, national cost indicators, and official funding instructions, but almost no normalized local response contracts tied to named hotels or refugee placement work.",
+      "sourceUrl": "https://github.com/tompickup23/tompickup23.github.io",
+      "severity": "warning"
+    }
+  ],
+  "supplierLayers": [
+    {
+      "id": "prime_providers",
+      "label": "Prime asylum accommodation providers",
+      "scope": "route_specific",
+      "examples": [
+        "Serco",
+        "Mears",
+        "Clearsprings"
+      ],
+      "description": "The national accommodation primes control regional delivery, subcontracting, and hotel procurement decisions.",
+      "questions": [
+        "Which regions do they control?",
+        "Which sites, operators, and subcontractors sit underneath them?",
+        "Where did hotel dependence stay high despite policy promises?"
+      ]
+    },
+    {
+      "id": "hotel_operators",
+      "label": "Hotel operators and site managers",
+      "scope": "local_route_relevant",
+      "examples": [
+        "Named hotel sites",
+        "Management companies",
+        "Franchise operators"
+      ],
+      "description": "These are the entities physically operating or managing a named site used for asylum accommodation or related temporary placement.",
+      "questions": [
+        "Is the operator the same as the freeholder?",
+        "Was the site repurposed quickly or repeatedly?",
+        "Are multiple named sites linked to one operator group?"
+      ]
+    },
+    {
+      "id": "freeholders_and_property_owners",
+      "label": "Freeholders, landlords, and charged owners",
+      "scope": "context_only",
+      "examples": [
+        "Freehold companies",
+        "Property SPVs",
+        "Lenders with charges"
+      ],
+      "description": "Ownership chains matter because the public-facing hotel brand is often not the economic beneficiary.",
+      "questions": [
+        "Who ultimately owns the site or SPV?",
+        "Are there recent charges, restructurings, or dissolutions?",
+        "Do ownership links connect multiple asylum sites?"
+      ]
+    },
+    {
+      "id": "subcontractors",
+      "label": "Subcontractors and service vendors",
+      "scope": "local_route_relevant",
+      "examples": [
+        "Security",
+        "Transport",
+        "Cleaning",
+        "Facilities",
+        "Welfare",
+        "Interpretation"
+      ],
+      "description": "The supplier chain extends beyond accommodation primes and can expose hidden cost centres or repeat local contractors.",
+      "questions": [
+        "Which service categories recur across places?",
+        "Which local vendors appear around asylum hotels or bridging accommodation?",
+        "Do contract descriptions hide route-specific work under generic labels?"
+      ]
+    },
+    {
+      "id": "public_body_response_spend",
+      "label": "Public body response spend",
+      "scope": "context_only",
+      "examples": [
+        "Council emergency contracts",
+        "NHS response work",
+        "School transport",
+        "Safeguarding response"
+      ],
+      "description": "Councils and other public bodies may incur route-linked costs without publishing a neat asylum budget line.",
+      "questions": [
+        "Which rows can be tied explicitly to asylum hotels or refugee-response work?",
+        "Which bodies are carrying response costs without national reimbursement clarity?",
+        "Where do local spend spikes cluster around named sites?"
+      ]
+    }
+  ],
+  "limitations": [
+    "The starter money ledger deliberately mixes prime contract scope, funding instructions, and scrutiny cost rows so the public can see the whole accountability chain before local procurement ingestion is complete.",
+    "Tariff or grant rows are not aggregate spend totals. They are rate components or official funding instructions that still need claimant or placement counts before place-level spending can be estimated safely.",
+    "Prime-provider rows show current regional responsibility, not a site-specific newly awarded notice for each named hotel.",
+    "Local response contracts, subcontractor rows, and council emergency procurement remain the biggest missing public layer."
+  ],
+  "sources": [
+    {
+      "name": "Starter asylum contract and funding ledger",
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts",
+      "type": "manual ledger"
+    },
+    {
+      "name": "Hotel entity ledger",
+      "sourceUrl": "https://www.eppingforestdc.gov.uk/news/joint-open-letter-bell-hotel-and-phoenix-hotel/",
+      "type": "linked site evidence"
+    }
+  ]
+}

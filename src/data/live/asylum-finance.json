@@ -1,0 +1,281 @@
+{
+  "scopeRules": [
+    {
+      "id": "route_specific",
+      "label": "Route or scheme specific",
+      "description": "Official datasets that directly identify an asylum route, refugee resettlement scheme, refugee family route, or humanitarian route."
+    },
+    {
+      "id": "local_route_relevant",
+      "label": "Local route-relevant",
+      "description": "Council statements, FOIs, planning records, or local documents that explicitly refer to asylum hotels, refugee resettlement, Afghan arrivals, Ukraine arrivals, or related local response."
+    },
+    {
+      "id": "context_only",
+      "label": "Context only",
+      "description": "General council finance, procurement, or supplier data kept as research context and never merged into public asylum or refugee charts unless a row is explicitly tied to a route or scheme."
+    }
+  ],
+  "routeFamilies": [
+    {
+      "id": "small_boats",
+      "label": "Small boat arrivals",
+      "group": "Irregular asylum route",
+      "schemeStatus": "Not a refugee scheme",
+      "coverage": "National",
+      "localBreakdown": "Not publicly broken down by local authority",
+      "note": "Use small boat or illegal entry route language for the route. Public local asylum-support data does not usually say which supported people arrived this way.",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/how-many-people-do-we-grant-protection-to"
+    },
+    {
+      "id": "asylum_support",
+      "label": "Asylum seekers receiving support",
+      "group": "Asylum support system",
+      "schemeStatus": "Not a refugee scheme",
+      "coverage": "National, regional, local authority",
+      "localBreakdown": "Published by local authority and region",
+      "note": "Best local asylum pressure series, but not a route split. It includes people on support regardless of how they arrived.",
+      "sourceUrl": "https://www.gov.uk/government/statistics/local-authority-data-on-immigration-groups"
+    },
+    {
+      "id": "afghan_resettlement_programme",
+      "label": "Afghan Resettlement Programme",
+      "group": "Refugee resettlement and relocation",
+      "schemeStatus": "Scheme family",
+      "coverage": "National, regional, local authority",
+      "localBreakdown": "Published locally as a combined Afghan programme",
+      "note": "Public local data usually combines Afghan pathways at programme level rather than separating ARAP and ACRS in every table.",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-september-2025/how-many-people-come-to-the-uk-on-safe-and-legal-humanitarian-routes"
+    },
+    {
+      "id": "uk_resettlement_scheme",
+      "label": "UK Resettlement Scheme, Mandate, and Community Sponsorship",
+      "group": "Refugee resettlement",
+      "schemeStatus": "Scheme family",
+      "coverage": "National",
+      "localBreakdown": "Not consistently separated in the latest local immigration-group tables",
+      "note": "Public resettlement outputs often group UKRS and Mandate together, with community sponsorship included within that total.",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-september-2025/how-many-people-come-to-the-uk-on-safe-and-legal-humanitarian-routes"
+    },
+    {
+      "id": "refugee_family_reunion",
+      "label": "Refugee Family Reunion",
+      "group": "Protection-linked family route",
+      "schemeStatus": "Not a refugee resettlement scheme",
+      "coverage": "National",
+      "localBreakdown": "No standard public local-authority split",
+      "note": "This is a family route connected to people who already have refugee status or humanitarian protection in the UK.",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/how-many-people-do-we-grant-protection-to"
+    },
+    {
+      "id": "homes_for_ukraine",
+      "label": "Homes for Ukraine",
+      "group": "Humanitarian route",
+      "schemeStatus": "Not a refugee resettlement scheme",
+      "coverage": "National, regional, local authority",
+      "localBreakdown": "Published by local authority and region",
+      "note": "Useful local route comparison layer but should never be merged into asylum accommodation totals.",
+      "sourceUrl": "https://www.gov.uk/government/statistics/local-authority-data-on-immigration-groups"
+    }
+  ],
+  "facts": [
+    {
+      "label": "Small boat arrivals",
+      "value": "41,000",
+      "period": "Year ending Dec 2025",
+      "detail": "Official count of people detected arriving by small boat.",
+      "scope": "route_specific",
+      "routeId": "small_boats",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/how-many-people-do-we-grant-protection-to"
+    },
+    {
+      "label": "People in asylum hotels",
+      "value": "31,000",
+      "period": "End of Dec 2025",
+      "detail": "Asylum support accommodation figure, not a refugee-scheme total.",
+      "scope": "route_specific",
+      "routeId": "asylum_support",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025-summary-of-latest-statistics"
+    },
+    {
+      "label": "Resettled refugees",
+      "value": "7,271",
+      "period": "Year ending Sep 2025",
+      "detail": "Official resettlement total. Most were through the Afghan Resettlement Programme.",
+      "scope": "route_specific",
+      "routeId": "afghan_resettlement_programme",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-september-2025/how-many-people-come-to-the-uk-on-safe-and-legal-humanitarian-routes"
+    },
+    {
+      "label": "Afghan share of resettlement",
+      "value": "89%",
+      "period": "Year ending Sep 2025",
+      "detail": "The Afghan programme dominated current refugee resettlement volumes.",
+      "scope": "route_specific",
+      "routeId": "afghan_resettlement_programme",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-september-2025/how-many-people-come-to-the-uk-on-safe-and-legal-humanitarian-routes"
+    },
+    {
+      "label": "Refugee Family Reunion visas",
+      "value": "19,000",
+      "period": "Year ending Dec 2025",
+      "detail": "Rounded official out-of-country grants for the refugee family reunion route.",
+      "scope": "route_specific",
+      "routeId": "refugee_family_reunion",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/how-many-people-do-we-grant-protection-to"
+    },
+    {
+      "label": "Safe and legal humanitarian grants",
+      "value": "190,000",
+      "period": "Year ending Dec 2025",
+      "detail": "Mainly driven by the Ukraine Permission Extension route, so keep humanitarian routes separate from refugee resettlement.",
+      "scope": "route_specific",
+      "routeId": "homes_for_ukraine",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025/how-many-people-do-we-grant-protection-to"
+    }
+  ],
+  "hotelFacts": [
+    {
+      "label": "Hotels in use",
+      "value": "197",
+      "period": "As of 2026-01-05",
+      "detail": "Official count reported to the Home Affairs Committee.",
+      "scope": "route_specific",
+      "routeId": "asylum_support",
+      "sourceUrl": "https://publications.parliament.uk/pa/cm5901/cmselect/cmhaff/541/report.html"
+    },
+    {
+      "label": "People in asylum hotels",
+      "value": "31,000",
+      "period": "End of Dec 2025",
+      "detail": "Asylum support accommodation figure, not a refugee-scheme total.",
+      "scope": "route_specific",
+      "routeId": "asylum_support",
+      "sourceUrl": "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-december-2025-summary-of-latest-statistics"
+    },
+    {
+      "label": "Daily hotel cost",
+      "value": "GBP 5.77m",
+      "period": "2024/25 average",
+      "detail": "Home Office stated average daily hotel cost.",
+      "scope": "route_specific",
+      "routeId": "asylum_support",
+      "sourceUrl": "https://homeofficemedia.blog.gov.uk/2025/06/12/factsheet-asylum-accommodation-and-support/"
+    },
+    {
+      "label": "Hotel cost share",
+      "value": "76%",
+      "period": "First 7 months of 2024/25",
+      "detail": "Hotels housed 35% of those in asylum accommodation but drove most accommodation cost.",
+      "scope": "route_specific",
+      "routeId": "asylum_support",
+      "sourceUrl": "https://www.nao.org.uk/reports/investigation-into-asylum-accommodation/"
+    }
+  ],
+  "providers": [
+    {
+      "provider": "Serco",
+      "scope": "route_specific",
+      "routeId": "asylum_support",
+      "regions": [
+        "North West",
+        "Midlands",
+        "East of England"
+      ],
+      "note": "Regional asylum accommodation provider under the current Home Office contract structure.",
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts"
+    },
+    {
+      "provider": "Mears",
+      "scope": "route_specific",
+      "routeId": "asylum_support",
+      "regions": [
+        "North East",
+        "Yorkshire and The Humber",
+        "Scotland",
+        "Northern Ireland"
+      ],
+      "note": "Regional asylum accommodation provider under the current Home Office contract structure.",
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts"
+    },
+    {
+      "provider": "Clearsprings",
+      "scope": "route_specific",
+      "routeId": "asylum_support",
+      "regions": [
+        "South of England",
+        "Wales"
+      ],
+      "note": "Regional asylum accommodation provider under the current Home Office contract structure.",
+      "sourceUrl": "https://www.gov.uk/government/publications/asylum-accommodation-and-support-contracts"
+    }
+  ],
+  "contractSignals": [
+    {
+      "title": "Do not mix small boats with refugee schemes",
+      "body": "Small boat arrivals are an irregular arrival route into the asylum system. They are not a refugee resettlement scheme and should not be counted alongside Afghan or UK resettlement schemes."
+    },
+    {
+      "title": "Do not mix refugee schemes with Ukraine routes",
+      "body": "Homes for Ukraine and Ukraine Permission Extension are humanitarian routes. They belong in route comparison, but not in a refugee-resettlement chart without clear labeling."
+    },
+    {
+      "title": "Keep local support pressure separate from arrival route",
+      "body": "Local asylum-support figures show where pressure sits, but they usually do not tell you whether supported people arrived by small boat or another route."
+    }
+  ],
+  "localEvidence": [
+    {
+      "area": "Epping Forest",
+      "scope": "local_route_relevant",
+      "type": "council statement",
+      "title": "Bell Hotel and Phoenix Hotel publicly named",
+      "detail": "Strong named current-site evidence for the asylum accommodation estate.",
+      "sourceUrl": "https://www.eppingforestdc.gov.uk/news/joint-open-letter-bell-hotel-and-phoenix-hotel/"
+    },
+    {
+      "area": "Wakefield",
+      "scope": "local_route_relevant",
+      "type": "council statement",
+      "title": "Cedar Court Hotel confirmed for contingency asylum accommodation",
+      "detail": "Direct local evidence of a current asylum hotel and local political response.",
+      "sourceUrl": "https://www.wakefield.gov.uk/council-information/news/the-home-office-has-confirmed-that-it-will-be-using-a-hotel-in-wakefield-district-as-contingency-asylum-accommodation/"
+    },
+    {
+      "area": "Cornwall",
+      "scope": "local_route_relevant",
+      "type": "council housing statement",
+      "title": "Local housing fund linked to Afghan and Ukraine arrivals",
+      "detail": "Useful example of a local public source explicitly tying housing activity to refugee and humanitarian schemes.",
+      "sourceUrl": "https://www.cornwall.gov.uk/housing/homelessness/local-authority-housing-fund/"
+    },
+    {
+      "area": "West Northamptonshire",
+      "scope": "local_route_relevant",
+      "type": "council statement",
+      "title": "Three asylum hotels confirmed but unnamed",
+      "detail": "Useful secrecy-gap evidence because hotel presence is acknowledged without a public site list.",
+      "sourceUrl": "https://www.westnorthants.gov.uk/news/west-northamptonshire-council-comments-use-hotels-house-asylum-seekers"
+    }
+  ],
+  "excludedContext": [
+    {
+      "title": "Whole-council spending ledgers",
+      "detail": "General council transaction data is not shown on protection-route charts unless rows can be explicitly linked to asylum accommodation, refugee resettlement, Ukraine response, or related local service pressure."
+    },
+    {
+      "title": "Generic council procurement notices",
+      "detail": "Contracts Finder notices for a council are context only until the notice text or supplier clearly ties the contract to asylum accommodation, refugee resettlement housing, or another specific route."
+    },
+    {
+      "title": "Whole-body budgets",
+      "detail": "Council budget totals can explain local capacity but they are not route-specific spend and should never be presented as if they were."
+    }
+  ],
+  "inclusionTests": [
+    "Include publicly if the source explicitly identifies an asylum route, refugee scheme, family route, or humanitarian route.",
+    "Keep small boat arrivals separate from refugee resettlement schemes and from Ukraine humanitarian routes.",
+    "Treat local hotel statements, resettlement housing statements, FOIs, and planning records as local route-relevant evidence, not as national totals.",
+    "Keep general council finance and procurement as background context unless a row can be attributed to a specific route or scheme."
+  ]
+}

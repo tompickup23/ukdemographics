@@ -1,0 +1,886 @@
+---
+type HomeDeckTone = "accent" | "teal" | "warm" | "slate";
+type HomeDeckScopeKind = "national" | "region" | "subregion" | "place";
+
+export interface HomeDeckStat {
+  label: string;
+  value: string;
+  context: string;
+}
+
+export interface HomeDeckLink {
+  label: string;
+  href: string;
+  meta: string;
+  scopeId?: string;
+  actionLabel?: string;
+  hrefLabel?: string;
+}
+
+export interface HomeDeckBar {
+  label: string;
+  value: string;
+  meta: string;
+  widthPct: number;
+  tone: HomeDeckTone;
+}
+
+export interface HomeDeckVisualGroup {
+  title: string;
+  bars: HomeDeckBar[];
+}
+
+export interface HomeDeckEntry {
+  scopeId: string;
+  parentScopeId?: string;
+  parentLabel?: string;
+  eyebrow: string;
+  title: string;
+  note: string;
+  scopeHref?: string;
+  scopeActionLabel?: string;
+  linksLabel: string;
+  stats: HomeDeckStat[];
+  links: HomeDeckLink[];
+  visualIntro: string;
+  visualGroups: HomeDeckVisualGroup[];
+}
+
+interface Props {
+  entries: Record<string, HomeDeckEntry>;
+  initialScopeId: string;
+  targetMapId: string;
+  rootScopeKind?: HomeDeckScopeKind;
+  resetLabel?: string;
+}
+
+const { entries, initialScopeId, targetMapId, rootScopeKind = "national", resetLabel } = Astro.props;
+const initialEntry = entries[initialScopeId];
+const entryById = entries;
+const getScopeKind = (entry: HomeDeckEntry): HomeDeckScopeKind => {
+  if (entry.scopeId === initialScopeId) {
+    return rootScopeKind;
+  }
+
+  if (entry.parentScopeId === initialScopeId) {
+    return rootScopeKind === "national" ? "region" : "subregion";
+  }
+
+  const parentEntry = entry.parentScopeId ? entryById[entry.parentScopeId] : undefined;
+
+  if (parentEntry?.parentScopeId === initialScopeId) {
+    return rootScopeKind === "national" ? "subregion" : "place";
+  }
+
+  return "place";
+};
+const initialScopeKind = initialEntry ? getScopeKind(initialEntry) : "national";
+const homeDeckData = JSON.stringify({ entries, initialScopeId, rootScopeKind, resetLabel });
+---
+
+{initialEntry && (
+  <article
+    class="home-panel home-panel-strong home-system-panel"
+    data-home-system
+    data-home-scope-kind={initialScopeKind}
+    data-target-map-id={targetMapId}
+  >
+    <script type="application/json" data-home-system-data set:html={homeDeckData} is:inline></script>
+
+    <div class="home-panel-head home-system-head">
+      <div>
+        <span class="tiny" data-home-eyebrow>{initialEntry.eyebrow}</span>
+        <h2 data-home-title>{initialEntry.title}</h2>
+      </div>
+      <div class="home-tab-bar" role="tablist" aria-label="Homepage system view">
+        <button
+          type="button"
+          class="chip accent is-active"
+          data-home-tab="stats"
+          aria-selected="true"
+          role="tab"
+        >
+          Stats
+        </button>
+        <button
+          type="button"
+          class="chip"
+          data-home-tab="visuals"
+          aria-selected="false"
+          role="tab"
+        >
+          Visuals
+        </button>
+      </div>
+    </div>
+
+    <div class="home-scope-rail">
+      <div class="home-scope-path" data-home-scope-path>
+        <span class="home-scope-crumb is-current">{initialEntry.title}</span>
+      </div>
+      <span class="chip warm home-scope-kind-chip" data-home-scope-kind-chip>
+        {
+          initialScopeKind === "national"
+            ? "National lens"
+            : initialScopeKind === "region"
+              ? "Regional lens"
+              : initialScopeKind === "subregion"
+                ? "Subregional lens"
+                : "Local lens"
+        }
+      </span>
+    </div>
+
+    <div class="home-system-summary">
+      <p class="lede" data-home-note>{initialEntry.note}</p>
+      <div class="chip-row home-system-controls" data-home-controls hidden>
+        <a class="chip accent" data-home-open hidden></a>
+        <button type="button" class="chip" data-home-reset hidden></button>
+        <button type="button" class="chip" data-home-parent hidden></button>
+      </div>
+    </div>
+
+    <div class="home-deck-viewport">
+      <div class="home-deck-track" data-home-track>
+        <section class="home-deck-pane" data-home-pane="stats" role="tabpanel">
+          <div class="home-story-band" data-home-story-band></div>
+          <div class="home-kpi-grid" data-home-stats></div>
+          <div class="home-follow-panel">
+            <div class="home-follow-head">
+              <strong data-home-links-label>{initialEntry.linksLabel}</strong>
+            </div>
+            <div class="home-next-grid" data-home-links></div>
+          </div>
+        </section>
+
+        <section class="home-deck-pane" data-home-pane="visuals" role="tabpanel">
+          <div class="home-comparison-band" data-home-comparison-band></div>
+          <div class="home-visual-hero" data-home-visual-hero></div>
+          <div class="home-visual-stack" data-home-visuals></div>
+          <ul class="home-note-list" data-home-insight-notes></ul>
+        </section>
+      </div>
+    </div>
+  </article>
+)}
+
+<script>
+  type HomeDeckScopeKind = "national" | "region" | "subregion" | "place";
+  type HomeDeckTone = "accent" | "teal" | "warm" | "slate";
+  type HomeDeckStat = { label: string; value: string; context: string };
+  type HomeDeckLink = {
+    label: string;
+    href: string;
+    meta: string;
+    scopeId?: string;
+    actionLabel?: string;
+    hrefLabel?: string;
+  };
+  type HomeDeckBar = { label: string; value: string; meta: string; widthPct: number; tone: HomeDeckTone };
+  type HomeDeckVisualGroup = { title: string; bars: HomeDeckBar[] };
+  type HomeDeckEntry = {
+    scopeId: string;
+    parentScopeId?: string;
+    parentLabel?: string;
+    eyebrow: string;
+    title: string;
+    note: string;
+    scopeHref?: string;
+    scopeActionLabel?: string;
+    linksLabel: string;
+    stats: HomeDeckStat[];
+    links: HomeDeckLink[];
+    visualIntro: string;
+    visualGroups: HomeDeckVisualGroup[];
+  };
+  type HomeDeckPayload = {
+    entries: Record<string, HomeDeckEntry>;
+    initialScopeId: string;
+    rootScopeKind: HomeDeckScopeKind;
+    resetLabel?: string;
+  };
+  type RegionMapChangeDetail = {
+    regionName?: string;
+    trigger?: string;
+  };
+  type RegionMapScopeDetail = {
+    scopeId?: string;
+    trigger?: string;
+  };
+
+  const windowWithHomeDeckFlag = window as Window & { __asylumstatsHomeDeckInit?: boolean };
+
+  if (!windowWithHomeDeckFlag.__asylumstatsHomeDeckInit) {
+    windowWithHomeDeckFlag.__asylumstatsHomeDeckInit = true;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const clampWidth = (value: number) => `${Math.max(8, Math.min(100, value))}%`;
+
+    const renderStats = (container: HTMLElement, stats: HomeDeckStat[]) => {
+      container.innerHTML = "";
+
+      stats.forEach((stat, index) => {
+        const card = document.createElement("article");
+        card.className = `home-kpi-card${index === 0 ? " is-primary" : ""}`;
+
+        const label = document.createElement("span");
+        label.className = "tiny";
+        label.textContent = stat.label;
+
+        const value = document.createElement("strong");
+        value.textContent = stat.value;
+
+        const context = document.createElement("p");
+        context.className = "tiny";
+        context.textContent = stat.context;
+
+        card.append(label, value, context);
+        container.append(card);
+      });
+    };
+
+    const renderStoryBand = (container: HTMLElement, entry: HomeDeckEntry) => {
+      container.innerHTML = "";
+
+      const [leadStat, ...secondaryStats] = entry.stats;
+
+      if (!leadStat) {
+        return;
+      }
+
+      const card = document.createElement("article");
+      card.className = "home-story-card";
+
+      const primary = document.createElement("div");
+      primary.className = "home-story-primary";
+
+      const eyebrow = document.createElement("span");
+      eyebrow.className = "tiny";
+      eyebrow.textContent = leadStat.label;
+
+      const value = document.createElement("strong");
+      value.textContent = leadStat.value;
+
+      const context = document.createElement("p");
+      context.textContent = leadStat.context;
+
+      primary.append(eyebrow, value, context);
+      card.append(primary);
+
+      if (secondaryStats.length > 0) {
+        const secondary = document.createElement("div");
+        secondary.className = "home-story-secondary";
+
+        for (const stat of secondaryStats) {
+          const item = document.createElement("div");
+          item.className = "home-mini-stat";
+
+          const itemLabel = document.createElement("span");
+          itemLabel.className = "tiny";
+          itemLabel.textContent = stat.label;
+
+          const itemValue = document.createElement("strong");
+          itemValue.textContent = stat.value;
+
+          const itemContext = document.createElement("p");
+          itemContext.textContent = stat.context;
+
+          item.append(itemLabel, itemValue, itemContext);
+          secondary.append(item);
+        }
+
+        card.append(secondary);
+      }
+
+      container.append(card);
+    };
+
+    const renderLinks = (
+      container: HTMLElement,
+      links: HomeDeckLink[],
+      currentScopeId: string,
+      onPreview: (scopeId: string) => void
+    ) => {
+      container.innerHTML = "";
+
+      for (const link of links) {
+        if (link.scopeId) {
+          const isCurrent = link.scopeId === currentScopeId;
+          const card = document.createElement("article");
+          card.className = "home-next-card home-next-card-action";
+
+          const copy = document.createElement("div");
+          copy.className = "home-next-copy";
+
+          const title = document.createElement("strong");
+          title.textContent = link.label;
+
+          const meta = document.createElement("p");
+          meta.textContent = link.meta;
+
+          copy.append(title, meta);
+
+          const actions = document.createElement("div");
+          actions.className = "home-next-actions";
+
+          const previewButton = document.createElement("button");
+          previewButton.type = "button";
+          previewButton.className = `chip accent${isCurrent ? " is-current" : ""}`;
+          previewButton.textContent = isCurrent ? "In view" : link.actionLabel ?? "Preview here";
+          previewButton.disabled = isCurrent;
+
+          if (!isCurrent) {
+            previewButton.addEventListener("click", () => onPreview(link.scopeId as string));
+          }
+
+          const openLink = document.createElement("a");
+          openLink.className = "chip";
+          openLink.href = link.href;
+          openLink.textContent = link.hrefLabel ?? "Open page";
+
+          actions.append(previewButton, openLink);
+          card.append(copy, actions);
+          container.append(card);
+          continue;
+        }
+
+        const anchor = document.createElement("a");
+        anchor.className = "home-next-card";
+        anchor.href = link.href;
+
+        const title = document.createElement("strong");
+        title.textContent = link.label;
+
+        const meta = document.createElement("p");
+        meta.textContent = link.meta;
+
+        anchor.append(title, meta);
+        container.append(anchor);
+      }
+    };
+
+    const renderVisualHero = (container: HTMLElement, entry: HomeDeckEntry) => {
+      container.innerHTML = "";
+
+      const leadGroup = entry.visualGroups[0];
+      const leadBar = leadGroup?.bars[0];
+
+      if (!leadGroup || !leadBar) {
+        return;
+      }
+
+      const card = document.createElement("article");
+      card.className = "home-visual-hero-card";
+
+      const eyebrow = document.createElement("span");
+      eyebrow.className = "tiny";
+      eyebrow.textContent = leadGroup.title;
+
+      const title = document.createElement("strong");
+      title.textContent = leadBar.label;
+
+      const value = document.createElement("div");
+      value.className = "home-visual-hero-value";
+      value.textContent = leadBar.value;
+
+      const meta = document.createElement("p");
+      meta.textContent = leadBar.meta;
+
+      const meter = document.createElement("div");
+      meter.className = "home-visual-hero-meter";
+
+      const fill = document.createElement("span");
+      fill.className = `home-visual-hero-fill ${leadBar.tone}`;
+      fill.style.width = clampWidth(leadBar.widthPct);
+      meter.append(fill);
+
+      card.append(eyebrow, title, value, meta, meter);
+      container.append(card);
+    };
+
+    const renderVisuals = (container: HTMLElement, entry: HomeDeckEntry) => {
+      container.innerHTML = "";
+
+      const intro = document.createElement("p");
+      intro.className = "tiny home-visual-intro";
+      intro.textContent = entry.visualIntro;
+      container.append(intro);
+
+      for (const group of entry.visualGroups) {
+        const card = document.createElement("section");
+        card.className = "home-visual-card";
+
+        const head = document.createElement("div");
+        head.className = "home-visual-head";
+
+        const title = document.createElement("strong");
+        title.textContent = group.title;
+        head.append(title);
+
+        const list = document.createElement("div");
+        list.className = "home-bar-list";
+
+        group.bars.forEach((item, index) => {
+          const row = document.createElement("div");
+          row.className = "home-bar-row";
+
+          const copy = document.createElement("div");
+          copy.className = "home-bar-copy";
+
+          const rank = document.createElement("span");
+          rank.className = "home-bar-rank";
+          rank.textContent = `${index + 1}`;
+
+          const label = document.createElement("span");
+          label.textContent = item.label;
+
+          const value = document.createElement("strong");
+          value.textContent = item.value;
+          copy.append(rank, label, value);
+
+          const track = document.createElement("div");
+          track.className = "home-bar-track";
+
+          const fill = document.createElement("span");
+          fill.className = `home-bar-fill ${item.tone}`;
+          fill.style.width = clampWidth(item.widthPct);
+          track.append(fill);
+
+          const meta = document.createElement("span");
+          meta.className = "tiny";
+          meta.textContent = item.meta;
+
+          row.append(copy, track, meta);
+          list.append(row);
+        });
+
+        card.append(head, list);
+        container.append(card);
+      }
+    };
+
+    const getScopeKind = (
+      entry: HomeDeckEntry,
+      initialScopeId: string,
+      rootScopeKind: HomeDeckScopeKind,
+      entries: Record<string, HomeDeckEntry>
+    ): HomeDeckScopeKind => {
+      if (entry.scopeId === initialScopeId) {
+        return rootScopeKind;
+      }
+
+      if (entry.parentScopeId === initialScopeId) {
+        return rootScopeKind === "national" ? "region" : "subregion";
+      }
+
+      const parentEntry = entry.parentScopeId ? entries[entry.parentScopeId] : undefined;
+
+      if (parentEntry?.parentScopeId === initialScopeId) {
+        return rootScopeKind === "national" ? "subregion" : "place";
+      }
+
+      return "place";
+    };
+
+    const getScopeKindLabel = (scopeKind: HomeDeckScopeKind) =>
+      scopeKind === "national"
+        ? "National lens"
+        : scopeKind === "region"
+          ? "Regional lens"
+          : scopeKind === "subregion"
+            ? "Subregional lens"
+            : "Local lens";
+
+    const setTrackState = (root: HTMLElement, panel: "stats" | "visuals") => {
+      root.dataset.homeActivePanel = panel;
+
+      for (const button of root.querySelectorAll<HTMLButtonElement>("[data-home-tab]")) {
+        const active = button.dataset.homeTab === panel;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-selected", active ? "true" : "false");
+      }
+    };
+
+    for (const root of document.querySelectorAll<HTMLElement>("[data-home-system]")) {
+      if (root.dataset.homeSystemReady === "true") {
+        continue;
+      }
+
+      root.dataset.homeSystemReady = "true";
+      const dataNode = root.querySelector<HTMLScriptElement>("[data-home-system-data]");
+
+      if (!dataNode?.textContent) {
+        continue;
+      }
+
+      const payload = JSON.parse(dataNode.textContent) as HomeDeckPayload;
+      const targetMapId = root.dataset.targetMapId;
+      const mapRoot = targetMapId ? document.getElementById(targetMapId) : null;
+      const mapPanel = mapRoot?.closest<HTMLElement>(".home-map-panel");
+      const title = root.querySelector<HTMLElement>("[data-home-title]");
+      const eyebrow = root.querySelector<HTMLElement>("[data-home-eyebrow]");
+      const note = root.querySelector<HTMLElement>("[data-home-note]");
+      const deckViewport = root.querySelector<HTMLElement>(".home-deck-viewport");
+      const controls = root.querySelector<HTMLElement>("[data-home-controls]");
+      const openLink = root.querySelector<HTMLAnchorElement>("[data-home-open]");
+      const resetButton = root.querySelector<HTMLButtonElement>("[data-home-reset]");
+      const parentButton = root.querySelector<HTMLButtonElement>("[data-home-parent]");
+      const linksLabel = root.querySelector<HTMLElement>("[data-home-links-label]");
+      const statsContainer = root.querySelector<HTMLElement>("[data-home-stats]");
+      const linksContainer = root.querySelector<HTMLElement>("[data-home-links]");
+      const visualsContainer = root.querySelector<HTMLElement>("[data-home-visuals]");
+      const storyBand = root.querySelector<HTMLElement>("[data-home-story-band]");
+      const visualHero = root.querySelector<HTMLElement>("[data-home-visual-hero]");
+      const scopePath = root.querySelector<HTMLElement>("[data-home-scope-path]");
+      const scopeKindChip = root.querySelector<HTMLElement>("[data-home-scope-kind-chip]");
+      const comparisonBand = root.querySelector<HTMLElement>("[data-home-comparison-band]");
+      const insightNotes = root.querySelector<HTMLElement>("[data-home-insight-notes]");
+
+      if (
+        !title ||
+        !eyebrow ||
+        !note ||
+        !deckViewport ||
+        !controls ||
+        !openLink ||
+        !resetButton ||
+        !parentButton ||
+        !linksLabel ||
+        !statsContainer ||
+        !linksContainer ||
+        !visualsContainer ||
+        !storyBand ||
+        !visualHero ||
+        !scopePath ||
+        !scopeKindChip ||
+        !comparisonBand ||
+        !insightNotes
+      ) {
+        continue;
+      }
+
+      const renderComparisonBand = (container: HTMLElement, entry: HomeDeckEntry) => {
+        container.innerHTML = "";
+
+        const leadGroup = entry.visualGroups[0];
+
+        if (!leadGroup?.bars.length) {
+          return;
+        }
+
+        const card = document.createElement("section");
+        card.className = "home-visual-card home-visual-card-comparison";
+
+        const head = document.createElement("div");
+        head.className = "home-visual-head";
+
+        const title = document.createElement("strong");
+        title.textContent = `${leadGroup.title} at a glance`;
+        head.append(title);
+
+        const list = document.createElement("div");
+        list.className = "home-segment-list";
+
+        leadGroup.bars.slice(0, 3).forEach((item) => {
+          const row = document.createElement("div");
+          row.className = "home-segment-row";
+
+          const dot = document.createElement("span");
+          dot.className = `home-dot ${item.tone}`;
+
+          const label = document.createElement("span");
+          label.textContent = item.label;
+
+          const value = document.createElement("strong");
+          value.textContent = item.value;
+
+          const track = document.createElement("div");
+          track.className = "home-segment-track";
+
+          const segment = document.createElement("span");
+          segment.className = `home-segment ${item.tone}`;
+          segment.style.width = clampWidth(item.widthPct);
+          track.append(segment);
+
+          row.append(dot, label, value, track);
+          list.append(row);
+        });
+
+        card.append(head, list);
+        container.append(card);
+      };
+
+      const renderInsightNotes = (container: HTMLElement, entry: HomeDeckEntry) => {
+        container.innerHTML = "";
+
+        const notes = [
+          entry.note,
+          entry.visualGroups[0]?.bars[0]?.meta,
+          entry.links[0]?.meta ? `${entry.linksLabel}: ${entry.links[0].meta}` : null
+        ].filter((value): value is string => Boolean(value));
+
+        for (const noteText of notes.slice(0, 3)) {
+          const item = document.createElement("li");
+          item.textContent = noteText;
+          container.append(item);
+        }
+      };
+
+      let currentScopeId = payload.initialScopeId;
+      let activePanel: "stats" | "visuals" = "stats";
+      let autoRotate = !prefersReducedMotion;
+      let autoTimer: number | null = null;
+      let transitionTimer: number | null = null;
+
+      const getEntry = () => payload.entries[currentScopeId] ?? payload.entries[payload.initialScopeId];
+
+      const buildTrail = (entry: HomeDeckEntry) => {
+        const trail: HomeDeckEntry[] = [entry];
+        let cursor = entry;
+
+        while (cursor.parentScopeId) {
+          const parent = payload.entries[cursor.parentScopeId];
+
+          if (!parent) {
+            break;
+          }
+
+          trail.unshift(parent);
+          cursor = parent;
+        }
+
+        return trail;
+      };
+
+      const pulseScopeChange = () => {
+        if (prefersReducedMotion) {
+          return;
+        }
+
+        root.classList.remove("is-transitioning");
+        window.requestAnimationFrame(() => {
+          root.classList.add("is-transitioning");
+        });
+
+        if (transitionTimer !== null) {
+          window.clearTimeout(transitionTimer);
+        }
+
+        transitionTimer = window.setTimeout(() => {
+          root.classList.remove("is-transitioning");
+          transitionTimer = null;
+        }, 420);
+      };
+
+      const renderScopePath = (entry: HomeDeckEntry) => {
+        scopePath.innerHTML = "";
+
+        const trail = buildTrail(entry);
+
+        trail.forEach((item, index) => {
+          const isCurrent = index === trail.length - 1;
+          const node = isCurrent ? document.createElement("span") : document.createElement("button");
+          node.className = `home-scope-crumb${isCurrent ? " is-current" : ""}`;
+          node.textContent = item.title;
+
+          if (node instanceof HTMLButtonElement) {
+            node.type = "button";
+            node.addEventListener("click", () => {
+              stopAutoRotate();
+              setScope(item.scopeId, "stats");
+              syncMapSelection(item.scopeId);
+            });
+          }
+
+          scopePath.append(node);
+
+          if (!isCurrent) {
+            const separator = document.createElement("span");
+            separator.className = "home-scope-separator";
+            separator.textContent = "/";
+            scopePath.append(separator);
+          }
+        });
+      };
+
+      const stopAutoRotate = () => {
+        if (!autoRotate) {
+          return;
+        }
+
+        autoRotate = false;
+
+        if (autoTimer !== null) {
+          window.clearInterval(autoTimer);
+          autoTimer = null;
+        }
+      };
+
+      const startAutoRotate = () => {
+        if (!autoRotate || prefersReducedMotion) {
+          return;
+        }
+
+        if (autoTimer !== null) {
+          window.clearInterval(autoTimer);
+        }
+
+        autoTimer = window.setInterval(() => {
+          activePanel = activePanel === "stats" ? "visuals" : "stats";
+          setTrackState(root, activePanel);
+        }, 4800);
+      };
+
+      const setScope = (scopeId: string, panel?: "stats" | "visuals") => {
+        if (!payload.entries[scopeId]) {
+          return;
+        }
+
+        const scopeChanged = currentScopeId !== scopeId;
+        currentScopeId = scopeId;
+
+        if (panel) {
+          activePanel = panel;
+        }
+
+        if (scopeChanged) {
+          pulseScopeChange();
+        }
+
+        render();
+      };
+
+      const syncMapSelection = (scopeId: string) => {
+        if (!mapRoot) {
+          return;
+        }
+
+        mapRoot.dispatchEvent(
+          new CustomEvent("home-map-set-scope", {
+            bubbles: true,
+            detail: {
+              scopeId
+            }
+          })
+        );
+      };
+
+      const render = () => {
+        const entry = getEntry();
+      const scopeKind = getScopeKind(entry, payload.initialScopeId, payload.rootScopeKind, payload.entries);
+        const showResetButton = entry.scopeId !== payload.initialScopeId;
+        const showParentButton = Boolean(entry.parentScopeId);
+        const rootEntry = payload.entries[payload.initialScopeId];
+        const resetButtonLabel = payload.resetLabel ?? (rootEntry ? `${rootEntry.title} map` : "Reset");
+        const parentButtonLabel = entry.parentLabel ? `Back to ${entry.parentLabel}` : "Back";
+        const showOpenLink = Boolean(entry.scopeHref && entry.scopeId !== payload.initialScopeId);
+
+        eyebrow.textContent = entry.eyebrow;
+        title.textContent = entry.title;
+        note.textContent = entry.note;
+        linksLabel.textContent = entry.linksLabel;
+        root.dataset.homeScopeKind = scopeKind;
+        scopeKindChip.textContent = getScopeKindLabel(scopeKind);
+        renderScopePath(entry);
+
+        openLink.hidden = !showOpenLink;
+        openLink.href = entry.scopeHref ?? "#";
+        openLink.textContent = entry.scopeActionLabel ?? "Open page";
+        resetButton.hidden = !showResetButton;
+        resetButton.textContent = resetButtonLabel;
+        parentButton.hidden = !showParentButton;
+        parentButton.textContent = parentButtonLabel;
+        controls.hidden = openLink.hidden && resetButton.hidden && parentButton.hidden;
+        mapPanel?.classList.toggle("is-focused", entry.scopeId !== payload.initialScopeId);
+
+        renderStoryBand(storyBand, entry);
+        renderStats(statsContainer, entry.stats);
+        renderLinks(linksContainer, entry.links, entry.scopeId, (scopeId) => {
+          stopAutoRotate();
+          setScope(scopeId, "stats");
+          syncMapSelection(scopeId);
+        });
+        renderComparisonBand(comparisonBand, entry);
+        renderVisualHero(visualHero, entry);
+        renderVisuals(visualsContainer, entry);
+        renderInsightNotes(insightNotes, entry);
+        setTrackState(root, activePanel);
+        deckViewport.scrollTop = 0;
+        syncMapSelection(entry.scopeId);
+      };
+
+      for (const button of root.querySelectorAll<HTMLButtonElement>("[data-home-tab]")) {
+        button.addEventListener("click", () => {
+          const panel = button.dataset.homeTab === "visuals" ? "visuals" : "stats";
+          activePanel = panel;
+          stopAutoRotate();
+          render();
+        });
+      }
+
+      parentButton.addEventListener("click", () => {
+        const entry = getEntry();
+
+        if (!entry.parentScopeId) {
+          return;
+        }
+
+        stopAutoRotate();
+        setScope(entry.parentScopeId, "stats");
+        syncMapSelection(entry.parentScopeId);
+      });
+
+      resetButton.addEventListener("click", () => {
+        stopAutoRotate();
+        setScope(payload.initialScopeId, "stats");
+        syncMapSelection(payload.initialScopeId);
+      });
+
+      mapRoot?.addEventListener("region-map-change", (event) => {
+        const customEvent = event as CustomEvent<RegionMapChangeDetail>;
+
+        if (customEvent.detail?.trigger !== "click") {
+          return;
+        }
+
+        const regionName = customEvent.detail.regionName;
+
+        if (!regionName || !payload.entries[regionName]) {
+          return;
+        }
+
+        stopAutoRotate();
+        setScope(regionName, "stats");
+      });
+
+      mapRoot?.addEventListener("region-map-scope", (event) => {
+        const customEvent = event as CustomEvent<RegionMapScopeDetail>;
+        const scopeId = customEvent.detail?.scopeId;
+
+        if (!scopeId || !payload.entries[scopeId]) {
+          return;
+        }
+
+        stopAutoRotate();
+        setScope(scopeId, "stats");
+        syncMapSelection(scopeId);
+      });
+
+      mapRoot?.addEventListener("pointerdown", (event) => {
+        if ((event.target as HTMLElement | null)?.closest("button, a")) {
+          stopAutoRotate();
+        }
+      });
+
+      root.addEventListener("pointerdown", (event) => {
+        if ((event.target as HTMLElement | null)?.closest("button, a")) {
+          stopAutoRotate();
+        }
+      });
+
+      root.addEventListener("keydown", stopAutoRotate, { once: true });
+      render();
+      startAutoRotate();
+    }
+  }
+</script>

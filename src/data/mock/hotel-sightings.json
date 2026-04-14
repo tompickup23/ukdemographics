@@ -1,0 +1,68 @@
+[
+  {
+    "areaName": "Epping Forest",
+    "areaCode": "E07000072",
+    "namedSiteCount": 2,
+    "unnamedSiteCount": 0,
+    "peopleHousedReported": null,
+    "lastPublicDate": "2025-07-30",
+    "sourceTitle": "Joint open letter on Bell Hotel and Phoenix Hotel",
+    "sourceUrl": "https://www.eppingforestdc.gov.uk/news/joint-open-letter-bell-hotel-and-phoenix-hotel/",
+    "notes": "Current named-site evidence."
+  },
+  {
+    "areaName": "Wakefield",
+    "areaCode": "E08000036",
+    "namedSiteCount": 1,
+    "unnamedSiteCount": 0,
+    "peopleHousedReported": null,
+    "lastPublicDate": "2025-08-20",
+    "sourceTitle": "Wakefield statement on contingency asylum accommodation",
+    "sourceUrl": "https://www.wakefield.gov.uk/council-information/news/the-home-office-has-confirmed-that-it-will-be-using-a-hotel-in-wakefield-district-as-contingency-asylum-accommodation/",
+    "notes": "Named site publicly confirmed."
+  },
+  {
+    "areaName": "Spelthorne",
+    "areaCode": "E07000213",
+    "namedSiteCount": 1,
+    "unnamedSiteCount": 0,
+    "peopleHousedReported": null,
+    "lastPublicDate": "2025-10-30",
+    "sourceTitle": "Spelthorne statement on Stanwell asylum hotel",
+    "sourceUrl": "https://www.spelthorne.gov.uk/article/39191/Spelthorne-calls-for-constructive-action-not-politics-to-support-Stanwell-asylum-hotel",
+    "notes": "Named site publicly confirmed."
+  },
+  {
+    "areaName": "West Northamptonshire",
+    "areaCode": "",
+    "namedSiteCount": 0,
+    "unnamedSiteCount": 3,
+    "peopleHousedReported": null,
+    "lastPublicDate": "2025-08-21",
+    "sourceTitle": "West Northamptonshire statement on hotels used for asylum seekers",
+    "sourceUrl": "https://www.westnorthants.gov.uk/news/west-northamptonshire-council-comments-use-hotels-house-asylum-seekers",
+    "notes": "Public hotel count without names."
+  },
+  {
+    "areaName": "East Lindsey",
+    "areaCode": "",
+    "namedSiteCount": 0,
+    "unnamedSiteCount": 1,
+    "peopleHousedReported": null,
+    "lastPublicDate": "2025-08-20",
+    "sourceTitle": "East Lindsey statement on hotel use for asylum contingency accommodation",
+    "sourceUrl": "https://www.e-lindsey.gov.uk/article/27439/Response-to-Home-Office-announcement-that-it-will-use-a-hotel-in-the-district-for-asylum-contingency-accommodation",
+    "notes": "Public hotel count without names."
+  },
+  {
+    "areaName": "Perth and Kinross",
+    "areaCode": "S12000048",
+    "namedSiteCount": 0,
+    "unnamedSiteCount": 2,
+    "peopleHousedReported": 191,
+    "lastPublicDate": "2025-08-14",
+    "sourceTitle": "Public reporting on Perth and Kinross hotels and asylum seekers",
+    "sourceUrl": "https://www.dailyrecord.co.uk/news/scottish-news/almost-200-asylum-seekers-being-35656075",
+    "notes": "Public count and occupancy report without named sites."
+  }
+]

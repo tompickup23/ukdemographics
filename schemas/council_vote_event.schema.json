@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/council_vote_event.schema.json",
+  "title": "Council Vote Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "vote_event_id",
+    "body_id",
+    "meeting_date",
+    "title",
+    "outcome"
+  ],
+  "properties": {
+    "vote_event_id": { "type": "string" },
+    "body_id": { "type": "string" },
+    "meeting_id": { "type": ["string", "null"] },
+    "meeting_date": { "type": "string", "format": "date" },
+    "title": { "type": "string" },
+    "vote_type": { "type": ["string", "null"] },
+    "description": { "type": ["string", "null"] },
+    "policy_areas": { "type": ["array", "null"], "items": { "type": "string" } },
+    "significance": { "type": ["string", "null"] },
+    "outcome": { "type": "string" },
+    "for_count": { "type": ["integer", "null"] },
+    "against_count": { "type": ["integer", "null"] },
+    "abstain_count": { "type": ["integer", "null"] },
+    "absent_count": { "type": ["integer", "null"] },
+    "minutes_url": { "type": ["string", "null"], "format": "uri" },
+    "votes_by_councillor": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "vote"],
+        "properties": {
+          "name": { "type": "string" },
+          "uid": { "type": ["string", "null"] },
+          "vote": { "type": "string" }
+        }
+      }
+    }
+  }
+}

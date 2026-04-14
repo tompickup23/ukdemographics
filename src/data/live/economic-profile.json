@@ -1,0 +1,7951 @@
+{
+  "source": "NOMIS (ONS Annual Population Survey)",
+  "lastUpdated": "2026-04-11",
+  "methodology": "Model-based estimates from the Annual Population Survey. Employment, economic inactivity, and unemployment rates by local authority.",
+  "totalAreas": 361,
+  "populatedAreas": 0,
+  "profiles": {
+    "S12000049": {
+      "areaCode": "S12000049",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000025": {
+      "areaCode": "E08000025",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000012": {
+      "areaCode": "E08000012",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000017": {
+      "areaCode": "E09000017",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000003": {
+      "areaCode": "E08000003",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000035": {
+      "areaCode": "E08000035",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000003": {
+      "areaCode": "N09000003",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000018": {
+      "areaCode": "E09000018",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000026": {
+      "areaCode": "E08000026",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000018": {
+      "areaCode": "E06000018",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000028": {
+      "areaCode": "E08000028",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000016": {
+      "areaCode": "E06000016",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000008": {
+      "areaCode": "E09000008",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000015": {
+      "areaCode": "W06000015",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000003": {
+      "areaCode": "E09000003",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000032": {
+      "areaCode": "E08000032",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000031": {
+      "areaCode": "E08000031",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000021": {
+      "areaCode": "E06000021",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000039": {
+      "areaCode": "E08000039",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000009": {
+      "areaCode": "E09000009",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000015": {
+      "areaCode": "E06000015",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000010": {
+      "areaCode": "E08000010",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000025": {
+      "areaCode": "E09000025",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000021": {
+      "areaCode": "E08000021",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000023": {
+      "areaCode": "E06000023",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000001": {
+      "areaCode": "E08000001",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000005": {
+      "areaCode": "E09000005",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000007": {
+      "areaCode": "E08000007",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000004": {
+      "areaCode": "E06000004",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000024": {
+      "areaCode": "E08000024",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000033": {
+      "areaCode": "S12000033",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000004": {
+      "areaCode": "E08000004",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000015": {
+      "areaCode": "E08000015",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000010": {
+      "areaCode": "E06000010",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000008": {
+      "areaCode": "E06000008",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000044": {
+      "areaCode": "E06000044",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000038": {
+      "areaCode": "E06000038",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000034": {
+      "areaCode": "E08000034",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000005": {
+      "areaCode": "E08000005",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000027": {
+      "areaCode": "E08000027",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000036": {
+      "areaCode": "E08000036",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000032": {
+      "areaCode": "E06000032",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000020": {
+      "areaCode": "E06000020",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000006": {
+      "areaCode": "E08000006",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000011": {
+      "areaCode": "W06000011",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000002": {
+      "areaCode": "E06000002",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000067": {
+      "areaCode": "E07000067",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000057": {
+      "areaCode": "E06000057",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000030": {
+      "areaCode": "E08000030",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000013": {
+      "areaCode": "E08000013",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000050": {
+      "areaCode": "E06000050",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000017": {
+      "areaCode": "E08000017",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000037": {
+      "areaCode": "E08000037",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000023": {
+      "areaCode": "E08000023",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000033": {
+      "areaCode": "E08000033",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000006": {
+      "areaCode": "E06000006",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000061": {
+      "areaCode": "E06000061",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000012": {
+      "areaCode": "E09000012",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000009": {
+      "areaCode": "E06000009",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000047": {
+      "areaCode": "E06000047",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000220": {
+      "areaCode": "E07000220",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000030": {
+      "areaCode": "E06000030",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000058": {
+      "areaCode": "E06000058",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000028": {
+      "areaCode": "E09000028",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000063": {
+      "areaCode": "E06000063",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000026": {
+      "areaCode": "E06000026",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000026": {
+      "areaCode": "E09000026",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000031": {
+      "areaCode": "E06000031",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000008": {
+      "areaCode": "E08000008",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000030": {
+      "areaCode": "E09000030",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000062": {
+      "areaCode": "E06000062",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000065": {
+      "areaCode": "E06000065",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000049": {
+      "areaCode": "E06000049",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000096": {
+      "areaCode": "E07000096",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000117": {
+      "areaCode": "E07000117",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000007": {
+      "areaCode": "E06000007",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000228": {
+      "areaCode": "E07000228",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000122": {
+      "areaCode": "E07000122",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000018": {
+      "areaCode": "E08000018",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000022": {
+      "areaCode": "E08000022",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000222": {
+      "areaCode": "E07000222",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000014": {
+      "areaCode": "E08000014",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000123": {
+      "areaCode": "E07000123",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000022": {
+      "areaCode": "E09000022",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000120": {
+      "areaCode": "E07000120",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000127": {
+      "areaCode": "E07000127",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000009": {
+      "areaCode": "E08000009",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000001": {
+      "areaCode": "E06000001",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000002": {
+      "areaCode": "E08000002",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000226": {
+      "areaCode": "E07000226",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000010": {
+      "areaCode": "E09000010",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000081": {
+      "areaCode": "E07000081",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000042": {
+      "areaCode": "E06000042",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000039": {
+      "areaCode": "E06000039",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000034": {
+      "areaCode": "S12000034",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000126": {
+      "areaCode": "E07000126",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000040": {
+      "areaCode": "E06000040",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000070": {
+      "areaCode": "E07000070",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000066": {
+      "areaCode": "E06000066",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000013": {
+      "areaCode": "E09000013",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000128": {
+      "areaCode": "E07000128",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000095": {
+      "areaCode": "E07000095",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000015": {
+      "areaCode": "E09000015",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000148": {
+      "areaCode": "E07000148",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000022": {
+      "areaCode": "W06000022",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000045": {
+      "areaCode": "E06000045",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000211": {
+      "areaCode": "E07000211",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000066": {
+      "areaCode": "E07000066",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000243": {
+      "areaCode": "E07000243",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000011": {
+      "areaCode": "E08000011",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000071": {
+      "areaCode": "E07000071",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000024": {
+      "areaCode": "E09000024",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000002": {
+      "areaCode": "E09000002",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000219": {
+      "areaCode": "E07000219",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000029": {
+      "areaCode": "E08000029",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E08000038": {
+      "areaCode": "E08000038",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000012": {
+      "areaCode": "E06000012",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000178": {
+      "areaCode": "E07000178",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000014": {
+      "areaCode": "E06000014",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000003": {
+      "areaCode": "E06000003",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000020": {
+      "areaCode": "E09000020",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000023": {
+      "areaCode": "E09000023",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000005": {
+      "areaCode": "N09000005",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000035": {
+      "areaCode": "E06000035",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000033": {
+      "areaCode": "E06000033",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000121": {
+      "areaCode": "E07000121",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000125": {
+      "areaCode": "E07000125",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000130": {
+      "areaCode": "E07000130",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000064": {
+      "areaCode": "E06000064",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000036": {
+      "areaCode": "S12000036",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000007": {
+      "areaCode": "E09000007",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000118": {
+      "areaCode": "E07000118",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000106": {
+      "areaCode": "E07000106",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000005": {
+      "areaCode": "E06000005",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000040": {
+      "areaCode": "E07000040",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000055": {
+      "areaCode": "E06000055",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000041": {
+      "areaCode": "E06000041",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000141": {
+      "areaCode": "E07000141",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000199": {
+      "areaCode": "E07000199",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000054": {
+      "areaCode": "E06000054",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000056": {
+      "areaCode": "E06000056",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000001": {
+      "areaCode": "N09000001",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000048": {
+      "areaCode": "S12000048",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000004": {
+      "areaCode": "N09000004",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000241": {
+      "areaCode": "E07000241",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000076": {
+      "areaCode": "E07000076",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000060": {
+      "areaCode": "E06000060",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000171": {
+      "areaCode": "E07000171",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000029": {
+      "areaCode": "S12000029",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000031": {
+      "areaCode": "E09000031",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000014": {
+      "areaCode": "E09000014",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000225": {
+      "areaCode": "E07000225",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000016": {
+      "areaCode": "E09000016",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000006": {
+      "areaCode": "E09000006",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000018": {
+      "areaCode": "S12000018",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000034": {
+      "areaCode": "E06000034",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000172": {
+      "areaCode": "E07000172",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000072": {
+      "areaCode": "E07000072",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000174": {
+      "areaCode": "E07000174",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000105": {
+      "areaCode": "E07000105",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000078": {
+      "areaCode": "E07000078",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000195": {
+      "areaCode": "E07000195",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000099": {
+      "areaCode": "E07000099",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000092": {
+      "areaCode": "E07000092",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000016": {
+      "areaCode": "W06000016",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000221": {
+      "areaCode": "E07000221",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000170": {
+      "areaCode": "E07000170",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000237": {
+      "areaCode": "E07000237",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000177": {
+      "areaCode": "E07000177",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000036": {
+      "areaCode": "E07000036",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000011": {
+      "areaCode": "E09000011",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000025": {
+      "areaCode": "E06000025",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000193": {
+      "areaCode": "E07000193",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000109": {
+      "areaCode": "E07000109",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000033": {
+      "areaCode": "E07000033",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000050": {
+      "areaCode": "S12000050",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000006": {
+      "areaCode": "W06000006",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000181": {
+      "areaCode": "E07000181",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000114": {
+      "areaCode": "E07000114",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000136": {
+      "areaCode": "E07000136",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000075": {
+      "areaCode": "E07000075",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000202": {
+      "areaCode": "E07000202",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000038": {
+      "areaCode": "S12000038",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000238": {
+      "areaCode": "E07000238",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000137": {
+      "areaCode": "E07000137",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000004": {
+      "areaCode": "E09000004",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000043": {
+      "areaCode": "E06000043",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000002": {
+      "areaCode": "N09000002",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000014": {
+      "areaCode": "S12000014",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000134": {
+      "areaCode": "E07000134",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000018": {
+      "areaCode": "W06000018",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000180": {
+      "areaCode": "E07000180",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000227": {
+      "areaCode": "E07000227",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000006": {
+      "areaCode": "S12000006",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000213": {
+      "areaCode": "E07000213",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000214": {
+      "areaCode": "E07000214",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000032": {
+      "areaCode": "E07000032",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000024": {
+      "areaCode": "E06000024",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000196": {
+      "areaCode": "E07000196",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000013": {
+      "areaCode": "E06000013",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000034": {
+      "areaCode": "E07000034",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000040": {
+      "areaCode": "S12000040",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000140": {
+      "areaCode": "E07000140",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000004": {
+      "areaCode": "W06000004",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000119": {
+      "areaCode": "E07000119",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000175": {
+      "areaCode": "E07000175",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000021": {
+      "areaCode": "E09000021",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000032": {
+      "areaCode": "E09000032",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000094": {
+      "areaCode": "E07000094",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000108": {
+      "areaCode": "E07000108",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000073": {
+      "areaCode": "E07000073",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000132": {
+      "areaCode": "E07000132",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000012": {
+      "areaCode": "W06000012",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000173": {
+      "areaCode": "E07000173",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000113": {
+      "areaCode": "E07000113",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000008": {
+      "areaCode": "S12000008",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000005": {
+      "areaCode": "W06000005",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000077": {
+      "areaCode": "E07000077",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000062": {
+      "areaCode": "E07000062",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000010": {
+      "areaCode": "W06000010",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000027": {
+      "areaCode": "E06000027",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000021": {
+      "areaCode": "S12000021",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000038": {
+      "areaCode": "E07000038",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000011": {
+      "areaCode": "E06000011",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000240": {
+      "areaCode": "E07000240",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000011": {
+      "areaCode": "N09000011",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000218": {
+      "areaCode": "E07000218",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000002": {
+      "areaCode": "W06000002",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000019": {
+      "areaCode": "E09000019",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000098": {
+      "areaCode": "E07000098",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000239": {
+      "areaCode": "E07000239",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000019": {
+      "areaCode": "W06000019",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000110": {
+      "areaCode": "E07000110",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000013": {
+      "areaCode": "W06000013",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000142": {
+      "areaCode": "E07000142",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000045": {
+      "areaCode": "E07000045",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000244": {
+      "areaCode": "E07000244",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000061": {
+      "areaCode": "E07000061",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000176": {
+      "areaCode": "E07000176",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000039": {
+      "areaCode": "S12000039",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000037": {
+      "areaCode": "E06000037",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000135": {
+      "areaCode": "E07000135",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000010": {
+      "areaCode": "S12000010",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000010": {
+      "areaCode": "N09000010",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000129": {
+      "areaCode": "E07000129",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000024": {
+      "areaCode": "W06000024",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000041": {
+      "areaCode": "S12000041",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000042": {
+      "areaCode": "S12000042",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000033": {
+      "areaCode": "E09000033",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000192": {
+      "areaCode": "E07000192",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000112": {
+      "areaCode": "E07000112",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000124": {
+      "areaCode": "E07000124",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000197": {
+      "areaCode": "E07000197",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000087": {
+      "areaCode": "E07000087",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000198": {
+      "areaCode": "E07000198",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000029": {
+      "areaCode": "E09000029",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000001": {
+      "areaCode": "W06000001",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000051": {
+      "areaCode": "E06000051",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000069": {
+      "areaCode": "E07000069",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000207": {
+      "areaCode": "E07000207",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000143": {
+      "areaCode": "E07000143",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000019": {
+      "areaCode": "S12000019",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000026": {
+      "areaCode": "S12000026",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000068": {
+      "areaCode": "E07000068",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000203": {
+      "areaCode": "E07000203",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000179": {
+      "areaCode": "E07000179",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000088": {
+      "areaCode": "E07000088",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000028": {
+      "areaCode": "S12000028",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000084": {
+      "areaCode": "E07000084",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000003": {
+      "areaCode": "W06000003",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000041": {
+      "areaCode": "E07000041",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000019": {
+      "areaCode": "E06000019",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000215": {
+      "areaCode": "E07000215",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000052": {
+      "areaCode": "E06000052",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000007": {
+      "areaCode": "N09000007",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000245": {
+      "areaCode": "E07000245",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000090": {
+      "areaCode": "E07000090",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000011": {
+      "areaCode": "E07000011",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000039": {
+      "areaCode": "E07000039",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000014": {
+      "areaCode": "W06000014",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000107": {
+      "areaCode": "E07000107",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000044": {
+      "areaCode": "E07000044",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000229": {
+      "areaCode": "E07000229",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000027": {
+      "areaCode": "E09000027",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000103": {
+      "areaCode": "E07000103",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000133": {
+      "areaCode": "E07000133",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000149": {
+      "areaCode": "E07000149",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000008": {
+      "areaCode": "E07000008",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000020": {
+      "areaCode": "W06000020",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000145": {
+      "areaCode": "E07000145",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000093": {
+      "areaCode": "E07000093",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000022": {
+      "areaCode": "E06000022",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000036": {
+      "areaCode": "E06000036",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000023": {
+      "areaCode": "W06000023",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000144": {
+      "areaCode": "E07000144",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000045": {
+      "areaCode": "S12000045",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000047": {
+      "areaCode": "S12000047",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000146": {
+      "areaCode": "E07000146",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000139": {
+      "areaCode": "E07000139",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000085": {
+      "areaCode": "E07000085",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000208": {
+      "areaCode": "E07000208",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000037": {
+      "areaCode": "E07000037",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000082": {
+      "areaCode": "E07000082",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000200": {
+      "areaCode": "E07000200",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000234": {
+      "areaCode": "E07000234",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000080": {
+      "areaCode": "E07000080",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000009": {
+      "areaCode": "W06000009",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000236": {
+      "areaCode": "E07000236",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000115": {
+      "areaCode": "E07000115",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000046": {
+      "areaCode": "E07000046",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000216": {
+      "areaCode": "E07000216",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000059": {
+      "areaCode": "E06000059",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000086": {
+      "areaCode": "E07000086",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000030": {
+      "areaCode": "S12000030",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000063": {
+      "areaCode": "E07000063",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000017": {
+      "areaCode": "E06000017",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000111": {
+      "areaCode": "E07000111",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000102": {
+      "areaCode": "E07000102",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000005": {
+      "areaCode": "S12000005",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000009": {
+      "areaCode": "E07000009",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000011": {
+      "areaCode": "S12000011",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000194": {
+      "areaCode": "E07000194",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000138": {
+      "areaCode": "E07000138",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000020": {
+      "areaCode": "S12000020",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000224": {
+      "areaCode": "E07000224",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000010": {
+      "areaCode": "E07000010",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000006": {
+      "areaCode": "N09000006",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000209": {
+      "areaCode": "E07000209",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000074": {
+      "areaCode": "E07000074",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000091": {
+      "areaCode": "E07000091",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000043": {
+      "areaCode": "E07000043",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000223": {
+      "areaCode": "E07000223",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000131": {
+      "areaCode": "E07000131",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000210": {
+      "areaCode": "E07000210",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000064": {
+      "areaCode": "E07000064",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000012": {
+      "areaCode": "E07000012",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000065": {
+      "areaCode": "E07000065",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000047": {
+      "areaCode": "E07000047",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000217": {
+      "areaCode": "E07000217",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000035": {
+      "areaCode": "S12000035",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000008": {
+      "areaCode": "W06000008",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E09000001": {
+      "areaCode": "E09000001",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000079": {
+      "areaCode": "E07000079",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000035": {
+      "areaCode": "E07000035",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000242": {
+      "areaCode": "E07000242",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000089": {
+      "areaCode": "E07000089",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000017": {
+      "areaCode": "S12000017",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000046": {
+      "areaCode": "E06000046",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E06000053": {
+      "areaCode": "E06000053",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000235": {
+      "areaCode": "E07000235",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000008": {
+      "areaCode": "N09000008",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000042": {
+      "areaCode": "E07000042",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "N09000009": {
+      "areaCode": "N09000009",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "W06000021": {
+      "areaCode": "W06000021",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000013": {
+      "areaCode": "S12000013",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000147": {
+      "areaCode": "E07000147",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000023": {
+      "areaCode": "S12000023",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000212": {
+      "areaCode": "E07000212",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "S12000027": {
+      "areaCode": "S12000027",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000083": {
+      "areaCode": "E07000083",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    },
+    "E07000116": {
+      "areaCode": "E07000116",
+      "employment": {
+        "employmentRate": null,
+        "economicInactivityRate": null,
+        "unemploymentRate": null
+      },
+      "worklessness": {
+        "total": null
+      },
+      "benefits": {
+        "ucClaimantRate": null
+      },
+      "education": {
+        "nvq4PlusPct": null,
+        "noQualificationsPct": null
+      },
+      "deprivation": {
+        "imdRank": null,
+        "imdDecile": null
+      }
+    }
+  }
+}

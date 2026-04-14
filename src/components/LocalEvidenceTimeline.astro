@@ -1,0 +1,38 @@
+---
+import type { LocalEvidenceTimelineEntry } from "../lib/local-evidence";
+
+interface Props {
+  items: LocalEvidenceTimelineEntry[];
+  showRegionChip?: boolean;
+}
+
+const { items, showRegionChip = false } = Astro.props;
+---
+
+<div class="timeline local-evidence-timeline">
+  {items.map((item, index) => (
+    <article class="timeline-item">
+      <div class="timeline-date">{item.lastPublicDateLabel}</div>
+      <div class:list={["timeline-card", index === 0 && "accent"]}>
+        <div class="chip-row">
+          {showRegionChip && <span class="chip">{item.regionName}</span>}
+          <span class="chip accent">{item.areaName}</span>
+          <span class:list={["chip", item.entityCoverage === "partial" ? "teal" : "warm"]}>{item.chainLabel}</span>
+        </div>
+        <h3>{item.siteName}</h3>
+        <p class="lede">
+          Publicly named in {item.areaName}.{" "}
+          {item.supportedAsylum !== null
+            ? `${item.supportedAsylum.toLocaleString()} people are on supported asylum there at quarter end.`
+            : "The site is publishable even where the local route row is not carrying a numeric anchor here."}
+        </p>
+        <p class="tiny">{item.chainSummary}</p>
+        <div class="chip-row">
+          {item.placeHref && <a class="source-pill" href={item.placeHref}>Open {item.areaName}</a>}
+          {showRegionChip && <a class="source-pill" href={item.regionHref}>Open {item.regionName}</a>}
+          <a class="source-pill" href={item.sourceUrl}>Open source</a>
+        </div>
+      </div>
+    </article>
+  ))}
+</div>

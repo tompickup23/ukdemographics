@@ -1,0 +1,88 @@
+---
+/**
+ * Real-time backlog cost clock.
+ * Ticks up at £66.78/second (£5.77M/day asylum hotel costs).
+ * Highly shareable, embeddable widget.
+ */
+interface Props {
+  dailyCostMillions?: number;
+  label?: string;
+}
+
+const { dailyCostMillions = 5.77, label = "asylum hotel bill" } = Astro.props;
+const costPerSecond = (dailyCostMillions * 1_000_000) / 86400;
+---
+
+<div class="backlog-clock" data-rate={costPerSecond.toFixed(4)}>
+  <div class="clock-label">Since you opened this page, the {label} has cost</div>
+  <div class="clock-value" id="backlog-counter">£0.00</div>
+  <div class="clock-meta">
+    <span class="clock-rate">£{costPerSecond.toFixed(2)}/second</span>
+    <span class="clock-sep">·</span>
+    <span class="clock-daily">£{dailyCostMillions}M/day</span>
+    <span class="clock-sep">·</span>
+    <span class="clock-annual">£{(dailyCostMillions * 365).toFixed(0)}M/year</span>
+  </div>
+</div>
+
+<script>
+  const el = document.getElementById("backlog-counter");
+  const clock = el?.closest(".backlog-clock") as HTMLElement | null;
+  if (el && clock) {
+    const rate = parseFloat(clock.dataset.rate || "66.78");
+    const start = Date.now();
+
+    function update() {
+      const elapsed = (Date.now() - start) / 1000;
+      const cost = elapsed * rate;
+      if (cost < 1000) {
+        el!.textContent = `£${cost.toFixed(2)}`;
+      } else if (cost < 1_000_000) {
+        el!.textContent = `£${(cost / 1000).toFixed(2)}K`;
+      } else {
+        el!.textContent = `£${(cost / 1_000_000).toFixed(3)}M`;
+      }
+      requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+</script>
+
+<style>
+  .backlog-clock {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(245, 158, 11, 0.05));
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  .clock-label {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .clock-value {
+    font-size: 2.8rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: #ef4444;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .clock-meta {
+    font-size: 0.78rem;
+    color: var(--muted);
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .clock-sep { opacity: 0.3; }
+  .clock-rate { color: rgba(239, 68, 68, 0.7); font-weight: 600; }
+
+  @media (max-width: 600px) {
+    .clock-value { font-size: 2rem; }
+  }
+</style>

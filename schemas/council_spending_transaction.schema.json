@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/council_spending_transaction.schema.json",
+  "title": "Council Spending Transaction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "body_id",
+    "source_id",
+    "transaction_date",
+    "financial_year",
+    "supplier_name_raw",
+    "amount_gbp",
+    "department_raw"
+  ],
+  "properties": {
+    "transaction_id": { "type": "string" },
+    "body_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "transaction_date": { "type": "string", "format": "date" },
+    "financial_year": { "type": "string" },
+    "quarter": { "type": ["integer", "null"], "minimum": 1, "maximum": 4 },
+    "supplier_id": { "type": ["string", "null"] },
+    "supplier_name_raw": { "type": "string" },
+    "amount_gbp": { "type": "number" },
+    "department_raw": { "type": "string" },
+    "service_area_raw": { "type": ["string", "null"] },
+    "service_division": { "type": ["string", "null"] },
+    "expenditure_category": { "type": ["string", "null"] },
+    "reference": { "type": ["string", "null"] },
+    "spend_type": { "type": ["string", "null"] },
+    "currency": { "type": "string", "default": "GBP" },
+    "source_url": { "type": ["string", "null"], "format": "uri" },
+    "notes": { "type": ["string", "null"] }
+  }
+}
