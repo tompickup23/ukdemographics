@@ -4325,6 +4325,17 @@ tr:last-child td {
   line-height: 1.65;
 }
 .footer-main { margin-bottom: 1rem; }
+.footer-cross-site {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(79, 70, 229, 0.06);
+  border-radius: 8px;
+  border: 1px solid rgba(79, 70, 229, 0.15);
+}
+.footer-cross-site a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.footer-cross-site a:hover { text-decoration: underline; }
 .footer-legal {
   font-size: 0.78rem;
   opacity: 0.5;
