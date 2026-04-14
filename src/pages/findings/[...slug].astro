@@ -43,7 +43,7 @@ const verdictLabel: Record<string, string> = {
 ---
 
 <BaseLayout
-  title={`${finding.data.headline} - asylumstats`}
+  title={`${finding.data.headline} - UK Demographics`}
   description={finding.data.summary}
   image={ogImage}
   structuredData={[{
@@ -52,10 +52,10 @@ const verdictLabel: Record<string, string> = {
     "headline": finding.data.headline,
     "description": finding.data.summary,
     "url": pageUrl,
-    "image": `https://asylumstats.co.uk${ogImage}`,
+    "image": `https://ukdemographics.co.uk${ogImage}`,
     "datePublished": finding.data.date,
     "author": { "@type": "Person", "name": "Tom Pickup" },
-    "publisher": { "@type": "Organization", "name": "asylumstats", "url": "https://asylumstats.co.uk" }
+    "publisher": { "@type": "Organization", "name": "UK Demographics", "url": "https://ukdemographics.co.uk" }
   }]}
 >
   <Breadcrumbs items={[

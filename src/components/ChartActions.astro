@@ -57,7 +57,7 @@ const embedUrl = chartId ? `/embed/${chartId}/` : undefined;
         ctx.font = `${12 * scale}px Sora, sans-serif`;
         ctx.fillStyle = "rgba(255,255,255,0.25)";
         ctx.textAlign = "right";
-        ctx.fillText("asylumstats.co.uk", canvas.width - 12 * scale, canvas.height - 8 * scale);
+        ctx.fillText("ukdemographics.co.uk", canvas.width - 12 * scale, canvas.height - 8 * scale);
         const link = document.createElement("a");
         link.download = `${filename}.png`;
         link.href = canvas.toDataURL("image/png");
@@ -71,7 +71,7 @@ const embedUrl = chartId ? `/embed/${chartId}/` : undefined;
   document.querySelectorAll("[data-chart-embed]").forEach((btn) => {
     btn.addEventListener("click", async () => {
       const url = (btn as HTMLElement).dataset.chartEmbed;
-      const code = `<iframe src="https://asylumstats.co.uk${url}" width="600" height="340" frameborder="0" style="border: 1px solid #1e293b; border-radius: 12px;" loading="lazy"></iframe>`;
+      const code = `<iframe src="https://ukdemographics.co.uk${url}" width="600" height="340" frameborder="0" style="border: 1px solid #1e293b; border-radius: 12px;" loading="lazy"></iframe>`;
       await navigator.clipboard.writeText(code);
       const label = btn.querySelector("span");
       if (label) {
