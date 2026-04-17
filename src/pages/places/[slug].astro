@@ -3,10 +3,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import DataFreshness from "../../components/DataFreshness.astro";
 import ShareButton from "../../components/ShareButton.astro";
+import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
+import ProjectionChart from "../../components/ProjectionChart.astro";
+import ShiftShareChart from "../../components/ShiftShareChart.astro";
 import {
   getEthnicProjection,
   getReligionData, getNativityData,
   getShiftShareData, getDiversityIndex, getEnglishProficiency,
+  getStochasticData, getEthnicCompositionTimeline,
 } from "../../lib/ethnic-projections";
 import { buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
 import rawProjections from "../../data/live/ethnic-projections.json";
@@ -48,6 +52,85 @@ const population = projData?.current?.total_population ?? area.population ?? 0;
 const wbi2021 = projData?.current?.groups?.white_british ?? area.wbiPct2021;
 const wbi2041 = projData?.projections?.["2041"]?.white_british ?? area.wbiPct2041;
 const wbi2051 = projData?.projections?.["2051"]?.white_british;
+
+// Chart data builders
+const ethnicTimeline = getEthnicCompositionTimeline(area.areaCode);
+const stochasticData = getStochasticData(area.areaCode);
+
+const GROUP_COLORS: Record<string, string> = {
+  white_british: "#4f46e5",
+  white_other: "#8b9cb3",
+  asian: "#f59e0b",
+  black: "#a78bfa",
+  mixed: "#10b981",
+  other: "#6b7280",
+};
+const GROUP_LABELS: Record<string, string> = {
+  white_british: "White British",
+  white_other: "White Other",
+  asian: "Asian",
+  black: "Black",
+  mixed: "Mixed",
+  other: "Other",
+};
+
+const ethChartLines = ethnicTimeline
+  ? (Object.keys(GROUP_LABELS) as Array<keyof typeof GROUP_LABELS>)
+      .filter((g) => Math.max(...ethnicTimeline.map((t: any) => t.groups[g] ?? 0)) > 3)
+      .map((g) => ({
+        label: GROUP_LABELS[g],
+        color: GROUP_COLORS[g],
+        points: ethnicTimeline.map((t: any) => ({ year: Number(t.year), value: t.groups[g] ?? 0 })),
+      }))
+  : [];
+
+const ethConfidenceBand = stochasticData
+  ? [2031, 2041, 2051]
+      .filter((y) => (stochasticData as any)[y])
+      .map((y) => ({
+        year: y,
+        low: (stochasticData as any)[y].wbi.p10,
+        high: (stochasticData as any)[y].wbi.p90,
+      }))
+  : undefined;
+
+const relChartLines = religionData
+  ? (() => {
+      const groups = [
+        { key: "Christian", color: "#7dd3fc", label: "Christian" },
+        { key: "No religion", color: "#6b7280", label: "No religion" },
+        { key: "Muslim", color: "#f59e0b", label: "Muslim" },
+        { key: "Hindu", color: "#a78bfa", label: "Hindu" },
+        { key: "Sikh", color: "#10b981", label: "Sikh" },
+      ];
+      const years = [2021, 2031, 2041, 2051].filter((y) => (religionData as any)[y]);
+      return groups
+        .filter((g) => years.some((y) => ((religionData as any)[y]?.[g.key] ?? 0) > 3))
+        .map((g) => ({
+          label: g.label,
+          color: g.color,
+          points: years.map((y) => ({ year: y, value: (religionData as any)[y]?.[g.key] ?? 0 })),
+        }));
+    })()
+  : [];
+
+const natChartLines = nativityData
+  ? (() => {
+      const years = [2021, 2031, 2041, 2051].filter((y) => (nativityData as any)[y]);
+      return [
+        {
+          label: "UK-born",
+          color: "#4f46e5",
+          points: years.map((y) => ({ year: y, value: (nativityData as any)[y].ukBornPct })),
+        },
+        {
+          label: "Foreign-born",
+          color: "#f59e0b",
+          points: years.map((y) => ({ year: y, value: (nativityData as any)[y].foreignBornPct })),
+        },
+      ];
+    })()
+  : [];
 
 const canonicalUrl = buildAbsoluteUrl(`/places/${slugifyAreaName(area.areaName)}/`);
 const pageDescription = `${area.areaName} demographic profile: population ${population?.toLocaleString()}, White British ${wbi2021?.toFixed(1)}% (2021) → ${wbi2051?.toFixed(1) ?? "?"}% (2051 projected). Ethnic composition, religion, nativity, shift-share analysis.`;
@@ -119,60 +202,48 @@ function fmtInt(n: number | undefined | null): string {
     </div>
   </section>
 
-  <!-- Ethnic composition -->
-  {ethnicProjection && (
+  <!-- Ethnic composition — trajectory chart + timeline -->
+  {ethnicProjection && ethChartLines.length > 0 && (
     <section class="section" id="ethnic-composition">
-      <h2>Ethnic composition</h2>
-      <p class="section-desc">Census 2021 observed data with Hamilton-Perry projections to 2061.</p>
-      <div class="data-grid">
-        {Object.entries(ethnicProjection.current?.groups ?? {}).map(([group, pct]) => (
-          <div class="data-item">
-            <span class="data-label">{group.replace(/_/g, " ")}</span>
-            <span class="data-value">{typeof pct === "number" ? `${pct.toFixed(1)}%` : String(pct)}</span>
-          </div>
-        ))}
+      <h2>Ethnic composition trajectory</h2>
+      <p class="section-desc">
+        Census 2011 and 2021 observed, Hamilton-Perry projections to 2061.
+        {ethConfidenceBand ? " Shaded band shows 80% confidence interval for White British share." : ""}
+      </p>
+      <div class="chart-holder">
+        <ProjectionChart
+          title={`Ethnic composition — ${area.areaName}`}
+          lines={ethChartLines}
+          confidenceBand={ethConfidenceBand}
+          nowYear={2021}
+          yLabel="%"
+          height={260}
+        />
       </div>
-      {ethnicProjection.projections?.["2051"] && (
-        <div style="margin-top: 1rem;">
-          <h3 style="font-size: 0.92rem; font-weight: 700; color: var(--ink-soft); margin: 0 0 0.5rem;">Projected 2051</h3>
-          <div class="data-grid">
-            {Object.entries(ethnicProjection.projections["2051"]).map(([group, pct]) => (
-              <div class="data-item">
-                <span class="data-label">{group.replace(/_/g, " ")}</span>
-                <span class="data-value" style="color: var(--coral);">{typeof pct === "number" ? `${pct.toFixed(1)}%` : String(pct)}</span>
-              </div>
-            ))}
-          </div>
+      {ethnicTimeline && ethnicTimeline.length > 0 && (
+        <div class="chart-holder" style="margin-top: 1.25rem;">
+          <EthnicityTimeline timeline={ethnicTimeline as any} areaName={area.areaName} />
         </div>
       )}
     </section>
   )}
 
-  <!-- Shift-share analysis -->
+  <!-- Shift-share — visual decomposition -->
   {shiftShareData && (
     <section class="section" id="shift-share">
-      <h2>What's driving change?</h2>
+      <h2>What&rsquo;s driving change</h2>
       <p class="section-desc">
-        Shift-share decomposes demographic change into national trend, structural composition, and local factors.
-        Dominant driver: <strong>{shiftShareData.dominantDriver}</strong>.
+        Shift-share splits the change in White British share into national trend,
+        age structure, and local factors. Dominant driver: <strong>{shiftShareData.dominantDriver}</strong>.
       </p>
-      <div class="shift-stats">
-        <div class="shift-item">
-          <span class="shift-value">{shiftShareData.totalChangePp > 0 ? "+" : ""}{shiftShareData.totalChangePp.toFixed(1)}pp</span>
-          <span class="shift-label">Total WBI change</span>
-        </div>
-        <div class="shift-item">
-          <span class="shift-value">{shiftShareData.nationalEffectPp > 0 ? "+" : ""}{shiftShareData.nationalEffectPp.toFixed(1)}pp</span>
-          <span class="shift-label">National effect</span>
-        </div>
-        <div class="shift-item">
-          <span class="shift-value">{shiftShareData.structuralEffectPp > 0 ? "+" : ""}{shiftShareData.structuralEffectPp.toFixed(1)}pp</span>
-          <span class="shift-label">Structural effect</span>
-        </div>
-        <div class="shift-item">
-          <span class="shift-value">{shiftShareData.localEffectPp > 0 ? "+" : ""}{shiftShareData.localEffectPp.toFixed(1)}pp</span>
-          <span class="shift-label">Local effect</span>
-        </div>
+      <div class="chart-holder">
+        <ShiftShareChart
+          total={Number(shiftShareData.totalChangePp.toFixed(1))}
+          national={Number(shiftShareData.nationalEffectPp.toFixed(1))}
+          structural={Number(shiftShareData.structuralEffectPp.toFixed(1))}
+          local={Number(shiftShareData.localEffectPp.toFixed(1))}
+          areaName={area.areaName}
+        />
       </div>
     </section>
   )}
@@ -192,15 +263,26 @@ function fmtInt(n: number | undefined | null): string {
   {religionData && (
     <section class="section" id="religion">
       <h2>Religion</h2>
-      <p class="section-desc">Census 2021 religious composition with projections.</p>
-      <div class="data-grid">
-        {Object.entries(religionData).filter(([k]) => k !== "source").slice(0, 8).map(([religion, pct]) => (
-          <div class="data-item">
-            <span class="data-label">{religion.replace(/_/g, " ")}</span>
-            <span class="data-value">{typeof pct === "number" ? `${pct.toFixed(1)}%` : String(pct)}</span>
-          </div>
-        ))}
-      </div>
+      <p class="section-desc">Census 2021 religious composition with projections to 2051.</p>
+      {relChartLines.length > 0 ? (
+        <div class="chart-holder">
+          <ProjectionChart
+            title="Religious composition trajectory"
+            lines={relChartLines}
+            nowYear={2021}
+            yLabel="%"
+          />
+        </div>
+      ) : (
+        <div class="data-grid">
+          {Object.entries(religionData).filter(([k]) => k !== "source").slice(0, 8).map(([religion, pct]) => (
+            <div class="data-item">
+              <span class="data-label">{religion.replace(/_/g, " ")}</span>
+              <span class="data-value">{typeof pct === "number" ? `${pct.toFixed(1)}%` : String(pct)}</span>
+            </div>
+          ))}
+        </div>
+      )}
       {projData?.muslimPct2051 != null && (
         <p class="section-note">Muslim population projected: {projData.muslimPct2051.toFixed(1)}% by 2051</p>
       )}
@@ -211,22 +293,34 @@ function fmtInt(n: number | undefined | null): string {
   {nativityData && (
     <section class="section" id="nativity">
       <h2>Country of birth</h2>
-      <div class="data-grid">
-        <div class="data-item">
-          <span class="data-label">UK-born (2021)</span>
-          <span class="data-value">{fmtPct(100 - (projData?.foreignBornPct2021 ?? 0))}</span>
+      <p class="section-desc">UK-born vs foreign-born share, with projection to 2051.</p>
+      {natChartLines.length > 0 ? (
+        <div class="chart-holder">
+          <ProjectionChart
+            title="Nativity trajectory"
+            lines={natChartLines}
+            nowYear={2021}
+            yLabel="%"
+          />
         </div>
-        <div class="data-item">
-          <span class="data-label">Foreign-born (2021)</span>
-          <span class="data-value">{fmtPct(projData?.foreignBornPct2021)}</span>
-        </div>
-        {projData?.foreignBornPct2051 != null && (
+      ) : (
+        <div class="data-grid">
           <div class="data-item">
-            <span class="data-label">Foreign-born (2051 projected)</span>
-            <span class="data-value">{fmtPct(projData.foreignBornPct2051)}</span>
+            <span class="data-label">UK-born (2021)</span>
+            <span class="data-value">{fmtPct(100 - (projData?.foreignBornPct2021 ?? 0))}</span>
           </div>
-        )}
-      </div>
+          <div class="data-item">
+            <span class="data-label">Foreign-born (2021)</span>
+            <span class="data-value">{fmtPct(projData?.foreignBornPct2021)}</span>
+          </div>
+          {projData?.foreignBornPct2051 != null && (
+            <div class="data-item">
+              <span class="data-label">Foreign-born (2051 projected)</span>
+              <span class="data-value">{fmtPct(projData.foreignBornPct2051)}</span>
+            </div>
+          )}
+        </div>
+      )}
     </section>
   )}
 

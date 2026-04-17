@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DataFreshness from "../components/DataFreshness.astro";
 import ShareButton from "../components/ShareButton.astro";
+import SisterSiteTeaser from "../components/SisterSiteTeaser.astro";
 import { getSignificantDemographicShifts, getEthnicProjection } from "../lib/ethnic-projections";
 import rawProjections from "../data/live/ethnic-projections.json";
 import { slugifyAreaName, SITE_URL, getPublicPlaceAreas } from "../lib/site";
@@ -131,6 +132,29 @@ function findingColor(verdict: string): string {
       <a href="/findings/" class="cta-link">All {allFindings.length} findings &rarr;</a>
     </section>
   )}
+
+  <!-- ═══ IMPACT STRIP ═══ -->
+  <section class="impact-strip shell" aria-label="Headline demographic impact">
+    <div class="impact-strip-inner">
+      <div class="impact-item impact-item--hero">
+        <span class="impact-number">73.3% &rarr; 48.7%</span>
+        <span class="impact-label">White British share, 2021 &rarr; 2051</span>
+        <span class="impact-context">Population-weighted across {fmtInt(totalAreas)} local authorities. Observed Census 2021 → Hamilton-Perry projection.</span>
+        <span class="impact-calc">Illustrative 2061: 40.2%. Full trajectory in the model below.</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">{areasBelow50}</span>
+        <span class="impact-label">areas below 50% WB by 2051</span>
+        <span class="impact-context">{areasBelow50by2061} by 2061. Click any area for its 2011&ndash;2061 trajectory.</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">{foreignBornMajority2051}</span>
+        <span class="impact-label">areas projected foreign-born majority by 2051</span>
+        <span class="impact-context">{muslimMajority2051} projected Muslim majority by 2051.</span>
+      </div>
+    </div>
+    <p class="impact-source">Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations, MAE 1.72pp against 2021 observed. <a href="/methodology/">Full methodology &rarr;</a></p>
+  </section>
 
   <!-- ═══ DEMOGRAPHIC PROJECTIONS ═══ -->
   <section class="demo-section shell" id="demographics">
@@ -280,6 +304,9 @@ function findingColor(verdict: string): string {
       </div>
     </section>
   )}
+
+  <!-- ═══ SISTER SITE (asylumstats) ═══ -->
+  <SisterSiteTeaser />
 
   <!-- ═══ CTA STRIP ═══ -->
   <section class="cta-section shell">
@@ -493,9 +520,26 @@ function findingColor(verdict: string): string {
     position: relative;
     overflow: hidden;
   }
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translateX(-50%);
+    background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(79, 70, 229, 0.06) 30deg, transparent 60deg);
+    animation: radar-sweep 8s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes radar-sweep {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to { transform: translateX(-50%) rotate(360deg); }
+  }
   @media (prefers-reduced-motion: reduce) {
     .hero-section::before { animation: none; opacity: 0; }
   }
+  .hero-inner { position: relative; z-index: 1; }
   .hero-inner {
     max-width: 800px;
     margin: 0 auto;
@@ -720,9 +764,79 @@ function findingColor(verdict: string): string {
   .cta-inner p { color: var(--muted); margin: 0.75rem auto 1.5rem; max-width: 500px; }
   .cta-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
 
+  /* ═══ IMPACT STRIP ═══ */
+  .impact-strip {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(79, 70, 229, 0.05) 0%, transparent 100%);
+  }
+  .impact-strip-inner {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .impact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0 0.5rem;
+  }
+  .impact-item--hero { position: relative; }
+  .impact-item--hero::after {
+    content: "";
+    position: absolute;
+    right: -0.75rem;
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background: var(--border);
+  }
+  .impact-number {
+    font-family: "Sora", sans-serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: var(--coral);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .impact-item:not(.impact-item--hero) .impact-number { color: var(--accent); }
+  .impact-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 0.3rem;
+  }
+  .impact-context {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .impact-calc {
+    font-size: 0.72rem;
+    color: var(--muted);
+    opacity: 0.65;
+    margin-top: 0.25rem;
+    font-family: "Sora", sans-serif;
+  }
+  .impact-source {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+    opacity: 0.6;
+    margin-top: 1rem;
+    line-height: 1.5;
+  }
+  .impact-source a { color: var(--accent); }
+
   /* ═══ MOBILE ═══ */
   @media (max-width: 640px) {
     .hero-section { padding: 2.5rem 1rem 2rem; }
+    .impact-strip-inner { grid-template-columns: 1fr; gap: 1.25rem; }
+    .impact-item--hero::after { display: none; }
+    .impact-number { font-size: 1.8rem; }
     .cta-buttons { flex-direction: column; align-items: center; }
     .findings-row { grid-template-columns: 1fr; }
     .fsc-stat { font-size: 1.4rem; }
