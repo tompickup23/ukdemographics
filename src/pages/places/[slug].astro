@@ -18,6 +18,8 @@ import { getAscProfile, getAscSpendPercentile, getAscSource, getAscCaveat } from
 import { getSendProfile, getSendGrowthPercentile, getSendSource, getSendCaveat } from "../../lib/send-data";
 import { getNinoProfile, getNinoTotalPercentile, getNinoSource, getNinoCaveat } from "../../lib/nino-data";
 import { getVisaRouteMix, getVisaRoutesSource, getVisaRoutesCaveat, getVisaRoutesYear } from "../../lib/visa-routes-data";
+import { getNinoHistorical, getNinoHistoricalYears, getNinoHistoricalNational, getNinoHistoricalSource, getNinoHistoricalCaveat } from "../../lib/nino-historical-data";
+import NinoHistoricalChart from "../../components/NinoHistoricalChart.astro";
 import { buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
 import rawProjections from "../../data/live/ethnic-projections.json";
 import economicProfile from "../../data/live/economic-profile.json";
@@ -72,6 +74,11 @@ const visaRouteRows = nino?.byNationality
   })
   .filter((r): r is NonNullable<typeof r> => r !== null) ?? [];
 const visaYear = getVisaRoutesYear();
+
+// 24-year NINo time series for this LA + national
+const ninoHistorical = getNinoHistorical(area.areaCode);
+const ninoHistoricalYears = getNinoHistoricalYears();
+const ninoHistoricalNational = getNinoHistoricalNational();
 
 const modelSpread = projData?.modelSpread2051 as { hamiltonPerry: number; cohortComponent: number; spreadPp: number } | undefined;
 const areaScenarios = (scenarioSummaries as any).areas?.[area.areaCode];
@@ -461,6 +468,33 @@ function fmtInt(n: number | undefined | null): string {
         </div>
       )}
       <p class="section-note">{getNinoSource()}. {getNinoCaveat()}</p>
+    </section>
+  )}
+
+  <!-- 24-year NINo flow trajectory -->
+  {ninoHistorical && ninoHistorical.totalByYear.some(v => v != null) && (
+    <section class="section" id="nino-history">
+      <h2>Arrivals over the last 24 years</h2>
+      <p class="section-desc">
+        Annual NINo registrations to adults from overseas in {area.areaName} from {ninoHistoricalYears[0]} to {ninoHistoricalYears[ninoHistoricalYears.length - 1]}, alongside the UK total for context.
+        {ninoHistorical.peakYear && ninoHistorical.peakValue && (
+          <> The peak year was <strong>{ninoHistorical.peakYear}</strong> ({ninoHistorical.peakValue.toLocaleString()} registrations).</>
+        )}
+        {ninoHistorical.cumulativeFlow_2002_2025 > 0 && (
+          <> Total over the full period: <strong>{ninoHistorical.cumulativeFlow_2002_2025.toLocaleString()}</strong> registrations.</>
+        )}
+      </p>
+      <NinoHistoricalChart
+        areaName={area.areaName}
+        years={ninoHistoricalYears}
+        totalByYear={ninoHistorical.totalByYear}
+        nationalByYear={ninoHistoricalNational.totalByYear}
+        peakYear={ninoHistorical.peakYear}
+        peakValue={ninoHistorical.peakValue}
+        troughYear={ninoHistorical.troughYear}
+        troughValue={ninoHistorical.troughValue}
+      />
+      <p class="section-note">{getNinoHistoricalSource()} {getNinoHistoricalCaveat()}</p>
     </section>
   )}
 
