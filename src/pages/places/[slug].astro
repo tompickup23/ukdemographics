@@ -22,6 +22,7 @@ import { getNinoHistorical, getNinoHistoricalYears, getNinoHistoricalNational, g
 import NinoHistoricalChart from "../../components/NinoHistoricalChart.astro";
 import { getNinoDemographic, getNinoDemographicNational, getNinoDemographicSource, getNinoDemographicCaveat } from "../../lib/nino-demographic-data";
 import { getEconPassport, getEconPassportSource, getEconPassportCaveat, getEconPassportGroupsOrder } from "../../lib/econ-passport-data";
+import cobChange1121 from "../../data/live/country-of-birth-change-2011-2021.json";
 import schoolEalDistrict from "../../data/live/school-eal-district.json";
 import payrollRegional from "../../data/live/payroll-by-region-industry.json";
 import hmoDensity from "../../data/live/hmo-density.json";
@@ -103,6 +104,30 @@ const payrollRegion = regionFromArea
 // HMO + council tax SPD
 const hmo = (hmoDensity as any).areas?.[area.areaCode];
 const ctSpd = (councilTaxSpd as any).areas?.[area.areaCode];
+
+// Census 2011 → Census 2021 country-of-birth stock change
+const cobChange = (cobChange1121 as any).areas?.[area.areaCode];
+const cobChangeGroupLabels: Record<string, string> = {
+  UK: "UK-born",
+  Ireland: "Ireland-born",
+  EU_pre2001: "EU pre-2001 (France, Germany, Italy, etc.)",
+  EU_post2001_pre2011: "EU 2001-2011 accession (Poland, Romania, Bulgaria, etc.)",
+  RestOfWorld: "Rest of World",
+};
+const cobChangeRows: Array<{ group: string; label: string; v11: number; v21: number; pct11: number | null; pct21: number | null; ch: number }> = [];
+if (cobChange?.byGroup) {
+  for (const [g, d] of Object.entries(cobChange.byGroup as Record<string, any>)) {
+    cobChangeRows.push({
+      group: g,
+      label: cobChangeGroupLabels[g] || g,
+      v11: d.count2011,
+      v21: d.count2021,
+      pct11: d.pctOfPop2011,
+      pct21: d.pctOfPop2021,
+      ch: d.absoluteChange,
+    });
+  }
+}
 
 // Census 2021 economic activity by passports held
 const econPassport = getEconPassport(area.areaCode);
@@ -736,6 +761,38 @@ function fmtInt(n: number | undefined | null): string {
       </div>
 
       <p class="section-note">{getVisaRoutesSource()} {getVisaRoutesCaveat()}</p>
+    </section>
+  )}
+
+  <!-- 2011 → 2021 country-of-birth stock change -->
+  {cobChange && cobChange.population2011 > 0 && (
+    <section class="section" id="cob-change">
+      <h2>How {area.areaName} changed: 2011 to 2021</h2>
+      <p class="section-desc">
+        Two snapshots from two consecutive Censuses, ten years apart.
+        Population changed from <strong>{cobChange.population2011.toLocaleString()}</strong> in 2011 to <strong>{cobChange.population2021.toLocaleString()}</strong> in 2021 ({cobChange.populationChangePct > 0 ? '+' : ''}{cobChange.populationChangePct?.toFixed(1)}%).
+        Non-UK-born residents went from <strong>{cobChange.nonUkBorn2011.toLocaleString()}</strong> ({cobChange.nonUkBornPct2011?.toFixed(1)}% of population) to <strong>{cobChange.nonUkBorn2021.toLocaleString()}</strong> ({cobChange.nonUkBornPct2021?.toFixed(1)}%).
+      </p>
+      <div class="cc-table">
+        <div class="cc-row cc-head">
+          <span>Group</span>
+          <span>2011</span>
+          <span>2021</span>
+          <span>Change</span>
+        </div>
+        {cobChangeRows.map((r) => (
+          <div class="cc-row">
+            <span class="cc-name">{r.label}</span>
+            <span class="cc-v">{r.v11.toLocaleString()}<span class="cc-pct">{r.pct11 != null ? ` ${r.pct11}%` : ''}</span></span>
+            <span class="cc-v">{r.v21.toLocaleString()}<span class="cc-pct">{r.pct21 != null ? ` ${r.pct21}%` : ''}</span></span>
+            <span class={`cc-change ${r.ch > 0 ? 'pos' : r.ch < 0 ? 'neg' : ''}`}>{r.ch > 0 ? '+' : ''}{r.ch.toLocaleString()}</span>
+          </div>
+        ))}
+      </div>
+      <p class="section-note">
+        Source: ONS Census 2011 KS204EW (NOMIS NM_611_1) and Census 2021 TS012 (NOMIS NM_2032_1), aligned to broad country-of-birth groups.
+        2011 data uses 2011 LA boundaries; 2021 data uses 2023 boundaries. LAs whose ONS code changed between Censuses (Buckinghamshire, Northamptonshire, North Yorkshire, Somerset reorganisations) are not in this comparison.
+      </p>
     </section>
   )}
 
@@ -1407,6 +1464,62 @@ function fmtInt(n: number | undefined | null): string {
   .demog-summary strong { color: var(--ink); }
   @media (max-width: 760px) {
     .demog-grid { grid-template-columns: 1fr; }
+  }
+
+  /* 2011 -> 2021 country-of-birth change */
+  .cc-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0.5rem 0 0;
+  }
+  .cc-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 110px;
+    gap: 0.6rem;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: center;
+  }
+  .cc-row:last-child { border-bottom: none; }
+  .cc-head {
+    background: rgba(255,255,255,0.04);
+    color: var(--muted);
+    font-family: "Sora", sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .cc-row span:not(:first-child) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .cc-name { color: var(--ink); }
+  .cc-v {
+    font-family: "Sora", sans-serif;
+    color: var(--ink);
+  }
+  .cc-pct {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 0.78rem;
+  }
+  .cc-change {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+  }
+  .cc-change.pos { color: var(--accent-3); }
+  .cc-change.neg { color: var(--accent-2); }
+  @media (max-width: 640px) {
+    .cc-row {
+      grid-template-columns: 1.6fr 1fr 1fr 90px;
+      font-size: 0.78rem;
+      gap: 0.4rem;
+      padding: 0.45rem 0.55rem;
+    }
   }
 
   /* Working / not working table */
