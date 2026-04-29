@@ -42,3 +42,5 @@ data/raw/cache/
 data/raw/dfe_schools_per_school/
 data/raw/census_hmo/
 data/raw/council_taxbase/
+data/raw/census_econ_passport/
+data/raw/aps_regional_cob/

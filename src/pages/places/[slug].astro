@@ -21,6 +21,7 @@ import { getVisaRouteMix, getVisaRoutesSource, getVisaRoutesCaveat, getVisaRoute
 import { getNinoHistorical, getNinoHistoricalYears, getNinoHistoricalNational, getNinoHistoricalSource, getNinoHistoricalCaveat } from "../../lib/nino-historical-data";
 import NinoHistoricalChart from "../../components/NinoHistoricalChart.astro";
 import { getNinoDemographic, getNinoDemographicNational, getNinoDemographicSource, getNinoDemographicCaveat } from "../../lib/nino-demographic-data";
+import { getEconPassport, getEconPassportSource, getEconPassportCaveat, getEconPassportGroupsOrder } from "../../lib/econ-passport-data";
 import schoolEalDistrict from "../../data/live/school-eal-district.json";
 import payrollRegional from "../../data/live/payroll-by-region-industry.json";
 import hmoDensity from "../../data/live/hmo-density.json";
@@ -102,6 +103,55 @@ const payrollRegion = regionFromArea
 // HMO + council tax SPD
 const hmo = (hmoDensity as any).areas?.[area.areaCode];
 const ctSpd = (councilTaxSpd as any).areas?.[area.areaCode];
+
+// Census 2021 economic activity by passports held
+const econPassport = getEconPassport(area.areaCode);
+const passportGroupsOrder = getEconPassportGroupsOrder();
+// Build an ordered list of group rows that have meaningful sample size (≥50)
+type EpRow = {
+  group: string;
+  groupLabel: string;
+  pop: number;
+  inEmployment: number;
+  inactive: number;
+  empRateActive: number | null;
+  inactivityRate: number | null;
+  empPopRatio: number | null; // employment-to-population ratio (16+)
+};
+let epRows: EpRow[] = [];
+if (econPassport) {
+  const labelMap: Record<string, string> = {
+    Total: "All passport groups",
+    UK: "UK passport",
+    Ireland: "Irish passport",
+    EU_member: "EU member country passport",
+    Rest_of_Europe: "Rest of Europe (non-EU)",
+    Africa: "African passport",
+    Middle_East_and_Asia: "Middle East / Asian passport",
+    Americas_and_Caribbean: "Americas / Caribbean passport",
+    Antarctica_Oceania: "Oceania / Antarctica passport",
+    British_Overseas_Territories: "British Overseas Territories",
+    No_passport_held: "No passport held",
+  };
+  for (const g of passportGroupsOrder) {
+    if (g === "Total") continue;
+    const stats = econPassport.byPassportGroup[g];
+    if (!stats || stats.totalPopulation16plus < 50) continue;
+    const empPopRatio = stats.totalPopulation16plus
+      ? +(stats.inEmployment_total / stats.totalPopulation16plus * 100).toFixed(1)
+      : null;
+    epRows.push({
+      group: g,
+      groupLabel: labelMap[g] ?? g,
+      pop: stats.totalPopulation16plus,
+      inEmployment: stats.inEmployment_total,
+      inactive: stats.economicallyInactive,
+      empRateActive: stats.employmentRate_excludingFTstudents_pct,
+      inactivityRate: stats.inactivityRate_pct,
+      empPopRatio,
+    });
+  }
+}
 
 // Top industries by non-UK share for the LA's region
 type IndustryEntry = { total: number; nonUkSharePct: number | null };
@@ -679,6 +729,40 @@ function fmtInt(n: number | undefined | null): string {
       </div>
 
       <p class="section-note">{getVisaRoutesSource()} {getVisaRoutesCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Working vs not working by passport group (Census 2021) -->
+  {epRows.length > 0 && (
+    <section class="section" id="econ-passport">
+      <h2>Working and not working — by passport group</h2>
+      <p class="section-desc">
+        Census 2021 employment status of {area.areaName} residents aged 16 and over, by passport held. Three numbers shown per group:
+      </p>
+      <ul class="ep-help">
+        <li><strong>In employment</strong> — share of all adults aged 16+ who have a job (the most direct "are they working?" number).</li>
+        <li><strong>Employment rate</strong> — share of adults trying to work (excluding full-time students) who have a job. Almost always higher because it excludes everyone who is retired, raising kids, or in full-time study.</li>
+        <li><strong>Inactive</strong> — share of all adults not in the labour market (retired, students, family carers, long-term sick).</li>
+      </ul>
+      <div class="ep-table">
+        <div class="ep-row ep-head">
+          <span>Passport group</span>
+          <span>Pop 16+</span>
+          <span>In employment</span>
+          <span>Employment rate</span>
+          <span>Inactive</span>
+        </div>
+        {epRows.map((r) => (
+          <div class="ep-row">
+            <span class="ep-name">{r.groupLabel}</span>
+            <span class="ep-pop">{r.pop.toLocaleString()}</span>
+            <span class="ep-emp-pop">{r.empPopRatio != null ? `${r.empPopRatio.toFixed(1)}%` : 'n/a'}</span>
+            <span class="ep-emp-rate">{r.empRateActive != null ? `${r.empRateActive.toFixed(1)}%` : 'n/a'}</span>
+            <span class="ep-inactive">{r.inactivityRate != null ? `${r.inactivityRate.toFixed(1)}%` : 'n/a'}</span>
+          </div>
+        ))}
+      </div>
+      <p class="section-note">{getEconPassportSource()} {getEconPassportCaveat()}</p>
     </section>
   )}
 
@@ -1312,6 +1396,60 @@ function fmtInt(n: number | undefined | null): string {
   .demog-summary strong { color: var(--ink); }
   @media (max-width: 760px) {
     .demog-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Working / not working table */
+  .ep-help {
+    margin: 0.4rem 0 0.8rem;
+    padding-left: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .ep-help li { margin-bottom: 0.25rem; }
+  .ep-help strong { color: var(--ink); }
+  .ep-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .ep-row {
+    display: grid;
+    grid-template-columns: 2fr 90px 100px 100px 80px;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .ep-row:last-child { border-bottom: none; }
+  .ep-head {
+    background: rgba(255,255,255,0.04);
+    color: var(--muted);
+    font-family: "Sora", sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .ep-row span:not(:first-child) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .ep-name { color: var(--ink); }
+  .ep-pop { color: var(--muted); }
+  .ep-emp-pop, .ep-emp-rate, .ep-inactive {
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  @media (max-width: 720px) {
+    .ep-row {
+      grid-template-columns: 1.4fr 70px 80px 80px 70px;
+      font-size: 0.78rem;
+      padding: 0.5rem 0.6rem;
+      gap: 0.4rem;
+    }
   }
 
   /* Regional labour mini bars */
