@@ -6,12 +6,18 @@ import ShareButton from "../../components/ShareButton.astro";
 import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
 import ProjectionChart from "../../components/ProjectionChart.astro";
 import ShiftShareChart from "../../components/ShiftShareChart.astro";
+import ScenarioSelector from "../../components/ScenarioSelector.astro";
 import {
   getEthnicProjection,
   getReligionData, getNativityData,
   getShiftShareData, getDiversityIndex, getEnglishProficiency,
   getStochasticData, getEthnicCompositionTimeline,
 } from "../../lib/ethnic-projections";
+import { getCrimeProfile, getCrimeRatePercentile, getCrimeSource, getCrimeCaveat } from "../../lib/crime-data";
+import { getAscProfile, getAscSpendPercentile, getAscSource, getAscCaveat } from "../../lib/asc-data";
+import { getSendProfile, getSendGrowthPercentile, getSendSource, getSendCaveat } from "../../lib/send-data";
+import { getNinoProfile, getNinoTotalPercentile, getNinoSource, getNinoCaveat } from "../../lib/nino-data";
+import { getVisaRouteMix, getVisaRoutesSource, getVisaRoutesCaveat, getVisaRoutesYear } from "../../lib/visa-routes-data";
 import { buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
 import rawProjections from "../../data/live/ethnic-projections.json";
 import economicProfile from "../../data/live/economic-profile.json";
@@ -20,6 +26,7 @@ import schoolPressure from "../../data/live/school-pressure.json";
 import healthDemand from "../../data/live/health-demand.json";
 import languageProjections from "../../data/live/language-projections.json";
 import fiscalResilience from "../../data/live/fiscal-resilience.json";
+import scenarioSummaries from "../../data/live/scenario-summaries.json";
 
 export function getStaticPaths() {
   return getPublicPlaceAreas().map((area) => ({
@@ -46,6 +53,29 @@ const school = (schoolPressure as any).areas?.[area.areaCode];
 const health = (healthDemand as any).areas?.[area.areaCode];
 const language = (languageProjections as any).areas?.[area.areaCode];
 const pressure = (fiscalResilience as any).areas?.[area.areaCode];
+
+const crime = getCrimeProfile(area.areaCode);
+const crimePercentile = getCrimeRatePercentile(area.areaCode);
+const asc = getAscProfile(area.areaCode);
+const ascPercentile = getAscSpendPercentile(area.areaCode);
+const send = getSendProfile(area.areaCode);
+const sendGrowthPercentile = getSendGrowthPercentile(area.areaCode);
+const nino = getNinoProfile(area.areaCode);
+const ninoPercentile = getNinoTotalPercentile(area.areaCode);
+
+// Top NINo nationalities for this area, joined with national 2025 visa-route mix
+const visaRouteRows = nino?.byNationality
+  ?.slice(0, 5)
+  .map((n) => {
+    const mix = getVisaRouteMix(n.nationality);
+    return mix ? { ...n, mix } : null;
+  })
+  .filter((r): r is NonNullable<typeof r> => r !== null) ?? [];
+const visaYear = getVisaRoutesYear();
+
+const modelSpread = projData?.modelSpread2051 as { hamiltonPerry: number; cohortComponent: number; spreadPp: number } | undefined;
+const areaScenarios = (scenarioSummaries as any).areas?.[area.areaCode];
+const centralScenario = (scenarioSummaries as any).centralScenario as string | undefined;
 
 const headlineStat = projData?.headlineStat;
 const population = projData?.current?.total_population ?? area.population ?? 0;
@@ -225,6 +255,43 @@ function fmtInt(n: number | undefined | null): string {
           <EthnicityTimeline timeline={ethnicTimeline as any} areaName={area.areaName} />
         </div>
       )}
+
+      {modelSpread && (
+        <div class="model-compare">
+          <div class="model-compare-head">
+            <h3>Two-model comparison &mdash; White British, 2051</h3>
+            <span class="model-spread-badge">&plusmn;{modelSpread.spreadPp}pp spread</span>
+          </div>
+          <div class="model-compare-grid">
+            <div class="model-card model-card-primary">
+              <span class="model-card-label">Hamilton-Perry v7.0 <span class="model-card-tag">central</span></span>
+              <span class="model-card-value">{modelSpread.hamiltonPerry.toFixed(1)}%</span>
+              <span class="model-card-desc">Cohort change ratios from Census 2011-2021. Demographic momentum only, no fertility convergence.</span>
+            </div>
+            <div class="model-card">
+              <span class="model-card-label">Cohort-component</span>
+              <span class="model-card-value">{modelSpread.cohortComponent.toFixed(1)}%</span>
+              <span class="model-card-desc">Births by ethnicity-specific TFR with half-convergence to national mean by 2061. Slower change.</span>
+            </div>
+          </div>
+          <p class="model-compare-note">
+            Two independent models trained on the same Census base disagree by {modelSpread.spreadPp}pp on White British share in {area.areaName} by 2051.
+            HP captures observed 2011-2021 cohort dynamics; the cohort-component model adds explicit fertility assumptions that pull projections toward the national mean.
+            The chart above shows HP. Read the <a href="/methodology/#two-models">methodology</a> for why we publish both numbers.
+          </p>
+        </div>
+      )}
+
+      {areaScenarios && centralScenario && (
+        <div class="scenario-wrap">
+          <ScenarioSelector
+            areaCode={area.areaCode}
+            areaName={area.areaName}
+            scenarioData={areaScenarios}
+            centralScenario={centralScenario}
+          />
+        </div>
+      )}
     </section>
   )}
 
@@ -355,6 +422,241 @@ function fmtInt(n: number | undefined | null): string {
         <div class="data-item"><span class="data-label">Language</span><span class="data-value">{pressure.components?.languagePressure}/20</span></div>
         <div class="data-item"><span class="data-label">Housing</span><span class="data-value">{pressure.components?.housingPressure}/20</span></div>
       </div>
+    </section>
+  )}
+
+  <!-- NINo registrations -->
+  {nino && nino.totalRollingYear > 0 && (
+    <section class="section" id="nino">
+      <h2>New arrivals (NINo registrations)</h2>
+      <p class="section-desc">
+        Adults from overseas registering for a National Insurance number, rolling year ending {nino.periodEnd}.
+        {ninoPercentile != null && (
+          <> {area.areaName} ranks at the <strong>{ninoPercentile}th percentile</strong> nationally for total NINo registrations.</>
+        )}
+      </p>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Registrations (rolling year)</span><span class="data-value">{nino.totalRollingYear.toLocaleString()}</span></div>
+        {nino.yearOnYearChangePct != null && (
+          <div class="data-item">
+            <span class="data-label">Year-on-year</span>
+            <span class="data-value" style={`color: ${nino.yearOnYearChangePct > 0 ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
+              {nino.yearOnYearChangePct > 0 ? '+' : ''}{nino.yearOnYearChangePct.toFixed(1)}%
+            </span>
+          </div>
+        )}
+      </div>
+      {nino.byNationality && nino.byNationality.length > 0 && (
+        <div class="nino-nat-table">
+          <div class="nino-nat-head">
+            <span>Nationality</span><span>Registrations</span><span>Share</span>
+          </div>
+          {nino.byNationality.map((n) => (
+            <div class="nino-nat-row">
+              <span class="nino-nat-name">{n.nationality}</span>
+              <span class="nino-nat-count">{n.count.toLocaleString()}</span>
+              <span class="nino-nat-share">{n.sharePct.toFixed(1)}%</span>
+            </div>
+          ))}
+        </div>
+      )}
+      <p class="section-note">{getNinoSource()}. {getNinoCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Routes of arrival -->
+  {visaRouteRows.length > 0 && (
+    <section class="section" id="visa-routes">
+      <h2>Why people are coming</h2>
+      <p class="section-desc">
+        For each of the top arriving nationalities in {area.areaName}, this is the national mix of visa routes used in {visaYear}.
+        It shows whether arrivals from that country are typically <strong>students</strong>, <strong>workers</strong>, on <strong>family</strong> routes (including refugee family reunion), or in some <strong>other</strong> category.
+        Local-authority breakdowns of visa routes are not published, so we apply the national mix at nationality level.
+      </p>
+
+      <div class="vr-legend" aria-hidden="true">
+        <span class="vr-legend-item"><span class="vr-swatch vr-work"></span>Work</span>
+        <span class="vr-legend-item"><span class="vr-swatch vr-study"></span>Study</span>
+        <span class="vr-legend-item"><span class="vr-swatch vr-family"></span>Family</span>
+        <span class="vr-legend-item"><span class="vr-swatch vr-other"></span>Other</span>
+      </div>
+
+      <div class="vr-list">
+        {visaRouteRows.map((r) => {
+          const m = r.mix.visaRouteMixPct_workShareBasis;
+          // Identify dominant route for plain-English summary
+          const entries: [keyof typeof m, number][] = (["Study","Work","Family","Other"] as const).map((k) => [k, m[k]] as [keyof typeof m, number]);
+          entries.sort((a,b) => b[1]-a[1]);
+          const dom = entries[0];
+          const summary = (() => {
+            // Country-specific messaging where the published visa-route mix
+            // is misleading without context.
+            if (r.nationality === "Ukraine") {
+              return "Most Ukrainians arrive on in-country Ukraine schemes not captured in entry-clearance data";
+            }
+            if (r.nationality === "Afghanistan" && dom[0] === "Other") {
+              return "Mostly Afghan resettlement schemes (ARAP / ACRS)";
+            }
+            if (dom[0] === "Other" && dom[1] >= 45) {
+              return "Mostly resettlement or other humanitarian routes";
+            }
+            const label = (() => {
+              switch (dom[0]) {
+                case "Work": return "workers";
+                case "Study": return "students";
+                case "Family": return "family-route arrivals (often refugee family reunion)";
+                case "Other": return "other-category arrivals";
+                default: return `${dom[0].toLowerCase()}-route arrivals`;
+              }
+            })();
+            if (dom[1] >= 60) return `Mostly ${label}`;
+            if (dom[1] >= 45) return `Predominantly ${label}`;
+            return `Mixed routes, led by ${label}`;
+          })();
+          const noVisaData = r.mix.visaGrants2025_total_workShareRoutes === 0;
+          return (
+            <div class="vr-row">
+              <div class="vr-row-head">
+                <span class="vr-country">{r.nationality}</span>
+                <span class="vr-local">{r.count.toLocaleString()} in {area.areaName}<span class="vr-share"> ({r.sharePct.toFixed(1)}%)</span></span>
+              </div>
+              {noVisaData ? (
+                <div class="vr-no-data">
+                  No entry-clearance visa data — {r.nationality} is non-visa-national or in the Common Travel Area, so visa-route mix is not informative for this country. NINo flow is the better signal.
+                </div>
+              ) : (
+                <>
+                  <div class="vr-bar" role="img" aria-label={`${r.nationality}: Work ${m.Work}%, Study ${m.Study}%, Family ${m.Family}%, Other ${m.Other}%`}>
+                    {m.Work > 0 && (<span class="vr-seg vr-work" style={`width: ${m.Work}%`}>{m.Work >= 8 ? `${m.Work.toFixed(0)}%` : ''}</span>)}
+                    {m.Study > 0 && (<span class="vr-seg vr-study" style={`width: ${m.Study}%`}>{m.Study >= 8 ? `${m.Study.toFixed(0)}%` : ''}</span>)}
+                    {m.Family > 0 && (<span class="vr-seg vr-family" style={`width: ${m.Family}%`}>{m.Family >= 8 ? `${m.Family.toFixed(0)}%` : ''}</span>)}
+                    {m.Other > 0 && (<span class="vr-seg vr-other" style={`width: ${m.Other}%`}>{m.Other >= 8 ? `${m.Other.toFixed(0)}%` : ''}</span>)}
+                  </div>
+                  <div class="vr-meta">
+                    <span class="vr-summary">{summary}</span>
+                    <span class="vr-uk">UK total {r.mix.ninoFlowRollingYear_UK.toLocaleString()} NINos · {r.mix.visaGrants2025_total_workShareRoutes.toLocaleString()} non-visitor visas issued {visaYear}</span>
+                  </div>
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      <p class="section-note">{getVisaRoutesSource()} {getVisaRoutesCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Crime -->
+  {crime && (
+    <section class="section" id="crime">
+      <h2>Crime</h2>
+      <p class="section-desc">
+        Police-recorded crime rates per 1,000 population, {crime.period}.
+        {crimePercentile != null && (
+          <> {area.areaName} ranks at the <strong>{crimePercentile}th percentile</strong> nationally for total crime rate.</>
+        )}
+      </p>
+      <div class="data-grid">
+        {crime.totalCrimeRate != null && (
+          <div class="data-item"><span class="data-label">Total crime / 1k</span><span class="data-value">{crime.totalCrimeRate.toFixed(1)}</span></div>
+        )}
+        {crime.violentCrimeRate != null && (
+          <div class="data-item"><span class="data-label">Violent crime / 1k</span><span class="data-value">{crime.violentCrimeRate.toFixed(1)}</span></div>
+        )}
+        {crime.theftRate != null && (
+          <div class="data-item"><span class="data-label">Theft / 1k</span><span class="data-value">{crime.theftRate.toFixed(1)}</span></div>
+        )}
+        {crime.asbRate != null && (
+          <div class="data-item"><span class="data-label">ASB / 1k</span><span class="data-value">{crime.asbRate.toFixed(1)}</span></div>
+        )}
+        {crime.drugRate != null && (
+          <div class="data-item"><span class="data-label">Drug offences / 1k</span><span class="data-value">{crime.drugRate.toFixed(1)}</span></div>
+        )}
+        {crime.hateCrimeCount != null && (
+          <div class="data-item"><span class="data-label">Hate crime (count)</span><span class="data-value">{crime.hateCrimeCount.toLocaleString()}</span></div>
+        )}
+        {crime.yearOnYearChange != null && (
+          <div class="data-item">
+            <span class="data-label">Year-on-year</span>
+            <span class="data-value" style={`color: ${crime.yearOnYearChange > 0 ? 'var(--coral)' : 'var(--accent-2)'}`}>
+              {crime.yearOnYearChange > 0 ? '+' : ''}{crime.yearOnYearChange.toFixed(1)}%
+            </span>
+          </div>
+        )}
+      </div>
+      <p class="section-note">{getCrimeSource()}. {getCrimeCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Adult social care -->
+  {asc && (
+    <section class="section" id="asc">
+      <h2>Adult social care</h2>
+      <p class="section-desc">
+        Council ASC spend, residential placements, and quality-of-life outcomes, {asc.period}.
+        {ascPercentile != null && (
+          <> Spend per head sits at the <strong>{ascPercentile}th percentile</strong> nationally.</>
+        )}
+      </p>
+      <div class="data-grid">
+        {asc.grossSpendPerCapita != null && (
+          <div class="data-item"><span class="data-label">Gross spend / head</span><span class="data-value">&pound;{Math.round(asc.grossSpendPerCapita).toLocaleString()}</span></div>
+        )}
+        {asc.residentialRatePer10k65 != null && (
+          <div class="data-item"><span class="data-label">Residential / 10k 65+</span><span class="data-value">{asc.residentialRatePer10k65.toFixed(0)}</span></div>
+        )}
+        {asc.qualityOfLifeScore != null && (
+          <div class="data-item"><span class="data-label">Quality-of-life score</span><span class="data-value">{asc.qualityOfLifeScore.toFixed(1)}</span></div>
+        )}
+        {asc.dtocDaysAnnual != null && (
+          <div class="data-item"><span class="data-label">DToC days / yr</span><span class="data-value">{asc.dtocDaysAnnual.toLocaleString()}</span></div>
+        )}
+      </div>
+      <p class="section-note">{getAscSource()}. {getAscCaveat()}</p>
+    </section>
+  )}
+
+  <!-- SEND -->
+  {send && (
+    <section class="section" id="send">
+      <h2>Special educational needs</h2>
+      <p class="section-desc">
+        EHCPs and primary need breakdown, {send.period}.
+        {sendGrowthPercentile != null && (
+          <> 5-year EHCP growth at the <strong>{sendGrowthPercentile}th percentile</strong> nationally.</>
+        )}
+      </p>
+      <div class="data-grid">
+        {send.ehcpRatePer10k != null && (
+          <div class="data-item"><span class="data-label">EHCPs / 10k</span><span class="data-value">{send.ehcpRatePer10k.toFixed(0)}</span></div>
+        )}
+        {send.totalEhcps != null && (
+          <div class="data-item"><span class="data-label">Total EHCPs</span><span class="data-value">{send.totalEhcps.toLocaleString()}</span></div>
+        )}
+        {send.asdPrevalencePct != null && (
+          <div class="data-item"><span class="data-label">ASD prevalence</span><span class="data-value">{send.asdPrevalencePct.toFixed(1)}%</span></div>
+        )}
+        {send.fiveYearGrowthPct != null && (
+          <div class="data-item">
+            <span class="data-label">5-yr growth</span>
+            <span class="data-value" style={`color: ${send.fiveYearGrowthPct > 30 ? 'var(--coral)' : 'var(--accent-3)'}`}>
+              {send.fiveYearGrowthPct > 0 ? '+' : ''}{send.fiveYearGrowthPct.toFixed(1)}%
+            </span>
+          </div>
+        )}
+      </div>
+      {send.primaryNeeds && send.primaryNeeds.length > 0 && (
+        <div class="data-grid" style="margin-top: 0.75rem;">
+          {send.primaryNeeds.slice(0, 6).map((n) => (
+            <div class="data-item">
+              <span class="data-label">{n.need}</span>
+              <span class="data-value">{n.pct.toFixed(1)}%</span>
+            </div>
+          ))}
+        </div>
+      )}
+      <p class="section-note">{getSendSource()}. {getSendCaveat()}</p>
     </section>
   )}
 
@@ -499,6 +801,162 @@ function fmtInt(n: number | undefined | null): string {
   .pressure-score { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--ink); }
   .pressure-category { font-size: 0.92rem; font-weight: 700; color: var(--ink-soft); }
   .pressure-rank { font-size: 0.82rem; color: var(--muted); }
+
+  .model-compare {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+  .model-compare-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .model-compare-head h3 { font-family: "Sora", sans-serif; font-size: 1rem; font-weight: 700; margin: 0; color: var(--ink); }
+  .model-spread-badge { font-family: "Sora", sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--coral); background: rgba(255, 99, 99, 0.08); padding: 0.25rem 0.6rem; border-radius: 999px; border: 1px solid rgba(255, 99, 99, 0.25); }
+  .model-compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; }
+  .model-card { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.9rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: rgba(255,255,255,0.02); }
+  .model-card-primary { border-color: var(--accent); background: rgba(79, 70, 229, 0.06); }
+  .model-card-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; display: flex; gap: 0.4rem; align-items: center; }
+  .model-card-tag { font-size: 0.65rem; background: var(--accent); color: #fff; padding: 0.05rem 0.4rem; border-radius: 999px; letter-spacing: 0.04em; }
+  .model-card-value { font-family: "Sora", sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--ink); }
+  .model-card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
+  .model-compare-note { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-top: 0.9rem; max-width: 700px; }
+  .model-compare-note a { color: var(--accent); }
+
+  .scenario-wrap { margin-top: 1.75rem; }
+
+  .nino-nat-table {
+    margin-top: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .nino-nat-head {
+    display: grid;
+    grid-template-columns: 1fr 130px 80px;
+    padding: 0.55rem 0.85rem;
+    background: rgba(255,255,255,0.04);
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .nino-nat-row {
+    display: grid;
+    grid-template-columns: 1fr 130px 80px;
+    padding: 0.5rem 0.85rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .nino-nat-name { color: var(--ink); }
+  .nino-nat-count { font-family: "Sora", sans-serif; font-weight: 700; color: var(--accent); text-align: right; font-variant-numeric: tabular-nums; }
+  .nino-nat-share { font-family: "Sora", sans-serif; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+  @media (max-width: 540px) {
+    .nino-nat-head, .nino-nat-row { grid-template-columns: 1fr 90px 60px; padding-inline: 0.6rem; }
+  }
+
+  /* Routes of arrival — visa-route mix per top NINo nationality */
+  .vr-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0.25rem 0 1.25rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .vr-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: "Sora", sans-serif;
+  }
+  .vr-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .vr-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .vr-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .vr-row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .vr-country {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+  .vr-local {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .vr-share { color: var(--muted); }
+  .vr-bar {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .vr-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Sora", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+  .vr-seg:hover { opacity: 0.85; }
+  .vr-work   { background: #1f6feb; }   /* blue */
+  .vr-study  { background: #14904a; }   /* green */
+  .vr-family { background: #c2410c; }   /* orange-red */
+  .vr-other  { background: #6b7280; }   /* slate */
+  .vr-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .vr-summary {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .vr-uk { font-variant-numeric: tabular-nums; }
+  .vr-no-data {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding: 0.6rem 0.8rem;
+    background: rgba(0,0,0,0.03);
+    border-radius: 6px;
+    border-left: 3px solid var(--muted);
+  }
+  @media (max-width: 540px) {
+    .vr-bar { height: 26px; }
+    .vr-seg { font-size: 0.72rem; }
+  }
 
   @media (max-width: 640px) {
     .metrics-grid { grid-template-columns: repeat(2, 1fr); }

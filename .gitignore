@@ -30,3 +30,12 @@ data/raw/dfe_schools/
 data/raw/ons_births/
 data/raw/census_ethnicity_detail/
 data/raw/snpp/
+data/raw/companies_house/
+data/raw/ho_visas/
+data/raw/moj_fno/
+data/raw/police_stops/
+data/raw/ukhsa_tb/
+data/raw/hmrc_rti/
+data/raw/census_country_of_birth/
+data/raw/hesa/
+data/raw/cache/
