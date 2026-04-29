@@ -23,6 +23,8 @@ import NinoHistoricalChart from "../../components/NinoHistoricalChart.astro";
 import { getNinoDemographic, getNinoDemographicNational, getNinoDemographicSource, getNinoDemographicCaveat } from "../../lib/nino-demographic-data";
 import { getEconPassport, getEconPassportSource, getEconPassportCaveat, getEconPassportGroupsOrder } from "../../lib/econ-passport-data";
 import cobChange1121 from "../../data/live/country-of-birth-change-2011-2021.json";
+import pipPcon from "../../data/live/pip-pcon.json";
+import nhsFundingContext from "../../data/live/nhs-funding-context.json";
 import schoolEalDistrict from "../../data/live/school-eal-district.json";
 import payrollRegional from "../../data/live/payroll-by-region-industry.json";
 import hmoDensity from "../../data/live/hmo-density.json";
@@ -107,6 +109,28 @@ const ctSpd = (councilTaxSpd as any).areas?.[area.areaCode];
 
 // Census 2011 → Census 2021 country-of-birth stock change
 const cobChange = (cobChange1121 as any).areas?.[area.areaCode];
+
+// PIP claimants — by best-match Westminster constituency
+const pipMatch = (pipPcon as any).laToPconBestMatch?.[area.areaName] as
+  | { code: string; name: string; claimants: number }
+  | undefined;
+const pipPopulation = (healthDemand as any).areas?.[area.areaCode]?.population as number | undefined;
+const pipRatePct = pipMatch && pipPopulation
+  ? +(pipMatch.claimants / pipPopulation * 100).toFixed(1)
+  : null;
+const pipNationalRatePct = (() => {
+  const tot = (pipPcon as any).totalClaimants as number;
+  // National rate using ONS England + Wales population estimate ~60M working-age + over;
+  // approximate using 67M (E+W mid-2023 estimate ~60M, with Scotland 5.4M, NI 1.9M).
+  // For PIP (England + Wales only), use 60M as the rough denominator.
+  return tot ? +(tot / 60_000_000 * 100).toFixed(1) : null;
+})();
+const pipLatestMonth = (pipPcon as any).latestMonth as string;
+
+// NHS funding context (national, hand-curated)
+const nhsCtx = nhsFundingContext as any;
+const ihsLatest = nhsCtx?.ihsRateHistory?.[nhsCtx.ihsRateHistory.length - 1];
+const ihsRevenueLatest = nhsCtx?.ihsRevenueByYear?.[nhsCtx.ihsRevenueByYear.length - 1];
 const cobChangeGroupLabels: Record<string, string> = {
   UK: "UK-born",
   Ireland: "Ireland-born",
@@ -1057,6 +1081,95 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
+  <!-- Personal Independence Payment (PIP) -->
+  {pipMatch && (
+    <section class="section" id="pip">
+      <h2>Personal Independence Payment (PIP)</h2>
+      <p class="section-desc">
+        PIP is the working-age disability benefit. Claimant count is residence-based, by Westminster Parliamentary Constituency 2024.
+        {pipMatch.name !== area.areaName && (
+          <> {area.areaName} (the local authority) is mapped to the <strong>{pipMatch.name}</strong> constituency for this figure.</>
+        )}
+      </p>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">PIP claimants ({pipLatestMonth})</span>
+          <span class="data-value">{pipMatch.claimants.toLocaleString()}</span>
+        </div>
+        {pipRatePct != null && (
+          <div class="data-item">
+            <span class="data-label">PIP claimants as % of population</span>
+            <span class="data-value">{pipRatePct.toFixed(1)}%</span>
+          </div>
+        )}
+        {pipNationalRatePct != null && pipRatePct != null && (
+          <div class="data-item">
+            <span class="data-label">vs England + Wales rate ({pipNationalRatePct.toFixed(1)}%)</span>
+            <span class="data-value" style={`color: ${pipRatePct > pipNationalRatePct ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
+              {pipRatePct > pipNationalRatePct ? '+' : ''}{(pipRatePct - pipNationalRatePct).toFixed(1)}pp
+            </span>
+          </div>
+        )}
+      </div>
+      <p class="section-note">
+        Source: DWP Stat-Xplore PIP_Monthly_new (Westminster Parliamentary Constituency 2024). PIP figures are NOT broken down by nationality at any geography on the public Stat-Xplore API; this is the closest local figure available. Population denominator from Census 2021. Constituency boundaries do not align perfectly with LA boundaries.
+      </p>
+    </section>
+  )}
+
+  <!-- NHS overseas-visitor funding context (national) -->
+  {nhsCtx && ihsLatest && ihsRevenueLatest && (
+    <section class="section" id="nhs-funding">
+      <h2>How NHS care for overseas residents is funded (national context)</h2>
+      <p class="section-desc">
+        Most non-UK residents in {area.areaName} pay for NHS care up-front through the Immigration Health Surcharge (IHS), which is added to most visa applications. Asylum seekers, refugees, ILR holders and Irish citizens are exempt. Visitors and undocumented residents are charged at 150% of the national NHS tariff. The figures below are England + Wales national totals; per-LA NHS cost-recovery is not centrally published.
+      </p>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">Current IHS rate (adult, per year)</span>
+          <span class="data-value">£{ihsLatest.adult_per_year_gbp.toLocaleString()}</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">IHS rate, students/under-18s (per year)</span>
+          <span class="data-value">£{ihsLatest.student_under18_per_year_gbp.toLocaleString()}</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">IHS revenue {ihsRevenueLatest.year} (£m)</span>
+          <span class="data-value">£{ihsRevenueLatest.amount_gbp_millions.toLocaleString()}m</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Cumulative IHS revenue 2015–2024</span>
+          <span class="data-value">£{(nhsCtx.ihsCumulativeRevenueSince2015.amount_gbp_millions / 1000).toFixed(1)}bn</span>
+        </div>
+      </div>
+      <details class="nhs-details">
+        <summary>IHS rate history</summary>
+        <ul class="nhs-rate-list">
+          {nhsCtx.ihsRateHistory.map((r: any) => (
+            <li>
+              <strong>From {r.effective_from}:</strong> £{r.adult_per_year_gbp}/year adult, £{r.student_under18_per_year_gbp}/year students/under-18s
+            </li>
+          ))}
+        </ul>
+      </details>
+      <details class="nhs-details">
+        <summary>Indicative charges for visitors and undocumented residents</summary>
+        <p class="nhs-charge-note">
+          Maternity care is classified as "immediately necessary" — it cannot be refused or delayed for charging, but it is invoiced afterwards at 150% of the NHS national tariff.
+        </p>
+        <ul class="nhs-charge-list">
+          <li>Routine vaginal delivery, no complications: <strong>£3,000–£5,500</strong></li>
+          <li>Caesarean section: <strong>£5,000–£7,500</strong></li>
+          <li>Premature birth with NICU stay: <strong>£15,000–£30,000+</strong></li>
+          <li>Antenatal appointment: £150–£400 each</li>
+        </ul>
+      </details>
+      <p class="section-note">
+        Sources: NHS (Charges to Overseas Visitors) Regulations 2015 (as amended); Home Office IHS caseworker guidance (Sept 2025); House of Commons Library briefing CBP-7274; NHS England NHS Payment Scheme (national tariff). Approximately 80% of identified overseas-visitor debt across all NHS treatment is uncollected (NAO, follow-up scrutiny).
+      </p>
+    </section>
+  )}
+
   <!-- Economic profile -->
   {econ?.summary && (
     <section class="section" id="economy">
@@ -1464,6 +1577,46 @@ function fmtInt(n: number | undefined | null): string {
   .demog-summary strong { color: var(--ink); }
   @media (max-width: 760px) {
     .demog-grid { grid-template-columns: 1fr; }
+  }
+
+  /* NHS funding context details */
+  .nhs-details {
+    margin: 0.85rem 0 0.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 0.6rem 0.85rem;
+    background: rgba(255,255,255,0.02);
+  }
+  .nhs-details summary {
+    cursor: pointer;
+    color: var(--ink);
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.15rem 0;
+    list-style: none;
+  }
+  .nhs-details summary::before {
+    content: "▸ ";
+    color: var(--accent);
+    font-weight: 800;
+    margin-right: 0.3rem;
+  }
+  .nhs-details[open] summary::before { content: "▾ "; }
+  .nhs-rate-list, .nhs-charge-list {
+    margin: 0.6rem 0 0.2rem;
+    padding-left: 1.4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .nhs-rate-list li, .nhs-charge-list li { margin-bottom: 0.3rem; }
+  .nhs-rate-list strong, .nhs-charge-list strong { color: var(--ink); }
+  .nhs-charge-note {
+    margin: 0.6rem 0 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
   }
 
   /* 2011 -> 2021 country-of-birth change */
