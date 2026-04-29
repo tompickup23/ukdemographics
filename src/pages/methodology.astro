@@ -28,9 +28,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <p>School census data provides an independent out-of-sample validation for ages 0-15. School validation MAE: 2.36pp across 121 areas with 10 years of annual data.</p>
   </section>
 
+  <section id="two-models">
+    <h2>Why we publish two models</h2>
+    <p>Hamilton-Perry is the central published projection. Alongside it, every place page shows the 2051 endpoint of a second, independent model: a classical cohort-component projection with births by ethnicity-specific total fertility rate and a half-convergence assumption (ethnic TFRs move halfway to the national mean by 2061).</p>
+    <p>The two models share the same Census 2011 and Census 2021 base. They differ in what they assume about the future:</p>
+    <ul>
+      <li><strong>Hamilton-Perry (HP)</strong> extrapolates the 2011-2021 cohort change ratios forward. It is descriptive: it says "the demographic dynamics of the last decade continue." It captures observed migration, fertility, and mortality jointly through CCRs but cannot decompose them.</li>
+      <li><strong>Cohort-component (CC)</strong> models births, deaths, and migration separately, with explicit ethnicity-specific fertility rates. The half-convergence variant assumes higher-fertility groups gradually converge toward the national mean. This pulls projections toward a slower pace of change.</li>
+    </ul>
+    <p>Because CC has explicit fertility convergence and HP does not, CC typically projects a higher White British share by 2051. The two-model spread for an area is the most honest single-number measure of structural model uncertainty &mdash; bigger than the HP-internal Monte Carlo confidence band, because it captures disagreement between methods rather than noise within one method.</p>
+    <p>Across 320 English LAs, the median 2051 spread is approximately 8 percentage points; the largest spreads exceed 20pp (typically high-diversity urban areas where the cohort-component fertility-convergence assumption diverges most sharply from observed CCR dynamics).</p>
+    <p>We treat HP as central because it requires fewer assumptions (it does not impose convergence) and validates better in backcast (MAE 1.72pp vs 3.94pp for NEWETHPOP, an established cohort-component model trained on the same Census data).</p>
+  </section>
+
   <section id="uncertainty">
     <h2>Uncertainty quantification</h2>
-    <p>1,000 Monte Carlo simulations with stochastic perturbation (sigma = 0.02) generate 80% and 95% confidence intervals for all projections. This captures the range of plausible outcomes, not a single point estimate.</p>
+    <p>1,000 Monte Carlo simulations with stochastic perturbation (sigma = 0.02) generate 80% and 95% confidence intervals for all projections. This captures the range of plausible outcomes within the Hamilton-Perry method, not a single point estimate.</p>
+    <p>For structural uncertainty &mdash; disagreement between modelling approaches &mdash; see the two-model comparison above. The two-model spread is generally the larger of the two uncertainty signals and the one to weight more heavily when reading any single projection.</p>
   </section>
 
   <section id="limitations">
