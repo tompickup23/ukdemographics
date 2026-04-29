@@ -1,758 +1,1196 @@
 {
-  "source": "Department for Education, Special educational needs in England, academic year 2023/24",
-  "methodology": "EHCP issuance counts from the SEN2 return. Rates calculated per 10,000 school-age population (5-16). Growth rates compare 2019/20 to 2023/24 academic years.",
-  "lastUpdated": "2026-04-10",
-  "caveat": "Rising EHCP numbers may reflect improved identification, changes in diagnostic criteria, increased parental awareness, or genuine prevalence changes. Comparison across areas must account for differences in assessment practice and local authority resources.",
+  "source": "DfE Special educational needs in England, academic year 2024/25 (sen_phase_type_.csv + sen_secondary_need_.csv).",
+  "methodology": "Total EHC plans summed across all phases and establishment types per LA (phase_type_grouping=Total, type_of_establishment=Total). 5-year growth compares 2024/25 to 2019/20. ASD prevalence and primary-need breakdown filtered to pupil_sen_status=EHC plan + phase_type_grouping=Total.",
+  "lastUpdated": "2026-04-28",
+  "caveat": "EHCP responsibility sits with upper-tier authorities only \u2014 ~153 LAs in coverage. Rate-per-10k uses total LA population (Census 2021) as denominator since school-age population is not in the ethnic-projections feed; cross-LA comparison is therefore directional rather than absolute. Rising EHCP counts may reflect improved identification, changes in diagnostic criteria, increased parental awareness, or genuine prevalence change.",
   "areas": {
+    "E06000001": {
+      "areaName": "Hartlepool",
+      "ehcpRatePer10k": 149.7,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 53.2,
+      "totalEhcps": 1382,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000002": {
+      "areaName": "Middlesbrough",
+      "ehcpRatePer10k": 222.9,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 78.4,
+      "totalEhcps": 3208,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000003": {
+      "areaName": "Redcar and Cleveland",
+      "ehcpRatePer10k": 165.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 27.3,
+      "totalEhcps": 2260,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000004": {
+      "areaName": "Stockton-on-Tees",
+      "ehcpRatePer10k": 190.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 49.6,
+      "totalEhcps": 3746,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000005": {
+      "areaName": "Darlington",
+      "ehcpRatePer10k": 193.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 58.1,
+      "totalEhcps": 2080,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000006": {
+      "areaName": "Halton",
+      "ehcpRatePer10k": 195.7,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 84.6,
+      "totalEhcps": 2514,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000007": {
+      "areaName": "Warrington",
+      "ehcpRatePer10k": 174.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 58.7,
+      "totalEhcps": 3670,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
     "E06000008": {
       "areaName": "Blackburn with Darwen",
-      "ehcpRatePer10k": 412,
-      "asdPrevalencePct": 31.2,
-      "fiveYearGrowthPct": 42.1,
-      "totalEhcps": 2841,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 31.2
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 19.2
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.9
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.6
-        },
-        {
-          "need": "Other",
-          "pct": 22.8
-        }
-      ],
-      "period": "Academic year 2023/24"
+      "ehcpRatePer10k": 178.9,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 68.0,
+      "totalEhcps": 2768,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
     "E06000009": {
       "areaName": "Blackpool",
-      "ehcpRatePer10k": 478,
-      "asdPrevalencePct": 28.4,
-      "fiveYearGrowthPct": 51.2,
-      "totalEhcps": 2124,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 28.4
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 20.6
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 17.9
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 12.5
-        },
-        {
-          "need": "Other",
-          "pct": 25.6
-        }
-      ],
-      "period": "Academic year 2023/24"
+      "ehcpRatePer10k": 172.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 65.9,
+      "totalEhcps": 2432,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E07000117": {
-      "areaName": "Burnley",
-      "ehcpRatePer10k": 398,
-      "asdPrevalencePct": 29.8,
-      "fiveYearGrowthPct": 38.7,
-      "totalEhcps": 1247,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 29.8
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 19.0
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.7
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 12.1
-        },
-        {
-          "need": "Other",
-          "pct": 24.2
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000010": {
+      "areaName": "Kingston upon Hull, City of",
+      "ehcpRatePer10k": 195.9,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 69.5,
+      "totalEhcps": 5230,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E07000118": {
-      "areaName": "Chorley",
-      "ehcpRatePer10k": 342,
-      "asdPrevalencePct": 33.1,
-      "fiveYearGrowthPct": 35.2,
-      "totalEhcps": 1412,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 33.1
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 17.8
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 15.9
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.1
-        },
-        {
-          "need": "Other",
-          "pct": 20.9
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000011": {
+      "areaName": "East Riding of Yorkshire",
+      "ehcpRatePer10k": 148.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 66.4,
+      "totalEhcps": 5076,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E08000017": {
-      "areaName": "Doncaster",
-      "ehcpRatePer10k": 424,
-      "asdPrevalencePct": 30.4,
-      "fiveYearGrowthPct": 44.8,
-      "totalEhcps": 4218,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 30.4
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 19.5
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 17.1
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.9
-        },
-        {
-          "need": "Other",
-          "pct": 23.6
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000012": {
+      "areaName": "North East Lincolnshire",
+      "ehcpRatePer10k": 178.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 82.6,
+      "totalEhcps": 2794,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000013": {
+      "areaName": "North Lincolnshire",
+      "ehcpRatePer10k": 157.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 58.9,
+      "totalEhcps": 2670,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000014": {
+      "areaName": "York",
+      "ehcpRatePer10k": 125.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 71.5,
+      "totalEhcps": 2538,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000015": {
+      "areaName": "Derby",
+      "ehcpRatePer10k": 207.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 53.0,
+      "totalEhcps": 5410,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000016": {
+      "areaName": "Leicester",
+      "ehcpRatePer10k": 156.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 65.3,
+      "totalEhcps": 5754,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000017": {
+      "areaName": "Rutland",
+      "ehcpRatePer10k": 194.9,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 55.6,
+      "totalEhcps": 800,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000018": {
+      "areaName": "Nottingham",
+      "ehcpRatePer10k": 93.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 63.3,
+      "totalEhcps": 3028,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000019": {
+      "areaName": "Herefordshire, County of",
+      "ehcpRatePer10k": 136.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 52.6,
+      "totalEhcps": 2546,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000020": {
+      "areaName": "Telford and Wrekin",
+      "ehcpRatePer10k": 173.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 37.8,
+      "totalEhcps": 3224,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000021": {
+      "areaName": "Stoke-on-Trent",
+      "ehcpRatePer10k": 184.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 51.7,
+      "totalEhcps": 4764,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000022": {
+      "areaName": "Bath and North East Somerset",
+      "ehcpRatePer10k": 181.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 65.6,
+      "totalEhcps": 3510,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000023": {
+      "areaName": "Bristol, City of",
+      "ehcpRatePer10k": 150.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 99.7,
+      "totalEhcps": 7100,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000024": {
+      "areaName": "North Somerset",
+      "ehcpRatePer10k": 158.7,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 198.1,
+      "totalEhcps": 3440,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000025": {
+      "areaName": "South Gloucestershire",
+      "ehcpRatePer10k": 162.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 54.1,
+      "totalEhcps": 4708,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000026": {
+      "areaName": "Plymouth",
+      "ehcpRatePer10k": 149.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 37.8,
+      "totalEhcps": 3960,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000027": {
+      "areaName": "Torbay",
+      "ehcpRatePer10k": 187.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 43.4,
+      "totalEhcps": 2612,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000030": {
+      "areaName": "Swindon",
+      "ehcpRatePer10k": 191.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 55.4,
+      "totalEhcps": 4464,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000031": {
+      "areaName": "Peterborough",
+      "ehcpRatePer10k": 192.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 56.8,
+      "totalEhcps": 4150,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000032": {
+      "areaName": "Luton",
+      "ehcpRatePer10k": 193.7,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 70.6,
+      "totalEhcps": 4364,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000033": {
+      "areaName": "Southend-on-Sea",
+      "ehcpRatePer10k": 180.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 41.3,
+      "totalEhcps": 3258,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000034": {
+      "areaName": "Thurrock",
+      "ehcpRatePer10k": 211.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 51.1,
+      "totalEhcps": 3716,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000035": {
+      "areaName": "Medway",
+      "ehcpRatePer10k": 167.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 28.3,
+      "totalEhcps": 4690,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000036": {
+      "areaName": "Bracknell Forest",
+      "ehcpRatePer10k": 212.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 137.8,
+      "totalEhcps": 2644,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000037": {
+      "areaName": "West Berkshire",
+      "ehcpRatePer10k": 221.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 41.6,
+      "totalEhcps": 3572,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000038": {
+      "areaName": "Reading",
+      "ehcpRatePer10k": 136.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 58.1,
+      "totalEhcps": 2372,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000039": {
+      "areaName": "Slough",
+      "ehcpRatePer10k": 183.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 31.9,
+      "totalEhcps": 2914,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000040": {
+      "areaName": "Windsor and Maidenhead",
+      "ehcpRatePer10k": 193.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 56.8,
+      "totalEhcps": 2972,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000041": {
+      "areaName": "Wokingham",
+      "ehcpRatePer10k": 175.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 83.9,
+      "totalEhcps": 3108,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000042": {
+      "areaName": "Milton Keynes",
+      "ehcpRatePer10k": 159.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 44.6,
+      "totalEhcps": 4570,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000043": {
+      "areaName": "Brighton and Hove",
+      "ehcpRatePer10k": 132.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 47.9,
+      "totalEhcps": 3680,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000044": {
+      "areaName": "Portsmouth",
+      "ehcpRatePer10k": 168.9,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 52.8,
+      "totalEhcps": 3514,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000045": {
+      "areaName": "Southampton",
+      "ehcpRatePer10k": 179.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 58.3,
+      "totalEhcps": 4466,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000046": {
+      "areaName": "Isle of Wight",
+      "ehcpRatePer10k": 165.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 40.8,
+      "totalEhcps": 2320,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
     "E06000047": {
       "areaName": "County Durham",
-      "ehcpRatePer10k": 388,
-      "asdPrevalencePct": 27.8,
-      "fiveYearGrowthPct": 39.4,
-      "totalEhcps": 6842,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 27.8
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.8
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.6
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 12.7
-        },
-        {
-          "need": "Other",
-          "pct": 26.2
-        }
-      ],
-      "period": "Academic year 2023/24"
+      "ehcpRatePer10k": 146.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 67.1,
+      "totalEhcps": 7652,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E10000012": {
-      "areaName": "Essex",
-      "ehcpRatePer10k": 362,
-      "asdPrevalencePct": 34.2,
-      "fiveYearGrowthPct": 41.8,
-      "totalEhcps": 18421,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 34.2
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.2
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.2
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 10.7
-        },
-        {
-          "need": "Other",
-          "pct": 19.8
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000049": {
+      "areaName": "Cheshire East",
+      "ehcpRatePer10k": 181.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 114.2,
+      "totalEhcps": 7250,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E07000119": {
-      "areaName": "Fylde",
-      "ehcpRatePer10k": 318,
-      "asdPrevalencePct": 35.4,
-      "fiveYearGrowthPct": 32.1,
-      "totalEhcps": 742,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 35.4
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 17.4
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 15.5
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 10.4
-        },
-        {
-          "need": "Other",
-          "pct": 18.6
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000050": {
+      "areaName": "Cheshire West and Chester",
+      "ehcpRatePer10k": 182.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 77.6,
+      "totalEhcps": 6520,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E10000014": {
-      "areaName": "Hampshire",
-      "ehcpRatePer10k": 348,
-      "asdPrevalencePct": 36.8,
-      "fiveYearGrowthPct": 38.2,
-      "totalEhcps": 16842,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 36.8
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.0
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.0
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 10.0
-        },
-        {
-          "need": "Other",
-          "pct": 17.2
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000051": {
+      "areaName": "Shropshire",
+      "ehcpRatePer10k": 155.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 78.2,
+      "totalEhcps": 5024,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E07000120": {
-      "areaName": "Hyndburn",
-      "ehcpRatePer10k": 408,
-      "asdPrevalencePct": 28.2,
-      "fiveYearGrowthPct": 40.4,
-      "totalEhcps": 1124,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 28.2
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 19.2
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.9
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 12.5
-        },
-        {
-          "need": "Other",
-          "pct": 25.8
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000052": {
+      "areaName": "Cornwall",
+      "ehcpRatePer10k": 115.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 65.3,
+      "totalEhcps": 6558,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E10000016": {
-      "areaName": "Kent",
-      "ehcpRatePer10k": 378,
-      "asdPrevalencePct": 33.8,
-      "fiveYearGrowthPct": 43.2,
-      "totalEhcps": 21247,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 33.8
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.6
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.4
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 10.9
-        },
-        {
-          "need": "Other",
-          "pct": 20.2
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000053": {
+      "areaName": "Isles of Scilly",
+      "ehcpRatePer10k": 97.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 0.0,
+      "totalEhcps": 20,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E10000017": {
-      "areaName": "Lancashire",
-      "ehcpRatePer10k": 372,
-      "asdPrevalencePct": 31.4,
-      "fiveYearGrowthPct": 40.1,
-      "totalEhcps": 14218,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 31.4
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.4
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.3
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.6
-        },
-        {
-          "need": "Other",
-          "pct": 22.6
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000054": {
+      "areaName": "Wiltshire",
+      "ehcpRatePer10k": 184.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 69.3,
+      "totalEhcps": 9398,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E07000121": {
-      "areaName": "Lancaster",
-      "ehcpRatePer10k": 356,
-      "asdPrevalencePct": 32.1,
-      "fiveYearGrowthPct": 36.8,
-      "totalEhcps": 1842,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 32.1
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.1
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.1
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.4
-        },
-        {
-          "need": "Other",
-          "pct": 21.9
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000055": {
+      "areaName": "Bedford",
+      "ehcpRatePer10k": 182.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 63.1,
+      "totalEhcps": 3382,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E10000020": {
-      "areaName": "Norfolk",
-      "ehcpRatePer10k": 394,
-      "asdPrevalencePct": 30.2,
-      "fiveYearGrowthPct": 42.4,
-      "totalEhcps": 12124,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 30.2
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.9
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.7
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.9
-        },
-        {
-          "need": "Other",
-          "pct": 23.8
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E06000056": {
+      "areaName": "Central Bedfordshire",
+      "ehcpRatePer10k": 212.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 103.4,
+      "totalEhcps": 6256,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000057": {
+      "areaName": "Northumberland",
+      "ehcpRatePer10k": 198.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": null,
+      "totalEhcps": 6354,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000058": {
+      "areaName": "Bournemouth, Christchurch and Poole",
+      "ehcpRatePer10k": 159.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 81.3,
+      "totalEhcps": 6378,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000059": {
+      "areaName": "Dorset",
+      "ehcpRatePer10k": 160.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 51.6,
+      "totalEhcps": 6102,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000060": {
+      "areaName": "Buckinghamshire",
+      "ehcpRatePer10k": 177.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": null,
+      "totalEhcps": 9798,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
     "E06000061": {
       "areaName": "North Northamptonshire",
-      "ehcpRatePer10k": 382,
-      "asdPrevalencePct": 32.8,
-      "fiveYearGrowthPct": 45.1,
-      "totalEhcps": 4842,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 32.8
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.6
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.5
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.2
-        },
-        {
-          "need": "Other",
-          "pct": 21.2
-        }
-      ],
-      "period": "Academic year 2023/24"
-    },
-    "E07000122": {
-      "areaName": "Pendle",
-      "ehcpRatePer10k": 418,
-      "asdPrevalencePct": 27.4,
-      "fiveYearGrowthPct": 41.2,
-      "totalEhcps": 1342,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 27.4
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 19.4
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 17.0
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 12.8
-        },
-        {
-          "need": "Other",
-          "pct": 26.6
-        }
-      ],
-      "period": "Academic year 2023/24"
-    },
-    "E06000011": {
-      "areaName": "Preston",
-      "ehcpRatePer10k": 432,
-      "asdPrevalencePct": 29.2,
-      "fiveYearGrowthPct": 46.8,
-      "totalEhcps": 2418,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 29.2
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 19.6
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 17.2
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 12.2
-        },
-        {
-          "need": "Other",
-          "pct": 24.8
-        }
-      ],
-      "period": "Academic year 2023/24"
-    },
-    "E07000124": {
-      "areaName": "Ribble Valley",
-      "ehcpRatePer10k": 298,
-      "asdPrevalencePct": 37.2,
-      "fiveYearGrowthPct": 28.4,
-      "totalEhcps": 542,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 37.2
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 17.0
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 15.2
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 9.8
-        },
-        {
-          "need": "Other",
-          "pct": 16.8
-        }
-      ],
-      "period": "Academic year 2023/24"
-    },
-    "E07000125": {
-      "areaName": "Rossendale",
-      "ehcpRatePer10k": 348,
-      "asdPrevalencePct": 31.8,
-      "fiveYearGrowthPct": 34.2,
-      "totalEhcps": 842,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 31.8
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.0
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.0
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.5
-        },
-        {
-          "need": "Other",
-          "pct": 22.2
-        }
-      ],
-      "period": "Academic year 2023/24"
-    },
-    "E07000126": {
-      "areaName": "South Ribble",
-      "ehcpRatePer10k": 328,
-      "asdPrevalencePct": 34.4,
-      "fiveYearGrowthPct": 33.1,
-      "totalEhcps": 1124,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 34.4
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 17.6
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 15.7
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 10.7
-        },
-        {
-          "need": "Other",
-          "pct": 19.6
-        }
-      ],
-      "period": "Academic year 2023/24"
-    },
-    "E10000034": {
-      "areaName": "Staffordshire",
-      "ehcpRatePer10k": 358,
-      "asdPrevalencePct": 33.2,
-      "fiveYearGrowthPct": 39.8,
-      "totalEhcps": 11242,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 33.2
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.2
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.1
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.0
-        },
-        {
-          "need": "Other",
-          "pct": 20.8
-        }
-      ],
-      "period": "Academic year 2023/24"
-    },
-    "E07000127": {
-      "areaName": "West Lancashire",
-      "ehcpRatePer10k": 312,
-      "asdPrevalencePct": 35.8,
-      "fiveYearGrowthPct": 31.4,
-      "totalEhcps": 1042,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 35.8
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 17.2
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 15.4
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 10.3
-        },
-        {
-          "need": "Other",
-          "pct": 18.2
-        }
-      ],
-      "period": "Academic year 2023/24"
+      "ehcpRatePer10k": 183.7,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": null,
+      "totalEhcps": 6606,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
     "E06000062": {
       "areaName": "West Northamptonshire",
-      "ehcpRatePer10k": 392,
-      "asdPrevalencePct": 32.4,
+      "ehcpRatePer10k": 156.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": null,
+      "totalEhcps": 6674,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000063": {
+      "areaName": "Cumberland",
+      "ehcpRatePer10k": 167.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": null,
+      "totalEhcps": 4576,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000064": {
+      "areaName": "Westmorland and Furness",
+      "ehcpRatePer10k": 171.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": null,
+      "totalEhcps": 3882,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000065": {
+      "areaName": "North Yorkshire",
+      "ehcpRatePer10k": 130.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": null,
+      "totalEhcps": 8014,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E06000066": {
+      "areaName": "Somerset",
+      "ehcpRatePer10k": 151.9,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": null,
+      "totalEhcps": 8684,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000001": {
+      "areaName": "Bolton",
+      "ehcpRatePer10k": 207.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 61.6,
+      "totalEhcps": 6126,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000002": {
+      "areaName": "Bury",
+      "ehcpRatePer10k": 203.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 73.7,
+      "totalEhcps": 3950,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000003": {
+      "areaName": "Manchester",
+      "ehcpRatePer10k": 254.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 100.6,
+      "totalEhcps": 14054,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000004": {
+      "areaName": "Oldham",
+      "ehcpRatePer10k": 274.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 79.9,
+      "totalEhcps": 6646,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000005": {
+      "areaName": "Rochdale",
+      "ehcpRatePer10k": 198.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 53.3,
+      "totalEhcps": 4444,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000006": {
+      "areaName": "Salford",
+      "ehcpRatePer10k": 194.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 53.5,
+      "totalEhcps": 5248,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000007": {
+      "areaName": "Stockport",
+      "ehcpRatePer10k": 198.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 49.8,
+      "totalEhcps": 5850,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000008": {
+      "areaName": "Tameside",
+      "ehcpRatePer10k": 214.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 113.7,
+      "totalEhcps": 4946,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000009": {
+      "areaName": "Trafford",
+      "ehcpRatePer10k": 205.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 46.4,
+      "totalEhcps": 4822,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000010": {
+      "areaName": "Wigan",
+      "ehcpRatePer10k": 169.9,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 77.0,
+      "totalEhcps": 5594,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000011": {
+      "areaName": "Knowsley",
+      "ehcpRatePer10k": 213.7,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 76.2,
+      "totalEhcps": 3302,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000012": {
+      "areaName": "Liverpool",
+      "ehcpRatePer10k": 230.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 134.8,
+      "totalEhcps": 11180,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000013": {
+      "areaName": "St Helens",
+      "ehcpRatePer10k": 193.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 121.4,
+      "totalEhcps": 3538,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000014": {
+      "areaName": "Sefton",
+      "ehcpRatePer10k": 187.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 108.5,
+      "totalEhcps": 5230,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000015": {
+      "areaName": "Wirral",
+      "ehcpRatePer10k": 229.9,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 108.3,
+      "totalEhcps": 7362,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000016": {
+      "areaName": "Barnsley",
+      "ehcpRatePer10k": 161.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 42.7,
+      "totalEhcps": 3946,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000017": {
+      "areaName": "Doncaster",
+      "ehcpRatePer10k": 136.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 56.7,
+      "totalEhcps": 4206,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000018": {
+      "areaName": "Rotherham",
+      "ehcpRatePer10k": 219.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 72.7,
+      "totalEhcps": 5826,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000019": {
+      "areaName": "Sheffield",
+      "ehcpRatePer10k": 157.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 86.6,
+      "totalEhcps": 8770,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000021": {
+      "areaName": "Newcastle upon Tyne",
+      "ehcpRatePer10k": 161.9,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 69.2,
+      "totalEhcps": 4858,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000022": {
+      "areaName": "North Tyneside",
+      "ehcpRatePer10k": 190.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 48.8,
+      "totalEhcps": 3976,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000023": {
+      "areaName": "South Tyneside",
+      "ehcpRatePer10k": 165.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 31.4,
+      "totalEhcps": 2446,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000024": {
+      "areaName": "Sunderland",
+      "ehcpRatePer10k": 159.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 64.1,
+      "totalEhcps": 4366,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000025": {
+      "areaName": "Birmingham",
+      "ehcpRatePer10k": 158.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 29.0,
+      "totalEhcps": 18184,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000026": {
+      "areaName": "Coventry",
+      "ehcpRatePer10k": 159.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 68.6,
+      "totalEhcps": 5504,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000027": {
+      "areaName": "Dudley",
+      "ehcpRatePer10k": 172.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 59.3,
+      "totalEhcps": 5566,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000028": {
+      "areaName": "Sandwell",
+      "ehcpRatePer10k": 165.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 60.7,
+      "totalEhcps": 5662,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000029": {
+      "areaName": "Solihull",
+      "ehcpRatePer10k": 174.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 42.1,
+      "totalEhcps": 3768,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000030": {
+      "areaName": "Walsall",
+      "ehcpRatePer10k": 226.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 106.7,
+      "totalEhcps": 6436,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000031": {
+      "areaName": "Wolverhampton",
+      "ehcpRatePer10k": 189.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 62.4,
+      "totalEhcps": 4992,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000032": {
+      "areaName": "Bradford",
+      "ehcpRatePer10k": 196.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 72.8,
+      "totalEhcps": 10722,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000033": {
+      "areaName": "Calderdale",
+      "ehcpRatePer10k": 220.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 97.1,
+      "totalEhcps": 4548,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000034": {
+      "areaName": "Kirklees",
+      "ehcpRatePer10k": 152.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 57.7,
+      "totalEhcps": 6596,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E08000035": {
+      "areaName": "Leeds",
+      "ehcpRatePer10k": 103.9,
+      "asdPrevalencePct": null,
       "fiveYearGrowthPct": 44.2,
-      "totalEhcps": 5842,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 32.4
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.8
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.6
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.3
-        },
-        {
-          "need": "Other",
-          "pct": 21.6
-        }
-      ],
-      "period": "Academic year 2023/24"
+      "totalEhcps": 8440,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E10000038": {
-      "areaName": "Worcestershire",
-      "ehcpRatePer10k": 364,
-      "asdPrevalencePct": 33.4,
-      "fiveYearGrowthPct": 37.8,
-      "totalEhcps": 7242,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 33.4
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 18.3
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 16.2
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 11.0
-        },
-        {
-          "need": "Other",
-          "pct": 20.6
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E08000036": {
+      "areaName": "Wakefield",
+      "ehcpRatePer10k": 181.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 57.0,
+      "totalEhcps": 6426,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     },
-    "E07000128": {
-      "areaName": "Wyre",
-      "ehcpRatePer10k": 308,
-      "asdPrevalencePct": 36.1,
-      "fiveYearGrowthPct": 30.2,
-      "totalEhcps": 842,
-      "primaryNeeds": [
-        {
-          "need": "Autistic Spectrum Disorder",
-          "pct": 36.1
-        },
-        {
-          "need": "Speech, Language and Communication",
-          "pct": 17.2
-        },
-        {
-          "need": "Social, Emotional and Mental Health",
-          "pct": 15.4
-        },
-        {
-          "need": "Moderate Learning Difficulty",
-          "pct": 10.2
-        },
-        {
-          "need": "Other",
-          "pct": 17.9
-        }
-      ],
-      "period": "Academic year 2023/24"
+    "E08000037": {
+      "areaName": "Gateshead",
+      "ehcpRatePer10k": 161.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": null,
+      "totalEhcps": 3170,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000001": {
+      "areaName": "City of London",
+      "ehcpRatePer10k": 28.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 20.0,
+      "totalEhcps": 24,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000002": {
+      "areaName": "Barking and Dagenham",
+      "ehcpRatePer10k": 203.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 68.2,
+      "totalEhcps": 4460,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000003": {
+      "areaName": "Barnet",
+      "ehcpRatePer10k": 183.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 69.6,
+      "totalEhcps": 7144,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000004": {
+      "areaName": "Bexley",
+      "ehcpRatePer10k": 190.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 69.3,
+      "totalEhcps": 4682,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000005": {
+      "areaName": "Brent",
+      "ehcpRatePer10k": 153.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 49.9,
+      "totalEhcps": 5228,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000006": {
+      "areaName": "Bromley",
+      "ehcpRatePer10k": 198.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 67.3,
+      "totalEhcps": 6546,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000007": {
+      "areaName": "Camden",
+      "ehcpRatePer10k": 120.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 18.5,
+      "totalEhcps": 2522,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000008": {
+      "areaName": "Croydon",
+      "ehcpRatePer10k": 176.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 42.8,
+      "totalEhcps": 6882,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000009": {
+      "areaName": "Ealing",
+      "ehcpRatePer10k": 183.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 53.0,
+      "totalEhcps": 6730,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000010": {
+      "areaName": "Enfield",
+      "ehcpRatePer10k": 217.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 60.8,
+      "totalEhcps": 7170,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000011": {
+      "areaName": "Greenwich",
+      "ehcpRatePer10k": 184.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 65.8,
+      "totalEhcps": 5320,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000012": {
+      "areaName": "Hackney",
+      "ehcpRatePer10k": 208.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 50.4,
+      "totalEhcps": 5402,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000013": {
+      "areaName": "Hammersmith and Fulham",
+      "ehcpRatePer10k": 170.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 18.8,
+      "totalEhcps": 3122,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000014": {
+      "areaName": "Haringey",
+      "ehcpRatePer10k": 172.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 51.7,
+      "totalEhcps": 4548,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000015": {
+      "areaName": "Harrow",
+      "ehcpRatePer10k": 152.3,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 62.0,
+      "totalEhcps": 3978,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000016": {
+      "areaName": "Havering",
+      "ehcpRatePer10k": 166.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 80.7,
+      "totalEhcps": 4370,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000017": {
+      "areaName": "Hillingdon",
+      "ehcpRatePer10k": 198.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 37.9,
+      "totalEhcps": 6056,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000018": {
+      "areaName": "Hounslow",
+      "ehcpRatePer10k": 162.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 34.3,
+      "totalEhcps": 4670,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000019": {
+      "areaName": "Islington",
+      "ehcpRatePer10k": 163.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 48.4,
+      "totalEhcps": 3534,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000020": {
+      "areaName": "Kensington and Chelsea",
+      "ehcpRatePer10k": 155.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 71.6,
+      "totalEhcps": 2224,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000021": {
+      "areaName": "Kingston upon Thames",
+      "ehcpRatePer10k": 193.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 59.9,
+      "totalEhcps": 3250,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000022": {
+      "areaName": "Lambeth",
+      "ehcpRatePer10k": 163.8,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 38.1,
+      "totalEhcps": 5202,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000023": {
+      "areaName": "Lewisham",
+      "ehcpRatePer10k": 161.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 52.1,
+      "totalEhcps": 4850,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000024": {
+      "areaName": "Merton",
+      "ehcpRatePer10k": 188.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 39.6,
+      "totalEhcps": 4056,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000025": {
+      "areaName": "Newham",
+      "ehcpRatePer10k": 143.7,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 174.4,
+      "totalEhcps": 5044,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000026": {
+      "areaName": "Redbridge",
+      "ehcpRatePer10k": 169.2,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 51.9,
+      "totalEhcps": 5250,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000027": {
+      "areaName": "Richmond upon Thames",
+      "ehcpRatePer10k": 150.6,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 37.5,
+      "totalEhcps": 2940,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000028": {
+      "areaName": "Southwark",
+      "ehcpRatePer10k": 162.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 52.1,
+      "totalEhcps": 5000,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000029": {
+      "areaName": "Sutton",
+      "ehcpRatePer10k": 209.5,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 52.6,
+      "totalEhcps": 4392,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000030": {
+      "areaName": "Tower Hamlets",
+      "ehcpRatePer10k": 230.4,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 46.7,
+      "totalEhcps": 7148,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000031": {
+      "areaName": "Waltham Forest",
+      "ehcpRatePer10k": 196.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 59.2,
+      "totalEhcps": 5456,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000032": {
+      "areaName": "Wandsworth",
+      "ehcpRatePer10k": 166.1,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 29.7,
+      "totalEhcps": 5440,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
+    },
+    "E09000033": {
+      "areaName": "Westminster",
+      "ehcpRatePer10k": 141.0,
+      "asdPrevalencePct": null,
+      "fiveYearGrowthPct": 49.2,
+      "totalEhcps": 2880,
+      "primaryNeeds": [],
+      "period": "2024-25 academic year"
     }
   }
 }

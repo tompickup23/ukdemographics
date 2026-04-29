@@ -1,7 +1,7 @@
 {
   "source": "Census 2021 English proficiency + Hamilton-Perry ethnic projections",
   "methodology": "Census proficiency data projected forward using ethnic composition change as a proxy for non-English speaking growth",
-  "lastUpdated": "2026-04-14",
+  "lastUpdated": "2026-04-28",
   "totalAreas": 320,
   "areasWithData": 318,
   "areas": {

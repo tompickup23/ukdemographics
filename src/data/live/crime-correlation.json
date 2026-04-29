@@ -1,154 +1,2306 @@
 {
   "source": "crime-dashboard.json + local-route-latest.json",
   "methodology": "Ecological correlation between asylum support rate per 10,000 and total crime rate per 1,000 across local authorities with both datasets",
-  "lastUpdated": "2026-04-14",
+  "lastUpdated": "2026-04-28",
   "caveat": "ECOLOGICAL FALLACY WARNING: Correlation between area-level asylum rates and area-level crime rates does NOT prove that asylum seekers commit more crime. Many confounding factors (deprivation, age structure, urbanisation) affect both variables. This analysis cannot and should not be used to draw conclusions about individual behaviour.",
-  "pairsAnalysed": 18,
-  "correlationCoefficient": 0.351,
+  "pairsAnalysed": 287,
+  "correlationCoefficient": 0.376,
   "pairs": [
+    {
+      "areaCode": "E06000001",
+      "areaName": "Hartlepool",
+      "totalCrimeRate": 143.46,
+      "violentCrimeRate": 54.41,
+      "asylumRate": 41.25,
+      "supportedAsylum": 405
+    },
+    {
+      "areaCode": "E06000002",
+      "areaName": "Middlesbrough",
+      "totalCrimeRate": 167.56,
+      "violentCrimeRate": 63.35,
+      "asylumRate": 44.76,
+      "supportedAsylum": 699
+    },
+    {
+      "areaCode": "E06000003",
+      "areaName": "Redcar and Cleveland",
+      "totalCrimeRate": 115.23,
+      "violentCrimeRate": 42.65,
+      "asylumRate": 18.67,
+      "supportedAsylum": 260
+    },
+    {
+      "areaCode": "E06000004",
+      "areaName": "Stockton-on-Tees",
+      "totalCrimeRate": 112.7,
+      "violentCrimeRate": 41.09,
+      "asylumRate": 40.23,
+      "supportedAsylum": 832
+    },
+    {
+      "areaCode": "E06000005",
+      "areaName": "Darlington",
+      "totalCrimeRate": 109.72,
+      "violentCrimeRate": 41.72,
+      "asylumRate": 20.09,
+      "supportedAsylum": 226
+    },
+    {
+      "areaCode": "E06000006",
+      "areaName": "Halton",
+      "totalCrimeRate": 96.24,
+      "violentCrimeRate": 44.14,
+      "asylumRate": 45.69,
+      "supportedAsylum": 601
+    },
+    {
+      "areaCode": "E06000007",
+      "areaName": "Warrington",
+      "totalCrimeRate": 73.18,
+      "violentCrimeRate": 32.32,
+      "asylumRate": 21.17,
+      "supportedAsylum": 456
+    },
     {
       "areaCode": "E06000008",
       "areaName": "Blackburn with Darwen",
-      "totalCrimeRate": 98.2,
-      "violentCrimeRate": 35.1,
+      "totalCrimeRate": 88.98,
+      "violentCrimeRate": 37.36,
       "asylumRate": 46.7,
       "supportedAsylum": 759
     },
     {
       "areaCode": "E06000009",
       "areaName": "Blackpool",
-      "totalCrimeRate": 142.8,
-      "violentCrimeRate": 52.3,
+      "totalCrimeRate": 158.04,
+      "violentCrimeRate": 70.01,
       "asylumRate": 40.02,
       "supportedAsylum": 577
     },
     {
+      "areaCode": "E06000010",
+      "areaName": "Kingston upon Hull, City of",
+      "totalCrimeRate": 131.33,
+      "violentCrimeRate": 53.57,
+      "asylumRate": 27.81,
+      "supportedAsylum": 766
+    },
+    {
+      "areaCode": "E06000011",
+      "areaName": "East Riding of Yorkshire",
+      "totalCrimeRate": 56.27,
+      "violentCrimeRate": 24.51,
+      "asylumRate": 1.49,
+      "supportedAsylum": 53
+    },
+    {
+      "areaCode": "E06000012",
+      "areaName": "North East Lincolnshire",
+      "totalCrimeRate": 120.52,
+      "violentCrimeRate": 51.97,
+      "asylumRate": 17.32,
+      "supportedAsylum": 277
+    },
+    {
+      "areaCode": "E06000013",
+      "areaName": "North Lincolnshire",
+      "totalCrimeRate": 84.29,
+      "violentCrimeRate": 33.26,
+      "asylumRate": 4.67,
+      "supportedAsylum": 80
+    },
+    {
+      "areaCode": "E06000014",
+      "areaName": "York",
+      "totalCrimeRate": 72.16,
+      "violentCrimeRate": 25.73,
+      "asylumRate": 13,
+      "supportedAsylum": 272
+    },
+    {
+      "areaCode": "E06000015",
+      "areaName": "Derby",
+      "totalCrimeRate": 113.45,
+      "violentCrimeRate": 46.68,
+      "asylumRate": 44.32,
+      "supportedAsylum": 1215
+    },
+    {
+      "areaCode": "E06000016",
+      "areaName": "Leicester",
+      "totalCrimeRate": 122.47,
+      "violentCrimeRate": 47.18,
+      "asylumRate": 38.93,
+      "supportedAsylum": 1512
+    },
+    {
+      "areaCode": "E06000017",
+      "areaName": "Rutland",
+      "totalCrimeRate": 41.43,
+      "violentCrimeRate": 17.18,
+      "asylumRate": 0.97,
+      "supportedAsylum": 4
+    },
+    {
+      "areaCode": "E06000018",
+      "areaName": "Nottingham",
+      "totalCrimeRate": 121.54,
+      "violentCrimeRate": 39.8,
+      "asylumRate": 48.48,
+      "supportedAsylum": 1605
+    },
+    {
+      "areaCode": "E06000019",
+      "areaName": "Herefordshire, County of",
+      "totalCrimeRate": 57.85,
+      "violentCrimeRate": 24.58,
+      "asylumRate": 0.99,
+      "supportedAsylum": 19
+    },
+    {
+      "areaCode": "E06000020",
+      "areaName": "Telford and Wrekin",
+      "totalCrimeRate": 82.78,
+      "violentCrimeRate": 34.59,
+      "asylumRate": 36.23,
+      "supportedAsylum": 710
+    },
+    {
+      "areaCode": "E06000021",
+      "areaName": "Stoke-on-Trent",
+      "totalCrimeRate": 117.68,
+      "violentCrimeRate": 49.84,
+      "asylumRate": 47.3,
+      "supportedAsylum": 1279
+    },
+    {
+      "areaCode": "E06000022",
+      "areaName": "Bath and North East Somerset",
+      "totalCrimeRate": 69.78,
+      "violentCrimeRate": 26.04,
+      "asylumRate": 0.5,
+      "supportedAsylum": 10
+    },
+    {
+      "areaCode": "E06000023",
+      "areaName": "Bristol, City of",
+      "totalCrimeRate": 120.71,
+      "violentCrimeRate": 41.38,
+      "asylumRate": 22.41,
+      "supportedAsylum": 1108
+    },
+    {
+      "areaCode": "E06000024",
+      "areaName": "North Somerset",
+      "totalCrimeRate": 73.69,
+      "violentCrimeRate": 31.13,
+      "asylumRate": 3.7,
+      "supportedAsylum": 83
+    },
+    {
+      "areaCode": "E06000025",
+      "areaName": "South Gloucestershire",
+      "totalCrimeRate": 64.46,
+      "violentCrimeRate": 25.59,
+      "asylumRate": 4.7,
+      "supportedAsylum": 144
+    },
+    {
+      "areaCode": "E06000026",
+      "areaName": "Plymouth",
+      "totalCrimeRate": 87.51,
+      "violentCrimeRate": 39.58,
+      "asylumRate": 18.86,
+      "supportedAsylum": 513
+    },
+    {
+      "areaCode": "E06000027",
+      "areaName": "Torbay",
+      "totalCrimeRate": 84.18,
+      "violentCrimeRate": 36.18,
+      "asylumRate": 4,
+      "supportedAsylum": 56
+    },
+    {
+      "areaCode": "E06000030",
+      "areaName": "Swindon",
+      "totalCrimeRate": 70.14,
+      "violentCrimeRate": 28.14,
+      "asylumRate": 23.04,
+      "supportedAsylum": 562
+    },
+    {
+      "areaCode": "E06000031",
+      "areaName": "Peterborough",
+      "totalCrimeRate": 105.16,
+      "violentCrimeRate": 41.26,
+      "asylumRate": 22.71,
+      "supportedAsylum": 508
+    },
+    {
+      "areaCode": "E06000032",
+      "areaName": "Luton",
+      "totalCrimeRate": 83.73,
+      "violentCrimeRate": 30.35,
+      "asylumRate": 29.7,
+      "supportedAsylum": 710
+    },
+    {
+      "areaCode": "E06000033",
+      "areaName": "Southend-on-Sea",
+      "totalCrimeRate": 101.95,
+      "violentCrimeRate": 42.15,
+      "asylumRate": 13.39,
+      "supportedAsylum": 248
+    },
+    {
+      "areaCode": "E06000034",
+      "areaName": "Thurrock",
+      "totalCrimeRate": 90.59,
+      "violentCrimeRate": 32.18,
+      "asylumRate": 9.67,
+      "supportedAsylum": 175
+    },
+    {
+      "areaCode": "E06000035",
+      "areaName": "Medway",
+      "totalCrimeRate": 99.93,
+      "violentCrimeRate": 45.73,
+      "asylumRate": 8.61,
+      "supportedAsylum": 252
+    },
+    {
+      "areaCode": "E06000036",
+      "areaName": "Bracknell Forest",
+      "totalCrimeRate": 61.75,
+      "violentCrimeRate": 22.53,
+      "asylumRate": 0.76,
+      "supportedAsylum": 10
+    },
+    {
+      "areaCode": "E06000037",
+      "areaName": "West Berkshire",
+      "totalCrimeRate": 57.33,
+      "violentCrimeRate": 22.3,
+      "asylumRate": 2.24,
+      "supportedAsylum": 37
+    },
+    {
+      "areaCode": "E06000038",
+      "areaName": "Reading",
+      "totalCrimeRate": 102.32,
+      "violentCrimeRate": 36.01,
+      "asylumRate": 40.02,
+      "supportedAsylum": 732
+    },
+    {
+      "areaCode": "E06000039",
+      "areaName": "Slough",
+      "totalCrimeRate": 99.92,
+      "violentCrimeRate": 38.3,
+      "asylumRate": 22.77,
+      "supportedAsylum": 381
+    },
+    {
+      "areaCode": "E06000040",
+      "areaName": "Windsor and Maidenhead",
+      "totalCrimeRate": 61.59,
+      "violentCrimeRate": 22.36,
+      "asylumRate": 23.72,
+      "supportedAsylum": 377
+    },
+    {
+      "areaCode": "E06000041",
+      "areaName": "Wokingham",
+      "totalCrimeRate": 46.04,
+      "violentCrimeRate": 16.59,
+      "asylumRate": 11.7,
+      "supportedAsylum": 219
+    },
+    {
+      "areaCode": "E06000042",
+      "areaName": "Milton Keynes",
+      "totalCrimeRate": 89.99,
+      "violentCrimeRate": 35.72,
+      "asylumRate": 12.65,
+      "supportedAsylum": 387
+    },
+    {
+      "areaCode": "E06000043",
+      "areaName": "Brighton and Hove",
+      "totalCrimeRate": 104.29,
+      "violentCrimeRate": 34.75,
+      "asylumRate": 3.56,
+      "supportedAsylum": 101
+    },
+    {
+      "areaCode": "E06000044",
+      "areaName": "Portsmouth",
+      "totalCrimeRate": 120.67,
+      "violentCrimeRate": 49.95,
+      "asylumRate": 34.62,
+      "supportedAsylum": 742
+    },
+    {
+      "areaCode": "E06000045",
+      "areaName": "Southampton",
+      "totalCrimeRate": 128.83,
+      "violentCrimeRate": 50.54,
+      "asylumRate": 13.18,
+      "supportedAsylum": 342
+    },
+    {
+      "areaCode": "E06000046",
+      "areaName": "Isle of Wight",
+      "totalCrimeRate": 77.48,
+      "violentCrimeRate": 36.34,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E06000047",
+      "areaName": "County Durham",
+      "totalCrimeRate": 98.4,
+      "violentCrimeRate": 38.48,
+      "asylumRate": 10.52,
+      "supportedAsylum": 566
+    },
+    {
+      "areaCode": "E06000049",
+      "areaName": "Cheshire East",
+      "totalCrimeRate": 62.52,
+      "violentCrimeRate": 27.94,
+      "asylumRate": 11.04,
+      "supportedAsylum": 465
+    },
+    {
+      "areaCode": "E06000050",
+      "areaName": "Cheshire West and Chester",
+      "totalCrimeRate": 69.58,
+      "violentCrimeRate": 31.66,
+      "asylumRate": 17.7,
+      "supportedAsylum": 658
+    },
+    {
+      "areaCode": "E06000051",
+      "areaName": "Shropshire",
+      "totalCrimeRate": 55.18,
+      "violentCrimeRate": 21.85,
+      "asylumRate": 0.78,
+      "supportedAsylum": 26
+    },
+    {
+      "areaCode": "E06000052",
+      "areaName": "Cornwall",
+      "totalCrimeRate": 54.65,
+      "violentCrimeRate": 24.46,
+      "asylumRate": 0.31,
+      "supportedAsylum": 18
+    },
+    {
+      "areaCode": "E06000053",
+      "areaName": "Isles of Scilly",
+      "totalCrimeRate": 31.13,
+      "violentCrimeRate": 12.71,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E06000054",
+      "areaName": "Wiltshire",
+      "totalCrimeRate": 46.53,
+      "violentCrimeRate": 18.83,
+      "asylumRate": 3.97,
+      "supportedAsylum": 208
+    },
+    {
+      "areaCode": "E06000055",
+      "areaName": "Bedford",
+      "totalCrimeRate": 74.94,
+      "violentCrimeRate": 27.97,
+      "asylumRate": 11.23,
+      "supportedAsylum": 219
+    },
+    {
+      "areaCode": "E06000056",
+      "areaName": "Central Bedfordshire",
+      "totalCrimeRate": 52.51,
+      "violentCrimeRate": 18.53,
+      "asylumRate": 6.43,
+      "supportedAsylum": 203
+    },
+    {
+      "areaCode": "E06000057",
+      "areaName": "Northumberland",
+      "totalCrimeRate": 76.76,
+      "violentCrimeRate": 30.75,
+      "asylumRate": 20.85,
+      "supportedAsylum": 691
+    },
+    {
+      "areaCode": "E06000058",
+      "areaName": "Bournemouth, Christchurch and Poole",
+      "totalCrimeRate": 72.59,
+      "violentCrimeRate": 26.8,
+      "asylumRate": 13.57,
+      "supportedAsylum": 555
+    },
+    {
+      "areaCode": "E06000059",
+      "areaName": "Dorset",
+      "totalCrimeRate": 54.6,
+      "violentCrimeRate": 22.37,
+      "asylumRate": 0.13,
+      "supportedAsylum": 5
+    },
+    {
+      "areaCode": "E06000060",
+      "areaName": "Wycombe",
+      "totalCrimeRate": 64.11,
+      "violentCrimeRate": 23.51,
+      "asylumRate": 3.35,
+      "supportedAsylum": 194
+    },
+    {
+      "areaCode": "E06000065",
+      "areaName": "North Yorkshire",
+      "totalCrimeRate": 52.34,
+      "violentCrimeRate": 22.24,
+      "asylumRate": 7.45,
+      "supportedAsylum": 473
+    },
+    {
+      "areaCode": "E06000066",
+      "areaName": "Somerset",
+      "totalCrimeRate": 72.56,
+      "violentCrimeRate": 31.49,
+      "asylumRate": 6.2,
+      "supportedAsylum": 365
+    },
+    {
+      "areaCode": "E07000008",
+      "areaName": "Cambridge",
+      "totalCrimeRate": 103.25,
+      "violentCrimeRate": 27.84,
+      "asylumRate": 0.8,
+      "supportedAsylum": 12
+    },
+    {
+      "areaCode": "E07000009",
+      "areaName": "East Cambridgeshire",
+      "totalCrimeRate": 44.03,
+      "violentCrimeRate": 17.23,
+      "asylumRate": 0.32,
+      "supportedAsylum": 3
+    },
+    {
+      "areaCode": "E07000010",
+      "areaName": "Fenland",
+      "totalCrimeRate": 75.03,
+      "violentCrimeRate": 30.01,
+      "asylumRate": 0.19,
+      "supportedAsylum": 2
+    },
+    {
+      "areaCode": "E07000011",
+      "areaName": "Huntingdonshire",
+      "totalCrimeRate": 56.32,
+      "violentCrimeRate": 20.97,
+      "asylumRate": 0.89,
+      "supportedAsylum": 17
+    },
+    {
+      "areaCode": "E07000012",
+      "areaName": "South Cambridgeshire",
+      "totalCrimeRate": 44.91,
+      "violentCrimeRate": 16.16,
+      "asylumRate": 0.06,
+      "supportedAsylum": 1
+    },
+    {
+      "areaCode": "E07000032",
+      "areaName": "Amber Valley",
+      "totalCrimeRate": 70.15,
+      "violentCrimeRate": 30.88,
+      "asylumRate": 6.36,
+      "supportedAsylum": 83
+    },
+    {
+      "areaCode": "E07000033",
+      "areaName": "Bolsover",
+      "totalCrimeRate": 76,
+      "violentCrimeRate": 33.16,
+      "asylumRate": 15.52,
+      "supportedAsylum": 130
+    },
+    {
+      "areaCode": "E07000034",
+      "areaName": "Chesterfield",
+      "totalCrimeRate": 104.04,
+      "violentCrimeRate": 45.53,
+      "asylumRate": 7.45,
+      "supportedAsylum": 79
+    },
+    {
+      "areaCode": "E07000035",
+      "areaName": "Derbyshire Dales",
+      "totalCrimeRate": 50.27,
+      "violentCrimeRate": 19.34,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E07000036",
+      "areaName": "Erewash",
+      "totalCrimeRate": 84.07,
+      "violentCrimeRate": 34.64,
+      "asylumRate": 12.6,
+      "supportedAsylum": 144
+    },
+    {
+      "areaCode": "E07000037",
+      "areaName": "High Peak",
+      "totalCrimeRate": 63.97,
+      "violentCrimeRate": 26.4,
+      "asylumRate": 0.87,
+      "supportedAsylum": 8
+    },
+    {
+      "areaCode": "E07000038",
+      "areaName": "North East Derbyshire",
+      "totalCrimeRate": 55.69,
+      "violentCrimeRate": 24.71,
+      "asylumRate": 5.06,
+      "supportedAsylum": 54
+    },
+    {
+      "areaCode": "E07000039",
+      "areaName": "South Derbyshire",
+      "totalCrimeRate": 59.08,
+      "violentCrimeRate": 24.92,
+      "asylumRate": 1.45,
+      "supportedAsylum": 17
+    },
+    {
+      "areaCode": "E07000040",
+      "areaName": "East Devon",
+      "totalCrimeRate": 41.71,
+      "violentCrimeRate": 19.2,
+      "asylumRate": 14.16,
+      "supportedAsylum": 224
+    },
+    {
+      "areaCode": "E07000041",
+      "areaName": "Exeter",
+      "totalCrimeRate": 81.38,
+      "violentCrimeRate": 33.53,
+      "asylumRate": 1.45,
+      "supportedAsylum": 20
+    },
+    {
+      "areaCode": "E07000042",
+      "areaName": "Mid Devon",
+      "totalCrimeRate": 41.71,
+      "violentCrimeRate": 19.2,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E07000043",
+      "areaName": "North Devon",
+      "totalCrimeRate": 50.36,
+      "violentCrimeRate": 22.66,
+      "asylumRate": 0.2,
+      "supportedAsylum": 2
+    },
+    {
+      "areaCode": "E07000044",
+      "areaName": "South Hams",
+      "totalCrimeRate": 41.48,
+      "violentCrimeRate": 18.22,
+      "asylumRate": 1.63,
+      "supportedAsylum": 15
+    },
+    {
+      "areaCode": "E07000045",
+      "areaName": "Teignbridge",
+      "totalCrimeRate": 41.48,
+      "violentCrimeRate": 18.22,
+      "asylumRate": 2.89,
+      "supportedAsylum": 40
+    },
+    {
+      "areaCode": "E07000046",
+      "areaName": "Torridge",
+      "totalCrimeRate": 50.36,
+      "violentCrimeRate": 22.66,
+      "asylumRate": 0.86,
+      "supportedAsylum": 6
+    },
+    {
+      "areaCode": "E07000047",
+      "areaName": "West Devon",
+      "totalCrimeRate": 41.48,
+      "violentCrimeRate": 18.22,
+      "asylumRate": 0.17,
+      "supportedAsylum": 1
+    },
+    {
+      "areaCode": "E07000061",
+      "areaName": "Eastbourne",
+      "totalCrimeRate": 109.8,
+      "violentCrimeRate": 38.62,
+      "asylumRate": 3.74,
+      "supportedAsylum": 39
+    },
+    {
+      "areaCode": "E07000062",
+      "areaName": "Hastings",
+      "totalCrimeRate": 105.55,
+      "violentCrimeRate": 44.04,
+      "asylumRate": 6.47,
+      "supportedAsylum": 59
+    },
+    {
+      "areaCode": "E07000063",
+      "areaName": "Lewes",
+      "totalCrimeRate": 57.48,
+      "violentCrimeRate": 22.62,
+      "asylumRate": 0.39,
+      "supportedAsylum": 4
+    },
+    {
+      "areaCode": "E07000064",
+      "areaName": "Rother",
+      "totalCrimeRate": 64.57,
+      "violentCrimeRate": 25.14,
+      "asylumRate": 0.1,
+      "supportedAsylum": 1
+    },
+    {
+      "areaCode": "E07000065",
+      "areaName": "Wealden",
+      "totalCrimeRate": 40.97,
+      "violentCrimeRate": 15.91,
+      "asylumRate": 0.06,
+      "supportedAsylum": 1
+    },
+    {
+      "areaCode": "E07000066",
+      "areaName": "Basildon",
+      "totalCrimeRate": 97.98,
+      "violentCrimeRate": 39.79,
+      "asylumRate": 17.46,
+      "supportedAsylum": 338
+    },
+    {
+      "areaCode": "E07000067",
+      "areaName": "Braintree",
+      "totalCrimeRate": 63.98,
+      "violentCrimeRate": 26.51,
+      "asylumRate": 42.06,
+      "supportedAsylum": 691
+    },
+    {
+      "areaCode": "E07000068",
+      "areaName": "Brentwood",
+      "totalCrimeRate": 72.3,
+      "violentCrimeRate": 21.91,
+      "asylumRate": 2.9,
+      "supportedAsylum": 23
+    },
+    {
+      "areaCode": "E07000069",
+      "areaName": "Castle Point",
+      "totalCrimeRate": 59.78,
+      "violentCrimeRate": 24.23,
+      "asylumRate": 2.76,
+      "supportedAsylum": 25
+    },
+    {
+      "areaCode": "E07000070",
+      "areaName": "Chelmsford",
+      "totalCrimeRate": 85.49,
+      "violentCrimeRate": 33.18,
+      "asylumRate": 19.49,
+      "supportedAsylum": 368
+    },
+    {
+      "areaCode": "E07000071",
+      "areaName": "Colchester",
+      "totalCrimeRate": 85.95,
+      "violentCrimeRate": 37.97,
+      "asylumRate": 15.78,
+      "supportedAsylum": 316
+    },
+    {
+      "areaCode": "E07000072",
+      "areaName": "Epping Forest",
+      "totalCrimeRate": 72.8,
+      "violentCrimeRate": 25.33,
+      "asylumRate": 12.59,
+      "supportedAsylum": 173
+    },
+    {
+      "areaCode": "E07000073",
+      "areaName": "Harlow",
+      "totalCrimeRate": 112.71,
+      "violentCrimeRate": 40.44,
+      "asylumRate": 6.82,
+      "supportedAsylum": 67
+    },
+    {
+      "areaCode": "E07000074",
+      "areaName": "Maldon",
+      "totalCrimeRate": 49.66,
+      "violentCrimeRate": 22.52,
+      "asylumRate": 0.29,
+      "supportedAsylum": 2
+    },
+    {
+      "areaCode": "E07000075",
+      "areaName": "Rochford",
+      "totalCrimeRate": 50.83,
+      "violentCrimeRate": 20.45,
+      "asylumRate": 13.14,
+      "supportedAsylum": 118
+    },
+    {
+      "areaCode": "E07000076",
+      "areaName": "Tendring",
+      "totalCrimeRate": 81.98,
+      "violentCrimeRate": 38.12,
+      "asylumRate": 12.63,
+      "supportedAsylum": 198
+    },
+    {
+      "areaCode": "E07000077",
+      "areaName": "Uttlesford",
+      "totalCrimeRate": 58.13,
+      "violentCrimeRate": 20.4,
+      "asylumRate": 6.31,
+      "supportedAsylum": 60
+    },
+    {
+      "areaCode": "E07000078",
+      "areaName": "Cheltenham",
+      "totalCrimeRate": 97.35,
+      "violentCrimeRate": 35,
+      "asylumRate": 13.31,
+      "supportedAsylum": 162
+    },
+    {
+      "areaCode": "E07000079",
+      "areaName": "Cotswold",
+      "totalCrimeRate": 53.5,
+      "violentCrimeRate": 20.1,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E07000080",
+      "areaName": "Forest of Dean",
+      "totalCrimeRate": 59.77,
+      "violentCrimeRate": 29.4,
+      "asylumRate": 0.67,
+      "supportedAsylum": 6
+    },
+    {
+      "areaCode": "E07000081",
+      "areaName": "Gloucester",
+      "totalCrimeRate": 120.95,
+      "violentCrimeRate": 52.52,
+      "asylumRate": 27.99,
+      "supportedAsylum": 388
+    },
+    {
+      "areaCode": "E07000082",
+      "areaName": "Stroud",
+      "totalCrimeRate": 59.86,
+      "violentCrimeRate": 24.52,
+      "asylumRate": 0.64,
+      "supportedAsylum": 8
+    },
+    {
+      "areaCode": "E07000083",
+      "areaName": "Tewkesbury",
+      "totalCrimeRate": 57.45,
+      "violentCrimeRate": 24.92,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E07000084",
+      "areaName": "Basingstoke and Deane",
+      "totalCrimeRate": 62.98,
+      "violentCrimeRate": 24.86,
+      "asylumRate": 1.04,
+      "supportedAsylum": 20
+    },
+    {
+      "areaCode": "E07000085",
+      "areaName": "East Hampshire",
+      "totalCrimeRate": 48.82,
+      "violentCrimeRate": 19.06,
+      "asylumRate": 0.62,
+      "supportedAsylum": 8
+    },
+    {
+      "areaCode": "E07000086",
+      "areaName": "Eastleigh",
+      "totalCrimeRate": 60.43,
+      "violentCrimeRate": 24.68,
+      "asylumRate": 0.35,
+      "supportedAsylum": 5
+    },
+    {
+      "areaCode": "E07000087",
+      "areaName": "Fareham",
+      "totalCrimeRate": 51.04,
+      "violentCrimeRate": 20.78,
+      "asylumRate": 2.43,
+      "supportedAsylum": 28
+    },
+    {
+      "areaCode": "E07000088",
+      "areaName": "Gosport",
+      "totalCrimeRate": 81.49,
+      "violentCrimeRate": 36.87,
+      "asylumRate": 2.53,
+      "supportedAsylum": 21
+    },
+    {
+      "areaCode": "E07000089",
+      "areaName": "Hart",
+      "totalCrimeRate": 62.98,
+      "violentCrimeRate": 24.86,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E07000090",
+      "areaName": "Havant",
+      "totalCrimeRate": 80.6,
+      "violentCrimeRate": 35.79,
+      "asylumRate": 1.34,
+      "supportedAsylum": 17
+    },
+    {
+      "areaCode": "E07000091",
+      "areaName": "New Forest",
+      "totalCrimeRate": 60.78,
+      "violentCrimeRate": 23.63,
+      "asylumRate": 0.11,
+      "supportedAsylum": 2
+    },
+    {
+      "areaCode": "E07000092",
+      "areaName": "Rushmoor",
+      "totalCrimeRate": 62.98,
+      "violentCrimeRate": 24.86,
+      "asylumRate": 14.66,
+      "supportedAsylum": 155
+    },
+    {
+      "areaCode": "E07000093",
+      "areaName": "Test Valley",
+      "totalCrimeRate": 58.88,
+      "violentCrimeRate": 24.39,
+      "asylumRate": 0.81,
+      "supportedAsylum": 11
+    },
+    {
+      "areaCode": "E07000094",
+      "areaName": "Winchester",
+      "totalCrimeRate": 57.22,
+      "violentCrimeRate": 21.67,
+      "asylumRate": 5.01,
+      "supportedAsylum": 68
+    },
+    {
+      "areaCode": "E07000095",
+      "areaName": "Broxbourne",
+      "totalCrimeRate": 68.29,
+      "violentCrimeRate": 24.05,
+      "asylumRate": 35.43,
+      "supportedAsylum": 361
+    },
+    {
+      "areaCode": "E07000096",
+      "areaName": "Dacorum",
+      "totalCrimeRate": 62.67,
+      "violentCrimeRate": 19.48,
+      "asylumRate": 28.74,
+      "supportedAsylum": 464
+    },
+    {
+      "areaCode": "E07000098",
+      "areaName": "Hertsmere",
+      "totalCrimeRate": 69.9,
+      "violentCrimeRate": 22.45,
+      "asylumRate": 4.08,
+      "supportedAsylum": 45
+    },
+    {
+      "areaCode": "E07000099",
+      "areaName": "North Hertfordshire",
+      "totalCrimeRate": 45.71,
+      "violentCrimeRate": 18.08,
+      "asylumRate": 11.52,
+      "supportedAsylum": 158
+    },
+    {
+      "areaCode": "E07000102",
+      "areaName": "Three Rivers",
+      "totalCrimeRate": 50.08,
+      "violentCrimeRate": 17.86,
+      "asylumRate": 0.42,
+      "supportedAsylum": 4
+    },
+    {
+      "areaCode": "E07000103",
+      "areaName": "Watford",
+      "totalCrimeRate": 80.25,
+      "violentCrimeRate": 26.45,
+      "asylumRate": 1.31,
+      "supportedAsylum": 14
+    },
+    {
+      "areaCode": "E07000105",
+      "areaName": "Ashford",
+      "totalCrimeRate": 79.07,
+      "violentCrimeRate": 32.91,
+      "asylumRate": 11.92,
+      "supportedAsylum": 168
+    },
+    {
+      "areaCode": "E07000106",
+      "areaName": "Canterbury",
+      "totalCrimeRate": 92.96,
+      "violentCrimeRate": 39.18,
+      "asylumRate": 14,
+      "supportedAsylum": 227
+    },
+    {
+      "areaCode": "E07000107",
+      "areaName": "Dartford",
+      "totalCrimeRate": 99.03,
+      "violentCrimeRate": 38.19,
+      "asylumRate": 1.2,
+      "supportedAsylum": 15
+    },
+    {
+      "areaCode": "E07000108",
+      "areaName": "Dover",
+      "totalCrimeRate": 87.94,
+      "violentCrimeRate": 41.13,
+      "asylumRate": 5.59,
+      "supportedAsylum": 67
+    },
+    {
+      "areaCode": "E07000109",
+      "areaName": "Gravesham",
+      "totalCrimeRate": 99.03,
+      "violentCrimeRate": 38.19,
+      "asylumRate": 12.29,
+      "supportedAsylum": 136
+    },
+    {
+      "areaCode": "E07000110",
+      "areaName": "Maidstone",
+      "totalCrimeRate": 84.55,
+      "violentCrimeRate": 35.76,
+      "asylumRate": 2.24,
+      "supportedAsylum": 42
+    },
+    {
+      "areaCode": "E07000111",
+      "areaName": "Sevenoaks",
+      "totalCrimeRate": 62.25,
+      "violentCrimeRate": 23.06,
+      "asylumRate": 0.33,
+      "supportedAsylum": 4
+    },
+    {
+      "areaCode": "E07000112",
+      "areaName": "Folkestone and Hythe",
+      "totalCrimeRate": 79.24,
+      "violentCrimeRate": 37.86,
+      "asylumRate": 2.76,
+      "supportedAsylum": 31
+    },
+    {
+      "areaCode": "E07000113",
+      "areaName": "Swale",
+      "totalCrimeRate": 95.16,
+      "violentCrimeRate": 40.78,
+      "asylumRate": 3.85,
+      "supportedAsylum": 61
+    },
+    {
+      "areaCode": "E07000114",
+      "areaName": "Thanet",
+      "totalCrimeRate": 108.17,
+      "violentCrimeRate": 50.25,
+      "asylumRate": 8.55,
+      "supportedAsylum": 122
+    },
+    {
+      "areaCode": "E07000115",
+      "areaName": "Tonbridge and Malling",
+      "totalCrimeRate": 65.58,
+      "violentCrimeRate": 25.05,
+      "asylumRate": 0.44,
+      "supportedAsylum": 6
+    },
+    {
+      "areaCode": "E07000116",
+      "areaName": "Tunbridge Wells",
+      "totalCrimeRate": 67.97,
+      "violentCrimeRate": 28.44,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
       "areaCode": "E07000117",
       "areaName": "Burnley",
-      "totalCrimeRate": 112.4,
-      "violentCrimeRate": 41.2,
+      "totalCrimeRate": 107.37,
+      "violentCrimeRate": 43.15,
       "asylumRate": 46.46,
       "supportedAsylum": 461
     },
     {
       "areaCode": "E07000118",
       "areaName": "Chorley",
-      "totalCrimeRate": 62.1,
-      "violentCrimeRate": 22.8,
+      "totalCrimeRate": 62.31,
+      "violentCrimeRate": 28.32,
       "asylumRate": 18.95,
       "supportedAsylum": 229
     },
     {
-      "areaCode": "E08000017",
-      "areaName": "Doncaster",
-      "totalCrimeRate": 108.7,
-      "violentCrimeRate": 39.4,
-      "asylumRate": 20.58,
-      "supportedAsylum": 658
-    },
-    {
-      "areaCode": "E06000047",
-      "areaName": "County Durham",
-      "totalCrimeRate": 82.4,
-      "violentCrimeRate": 30.1,
-      "asylumRate": 10.52,
-      "supportedAsylum": 566
-    },
-    {
       "areaCode": "E07000119",
       "areaName": "Fylde",
-      "totalCrimeRate": 48.2,
-      "violentCrimeRate": 17.4,
+      "totalCrimeRate": 54.57,
+      "violentCrimeRate": 24.56,
       "asylumRate": 8.54,
       "supportedAsylum": 73
     },
     {
       "areaCode": "E07000120",
       "areaName": "Hyndburn",
-      "totalCrimeRate": 104.8,
-      "violentCrimeRate": 38.2,
+      "totalCrimeRate": 97.64,
+      "violentCrimeRate": 41.65,
       "asylumRate": 48.22,
       "supportedAsylum": 415
     },
     {
       "areaCode": "E07000121",
       "areaName": "Lancaster",
-      "totalCrimeRate": 74.8,
-      "violentCrimeRate": 27.1,
+      "totalCrimeRate": 74.16,
+      "violentCrimeRate": 29.91,
       "asylumRate": 16.9,
       "supportedAsylum": 245
     },
     {
-      "areaCode": "E06000061",
-      "areaName": "North Northamptonshire",
-      "totalCrimeRate": 84.7,
-      "violentCrimeRate": 30.8,
-      "asylumRate": 15.83,
-      "supportedAsylum": 592
-    },
-    {
       "areaCode": "E07000122",
       "areaName": "Pendle",
-      "totalCrimeRate": 96.8,
-      "violentCrimeRate": 35.4,
+      "totalCrimeRate": 67.11,
+      "violentCrimeRate": 30.02,
       "asylumRate": 44.9,
       "supportedAsylum": 448
     },
     {
-      "areaCode": "E06000011",
+      "areaCode": "E07000123",
       "areaName": "Preston",
-      "totalCrimeRate": 118.4,
-      "violentCrimeRate": 43.2,
-      "asylumRate": 1.49,
-      "supportedAsylum": 53
+      "totalCrimeRate": 104.97,
+      "violentCrimeRate": 41.06,
+      "asylumRate": 26.34,
+      "supportedAsylum": 429
     },
     {
       "areaCode": "E07000124",
       "areaName": "Ribble Valley",
-      "totalCrimeRate": 32.4,
-      "violentCrimeRate": 11.8,
+      "totalCrimeRate": 38.47,
+      "violentCrimeRate": 16.13,
       "asylumRate": 4.71,
       "supportedAsylum": 31
     },
     {
       "areaCode": "E07000125",
       "areaName": "Rossendale",
-      "totalCrimeRate": 68.2,
-      "violentCrimeRate": 24.8,
+      "totalCrimeRate": 65.13,
+      "violentCrimeRate": 26.78,
       "asylumRate": 33.27,
       "supportedAsylum": 243
     },
     {
       "areaCode": "E07000126",
       "areaName": "South Ribble",
-      "totalCrimeRate": 58.4,
-      "violentCrimeRate": 21.2,
+      "totalCrimeRate": 60.16,
+      "violentCrimeRate": 24.52,
       "asylumRate": 32.47,
       "supportedAsylum": 377
     },
     {
       "areaCode": "E07000127",
       "areaName": "West Lancashire",
-      "totalCrimeRate": 54.8,
-      "violentCrimeRate": 19.8,
+      "totalCrimeRate": 48.71,
+      "violentCrimeRate": 22.17,
       "asylumRate": 33.53,
       "supportedAsylum": 409
     },
     {
-      "areaCode": "E06000062",
-      "areaName": "West Northamptonshire",
-      "totalCrimeRate": 88.2,
-      "violentCrimeRate": 32.1,
-      "asylumRate": 10.89,
-      "supportedAsylum": 479
-    },
-    {
       "areaCode": "E07000128",
       "areaName": "Wyre",
-      "totalCrimeRate": 52.1,
-      "violentCrimeRate": 18.8,
+      "totalCrimeRate": 63,
+      "violentCrimeRate": 27.46,
       "asylumRate": 30.65,
       "supportedAsylum": 364
+    },
+    {
+      "areaCode": "E07000129",
+      "areaName": "Blaby",
+      "totalCrimeRate": 65.89,
+      "violentCrimeRate": 22.41,
+      "asylumRate": 3.05,
+      "supportedAsylum": 33
+    },
+    {
+      "areaCode": "E07000130",
+      "areaName": "Charnwood",
+      "totalCrimeRate": 74.49,
+      "violentCrimeRate": 26.6,
+      "asylumRate": 12.63,
+      "supportedAsylum": 238
+    },
+    {
+      "areaCode": "E07000131",
+      "areaName": "Harborough",
+      "totalCrimeRate": 47.51,
+      "violentCrimeRate": 18.32,
+      "asylumRate": 0.1,
+      "supportedAsylum": 1
+    },
+    {
+      "areaCode": "E07000132",
+      "areaName": "Hinckley and Bosworth",
+      "totalCrimeRate": 65.33,
+      "violentCrimeRate": 25.44,
+      "asylumRate": 5.66,
+      "supportedAsylum": 66
+    },
+    {
+      "areaCode": "E07000133",
+      "areaName": "Melton",
+      "totalCrimeRate": 62.92,
+      "violentCrimeRate": 25.75,
+      "asylumRate": 2.41,
+      "supportedAsylum": 13
+    },
+    {
+      "areaCode": "E07000134",
+      "areaName": "North West Leicestershire",
+      "totalCrimeRate": 73.62,
+      "violentCrimeRate": 28.46,
+      "asylumRate": 8.58,
+      "supportedAsylum": 96
+    },
+    {
+      "areaCode": "E07000135",
+      "areaName": "Oadby and Wigston",
+      "totalCrimeRate": 66.11,
+      "violentCrimeRate": 27.24,
+      "asylumRate": 5.67,
+      "supportedAsylum": 35
+    },
+    {
+      "areaCode": "E07000136",
+      "areaName": "Boston",
+      "totalCrimeRate": 82.61,
+      "violentCrimeRate": 36.48,
+      "asylumRate": 16.88,
+      "supportedAsylum": 120
+    },
+    {
+      "areaCode": "E07000137",
+      "areaName": "East Lindsey",
+      "totalCrimeRate": 74.07,
+      "violentCrimeRate": 33.55,
+      "asylumRate": 7.16,
+      "supportedAsylum": 104
+    },
+    {
+      "areaCode": "E07000138",
+      "areaName": "Lincoln",
+      "totalCrimeRate": 131.93,
+      "violentCrimeRate": 49.18,
+      "asylumRate": 0.29,
+      "supportedAsylum": 3
+    },
+    {
+      "areaCode": "E07000139",
+      "areaName": "North Kesteven",
+      "totalCrimeRate": 41.8,
+      "violentCrimeRate": 18.96,
+      "asylumRate": 0.73,
+      "supportedAsylum": 9
+    },
+    {
+      "areaCode": "E07000140",
+      "areaName": "South Holland",
+      "totalCrimeRate": 54.4,
+      "violentCrimeRate": 25.6,
+      "asylumRate": 7.55,
+      "supportedAsylum": 75
+    },
+    {
+      "areaCode": "E07000141",
+      "areaName": "South Kesteven",
+      "totalCrimeRate": 55.55,
+      "violentCrimeRate": 21.55,
+      "asylumRate": 14.61,
+      "supportedAsylum": 215
+    },
+    {
+      "areaCode": "E07000142",
+      "areaName": "West Lindsey",
+      "totalCrimeRate": 67.85,
+      "violentCrimeRate": 25.67,
+      "asylumRate": 4.13,
+      "supportedAsylum": 41
+    },
+    {
+      "areaCode": "E07000143",
+      "areaName": "Breckland",
+      "totalCrimeRate": 54.23,
+      "violentCrimeRate": 24.16,
+      "asylumRate": 1.64,
+      "supportedAsylum": 24
+    },
+    {
+      "areaCode": "E07000144",
+      "areaName": "Broadland",
+      "totalCrimeRate": 38.2,
+      "violentCrimeRate": 18.01,
+      "asylumRate": 0.65,
+      "supportedAsylum": 9
+    },
+    {
+      "areaCode": "E07000145",
+      "areaName": "Great Yarmouth",
+      "totalCrimeRate": 93.39,
+      "violentCrimeRate": 44.53,
+      "asylumRate": 1.09,
+      "supportedAsylum": 11
+    },
+    {
+      "areaCode": "E07000146",
+      "areaName": "King's Lynn and West Norfolk",
+      "totalCrimeRate": 60.24,
+      "violentCrimeRate": 26.18,
+      "asylumRate": 0.58,
+      "supportedAsylum": 9
+    },
+    {
+      "areaCode": "E07000147",
+      "areaName": "North Norfolk",
+      "totalCrimeRate": 44.15,
+      "violentCrimeRate": 20.45,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E07000148",
+      "areaName": "Norwich",
+      "totalCrimeRate": 114.8,
+      "violentCrimeRate": 44.43,
+      "asylumRate": 23.85,
+      "supportedAsylum": 351
+    },
+    {
+      "areaCode": "E07000149",
+      "areaName": "South Norfolk",
+      "totalCrimeRate": 42.63,
+      "violentCrimeRate": 18.4,
+      "asylumRate": 0.88,
+      "supportedAsylum": 13
+    },
+    {
+      "areaCode": "E07000170",
+      "areaName": "Ashfield",
+      "totalCrimeRate": 85.53,
+      "violentCrimeRate": 28.15,
+      "asylumRate": 11.35,
+      "supportedAsylum": 147
+    },
+    {
+      "areaCode": "E07000171",
+      "areaName": "Bassetlaw",
+      "totalCrimeRate": 80.68,
+      "violentCrimeRate": 26.36,
+      "asylumRate": 15.37,
+      "supportedAsylum": 192
+    },
+    {
+      "areaCode": "E07000172",
+      "areaName": "Broxtowe",
+      "totalCrimeRate": 52.11,
+      "violentCrimeRate": 17.59,
+      "asylumRate": 15.19,
+      "supportedAsylum": 174
+    },
+    {
+      "areaCode": "E07000173",
+      "areaName": "Gedling",
+      "totalCrimeRate": 52.11,
+      "violentCrimeRate": 17.59,
+      "asylumRate": 5.24,
+      "supportedAsylum": 63
+    },
+    {
+      "areaCode": "E07000174",
+      "areaName": "Mansfield",
+      "totalCrimeRate": 107.45,
+      "violentCrimeRate": 38.18,
+      "asylumRate": 15.03,
+      "supportedAsylum": 170
+    },
+    {
+      "areaCode": "E07000175",
+      "areaName": "Newark and Sherwood",
+      "totalCrimeRate": 69.06,
+      "violentCrimeRate": 24.12,
+      "asylumRate": 5.71,
+      "supportedAsylum": 73
+    },
+    {
+      "areaCode": "E07000176",
+      "areaName": "Rushcliffe",
+      "totalCrimeRate": 52.11,
+      "violentCrimeRate": 17.59,
+      "asylumRate": 3.08,
+      "supportedAsylum": 39
+    },
+    {
+      "areaCode": "E07000177",
+      "areaName": "Cherwell",
+      "totalCrimeRate": 69.71,
+      "violentCrimeRate": 27.05,
+      "asylumRate": 8.57,
+      "supportedAsylum": 146
+    },
+    {
+      "areaCode": "E07000178",
+      "areaName": "Oxford",
+      "totalCrimeRate": 99.37,
+      "violentCrimeRate": 30.88,
+      "asylumRate": 16.68,
+      "supportedAsylum": 277
+    },
+    {
+      "areaCode": "E07000179",
+      "areaName": "South Oxfordshire",
+      "totalCrimeRate": 44.26,
+      "violentCrimeRate": 16.92,
+      "asylumRate": 1.41,
+      "supportedAsylum": 22
+    },
+    {
+      "areaCode": "E07000180",
+      "areaName": "Vale of White Horse",
+      "totalCrimeRate": 47.27,
+      "violentCrimeRate": 19.84,
+      "asylumRate": 6.29,
+      "supportedAsylum": 94
+    },
+    {
+      "areaCode": "E07000181",
+      "areaName": "West Oxfordshire",
+      "totalCrimeRate": 47.11,
+      "violentCrimeRate": 19.71,
+      "asylumRate": 10.17,
+      "supportedAsylum": 123
+    },
+    {
+      "areaCode": "E07000192",
+      "areaName": "Cannock Chase",
+      "totalCrimeRate": 68.67,
+      "violentCrimeRate": 31.13,
+      "asylumRate": 2.98,
+      "supportedAsylum": 31
+    },
+    {
+      "areaCode": "E07000193",
+      "areaName": "East Staffordshire",
+      "totalCrimeRate": 69.74,
+      "violentCrimeRate": 31.49,
+      "asylumRate": 10.72,
+      "supportedAsylum": 139
+    },
+    {
+      "areaCode": "E07000194",
+      "areaName": "Lichfield",
+      "totalCrimeRate": 53.97,
+      "violentCrimeRate": 23.37,
+      "asylumRate": 0.27,
+      "supportedAsylum": 3
+    },
+    {
+      "areaCode": "E07000195",
+      "areaName": "Newcastle-under-Lyme",
+      "totalCrimeRate": 66.14,
+      "violentCrimeRate": 29.83,
+      "asylumRate": 12.61,
+      "supportedAsylum": 161
+    },
+    {
+      "areaCode": "E07000196",
+      "areaName": "South Staffordshire",
+      "totalCrimeRate": 50.11,
+      "violentCrimeRate": 22.27,
+      "asylumRate": 7.08,
+      "supportedAsylum": 81
+    },
+    {
+      "areaCode": "E07000197",
+      "areaName": "Stafford",
+      "totalCrimeRate": 64.21,
+      "violentCrimeRate": 28.82,
+      "asylumRate": 2.05,
+      "supportedAsylum": 29
+    },
+    {
+      "areaCode": "E07000198",
+      "areaName": "Staffordshire Moorlands",
+      "totalCrimeRate": 51.45,
+      "violentCrimeRate": 26.34,
+      "asylumRate": 2.9,
+      "supportedAsylum": 28
+    },
+    {
+      "areaCode": "E07000199",
+      "areaName": "Tamworth",
+      "totalCrimeRate": 72.67,
+      "violentCrimeRate": 32.6,
+      "asylumRate": 25.64,
+      "supportedAsylum": 208
+    },
+    {
+      "areaCode": "E07000202",
+      "areaName": "Ipswich",
+      "totalCrimeRate": 92.5,
+      "violentCrimeRate": 37.85,
+      "asylumRate": 8.27,
+      "supportedAsylum": 116
+    },
+    {
+      "areaCode": "E07000207",
+      "areaName": "Elmbridge",
+      "totalCrimeRate": 55.15,
+      "violentCrimeRate": 20.34,
+      "asylumRate": 1.76,
+      "supportedAsylum": 25
+    },
+    {
+      "areaCode": "E07000208",
+      "areaName": "Epsom and Ewell",
+      "totalCrimeRate": 63.2,
+      "violentCrimeRate": 21.26,
+      "asylumRate": 0.96,
+      "supportedAsylum": 8
+    },
+    {
+      "areaCode": "E07000209",
+      "areaName": "Guildford",
+      "totalCrimeRate": 75.33,
+      "violentCrimeRate": 27.53,
+      "asylumRate": 0.13,
+      "supportedAsylum": 2
+    },
+    {
+      "areaCode": "E07000210",
+      "areaName": "Mole Valley",
+      "totalCrimeRate": 57.12,
+      "violentCrimeRate": 21.39,
+      "asylumRate": 0.11,
+      "supportedAsylum": 1
+    },
+    {
+      "areaCode": "E07000211",
+      "areaName": "Reigate and Banstead",
+      "totalCrimeRate": 61.44,
+      "violentCrimeRate": 25.46,
+      "asylumRate": 21.3,
+      "supportedAsylum": 339
+    },
+    {
+      "areaCode": "E07000212",
+      "areaName": "Runnymede",
+      "totalCrimeRate": 70.04,
+      "violentCrimeRate": 25.99,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E07000213",
+      "areaName": "Spelthorne",
+      "totalCrimeRate": 81.93,
+      "violentCrimeRate": 29.15,
+      "asylumRate": 8.13,
+      "supportedAsylum": 87
+    },
+    {
+      "areaCode": "E07000214",
+      "areaName": "Surrey Heath",
+      "totalCrimeRate": 54.79,
+      "violentCrimeRate": 21.78,
+      "asylumRate": 9.21,
+      "supportedAsylum": 87
+    },
+    {
+      "areaCode": "E07000215",
+      "areaName": "Tandridge",
+      "totalCrimeRate": 53.18,
+      "violentCrimeRate": 20.61,
+      "asylumRate": 2.1,
+      "supportedAsylum": 19
+    },
+    {
+      "areaCode": "E07000216",
+      "areaName": "Waverley",
+      "totalCrimeRate": 44.25,
+      "violentCrimeRate": 15.68,
+      "asylumRate": 0.45,
+      "supportedAsylum": 6
+    },
+    {
+      "areaCode": "E07000217",
+      "areaName": "Woking",
+      "totalCrimeRate": 65.17,
+      "violentCrimeRate": 26.25,
+      "asylumRate": 0.09,
+      "supportedAsylum": 1
+    },
+    {
+      "areaCode": "E07000218",
+      "areaName": "North Warwickshire",
+      "totalCrimeRate": 67.33,
+      "violentCrimeRate": 23.58,
+      "asylumRate": 7.15,
+      "supportedAsylum": 48
+    },
+    {
+      "areaCode": "E07000219",
+      "areaName": "Nuneaton and Bedworth",
+      "totalCrimeRate": 82.93,
+      "violentCrimeRate": 34.06,
+      "asylumRate": 21.26,
+      "supportedAsylum": 301
+    },
+    {
+      "areaCode": "E07000220",
+      "areaName": "Rugby",
+      "totalCrimeRate": 59.68,
+      "violentCrimeRate": 23.52,
+      "asylumRate": 46.17,
+      "supportedAsylum": 565
+    },
+    {
+      "areaCode": "E07000221",
+      "areaName": "Stratford-on-Avon",
+      "totalCrimeRate": 58.45,
+      "violentCrimeRate": 20.48,
+      "asylumRate": 10.12,
+      "supportedAsylum": 148
+    },
+    {
+      "areaCode": "E07000222",
+      "areaName": "Warwick",
+      "totalCrimeRate": 58.45,
+      "violentCrimeRate": 20.48,
+      "asylumRate": 28.08,
+      "supportedAsylum": 435
+    },
+    {
+      "areaCode": "E07000223",
+      "areaName": "Adur",
+      "totalCrimeRate": 74.84,
+      "violentCrimeRate": 24.05,
+      "asylumRate": 0.15,
+      "supportedAsylum": 1
+    },
+    {
+      "areaCode": "E07000224",
+      "areaName": "Arun",
+      "totalCrimeRate": 69.38,
+      "violentCrimeRate": 26.85,
+      "asylumRate": 0.12,
+      "supportedAsylum": 2
+    },
+    {
+      "areaCode": "E07000225",
+      "areaName": "Chichester",
+      "totalCrimeRate": 64.48,
+      "violentCrimeRate": 23.16,
+      "asylumRate": 13.88,
+      "supportedAsylum": 179
+    },
+    {
+      "areaCode": "E07000226",
+      "areaName": "Crawley",
+      "totalCrimeRate": 122.46,
+      "violentCrimeRate": 42.47,
+      "asylumRate": 32.5,
+      "supportedAsylum": 403
+    },
+    {
+      "areaCode": "E07000227",
+      "areaName": "Horsham",
+      "totalCrimeRate": 52.47,
+      "violentCrimeRate": 18.23,
+      "asylumRate": 6.14,
+      "supportedAsylum": 93
+    },
+    {
+      "areaCode": "E07000228",
+      "areaName": "Mid Sussex",
+      "totalCrimeRate": 52.64,
+      "violentCrimeRate": 19.05,
+      "asylumRate": 27.82,
+      "supportedAsylum": 450
+    },
+    {
+      "areaCode": "E07000229",
+      "areaName": "Worthing",
+      "totalCrimeRate": 92.61,
+      "violentCrimeRate": 31.53,
+      "asylumRate": 1.32,
+      "supportedAsylum": 15
+    },
+    {
+      "areaCode": "E07000234",
+      "areaName": "Bromsgrove",
+      "totalCrimeRate": 68.56,
+      "violentCrimeRate": 26.24,
+      "asylumRate": 0.59,
+      "supportedAsylum": 6
+    },
+    {
+      "areaCode": "E07000235",
+      "areaName": "Malvern Hills",
+      "totalCrimeRate": 67.7,
+      "violentCrimeRate": 24.91,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E07000236",
+      "areaName": "Redditch",
+      "totalCrimeRate": 68.56,
+      "violentCrimeRate": 26.24,
+      "asylumRate": 0.68,
+      "supportedAsylum": 6
+    },
+    {
+      "areaCode": "E07000237",
+      "areaName": "Worcester",
+      "totalCrimeRate": 67.7,
+      "violentCrimeRate": 24.91,
+      "asylumRate": 13.78,
+      "supportedAsylum": 147
+    },
+    {
+      "areaCode": "E07000238",
+      "areaName": "Wychavon",
+      "totalCrimeRate": 67.7,
+      "violentCrimeRate": 24.91,
+      "asylumRate": 8.19,
+      "supportedAsylum": 113
+    },
+    {
+      "areaCode": "E07000239",
+      "areaName": "Wyre Forest",
+      "totalCrimeRate": 68.56,
+      "violentCrimeRate": 26.24,
+      "asylumRate": 4.14,
+      "supportedAsylum": 43
+    },
+    {
+      "areaCode": "E07000240",
+      "areaName": "St Albans",
+      "totalCrimeRate": 54.72,
+      "violentCrimeRate": 17.37,
+      "asylumRate": 3.51,
+      "supportedAsylum": 53
+    },
+    {
+      "areaCode": "E07000241",
+      "areaName": "Welwyn Hatfield",
+      "totalCrimeRate": 71.65,
+      "violentCrimeRate": 26.24,
+      "asylumRate": 16.2,
+      "supportedAsylum": 199
+    },
+    {
+      "areaCode": "E07000242",
+      "areaName": "East Hertfordshire",
+      "totalCrimeRate": 46.83,
+      "violentCrimeRate": 16.8,
+      "asylumRate": 0,
+      "supportedAsylum": 0
+    },
+    {
+      "areaCode": "E07000243",
+      "areaName": "Stevenage",
+      "totalCrimeRate": 76.06,
+      "violentCrimeRate": 29.61,
+      "asylumRate": 35.09,
+      "supportedAsylum": 322
+    },
+    {
+      "areaCode": "E07000244",
+      "areaName": "Waveney",
+      "totalCrimeRate": 73.6,
+      "violentCrimeRate": 30.73,
+      "asylumRate": 1.56,
+      "supportedAsylum": 39
+    },
+    {
+      "areaCode": "E07000245",
+      "areaName": "Western Suffolk",
+      "totalCrimeRate": 48.63,
+      "violentCrimeRate": 20.82,
+      "asylumRate": 0.95,
+      "supportedAsylum": 18
+    },
+    {
+      "areaCode": "E08000001",
+      "areaName": "Bolton",
+      "totalCrimeRate": 110.79,
+      "violentCrimeRate": 46.23,
+      "asylumRate": 34.41,
+      "supportedAsylum": 1067
+    },
+    {
+      "areaCode": "E08000002",
+      "areaName": "Bury",
+      "totalCrimeRate": 103.42,
+      "violentCrimeRate": 41.11,
+      "asylumRate": 20.31,
+      "supportedAsylum": 404
+    },
+    {
+      "areaCode": "E08000003",
+      "areaName": "Manchester",
+      "totalCrimeRate": 165.92,
+      "violentCrimeRate": 56.58,
+      "asylumRate": 31.31,
+      "supportedAsylum": 1846
+    },
+    {
+      "areaCode": "E08000004",
+      "areaName": "Oldham",
+      "totalCrimeRate": 116.95,
+      "violentCrimeRate": 50.28,
+      "asylumRate": 31.64,
+      "supportedAsylum": 796
+    },
+    {
+      "areaCode": "E08000005",
+      "areaName": "Rochdale",
+      "totalCrimeRate": 114.18,
+      "violentCrimeRate": 47.36,
+      "asylumRate": 30.52,
+      "supportedAsylum": 719
+    },
+    {
+      "areaCode": "E08000006",
+      "areaName": "Salford",
+      "totalCrimeRate": 116.69,
+      "violentCrimeRate": 46.65,
+      "asylumRate": 23.99,
+      "supportedAsylum": 706
+    },
+    {
+      "areaCode": "E08000007",
+      "areaName": "Stockport",
+      "totalCrimeRate": 85.82,
+      "violentCrimeRate": 32.19,
+      "asylumRate": 27.44,
+      "supportedAsylum": 834
+    },
+    {
+      "areaCode": "E08000008",
+      "areaName": "Tameside",
+      "totalCrimeRate": 106.26,
+      "violentCrimeRate": 45.31,
+      "asylumRate": 21.2,
+      "supportedAsylum": 508
+    },
+    {
+      "areaCode": "E08000009",
+      "areaName": "Trafford",
+      "totalCrimeRate": 78.01,
+      "violentCrimeRate": 27.85,
+      "asylumRate": 16.89,
+      "supportedAsylum": 407
+    },
+    {
+      "areaCode": "E08000010",
+      "areaName": "Wigan",
+      "totalCrimeRate": 104.48,
+      "violentCrimeRate": 44.34,
+      "asylumRate": 34.47,
+      "supportedAsylum": 1189
+    },
+    {
+      "areaCode": "E08000011",
+      "areaName": "Knowsley",
+      "totalCrimeRate": 91.04,
+      "violentCrimeRate": 40.72,
+      "asylumRate": 19.68,
+      "supportedAsylum": 320
+    },
+    {
+      "areaCode": "E08000012",
+      "areaName": "Liverpool",
+      "totalCrimeRate": 132.04,
+      "violentCrimeRate": 49.77,
+      "asylumRate": 43.01,
+      "supportedAsylum": 2189
+    },
+    {
+      "areaCode": "E08000013",
+      "areaName": "St. Helens",
+      "totalCrimeRate": 97.89,
+      "violentCrimeRate": 41.9,
+      "asylumRate": 35.37,
+      "supportedAsylum": 668
+    },
+    {
+      "areaCode": "E08000014",
+      "areaName": "Sefton",
+      "totalCrimeRate": 80.75,
+      "violentCrimeRate": 37,
+      "asylumRate": 15.16,
+      "supportedAsylum": 434
+    },
+    {
+      "areaCode": "E08000015",
+      "areaName": "Wirral",
+      "totalCrimeRate": 75.71,
+      "violentCrimeRate": 34.07,
+      "asylumRate": 23.99,
+      "supportedAsylum": 789
+    },
+    {
+      "areaCode": "E08000017",
+      "areaName": "Doncaster",
+      "totalCrimeRate": 131.45,
+      "violentCrimeRate": 46.42,
+      "asylumRate": 20.58,
+      "supportedAsylum": 658
+    },
+    {
+      "areaCode": "E08000018",
+      "areaName": "Rotherham",
+      "totalCrimeRate": 96.36,
+      "violentCrimeRate": 37.18,
+      "asylumRate": 16.09,
+      "supportedAsylum": 445
+    },
+    {
+      "areaCode": "E08000021",
+      "areaName": "Newcastle upon Tyne",
+      "totalCrimeRate": 122.09,
+      "violentCrimeRate": 42.62,
+      "asylumRate": 35.18,
+      "supportedAsylum": 1128
+    },
+    {
+      "areaCode": "E08000022",
+      "areaName": "North Tyneside",
+      "totalCrimeRate": 84.52,
+      "violentCrimeRate": 31.57,
+      "asylumRate": 20.65,
+      "supportedAsylum": 444
+    },
+    {
+      "areaCode": "E08000023",
+      "areaName": "South Tyneside",
+      "totalCrimeRate": 105.69,
+      "violentCrimeRate": 40.03,
+      "asylumRate": 41.28,
+      "supportedAsylum": 625
+    },
+    {
+      "areaCode": "E08000024",
+      "areaName": "Sunderland",
+      "totalCrimeRate": 105.55,
+      "violentCrimeRate": 38.77,
+      "asylumRate": 28.79,
+      "supportedAsylum": 831
+    },
+    {
+      "areaCode": "E08000025",
+      "areaName": "Birmingham",
+      "totalCrimeRate": 121.18,
+      "violentCrimeRate": 49.82,
+      "asylumRate": 22.28,
+      "supportedAsylum": 2637
+    },
+    {
+      "areaCode": "E08000026",
+      "areaName": "Coventry",
+      "totalCrimeRate": 105.34,
+      "violentCrimeRate": 39.32,
+      "asylumRate": 46.58,
+      "supportedAsylum": 1719
+    },
+    {
+      "areaCode": "E08000027",
+      "areaName": "Dudley",
+      "totalCrimeRate": 81.19,
+      "violentCrimeRate": 34.22,
+      "asylumRate": 21.48,
+      "supportedAsylum": 713
+    },
+    {
+      "areaCode": "E08000028",
+      "areaName": "Sandwell",
+      "totalCrimeRate": 105.29,
+      "violentCrimeRate": 45.26,
+      "asylumRate": 45.07,
+      "supportedAsylum": 1595
+    },
+    {
+      "areaCode": "E08000029",
+      "areaName": "Solihull",
+      "totalCrimeRate": 82.84,
+      "violentCrimeRate": 27.64,
+      "asylumRate": 13.56,
+      "supportedAsylum": 300
+    },
+    {
+      "areaCode": "E08000030",
+      "areaName": "Walsall",
+      "totalCrimeRate": 100.71,
+      "violentCrimeRate": 40.28,
+      "asylumRate": 23.37,
+      "supportedAsylum": 691
+    },
+    {
+      "areaCode": "E08000031",
+      "areaName": "Wolverhampton",
+      "totalCrimeRate": 113.06,
+      "violentCrimeRate": 47.1,
+      "asylumRate": 46.86,
+      "supportedAsylum": 1318
+    },
+    {
+      "areaCode": "E08000032",
+      "areaName": "Bradford",
+      "totalCrimeRate": 127.78,
+      "violentCrimeRate": 56.74,
+      "asylumRate": 24.27,
+      "supportedAsylum": 1368
+    },
+    {
+      "areaCode": "E08000033",
+      "areaName": "Calderdale",
+      "totalCrimeRate": 118.38,
+      "violentCrimeRate": 52.55,
+      "asylumRate": 28.82,
+      "supportedAsylum": 608
+    },
+    {
+      "areaCode": "E08000034",
+      "areaName": "Kirklees",
+      "totalCrimeRate": 100.55,
+      "violentCrimeRate": 44.05,
+      "asylumRate": 16.12,
+      "supportedAsylum": 722
+    },
+    {
+      "areaCode": "E08000035",
+      "areaName": "Leeds",
+      "totalCrimeRate": 128.98,
+      "violentCrimeRate": 49.41,
+      "asylumRate": 20.97,
+      "supportedAsylum": 1772
+    },
+    {
+      "areaCode": "E08000036",
+      "areaName": "Wakefield",
+      "totalCrimeRate": 123.26,
+      "violentCrimeRate": 51.94,
+      "asylumRate": 19.39,
+      "supportedAsylum": 713
+    },
+    {
+      "areaCode": "E08000037",
+      "areaName": "Gateshead",
+      "totalCrimeRate": 96.43,
+      "violentCrimeRate": 35.32,
+      "asylumRate": 31.71,
+      "supportedAsylum": 643
+    },
+    {
+      "areaCode": "E09000002",
+      "areaName": "Barking and Dagenham",
+      "totalCrimeRate": 99.32,
+      "violentCrimeRate": 34.44,
+      "asylumRate": 12.93,
+      "supportedAsylum": 301
+    },
+    {
+      "areaCode": "E09000003",
+      "areaName": "Barnet",
+      "totalCrimeRate": 74.52,
+      "violentCrimeRate": 21.07,
+      "asylumRate": 34.39,
+      "supportedAsylum": 1393
+    },
+    {
+      "areaCode": "E09000004",
+      "areaName": "Bexley",
+      "totalCrimeRate": 68.05,
+      "violentCrimeRate": 23.38,
+      "asylumRate": 4.02,
+      "supportedAsylum": 103
+    },
+    {
+      "areaCode": "E09000005",
+      "areaName": "Brent",
+      "totalCrimeRate": 93.33,
+      "violentCrimeRate": 27.68,
+      "asylumRate": 29.01,
+      "supportedAsylum": 1024
+    },
+    {
+      "areaCode": "E09000006",
+      "areaName": "Bromley",
+      "totalCrimeRate": 72.89,
+      "violentCrimeRate": 21.61,
+      "asylumRate": 5.22,
+      "supportedAsylum": 175
+    },
+    {
+      "areaCode": "E09000007",
+      "areaName": "Camden",
+      "totalCrimeRate": 188.03,
+      "violentCrimeRate": 35.49,
+      "asylumRate": 10.6,
+      "supportedAsylum": 230
+    },
+    {
+      "areaCode": "E09000008",
+      "areaName": "Croydon",
+      "totalCrimeRate": 89.69,
+      "violentCrimeRate": 30.28,
+      "asylumRate": 36.23,
+      "supportedAsylum": 1483
+    },
+    {
+      "areaCode": "E09000009",
+      "areaName": "Ealing",
+      "totalCrimeRate": 88.56,
+      "violentCrimeRate": 28.62,
+      "asylumRate": 32.36,
+      "supportedAsylum": 1249
+    },
+    {
+      "areaCode": "E09000010",
+      "areaName": "Enfield",
+      "totalCrimeRate": 89.63,
+      "violentCrimeRate": 28.15,
+      "asylumRate": 11.91,
+      "supportedAsylum": 390
+    },
+    {
+      "areaCode": "E09000011",
+      "areaName": "Greenwich",
+      "totalCrimeRate": 99.67,
+      "violentCrimeRate": 33.31,
+      "asylumRate": 4.81,
+      "supportedAsylum": 144
+    },
+    {
+      "areaCode": "E09000012",
+      "areaName": "Hackney",
+      "totalCrimeRate": 125.05,
+      "violentCrimeRate": 33.23,
+      "asylumRate": 22.08,
+      "supportedAsylum": 589
+    },
+    {
+      "areaCode": "E09000013",
+      "areaName": "Hammersmith and Fulham",
+      "totalCrimeRate": 125.27,
+      "violentCrimeRate": 32.26,
+      "asylumRate": 19.29,
+      "supportedAsylum": 364
+    },
+    {
+      "areaCode": "E09000014",
+      "areaName": "Haringey",
+      "totalCrimeRate": 113.19,
+      "violentCrimeRate": 30.8,
+      "asylumRate": 6.82,
+      "supportedAsylum": 180
+    },
+    {
+      "areaCode": "E09000015",
+      "areaName": "Harrow",
+      "totalCrimeRate": 63.2,
+      "violentCrimeRate": 20.03,
+      "asylumRate": 13.15,
+      "supportedAsylum": 356
+    },
+    {
+      "areaCode": "E09000016",
+      "areaName": "Havering",
+      "totalCrimeRate": 80.39,
+      "violentCrimeRate": 25.23,
+      "asylumRate": 6.44,
+      "supportedAsylum": 178
+    },
+    {
+      "areaCode": "E09000017",
+      "areaName": "Hillingdon",
+      "totalCrimeRate": 83.53,
+      "violentCrimeRate": 26.79,
+      "asylumRate": 64.8,
+      "supportedAsylum": 2133
+    },
+    {
+      "areaCode": "E09000018",
+      "areaName": "Hounslow",
+      "totalCrimeRate": 96.68,
+      "violentCrimeRate": 31.4,
+      "asylumRate": 57.44,
+      "supportedAsylum": 1720
+    },
+    {
+      "areaCode": "E09000019",
+      "areaName": "Islington",
+      "totalCrimeRate": 130.16,
+      "violentCrimeRate": 32.12,
+      "asylumRate": 2.11,
+      "supportedAsylum": 47
+    },
+    {
+      "areaCode": "E09000020",
+      "areaName": "Kensington and Chelsea",
+      "totalCrimeRate": 164.5,
+      "violentCrimeRate": 31.77,
+      "asylumRate": 17.85,
+      "supportedAsylum": 258
+    },
+    {
+      "areaCode": "E09000021",
+      "areaName": "Kingston upon Thames",
+      "totalCrimeRate": 74.36,
+      "violentCrimeRate": 21.86,
+      "asylumRate": 4,
+      "supportedAsylum": 69
+    },
+    {
+      "areaCode": "E09000022",
+      "areaName": "Lambeth",
+      "totalCrimeRate": 116.11,
+      "violentCrimeRate": 30.9,
+      "asylumRate": 13.5,
+      "supportedAsylum": 428
+    },
+    {
+      "areaCode": "E09000023",
+      "areaName": "Lewisham",
+      "totalCrimeRate": 100.31,
+      "violentCrimeRate": 32.03,
+      "asylumRate": 8.56,
+      "supportedAsylum": 258
+    },
+    {
+      "areaCode": "E09000024",
+      "areaName": "Merton",
+      "totalCrimeRate": 65.13,
+      "violentCrimeRate": 20.26,
+      "asylumRate": 13.82,
+      "supportedAsylum": 302
+    },
+    {
+      "areaCode": "E09000025",
+      "areaName": "Newham",
+      "totalCrimeRate": 109.98,
+      "violentCrimeRate": 29.99,
+      "asylumRate": 30.44,
+      "supportedAsylum": 1140
+    },
+    {
+      "areaCode": "E09000026",
+      "areaName": "Redbridge",
+      "totalCrimeRate": 78.83,
+      "violentCrimeRate": 25.84,
+      "asylumRate": 15.91,
+      "supportedAsylum": 511
+    },
+    {
+      "areaCode": "E09000027",
+      "areaName": "Richmond upon Thames",
+      "totalCrimeRate": 61.07,
+      "violentCrimeRate": 15.26,
+      "asylumRate": 0.71,
+      "supportedAsylum": 14
+    },
+    {
+      "areaCode": "E09000028",
+      "areaName": "Southwark",
+      "totalCrimeRate": 123.87,
+      "violentCrimeRate": 28.91,
+      "asylumRate": 16.9,
+      "supportedAsylum": 532
+    },
+    {
+      "areaCode": "E09000029",
+      "areaName": "Sutton",
+      "totalCrimeRate": 62.75,
+      "violentCrimeRate": 21.6,
+      "asylumRate": 1.26,
+      "supportedAsylum": 27
+    },
+    {
+      "areaCode": "E09000030",
+      "areaName": "Tower Hamlets",
+      "totalCrimeRate": 114.16,
+      "violentCrimeRate": 32.65,
+      "asylumRate": 14.88,
+      "supportedAsylum": 494
+    },
+    {
+      "areaCode": "E09000031",
+      "areaName": "Waltham Forest",
+      "totalCrimeRate": 85.02,
+      "violentCrimeRate": 23.68,
+      "asylumRate": 6.61,
+      "supportedAsylum": 185
+    },
+    {
+      "areaCode": "E09000032",
+      "areaName": "Wandsworth",
+      "totalCrimeRate": 82.72,
+      "violentCrimeRate": 22.65,
+      "asylumRate": 2.04,
+      "supportedAsylum": 69
+    },
+    {
+      "areaCode": "E09000033",
+      "areaName": "Westminster",
+      "totalCrimeRate": 446.41,
+      "violentCrimeRate": 56.19,
+      "asylumRate": 1.52,
+      "supportedAsylum": 32
     }
   ]
 }

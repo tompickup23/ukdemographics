@@ -1,7 +1,7 @@
 {
   "source": "ethnic-projections.json economic activity data",
   "methodology": "Employment rate by ethnic group as proxy for working-age population share. Full dependency ratios require SNPP age structure data (pipeline pending).",
-  "lastUpdated": "2026-04-14",
+  "lastUpdated": "2026-04-28",
   "totalAreas": 320,
   "caveat": "These are proxy estimates. Proper dependency ratios (ages 0-15 + 65+) / (16-64) require SNPP single-year-of-age data not yet integrated.",
   "areas": {

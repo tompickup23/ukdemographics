@@ -1,7 +1,7 @@
 {
   "source": "Composite scoring from ethnic-projections.json, local-route-latest.json",
   "methodology": "Service demand pressure score (0-100) from 5 components: ethnic change rate, asylum concentration, school diversity pressure, language demand, housing pressure. Each component contributes up to 20 points.",
-  "lastUpdated": "2026-04-14",
+  "lastUpdated": "2026-04-28",
   "totalAreas": 320,
   "highPressureAreas": 17,
   "moderatePressureAreas": 99,

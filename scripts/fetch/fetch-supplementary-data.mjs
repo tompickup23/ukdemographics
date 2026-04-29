@@ -11,27 +11,27 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
-const rawDir = path.resolve("data/raw/supplementary");
+const rawDir = path.resolve(process.cwd(), "data/raw/supplementary");
 mkdirSync(rawDir, { recursive: true });
 
 const downloads = [
   {
     id: "crime",
     fileName: "ons-recorded-crime-csp.xlsx",
-    // ONS recorded crime by CSP area — year ending March 2024
-    url: "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea/current/csptablesyemar24correction.xlsx"
+    // ONS recorded crime by CSP area, year ending March 2024
+    url: "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea/yearendingmarch2024/csptablesyemar24correction.xlsx"
   },
   {
     id: "send",
-    fileName: "dfe-sen2-2024.xlsx",
-    // DfE SEN2 return 2023/24 — local authority level
-    url: "https://content.explore-education-statistics.service.gov.uk/api/releases/07dcbb52-5ee2-4a62-b03e-9b12e8ee2baa/files/e03c7acd-a5c3-417e-8b51-c3e8e5c505f4"
+    fileName: "dfe-sen-2024-25.zip",
+    // DfE SEN in England 2024/25 release ZIP. Re-resolve via /api/publications/special-educational-needs-in-england/releases/latest if this UUID rotates.
+    url: "https://content.explore-education-statistics.service.gov.uk/api/releases/f7330b25-398d-477d-80c7-9b33bc10316f/files?fromPage=ReleaseDownloads"
   },
   {
     id: "asc",
-    fileName: "nhs-asc-finance-2024.xlsx",
-    // NHS Digital Adult Social Care Finance Report 2023/24
-    url: "https://files.digital.nhs.uk/C1/C75014/Activity_and_Finance_Report_2023-24_-_ASCFR-Tables.xlsx"
+    fileName: "nhs-asc-ascfr-salt-2023-24.xlsx",
+    // NHS Digital ASCFR & SALT 2023/24 (CASSR-level, ~153 upper-tier authorities)
+    url: "https://files.digital.nhs.uk/21/38468F/ASCFR%20and%20SALT%20Data%20Tables%202023-24.xlsx"
   }
 ];
 

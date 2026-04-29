@@ -1,7 +1,7 @@
 {
   "source": "Census 2021 economic activity and qualifications as health demand proxy",
   "methodology": "Health demand score = f(employment rate, qualification levels) by ethnic group, weighted by composition",
-  "lastUpdated": "2026-04-14",
+  "lastUpdated": "2026-04-28",
   "totalAreas": 320,
   "areasWithData": 316,
   "caveat": "Direct NHS cost data by ethnicity at LA level is not available. This uses socioeconomic proxies (employment, qualifications) correlated with health outcomes.",

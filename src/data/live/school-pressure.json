@@ -1,7 +1,7 @@
 {
   "source": "DfE School Census 2024/25 via ethnic-projections.json",
   "methodology": "School ethnic composition from DfE data, projected minority growth from Hamilton-Perry model",
-  "lastUpdated": "2026-04-14",
+  "lastUpdated": "2026-04-28",
   "totalAreas": 320,
   "areasWithData": 126,
   "caveat": "School data available for 126 areas with DfE calibration. Others pending data expansion.",

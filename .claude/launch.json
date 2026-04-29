@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "asylumstats-dev",
+      "name": "ukd-dev",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["astro", "dev"],
       "port": 4321
