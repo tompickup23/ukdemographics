@@ -1,43 +1,357 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPublicPlaceAreas, slugifyAreaName } from "../lib/site";
-import { getEthnicProjection, getShiftShareData, getDiversityIndex } from "../lib/ethnic-projections";
+import rawProjections from "../data/live/ethnic-projections.json";
+import ninoDashboard from "../data/live/nino-dashboard.json";
+import ninoHistorical from "../data/live/nino-historical.json";
+import cob from "../data/live/country-of-birth.json";
+import cobChange from "../data/live/country-of-birth-change-2011-2021.json";
+import birthsByMother from "../data/live/births-by-mother-cob.json";
+import schoolEalDistrict from "../data/live/school-eal-district.json";
+import schoolEal from "../data/live/school-eal.json";
+import crimeDashboard from "../data/live/crime-dashboard.json";
+import tbNotifications from "../data/live/tb-notifications.json";
+import hmoDensity from "../data/live/hmo-density.json";
+import councilTaxSpd from "../data/live/council-tax-spd.json";
+import healthDemand from "../data/live/health-demand.json";
+import econPassport from "../data/live/econ-activity-by-passport.json";
 
 const areas = getPublicPlaceAreas();
 const sortedAreas = [...areas].sort((a, b) => a.areaName.localeCompare(b.areaName));
+
+const indexBySlug: Record<string, any> = {};
+for (const a of areas) {
+  const code = a.areaCode;
+  const proj = (rawProjections as any).areas?.[code];
+  const nino = (ninoDashboard as any).areas?.[code];
+  const ninoH = (ninoHistorical as any).areas?.[code];
+  const cobA = (cob as any).areas?.[code];
+  const ccA = (cobChange as any).areas?.[code];
+  const bA = (birthsByMother as any).areas?.[code];
+  const ealD = (schoolEalDistrict as any).areas?.[code];
+  const ealU = (schoolEal as any).areas?.[code];
+  const crimeA = (crimeDashboard as any).areas?.[code];
+  const tbA = (tbNotifications as any).areas?.[code];
+  const hmoA = (hmoDensity as any).areas?.[code];
+  const spdA = (councilTaxSpd as any).areas?.[code];
+  const popA = (healthDemand as any).areas?.[code];
+  const epA = (econPassport as any).areas?.[code];
+
+  const ealPct = ealD?.ealPct ?? ealU?.ealPct ?? null;
+  const ealParentLA = ealU?.dataLevel === "parent_county" ? (ealU?.parentCountyName ?? null) : null;
+
+  const empPct = (g: any) =>
+    g && g.totalPopulation16plus >= 50
+      ? +(g.inEmployment_total / g.totalPopulation16plus * 100).toFixed(1)
+      : null;
+
+  indexBySlug[slugifyAreaName(a.areaName)] = {
+    code,
+    name: a.areaName,
+    region: a.regionName,
+    population: popA?.population ?? null,
+    wbi2021: proj?.current?.groups?.white_british ?? null,
+    wbi2051: proj?.projections?.["2051"]?.white_british ?? null,
+    foreignBornPct2021: proj?.foreignBornPct2021 ?? null,
+    foreignBornPct2051: proj?.foreignBornPct2051 ?? null,
+    ninoLatest: nino?.totalRollingYear ?? null,
+    ninoYoYPct: nino?.yearOnYearChangePct ?? null,
+    ninoCumulative24y: ninoH?.cumulativeFlow_2002_2025 ?? null,
+    ninoTopNationality: nino?.byNationality?.[0]?.nationality ?? null,
+    ninoTopNationalityShare: nino?.byNationality?.[0]?.sharePct ?? null,
+    cobNonUkPct2021: cobA?.nonUkBornPct ?? null,
+    cobNonUkPct2011: ccA?.nonUkBornPct2011 ?? null,
+    cobNonUkChange: ccA?.nonUkBornChange ?? null,
+    birthsTotal2024: bA?.totalBirths2024 ?? null,
+    birthsNonUkPct2024: bA?.nonUkBornMotherPct ?? null,
+    ealPct,
+    ealParentLA,
+    crimeRatePer1k: crimeA?.totalCrimeRate ?? null,
+    crimeYoYPct: crimeA?.yearOnYearChange ?? null,
+    tbRatePer100k: tbA?.ratePer100k ?? null,
+    hmoPer1k: hmoA?.hmoPer1kPopulation ?? null,
+    spdPct: spdA?.singlePersonDiscountPctOfChargeable ?? null,
+    empUKPct: empPct(epA?.byPassportGroup?.UK),
+    empMEAsiaPct: empPct(epA?.byPassportGroup?.Middle_East_and_Asia),
+    empEUPct: empPct(epA?.byPassportGroup?.EU_member),
+  };
+}
+
+const indexJson = JSON.stringify(indexBySlug);
 ---
 
 <BaseLayout
-  title="Compare areas"
-  description={`Compare demographic projections across ${areas.length} local authorities. Side-by-side ethnic composition, shift-share, and diversity.`}
+  title="Compare two areas | UK Demographics"
+  description="Compare demographic indicators across UK local authorities side-by-side. Population, country of birth, NINo flow, schools, crime and more."
 >
-  <h1>Compare areas</h1>
-  <p class="desc">Select up to 4 areas to compare demographic projections side-by-side.</p>
+  <nav class="breadcrumb">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    <span>Compare</span>
+  </nav>
 
-  <div class="compare-controls">
-    <select id="compare-select" multiple>
-      {sortedAreas.map((area) => (
-        <option value={area.areaCode}>{area.areaName} ({area.regionName})</option>
-      ))}
-    </select>
-    <p class="hint">Hold Ctrl/Cmd to select multiple areas. Then scroll down to see the comparison.</p>
+  <h1>Compare two areas</h1>
+  <p class="desc">
+    Pick any two local authorities to see their demographic indicators side by side.
+    Sources include Census 2011 and 2021, DWP NINo, DfE schools, ONS births, UKHSA TB,
+    Home Office, MHCLG and police-recorded crime.
+  </p>
+
+  <div class="cmp-pickers">
+    <label class="cmp-picker">
+      <span>Area A</span>
+      <select id="picker-a">
+        {sortedAreas.map((a) => (
+          <option value={slugifyAreaName(a.areaName)}>{a.areaName} ({a.regionName})</option>
+        ))}
+      </select>
+    </label>
+    <label class="cmp-picker">
+      <span>Area B</span>
+      <select id="picker-b">
+        {sortedAreas.map((a) => (
+          <option value={slugifyAreaName(a.areaName)}>{a.areaName} ({a.regionName})</option>
+        ))}
+      </select>
+    </label>
+    <button id="cmp-swap" class="cmp-btn" type="button">Swap</button>
   </div>
 
-  <div id="compare-results" class="compare-results">
-    <p class="empty-state">Select areas above to start comparing.</p>
-  </div>
+  <div id="cmp-results" class="cmp-results"></div>
+
+  <p class="cmp-tip">
+    Tip: this page reads <code>?a=…&amp;b=…</code> from the URL, so you can share or bookmark a comparison.
+  </p>
 </BaseLayout>
 
-<style>
-  h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
-  .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
-  .compare-controls { margin-bottom: 2rem; }
-  .compare-controls select {
-    width: 100%; max-width: 500px; min-height: 200px; padding: 0.5rem;
-    font-family: "Manrope", sans-serif; font-size: 0.88rem; color: var(--ink);
-    background: var(--bg-soft); border: 2px solid var(--border-strong); border-radius: 8px;
+<script type="application/json" id="cmp-data" set:html={indexJson}></script>
+
+<script is:inline>
+(function () {
+  const data = JSON.parse(document.getElementById("cmp-data").textContent);
+  const pickerA = document.getElementById("picker-a");
+  const pickerB = document.getElementById("picker-b");
+  const results = document.getElementById("cmp-results");
+  const swapBtn = document.getElementById("cmp-swap");
+
+  const params = new URLSearchParams(window.location.search);
+  const initA = params.get("a");
+  const initB = params.get("b");
+  if (initA && data[initA]) pickerA.value = initA;
+  else if (data["burnley"]) pickerA.value = "burnley";
+  if (initB && data[initB]) pickerB.value = initB;
+  else if (data["pendle"]) pickerB.value = "pendle";
+
+  function num(v, decimals) {
+    if (v === null || v === undefined) return "—";
+    if (typeof v === "number") {
+      if (Number.isInteger(v)) return v.toLocaleString();
+      return v.toFixed(decimals == null ? 1 : decimals);
+    }
+    return String(v);
   }
-  .hint { font-size: 0.82rem; color: var(--muted); margin-top: 0.5rem; }
-  .compare-results { min-height: 200px; }
-  .empty-state { color: var(--muted); font-style: italic; }
+  function pct(v, d) {
+    if (v === null || v === undefined) return "—";
+    return num(v, d == null ? 1 : d) + "%";
+  }
+  function deltaSpan(a, b, opts) {
+    if (a === null || b === null || a === undefined || b === undefined) return null;
+    const d = a - b;
+    const ep = (opts && opts.epsilon) || 0.05;
+    const span = document.createElement("span");
+    span.classList.add("cmp-delta");
+    if (Math.abs(d) < ep) {
+      span.classList.add("cmp-equal");
+      span.textContent = "≈";
+      return span;
+    }
+    const lowerIsBetter = !!(opts && opts.lowerIsBetter);
+    if (lowerIsBetter) {
+      span.classList.add(d > 0 ? "cmp-up-bad" : "cmp-down-good");
+    } else {
+      span.classList.add(d > 0 ? "cmp-up-good" : "cmp-down-neutral");
+    }
+    const decimals = (opts && opts.decimals != null) ? opts.decimals : 1;
+    const suffix2 = (opts && opts.suffix2) || "";
+    span.textContent = (d > 0 ? "+" : "") + num(d, decimals) + suffix2;
+    return span;
+  }
+
+  function appendRow(tbody, label, valueA, valueB, deltaNode) {
+    const tr = document.createElement("tr");
+    const td1 = document.createElement("td"); td1.classList.add("cmp-label"); td1.textContent = label; tr.appendChild(td1);
+    const td2 = document.createElement("td"); td2.classList.add("cmp-val"); td2.textContent = (valueA == null ? "—" : valueA); tr.appendChild(td2);
+    const td3 = document.createElement("td"); td3.classList.add("cmp-val"); td3.textContent = (valueB == null ? "—" : valueB); tr.appendChild(td3);
+    const td4 = document.createElement("td"); td4.classList.add("cmp-d");
+    if (deltaNode) td4.appendChild(deltaNode);
+    tr.appendChild(td4);
+    tbody.appendChild(tr);
+  }
+
+  function topNatLabel(o) {
+    if (!o.ninoTopNationality) return "—";
+    return o.ninoTopNationality + (o.ninoTopNationalityShare != null ? " (" + o.ninoTopNationalityShare.toFixed(1) + "%)" : "");
+  }
+
+  function render() {
+    const a = data[pickerA.value];
+    const b = data[pickerB.value];
+    while (results.firstChild) results.removeChild(results.firstChild);
+    if (!a || !b) {
+      const p = document.createElement("p");
+      p.classList.add("empty");
+      p.textContent = "Pick two areas to compare.";
+      results.appendChild(p);
+      return;
+    }
+    const u = new URL(window.location.href);
+    u.searchParams.set("a", pickerA.value);
+    u.searchParams.set("b", pickerB.value);
+    window.history.replaceState(null, "", u);
+
+    const wrap = document.createElement("div"); wrap.classList.add("cmp-table-wrap");
+    const table = document.createElement("table"); table.classList.add("cmp-table");
+    const thead = document.createElement("thead");
+    const trh = document.createElement("tr");
+    ["Indicator", a.name, b.name, "A − B"].forEach((h) => {
+      const th = document.createElement("th"); th.textContent = h; trh.appendChild(th);
+    });
+    thead.appendChild(trh);
+    table.appendChild(thead);
+    const tbody = document.createElement("tbody");
+
+    appendRow(tbody, "Population (2021)", num(a.population), num(b.population), null);
+    appendRow(tbody, "Region", a.region, b.region, null);
+    appendRow(tbody, "White British 2021 (%)", pct(a.wbi2021), pct(b.wbi2021), deltaSpan(a.wbi2021, b.wbi2021, { suffix2: "pp" }));
+    appendRow(tbody, "White British 2051 projected (%)", pct(a.wbi2051), pct(b.wbi2051), deltaSpan(a.wbi2051, b.wbi2051, { suffix2: "pp" }));
+    appendRow(tbody, "Foreign-born 2021 (%)", pct(a.foreignBornPct2021), pct(b.foreignBornPct2021), deltaSpan(a.foreignBornPct2021, b.foreignBornPct2021, { suffix2: "pp" }));
+    appendRow(tbody, "Foreign-born 2051 projected (%)", pct(a.foreignBornPct2051), pct(b.foreignBornPct2051), deltaSpan(a.foreignBornPct2051, b.foreignBornPct2051, { suffix2: "pp" }));
+    appendRow(tbody, "Non-UK-born 2011 (%)", pct(a.cobNonUkPct2011), pct(b.cobNonUkPct2011), deltaSpan(a.cobNonUkPct2011, b.cobNonUkPct2011, { suffix2: "pp" }));
+    appendRow(tbody, "Non-UK-born 2021 (%)", pct(a.cobNonUkPct2021), pct(b.cobNonUkPct2021), deltaSpan(a.cobNonUkPct2021, b.cobNonUkPct2021, { suffix2: "pp" }));
+    appendRow(tbody, "Non-UK-born change 2011→2021", num(a.cobNonUkChange), num(b.cobNonUkChange), deltaSpan(a.cobNonUkChange, b.cobNonUkChange, { decimals: 0 }));
+    appendRow(tbody, "NINo registrations 2025", num(a.ninoLatest), num(b.ninoLatest), deltaSpan(a.ninoLatest, b.ninoLatest, { decimals: 0 }));
+    appendRow(tbody, "NINo YoY change 2024→2025", pct(a.ninoYoYPct), pct(b.ninoYoYPct), deltaSpan(a.ninoYoYPct, b.ninoYoYPct, { suffix2: "pp" }));
+    appendRow(tbody, "Cumulative NINo 2002-2025", num(a.ninoCumulative24y), num(b.ninoCumulative24y), deltaSpan(a.ninoCumulative24y, b.ninoCumulative24y, { decimals: 0 }));
+    appendRow(tbody, "Top arriving nationality 2025", topNatLabel(a), topNatLabel(b), null);
+    appendRow(tbody, "Births 2024", num(a.birthsTotal2024), num(b.birthsTotal2024), null);
+    appendRow(tbody, "Births to non-UK-born mother 2024 (%)", pct(a.birthsNonUkPct2024), pct(b.birthsNonUkPct2024), deltaSpan(a.birthsNonUkPct2024, b.birthsNonUkPct2024, { suffix2: "pp" }));
+    appendRow(tbody, "Schools EAL share (%)" + ((a.ealParentLA || b.ealParentLA) ? " *" : ""), pct(a.ealPct), pct(b.ealPct), deltaSpan(a.ealPct, b.ealPct, { suffix2: "pp" }));
+    appendRow(tbody, "Crime per 1k pop", num(a.crimeRatePer1k), num(b.crimeRatePer1k), deltaSpan(a.crimeRatePer1k, b.crimeRatePer1k, { lowerIsBetter: true }));
+    appendRow(tbody, "Crime YoY change", pct(a.crimeYoYPct), pct(b.crimeYoYPct), deltaSpan(a.crimeYoYPct, b.crimeYoYPct, { suffix2: "pp" }));
+    appendRow(tbody, "TB per 100k", num(a.tbRatePer100k), num(b.tbRatePer100k), deltaSpan(a.tbRatePer100k, b.tbRatePer100k, { lowerIsBetter: true }));
+    appendRow(tbody, "HMO per 1k", num(a.hmoPer1k, 2), num(b.hmoPer1k, 2), deltaSpan(a.hmoPer1k, b.hmoPer1k, { decimals: 2 }));
+    appendRow(tbody, "Single-person discount (%)", pct(a.spdPct), pct(b.spdPct), deltaSpan(a.spdPct, b.spdPct, { suffix2: "pp" }));
+    appendRow(tbody, "Employment, UK passport (%)", pct(a.empUKPct), pct(b.empUKPct), deltaSpan(a.empUKPct, b.empUKPct, { suffix2: "pp" }));
+    appendRow(tbody, "Employment, EU passport (%)", pct(a.empEUPct), pct(b.empEUPct), deltaSpan(a.empEUPct, b.empEUPct, { suffix2: "pp" }));
+    appendRow(tbody, "Employment, Middle East / Asian passport (%)", pct(a.empMEAsiaPct), pct(b.empMEAsiaPct), deltaSpan(a.empMEAsiaPct, b.empMEAsiaPct, { suffix2: "pp" }));
+
+    table.appendChild(tbody);
+    wrap.appendChild(table);
+    results.appendChild(wrap);
+
+    if (a.ealParentLA || b.ealParentLA) {
+      const note = document.createElement("p");
+      note.classList.add("cmp-footnote");
+      note.textContent = "* For two-tier counties where district-level EAL is unavailable, the parent-county figure is shown.";
+      results.appendChild(note);
+    }
+  }
+
+  pickerA.addEventListener("change", render);
+  pickerB.addEventListener("change", render);
+  swapBtn.addEventListener("click", () => {
+    const tmp = pickerA.value;
+    pickerA.value = pickerB.value;
+    pickerB.value = tmp;
+    render();
+  });
+
+  render();
+})();
+</script>
+
+<style>
+  .breadcrumb { font-size: 0.85rem; margin-bottom: 1rem; color: var(--muted); }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb .sep { margin: 0 0.4rem; }
+  h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
+  .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 720px; }
+  .cmp-pickers {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 0.75rem;
+    align-items: end;
+    margin-bottom: 1.25rem;
+    max-width: 960px;
+  }
+  .cmp-picker { display: flex; flex-direction: column; gap: 0.3rem; }
+  .cmp-picker > span {
+    font-size: 0.78rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.05em;
+    font-family: "Sora", sans-serif;
+  }
+  .cmp-picker select {
+    padding: 0.55rem 0.7rem;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.92rem;
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+  }
+  .cmp-btn {
+    background: #7c3aed; color: #fff; border: none; border-radius: 8px;
+    padding: 0.55rem 1rem;
+    font-family: "Sora", sans-serif; font-weight: 600;
+    cursor: pointer; height: fit-content;
+  }
+  .cmp-btn:hover { opacity: 0.9; }
+  .cmp-table-wrap {
+    overflow-x: auto;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+  }
+  .cmp-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .cmp-table th {
+    background: rgba(255,255,255,0.04);
+    color: var(--muted);
+    text-align: left;
+    padding: 0.7rem 0.85rem;
+    font-family: "Sora", sans-serif;
+    font-size: 0.76rem;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .cmp-table th:nth-child(2),
+  .cmp-table th:nth-child(3),
+  .cmp-table th:nth-child(4) { text-align: right; }
+  .cmp-table td {
+    padding: 0.55rem 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-variant-numeric: tabular-nums;
+  }
+  .cmp-table tr:last-child td { border-bottom: none; }
+  .cmp-label { color: var(--ink); }
+  .cmp-val { text-align: right; font-family: "Sora", sans-serif; font-weight: 600; }
+  .cmp-d { text-align: right; }
+  .cmp-delta {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+  }
+  .cmp-up-good   { color: #06b6d4; }
+  .cmp-down-neutral { color: #14904a; }
+  .cmp-up-bad    { color: #ef4444; }
+  .cmp-down-good { color: #14904a; }
+  .cmp-equal     { color: var(--muted); font-weight: 600; }
+  .cmp-tip { font-size: 0.82rem; color: var(--muted); margin-top: 1rem; }
+  .cmp-tip code { font-family: monospace; }
+  .cmp-footnote { font-size: 0.78rem; color: var(--muted); margin-top: 0.6rem; }
+  .empty { color: var(--muted); }
+  @media (max-width: 720px) {
+    .cmp-pickers { grid-template-columns: 1fr; }
+    .cmp-table { font-size: 0.8rem; }
+    .cmp-table th, .cmp-table td { padding: 0.45rem 0.5rem; }
+  }
 </style>
