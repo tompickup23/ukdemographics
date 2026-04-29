@@ -39,3 +39,6 @@ data/raw/hmrc_rti/
 data/raw/census_country_of_birth/
 data/raw/hesa/
 data/raw/cache/
+data/raw/dfe_schools_per_school/
+data/raw/census_hmo/
+data/raw/council_taxbase/
