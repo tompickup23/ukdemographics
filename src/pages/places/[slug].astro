@@ -20,6 +20,11 @@ import { getNinoProfile, getNinoTotalPercentile, getNinoSource, getNinoCaveat } 
 import { getVisaRouteMix, getVisaRoutesSource, getVisaRoutesCaveat, getVisaRoutesYear } from "../../lib/visa-routes-data";
 import { getNinoHistorical, getNinoHistoricalYears, getNinoHistoricalNational, getNinoHistoricalSource, getNinoHistoricalCaveat } from "../../lib/nino-historical-data";
 import NinoHistoricalChart from "../../components/NinoHistoricalChart.astro";
+import { getNinoDemographic, getNinoDemographicNational, getNinoDemographicSource, getNinoDemographicCaveat } from "../../lib/nino-demographic-data";
+import schoolEalDistrict from "../../data/live/school-eal-district.json";
+import payrollRegional from "../../data/live/payroll-by-region-industry.json";
+import hmoDensity from "../../data/live/hmo-density.json";
+import councilTaxSpd from "../../data/live/council-tax-spd.json";
 import { buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
 import rawProjections from "../../data/live/ethnic-projections.json";
 import economicProfile from "../../data/live/economic-profile.json";
@@ -79,6 +84,34 @@ const visaYear = getVisaRoutesYear();
 const ninoHistorical = getNinoHistorical(area.areaCode);
 const ninoHistoricalYears = getNinoHistoricalYears();
 const ninoHistoricalNational = getNinoHistoricalNational();
+
+// Demographic profile of NINo arrivals (age × sex)
+const ninoDemog = getNinoDemographic(area.areaCode);
+const ninoDemogNational = getNinoDemographicNational();
+
+// District-level school EAL
+const ealDistrict = (schoolEalDistrict as any).areas?.[area.areaCode];
+
+// Regional labour market (Burnley → North West, etc.)
+// Map LA region name from area-series or guess from area object
+const regionFromArea = (area as any).regionName as string | undefined;
+const payrollRegion = regionFromArea
+  ? (payrollRegional as any).regions?.[regionFromArea]
+  : null;
+
+// HMO + council tax SPD
+const hmo = (hmoDensity as any).areas?.[area.areaCode];
+const ctSpd = (councilTaxSpd as any).areas?.[area.areaCode];
+
+// Top industries by non-UK share for the LA's region
+type IndustryEntry = { total: number; nonUkSharePct: number | null };
+let topRegionIndustries: Array<[string, IndustryEntry]> = [];
+if (payrollRegion?.byIndustry) {
+  topRegionIndustries = (Object.entries(payrollRegion.byIndustry) as Array<[string, any]>)
+    .filter(([_, v]) => v.nonUkSharePct != null && v.total)
+    .sort((a, b) => (b[1].nonUkSharePct ?? 0) - (a[1].nonUkSharePct ?? 0))
+    .slice(0, 5);
+}
 
 const modelSpread = projData?.modelSpread2051 as { hamiltonPerry: number; cohortComponent: number; spreadPp: number } | undefined;
 const areaScenarios = (scenarioSummaries as any).areas?.[area.areaCode];
@@ -498,6 +531,74 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
+  <!-- Demographic profile of arrivals (age + sex) -->
+  {ninoDemog && ninoDemog.rollingYearTotal > 0 && (
+    <section class="section" id="nino-demographic">
+      <h2>Who is arriving</h2>
+      <p class="section-desc">
+        Age and sex profile of {ninoDemog.rollingYearTotal.toLocaleString()} NINo registrations to adults from overseas in {area.areaName} in 2025. National comparison shown alongside.
+      </p>
+
+      <div class="demog-grid">
+        <div class="demog-card">
+          <h3 class="demog-card-title">Age at registration</h3>
+          <div class="demog-bars">
+            {ninoDemog.byAgeBand.map((b) => {
+              const nat = ninoDemogNational.byAgeBand.find(n => n.band === b.band)?.sharePct ?? 0;
+              const maxScale = Math.max(...ninoDemog!.byAgeBand.map(x => x.sharePct), ...ninoDemogNational.byAgeBand.map(x => x.sharePct), 25);
+              return (
+                <div class="demog-bar-row">
+                  <span class="demog-band">{b.band}</span>
+                  <span class="demog-bar-track">
+                    <span class="demog-bar-la" style={`width: ${(b.sharePct / maxScale) * 100}%`}></span>
+                    <span class="demog-bar-nat-marker" style={`left: ${(nat / maxScale) * 100}%`} title={`UK ${nat}%`}></span>
+                  </span>
+                  <span class="demog-pct">{b.sharePct.toFixed(1)}%</span>
+                </div>
+              );
+            })}
+          </div>
+          <p class="demog-legend">
+            <span class="demog-legend-la"></span> {area.areaName}  &nbsp;
+            <span class="demog-legend-nat"></span> UK marker
+          </p>
+        </div>
+
+        <div class="demog-card">
+          <h3 class="demog-card-title">Sex</h3>
+          <div class="demog-sex-bar">
+            {ninoDemog.bySex.map((s) => {
+              const cls = s.sex.toLowerCase() === 'male' ? 'sex-male' : 'sex-female';
+              return (
+                <span class={`demog-sex-seg ${cls}`} style={`width: ${s.sharePct}%`}>
+                  {s.sex} {s.sharePct.toFixed(1)}%
+                </span>
+              );
+            })}
+          </div>
+          {(() => {
+            const maleSh = ninoDemog!.bySex.find(s => s.sex.toLowerCase() === 'male')?.sharePct ?? 0;
+            const natMaleSh = ninoDemogNational.bySex.find(s => s.sex.toLowerCase() === 'male')?.sharePct ?? 0;
+            const diff = +(maleSh - natMaleSh).toFixed(1);
+            return (
+              <p class="demog-summary">
+                {diff > 0 ? (
+                  <>Male share is <strong>{Math.abs(diff).toFixed(1)}pp higher</strong> than the UK average ({natMaleSh.toFixed(1)}%).</>
+                ) : diff < 0 ? (
+                  <>Male share is <strong>{Math.abs(diff).toFixed(1)}pp lower</strong> than the UK average ({natMaleSh.toFixed(1)}%).</>
+                ) : (
+                  <>Male share is <strong>in line</strong> with the UK average ({natMaleSh.toFixed(1)}%).</>
+                )}
+              </p>
+            );
+          })()}
+        </div>
+      </div>
+
+      <p class="section-note">{getNinoDemographicSource()} {getNinoDemographicCaveat()}</p>
+    </section>
+  )}
+
   <!-- Routes of arrival -->
   {visaRouteRows.length > 0 && (
     <section class="section" id="visa-routes">
@@ -578,6 +679,116 @@ function fmtInt(n: number | undefined | null): string {
       </div>
 
       <p class="section-note">{getVisaRoutesSource()} {getVisaRoutesCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Schools (district-level EAL) -->
+  {ealDistrict && ealDistrict.totalPupils > 0 && (
+    <section class="section" id="schools-eal">
+      <h2>Schools — first language</h2>
+      <p class="section-desc">
+        Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, 2024/25),
+        <strong> {ealDistrict.ealPct.toFixed(1)}% have a first language other than English</strong>.
+        {ealDistrict.parentUtlaName && ealDistrict.parentUtlaName !== ealDistrict.areaName && (
+          <> The published {ealDistrict.parentUtlaName}-wide upper-tier figure is much lower because it averages every district in the county; this is the genuine {area.areaName} number.</>
+        )}
+      </p>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Pupils with first language other than English</span><span class="data-value">{ealDistrict.ealCount.toLocaleString()} ({ealDistrict.ealPct.toFixed(1)}%)</span></div>
+        <div class="data-item"><span class="data-label">Pupils with first language English</span><span class="data-value">{ealDistrict.englishCount.toLocaleString()} ({ealDistrict.englishPct.toFixed(1)}%)</span></div>
+        {ealDistrict.fsmPct != null && (
+          <div class="data-item"><span class="data-label">Free school meals</span><span class="data-value">{ealDistrict.fsmPct.toFixed(1)}%</span></div>
+        )}
+      </div>
+      <p class="section-note">
+        Source: DfE Schools, Pupils and their Characteristics 2024/25, school-level data aggregated to district. EAL is a household-level signal — children born in the UK to non-English-speaking households count as EAL.
+      </p>
+    </section>
+  )}
+
+  <!-- Regional labour market (HMRC RTI) -->
+  {payrollRegion && payrollRegion.totalEmployment && (
+    <section class="section" id="regional-labour">
+      <h2>{regionFromArea} labour market</h2>
+      <p class="section-desc">
+        Payrolled employments in the {regionFromArea} region ({payrollRegion.latestSnapshotDate}) — provides {area.areaName} with regional context. Local-authority RTI is not published; the region is the smallest geography for HMRC's nationality breakdown.
+      </p>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Total employments</span><span class="data-value">{payrollRegion.totalEmployment.toLocaleString()}</span></div>
+        <div class="data-item"><span class="data-label">Non-UK share</span><span class="data-value">{payrollRegion.nonUkSharePct?.toFixed(1)}%</span></div>
+        {payrollRegion.fiveYearChange?.NonEU != null && (
+          <div class="data-item">
+            <span class="data-label">5-year change · Non-EU</span>
+            <span class="data-value" style={`color: ${payrollRegion.fiveYearChange.NonEU > 0 ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
+              {payrollRegion.fiveYearChange.NonEU > 0 ? '+' : ''}{payrollRegion.fiveYearChange.NonEU.toLocaleString()}
+            </span>
+          </div>
+        )}
+        {payrollRegion.fiveYearChange?.EU != null && (
+          <div class="data-item">
+            <span class="data-label">5-year change · EU</span>
+            <span class="data-value" style={`color: ${payrollRegion.fiveYearChange.EU > 0 ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
+              {payrollRegion.fiveYearChange.EU > 0 ? '+' : ''}{payrollRegion.fiveYearChange.EU.toLocaleString()}
+            </span>
+          </div>
+        )}
+      </div>
+      {topRegionIndustries.length > 0 && (
+        <div class="rl-industries">
+          <h3 class="rl-sub">Top industries by non-UK share ({regionFromArea})</h3>
+          {topRegionIndustries.map(([name, v]) => (
+            <div class="rl-row">
+              <span class="rl-name">{name}</span>
+              <span class="rl-track">
+                <span class="rl-fill" style={`width: ${v.nonUkSharePct}%`}></span>
+              </span>
+              <span class="rl-pct">{(v.nonUkSharePct ?? 0).toFixed(1)}%</span>
+            </div>
+          ))}
+        </div>
+      )}
+      <p class="section-note">
+        Source: HMRC Real Time Information via ONS, payrolled employments by region and industrial sector, July 2014 to {payrollRegion.latestSnapshotDate}. Counts are employments not employees; suppressed cells appear as missing.
+      </p>
+    </section>
+  )}
+
+  <!-- Housing & household composition -->
+  {(hmo || ctSpd) && (
+    <section class="section" id="housing-composition">
+      <h2>Housing and household composition</h2>
+      <p class="section-desc">
+        Indicators of how dwellings in {area.areaName} are occupied — single-person households and houses in multiple occupation are the two cleanest available signals.
+      </p>
+      <div class="data-grid">
+        {ctSpd && ctSpd.singlePersonDiscountPctOfChargeable != null && (
+          <>
+            <div class="data-item">
+              <span class="data-label">Single-person discount take-up</span>
+              <span class="data-value">{ctSpd.singlePersonDiscountPctOfChargeable.toFixed(1)}%</span>
+            </div>
+            <div class="data-item">
+              <span class="data-label">Dwellings on 25% single-person discount</span>
+              <span class="data-value">{ctSpd.singlePersonDiscount25.toLocaleString()}</span>
+            </div>
+          </>
+        )}
+        {hmo && hmo.hmoPer1kPopulation != null && (
+          <>
+            <div class="data-item">
+              <span class="data-label">HMO dwellings (Census 2021)</span>
+              <span class="data-value">{hmo.totalHmoDwellings.toLocaleString()}</span>
+            </div>
+            <div class="data-item">
+              <span class="data-label">HMOs per 1,000 population</span>
+              <span class="data-value">{hmo.hmoPer1kPopulation.toFixed(2)}</span>
+            </div>
+          </>
+        )}
+      </div>
+      <p class="section-note">
+        Sources: MHCLG Council Taxbase 2024 (CTB1, snapshot 7 October 2024) for single-person discount; ONS Census 2021 RM192 for HMO dwellings. HMO Census numbers reflect dwellings classified as HMO on Census Day; current licensing registers held by individual councils are not centrally published.
+      </p>
     </section>
   )}
 
@@ -990,6 +1201,161 @@ function fmtInt(n: number | undefined | null): string {
   @media (max-width: 540px) {
     .vr-bar { height: 26px; }
     .vr-seg { font-size: 0.72rem; }
+  }
+
+  /* Demographic profile (age + sex) */
+  .demog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 0.5rem 0 1rem;
+  }
+  .demog-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    background: rgba(255,255,255,0.02);
+  }
+  .demog-card-title {
+    font-family: "Sora", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.85rem;
+    letter-spacing: 0.02em;
+  }
+  .demog-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .demog-bar-row {
+    display: grid;
+    grid-template-columns: 70px 1fr 50px;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .demog-band {
+    color: var(--muted);
+    font-family: "Sora", sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+  .demog-bar-track {
+    position: relative;
+    height: 14px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    overflow: visible;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  .demog-bar-la {
+    position: absolute; top: 0; left: 0; bottom: 0;
+    background: #7c3aed;
+    border-radius: 4px;
+    transition: width 0.2s;
+  }
+  .demog-bar-nat-marker {
+    position: absolute; top: -3px; bottom: -3px;
+    width: 2px;
+    background: rgba(255,255,255,0.65);
+    transform: translateX(-1px);
+  }
+  .demog-pct {
+    color: var(--ink);
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .demog-legend {
+    margin: 0.85rem 0 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .demog-legend-la, .demog-legend-nat {
+    display: inline-block;
+    width: 14px; height: 4px; border-radius: 2px;
+    vertical-align: middle;
+  }
+  .demog-legend-la { background: #7c3aed; }
+  .demog-legend-nat { background: rgba(255,255,255,0.65); height: 14px; width: 2px; }
+  .demog-sex-bar {
+    display: flex;
+    width: 100%;
+    height: 36px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .demog-sex-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+    transition: opacity 0.15s ease;
+  }
+  .demog-sex-seg.sex-male   { background: #1f6feb; }
+  .demog-sex-seg.sex-female { background: #c2410c; }
+  .demog-summary {
+    margin: 0.85rem 0 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .demog-summary strong { color: var(--ink); }
+  @media (max-width: 760px) {
+    .demog-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Regional labour mini bars */
+  .rl-industries { margin-top: 0.85rem; }
+  .rl-sub {
+    font-family: "Sora", sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.6rem;
+  }
+  .rl-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 50px;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.35rem;
+  }
+  .rl-name {
+    color: var(--ink);
+    font-family: "Sora", sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rl-track {
+    height: 12px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .rl-fill { display: block; height: 100%; background: #14904a; }
+  .rl-pct {
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    text-align: right;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 540px) {
+    .rl-row { grid-template-columns: 1fr 60px; }
+    .rl-row .rl-track { display: none; }
   }
 
   @media (max-width: 640px) {
