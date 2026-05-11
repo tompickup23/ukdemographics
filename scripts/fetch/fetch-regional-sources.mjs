@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
-import { mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 const rawDir = path.resolve("data/raw/regional_sources");
@@ -159,6 +159,18 @@ for (const page of pageDownloads) {
   downloadFile(page.sourceUrl, path.join(rawDir, page.fileName));
 }
 
+// Build manifest tolerantly — if either upstream JSON failed to fetch
+// (e.g. the source returned a 403/captcha), the file was never written and
+// statSync would throw. Skip those rows in the manifest rather than failing
+// the whole refresh.
+function manifestEntry(fileName, sourceUrl) {
+  const full = path.join(rawDir, fileName);
+  if (!existsSync(full)) {
+    return { fileName, sourceUrl, status: "missing", note: "upstream fetch failed (likely 403/captcha); see fetch step warnings" };
+  }
+  return { fileName, sourceUrl, sizeBytes: statSync(full).size, fileSha256: fileSha256(full) };
+}
+
 const manifest = {
   generatedAt: new Date().toISOString(),
   datasetId: "regional_sources",
@@ -166,18 +178,8 @@ const manifest = {
   pageUrl,
   workbookCount: workbookDocuments.length,
   files: [
-    {
-      fileName: "nwrsmp-media.json",
-      sourceUrl: mediaUrl,
-      sizeBytes: statSync(path.join(rawDir, "nwrsmp-media.json")).size,
-      fileSha256: fileSha256(path.join(rawDir, "nwrsmp-media.json"))
-    },
-    {
-      fileName: "nwrsmp-data-page.json",
-      sourceUrl: pageUrl,
-      sizeBytes: statSync(path.join(rawDir, "nwrsmp-data-page.json")).size,
-      fileSha256: fileSha256(path.join(rawDir, "nwrsmp-data-page.json"))
-    },
+    manifestEntry("nwrsmp-media.json", mediaUrl),
+    manifestEntry("nwrsmp-data-page.json", pageUrl),
     ...pageDownloads.map((page) => ({
       fileName: page.fileName,
       sourceUrl: page.sourceUrl,
