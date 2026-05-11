@@ -402,7 +402,7 @@ function fmtInt(n: number | undefined | null): string {
         </div>
       )}
 
-      {modelSpread && (
+      {modelSpread && typeof modelSpread.hamiltonPerry === 'number' && typeof modelSpread.cohortComponent === 'number' && (
         <div class="model-compare">
           <div class="model-compare-head">
             <h3>Two-model comparison &mdash; White British, 2051</h3>
@@ -442,7 +442,7 @@ function fmtInt(n: number | undefined | null): string {
   )}
 
   <!-- Shift-share — visual decomposition -->
-  {shiftShareData && (
+  {shiftShareData && typeof shiftShareData.totalChangePp === 'number' && typeof shiftShareData.nationalEffectPp === 'number' && typeof shiftShareData.structuralEffectPp === 'number' && typeof shiftShareData.localEffectPp === 'number' && (
     <section class="section" id="shift-share">
       <h2>What&rsquo;s driving change</h2>
       <p class="section-desc">
