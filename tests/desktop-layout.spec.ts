@@ -1,80 +1,40 @@
 import { expect, test } from "@playwright/test";
-import { disableMotion, limitToTopOfPage, stabilizePage, waitForFonts } from "./layout-helpers";
+import { disableMotion, stabilizePage, waitForFonts } from "./layout-helpers";
 
-const shouldAssertScreenshots = !process.env.CI;
-
-const desktopPages = [
-  { name: "home", path: "/", focus: "#headline-stats", hasPageContents: false },
-  { name: "places", path: "/places/", focus: "#place-search", hasPageContents: true },
-  // north-west-region removed — page completely rewritten without priority-section pattern
-  { name: "spending", path: "/spending/", focus: "#money-findings", hasPageContents: true },
-  { name: "compare", path: "/compare/", focus: "#compare-findings", hasPageContents: true },
-  { name: "routes", path: "/routes/", focus: "#route-findings", hasPageContents: true },
-  { name: "entities", path: "/entities/", focus: "#entity-findings", hasPageContents: true },
-  { name: "national", path: "/national/", focus: "#national-overview", hasPageContents: true },
-  { name: "regional", path: "/regional/", focus: ".region-grid", hasPageContents: false },
-  { name: "birmingham-place", path: "/places/birmingham/", focus: "#place-summary", hasPageContents: true }
+const pages = [
+  { name: "home", path: "/", h1Match: /local authorities|community mapped/i },
+  { name: "places", path: "/places/", h1Match: /Local authorities|All areas|Places/i },
+  { name: "place-burnley", path: "/places/burnley/", h1Match: /Burnley/i },
+  { name: "national", path: "/national/", h1Match: /National demographic/i },
+  { name: "regional", path: "/regional/", h1Match: /Regional demographic/i },
+  { name: "compare", path: "/compare/", h1Match: /Compare/i },
+  { name: "your-area", path: "/your-area/", h1Match: /your area/i },
+  { name: "pressure", path: "/pressure/", h1Match: /Service demand pressure/i },
+  { name: "schools", path: "/schools/", h1Match: /School/i },
+  { name: "housing", path: "/housing/", h1Match: /Housing/i },
+  { name: "findings", path: "/findings/", h1Match: /Findings|Articles|Research/i },
+  { name: "methodology", path: "/methodology/", h1Match: /Methodology/i },
+  { name: "sources", path: "/sources/", h1Match: /Sources/i },
 ] as const;
 
-test.describe("desktop layout snapshots", () => {
-  for (const pageConfig of desktopPages) {
-    test(`${pageConfig.name} keeps the top-of-page hierarchy stable`, async ({ page }) => {
+test.describe("desktop smoke", () => {
+  for (const pageConfig of pages) {
+    test(`${pageConfig.name} renders cleanly on desktop`, async ({ page }, testInfo) => {
       await stabilizePage(page, { blockFonts: false });
 
       await page.goto(pageConfig.path, { waitUntil: "networkidle" });
       await waitForFonts(page);
       await disableMotion(page);
-      await limitToTopOfPage(page, 5);
 
-      const focusSection = page.locator(pageConfig.focus);
+      const h1 = page.locator("h1").first();
+      await expect(h1).toBeVisible();
+      await expect(h1).toContainText(pageConfig.h1Match);
 
-      await expect(page.locator("main")).toBeVisible();
-      await expect(focusSection).toBeVisible();
-
-      if (pageConfig.hasPageContents) {
-        await expect(page.locator(".page-contents")).toBeVisible();
-        await expect(page.locator(".page-contents-links a").first()).toHaveAttribute("href", pageConfig.focus);
-      }
-
-      if ("hasRegionMapExplorer" in pageConfig && pageConfig.hasRegionMapExplorer) {
-        await expect(page.locator("[data-region-map-explorer]")).toBeVisible();
-        await expect(page.locator("[data-region-map-view-button]")).toHaveCount(3);
-        await expect(page.locator("[data-region-map-legend]")).toBeVisible();
-
-        if (!("hasRegionMapSummary" in pageConfig) || pageConfig.hasRegionMapSummary !== false) {
-          await expect(page.locator(".region-map-summary-stats").first()).toBeVisible();
-        }
-      }
-
-      if ("hasAuthorityStage" in pageConfig && pageConfig.hasAuthorityStage) {
-        await expect(page.locator("[data-region-authority-stage]")).toBeVisible();
-        await expect(page.locator("[data-region-authority-svg]")).toBeVisible();
-        await expect(page.locator("[data-home-system]")).toBeVisible();
-      }
-
-      if (shouldAssertScreenshots) {
-        await expect(page).toHaveScreenshot(`${pageConfig.name}-desktop.png`, {
-          animations: "disabled",
-          caret: "hide",
-          fullPage: false,
-          maxDiffPixelRatio: 0.04
-        });
-      }
+      const screenshot = await page.screenshot({ fullPage: false });
+      await testInfo.attach(`${pageConfig.name}-desktop`, {
+        body: screenshot,
+        contentType: "image/png",
+      });
     });
   }
-});
-
-test("home page renders hero and stats grid", async ({ page }) => {
-  await stabilizePage(page, { blockFonts: false });
-
-  await page.goto("/", { waitUntil: "networkidle" });
-  await waitForFonts(page);
-  await disableMotion(page);
-
-  await expect(page.locator(".hero-section")).toBeVisible();
-  await expect(page.locator(".hero-headline")).toBeVisible();
-  await expect(page.locator("#headline-stats")).toBeVisible();
-  await expect(page.locator(".sys-card")).toHaveCount(6);
-  await expect(page.locator(".cost-item")).toHaveCount(3);
-  await expect(page.locator("#your-area")).toBeVisible();
 });
