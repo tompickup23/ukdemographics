@@ -1,13 +1,16 @@
-@import "tailwindcss";
 @import "@fontsource-variable/manrope";
 @import "@fontsource-variable/sora";
 
 :root {
-  color-scheme: dark;
-  /* Brand: UK Demographics — population data theme */
+  /* UKD is dark-first; light tokens come via prefers-color-scheme: light below. */
+  color-scheme: dark light;
+
+  /* === Surfaces + text === */
   --bg: #04070d;        /* brand bg: abyss */
   --bg-soft: #0b1220;   /* brand surface */
   --bg-deep: #07101d;
+  --surface: var(--bg-soft);       /* UKE-compat alias for card backgrounds */
+  --surface-muted: var(--bg-deep); /* UKE-compat alias */
   --ink: #f5f7fb;        /* brand text_bright */
   --ink-soft: #dbe7f7;   /* brand text */
   --muted: #91a7c4;      /* brand text_muted */
@@ -16,15 +19,112 @@
   --panel-soft: rgba(255, 255, 255, 0.05);
   --border: #1e293b;     /* brand border */
   --border-strong: rgba(255, 255, 255, 0.18);
-  --accent: #4f46e5;     /* brand accent: indigo */
-  --accent-2: #10b981;   /* brand success: emerald */
-  --accent-3: #06b6d4;   /* brand secondary: cyan */
-  --accent-glow: rgba(79, 70, 229, 0.28);
-  --coral: #ef4444;      /* brand critical */
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
   --shadow-soft: 0 16px 38px rgba(0, 0, 0, 0.28);
+
+  /* === Brand accents === */
+  --accent: #4f46e5;          /* brand accent: indigo */
+  --accent-2: #10b981;        /* brand success: emerald */
+  --accent-3: #06b6d4;        /* brand secondary: cyan */
+  --accent-teal: #06b6d4;     /* alias of accent-3 — UKE-compat name */
+  --accent-teal-deep: #0a6c7a; /* shadowed companion */
+  --accent-glow: rgba(79, 70, 229, 0.28);
+  --coral: #ef4444;           /* brand critical */
+
+  /* === Status palette (tuned for dark surfaces) === */
+  --status-warn-bg: rgba(252, 211, 77, 0.08);
+  --status-warn-border: rgba(252, 211, 77, 0.45);
+  --status-warn-text: #fbbf24;
+  --status-warn-tint: rgba(252, 211, 77, 0.14);
+  --status-warn-dark: #fde68a;
+  --status-good-text: #4ade80;
+  --status-bad-text: #f87171;
+
+  /* === Tooltip / inverted surfaces === */
+  --tooltip-bg: #e6edf3;
+  --tooltip-fg: #0d1117;
+
+  /* === Spacing scale === */
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+
+  /* === Type scale anchors (fluid where it matters) === */
+  --text-display: clamp(2.2rem, 6vw, 4rem);
+  --text-h1:      clamp(1.8rem, 4.5vw, 2.75rem);
+  --text-h2:      clamp(1.4rem, 2.8vw, 1.8rem);
+  --text-h3:      1.2rem;
+  --text-body:    1rem;
+  --text-small:   0.88rem;
+  --text-eyebrow: 0.78rem;
+
+  /* === Focus ring === */
+  --focus-ring: rgba(125, 211, 252, 0.9);
+
+  /* === Body decoration (tokenised so light mode can override) === */
+  --body-bg-image:
+    radial-gradient(circle at top left, rgba(79, 70, 229, 0.14), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(79, 70, 229, 0.10), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(6, 182, 212, 0.06), transparent 28%),
+    linear-gradient(180deg, #050812 0%, #08101c 45%, #04070d 100%);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --grid-vignette: rgba(3, 6, 12, 0.42);
+  --header-backdrop: rgba(5, 10, 18, 0.72);
+
+  /* === Geometry === */
   --radius: 28px;
   --radius-sm: 20px;
+}
+
+/* === Light mode (system preference; no manual toggle in v1) === */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f8fb;
+    --bg-soft: #ffffff;
+    --bg-deep: #eef2f7;
+    --ink: #0b1220;
+    --ink-soft: #1f2937;
+    --muted: #5b6b80;
+    --panel: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 248, 251, 0.92));
+    --panel-strong: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 242, 247, 0.96));
+    --panel-soft: rgba(11, 18, 32, 0.04);
+    --border: #d4dce6;
+    --border-strong: rgba(11, 18, 32, 0.18);
+    --shadow: 0 18px 44px rgba(17, 24, 39, 0.12);
+    --shadow-soft: 0 10px 24px rgba(17, 24, 39, 0.08);
+
+    /* Accent stays indigo; tint the glow for legibility on light. */
+    --accent-glow: rgba(79, 70, 229, 0.18);
+
+    /* Status palette: solid pastels on light. */
+    --status-warn-bg: #fff7ed;
+    --status-warn-border: #fdba74;
+    --status-warn-text: #9a3412;
+    --status-warn-tint: #fef3c7;
+    --status-warn-dark: #78350f;
+    --status-good-text: #167d3a;
+    --status-bad-text: #b5331f;
+
+    /* Tooltip flips to dark surface on light. */
+    --tooltip-bg: #111827;
+    --tooltip-fg: #ffffff;
+
+    --focus-ring: rgba(29, 78, 137, 0.85);
+
+    --body-bg-image:
+      radial-gradient(circle at top left, rgba(79, 70, 229, 0.10), transparent 30%),
+      radial-gradient(circle at 80% 0%, rgba(79, 70, 229, 0.06), transparent 24%),
+      radial-gradient(circle at 50% 100%, rgba(6, 182, 212, 0.05), transparent 28%),
+      linear-gradient(180deg, #ffffff 0%, #f6f8fb 45%, #eef2f7 100%);
+    --grid-line: rgba(11, 18, 32, 0.05);
+    --grid-vignette: rgba(255, 255, 255, 0.0);
+    --header-backdrop: rgba(255, 255, 255, 0.78);
+  }
 }
 
 * {
@@ -46,11 +146,7 @@ body {
   font-family: "Manrope", sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background:
-    radial-gradient(circle at top left, rgba(79, 70, 229, 0.14), transparent 30%),
-    radial-gradient(circle at 80% 0%, rgba(79, 70, 229, 0.10), transparent 24%),
-    radial-gradient(circle at 50% 100%, rgba(6, 182, 212, 0.06), transparent 28%),
-    linear-gradient(180deg, #050812 0%, #08101c 45%, #04070d 100%);
+  background: var(--body-bg-image);
 }
 
 body::before,
@@ -63,8 +159,8 @@ body::after {
 
 body::before {
   background:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 100% 28px, 28px 100%;
   -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 70%);
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 70%);
@@ -73,7 +169,7 @@ body::before {
 
 body::after {
   background:
-    radial-gradient(circle at center, transparent 45%, rgba(3, 6, 12, 0.42) 100%);
+    radial-gradient(circle at center, transparent 45%, var(--grid-vignette) 100%);
 }
 
 body.site-search-open {
@@ -155,7 +251,7 @@ textarea {
   padding: 0.95rem 1.05rem;
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 4px);
-  background: rgba(5, 10, 18, 0.72);
+  background: var(--header-backdrop);
   box-shadow: var(--shadow-soft);
   -webkit-backdrop-filter: blur(22px) saturate(180%);
   backdrop-filter: blur(22px) saturate(180%);
@@ -5438,4 +5534,257 @@ tr:last-child td {
   border: none;
   border-top: 1px solid var(--border);
   margin: 0.5rem 0.85rem;
+}
+
+/* ====================================================================
+   Phase 1 components — ported from UKE elevation campaign (19 May 2026)
+   ==================================================================== */
+
+/* === HeroClock === */
+.hero-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  padding-left: 1rem;
+  border-left: 4px solid color-mix(in oklab, var(--accent-3) 35%, transparent);
+  font-family: "Sora", system-ui, sans-serif;
+  font-feature-settings: "tnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-number {
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  line-height: 0.85;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.clock-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* === RaceBar — categorical stacked share bar === */
+.hero-race {
+  margin: 0 0 1.75rem;
+}
+
+.hero-race-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.65rem;
+}
+
+.hero-race-bar {
+  display: flex;
+  width: 100%;
+  height: 64px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow:
+    inset 0 0 0 1px var(--border),
+    0 1px 3px rgba(0, 0, 0, 0.18);
+}
+
+.hero-race-segment {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  transition: filter 0.15s ease-out;
+  cursor: default;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.18);
+}
+
+.hero-race-segment:last-child {
+  box-shadow: none;
+}
+
+.hero-race-segment:hover {
+  filter: brightness(1.08);
+}
+
+.hero-race-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+  padding: 0 0.4rem;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+}
+
+.hero-race-party {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hero-race-pct {
+  font-size: 1rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* Defensive: dark text on yellow segment fills (Lib Dem / SNP palettes
+   if a caller passes them). Inert until those colours are used. */
+.hero-race-segment[style*="#f59e0b"] .hero-race-label,
+.hero-race-segment[style*="#fdf24e"] .hero-race-label {
+  color: #1a1a1a;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+.hero-race-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.85rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+}
+
+.hero-race-legend li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.hero-race-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  align-self: center;
+}
+
+.hero-race-legend-party {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.hero-race-legend-pct {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.hero-race-legend-cand {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.hero-race-legend-cand::before {
+  content: "·";
+  margin-right: 0.4rem;
+  color: var(--border-strong);
+}
+
+/* === StatCard === */
+.stat-card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.stat-card {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr auto;
+  gap: 0.15rem 0.6rem;
+  align-items: baseline;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.stat-card-value {
+  grid-column: 1 / 2;
+  font-family: "Sora", system-ui, sans-serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.stat-card-trend {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  align-self: center;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: var(--panel-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
+
+.stat-card-trend.swing-up {
+  background: color-mix(in srgb, var(--status-good-text) 16%, transparent);
+  color: var(--status-good-text);
+}
+
+.stat-card-trend.swing-down {
+  background: color-mix(in srgb, var(--status-bad-text) 16%, transparent);
+  color: var(--status-bad-text);
+}
+
+.stat-card-spark {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  align-self: center;
+  width: 80px;
+  height: 24px;
+  display: block;
+}
+
+.stat-card-label {
+  grid-column: 1 / -1;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+/* === Mobile responsive — race bar + clock === */
+@media (max-width: 720px) {
+  .hero-clock {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding-left: 0;
+    border-left: none;
+    border-top: 3px solid color-mix(in oklab, var(--accent-3) 35%, transparent);
+    padding-top: 0.8rem;
+  }
+  .clock-number { font-size: 3.25rem; }
+  .clock-label  { font-size: 0.78rem; }
+  .hero-race-bar { height: 56px; }
+}
+
+@media (max-width: 480px) {
+  .hero-race-party { font-size: 0.65rem; }
+  .hero-race-pct   { font-size: 0.9rem;  }
 }

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import StatCard from "../../components/StatCard.astro";
+import RaceBar from "../../components/RaceBar.astro";
 import {
   getAllPcons,
   getMpForPcon,
@@ -29,12 +31,6 @@ const constituentLasWithPages = pcon.constituentLas
   .filter((l) => l.area)
   .slice(0, 10);
 
-// Sort shares descending for the bar chart.
-const sharesSorted = Object.entries(pcon.ge2024.shares)
-  .filter(([, v]) => v > 0.001)
-  .sort(([, a], [, b]) => b - a)
-  .map(([party, share]) => ({ party, share }));
-
 const partyColors: Record<string, string> = {
   Labour: "#dc241f",
   "Reform UK": "#12b6cf",
@@ -45,6 +41,16 @@ const partyColors: Record<string, string> = {
   SNP: "#fdf38e",
   Independent: "#999999",
 };
+
+// Build RaceBar segments from the GE2024 result, ordered descending.
+const raceBarSegments = Object.entries(pcon.ge2024.shares)
+  .filter(([, v]) => v > 0.001)
+  .sort(([, a], [, b]) => b - a)
+  .map(([party, share]) => ({
+    label: party,
+    pct: share,
+    colour: partyColors[party] ?? "var(--accent)",
+  }));
 ---
 
 <BaseLayout
@@ -74,34 +80,42 @@ const partyColors: Record<string, string> = {
 
   <section class="section" id="ge2024">
     <h2>2024 General Election result</h2>
-    <p class="section-desc">
-      Total valid votes: <strong>{pcon.ge2024.totalVotes?.toLocaleString() ?? "—"}</strong>.
-      Winner: <strong>{pcon.ge2024.winner ?? "—"}</strong> on {pcon.ge2024.winnerSharePct.toFixed(1)}%.
-      {pcon.ge2024.majorityPp != null && (
-        <>{" "}Majority over {pcon.ge2024.runnerUp}: <strong>{pcon.ge2024.majorityPp.toFixed(1)}pp</strong>.</>
-      )}
-    </p>
-    <div class="ge-bars">
-      {sharesSorted.map(({ party, share }) => (
-        <div class="ge-row">
-          <span class="ge-party">{party}</span>
-          <div class="ge-bar">
-            <div class="ge-fill" style={`width: ${(share * 100).toFixed(2)}%; background: ${partyColors[party] ?? "var(--accent)"}`}></div>
-          </div>
-          <span class="ge-pct">{(share * 100).toFixed(1)}%</span>
-        </div>
-      ))}
+    <div class="stat-card-row">
+      <StatCard
+        value={pcon.ge2024.winner ?? "—"}
+        label="Winner"
+        accent={pcon.ge2024.winner ? (partyColors[pcon.ge2024.winner] ?? "var(--accent)") : null}
+      />
+      <StatCard
+        value={`${pcon.ge2024.winnerSharePct.toFixed(1)}%`}
+        label="Winning share"
+      />
+      <StatCard
+        value={pcon.ge2024.majorityPp != null ? `${pcon.ge2024.majorityPp.toFixed(1)}pp` : "—"}
+        label={pcon.ge2024.runnerUp ? `Majority over ${pcon.ge2024.runnerUp}` : "Majority"}
+      />
+      <StatCard
+        value={pcon.ge2024.totalVotes != null ? pcon.ge2024.totalVotes.toLocaleString() : "—"}
+        label="Valid votes cast"
+      />
     </div>
+    <RaceBar
+      segments={raceBarSegments}
+      title="Vote share by party"
+      ariaLabel={`2024 General Election vote shares in ${pcon.name}`}
+      height={56}
+    />
   </section>
 
   {pipClaimants != null && (
     <section class="section" id="pip">
       <h2>Personal Independence Payment</h2>
-      <div class="data-grid">
-        <div class="data-item">
-          <span class="data-label">PIP claimants (Jan 2026)</span>
-          <span class="data-value">{pipClaimants.toLocaleString()}</span>
-        </div>
+      <div class="stat-card-row" style="grid-template-columns: minmax(0, 18rem);">
+        <StatCard
+          value={pipClaimants.toLocaleString()}
+          label="PIP claimants · Jan 2026"
+          accent="var(--accent)"
+        />
       </div>
       <p class="section-note">Source: DWP Stat-Xplore, PIP Monthly New. Constituency totals only — no demographic breakdown is published at PCON level.</p>
     </section>
@@ -139,20 +153,9 @@ const partyColors: Record<string, string> = {
   .mp-name { font-family: "Sora", sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); }
   .mp-party { font-size: 0.92rem; font-weight: 700; }
   .mp-elected { font-size: 0.78rem; color: var(--muted); }
-  .ge-bars { display: flex; flex-direction: column; gap: 0.35rem; max-width: 640px; }
-  .ge-row { display: grid; grid-template-columns: 160px 1fr 60px; gap: 0.75rem; align-items: center; font-size: 0.88rem; }
-  .ge-party { font-weight: 600; }
-  .ge-bar { height: 18px; background: var(--panel); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-  .ge-fill { height: 100%; }
-  .ge-pct { font-family: "Sora", sans-serif; font-weight: 700; font-size: 0.85rem; text-align: right; }
-  .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; max-width: 640px; }
-  .data-item { display: flex; justify-content: space-between; padding: 0.55rem 0.8rem; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
-  .data-label { font-size: 0.85rem; color: var(--muted); }
-  .data-value { font-family: "Sora", sans-serif; font-size: 0.92rem; font-weight: 700; color: var(--accent); }
   .la-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.5rem; }
   .la-card { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.7rem 0.85rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--ink); transition: background 120ms; }
-  .la-card:hover { background: rgba(79, 70, 229, 0.06); }
+  .la-card:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
   .la-name { font-weight: 600; font-size: 0.92rem; }
   .la-share { font-size: 0.78rem; color: var(--muted); }
-  @media (max-width: 640px) { .ge-row { grid-template-columns: 110px 1fr 50px; gap: 0.5rem; } }
 </style>

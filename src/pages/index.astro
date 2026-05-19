@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import DataFreshness from "../components/DataFreshness.astro";
 import ShareButton from "../components/ShareButton.astro";
 import SisterSiteTeaser from "../components/SisterSiteTeaser.astro";
+import StatCard from "../components/StatCard.astro";
 import { getSignificantDemographicShifts, getEthnicProjection } from "../lib/ethnic-projections";
 import rawProjections from "../data/live/ethnic-projections.json";
 import { slugifyAreaName, SITE_URL, getPublicPlaceAreas } from "../lib/site";
@@ -200,23 +201,27 @@ function findingColor(verdict: string): string {
       </div>
 
       <!-- Key stats grid -->
-      <div class="demo-key-stats">
-        <div class="demo-key-stat">
-          <span class="demo-key-number" style="color: var(--coral);">{areasBelow50}</span>
-          <span class="demo-key-label">areas WBI under 50% by 2051</span>
-        </div>
-        <div class="demo-key-stat">
-          <span class="demo-key-number" style="color: var(--accent-3);">{areasBelow50by2061}</span>
-          <span class="demo-key-label">areas WBI under 50% by 2061</span>
-        </div>
-        <div class="demo-key-stat">
-          <span class="demo-key-number" style="color: var(--accent-3);">{muslimMajority2051}</span>
-          <span class="demo-key-label">areas projected Muslim majority by 2051</span>
-        </div>
-        <div class="demo-key-stat">
-          <span class="demo-key-number" style="color: var(--accent);">{foreignBornMajority2051}</span>
-          <span class="demo-key-label">areas projected foreign-born majority by 2051</span>
-        </div>
+      <div class="stat-card-row" style="margin-top: 1.5rem;">
+        <StatCard
+          value={areasBelow50.toString()}
+          label="areas WBI under 50% by 2051"
+          accent="var(--coral)"
+        />
+        <StatCard
+          value={areasBelow50by2061.toString()}
+          label="areas WBI under 50% by 2061"
+          accent="var(--accent-3)"
+        />
+        <StatCard
+          value={muslimMajority2051.toString()}
+          label="areas projected Muslim majority by 2051"
+          accent="var(--accent-3)"
+        />
+        <StatCard
+          value={foreignBornMajority2051.toString()}
+          label="areas projected foreign-born majority by 2051"
+          accent="var(--accent)"
+        />
       </div>
 
       <!-- Top areas bar chart -->
@@ -711,10 +716,6 @@ function findingColor(verdict: string): string {
   .demo-traj-pct { font-family: "Sora", sans-serif; font-size: 0.92rem; font-weight: 800; color: rgba(0, 0, 0, 0.8); }
   .demo-traj-note { display: block; font-size: 0.75rem; color: var(--muted); opacity: 0.6; margin-top: 0.5rem; line-height: 1.4; }
   .demo-traj-note a { color: var(--accent); }
-  .demo-key-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.5rem; }
-  .demo-key-stat { text-align: center; padding: 1rem 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--panel); }
-  .demo-key-number { display: block; font-family: "Sora", sans-serif; font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
-  .demo-key-label { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.3; }
   .demo-bar-section { margin-top: 1.5rem; }
   .demo-bar-title { font-family: "Sora", sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--ink-soft); margin: 0 0 0.75rem; }
   .demo-bar-visual { display: flex; flex-direction: column; gap: 0.35rem; }

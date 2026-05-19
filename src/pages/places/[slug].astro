@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import DataFreshness from "../../components/DataFreshness.astro";
 import ShareButton from "../../components/ShareButton.astro";
+import StatCard from "../../components/StatCard.astro";
 import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
 import ProjectionChart from "../../components/ProjectionChart.astro";
 import ShiftShareChart from "../../components/ShiftShareChart.astro";
@@ -377,30 +378,40 @@ function fmtInt(n: number | undefined | null): string {
   </div>
 
   {headlineStat && (
-    <div class="headline-banner">
-      <span class="headline-value">{headlineStat.value}</span>
-      <span class="headline-trend">{headlineStat.trend}</span>
+    <div class="stat-card-row place-hero-row">
+      <StatCard
+        value={headlineStat.value}
+        label={headlineStat.trend ?? ""}
+        accent="var(--accent)"
+      />
     </div>
   )}
 
   <!-- Key metrics -->
-  <section class="metrics-grid">
-    <div class="metric-card">
-      <span class="metric-value">{fmtInt(population)}</span>
-      <span class="metric-label">Population (2021 Census)</span>
-    </div>
-    <div class="metric-card">
-      <span class="metric-value" style="color: var(--accent);">{fmtPct(wbi2021)}</span>
-      <span class="metric-label">White British (2021)</span>
-    </div>
-    <div class="metric-card">
-      <span class="metric-value" style="color: var(--accent-3);">{fmtPct(wbi2041)}</span>
-      <span class="metric-label">White British (2041 projected)</span>
-    </div>
-    <div class="metric-card">
-      <span class="metric-value" style="color: var(--coral);">{fmtPct(wbi2051)}</span>
-      <span class="metric-label">White British (2051 projected)</span>
-    </div>
+  <section class="stat-card-row">
+    <StatCard
+      value={fmtInt(population)}
+      label="Population (2021 Census)"
+    />
+    <StatCard
+      value={fmtPct(wbi2021)}
+      label="White British (2021)"
+      accent="var(--accent)"
+    />
+    <StatCard
+      value={fmtPct(wbi2041)}
+      label="White British (2041 projected)"
+      accent="var(--accent-3)"
+      trend={wbi2021 != null && wbi2041 != null ? `${(wbi2041 - wbi2021).toFixed(1)}pp` : null}
+      trendDirection={wbi2021 != null && wbi2041 != null ? (wbi2041 < wbi2021 ? "down" : "up") : "flat"}
+    />
+    <StatCard
+      value={fmtPct(wbi2051)}
+      label="White British (2051 projected)"
+      accent="var(--coral)"
+      trend={wbi2021 != null && wbi2051 != null ? `${(wbi2051 - wbi2021).toFixed(1)}pp` : null}
+      trendDirection={wbi2021 != null && wbi2051 != null ? (wbi2051 < wbi2021 ? "down" : "up") : "flat"}
+    />
   </section>
 
   <!-- Ethnic composition — trajectory chart + timeline -->
@@ -1352,24 +1363,10 @@ function fmtInt(n: number | undefined | null): string {
   .place-identity h1 { font-family: "Sora", sans-serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin: 0; color: var(--ink); }
   .place-region { font-size: 0.88rem; color: var(--muted); }
 
-  .headline-banner {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 1.25rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .headline-value { font-family: "Sora", sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--accent); }
-  .headline-trend { font-size: 0.88rem; color: var(--muted); }
+  .place-hero-row { grid-template-columns: 1fr; max-width: 32rem; margin: 0 0 1.25rem; }
+  .place-hero-row .stat-card-value { font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--accent); }
+  .place-hero-row .stat-card-label { color: var(--ink-soft); }
 
-  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; margin-bottom: 2rem; }
-  .metric-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; display: flex; flex-direction: column; gap: 0.2rem; }
-  .metric-value { font-family: "Sora", sans-serif; font-size: 1.5rem; font-weight: 800; line-height: 1; color: var(--ink); }
-  .metric-label { font-size: 0.82rem; color: var(--muted); }
 
   .section { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
   .section h2 { font-family: "Sora", sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--ink); margin: 0 0 0.5rem; }
