@@ -20,6 +20,7 @@ import { getParentUtla } from "../../lib/area-hierarchy";
 import { getCensusEnglish } from "../../lib/census-english";
 import { getTopEthnicGroupsByTenure } from "../../lib/census-tenure";
 import { getTopEthnicGroupsByHealth } from "../../lib/census-health";
+import { getPconsForLa } from "../../lib/pcon-data";
 import { getNinoProfile, getNinoTotalPercentile, getNinoSource, getNinoCaveat } from "../../lib/nino-data";
 import { getVisaRouteMix, getVisaRoutesSource, getVisaRoutesCaveat, getVisaRoutesYear } from "../../lib/visa-routes-data";
 import { getNinoHistorical, getNinoHistoricalYears, getNinoHistoricalNational, getNinoHistoricalSource, getNinoHistoricalCaveat } from "../../lib/nino-historical-data";
@@ -94,6 +95,9 @@ const ninoPercentile = getNinoTotalPercentile(area.areaCode);
 const censusEnglish = getCensusEnglish(area.areaCode);
 const topTenureByEthnic = getTopEthnicGroupsByTenure(area.areaCode, 3);
 const topHealthByEthnic = getTopEthnicGroupsByHealth(area.areaCode, 3);
+
+// Constituencies that overlap this LA, sorted by postcode share desc.
+const overlappingPcons = getPconsForLa(area.areaCode).slice(0, 8);
 
 // Top NINo nationalities for this area, joined with national 2025 visa-route mix
 const visaRouteRows = nino?.byNationality
@@ -1305,6 +1309,24 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
+  {overlappingPcons.length > 0 && (
+    <section class="section" id="constituencies">
+      <h2>Westminster constituencies</h2>
+      <p class="section-desc">Parliamentary constituencies overlapping {area.areaName}, sorted by share of LA postcodes the constituency covers.</p>
+      <div class="pcon-overlap-grid">
+        {overlappingPcons.map((p) => (
+          <a class="pcon-overlap-card" href={`/constituencies/${p.slug}/`}>
+            <span class="pcon-overlap-name">{p.name}</span>
+            <span class="pcon-overlap-meta">
+              <span>{p.ge2024.winner ?? "—"}</span>
+              <span class="muted">{p.ge2024.majorityPp != null ? `+${p.ge2024.majorityPp.toFixed(1)}pp` : ""}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
   <!-- Asylum Stats cross-link -->
   <div class="as-cross-link">
     <div class="as-cross-inner">
@@ -1363,6 +1385,14 @@ function fmtInt(n: number | undefined | null): string {
     margin: 0 0 0.85rem;
     border-radius: 4px;
   }
+
+  /* Westminster constituency overlap cards on a place page. */
+  .pcon-overlap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.5rem; }
+  .pcon-overlap-card { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.7rem 0.85rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--ink); transition: background 120ms; }
+  .pcon-overlap-card:hover { background: rgba(79, 70, 229, 0.06); }
+  .pcon-overlap-name { font-weight: 600; font-size: 0.92rem; }
+  .pcon-overlap-meta { display: flex; justify-content: space-between; font-size: 0.82rem; font-family: "Sora", sans-serif; }
+  .pcon-overlap-meta .muted { color: var(--muted); }
 
   .shift-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
   .shift-item { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; text-align: center; }

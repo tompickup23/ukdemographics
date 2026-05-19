@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getAllPcons,
+  getMpForPcon,
+  getPipClaimantsForPcon,
+  type PconEntry,
+} from "../../lib/pcon-data";
+import { getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
+
+export function getStaticPaths() {
+  return getAllPcons().map((p) => ({
+    params: { slug: p.slug },
+    props: { pcon: p },
+  }));
+}
+
+const { pcon } = Astro.props as { pcon: PconEntry };
+const mp = getMpForPcon(pcon.name);
+const pipClaimants = getPipClaimantsForPcon(pcon.code);
+
+// Build LA cross-links — only show LAs that have a UKD place page.
+const publicAreas = getPublicPlaceAreas();
+const codeToArea = new Map<string, (typeof publicAreas)[number]>();
+for (const a of publicAreas) codeToArea.set(a.areaCode, a);
+
+const constituentLasWithPages = pcon.constituentLas
+  .map((l) => ({ ...l, area: codeToArea.get(l.ladCode) }))
+  .filter((l) => l.area)
+  .slice(0, 10);
+
+// Sort shares descending for the bar chart.
+const sharesSorted = Object.entries(pcon.ge2024.shares)
+  .filter(([, v]) => v > 0.001)
+  .sort(([, a], [, b]) => b - a)
+  .map(([party, share]) => ({ party, share }));
+
+const partyColors: Record<string, string> = {
+  Labour: "#dc241f",
+  "Reform UK": "#12b6cf",
+  Conservative: "#0087dc",
+  "Liberal Democrats": "#faa61a",
+  "Green Party": "#6ab023",
+  "Plaid Cymru": "#005b54",
+  SNP: "#fdf38e",
+  Independent: "#999999",
+};
+---
+
+<BaseLayout
+  title={`${pcon.name} — UK constituency profile`}
+  description={`${pcon.name} (UK Parliament constituency ${pcon.code}) — 2024 General Election result, MP, PIP claimants and the constituent local authorities.`}
+>
+  <a class="back-link" href="/constituencies/">&larr; All constituencies</a>
+  <h1>{pcon.name}</h1>
+  <p class="meta">
+    <span class="meta-tag">{pcon.country}</span>
+    <span class="meta-tag">PCON {pcon.code}</span>
+  </p>
+
+  {mp && (
+    <section class="section" id="mp">
+      <h2>Sitting MP</h2>
+      <div class="mp-card">
+        {mp.photoUrl && <img src={mp.photoUrl} alt={mp.mpName} class="mp-photo" loading="lazy" width="80" height="80" />}
+        <div class="mp-info">
+          <span class="mp-name">{mp.mpName}</span>
+          <span class="mp-party" style={`color: ${partyColors[mp.party] ?? "var(--ink)"}`}>{mp.party}</span>
+          {mp.electedDate && <span class="mp-elected">Elected {mp.electedDate.slice(0, 10)}</span>}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section" id="ge2024">
+    <h2>2024 General Election result</h2>
+    <p class="section-desc">
+      Total valid votes: <strong>{pcon.ge2024.totalVotes?.toLocaleString() ?? "—"}</strong>.
+      Winner: <strong>{pcon.ge2024.winner ?? "—"}</strong> on {pcon.ge2024.winnerSharePct.toFixed(1)}%.
+      {pcon.ge2024.majorityPp != null && (
+        <>{" "}Majority over {pcon.ge2024.runnerUp}: <strong>{pcon.ge2024.majorityPp.toFixed(1)}pp</strong>.</>
+      )}
+    </p>
+    <div class="ge-bars">
+      {sharesSorted.map(({ party, share }) => (
+        <div class="ge-row">
+          <span class="ge-party">{party}</span>
+          <div class="ge-bar">
+            <div class="ge-fill" style={`width: ${(share * 100).toFixed(2)}%; background: ${partyColors[party] ?? "var(--accent)"}`}></div>
+          </div>
+          <span class="ge-pct">{(share * 100).toFixed(1)}%</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {pipClaimants != null && (
+    <section class="section" id="pip">
+      <h2>Personal Independence Payment</h2>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">PIP claimants (Jan 2026)</span>
+          <span class="data-value">{pipClaimants.toLocaleString()}</span>
+        </div>
+      </div>
+      <p class="section-note">Source: DWP Stat-Xplore, PIP Monthly New. Constituency totals only — no demographic breakdown is published at PCON level.</p>
+    </section>
+  )}
+
+  {constituentLasWithPages.length > 0 && (
+    <section class="section" id="constituent-las">
+      <h2>Local authorities in this constituency</h2>
+      <p class="section-desc">By share of postcodes from the constituency that fall in each LA.</p>
+      <div class="la-grid">
+        {constituentLasWithPages.map((l) => (
+          <a class="la-card" href={`/places/${slugifyAreaName(l.area!.areaName)}/`}>
+            <span class="la-name">{l.area!.areaName}</span>
+            <span class="la-share">{(l.postcodeShare * 100).toFixed(1)}% of postcodes</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .back-link { display: inline-block; margin-bottom: 1rem; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+  .back-link:hover { color: var(--accent); }
+  h1 { font-family: "Sora", sans-serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin: 0 0 0.5rem; }
+  .meta { display: flex; gap: 0.5rem; margin: 0 0 1.5rem; }
+  .meta-tag { display: inline-block; font-size: 0.78rem; padding: 0.2rem 0.55rem; background: var(--panel); border: 1px solid var(--border); border-radius: 999px; color: var(--muted); }
+  .section { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+  .section h2 { font-family: "Sora", sans-serif; font-size: 1.15rem; font-weight: 800; margin: 0 0 0.75rem; }
+  .section-desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1rem; max-width: 700px; }
+  .section-note { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; }
+  .mp-card { display: flex; gap: 1rem; align-items: center; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.85rem 1.1rem; max-width: 460px; }
+  .mp-photo { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+  .mp-info { display: flex; flex-direction: column; gap: 0.15rem; }
+  .mp-name { font-family: "Sora", sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); }
+  .mp-party { font-size: 0.92rem; font-weight: 700; }
+  .mp-elected { font-size: 0.78rem; color: var(--muted); }
+  .ge-bars { display: flex; flex-direction: column; gap: 0.35rem; max-width: 640px; }
+  .ge-row { display: grid; grid-template-columns: 160px 1fr 60px; gap: 0.75rem; align-items: center; font-size: 0.88rem; }
+  .ge-party { font-weight: 600; }
+  .ge-bar { height: 18px; background: var(--panel); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .ge-fill { height: 100%; }
+  .ge-pct { font-family: "Sora", sans-serif; font-weight: 700; font-size: 0.85rem; text-align: right; }
+  .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; max-width: 640px; }
+  .data-item { display: flex; justify-content: space-between; padding: 0.55rem 0.8rem; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+  .data-label { font-size: 0.85rem; color: var(--muted); }
+  .data-value { font-family: "Sora", sans-serif; font-size: 0.92rem; font-weight: 700; color: var(--accent); }
+  .la-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.5rem; }
+  .la-card { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.7rem 0.85rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--ink); transition: background 120ms; }
+  .la-card:hover { background: rgba(79, 70, 229, 0.06); }
+  .la-name { font-weight: 600; font-size: 0.92rem; }
+  .la-share { font-size: 0.78rem; color: var(--muted); }
+  @media (max-width: 640px) { .ge-row { grid-template-columns: 110px 1fr 50px; gap: 0.5rem; } }
+</style>

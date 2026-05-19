@@ -18,6 +18,8 @@ const pages = [
   { name: "findings", path: "/findings/", h1Match: /Findings|Articles|Research/i },
   { name: "methodology", path: "/methodology/", h1Match: /Methodology/i },
   { name: "sources", path: "/sources/", h1Match: /Sources/i },
+  { name: "constituencies", path: "/constituencies/", h1Match: /UK constituencies/i },
+  { name: "constituency-burnley", path: "/constituencies/burnley/", h1Match: /Burnley/i },
 ] as const;
 
 test.describe("mobile smoke", () => {
