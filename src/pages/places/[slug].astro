@@ -16,6 +16,7 @@ import {
 import { getCrimeProfile, getCrimeRatePercentile, getCrimeSource, getCrimeCaveat } from "../../lib/crime-data";
 import { getAscProfile, getAscSpendPercentile, getAscSource, getAscCaveat } from "../../lib/asc-data";
 import { getSendProfile, getSendGrowthPercentile, getSendSource, getSendCaveat } from "../../lib/send-data";
+import { getParentUtla } from "../../lib/area-hierarchy";
 import { getNinoProfile, getNinoTotalPercentile, getNinoSource, getNinoCaveat } from "../../lib/nino-data";
 import { getVisaRouteMix, getVisaRoutesSource, getVisaRoutesCaveat, getVisaRoutesYear } from "../../lib/visa-routes-data";
 import { getNinoHistorical, getNinoHistoricalYears, getNinoHistoricalNational, getNinoHistoricalSource, getNinoHistoricalCaveat } from "../../lib/nino-historical-data";
@@ -67,10 +68,22 @@ const pressure = (fiscalResilience as any).areas?.[area.areaCode];
 
 const crime = getCrimeProfile(area.areaCode);
 const crimePercentile = getCrimeRatePercentile(area.areaCode);
-const asc = getAscProfile(area.areaCode);
-const ascPercentile = getAscSpendPercentile(area.areaCode);
-const send = getSendProfile(area.areaCode);
-const sendGrowthPercentile = getSendGrowthPercentile(area.areaCode);
+
+// ASC and SEND are delivered by upper-tier authorities. For non-metropolitan
+// districts (E07*), fall back to the parent county's data, clearly labelled.
+const parentUtla = getParentUtla(area.areaCode);
+const ascDirect = getAscProfile(area.areaCode);
+const sendDirect = getSendProfile(area.areaCode);
+const asc = ascDirect ?? (parentUtla ? getAscProfile(parentUtla.countyCode) : null);
+const send = sendDirect ?? (parentUtla ? getSendProfile(parentUtla.countyCode) : null);
+const ascIsFallback = !ascDirect && asc != null;
+const sendIsFallback = !sendDirect && send != null;
+const ascPercentile = ascIsFallback && parentUtla
+  ? getAscSpendPercentile(parentUtla.countyCode)
+  : getAscSpendPercentile(area.areaCode);
+const sendGrowthPercentile = sendIsFallback && parentUtla
+  ? getSendGrowthPercentile(parentUtla.countyCode)
+  : getSendGrowthPercentile(area.areaCode);
 const nino = getNinoProfile(area.areaCode);
 const ninoPercentile = getNinoTotalPercentile(area.areaCode);
 
@@ -992,6 +1005,11 @@ function fmtInt(n: number | undefined | null): string {
   {asc && (
     <section class="section" id="asc">
       <h2>Adult social care</h2>
+      {ascIsFallback && parentUtla && (
+        <p class="tier-note">
+          Adult social care for {area.areaName} residents is delivered by <strong>{parentUtla.countyName} County Council</strong>. Figures below are the county-wide ASC profile.
+        </p>
+      )}
       <p class="section-desc">
         Council ASC spend, residential placements, and quality-of-life outcomes, {asc.period}.
         {ascPercentile != null && (
@@ -1020,6 +1038,11 @@ function fmtInt(n: number | undefined | null): string {
   {send && (
     <section class="section" id="send">
       <h2>Special educational needs</h2>
+      {sendIsFallback && parentUtla && (
+        <p class="tier-note">
+          SEND for {area.areaName} pupils is administered by <strong>{parentUtla.countyName} County Council</strong>. Figures below are the county-wide EHCP profile.
+        </p>
+      )}
       <p class="section-desc">
         EHCPs and primary need breakdown, {send.period}.
         {sendGrowthPercentile != null && (
@@ -1278,6 +1301,16 @@ function fmtInt(n: number | undefined | null): string {
   .section h2 { font-family: "Sora", sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--ink); margin: 0 0 0.5rem; }
   .section-desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1rem; max-width: 700px; }
   .section-note { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; }
+  /* Banner shown when a district's data is the parent county's (e.g. ASC, SEND). */
+  .tier-note {
+    background: var(--panel);
+    border-left: 3px solid var(--accent-3);
+    padding: 0.6rem 0.85rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.85rem;
+    border-radius: 4px;
+  }
 
   .shift-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
   .shift-item { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; text-align: center; }
