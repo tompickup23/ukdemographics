@@ -1,26 +1,24 @@
 ---
-// Teaser promoting asylumstats.co.uk from UK Demographics.
-// Shows the headline asylum-spend numbers with a mini bar visualization
-// and a prominent CTA. Update quarterly alongside asylumstats' own home page.
-//
-// Source: Home Office asylum accommodation factsheet (daily cost),
-// NAO Investigation into Asylum Accommodation (Nov 2024, 10-year forecast),
-// HMRC projected taxpayers 2024-25 (34.1M).
+/**
+ * Dual sister-site teaser — promotes asylumstats.co.uk + ukelections.co.uk
+ * from UK Demographics.
+ *
+ * Two parallel cards, each with eyebrow / headline / 3 key stats / CTA.
+ * Stacks on mobile.
+ *
+ * Update the per-site stats here when the headline numbers change on
+ * either sister site.
+ */
 
-const DAILY_COST_GBP = 5_770_000;
-const PER_TAXPAYER_MIN_GBP = 155;
-const TEN_YEAR_GBP = 15_300_000_000;
-const HOTEL_RESIDENTS = 30_912; // Q4 2025 stock
-const AWAITING_DECISION = 98_112; // Q4 2025
+// asylumstats.co.uk — fiscal lens on asylum accommodation
+const AS_DAILY_COST_GBP = 5_770_000;
+const AS_PER_TAXPAYER_MIN_GBP = 155;
+const AS_TEN_YEAR_GBP = 15_300_000_000;
 
-// Mini bar viz — spend allocation (approx split from NAO + HO factsheet)
-const bars = [
-  { label: "Hotels", pct: 44, color: "var(--coral)" },
-  { label: "Dispersed accom.", pct: 28, color: "var(--accent-3)" },
-  { label: "Processing & admin", pct: 16, color: "var(--accent)" },
-  { label: "Local auth. grants", pct: 8, color: "var(--accent-2)" },
-  { label: "Other", pct: 4, color: "var(--muted)" },
-];
+// ukelections.co.uk — election forecasting + per-constituency outlook
+const UKE_COUNCILS = 156;
+const UKE_PCONS = 650;
+const UKE_BACKTEST_ACC = "82.7%";
 
 function fmtGbp(n: number) {
   if (n >= 1_000_000_000) return `£${(n / 1_000_000_000).toFixed(1)}B`;
@@ -30,122 +28,122 @@ function fmtGbp(n: number) {
 ---
 
 <section class="sister-teaser shell" aria-labelledby="sister-teaser-title">
-  <div class="st-inner">
-    <div class="st-head">
-      <span class="st-eyebrow">Sister site &middot; asylumstats.co.uk</span>
-      <h2 class="st-title" id="sister-teaser-title">
-        Where YOUR money goes — the asylum accommodation bill
-      </h2>
-      <p class="st-desc">
-        We track the demographic transformation here.
-        Over on <strong>asylumstats.co.uk</strong> we track the fiscal bill.
-        Same government data. Two lenses. Follow both.
-      </p>
-    </div>
+  <div class="st-head">
+    <span class="st-eyebrow">Sister sites</span>
+    <h2 class="st-title" id="sister-teaser-title">
+      One model, three views — demographics, elections, fiscal cost
+    </h2>
+    <p class="st-desc">
+      UK Demographics tracks the population change. Two sister sites read
+      the same government data through different lenses. Follow all three
+      for the full picture.
+    </p>
+  </div>
 
-    <div class="st-grid">
-      <!-- Top-line stats -->
-      <div class="st-stats">
-        <div class="st-stat st-stat--hero">
-          <span class="st-stat-value">{fmtGbp(DAILY_COST_GBP)}</span>
-          <span class="st-stat-label">per day</span>
-          <span class="st-stat-context">Home Office asylum accommodation, 2024&ndash;25 average</span>
-        </div>
-        <div class="st-stat">
-          <span class="st-stat-value">£{PER_TAXPAYER_MIN_GBP}+</span>
-          <span class="st-stat-label">per taxpayer per year</span>
-          <span class="st-stat-context">Minimum — hotels + processing + local auth + border + NHS</span>
-        </div>
-        <div class="st-stat">
-          <span class="st-stat-value">{fmtGbp(TEN_YEAR_GBP)}</span>
-          <span class="st-stat-label">over 10 years</span>
-          <span class="st-stat-context">NAO forecast, contract rose from £4.5B to £15.3B</span>
-        </div>
-      </div>
+  <div class="st-pair">
+    <!-- ukelections.co.uk -->
+    <article class="st-card st-card--uke">
+      <header class="st-card-head">
+        <span class="st-card-tag">ukelections.co.uk</span>
+        <h3 class="st-card-title">Forecast every council and constituency</h3>
+        <p class="st-card-desc">
+          Hamilton-Perry-anchored election model trained on demographic
+          composition. Per-ward and per-constituency outlook for England,
+          Wales, Scotland and Northern Ireland.
+        </p>
+      </header>
+      <ul class="st-card-stats">
+        <li>
+          <span class="st-card-stat-value">{UKE_COUNCILS}</span>
+          <span class="st-card-stat-label">councils with forecasts</span>
+        </li>
+        <li>
+          <span class="st-card-stat-value">{UKE_PCONS}</span>
+          <span class="st-card-stat-label">Westminster constituencies</span>
+        </li>
+        <li>
+          <span class="st-card-stat-value">{UKE_BACKTEST_ACC}</span>
+          <span class="st-card-stat-label">backtest accuracy</span>
+        </li>
+      </ul>
+      <a
+        href="https://ukelections.co.uk"
+        class="st-card-cta"
+        target="_blank"
+        rel="noopener"
+      >
+        Open ukelections.co.uk &rarr;
+      </a>
+    </article>
 
-      <!-- Mini bar visualization -->
-      <div class="st-viz">
-        <span class="st-viz-title">Annual spend allocation (approx.)</span>
-        <div class="st-bars">
-          {bars.map((b) => (
-            <div class="st-bar-row">
-              <span class="st-bar-label">{b.label}</span>
-              <span class="st-bar-track">
-                <span class="st-bar-fill" style={`width: ${b.pct}%; background: ${b.color};`}></span>
-              </span>
-              <span class="st-bar-pct">{b.pct}%</span>
-            </div>
-          ))}
-        </div>
-        <div class="st-viz-caption">
-          {HOTEL_RESIDENTS.toLocaleString("en-GB")} in hotels &middot;
-          {AWAITING_DECISION.toLocaleString("en-GB")} awaiting a decision &middot;
-          Q4 2025
-        </div>
-      </div>
-    </div>
-
-    <div class="st-cta-row">
+    <!-- asylumstats.co.uk -->
+    <article class="st-card st-card--as">
+      <header class="st-card-head">
+        <span class="st-card-tag">asylumstats.co.uk</span>
+        <h3 class="st-card-title">Where the money goes</h3>
+        <p class="st-card-desc">
+          The fiscal bill for asylum accommodation. Home Office contracts,
+          per-taxpayer cost, true-cost breakdown across hotels, dispersed
+          accommodation, processing and local authority grants.
+        </p>
+      </header>
+      <ul class="st-card-stats">
+        <li>
+          <span class="st-card-stat-value">{fmtGbp(AS_DAILY_COST_GBP)}</span>
+          <span class="st-card-stat-label">per day, accommodation</span>
+        </li>
+        <li>
+          <span class="st-card-stat-value">£{AS_PER_TAXPAYER_MIN_GBP}+</span>
+          <span class="st-card-stat-label">per taxpayer per year</span>
+        </li>
+        <li>
+          <span class="st-card-stat-value">{fmtGbp(AS_TEN_YEAR_GBP)}</span>
+          <span class="st-card-stat-label">NAO 10-year forecast</span>
+        </li>
+      </ul>
       <a
         href="https://asylumstats.co.uk"
-        class="st-cta-btn"
+        class="st-card-cta"
         target="_blank"
         rel="noopener"
       >
-        Follow the money &rarr; asylumstats.co.uk
+        Open asylumstats.co.uk &rarr;
       </a>
-      <a
-        href="https://asylumstats.co.uk/findings/true-cost-of-asylum/"
-        class="st-cta-link"
-        target="_blank"
-        rel="noopener"
-      >
-        Read the true-cost breakdown &rarr;
-      </a>
-    </div>
+    </article>
   </div>
 </section>
 
 <style>
   .sister-teaser {
-    margin-top: 3rem;
-    padding: 2.5rem 0;
+    margin-top: var(--space-2xl);
+    padding: var(--space-xl) 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-2) 4%, transparent) 0%,
+      color-mix(in srgb, var(--accent-3) 3%, transparent) 100%
+    );
   }
-  .sister-teaser::before {
-    content: "";
-    position: absolute;
-    top: -30%;
-    right: -10%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .st-inner { position: relative; z-index: 1; }
 
-  .st-head { max-width: 760px; margin-bottom: 1.5rem; }
+  .st-head { max-width: 760px; margin-bottom: var(--space-lg); }
   .st-eyebrow {
+    display: inline-block;
+    padding: 0.3rem 0.65rem;
     font-family: "Sora", sans-serif;
     font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #06b6d4;
-    display: inline-block;
-    padding: 0.3rem 0.6rem;
-    border: 1px solid rgba(6, 182, 212, 0.3);
+    color: var(--ink-soft);
+    background: var(--panel-soft);
+    border: 1px solid var(--border);
     border-radius: 999px;
-    background: rgba(6, 182, 212, 0.08);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
   }
   .st-title {
     font-family: "Sora", sans-serif;
-    font-size: clamp(1.25rem, 2.8vw, 1.65rem);
+    font-size: var(--text-h2);
     font-weight: 800;
     color: var(--ink);
     margin: 0 0 0.5rem;
@@ -154,164 +152,146 @@ function fmtGbp(n: number) {
   }
   .st-desc {
     color: var(--muted);
-    font-size: 0.95rem;
+    font-size: var(--text-body);
     line-height: 1.55;
     margin: 0;
   }
-  .st-desc strong { color: #06b6d4; font-weight: 700; }
 
-  .st-grid {
+  .st-pair {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    align-items: stretch;
+    gap: var(--space-md);
   }
 
-  /* Stats column */
-  .st-stats {
+  .st-card {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-  }
-  .st-stat {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--coral);
-    border-radius: var(--radius-sm);
-    padding: 1rem 1.15rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-  }
-  .st-stat--hero {
-    border-left-width: 4px;
-    background: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, var(--panel) 100%);
-  }
-  .st-stat-value {
-    font-family: "Sora", sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--coral);
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-  .st-stat--hero .st-stat-value { font-size: 2.4rem; }
-  .st-stat-label {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin-top: 0.15rem;
-  }
-  .st-stat-context {
-    font-size: 0.78rem;
-    color: var(--muted);
-    line-height: 1.4;
-    margin-top: 0.2rem;
-  }
-
-  /* Visualization column */
-  .st-viz {
+    gap: var(--space-md);
+    padding: var(--space-lg);
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform 180ms, box-shadow 180ms, border-color 180ms;
   }
-  .st-viz-title {
-    font-family: "Sora", sans-serif;
-    font-size: 0.82rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--muted);
+  .st-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
   }
-  .st-bars {
+  .st-card--uke {
+    border-left: 4px solid var(--accent-2);
+  }
+  .st-card--uke:hover {
+    border-color: color-mix(in srgb, var(--accent-2) 35%, var(--border));
+    border-left-color: var(--accent-2);
+  }
+  .st-card--as {
+    border-left: 4px solid var(--accent-3);
+  }
+  .st-card--as:hover {
+    border-color: color-mix(in srgb, var(--accent-3) 35%, var(--border));
+    border-left-color: var(--accent-3);
+  }
+
+  .st-card-head {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
   }
-  .st-bar-row {
-    display: grid;
-    grid-template-columns: 130px 1fr 42px;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .st-bar-label {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--ink);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .st-bar-track {
-    display: block;
-    height: 14px;
-    background: rgba(6, 182, 212, 0.08);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .st-bar-fill {
-    display: block;
-    height: 100%;
-    border-radius: 3px;
-    min-width: 4px;
-    transition: width 600ms ease;
-  }
-  .st-bar-pct {
+  .st-card-tag {
+    align-self: flex-start;
     font-family: "Sora", sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--muted);
-    text-align: right;
+    font-size: var(--text-eyebrow);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    color: var(--ink);
+    background: var(--panel-soft);
+    border: 1px solid var(--border);
   }
-  .st-viz-caption {
-    margin-top: 0.25rem;
-    font-size: 0.75rem;
+  .st-card--uke .st-card-tag { color: var(--accent-2); border-color: color-mix(in srgb, var(--accent-2) 35%, transparent); }
+  .st-card--as  .st-card-tag { color: var(--accent-3); border-color: color-mix(in srgb, var(--accent-3) 35%, transparent); }
+
+  .st-card-title {
+    font-family: "Sora", sans-serif;
+    font-size: var(--text-h3);
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.25;
+  }
+  .st-card-desc {
     color: var(--muted);
-    opacity: 0.8;
-    line-height: 1.4;
+    font-size: var(--text-small);
+    line-height: 1.55;
+    margin: 0;
   }
 
-  .st-cta-row {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
+  .st-card-stats {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xs);
   }
-  .st-cta-btn {
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    font-size: 0.95rem;
+  .st-card-stats li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 0.6rem 0.7rem;
+    background: var(--panel-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .st-card-stat-value {
+    font-family: "Sora", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.05;
+  }
+  .st-card--uke .st-card-stat-value { color: var(--accent-2); }
+  .st-card--as  .st-card-stat-value { color: var(--accent-3); }
+  .st-card-stat-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+
+  .st-card-cta {
+    align-self: flex-start;
+    padding: 0.7rem 1.1rem;
+    font-size: var(--text-small);
     font-weight: 700;
-    color: #fff;
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: var(--ink);
+    background: var(--panel-soft);
+    border: 1px solid var(--border);
     border-radius: 8px;
     text-decoration: none;
-    transition: transform 180ms, box-shadow 180ms;
-    box-shadow: 0 2px 12px rgba(6, 182, 212, 0.25);
+    transition: background 180ms, color 180ms, border-color 180ms, transform 180ms;
   }
-  .st-cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+  .st-card--uke .st-card-cta:hover {
+    background: var(--accent-2);
+    color: var(--bg);
+    border-color: var(--accent-2);
   }
-  .st-cta-link {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #06b6d4;
-    text-decoration: none;
+  .st-card--as .st-card-cta:hover {
+    background: var(--accent-3);
+    color: var(--bg);
+    border-color: var(--accent-3);
   }
-  .st-cta-link:hover { text-decoration: underline; }
 
   @media (max-width: 760px) {
-    .st-grid { grid-template-columns: 1fr; gap: 1rem; }
-    .st-stat--hero .st-stat-value { font-size: 2rem; }
-    .st-bar-row { grid-template-columns: 110px 1fr 38px; }
-    .st-bar-label { font-size: 0.78rem; }
-    .st-cta-row { flex-direction: column; align-items: flex-start; }
-    .st-cta-btn { width: 100%; text-align: center; }
+    .st-pair { grid-template-columns: 1fr; }
+    .st-card-stats { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+    .st-card-stat-value { font-size: 1.05rem; }
+  }
+  @media (max-width: 420px) {
+    .st-card-stats { grid-template-columns: 1fr 1fr; }
   }
 </style>
