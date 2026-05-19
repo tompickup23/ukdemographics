@@ -17,7 +17,7 @@ interface AscDashboard {
   areas: Record<string, AreaAscProfile>;
 }
 
-const data = rawAsc as AscDashboard;
+const data = rawAsc as unknown as AscDashboard;
 
 export function getAscProfile(areaCode: string): AreaAscProfile | null {
   return data.areas[areaCode] ?? null;

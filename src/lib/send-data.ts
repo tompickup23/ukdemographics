@@ -23,7 +23,7 @@ interface SendDashboard {
   areas: Record<string, AreaSendProfile>;
 }
 
-const data = rawSend as SendDashboard;
+const data = rawSend as unknown as SendDashboard;
 
 export function getSendProfile(areaCode: string): AreaSendProfile | null {
   return data.areas[areaCode] ?? null;

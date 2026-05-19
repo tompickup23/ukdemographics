@@ -491,7 +491,7 @@ function fmtInt(n: number | undefined | null): string {
           {Object.entries(religionData).filter(([k]) => k !== "source").slice(0, 8).map(([religion, pct]) => (
             <div class="data-item">
               <span class="data-label">{religion.replace(/_/g, " ")}</span>
-              <span class="data-value">{typeof pct === "number" ? `${pct.toFixed(1)}%` : String(pct)}</span>
+              <span class="data-value">{typeof pct === "number" ? `${(pct as number).toFixed(1)}%` : String(pct)}</span>
             </div>
           ))}
         </div>
@@ -747,7 +747,7 @@ function fmtInt(n: number | undefined | null): string {
                 case "Study": return "students";
                 case "Family": return "family-route arrivals (often refugee family reunion)";
                 case "Other": return "other-category arrivals";
-                default: return `${dom[0].toLowerCase()}-route arrivals`;
+                default: return `${String(dom[0]).toLowerCase()}-route arrivals`;
               }
             })();
             if (dom[1] >= 60) return `Mostly ${label}`;

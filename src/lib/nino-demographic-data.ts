@@ -27,7 +27,7 @@ interface DemoFile {
   areas: Record<string, NinoDemographicProfile>;
 }
 
-const data = rawDemog as DemoFile;
+const data = rawDemog as unknown as DemoFile;
 
 export function getNinoDemographic(areaCode: string): NinoDemographicProfile | null {
   return data.areas[areaCode] ?? null;
