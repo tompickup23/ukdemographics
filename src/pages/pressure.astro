@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import StatCard from "../components/StatCard.astro";
 import { slugifyAreaName } from "../lib/site";
 import fiscalResilience from "../data/live/fiscal-resilience.json";
 
@@ -19,10 +20,10 @@ const moderate = ranked.filter(a => a.category === 'Moderate Pressure');
   <h1>Service demand pressure index</h1>
   <p class="desc">Composite score (0-100) from 5 components: ethnic change rate, asylum concentration, school diversity, language demand, and housing pressure. Higher = more service demand from demographic change.</p>
 
-  <div class="stats-grid">
-    <div class="stat-card"><span class="stat-value" style="color:var(--coral)">{high.length}</span><span class="stat-label">High pressure</span></div>
-    <div class="stat-card"><span class="stat-value" style="color:var(--accent-3)">{moderate.length}</span><span class="stat-label">Moderate pressure</span></div>
-    <div class="stat-card"><span class="stat-value" style="color:var(--accent-2)">{ranked.length - high.length - moderate.length}</span><span class="stat-label">Low / Stable</span></div>
+  <div class="stat-card-row">
+    <StatCard value={high.length.toString()} label="High pressure" accent="var(--coral)" />
+    <StatCard value={moderate.length.toString()} label="Moderate pressure" accent="var(--accent-3)" />
+    <StatCard value={(ranked.length - high.length - moderate.length).toString()} label="Low / Stable" accent="var(--accent-2)" />
   </div>
 
   <h2 class="section-title">Top 30 — highest service demand pressure</h2>
@@ -69,14 +70,10 @@ const moderate = ranked.filter(a => a.category === 'Moderate Pressure');
   h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
   .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 700px; }
   .section-title { font-family: "Sora", sans-serif; font-size: 1.15rem; font-weight: 800; margin: 0 0 0.75rem; }
-  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
-  .stat-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; display: flex; flex-direction: column; gap: 0.2rem; }
-  .stat-value { font-family: "Sora", sans-serif; font-size: 1.75rem; font-weight: 800; line-height: 1; }
-  .stat-label { font-size: 0.85rem; color: var(--muted); }
   .area-table { max-width: 800px; }
   .area-table-header { display: grid; grid-template-columns: 32px 1fr 60px 120px 80px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
   .area-row { display: grid; grid-template-columns: 32px 1fr 60px 120px 80px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
-  .area-row:hover { background: rgba(79, 70, 229, 0.06); }
+  .area-row:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
   .rank { font-size: 0.82rem; color: var(--muted); font-weight: 700; }
   .name { font-weight: 600; font-size: 0.88rem; }
   .score { font-family: "Sora", sans-serif; font-size: 1rem; font-weight: 800; }
@@ -86,5 +83,5 @@ const moderate = ranked.filter(a => a.category === 'Moderate Pressure');
   .component-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; }
   .component-name { display: block; font-weight: 700; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.25rem; }
   .component-desc { font-size: 0.82rem; color: var(--muted); }
-  @media (max-width: 640px) { .stats-grid { grid-template-columns: 1fr; } .area-table-header, .area-row { grid-template-columns: 28px 1fr 50px 80px; } .category { display: none; } }
+  @media (max-width: 640px) { .area-table-header, .area-row { grid-template-columns: 28px 1fr 50px 80px; } .category { display: none; } }
 </style>
