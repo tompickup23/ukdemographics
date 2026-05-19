@@ -6,17 +6,19 @@ import { join } from "node:path";
 import { getCollection } from "astro:content";
 import { getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
 
-// Brand colors — UK Demographics (indigo)
+// Brand colors — UK Demographics (indigo) + sister-site accents
 const COLORS = {
   bg: "#04070d",
   surface: "#0b1220",
-  accent: "#4f46e5",
+  accent: "#4f46e5",       // UKD indigo (this site)
   accentLight: "#818cf8",
   text: "#f5f7fb",
   muted: "#91a7c4",
   alert: "#f59e0b",
   critical: "#ef4444",
-  resolved: "#10b981"
+  resolved: "#10b981",
+  uke: "#10b981",          // ukelections.co.uk — emerald
+  as: "#06b6d4"            // asylumstats.co.uk — cyan
 };
 
 const verdictColor: Record<string, string> = {
@@ -229,31 +231,148 @@ export const GET: APIRoute = async ({ props }) => {
             props: {
               style: {
                 display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
+                flexDirection: "column",
+                gap: "10px",
                 borderTop: `2px solid ${COLORS.accent}`,
                 paddingTop: "16px"
               },
               children: [
                 {
-                  type: "span",
+                  // Primary site row
+                  type: "div",
                   props: {
                     style: {
-                      fontSize: "14px",
-                      color: COLORS.accent,
-                      fontWeight: 600
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center"
                     },
-                    children: "ukdemographics.co.uk"
+                    children: [
+                      {
+                        type: "span",
+                        props: {
+                          style: {
+                            fontSize: "14px",
+                            color: COLORS.accent,
+                            fontWeight: 600
+                          },
+                          children: "ukdemographics.co.uk"
+                        }
+                      },
+                      {
+                        type: "span",
+                        props: {
+                          style: {
+                            fontSize: "12px",
+                            color: COLORS.muted
+                          },
+                          children: "Every projection sourced."
+                        }
+                      }
+                    ]
                   }
                 },
                 {
-                  type: "span",
+                  // Sister-site cross-promo row
+                  type: "div",
                   props: {
                     style: {
-                      fontSize: "12px",
-                      color: COLORS.muted
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px"
                     },
-                    children: "Every projection sourced."
+                    children: [
+                      {
+                        type: "span",
+                        props: {
+                          style: {
+                            fontSize: "11px",
+                            color: COLORS.muted,
+                            letterSpacing: "0.08em",
+                            textTransform: "uppercase",
+                            fontWeight: 700
+                          },
+                          children: "Sister sites"
+                        }
+                      },
+                      {
+                        // UKE chip
+                        type: "span",
+                        props: {
+                          style: {
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "6px",
+                            fontSize: "12px",
+                            fontWeight: 700,
+                            color: COLORS.uke,
+                            padding: "4px 10px",
+                            border: `1px solid ${COLORS.uke}40`,
+                            borderRadius: "999px",
+                            background: `${COLORS.uke}14`
+                          },
+                          children: [
+                            {
+                              type: "span",
+                              props: {
+                                style: {
+                                  width: "6px",
+                                  height: "6px",
+                                  borderRadius: "999px",
+                                  background: COLORS.uke
+                                },
+                                children: ""
+                              }
+                            },
+                            {
+                              type: "span",
+                              props: {
+                                style: { color: COLORS.uke },
+                                children: "ukelections.co.uk"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        // AS chip
+                        type: "span",
+                        props: {
+                          style: {
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "6px",
+                            fontSize: "12px",
+                            fontWeight: 700,
+                            color: COLORS.as,
+                            padding: "4px 10px",
+                            border: `1px solid ${COLORS.as}40`,
+                            borderRadius: "999px",
+                            background: `${COLORS.as}14`
+                          },
+                          children: [
+                            {
+                              type: "span",
+                              props: {
+                                style: {
+                                  width: "6px",
+                                  height: "6px",
+                                  borderRadius: "999px",
+                                  background: COLORS.as
+                                },
+                                children: ""
+                              }
+                            },
+                            {
+                              type: "span",
+                              props: {
+                                style: { color: COLORS.as },
+                                children: "asylumstats.co.uk"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
                   }
                 }
               ]
