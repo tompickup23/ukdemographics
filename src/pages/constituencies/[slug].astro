@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import StatCard from "../../components/StatCard.astro";
 import RaceBar from "../../components/RaceBar.astro";
+import SisterSiteAd from "../../components/SisterSiteAd.astro";
 import {
   getAllPcons,
   getMpForPcon,
@@ -104,6 +105,13 @@ const raceBarSegments = Object.entries(pcon.ge2024.shares)
       title="Vote share by party"
       ariaLabel={`2024 General Election vote shares in ${pcon.name}`}
       height={56}
+    />
+
+    <SisterSiteAd
+      site="uke"
+      path={`/seats/parliament/${pcon.slug}/`}
+      caption={`Forecast for ${pcon.name} — next general election:`}
+      alt={`UK Elections forecast for ${pcon.name} constituency`}
     />
   </section>
 

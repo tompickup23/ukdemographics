@@ -1,0 +1,209 @@
+---
+/**
+ * SisterSiteAd.astro — inline ad that embeds the sister site's actual
+ * Open Graph PNG as a clickable card.
+ *
+ * Use ONLY on pages whose content references the sister site's data, so
+ * the ad is contextual rather than generic cross-promo.
+ *
+ * Examples:
+ *   <SisterSiteAd site="uke" path="/seats/parliament/burnley/"
+ *                 caption="Forecast for this constituency:" />
+ *   <SisterSiteAd site="as" path="/findings/true-cost-of-asylum/"
+ *                 caption="Related — the fiscal bill:" />
+ *
+ * Defaults to the sister site's homepage OG if no `path` is given.
+ */
+
+type Site = "uke" | "as";
+
+interface Props {
+  site: Site;
+  path?: string;
+  ogPath?: string;
+  caption?: string;
+  alt?: string;
+}
+
+const SITES: Record<Site, {
+  origin: string;
+  name: string;
+  domain: string;
+  tagline: string;
+  accent: string;       // CSS variable name
+  homeOgPath: string;   // each site's homepage OG file (UKE = /og/index.png, AS = /og/home.png)
+}> = {
+  uke: {
+    origin: "https://ukelections.co.uk",
+    name: "UK Elections",
+    domain: "ukelections.co.uk",
+    tagline: "Forecasting every council and constituency",
+    accent: "var(--accent-2)",
+    homeOgPath: "/og/index.png",
+  },
+  as: {
+    origin: "https://asylumstats.co.uk",
+    name: "Asylum Stats",
+    domain: "asylumstats.co.uk",
+    tagline: "Where the money goes",
+    accent: "var(--accent-3)",
+    homeOgPath: "/og/home.png",
+  },
+};
+
+const { site, path = "/", ogPath, caption, alt } = Astro.props;
+const s = SITES[site];
+
+// Build the OG PNG URL. Prefer explicit ogPath; otherwise derive from
+// path. Trailing slashes off, then append .png — Astro convention.
+function deriveOgPath(p: string): string {
+  if (p === "/" || p === "") return s.homeOgPath;
+  const trimmed = p.replace(/\/+$/, "");
+  return `/og${trimmed}.png`;
+}
+
+const ogSrc = `${s.origin}${ogPath ?? deriveOgPath(path)}`;
+const linkHref = `${s.origin}${path}`;
+const altText = alt ?? `${s.name} — ${s.tagline}`;
+---
+
+<aside class={`sister-ad sister-ad--${site}`} aria-label={`Advertisement — ${s.name}`}>
+  {caption && (
+    <p class="sister-ad-caption">
+      <span class="sister-ad-tag">{s.domain}</span>
+      <span>{caption}</span>
+    </p>
+  )}
+  <a
+    class="sister-ad-card"
+    href={linkHref}
+    target="_blank"
+    rel="noopener external"
+  >
+    <img
+      src={ogSrc}
+      alt={altText}
+      width="1200"
+      height="630"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class="sister-ad-cta">
+      Open {s.domain}
+      <span aria-hidden="true">&#8599;</span>
+    </span>
+  </a>
+</aside>
+
+<style>
+  .sister-ad {
+    margin: var(--space-xl) 0;
+    max-width: 640px;
+  }
+
+  .sister-ad-caption {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin: 0 0 var(--space-xs);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .sister-ad-tag {
+    font-family: "Sora", sans-serif;
+    font-size: var(--text-eyebrow);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel-soft);
+    white-space: nowrap;
+  }
+
+  .sister-ad--uke .sister-ad-tag {
+    color: var(--accent-2);
+    border-color: color-mix(in srgb, var(--accent-2) 35%, transparent);
+    background: color-mix(in srgb, var(--accent-2) 8%, transparent);
+  }
+  .sister-ad--as .sister-ad-tag {
+    color: var(--accent-3);
+    border-color: color-mix(in srgb, var(--accent-3) 35%, transparent);
+    background: color-mix(in srgb, var(--accent-3) 8%, transparent);
+  }
+
+  .sister-ad-card {
+    position: relative;
+    display: block;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+    transition: transform 220ms, box-shadow 220ms, border-color 220ms;
+    aspect-ratio: 1200 / 630;
+  }
+
+  .sister-ad--uke .sister-ad-card {
+    border-left: 4px solid var(--accent-2);
+  }
+  .sister-ad--as .sister-ad-card {
+    border-left: 4px solid var(--accent-3);
+  }
+
+  .sister-ad-card:hover,
+  .sister-ad-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  .sister-ad--uke .sister-ad-card:hover,
+  .sister-ad--uke .sister-ad-card:focus-visible {
+    border-color: color-mix(in srgb, var(--accent-2) 45%, var(--border));
+    border-left-color: var(--accent-2);
+  }
+  .sister-ad--as .sister-ad-card:hover,
+  .sister-ad--as .sister-ad-card:focus-visible {
+    border-color: color-mix(in srgb, var(--accent-3) 45%, var(--border));
+    border-left-color: var(--accent-3);
+  }
+
+  .sister-ad-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .sister-ad-cta {
+    position: absolute;
+    bottom: 0.8rem;
+    right: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.85rem;
+    font-family: "Sora", sans-serif;
+    font-size: var(--text-small);
+    font-weight: 800;
+    color: var(--bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 180ms;
+  }
+
+  .sister-ad--uke .sister-ad-cta { background: var(--accent-2); }
+  .sister-ad--as  .sister-ad-cta { background: var(--accent-3); }
+
+  .sister-ad-card:hover .sister-ad-cta { transform: scale(1.04); }
+
+  @media (max-width: 640px) {
+    .sister-ad { margin: var(--space-lg) 0; }
+    .sister-ad-cta { font-size: 0.78rem; padding: 0.4rem 0.7rem; bottom: 0.6rem; right: 0.6rem; }
+  }
+</style>

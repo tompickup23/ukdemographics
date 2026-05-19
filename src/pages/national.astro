@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import DataFreshness from "../components/DataFreshness.astro";
 import StatCard from "../components/StatCard.astro";
 import RaceBar from "../components/RaceBar.astro";
+import SisterSiteAd from "../components/SisterSiteAd.astro";
 import { getSignificantDemographicShifts } from "../lib/ethnic-projections";
 import rawProjections from "../data/live/ethnic-projections.json";
 import { getPublicPlaceAreas, slugifyAreaName } from "../lib/site";
@@ -168,6 +169,13 @@ function fmtCompact(n: number) {
       <text x={pad.left - 8} y={pad.top + innerH} text-anchor="end" class="chart-tick">0</text>
     </svg>
     <p class="section-note">Source: DWP Stat-Xplore Ninos. Counts are first-time registrations and so are a flow not a stock. The 2020 trough reflects the pandemic-era visa freeze; the 2021-2022 surge is overwhelmingly post-Brexit non-EU work + student route arrivals.</p>
+
+    <SisterSiteAd
+      site="as"
+      path="/findings/true-cost-of-asylum/"
+      caption="Related — the fiscal bill behind the flow:"
+      alt="Asylum Stats — true cost of asylum accommodation"
+    />
   </section>
 
   <section class="chart-section">

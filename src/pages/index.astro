@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DataFreshness from "../components/DataFreshness.astro";
 import ShareButton from "../components/ShareButton.astro";
-import SisterSiteTeaser from "../components/SisterSiteTeaser.astro";
 import StatCard from "../components/StatCard.astro";
 import { getSignificantDemographicShifts, getEthnicProjection } from "../lib/ethnic-projections";
 import rawProjections from "../data/live/ethnic-projections.json";
@@ -309,9 +308,6 @@ function findingColor(verdict: string): string {
       </div>
     </section>
   )}
-
-  <!-- ═══ SISTER SITE (asylumstats) ═══ -->
-  <SisterSiteTeaser />
 
   <!-- ═══ CTA STRIP ═══ -->
   <section class="cta-section shell">
