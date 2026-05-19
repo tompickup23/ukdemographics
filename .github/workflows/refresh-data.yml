@@ -1,30 +1,63 @@
 name: Refresh data
 
-# Manual-only until the real refresh pipeline lands (P1).
+# Weekly refresh of the public datasets that can run without API keys.
+# Adds one transform at a time; the pattern is:
+#   1. fetch raw data into data/raw/<dataset>/ (gitignored)
+#   2. run the Python transform to produce src/data/live/<file>.json
+#   3. commit any diff back to main (rebase-retry to survive cron races)
 #
-# The previous cron called npm scripts inherited from the asylumstats fork
-# (ingest:routes / regionalsources / hotels / money). Those scripts have been
-# removed - none of them produced data used by the UK Demographics pages,
-# and the hotel transform died on a missing src/data/live/asylum-finance.json.
-#
-# Real refresh source-of-truth: the Python transforms under
-# scripts/transform/transform_*.py (NINo, PIP, payroll, country-of-birth,
-# crime, SEND, ASC, etc.). These currently run by hand because the raw
-# downloads (~2 GB) are gitignored. Wiring them into CI is a P1 task that
-# needs the fetchers to be CI-safe first.
+# Datasets that need DWP Stat-Xplore / Companies House / Land Registry
+# API keys land separately once the secrets are wired up.
 
 on:
+  schedule:
+    - cron: "0 8 * * 1"
   workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
       - run: npm ci
-      - name: Placeholder
-        run: echo "Refresh pipeline pending - see workflow comments."
+
+      - name: Fetch stop-and-search (data.police.uk, no auth)
+        run: node scripts/fetch/fetch-stop-and-search.mjs
+
+      - name: Transform stop-and-search
+        run: python3 scripts/transform/transform_stop_and_search.py
+
+      - name: Commit and push any data changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet src/data/live/; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git add src/data/live/
+          STAMP="$(date -u +%Y-%m-%d)"
+          git commit -m "data: weekly refresh ${STAMP}"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            echo "Push attempt $i failed, retrying in $((i * 5))s..."
+            sleep $((i * 5))
+          done
+          echo "Push failed after 5 retries."
+          exit 1
