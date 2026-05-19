@@ -537,18 +537,35 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
-  <!-- English proficiency -->
-  {englishProficiency && (
+  <!-- English proficiency (Census 2021 + projection) -->
+  {(englishProficiency || language?.dataAvailable) && (
     <section class="section" id="english">
       <h2>English proficiency</h2>
-      <div class="data-grid">
-        {Object.entries(englishProficiency).filter(([k]) => k !== "source").map(([level, pct]) => (
-          <div class="data-item">
-            <span class="data-label">{level.replace(/_/g, " ")}</span>
-            <span class="data-value">{typeof pct === "number" ? `${pct.toFixed(1)}%` : String(pct)}</span>
+      {englishProficiency && (
+        <>
+          <h3 class="subhead">Census 2021</h3>
+          <div class="data-grid">
+            {Object.entries(englishProficiency).filter(([k]) => k !== "source").map(([level, pct]) => (
+              <div class="data-item">
+                <span class="data-label">{level.replace(/_/g, " ")}</span>
+                <span class="data-value">{typeof pct === "number" ? `${(pct as number).toFixed(1)}%` : String(pct)}</span>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
+      {language?.dataAvailable && language.projectedNonEnglishIncrease > 0 && (
+        <>
+          <h3 class="subhead">Projection</h3>
+          <div class="data-grid">
+            <div class="data-item">
+              <span class="data-label">Projected non-English growth</span>
+              <span class="data-value" style="color: var(--accent-3);">+{language.projectedNonEnglishIncrease}pp</span>
+            </div>
+          </div>
+          {language.interpreterImplication && <p class="section-note">{language.interpreterImplication}</p>}
+        </>
+      )}
     </section>
   )}
 
@@ -929,45 +946,6 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
-  <!-- Housing & household composition -->
-  {(hmo || ctSpd) && (
-    <section class="section" id="housing-composition">
-      <h2>Housing and household composition</h2>
-      <p class="section-desc">
-        Indicators of how dwellings in {area.areaName} are occupied — single-person households and houses in multiple occupation are the two cleanest available signals.
-      </p>
-      <div class="data-grid">
-        {ctSpd && ctSpd.singlePersonDiscountPctOfChargeable != null && (
-          <>
-            <div class="data-item">
-              <span class="data-label">Single-person discount take-up</span>
-              <span class="data-value">{ctSpd.singlePersonDiscountPctOfChargeable.toFixed(1)}%</span>
-            </div>
-            <div class="data-item">
-              <span class="data-label">Dwellings on 25% single-person discount</span>
-              <span class="data-value">{ctSpd.singlePersonDiscount25.toLocaleString()}</span>
-            </div>
-          </>
-        )}
-        {hmo && hmo.hmoPer1kPopulation != null && (
-          <>
-            <div class="data-item">
-              <span class="data-label">HMO dwellings (Census 2021)</span>
-              <span class="data-value">{hmo.totalHmoDwellings.toLocaleString()}</span>
-            </div>
-            <div class="data-item">
-              <span class="data-label">HMOs per 1,000 population</span>
-              <span class="data-value">{hmo.hmoPer1kPopulation.toFixed(2)}</span>
-            </div>
-          </>
-        )}
-      </div>
-      <p class="section-note">
-        Sources: MHCLG Council Taxbase 2024 (CTB1, snapshot 7 October 2024) for single-person discount; ONS Census 2021 RM192 for HMO dwellings. HMO Census numbers reflect dwellings classified as HMO on Census Day; current licensing registers held by individual councils are not centrally published.
-      </p>
-    </section>
-  )}
-
   <!-- Crime -->
   {crime && (
     <section class="section" id="crime">
@@ -1184,24 +1162,54 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
-  <!-- Housing demand -->
-  {housing?.dataAvailable && (
+  <!-- Housing (composition today + tenure projection) -->
+  {(hmo || ctSpd || housing?.dataAvailable) && (
     <section class="section" id="housing">
-      <h2>Housing demand projection</h2>
-      <p class="section-desc">Census 2021 tenure patterns by ethnicity, projected to 2041 from demographic composition change.</p>
-      <div class="data-grid">
-        <div class="data-item"><span class="data-label">Ownership (2021)</span><span class="data-value">{housing.currentTenure?.ownershipPct}%</span></div>
-        <div class="data-item"><span class="data-label">Social rent (2021)</span><span class="data-value">{housing.currentTenure?.socialRentPct}%</span></div>
-        <div class="data-item"><span class="data-label">Private rent (2021)</span><span class="data-value">{housing.currentTenure?.privateRentPct}%</span></div>
-        {housing.projectedTenure2041 && (
-          <>
-            <div class="data-item"><span class="data-label">Ownership (2041)</span><span class="data-value" style="color: var(--accent-3);">{housing.projectedTenure2041.ownershipPct}%</span></div>
-            <div class="data-item"><span class="data-label">Social rent (2041)</span><span class="data-value" style="color: var(--accent-3);">{housing.projectedTenure2041.socialRentPct}%</span></div>
-            <div class="data-item"><span class="data-label">Social rent change</span><span class="data-value" style={`color: ${(housing.socialRentChangePp ?? 0) > 0 ? 'var(--coral)' : 'var(--accent-2)'}`}>{housing.socialRentChangePp > 0 ? '+' : ''}{housing.socialRentChangePp}pp</span></div>
-          </>
-        )}
-      </div>
-      {housing.housingImplication && <p class="section-note">{housing.housingImplication}</p>}
+      <h2>Housing</h2>
+      {(hmo || ctSpd) && (
+        <>
+          <h3 class="subhead">Composition today</h3>
+          <p class="section-desc">
+            How dwellings in {area.areaName} are occupied — single-person households and houses in multiple occupation are the two cleanest signals.
+          </p>
+          <div class="data-grid">
+            {ctSpd && ctSpd.singlePersonDiscountPctOfChargeable != null && (
+              <>
+                <div class="data-item"><span class="data-label">Single-person discount take-up</span><span class="data-value">{ctSpd.singlePersonDiscountPctOfChargeable.toFixed(1)}%</span></div>
+                <div class="data-item"><span class="data-label">Dwellings on 25% single-person discount</span><span class="data-value">{ctSpd.singlePersonDiscount25.toLocaleString()}</span></div>
+              </>
+            )}
+            {hmo && hmo.hmoPer1kPopulation != null && (
+              <>
+                <div class="data-item"><span class="data-label">HMO dwellings (Census 2021)</span><span class="data-value">{hmo.totalHmoDwellings.toLocaleString()}</span></div>
+                <div class="data-item"><span class="data-label">HMOs per 1,000 population</span><span class="data-value">{hmo.hmoPer1kPopulation.toFixed(2)}</span></div>
+              </>
+            )}
+          </div>
+          <p class="section-note">
+            Sources: MHCLG Council Taxbase 2024 (CTB1, snapshot 7 October 2024) for single-person discount; ONS Census 2021 RM192 for HMO dwellings. HMO Census numbers reflect dwellings classified as HMO on Census Day; current licensing registers held by individual councils are not centrally published.
+          </p>
+        </>
+      )}
+      {housing?.dataAvailable && (
+        <>
+          <h3 class="subhead">Tenure projection</h3>
+          <p class="section-desc">Census 2021 tenure patterns by ethnicity, projected to 2041 from demographic composition change.</p>
+          <div class="data-grid">
+            <div class="data-item"><span class="data-label">Ownership (2021)</span><span class="data-value">{housing.currentTenure?.ownershipPct}%</span></div>
+            <div class="data-item"><span class="data-label">Social rent (2021)</span><span class="data-value">{housing.currentTenure?.socialRentPct}%</span></div>
+            <div class="data-item"><span class="data-label">Private rent (2021)</span><span class="data-value">{housing.currentTenure?.privateRentPct}%</span></div>
+            {housing.projectedTenure2041 && (
+              <>
+                <div class="data-item"><span class="data-label">Ownership (2041)</span><span class="data-value" style="color: var(--accent-3);">{housing.projectedTenure2041.ownershipPct}%</span></div>
+                <div class="data-item"><span class="data-label">Social rent (2041)</span><span class="data-value" style="color: var(--accent-3);">{housing.projectedTenure2041.socialRentPct}%</span></div>
+                <div class="data-item"><span class="data-label">Social rent change</span><span class="data-value" style={`color: ${(housing.socialRentChangePp ?? 0) > 0 ? 'var(--coral)' : 'var(--accent-2)'}`}>{housing.socialRentChangePp > 0 ? '+' : ''}{housing.socialRentChangePp}pp</span></div>
+              </>
+            )}
+          </div>
+          {housing.housingImplication && <p class="section-note">{housing.housingImplication}</p>}
+        </>
+      )}
     </section>
   )}
 
@@ -1219,25 +1227,6 @@ function fmtInt(n: number | undefined | null): string {
         <div class="data-item"><span class="data-label">WBI gap (school vs population)</span><span class="data-value">{school.wbiGap?.toFixed(1)}pp</span></div>
       </div>
       {school.insight && <p class="section-note">{school.insight}</p>}
-    </section>
-  )}
-
-  <!-- Language projections -->
-  {language?.dataAvailable && (
-    <section class="section" id="language">
-      <h2>English proficiency</h2>
-      <div class="data-grid">
-        {Object.entries(language.currentProficiency).map(([level, pct]) => (
-          <div class="data-item">
-            <span class="data-label">{level.replace(/_/g, " ")}</span>
-            <span class="data-value">{typeof pct === "number" ? `${(pct as number).toFixed(1)}%` : String(pct)}</span>
-          </div>
-        ))}
-        {language.projectedNonEnglishIncrease > 0 && (
-          <div class="data-item"><span class="data-label">Projected non-English growth</span><span class="data-value" style="color: var(--accent-3);">+{language.projectedNonEnglishIncrease}pp</span></div>
-        )}
-      </div>
-      {language.interpreterImplication && <p class="section-note">{language.interpreterImplication}</p>}
     </section>
   )}
 
@@ -1303,6 +1292,18 @@ function fmtInt(n: number | undefined | null): string {
   .data-item { display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
   .data-label { font-size: 0.85rem; color: var(--ink-soft); text-transform: capitalize; }
   .data-value { font-family: "Sora", sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+
+  /* Sub-heading inside a merged section (e.g. Housing → Composition / Tenure projection). */
+  .subhead {
+    font-family: "Sora", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 1.5rem 0 0.6rem;
+  }
+  .subhead:first-of-type { margin-top: 0; }
 
   .pressure-banner {
     background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm);
