@@ -15,7 +15,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
-      # TODO: re-enable `npm run check` once existing TS errors are cleared.
+      - run: npm run check
       - run: npm run build
       # Playwright disabled — see deploy.yml note. Re-enable once specs are
       # rewritten to cover the UKD page set (places / national / regional /

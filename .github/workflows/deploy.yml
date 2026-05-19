@@ -25,9 +25,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
-      # TODO: re-enable `npm run check` once the 56 pre-existing TS errors
-      # (mostly never-narrowing + unused imports across place/[slug].astro and
-      # findings) are fixed. Tracked as a P1 follow-up to the P0 CI cleanup.
+      - run: npm run check
       - run: npm run build
       # Playwright disabled until specs are rewritten for the UKD page set
       # (existing tests/{mobile,desktop}-layout.spec.ts reference asylumstats

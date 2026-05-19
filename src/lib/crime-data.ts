@@ -26,7 +26,7 @@ interface CrimeDashboard {
   areas: Record<string, AreaCrimeProfile>;
 }
 
-const data = rawCrime as CrimeDashboard;
+const data = rawCrime as unknown as CrimeDashboard;
 
 export function getCrimeProfile(areaCode: string): AreaCrimeProfile | null {
   return data.areas[areaCode] ?? null;
