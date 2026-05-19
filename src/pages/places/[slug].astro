@@ -17,6 +17,9 @@ import { getCrimeProfile, getCrimeRatePercentile, getCrimeSource, getCrimeCaveat
 import { getAscProfile, getAscSpendPercentile, getAscSource, getAscCaveat } from "../../lib/asc-data";
 import { getSendProfile, getSendGrowthPercentile, getSendSource, getSendCaveat } from "../../lib/send-data";
 import { getParentUtla } from "../../lib/area-hierarchy";
+import { getCensusEnglish } from "../../lib/census-english";
+import { getTopEthnicGroupsByTenure } from "../../lib/census-tenure";
+import { getTopEthnicGroupsByHealth } from "../../lib/census-health";
 import { getNinoProfile, getNinoTotalPercentile, getNinoSource, getNinoCaveat } from "../../lib/nino-data";
 import { getVisaRouteMix, getVisaRoutesSource, getVisaRoutesCaveat, getVisaRoutesYear } from "../../lib/visa-routes-data";
 import { getNinoHistorical, getNinoHistoricalYears, getNinoHistoricalNational, getNinoHistoricalSource, getNinoHistoricalCaveat } from "../../lib/nino-historical-data";
@@ -86,6 +89,11 @@ const sendGrowthPercentile = sendIsFallback && parentUtla
   : getSendGrowthPercentile(area.areaCode);
 const nino = getNinoProfile(area.areaCode);
 const ninoPercentile = getNinoTotalPercentile(area.areaCode);
+
+// Census 2021 NOMIS layers (TS029 / RM134 / RM043).
+const censusEnglish = getCensusEnglish(area.areaCode);
+const topTenureByEthnic = getTopEthnicGroupsByTenure(area.areaCode, 3);
+const topHealthByEthnic = getTopEthnicGroupsByHealth(area.areaCode, 3);
 
 // Top NINo nationalities for this area, joined with national 2025 visa-route mix
 const visaRouteRows = nino?.byNationality
@@ -551,10 +559,22 @@ function fmtInt(n: number | undefined | null): string {
   )}
 
   <!-- English proficiency (Census 2021 + projection) -->
-  {(englishProficiency || language?.dataAvailable) && (
+  {(censusEnglish || englishProficiency || language?.dataAvailable) && (
     <section class="section" id="english">
       <h2>English proficiency</h2>
-      {englishProficiency && (
+      {censusEnglish ? (
+        <>
+          <h3 class="subhead">Census 2021</h3>
+          <div class="data-grid">
+            <div class="data-item"><span class="data-label">Main language English</span><span class="data-value">{((censusEnglish.mainEnglish ?? 0) / censusEnglish.total * 100).toFixed(1)}%</span></div>
+            <div class="data-item"><span class="data-label">Main language not English</span><span class="data-value">{censusEnglish.nonEnglishPct?.toFixed(1) ?? "—"}%</span></div>
+            <div class="data-item"><span class="data-label">Cannot speak English well</span><span class="data-value">{((censusEnglish.mainNotEnglishNotWell ?? 0) / censusEnglish.total * 100).toFixed(1)}%</span></div>
+            <div class="data-item"><span class="data-label">Cannot speak English at all</span><span class="data-value">{((censusEnglish.mainNotEnglishCannot ?? 0) / censusEnglish.total * 100).toFixed(1)}%</span></div>
+            <div class="data-item"><span class="data-label">Total population 3+</span><span class="data-value">{censusEnglish.total.toLocaleString()}</span></div>
+          </div>
+          <p class="section-note">ONS Census 2021 (TS029) via NOMIS. Reference date 21 March 2021.</p>
+        </>
+      ) : englishProficiency && (
         <>
           <h3 class="subhead">Census 2021</h3>
           <div class="data-grid">
@@ -1034,6 +1054,23 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
+  <!-- Health by ethnic group (RM043) -->
+  {topHealthByEthnic.length > 0 && (
+    <section class="section" id="health-ethnic">
+      <h2>Health by ethnic group</h2>
+      <p class="section-desc">Share reporting "not good health" in each of {area.areaName}'s largest ethnic groups, Census 2021.</p>
+      <div class="data-grid">
+        {topHealthByEthnic.map(({ group, data }) => (
+          <div class="data-item">
+            <span class="data-label">{group.split(",")[0]}</span>
+            <span class="data-value">{data.notGoodHealthPct != null ? `${data.notGoodHealthPct.toFixed(1)}%` : "—"}</span>
+          </div>
+        ))}
+      </div>
+      <p class="section-note">ONS Census 2021 (RM043 - General health by ethnic group by age) via NOMIS. All ages, no age-standardisation: younger ethnic-group populations will show lower rates partly because they're younger, not necessarily because they're healthier. Group labels shortened for display.</p>
+    </section>
+  )}
+
   <!-- SEND -->
   {send && (
     <section class="section" id="send">
@@ -1212,6 +1249,21 @@ function fmtInt(n: number | undefined | null): string {
           <p class="section-note">
             Sources: MHCLG Council Taxbase 2024 (CTB1, snapshot 7 October 2024) for single-person discount; ONS Census 2021 RM192 for HMO dwellings. HMO Census numbers reflect dwellings classified as HMO on Census Day; current licensing registers held by individual councils are not centrally published.
           </p>
+        </>
+      )}
+      {topTenureByEthnic.length > 0 && (
+        <>
+          <h3 class="subhead">Tenure by ethnic group</h3>
+          <p class="section-desc">Household ownership rates for {area.areaName}'s largest ethnic groups, Census 2021.</p>
+          <div class="data-grid">
+            {topTenureByEthnic.map(({ group, data }) => (
+              <div class="data-item">
+                <span class="data-label">{group.split(",")[0]} — owned</span>
+                <span class="data-value">{data.ownershipPct != null ? `${data.ownershipPct.toFixed(1)}%` : "—"}</span>
+              </div>
+            ))}
+          </div>
+          <p class="section-note">ONS Census 2021 (RM134 - Tenure by ethnic group, Household Reference Persons) via NOMIS. Group labels shortened for display.</p>
         </>
       )}
       {housing?.dataAvailable && (
