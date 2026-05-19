@@ -19,7 +19,6 @@
   "dependencies": {
     "@fontsource-variable/manrope": "^5.2.8",
     "@fontsource-variable/sora": "^5.2.8",
-    "@tailwindcss/vite": "^4.2.2",
     "astro": "^5.0.0",
     "satori": "^0.26.0",
     "sharp": "^0.34.5",
