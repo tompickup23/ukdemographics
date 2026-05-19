@@ -1,24 +1,43 @@
+/**
+ * /og/[...slug].png — dynamic per-page Open Graph card endpoint.
+ *
+ * Each path enumerated in getStaticPaths emits a 1200×630 PNG rendered
+ * by Satori (text + flex layout → SVG) and @resvg/resvg-js (SVG → PNG).
+ * Per-card cost is roughly 250–350ms on a modern Mac.
+ *
+ * Gated behind BUILD_OG=1. When unset, getStaticPaths returns [] which
+ * means no OG endpoints are generated — iteration builds stay sub-10s.
+ * Production deploys set BUILD_OG=1 in the GitHub Actions workflow.
+ *
+ * Standard layout (shared with ukelections.co.uk + asylumstats.co.uk):
+ *   Brand row (40×40 logo tile + name + tagline)
+ *   Hero block (site-specific — UKD uses stat + uppercase label + title)
+ *   Single-line footer (site URL · brand sourced-tagline)
+ */
 import type { APIRoute, GetStaticPaths } from "astro";
 import satori from "satori";
-import sharp from "sharp";
+import { Resvg } from "@resvg/resvg-js";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { getCollection } from "astro:content";
 import { getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
 
-// Brand colors — UK Demographics (indigo) + sister-site accents
+const BUILD_OG = process.env.BUILD_OG === "1";
+
+const OG_WIDTH = 1200;
+const OG_HEIGHT = 630;
+
+// Brand colors — UK Demographics (indigo) on the shared dark surface.
 const COLORS = {
   bg: "#04070d",
   surface: "#0b1220",
-  accent: "#4f46e5",       // UKD indigo (this site)
+  accent: "#4f46e5",       // brand indigo
   accentLight: "#818cf8",
   text: "#f5f7fb",
   muted: "#91a7c4",
   alert: "#f59e0b",
   critical: "#ef4444",
-  resolved: "#10b981",
-  uke: "#10b981",          // ukelections.co.uk — emerald
-  as: "#06b6d4"            // asylumstats.co.uk — cyan
+  resolved: "#10b981"
 };
 
 const verdictColor: Record<string, string> = {
@@ -43,6 +62,8 @@ function ensureFonts() {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  if (!BUILD_OG) return [];
+
   const findings = await getCollection("findings");
 
   const findingPaths = findings.map((f) => ({
@@ -98,8 +119,8 @@ export const GET: APIRoute = async ({ props }) => {
       type: "div",
       props: {
         style: {
-          width: "1200px",
-          height: "630px",
+          width: `${OG_WIDTH}px`,
+          height: `${OG_HEIGHT}px`,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -108,6 +129,7 @@ export const GET: APIRoute = async ({ props }) => {
           fontFamily: "Manrope"
         },
         children: [
+          // Brand row — shared standard across UKD / UKE / AS.
           {
             type: "div",
             props: {
@@ -173,6 +195,7 @@ export const GET: APIRoute = async ({ props }) => {
               ]
             }
           },
+          // Hero block — stat (Sora 96, brand colour) + label + title.
           {
             type: "div",
             props: {
@@ -189,10 +212,11 @@ export const GET: APIRoute = async ({ props }) => {
                   props: {
                     style: {
                       fontFamily: "Sora",
-                      fontSize: "56px",
+                      fontSize: "96px",
                       fontWeight: 800,
                       color: statColor,
-                      lineHeight: 1
+                      lineHeight: 1,
+                      letterSpacing: "-0.03em"
                     },
                     children: stat
                   }
@@ -214,10 +238,10 @@ export const GET: APIRoute = async ({ props }) => {
                   props: {
                     style: {
                       fontFamily: "Sora",
-                      fontSize: "32px",
-                      fontWeight: 700,
+                      fontSize: "36px",
+                      fontWeight: 800,
                       color: COLORS.text,
-                      lineHeight: 1.2,
+                      lineHeight: 1.15,
                       maxWidth: "900px"
                     },
                     children: title
@@ -226,153 +250,37 @@ export const GET: APIRoute = async ({ props }) => {
               ]
             }
           },
+          // Single-line footer — URL (brand colour) + tagline (muted).
           {
             type: "div",
             props: {
               style: {
                 display: "flex",
-                flexDirection: "column",
-                gap: "10px",
+                justifyContent: "space-between",
+                alignItems: "center",
                 borderTop: `2px solid ${COLORS.accent}`,
                 paddingTop: "16px"
               },
               children: [
                 {
-                  // Primary site row
-                  type: "div",
+                  type: "span",
                   props: {
                     style: {
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center"
+                      fontSize: "14px",
+                      color: COLORS.accent,
+                      fontWeight: 600
                     },
-                    children: [
-                      {
-                        type: "span",
-                        props: {
-                          style: {
-                            fontSize: "14px",
-                            color: COLORS.accent,
-                            fontWeight: 600
-                          },
-                          children: "ukdemographics.co.uk"
-                        }
-                      },
-                      {
-                        type: "span",
-                        props: {
-                          style: {
-                            fontSize: "12px",
-                            color: COLORS.muted
-                          },
-                          children: "Every projection sourced."
-                        }
-                      }
-                    ]
+                    children: "ukdemographics.co.uk"
                   }
                 },
                 {
-                  // Sister-site cross-promo row
-                  type: "div",
+                  type: "span",
                   props: {
                     style: {
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "10px"
+                      fontSize: "12px",
+                      color: COLORS.muted
                     },
-                    children: [
-                      {
-                        type: "span",
-                        props: {
-                          style: {
-                            fontSize: "11px",
-                            color: COLORS.muted,
-                            letterSpacing: "0.08em",
-                            textTransform: "uppercase",
-                            fontWeight: 700
-                          },
-                          children: "Sister sites"
-                        }
-                      },
-                      {
-                        // UKE chip
-                        type: "span",
-                        props: {
-                          style: {
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "6px",
-                            fontSize: "12px",
-                            fontWeight: 700,
-                            color: COLORS.uke,
-                            padding: "4px 10px",
-                            border: `1px solid ${COLORS.uke}40`,
-                            borderRadius: "999px",
-                            background: `${COLORS.uke}14`
-                          },
-                          children: [
-                            {
-                              type: "span",
-                              props: {
-                                style: {
-                                  width: "6px",
-                                  height: "6px",
-                                  borderRadius: "999px",
-                                  background: COLORS.uke
-                                },
-                                children: ""
-                              }
-                            },
-                            {
-                              type: "span",
-                              props: {
-                                style: { color: COLORS.uke },
-                                children: "ukelections.co.uk"
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        // AS chip
-                        type: "span",
-                        props: {
-                          style: {
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "6px",
-                            fontSize: "12px",
-                            fontWeight: 700,
-                            color: COLORS.as,
-                            padding: "4px 10px",
-                            border: `1px solid ${COLORS.as}40`,
-                            borderRadius: "999px",
-                            background: `${COLORS.as}14`
-                          },
-                          children: [
-                            {
-                              type: "span",
-                              props: {
-                                style: {
-                                  width: "6px",
-                                  height: "6px",
-                                  borderRadius: "999px",
-                                  background: COLORS.as
-                                },
-                                children: ""
-                              }
-                            },
-                            {
-                              type: "span",
-                              props: {
-                                style: { color: COLORS.as },
-                                children: "asylumstats.co.uk"
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    ]
+                    children: "Every projection sourced."
                   }
                 }
               ]
@@ -382,8 +290,8 @@ export const GET: APIRoute = async ({ props }) => {
       }
     },
     {
-      width: 1200,
-      height: 630,
+      width: OG_WIDTH,
+      height: OG_HEIGHT,
       fonts: [
         { name: "Manrope", data: manropeBold!, weight: 700, style: "normal" },
         { name: "Sora", data: soraBold!, weight: 800, style: "normal" }
@@ -391,9 +299,10 @@ export const GET: APIRoute = async ({ props }) => {
     }
   );
 
-  const png = await sharp(Buffer.from(svg)).png({ quality: 90 }).toBuffer();
+  const resvg = new Resvg(svg, { fitTo: { mode: "width", value: OG_WIDTH } });
+  const png = Buffer.from(resvg.render().asPng());
 
-  return new Response(png as unknown as BodyInit, {
+  return new Response(new Uint8Array(png), {
     headers: {
       "Content-Type": "image/png",
       "Cache-Control": "public, max-age=86400"
