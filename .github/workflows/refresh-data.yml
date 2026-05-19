@@ -1,8 +1,19 @@
 name: Refresh data
 
+# Manual-only until the real refresh pipeline lands (P1).
+#
+# The previous cron called npm scripts inherited from the asylumstats fork
+# (ingest:routes / regionalsources / hotels / money). Those scripts have been
+# removed - none of them produced data used by the UK Demographics pages,
+# and the hotel transform died on a missing src/data/live/asylum-finance.json.
+#
+# Real refresh source-of-truth: the Python transforms under
+# scripts/transform/transform_*.py (NINo, PIP, payroll, country-of-birth,
+# crime, SEND, ASC, etc.). These currently run by hand because the raw
+# downloads (~2 GB) are gitignored. Wiring them into CI is a P1 task that
+# needs the fetchers to be CI-safe first.
+
 on:
-  schedule:
-    - cron: "0 8 * * 1"
   workflow_dispatch:
 
 jobs:
@@ -12,26 +23,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - run: npm ci
-      - name: Fetch and transform routes
-        run: npm run ingest:routes
-      - name: Fetch and transform regional sources
-        run: npm run ingest:regionalsources
-      - name: Fetch and transform hotels
-        run: npm run ingest:hotels
-      - name: Transform money ledger
-        run: npm run ingest:money
-      - name: Check for data changes
-        id: changes
-        run: |
-          git diff --quiet src/data/live/ data/marts/ data/canonical/ data/raw/manifests/ || echo "changed=true" >> "$GITHUB_OUTPUT"
-      - name: Commit and push updated data
-        if: steps.changes.outputs.changed == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/live/ data/marts/ data/canonical/ data/raw/manifests/
-          git commit -m "data: refresh route + hotel + money data $(date -u +%Y-%m-%d)"
-          git push
+      - name: Placeholder
+        run: echo "Refresh pipeline pending - see workflow comments."
