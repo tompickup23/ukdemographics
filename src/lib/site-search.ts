@@ -81,6 +81,96 @@ const STATIC_PAGE_ENTRIES: SiteSearchEntry[] = [
     description: "Hamilton-Perry CCR model, validation, limitations.",
     priority: 109,
     searchText: "methodology hamilton perry model validation census ccr"
+  },
+  {
+    href: "/constituencies/",
+    title: "Constituencies",
+    kind: "page",
+    kicker: "Westminster seats",
+    description: "Per-constituency demographic and political profile for 631 of 650 UK seats.",
+    priority: 115,
+    searchText: "constituencies westminster parliamentary seats mp ge2024 election"
+  },
+  {
+    href: "/findings/",
+    title: "Research",
+    kind: "page",
+    kicker: "Research findings",
+    description: "Research notes on demographic change, ethnic composition, and service demand.",
+    priority: 114,
+    searchText: "findings research notes investigations demographic change"
+  },
+  {
+    href: "/housing/",
+    title: "Housing pressure",
+    kind: "page",
+    kicker: "Housing demand",
+    description: "Social rent change and housing pressure by local authority.",
+    priority: 107,
+    searchText: "housing pressure social rent demand allocation"
+  },
+  {
+    href: "/schools/",
+    title: "Schools",
+    kind: "page",
+    kicker: "School demand",
+    description: "Pupil ethnic composition and school demand by local authority.",
+    priority: 107,
+    searchText: "schools pupils ethnic composition demand dfe primary secondary"
+  },
+  {
+    href: "/pressure/",
+    title: "Service demand pressure",
+    kind: "page",
+    kicker: "Pressure index",
+    description: "Composite service-demand pressure score across health, schools, social care.",
+    priority: 106,
+    searchText: "pressure service demand index composite asc send"
+  },
+  {
+    href: "/your-area/",
+    title: "Your area",
+    kind: "page",
+    kicker: "Postcode lookup",
+    description: "Look up your local authority and constituency from a UK postcode.",
+    priority: 113,
+    searchText: "your area postcode lookup local authority constituency"
+  },
+  {
+    href: "/glossary/",
+    title: "Glossary",
+    kind: "page",
+    kicker: "Term definitions",
+    description: "Definitions of model terms, indicators, and demographic categories.",
+    priority: 101,
+    searchText: "glossary definitions terms indicators demographic categories"
+  },
+  {
+    href: "/accessibility/",
+    title: "Accessibility",
+    kind: "page",
+    kicker: "Accessibility statement",
+    description: "Accessibility statement for the UK Demographics site.",
+    priority: 90,
+    searchText: "accessibility statement wcag standards"
+  },
+  {
+    href: "/privacy/",
+    title: "Privacy Policy",
+    kind: "page",
+    kicker: "Privacy policy",
+    description: "Privacy policy and data handling for the UK Demographics site.",
+    priority: 90,
+    searchText: "privacy policy data handling gdpr"
+  },
+  {
+    href: "/terms/",
+    title: "Terms of Use",
+    kind: "page",
+    kicker: "Terms of use",
+    description: "Terms of use for the UK Demographics site and data.",
+    priority: 90,
+    searchText: "terms of use legal licence"
   }
 ];
 
