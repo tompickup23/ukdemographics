@@ -69,7 +69,7 @@ const STATIC_PAGE_ENTRIES: SiteSearchEntry[] = [
     title: "Sources",
     kind: "page",
     kicker: "Source ledger",
-    description: "Data sources — Census, ONS, DfE, NHS Digital.",
+    description: "Data sources: Census, ONS, DfE, NHS Digital.",
     priority: 108,
     searchText: "sources ons census dfe nhs data"
   },

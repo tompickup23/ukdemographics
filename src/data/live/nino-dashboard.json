@@ -2,7 +2,7 @@
   "source": "DWP National Insurance number allocations to adult overseas nationals (Stat-Xplore NINO database).",
   "methodology": "Per-LA NINo registrations summed over the four most-recent quarters in the cube (rolling year). Year-on-year is the rolling-year total vs the four quarters before that. Top nationalities by registrations over the recent rolling year. Counts are rounded to the nearest 10 in the Stat-Xplore output and small cells suppressed.",
   "lastUpdated": "2026-04-28",
-  "caveat": "NINo registrations measure new arrivals into the National Insurance system, not total foreign-born population. A NINo is allocated when an overseas national requests one \u2014 usually to start work or claim benefits \u2014 so the figure misses students and dependants who never enter the labour market. Small (LA \u00d7 nationality) cells are suppressed by Stat-Xplore for disclosure control.",
+  "caveat": "NINo registrations measure new arrivals into the National Insurance system, not total foreign-born population. A NINo is allocated when an overseas national requests one, usually to start work or claim benefits, so the figure misses students and dependants who never enter the labour market. Small (LA \u00d7 nationality) cells are suppressed by Stat-Xplore for disclosure control.",
   "areas": {
     "E06000001": {
       "areaName": "Hartlepool",

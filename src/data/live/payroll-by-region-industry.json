@@ -1,5 +1,5 @@
 {
-  "source": "HMRC Real Time Information via ONS \u2014 Payrolled employments in the UK by nationality, region and industrial sector, Tables 5-17 (Jul 2014 \u2013 Dec 2024 monthly time series). This file consolidates the latest-month snapshot and 5y change per region per industry.",
+  "source": "HMRC Real Time Information via ONS, Payrolled employments in the UK by nationality, region and industrial sector, Tables 5-17 (Jul 2014 \u2013 Dec 2024 monthly time series). This file consolidates the latest-month snapshot and 5y change per region per industry.",
   "lastUpdated": "2026-04-29",
   "caveat": "Counts are EMPLOYMENTS not employees (a person with two jobs is counted twice). Industry breakdown is at SIC 2007 section level (A-U). Some cells are suppressed [c] and appear as missing here.",
   "regions": {

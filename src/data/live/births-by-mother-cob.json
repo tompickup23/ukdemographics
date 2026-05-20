@@ -1,8 +1,8 @@
 {
-  "source": "Office for National Statistics \u2014 Births by parents' country of birth, England and Wales, 2024 (Table 6a: Live births by country of birth of mother and area of usual residence).",
+  "source": "Office for National Statistics, Births by parents' country of birth, England and Wales, 2024 (Table 6a: Live births by country of birth of mother and area of usual residence).",
   "lastUpdated": "2026-04-28",
   "year": 2024,
-  "caveat": "Mother's country of birth is reported in six regional groups at LA level (full-country detail is national/regional only). Geography mixes Country / Region / Unitary Authority / Non-metropolitan District / London Borough / Metropolitan District in one file \u2014 filter on geographyType when joining.",
+  "caveat": "Mother's country of birth is reported in six regional groups at LA level (full-country detail is national/regional only). Geography mixes Country / Region / Unitary Authority / Non-metropolitan District / London Borough / Metropolitan District in one file, filter on geographyType when joining.",
   "totalAreas": 359,
   "topNonUkBornMotherLAs": [
     {

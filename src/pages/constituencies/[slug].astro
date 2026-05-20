@@ -115,7 +115,7 @@ const winnerShareText = pcon.ge2024.winnerSharePct > 0
     <h2>2024 General Election result</h2>
     <div class="stat-card-row">
       <StatCard
-        value={pcon.ge2024.winner ?? "—"}
+        value={pcon.ge2024.winner ?? "n/a"}
         label="Winner"
         accent={pcon.ge2024.winner ? (partyColors[pcon.ge2024.winner] ?? "var(--accent)") : null}
       />
@@ -124,11 +124,11 @@ const winnerShareText = pcon.ge2024.winnerSharePct > 0
         label="Winning share"
       />
       <StatCard
-        value={pcon.ge2024.majorityPp != null ? `${pcon.ge2024.majorityPp.toFixed(1)}pp` : "—"}
+        value={pcon.ge2024.majorityPp != null ? `${pcon.ge2024.majorityPp.toFixed(1)}pp` : "n/a"}
         label={pcon.ge2024.runnerUp ? `Majority over ${pcon.ge2024.runnerUp}` : "Majority"}
       />
       <StatCard
-        value={pcon.ge2024.totalVotes != null ? pcon.ge2024.totalVotes.toLocaleString() : "—"}
+        value={pcon.ge2024.totalVotes != null ? pcon.ge2024.totalVotes.toLocaleString() : "n/a"}
         label="Valid votes cast"
       />
     </div>

@@ -20,12 +20,12 @@ interface Props {
 const { data, areaName } = Astro.props;
 
 function fmt(n: number | undefined, suffix = ""): string {
-  if (n === undefined || n === null) return "—";
+  if (n === undefined || n === null) return "n/a";
   return `${n.toLocaleString()}${suffix}`;
 }
 
 function pct(n: number | undefined): string {
-  if (n === undefined || n === null) return "—";
+  if (n === undefined || n === null) return "n/a";
   return `${n.toFixed(1)}%`;
 }
 

@@ -36,7 +36,7 @@ const sortedWinners = Object.entries(winnerCounts).sort(([, a], [, b]) => b - a)
 
 <BaseLayout
   title="UK constituencies"
-  description={`Per-constituency demographic and political profile for ${all.length} of the 650 UK parliamentary constituencies — 2024 General Election results, MP, PIP claimants, and the local authorities that make up each seat.`}
+  description={`Per-constituency demographic and political profile for ${all.length} of the 650 UK parliamentary constituencies: 2024 General Election results, MP, PIP claimants, and the local authorities that make up each seat.`}
 >
   <h1>UK constituencies</h1>
   <p class="desc">{all.length} of 650 constituencies, joined to demographic and welfare data. 2024 General Election results, sitting MP, PIP claimants, and the local authorities that make up each seat.</p>
@@ -58,7 +58,7 @@ const sortedWinners = Object.entries(winnerCounts).sort(([, a], [, b]) => b - a)
           <a class="pcon-card" href={`/constituencies/${p.slug}/`}>
             <span class="pcon-name">{p.name}</span>
             <span class="pcon-meta">
-              <span class="pcon-winner" style={`color: ${partyColors[p.ge2024.winner ?? ""] ?? "var(--muted)"}`}>{p.ge2024.winner ?? "—"}</span>
+              <span class="pcon-winner" style={`color: ${partyColors[p.ge2024.winner ?? ""] ?? "var(--muted)"}`}>{p.ge2024.winner ?? "n/a"}</span>
               <span class="pcon-margin">{p.ge2024.majorityPp != null ? `+${p.ge2024.majorityPp.toFixed(1)}pp` : ""}</span>
             </span>
           </a>

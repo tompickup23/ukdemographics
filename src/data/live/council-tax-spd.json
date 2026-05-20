@@ -1,7 +1,7 @@
 {
   "source": "MHCLG Council Taxbase 2024 (CTB1 LA-level data, snapshot 7 October 2024). Single-person 25% discount is Table 1.08; denominator is Table 1.07 (chargeable dwellings).",
   "lastUpdated": "2026-04-29",
-  "caveat": "Single-person discount captures households with one adult and is the cleanest proxy for single-person occupancy. The separate 'all-but-one disregarded' (Table 1.09) and 'all residents disregarded' (Table 1.10) categories cover students, severely mentally impaired, and similar cases \u2014 surfaced separately. Snapshot is 7 October 2024.",
+  "caveat": "Single-person discount captures households with one adult and is the cleanest proxy for single-person occupancy. The separate 'all-but-one disregarded' (Table 1.09) and 'all residents disregarded' (Table 1.10) categories cover students, severely mentally impaired, and similar cases, surfaced separately. Snapshot is 7 October 2024.",
   "totalLAs": 296,
   "topLAsBySpdShare": [
     {

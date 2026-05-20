@@ -179,7 +179,7 @@
     "mostDeprivedQuintileBirths": 144522,
     "leastDeprivedQuintileBirths": 87216,
     "ratio": 1.66,
-    "insight": "Women in the most deprived quintile have 1.66x more births than the least deprived. This deprivation gradient is a major driver of apparent ethnic fertility differentials — Pakistani and Bangladeshi populations are concentrated in deprived areas."
+    "insight": "Women in the most deprived quintile have 1.66x more births than the least deprived. This deprivation gradient is a major driver of apparent ethnic fertility differentials. Pakistani and Bangladeshi populations are concentrated in deprived areas."
   },
   "regionalBirthShares": {
     "NORTH EAST": {
@@ -242,5 +242,5 @@
     "Any other White background": 59275,
     "Not stated": 9266
   },
-  "note": "The v6.0 HP model uses Census-derived CWRs per LA per ethnic group — NOT hardcoded TFRs. These empirical ONS 2024 rates serve as independent validation and calibration data. Table 8 provides ethnicity, IMD, and age as separate marginals (not a full ethnicity × IMD × age cross-tab). The full cross-tab would be needed to compute ethnic-specific ASFRs by deprivation — this requires an ONS ad-hoc request or indirect estimation."
+  "note": "The v6.0 HP model uses Census-derived CWRs per LA per ethnic group (NOT hardcoded TFRs). These empirical ONS 2024 rates serve as independent validation and calibration data. Table 8 provides ethnicity, IMD, and age as separate marginals (not a full ethnicity × IMD × age cross-tab). The full cross-tab would be needed to compute ethnic-specific ASFRs by deprivation; this requires an ONS ad-hoc request or indirect estimation."
 }

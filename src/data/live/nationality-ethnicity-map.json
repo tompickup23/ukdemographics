@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-04-14T08:44:04.735Z",
   "source": "Census 2021 TS022: Ethnic group (detailed) by lower tier local authority",
-  "methodology": "Maps Home Office asylum nationality categories to Census 2021 ethnic groups using TS022's 294 detailed sub-categories. Distribution shows what % of each nationality's Census population falls into each broad ethnic group. This is self-identified ethnicity, not nationality of birth — e.g., 'Pakistani' includes UK-born British Pakistanis.",
+  "methodology": "Maps Home Office asylum nationality categories to Census 2021 ethnic groups using TS022's 294 detailed sub-categories. Distribution shows what % of each nationality's Census population falls into each broad ethnic group. This is self-identified ethnicity, not nationality of birth (e.g., 'Pakistani' includes UK-born British Pakistanis).",
   "caveat": "Census ethnicity is self-identified and includes UK-born descendants, not just recent migrants. The distribution is a proxy for mapping new asylum arrivals to their likely Census ethnic category.",
   "nationalityCount": 27,
   "mapping": [
@@ -1431,7 +1431,7 @@
       },
       "topLAs": [],
       "columnsUsed": [
-        "MANUAL — Iraqi not separately identifiable in TS022. Distribution estimated from Arab ethnic category (TS021) and Iraqi country-of-birth (TS004) cross-tabulation."
+        "MANUAL: Iraqi not separately identifiable in TS022. Distribution estimated from Arab ethnic category (TS021) and Iraqi country-of-birth (TS004) cross-tabulation."
       ],
       "isManual": true
     },
@@ -1447,7 +1447,7 @@
       },
       "topLAs": [],
       "columnsUsed": [
-        "MANUAL — Syrian not separately identifiable in TS022. Distribution estimated from Arab ethnic category and Syrian country-of-birth data."
+        "MANUAL: Syrian not separately identifiable in TS022. Distribution estimated from Arab ethnic category and Syrian country-of-birth data."
       ],
       "isManual": true
     }

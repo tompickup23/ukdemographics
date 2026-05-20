@@ -8,7 +8,7 @@
     "ageSpecificRMSE": 3.49,
     "totalPopMAE": 4.44,
     "totalPopRMSE": 6.57,
-    "note": "Age-specific comparison (Census 2021 ages 4-15 vs DfE 2024/25) is the valid comparison. Total-pop comparison is provided for context only — it shows the expected structural gap between younger and older cohorts.",
+    "note": "Age-specific comparison (Census 2021 ages 4-15 vs DfE 2024/25) is the valid comparison. Total-pop comparison is provided for context only; it shows the expected structural gap between younger and older cohorts.",
     "byGroupAgeSpecific": {
       "white_british": {
         "mae": 6.2,
@@ -1950,7 +1950,7 @@
         "primaryWBIPct": 27.8,
         "secondaryWBIPct": 24.3,
         "gapPp": 3.6,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -2575,7 +2575,7 @@
         "primaryWBIPct": 47.1,
         "secondaryWBIPct": 50.9,
         "gapPp": -3.8,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -2700,7 +2700,7 @@
         "primaryWBIPct": 80.5,
         "secondaryWBIPct": 85.1,
         "gapPp": -4.6,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -2950,7 +2950,7 @@
         "primaryWBIPct": 57,
         "secondaryWBIPct": 61.1,
         "gapPp": -4,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -3075,7 +3075,7 @@
         "primaryWBIPct": 47.7,
         "secondaryWBIPct": 55.1,
         "gapPp": -7.3,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -3325,7 +3325,7 @@
         "primaryWBIPct": 73.4,
         "secondaryWBIPct": 77.2,
         "gapPp": -3.8,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -3700,7 +3700,7 @@
         "primaryWBIPct": 45.7,
         "secondaryWBIPct": 50.3,
         "gapPp": -4.5,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -4075,7 +4075,7 @@
         "primaryWBIPct": 64,
         "secondaryWBIPct": 68.4,
         "gapPp": -4.4,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -5075,7 +5075,7 @@
         "primaryWBIPct": 59.6,
         "secondaryWBIPct": 65.1,
         "gapPp": -5.5,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -5575,7 +5575,7 @@
         "primaryWBIPct": 86.5,
         "secondaryWBIPct": 89.8,
         "gapPp": -3.3,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -5825,7 +5825,7 @@
         "primaryWBIPct": 75,
         "secondaryWBIPct": 78.1,
         "gapPp": -3.1,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -6200,7 +6200,7 @@
         "primaryWBIPct": 72.2,
         "secondaryWBIPct": 66.8,
         "gapPp": 5.3,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -6950,7 +6950,7 @@
         "primaryWBIPct": 57.9,
         "secondaryWBIPct": 64.7,
         "gapPp": -6.7,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -7075,7 +7075,7 @@
         "primaryWBIPct": 22.2,
         "secondaryWBIPct": 18.9,
         "gapPp": 3.3,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -7538,7 +7538,7 @@
         "primaryWBIPct": 40.1,
         "secondaryWBIPct": 44.4,
         "gapPp": -4.3,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -8126,7 +8126,7 @@
         "primaryWBIPct": 80.5,
         "secondaryWBIPct": 83.6,
         "gapPp": -3.1,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -8251,7 +8251,7 @@
         "primaryWBIPct": 75.6,
         "secondaryWBIPct": 79.2,
         "gapPp": -3.6,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -8751,7 +8751,7 @@
         "primaryWBIPct": 18.6,
         "secondaryWBIPct": 13.1,
         "gapPp": 5.4,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -9376,7 +9376,7 @@
         "primaryWBIPct": 41.8,
         "secondaryWBIPct": 45.5,
         "gapPp": -3.6,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -9626,7 +9626,7 @@
         "primaryWBIPct": 53.4,
         "secondaryWBIPct": 56.9,
         "gapPp": -3.6,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -10214,7 +10214,7 @@
         "primaryWBIPct": 84.7,
         "secondaryWBIPct": 88.3,
         "gapPp": -3.6,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -11214,7 +11214,7 @@
         "primaryWBIPct": 26.7,
         "secondaryWBIPct": 23.1,
         "gapPp": 3.6,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -11464,7 +11464,7 @@
         "primaryWBIPct": 67.8,
         "secondaryWBIPct": 57.2,
         "gapPp": 10.6,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -11802,7 +11802,7 @@
         "primaryWBIPct": 78.4,
         "secondaryWBIPct": 82.7,
         "gapPp": -4.2,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -12302,7 +12302,7 @@
         "primaryWBIPct": 71.4,
         "secondaryWBIPct": 77,
         "gapPp": -5.6,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -12427,7 +12427,7 @@
         "primaryWBIPct": 57,
         "secondaryWBIPct": 52.8,
         "gapPp": 4.3,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -12552,7 +12552,7 @@
         "primaryWBIPct": 24.2,
         "secondaryWBIPct": 16.4,
         "gapPp": 7.9,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -12677,7 +12677,7 @@
         "primaryWBIPct": 21.6,
         "secondaryWBIPct": 18,
         "gapPp": 3.6,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -12802,7 +12802,7 @@
         "primaryWBIPct": 44.3,
         "secondaryWBIPct": 53.2,
         "gapPp": -8.9,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -13052,7 +13052,7 @@
         "primaryWBIPct": 46.2,
         "secondaryWBIPct": 49.8,
         "gapPp": -3.6,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -13177,7 +13177,7 @@
         "primaryWBIPct": 26.5,
         "secondaryWBIPct": 29.9,
         "gapPp": -3.4,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -13427,7 +13427,7 @@
         "primaryWBIPct": 46.9,
         "secondaryWBIPct": 43.7,
         "gapPp": 3.2,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -13802,7 +13802,7 @@
         "primaryWBIPct": 78.8,
         "secondaryWBIPct": 83.1,
         "gapPp": -4.3,
-        "signal": "Accelerating diversification — primary schools are significantly more diverse than secondary."
+        "signal": "Accelerating diversification: primary schools are significantly more diverse than secondary."
       }
     },
     {
@@ -14052,7 +14052,7 @@
         "primaryWBIPct": 28.2,
         "secondaryWBIPct": 23.2,
         "gapPp": 5,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -14802,7 +14802,7 @@
         "primaryWBIPct": 39.6,
         "secondaryWBIPct": 32.6,
         "gapPp": 7,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {
@@ -15765,7 +15765,7 @@
         "primaryWBIPct": 90.3,
         "secondaryWBIPct": 86.3,
         "gapPp": 4,
-        "signal": "Slowing diversification — primary schools are less diverse than secondary."
+        "signal": "Slowing diversification: primary schools are less diverse than secondary."
       }
     },
     {

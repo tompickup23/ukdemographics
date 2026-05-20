@@ -143,7 +143,7 @@ const indexJson = JSON.stringify(indexBySlug);
   else if (data["pendle"]) pickerB.value = "pendle";
 
   function num(v, decimals) {
-    if (v === null || v === undefined) return "—";
+    if (v === null || v === undefined) return "n/a";
     if (typeof v === "number") {
       if (Number.isInteger(v)) return v.toLocaleString();
       return v.toFixed(decimals == null ? 1 : decimals);
@@ -151,7 +151,7 @@ const indexJson = JSON.stringify(indexBySlug);
     return String(v);
   }
   function pct(v, d) {
-    if (v === null || v === undefined) return "—";
+    if (v === null || v === undefined) return "n/a";
     return num(v, d == null ? 1 : d) + "%";
   }
   function deltaSpan(a, b, opts) {
@@ -180,8 +180,8 @@ const indexJson = JSON.stringify(indexBySlug);
   function appendRow(tbody, label, valueA, valueB, deltaNode) {
     const tr = document.createElement("tr");
     const td1 = document.createElement("td"); td1.classList.add("cmp-label"); td1.textContent = label; tr.appendChild(td1);
-    const td2 = document.createElement("td"); td2.classList.add("cmp-val"); td2.textContent = (valueA == null ? "—" : valueA); tr.appendChild(td2);
-    const td3 = document.createElement("td"); td3.classList.add("cmp-val"); td3.textContent = (valueB == null ? "—" : valueB); tr.appendChild(td3);
+    const td2 = document.createElement("td"); td2.classList.add("cmp-val"); td2.textContent = (valueA == null ? "n/a" : valueA); tr.appendChild(td2);
+    const td3 = document.createElement("td"); td3.classList.add("cmp-val"); td3.textContent = (valueB == null ? "n/a" : valueB); tr.appendChild(td3);
     const td4 = document.createElement("td"); td4.classList.add("cmp-d");
     if (deltaNode) td4.appendChild(deltaNode);
     tr.appendChild(td4);
@@ -189,7 +189,7 @@ const indexJson = JSON.stringify(indexBySlug);
   }
 
   function topNatLabel(o) {
-    if (!o.ninoTopNationality) return "—";
+    if (!o.ninoTopNationality) return "n/a";
     return o.ninoTopNationality + (o.ninoTopNationalityShare != null ? " (" + o.ninoTopNationalityShare.toFixed(1) + "%)" : "");
   }
 
