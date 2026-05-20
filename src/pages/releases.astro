@@ -4,9 +4,33 @@ import { buildAbsoluteUrl, buildReleaseCollectionStructuredData } from "../lib/s
 
 const releases = [
   {
+    date: "2026-05-20",
+    title: "Site audit and corrections",
+    summary: "Reconciled the NEWETHPOP MAE figures across findings and methodology. National headline figures (White British share 2011 / 2021 / 2051 / 2061) are now computed live from the projection data rather than hard-coded. Added null-safety to per-place stat blocks so missing values render \"n/a\" rather than \"undefined%\". Constituency pages now carry a derived demographic snapshot (White British share, foreign-born share), weighted by postcode share and 2021 population. Removed AI-style writing tells (em-dashes, hype words, shouty caps). Expanded modelling acronyms (WBI, CCR, CWR, TFR, SNPP, IPF, MAE, NEWETHPOP, NINo, EAL, DC2101EW, RM021, TS021 / 22 / 27 / 29) in the glossary. Northern Ireland party colours added to the constituency template. Hardcoded \"of 320\" rank labels now derive from the dataset. Sources page expanded to list DWP Stat-Xplore, NOMIS and ONS births data.",
+    sourceUrl: "https://ukdemographics.co.uk"
+  },
+  {
+    date: "2026-05-20",
+    title: "Per-place MiniMap (Phase 3)",
+    summary: "Place and constituency pages now show a thumbnail map highlighting the focal area against neighbouring boundaries. Local authority maps use the indigo brand colour for the focal; constituency maps use the 2024 General Election winner's party colour.",
+    sourceUrl: "https://ukdemographics.co.uk"
+  },
+  {
+    date: "2026-05-19",
+    title: "Coverage parity (P2)",
+    summary: "Added 631 Westminster constituency pages with 2024 General Election results, sitting MPs and Personal Independence Payment claimant counts. Constituency-to-local-authority cross-links use postcode-share weights from the ONS pcon-lookup. Three new findings: 24-year NINo arrivals arc, working-and-not-working by passport group (Census 2021 RM021), and 2024 births by mother's country of birth.",
+    sourceUrl: "https://ukdemographics.co.uk"
+  },
+  {
+    date: "2026-04-29",
+    title: "Model v7.0",
+    summary: "Census 2011 DC2101EW (18 groups, observed) replaces the previous proportional-splitting Census 2011 base, so per-area Hamilton-Perry CCRs now derive from direct Census observations at both ends of the calibration window. DfE School Census 2024/25 independent calibration applied to ages 0-5 (20% damped). Per-area MAE published on the methodology page. Backcast MAE on the apples-to-apples 269-area comparison against NEWETHPOP: 1.71pp (NEWETHPOP 2.58pp on the same areas). The methodology page documents the circularity caveat: cohort change ratios in the backcast are derived from the same endpoints being validated, and the genuine non-circular measure is the national-CCR baseline at 2.32pp.",
+    sourceUrl: "https://ukdemographics.co.uk"
+  },
+  {
     date: "2026-04-14",
     title: "UK Demographics launch",
-    summary: "Initial release: 320 local authority demographic profiles with ethnic projections to 2061.",
+    summary: "Initial release: 320 local authority demographic profiles with ethnic projections to 2061. Hamilton-Perry v6.0 model, 20 ethnic groups, Census-direct base, 1,000 Monte Carlo simulations with sigma 0.02 generating 80% and 95% confidence intervals.",
     sourceUrl: "https://ukdemographics.co.uk"
   }
 ];

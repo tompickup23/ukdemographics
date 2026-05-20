@@ -12,7 +12,7 @@ summary: "Shift-share decomposition of 305 local authorities shows that 84% of B
 
 **Burnley's ethnic change is not mainly about Burnley.** It's about Britain.
 
-We decomposed the 2011–2021 White British decline in every local authority into three components: national trend, age structure, and local migration. In Burnley, the breakdown is:
+The 2011 to 2021 White British decline in every local authority has been decomposed into three components: national trend, age structure, and local migration. In Burnley, the breakdown is:
 
 - **National effect: -6.4pp** (84% of total change)
 - **Age structure: -0.4pp** (5%)

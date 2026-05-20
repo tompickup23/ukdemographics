@@ -12,7 +12,7 @@ summary: "Census 2021 data shows 89.7% of people identifying as Albanian classif
 
 **The second-largest asylum nationality produces no change in ethnic minority statistics.**
 
-Albania is the second-largest source of asylum claims in UK history. 57,360 decisions to date, with an 17.4% grant rate. Public debate often treats Albanian migration as part of ethnic diversification. Census data tells a different story.
+Albania is the second-largest source of asylum claims in UK history. 57,360 decisions to date, with a 17.4% grant rate. Public debate often treats Albanian migration as part of ethnic diversification. Census data tells a different story.
 
 **89.7% of people with Albanian heritage identify as White Other in Census 2021.** Only 10.3% identify under any other category. This means Albanian asylum seekers, whether granted protection or not, contribute to the "White Other" category in demographic data, not to Asian, Black, or other ethnic minority statistics.
 

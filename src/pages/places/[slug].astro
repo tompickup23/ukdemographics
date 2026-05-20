@@ -46,6 +46,8 @@ import languageProjections from "../../data/live/language-projections.json";
 import fiscalResilience from "../../data/live/fiscal-resilience.json";
 import scenarioSummaries from "../../data/live/scenario-summaries.json";
 
+const TOTAL_PUBLIC_AREAS = getPublicPlaceAreas().length;
+
 export function getStaticPaths() {
   return getPublicPlaceAreas().map((area) => ({
     params: { slug: slugifyAreaName(area.areaName) },
@@ -336,7 +338,10 @@ const natChartLines = nativityData
   : [];
 
 const canonicalUrl = buildAbsoluteUrl(`/places/${slugifyAreaName(area.areaName)}/`);
-const pageDescription = `${area.areaName} demographic profile: population ${population?.toLocaleString()}, White British ${wbi2021?.toFixed(1)}% (2021) → ${wbi2051?.toFixed(1) ?? "?"}% (2051 projected). Ethnic composition, religion, nativity, shift-share analysis.`;
+const popText = population != null ? population.toLocaleString() : "—";
+const wbi2021Text = wbi2021 != null ? `${wbi2021.toFixed(1)}%` : "n/a";
+const wbi2051Text = wbi2051 != null ? `${wbi2051.toFixed(1)}%` : "n/a";
+const pageDescription = `${area.areaName} demographic profile: population ${popText}, White British ${wbi2021Text} (2021) to ${wbi2051Text} (2051 projected). Ethnic composition, religion, nativity, shift-share analysis.`;
 
 const structuredData = buildPlaceStructuredData(area, {
   canonicalUrl,
@@ -354,7 +359,7 @@ function fmtInt(n: number | undefined | null): string {
 ---
 
 <BaseLayout
-  title={`${area.areaName} — demographic profile`}
+  title={`${area.areaName}, demographic profile`}
   description={pageDescription}
   image={`/og/places/${slugifyAreaName(area.areaName)}.png`}
   structuredData={structuredData}
@@ -385,8 +390,8 @@ function fmtInt(n: number | undefined | null): string {
       />
       <ShareButton
         url={canonicalUrl}
-        title={`${area.areaName} demographic profile — UK Demographics`}
-        text={`${area.areaName}: WBI ${fmtPct(wbi2021)} (2021) → ${fmtPct(wbi2051)} (2051). See the full profile.`}
+        title={`${area.areaName} demographic profile, UK Demographics`}
+        text={`${area.areaName}: White British ${fmtPct(wbi2021)} (2021) to ${fmtPct(wbi2051)} (2051). See the full profile.`}
         compact
       />
     </div>
@@ -439,7 +444,7 @@ function fmtInt(n: number | undefined | null): string {
       </p>
       <div class="chart-holder">
         <ProjectionChart
-          title={`Ethnic composition — ${area.areaName}`}
+          title={`Ethnic composition, ${area.areaName}`}
           lines={ethChartLines}
           confidenceBand={ethConfidenceBand}
           nowYear={2021}
@@ -456,25 +461,25 @@ function fmtInt(n: number | undefined | null): string {
       {modelSpread && typeof modelSpread.hamiltonPerry === 'number' && typeof modelSpread.cohortComponent === 'number' && (
         <div class="model-compare">
           <div class="model-compare-head">
-            <h3>Two-model comparison &mdash; White British, 2051</h3>
-            <span class="model-spread-badge">&plusmn;{modelSpread.spreadPp}pp spread</span>
+            <h3>Two-model comparison: White British, 2051</h3>
+            <span class="model-spread-badge">&plusmn;{Number(modelSpread.spreadPp ?? 0).toFixed(1)}pp spread</span>
           </div>
           <div class="model-compare-grid">
             <div class="model-card model-card-primary">
-              <span class="model-card-label">Hamilton-Perry v7.0 <span class="model-card-tag">central</span></span>
+              <span class="model-card-label">Hamilton-Perry (HP) <span class="model-card-tag">central</span></span>
               <span class="model-card-value">{modelSpread.hamiltonPerry.toFixed(1)}%</span>
-              <span class="model-card-desc">Cohort change ratios from Census 2011-2021. Demographic momentum only, no fertility convergence.</span>
+              <span class="model-card-desc">Cohort change ratios from Census 2011 to 2021. Demographic momentum only, no fertility convergence.</span>
             </div>
             <div class="model-card">
               <span class="model-card-label">Cohort-component</span>
               <span class="model-card-value">{modelSpread.cohortComponent.toFixed(1)}%</span>
-              <span class="model-card-desc">Births by ethnicity-specific TFR with half-convergence to national mean by 2061. Slower change.</span>
+              <span class="model-card-desc">Births by ethnicity-specific total fertility rate (TFR) with half-convergence to the national mean by 2061. Slower change.</span>
             </div>
           </div>
           <p class="model-compare-note">
-            Two independent models trained on the same Census base disagree by {modelSpread.spreadPp}pp on White British share in {area.areaName} by 2051.
-            HP captures observed 2011-2021 cohort dynamics; the cohort-component model adds explicit fertility assumptions that pull projections toward the national mean.
-            The chart above shows HP. Read the <a href="/methodology/#two-models">methodology</a> for why we publish both numbers.
+            Two independent models trained on the same Census base disagree by {Number(modelSpread.spreadPp ?? 0).toFixed(1)}pp on White British share in {area.areaName} by 2051.
+            HP captures observed 2011 to 2021 cohort dynamics. The cohort-component model adds explicit fertility assumptions that pull projections toward the national mean.
+            The chart above shows HP. See the <a href="/methodology/#two-models">methodology</a> for why both numbers are published.
           </p>
         </div>
       )}
@@ -639,7 +644,7 @@ function fmtInt(n: number | undefined | null): string {
       <div class="pressure-banner" style={`border-left: 4px solid ${pressure.serviceDemandPressureScore >= 70 ? 'var(--coral)' : pressure.serviceDemandPressureScore >= 45 ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
         <span class="pressure-score">{pressure.serviceDemandPressureScore}/100</span>
         <span class="pressure-category">{pressure.category}</span>
-        <span class="pressure-rank">Rank {pressure.pressureRank} of 320</span>
+        <span class="pressure-rank">Rank {pressure.pressureRank} of {TOTAL_PUBLIC_AREAS}</span>
       </div>
       <div class="data-grid">
         <div class="data-item"><span class="data-label">Ethnic change</span><span class="data-value">{pressure.components?.ethnicChangeContribution}/20</span></div>
@@ -843,7 +848,7 @@ function fmtInt(n: number | undefined | null): string {
               </div>
               {noVisaData ? (
                 <div class="vr-no-data">
-                  No entry-clearance visa data — {r.nationality} is non-visa-national or in the Common Travel Area, so visa-route mix is not informative for this country. NINo flow is the better signal.
+                  No entry-clearance visa data. {r.nationality} is non-visa-national or in the Common Travel Area, so visa-route mix is not informative for this country. NINo flow is the better signal.
                 </div>
               ) : (
                 <>
@@ -868,14 +873,14 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
-  <!-- 2011 → 2021 country-of-birth stock change -->
+  <!-- 2011 to 2021 country-of-birth stock change -->
   {cobChange && cobChange.population2011 > 0 && (
     <section class="section" id="cob-change">
       <h2>How {area.areaName} changed: 2011 to 2021</h2>
       <p class="section-desc">
         Two snapshots from two consecutive Censuses, ten years apart.
-        Population changed from <strong>{cobChange.population2011.toLocaleString()}</strong> in 2011 to <strong>{cobChange.population2021.toLocaleString()}</strong> in 2021 ({cobChange.populationChangePct > 0 ? '+' : ''}{cobChange.populationChangePct?.toFixed(1)}%).
-        Non-UK-born residents went from <strong>{cobChange.nonUkBorn2011.toLocaleString()}</strong> ({cobChange.nonUkBornPct2011?.toFixed(1)}% of population) to <strong>{cobChange.nonUkBorn2021.toLocaleString()}</strong> ({cobChange.nonUkBornPct2021?.toFixed(1)}%).
+        Population changed from <strong>{cobChange.population2011.toLocaleString()}</strong> in 2011 to <strong>{cobChange.population2021.toLocaleString()}</strong> in 2021 ({cobChange.populationChangePct != null ? `${cobChange.populationChangePct > 0 ? '+' : ''}${cobChange.populationChangePct.toFixed(1)}%` : "change n/a"}).
+        Non-UK-born residents went from <strong>{cobChange.nonUkBorn2011.toLocaleString()}</strong> ({cobChange.nonUkBornPct2011 != null ? `${cobChange.nonUkBornPct2011.toFixed(1)}% of population` : "share n/a"}) to <strong>{cobChange.nonUkBorn2021.toLocaleString()}</strong> ({cobChange.nonUkBornPct2021 != null ? `${cobChange.nonUkBornPct2021.toFixed(1)}%` : "share n/a"}).
       </p>
       <div class="cc-table">
         <div class="cc-row cc-head">
@@ -903,7 +908,7 @@ function fmtInt(n: number | undefined | null): string {
   <!-- Working vs not working by passport group (Census 2021) -->
   {epRows.length > 0 && (
     <section class="section" id="econ-passport">
-      <h2>Working and not working — by passport group</h2>
+      <h2>Working and not working, by passport group</h2>
       <p class="section-desc">
         Census 2021 employment status of {area.areaName} residents aged 16 and over, by passport held. Three numbers shown per group:
       </p>
@@ -941,7 +946,7 @@ function fmtInt(n: number | undefined | null): string {
   <!-- Schools (district-level EAL) -->
   {ealDistrict && ealDistrict.totalPupils > 0 && (
     <section class="section" id="schools-eal">
-      <h2>Schools — first language</h2>
+      <h2>Schools, first language</h2>
       <p class="section-desc">
         Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, 2024/25),
         <strong> {ealDistrict.ealPct.toFixed(1)}% have a first language other than English</strong>.
@@ -957,7 +962,7 @@ function fmtInt(n: number | undefined | null): string {
         )}
       </div>
       <p class="section-note">
-        Source: DfE Schools, Pupils and their Characteristics 2024/25, school-level data aggregated to district. EAL is a household-level signal — children born in the UK to non-English-speaking households count as EAL.
+        Source: DfE Schools, Pupils and their Characteristics 2024/25, school-level data aggregated to district. EAL (English as Additional Language) is a household-level signal: children born in the UK to non-English-speaking households count as EAL.
       </p>
     </section>
   )}
@@ -967,11 +972,11 @@ function fmtInt(n: number | undefined | null): string {
     <section class="section" id="regional-labour">
       <h2>{regionFromArea} labour market</h2>
       <p class="section-desc">
-        Payrolled employments in the {regionFromArea} region ({payrollRegion.latestSnapshotDate}) — provides {area.areaName} with regional context. Local-authority RTI is not published; the region is the smallest geography for HMRC's nationality breakdown.
+        Payrolled employments in the {regionFromArea} region ({payrollRegion.latestSnapshotDate}). Provides {area.areaName} with regional context. Local-authority RTI is not published; the region is the smallest geography for HMRC's nationality breakdown.
       </p>
       <div class="data-grid">
         <div class="data-item"><span class="data-label">Total employments</span><span class="data-value">{payrollRegion.totalEmployment.toLocaleString()}</span></div>
-        <div class="data-item"><span class="data-label">Non-UK share</span><span class="data-value">{payrollRegion.nonUkSharePct?.toFixed(1)}%</span></div>
+        <div class="data-item"><span class="data-label">Non-UK share</span><span class="data-value">{payrollRegion.nonUkSharePct != null ? `${payrollRegion.nonUkSharePct.toFixed(1)}%` : "n/a"}</span></div>
         {payrollRegion.fiveYearChange?.NonEU != null && (
           <div class="data-item">
             <span class="data-label">5-year change · Non-EU</span>
@@ -1223,7 +1228,7 @@ function fmtInt(n: number | undefined | null): string {
       <details class="nhs-details">
         <summary>Indicative charges for visitors and undocumented residents</summary>
         <p class="nhs-charge-note">
-          Maternity care is classified as "immediately necessary" — it cannot be refused or delayed for charging, but it is invoiced afterwards at 150% of the NHS national tariff.
+          Maternity care is classified as "immediately necessary": it cannot be refused or delayed for charging, but it is invoiced afterwards at 150% of the NHS national tariff.
         </p>
         <ul class="nhs-charge-list">
           <li>Routine vaginal delivery, no complications: <strong>£3,000–£5,500</strong></li>
@@ -1260,7 +1265,7 @@ function fmtInt(n: number | undefined | null): string {
         <>
           <h3 class="subhead">Composition today</h3>
           <p class="section-desc">
-            How dwellings in {area.areaName} are occupied — single-person households and houses in multiple occupation are the two cleanest signals.
+            How dwellings in {area.areaName} are occupied. Single-person households and houses in multiple occupation are the two cleanest signals.
           </p>
           <div class="data-grid">
             {ctSpd && ctSpd.singlePersonDiscountPctOfChargeable != null && (
@@ -1288,7 +1293,7 @@ function fmtInt(n: number | undefined | null): string {
           <div class="data-grid">
             {topTenureByEthnic.map(({ group, data }) => (
               <div class="data-item">
-                <span class="data-label">{group.split(",")[0]} — owned</span>
+                <span class="data-label">{group.split(",")[0]}: owned</span>
                 <span class="data-value">{data.ownershipPct != null ? `${data.ownershipPct.toFixed(1)}%` : "—"}</span>
               </div>
             ))}
@@ -1324,12 +1329,12 @@ function fmtInt(n: number | undefined | null): string {
       <h2>School demographics</h2>
       <p class="section-desc">DfE School Census {school.year}. {fmtInt(school.totalPupils)} pupils.</p>
       <div class="data-grid">
-        <div class="data-item"><span class="data-label">WBI pupils</span><span class="data-value">{school.wbiPupilsPct?.toFixed(1)}%</span></div>
+        <div class="data-item"><span class="data-label">White British pupils</span><span class="data-value">{school.wbiPupilsPct != null ? `${school.wbiPupilsPct.toFixed(1)}%` : "n/a"}</span></div>
         <div class="data-item"><span class="data-label">Minority pupils</span><span class="data-value" style="color: var(--accent);">{school.minorityPupilsPct?.toFixed(1)}%</span></div>
         {school.ealDemandGrowthPp != null && (
           <div class="data-item"><span class="data-label">EAL growth (projected)</span><span class="data-value" style="color: var(--accent-3);">+{school.ealDemandGrowthPp.toFixed(1)}pp</span></div>
         )}
-        <div class="data-item"><span class="data-label">WBI gap (school vs population)</span><span class="data-value">{school.wbiGap?.toFixed(1)}pp</span></div>
+        <div class="data-item"><span class="data-label">White British gap (school vs population)</span><span class="data-value">{school.wbiGap != null ? `${school.wbiGap.toFixed(1)}pp` : "n/a"}</span></div>
       </div>
       {school.insight && <p class="section-note">{school.insight}</p>}
     </section>

@@ -85,10 +85,10 @@ function fmtCompact(n: number) {
 
 <BaseLayout
   title="National demographic outlook"
-  description={`England's ethnic composition is transforming. ${shifts2051.length} areas projected White British under 50% by 2051. Hamilton-Perry model, Census-verified.`}
+  description={`${shifts2051.length} of ${areas.length} local authorities projected White British under 50% by 2051. Hamilton-Perry model, Census-verified.`}
 >
   <h1>National demographic outlook</h1>
-  <p class="desc">England-wide projections from Census 2021 to 2061, anchored to two national-scale time series: 24-year NINo arrivals and 17-year births-by-mother-country-of-birth.</p>
+  <p class="desc">England-wide projections from Census 2021 to 2061. Anchored to two national time series: 24 years of National Insurance number (NINo) registrations from overseas, and 17 years of births by mother's country of birth.</p>
 
   <DataFreshness updated={projData.lastUpdated ?? "2026-04-14"} source="Census 2021, ONS SNPP, DWP NINo, ONS births by parents' COB" sourceUrl="https://www.ons.gov.uk/census" />
 
@@ -119,7 +119,7 @@ function fmtCompact(n: number) {
   {bhYears.length > 1 && bhLatestPct != null && bhFirstPct != null && (
     <section class="bh-headline">
       <RaceBar
-        title={`Births to non-UK-born mothers — ${bhYears[bhLatestIdx]} share`}
+        title={`Births to non-UK-born mothers, ${bhYears[bhLatestIdx]} share`}
         segments={[
           {
             label: "UK-born mother",
@@ -167,11 +167,11 @@ function fmtCompact(n: number) {
       <text x={pad.left - 8} y={pad.top + 4} text-anchor="end" class="chart-tick">{fmtCompact(ninoMax)}</text>
       <text x={pad.left - 8} y={pad.top + innerH} text-anchor="end" class="chart-tick">0</text>
     </svg>
-    <p class="section-note">Source: DWP Stat-Xplore Ninos. Counts are first-time registrations and so are a flow not a stock. The 2020 trough reflects the pandemic-era visa freeze; the 2021-2022 surge is overwhelmingly post-Brexit non-EU work + student route arrivals.</p>
+    <p class="section-note">Source: DWP Stat-Xplore, National Insurance number registrations from overseas. Counts are first-time registrations and so are a flow, not a stock. The 2020 trough reflects the pandemic-era visa freeze; the 2021 to 2022 surge is overwhelmingly post-Brexit non-EU work and student route arrivals.</p>
   </section>
 
   <section class="chart-section">
-    <h2>Births to non-UK-born mothers: 2008–2024</h2>
+    <h2>Births to non-UK-born mothers, 2008 to 2024</h2>
     <p class="section-desc">{bhFirstPct?.toFixed(1)}% of England + Wales births in {bhYears[0]} were to mothers born outside the UK. That share is <strong>{bhLatestPct?.toFixed(1)}%</strong> in {bhYears[bhLatestIdx]}.</p>
     <svg viewBox={`0 0 ${chartW} ${chartH}`} class="chart" role="img" aria-label="Births to non-UK-born mothers, percentage of total, 2008-2024">
       <path d={bhPctPath} fill="none" stroke="var(--coral)" stroke-width="2.5" />
