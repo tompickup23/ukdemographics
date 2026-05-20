@@ -18,7 +18,7 @@ const moderate = ranked.filter(a => a.category === 'Moderate Pressure');
   description={`Service demand pressure scoring for ${ranked.length} local authorities. ${high.length} areas rated high pressure from demographic change.`}
 >
   <h1>Service demand pressure index</h1>
-  <p class="desc">Composite score (0-100) from 5 components: ethnic change rate, asylum concentration, school diversity, language demand, and housing pressure. Higher = more service demand from demographic change.</p>
+  <p class="desc">Composite score (0-100) from five components: ethnic change rate, asylum concentration, school diversity, language demand, and housing pressure. Higher scores indicate greater service-demand pressure from demographic change.</p>
 
   <div class="stat-card-row">
     <StatCard value={high.length.toString()} label="High pressure" accent="var(--coral)" />
@@ -26,9 +26,9 @@ const moderate = ranked.filter(a => a.category === 'Moderate Pressure');
     <StatCard value={(ranked.length - high.length - moderate.length).toString()} label="Low / Stable" accent="var(--accent-2)" />
   </div>
 
-  <h2 class="section-title">Top 30 — highest service demand pressure</h2>
+  <h2 class="section-title">Top 30 areas by service demand pressure</h2>
   <div class="area-table">
-    <div class="area-table-header"><span>#</span><span>Area</span><span>Score</span><span>Category</span><span>WBI change</span></div>
+    <div class="area-table-header"><span>#</span><span>Area</span><span>Score</span><span>Category</span><span>White British change</span></div>
     {ranked.slice(0, 30).map((a, i) => (
       <a href={`/places/${slugifyAreaName(a.areaName)}/`} class="area-row">
         <span class="rank">{i + 1}</span>
@@ -45,7 +45,7 @@ const moderate = ranked.filter(a => a.category === 'Moderate Pressure');
   <div class="component-grid">
     <div class="component-card">
       <span class="component-name">Ethnic change rate</span>
-      <span class="component-desc">Speed of WBI composition change 2021-2041</span>
+      <span class="component-desc">Speed of White British share change 2021 to 2041</span>
     </div>
     <div class="component-card">
       <span class="component-name">Asylum concentration</span>
@@ -53,7 +53,7 @@ const moderate = ranked.filter(a => a.category === 'Moderate Pressure');
     </div>
     <div class="component-card">
       <span class="component-name">School diversity pressure</span>
-      <span class="component-desc">Projected EAL demand growth from DfE data</span>
+      <span class="component-desc">Projected English as Additional Language (EAL) demand growth from DfE data</span>
     </div>
     <div class="component-card">
       <span class="component-name">Language demand</span>

@@ -12,7 +12,7 @@ import sourceScope from "../data/live/source-scope.json";
     <div class="source-grid">
       <div class="source-card">
         <h3>Census 2021</h3>
-        <p>Single year of age by ethnic group by sex. Custom dataset from ONS. 292 local authorities, 116MB.</p>
+        <p>Single year of age by ethnic group by sex. Custom dataset from ONS. 292 local authorities with direct observations.</p>
         <a href="https://www.ons.gov.uk/census" target="_blank" rel="noopener">ons.gov.uk/census</a>
       </div>
       <div class="source-card">
@@ -40,7 +40,23 @@ import sourceScope from "../data/live/source-scope.json";
         <p>Asylum support by local authority, grant rates by nationality, detention and returns data.</p>
         <a href="https://www.gov.uk/government/statistical-data-sets/immigration-system-statistics-data-tables" target="_blank" rel="noopener">gov.uk</a>
       </div>
+      <div class="source-card">
+        <h3>DWP Stat-Xplore</h3>
+        <p>National Insurance number registrations from overseas (24-year arc) and Personal Independence Payment claimants by constituency.</p>
+        <a href="https://stat-xplore.dwp.gov.uk/" target="_blank" rel="noopener">stat-xplore.dwp.gov.uk</a>
+      </div>
+      <div class="source-card">
+        <h3>NOMIS</h3>
+        <p>ONS Census tables (TS021, RM134, RM043, RM021) and Mid-Year Population Estimates by local authority.</p>
+        <a href="https://www.nomisweb.co.uk/" target="_blank" rel="noopener">nomisweb.co.uk</a>
+      </div>
+      <div class="source-card">
+        <h3>ONS Births by Country of Birth</h3>
+        <p>Births to UK-born vs non-UK-born mothers, 2008 to 2024, England and Wales. Table 1 for national, Table 6a for per-local-authority breakdowns.</p>
+        <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths" target="_blank" rel="noopener">ons.gov.uk</a>
+      </div>
     </div>
+    <p class="source-note">This list covers the primary feeds. Specialist sources (Land Registry HPI for housing, Police.uk LSOA-level crime, NHS Digital for adult social care, DLUHC homelessness counts) are referenced inline on the pages that use them.</p>
   </section>
 </BaseLayout>
 
@@ -55,4 +71,5 @@ import sourceScope from "../data/live/source-scope.json";
   .source-card p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.4; }
   .source-card a { font-size: 0.82rem; color: var(--accent); text-decoration: none; margin-top: auto; }
   .source-card a:hover { text-decoration: underline; }
+  .source-note { font-size: 0.82rem; color: var(--muted); margin-top: 1.25rem; max-width: 720px; line-height: 1.5; }
 </style>

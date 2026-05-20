@@ -10,6 +10,7 @@ import {
   type PconEntry,
 } from "../../lib/pcon-data";
 import { getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
+import { getPconDemographics } from "../../lib/pcon-demographics";
 
 export function getStaticPaths() {
   return getAllPcons().map((p) => ({
@@ -21,8 +22,9 @@ export function getStaticPaths() {
 const { pcon } = Astro.props as { pcon: PconEntry };
 const mp = getMpForPcon(pcon.name);
 const pipClaimants = getPipClaimantsForPcon(pcon.code);
+const demog = getPconDemographics(pcon);
 
-// Build LA cross-links — only show LAs that have a UKD place page.
+// Build LA cross-links. Only show LAs that have a UKD place page.
 const publicAreas = getPublicPlaceAreas();
 const codeToArea = new Map<string, (typeof publicAreas)[number]>();
 for (const a of publicAreas) codeToArea.set(a.areaCode, a);
@@ -41,6 +43,16 @@ const partyColors: Record<string, string> = {
   "Plaid Cymru": "#005b54",
   SNP: "#fdf38e",
   Independent: "#999999",
+  "Sinn Fein": "#326760",
+  "Sinn Féin": "#326760",
+  "DUP": "#d46a4c",
+  "Democratic Unionist Party": "#d46a4c",
+  "UUP": "#48a5b8",
+  "Ulster Unionist Party": "#48a5b8",
+  "Alliance": "#f6cb2f",
+  "Alliance Party of Northern Ireland": "#f6cb2f",
+  "SDLP": "#2c6b3d",
+  "Social Democratic and Labour Party": "#2c6b3d",
 };
 
 // Build RaceBar segments from the GE2024 result, ordered descending.
@@ -52,11 +64,15 @@ const raceBarSegments = Object.entries(pcon.ge2024.shares)
     pct: share,
     colour: partyColors[party] ?? "var(--accent)",
   }));
+
+const winnerShareText = pcon.ge2024.winnerSharePct > 0
+  ? `${pcon.ge2024.winnerSharePct.toFixed(1)}%`
+  : "n/a";
 ---
 
 <BaseLayout
-  title={`${pcon.name} — UK constituency profile`}
-  description={`${pcon.name} (UK Parliament constituency ${pcon.code}) — 2024 General Election result, MP, PIP claimants and the constituent local authorities.`}
+  title={`${pcon.name}, UK constituency profile`}
+  description={`${pcon.name} (UK Parliament constituency ${pcon.code}). 2024 General Election result, MP, PIP claimants and the constituent local authorities.`}
 >
   <a class="back-link" href="/constituencies/">&larr; All constituencies</a>
   <div class="pcon-header">
@@ -104,7 +120,7 @@ const raceBarSegments = Object.entries(pcon.ge2024.shares)
         accent={pcon.ge2024.winner ? (partyColors[pcon.ge2024.winner] ?? "var(--accent)") : null}
       />
       <StatCard
-        value={`${pcon.ge2024.winnerSharePct.toFixed(1)}%`}
+        value={winnerShareText}
         label="Winning share"
       />
       <StatCard
@@ -134,7 +150,42 @@ const raceBarSegments = Object.entries(pcon.ge2024.shares)
           accent="var(--accent)"
         />
       </div>
-      <p class="section-note">Source: DWP Stat-Xplore, PIP Monthly New. Constituency totals only — no demographic breakdown is published at PCON level.</p>
+      <p class="section-note">Source: DWP Stat-Xplore, PIP Monthly New. Constituency totals only. No demographic breakdown is published at constituency level.</p>
+    </section>
+  )}
+
+  {demog && (
+    <section class="section" id="demographics">
+      <h2>Demographic snapshot</h2>
+      <p class="section-desc">
+        Aggregated up from the {demog.coverageCount} of {demog.expectedCount} constituent local authority profiles, weighted by share of constituency postcodes and 2021 population. Indicative only: a constituency that takes the dense core of an LA but a small share of its postcodes will be misweighted. For direct Census observations, use the local-authority pages linked below.
+      </p>
+      <div class="stat-card-row">
+        <StatCard
+          value={demog.wbi2021 != null ? `${demog.wbi2021.toFixed(1)}%` : "n/a"}
+          label="White British 2021 (derived)"
+        />
+        <StatCard
+          value={demog.wbi2051 != null ? `${demog.wbi2051.toFixed(1)}%` : "n/a"}
+          label="White British 2051 projected (derived)"
+          accent="var(--coral)"
+          trend={demog.wbi2021 != null && demog.wbi2051 != null ? `${(demog.wbi2051 - demog.wbi2021).toFixed(1)}pp` : null}
+          trendDirection={demog.wbi2021 != null && demog.wbi2051 != null ? (demog.wbi2051 < demog.wbi2021 ? "down" : "up") : "flat"}
+        />
+        <StatCard
+          value={demog.foreignBornPct2021 != null ? `${demog.foreignBornPct2021.toFixed(1)}%` : "n/a"}
+          label="Foreign-born 2021 (derived)"
+        />
+        <StatCard
+          value={demog.foreignBornPct2051 != null ? `${demog.foreignBornPct2051.toFixed(1)}%` : "n/a"}
+          label="Foreign-born 2051 projected (derived)"
+          accent="var(--accent-3)"
+        />
+      </div>
+      {demog.notes.length > 0 && (
+        <p class="section-note">{demog.notes.join(" ")}</p>
+      )}
+      <p class="section-note">Method: each constituent local authority contributes the product of its postcode share within the constituency and its 2021 population. Underlying figures from Census 2021 (ONS custom dataset) and the Hamilton-Perry projection model. See the <a href="/methodology/">methodology page</a> for the projection's limitations and validation.</p>
     </section>
   )}
 

@@ -14,6 +14,7 @@ const publicAreas = getPublicPlaceAreas();
 const totalAreas = publicAreas.length;
 
 function fmtInt(n: number) { return n.toLocaleString("en-GB"); }
+function fmtPct1(n: number) { return `${n.toFixed(1)}%`; }
 
 // Demographic modelling data
 const demographicShifts = getSignificantDemographicShifts(2051);
@@ -32,6 +33,41 @@ const foreignBornMajority2051 = allAreaCodes.filter(code => {
   return fb && fb > 50;
 }).length;
 
+// National population-weighted White British shares, computed from projData
+// (weighted by 2021 LA population throughout for consistency).
+const natAgg = (() => {
+  let totalPop = 0;
+  let wb2011 = 0, wb2021 = 0, wb2051 = 0, wb2061 = 0;
+  let n2051 = 0, n2061 = 0;
+  for (const code of allAreaCodes) {
+    const a = projData.areas[code];
+    const pop = a?.current?.total_population ?? 0;
+    if (!pop) continue;
+    totalPop += pop;
+    wb2011 += (a?.baseline?.groups?.white_british ?? 0) * pop;
+    wb2021 += (a?.current?.groups?.white_british ?? 0) * pop;
+    const p51 = a?.projections?.["2051"]?.white_british;
+    const p61 = a?.projections?.["2061"]?.white_british;
+    if (p51 != null) { wb2051 += p51 * pop; n2051++; }
+    if (p61 != null) { wb2061 += p61 * pop; n2061++; }
+  }
+  return {
+    pop: totalPop,
+    wb2011: totalPop > 0 ? wb2011 / totalPop : 0,
+    wb2021: totalPop > 0 ? wb2021 / totalPop : 0,
+    wb2051: totalPop > 0 ? wb2051 / totalPop : 0,
+    wb2061: totalPop > 0 ? wb2061 / totalPop : 0,
+    n2051,
+    n2061,
+  };
+})();
+const natWb2011 = natAgg.wb2011;
+const natWb2021 = natAgg.wb2021;
+const natWb2051 = natAgg.wb2051;
+const natWb2061 = natAgg.wb2061;
+const natCoverage2061Pct = totalAreas > 0 ? (natAgg.n2061 / totalAreas) * 100 : 0;
+const modelMaeText = projData.methodology?.match(/MAE\s+(\d+\.\d+)\s*pp/i)?.[1] ?? "1.71";
+
 // Regional summary
 const regionCounts = new Map<string, { count: number; avgWbi2021: number; sumPop: number }>();
 for (const area of publicAreas) {
@@ -47,11 +83,16 @@ const topRegions = [...regionCounts.entries()]
   .sort((a, b) => a.avgWbi - b.avgWbi)
   .slice(0, 6);
 
-// Top areas by fastest WBI decline
+// Top areas by largest projected White British share decline 2021 to 2041.
+// Bars encode the projected change (in percentage points), not the level.
 const topChangingAreas = publicAreas
-  .filter(a => a.wbiPct2021 != null && a.wbiPct2041 != null)
-  .sort((a, b) => ((a.wbiPct2041! - a.wbiPct2021!) - (b.wbiPct2041! - b.wbiPct2021!)))
+  .filter((a) => a.wbiPct2021 != null && a.wbiPct2041 != null)
+  .map((a) => ({ ...a, changePp: a.wbiPct2041! - a.wbiPct2021! }))
+  .sort((a, b) => a.changePp - b.changePp)
   .slice(0, 10);
+const topChangingMaxAbsPp = topChangingAreas.length > 0
+  ? Math.max(...topChangingAreas.map((a) => Math.abs(a.changePp)))
+  : 1;
 
 // Get latest findings
 const allFindings = await getCollection("findings");
@@ -81,24 +122,24 @@ function findingColor(verdict: string): string {
 ---
 
 <BaseLayout
-  title="UK Demographics — population projections for every community"
+  title="UK Demographics, population projections for every community"
   description={`${fmtInt(totalAreas)} local authorities. Ethnic projections to 2061. Census 2021 to the future. Every figure sourced from ONS data.`}
 >
-  <!-- ═══ HERO ═══ -->
+  <!-- HERO -->
   <section class="hero-section">
     <div class="hero-inner">
-      <div class="hero-eyebrow">Census 2021 to 2061 — Hamilton-Perry projections</div>
+      <div class="hero-eyebrow">Census 2021 to 2061, Hamilton-Perry projections</div>
       <h1 class="hero-headline">
         <span class="hero-stat">{fmtInt(totalAreas)}</span>
         <span class="hero-label">local authorities. Every community mapped.</span>
       </h1>
       <p class="hero-subline">
-        The most detailed publicly available ethnic composition projections for England.
-        20 ethnic groups. Census-direct methodology. 1,000 Monte Carlo simulations.
+        Ethnic composition projections for every English local authority.
+        20 ethnic groups. Census-direct base. 1,000 Monte Carlo simulations.
         From 2021 observed data to 2061 projections.
       </p>
       <a class="hero-source" href="/methodology/">
-        Hamilton-Perry CCR model &middot; MAE 1.72pp &middot; Full methodology &rarr;
+        Hamilton-Perry CCR model &middot; backcast MAE {modelMaeText}pp (see methodology for caveat) &middot; Full methodology &rarr;
       </a>
 
       <!-- Search in hero -->
@@ -134,19 +175,19 @@ function findingColor(verdict: string): string {
     </section>
   )}
 
-  <!-- ═══ IMPACT STRIP ═══ -->
+  <!-- IMPACT STRIP -->
   <section class="impact-strip shell" aria-label="Headline demographic impact">
     <div class="impact-strip-inner">
       <div class="impact-item impact-item--hero">
-        <span class="impact-number">73.3% &rarr; 48.7%</span>
+        <span class="impact-number">{fmtPct1(natWb2021)} &rarr; {fmtPct1(natWb2051)}</span>
         <span class="impact-label">White British share, 2021 &rarr; 2051</span>
-        <span class="impact-context">Population-weighted across {fmtInt(totalAreas)} local authorities. Observed Census 2021 → Hamilton-Perry projection.</span>
-        <span class="impact-calc">Illustrative 2061: 40.2%. Full trajectory in the model below.</span>
+        <span class="impact-context">Population-weighted across {fmtInt(totalAreas)} local authorities. Observed Census 2021 vs Hamilton-Perry projection.</span>
+        <span class="impact-calc">Illustrative 2061: {fmtPct1(natWb2061)} ({natAgg.n2061} of {totalAreas} areas have a 2061 projection). Full trajectory in the model below.</span>
       </div>
       <div class="impact-item">
         <span class="impact-number">{areasBelow50}</span>
-        <span class="impact-label">areas below 50% WB by 2051</span>
-        <span class="impact-context">{areasBelow50by2061} by 2061. Click any area for its 2011&ndash;2061 trajectory.</span>
+        <span class="impact-label">areas below 50% White British by 2051</span>
+        <span class="impact-context">{areasBelow50by2061} by 2061. Click any area for its 2011 to 2061 trajectory.</span>
       </div>
       <div class="impact-item">
         <span class="impact-number">{foreignBornMajority2051}</span>
@@ -154,7 +195,7 @@ function findingColor(verdict: string): string {
         <span class="impact-context">{muslimMajority2051} projected Muslim majority by 2051.</span>
       </div>
     </div>
-    <p class="impact-source">Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations, MAE 1.72pp against 2021 observed. <a href="/methodology/">Full methodology &rarr;</a></p>
+    <p class="impact-source">Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations. Backcast MAE {modelMaeText}pp on the same area set (see methodology for the circularity caveat). <a href="/methodology/">Full methodology &rarr;</a></p>
   </section>
 
   <!-- ═══ DEMOGRAPHIC PROJECTIONS ═══ -->
@@ -173,31 +214,31 @@ function findingColor(verdict: string): string {
         <div class="demo-trajectory">
           <span class="demo-traj-label">White British share (population-weighted, {fmtInt(totalAreas)} local authorities)</span>
           <div class="demo-traj-bar">
-            <div class="demo-traj-segment" style="width: 100%;">
+            <div class="demo-traj-segment" style={`width: ${natWb2011.toFixed(1)}%`}>
               <span class="demo-traj-year">2011 Census</span>
-              <span class="demo-traj-pct">80.5%</span>
+              <span class="demo-traj-pct">{fmtPct1(natWb2011)}</span>
             </div>
           </div>
           <div class="demo-traj-bar">
-            <div class="demo-traj-segment demo-traj-current" style="width: 73.3%;">
+            <div class="demo-traj-segment demo-traj-current" style={`width: ${natWb2021.toFixed(1)}%`}>
               <span class="demo-traj-year">2021 Census</span>
-              <span class="demo-traj-pct">73.3%</span>
+              <span class="demo-traj-pct">{fmtPct1(natWb2021)}</span>
             </div>
           </div>
           <div class="demo-traj-bar">
-            <div class="demo-traj-segment demo-traj-proj" style="width: 48.7%;">
+            <div class="demo-traj-segment demo-traj-proj" style={`width: ${natWb2051.toFixed(1)}%`}>
               <span class="demo-traj-year">2051 projected</span>
-              <span class="demo-traj-pct">48.7%</span>
+              <span class="demo-traj-pct">{fmtPct1(natWb2051)}</span>
             </div>
           </div>
           <div class="demo-traj-bar">
-            <div class="demo-traj-segment demo-traj-proj demo-traj-illustrative" style="width: 40.2%;">
-              <span class="demo-traj-year">2061 illustrative</span>
-              <span class="demo-traj-pct">40.2%</span>
+            <div class="demo-traj-segment demo-traj-proj demo-traj-illustrative" style={`width: ${natWb2061.toFixed(1)}%`}>
+              <span class="demo-traj-year">2061 illustrative ({natAgg.n2061} of {totalAreas})</span>
+              <span class="demo-traj-pct">{fmtPct1(natWb2061)}</span>
             </div>
           </div>
         </div>
-        <span class="demo-traj-note">Census figures observed. 2051/2061 projected by Hamilton-Perry CCR model. 2061 is illustrative only. <a href="/methodology/">Full methodology</a></span>
+        <span class="demo-traj-note">Census figures observed. 2051 and 2061 projected by Hamilton-Perry CCR model. 2061 is illustrative only and covers {natAgg.n2061} of {totalAreas} areas. <a href="/methodology/">Full methodology</a></span>
       </div>
 
       <!-- Key stats grid -->
@@ -224,20 +265,24 @@ function findingColor(verdict: string): string {
         />
       </div>
 
-      <!-- Top areas bar chart -->
+      <!-- Top areas bar chart: largest projected White British decline 2021 to 2041 -->
       <div class="demo-bar-section">
-        <h3 class="demo-bar-title">Fastest transformation: White British % change 2021 → 2041</h3>
+        <h3 class="demo-bar-title">Largest projected White British decline, 2021 to 2041</h3>
         <div class="demo-bar-visual">
-          {topChangingAreas.map((area) => (
-            <a href={`/places/${slugifyAreaName(area.areaName)}/`} class="demo-bar-row">
-              <span class="demo-bar-name">{area.areaName}</span>
-              <span class="demo-bar-track">
-                <span class="demo-bar-fill" style={`width: ${area.wbiPct2021}%`}></span>
-              </span>
-              <span class="demo-bar-pct">{area.wbiPct2021?.toFixed(0)}%</span>
-            </a>
-          ))}
+          {topChangingAreas.map((area) => {
+            const widthPct = (Math.abs(area.changePp) / topChangingMaxAbsPp) * 100;
+            return (
+              <a href={`/places/${slugifyAreaName(area.areaName)}/`} class="demo-bar-row">
+                <span class="demo-bar-name">{area.areaName}</span>
+                <span class="demo-bar-track">
+                  <span class="demo-bar-fill" style={`width: ${widthPct.toFixed(1)}%`}></span>
+                </span>
+                <span class="demo-bar-pct">{area.changePp.toFixed(1)}pp</span>
+              </a>
+            );
+          })}
         </div>
+        <p class="demo-bar-note">Bar length is the size of the projected change. 2021 share to projected 2041 share, by Hamilton-Perry CCR.</p>
       </div>
 
       <div class="chip-row" style="margin-top: 1.5rem;">
@@ -248,13 +293,13 @@ function findingColor(verdict: string): string {
     </div>
   </section>
 
-  <!-- ═══ YOUR AREA IN 2051 ═══ -->
+  <!-- YOUR AREA IN 2051 -->
   <section class="future-section shell" id="your-area">
     <div class="future-inner">
       <span class="chip accent" style="margin-bottom: 0.5rem;">Explore the data</span>
-      <h2 class="section-title">What does YOUR area look like in 2051?</h2>
+      <h2 class="section-title">What does your area look like in 2051?</h2>
       <p class="section-desc" style="max-width: 600px;">
-        {fmtInt(totalAreas)} local authority profiles. Demographic projections to 2061, religion, nativity, shift-share analysis, school data, economic profiles. All sourced. All free.
+        {fmtInt(totalAreas)} local authority profiles. Demographic projections to 2061, religion, nativity, shift-share analysis, school data, economic profiles.
       </p>
       <div class="future-search">
         <input
@@ -313,11 +358,11 @@ function findingColor(verdict: string): string {
   <!-- ═══ SISTER SITE (asylumstats) ═══ -->
   <SisterSiteTeaser />
 
-  <!-- ═══ CTA STRIP ═══ -->
+  <!-- CTA STRIP -->
   <section class="cta-section shell">
     <div class="cta-inner">
       <h2>Every projection sourced. Every figure checked.</h2>
-      <p>Census 2021 observed data. Hamilton-Perry methodology. Click any figure and trace it back to the ONS. Then decide for yourself.</p>
+      <p>Census 2021 observed data. Hamilton-Perry methodology. Click any figure to trace it back to the ONS.</p>
       <div class="cta-buttons">
         <a href="/places/" class="cta-btn cta-btn--primary">Look up your area</a>
         <a href="/findings/" class="cta-btn cta-btn--secondary">Read the research</a>
@@ -326,7 +371,7 @@ function findingColor(verdict: string): string {
       <div style="margin-top: 1rem;">
         <ShareButton
           url={SITE_URL}
-          title="UK Demographics — population projections for every community"
+          title="UK Demographics, population projections for every community"
           text={`${fmtInt(totalAreas)} local authorities. Ethnic projections to 2061. See the data: ${SITE_URL}`}
           compact
         />
@@ -361,6 +406,16 @@ function findingColor(verdict: string): string {
       return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
     }
 
+    function showLookupMessage(text: string) {
+      if (!resultsContainer) return;
+      resultsContainer.textContent = "";
+      const div = document.createElement("div");
+      div.className = "lookup-result";
+      div.style.opacity = "0.5";
+      div.textContent = text;
+      resultsContainer.appendChild(div);
+    }
+
     function showPostcodeResult(areaName: string, laCode: string, postcode: string) {
       resultsContainer!.innerHTML = "";
       resultsContainer!.hidden = false;
@@ -391,7 +446,7 @@ function findingColor(verdict: string): string {
 
       if (postcodeRegex.test(query) || (partialPostcodeRegex.test(query) && query.length >= 5)) {
         resultsContainer!.hidden = false;
-        resultsContainer!.innerHTML = '<div class="lookup-result" style="opacity:0.5">Looking up postcode...</div>';
+        showLookupMessage("Looking up postcode...");
 
         if (postcodeTimeout) clearTimeout(postcodeTimeout);
         postcodeTimeout = setTimeout(() => {
@@ -406,11 +461,11 @@ function findingColor(verdict: string): string {
                   showPostcodeResult(adminDistrict, laCode, query);
                 }
               } else {
-                resultsContainer!.innerHTML = '<div class="lookup-result" style="opacity:0.5">Postcode not found — try an area name</div>';
+                showLookupMessage("Postcode not found. Try an area name.");
               }
             })
             .catch(() => {
-              resultsContainer!.innerHTML = '<div class="lookup-result" style="opacity:0.5">Could not look up postcode</div>';
+              showLookupMessage("Could not look up postcode.");
             });
         }, 300);
         return;
@@ -725,6 +780,7 @@ function findingColor(verdict: string): string {
   .demo-bar-track { display: block; height: 20px; background: rgba(239, 68, 68, 0.15); border-radius: 4px; overflow: hidden; }
   .demo-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), rgba(79, 70, 229, 0.4)); border-radius: 4px; min-width: 4px; }
   .demo-bar-pct { font-family: "Sora", sans-serif; font-size: 0.82rem; font-weight: 700; text-align: right; color: var(--muted); }
+  .demo-bar-note { font-size: 0.78rem; color: var(--muted); margin: 0.6rem 0 0; max-width: 720px; line-height: 1.4; }
   .chip-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
   /* ═══ REGIONS ═══ */

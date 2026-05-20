@@ -7,12 +7,12 @@ stat_label: "Non-UK-born mother share, 2008 → 2024"
 verdict: alert
 source_url: "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsbyparentscountryofbirth"
 source_label: "ONS Births by parents' country of birth, 2024 release"
-summary: "Births to non-UK-born mothers rose from 24.1% of the total in 2008 to 33.9% in 2024 — an extra 9.8 percentage points in 16 years. The number of UK-born-mother births fell from 537,914 to 393,084. Six London boroughs (Brent, Harrow, City, Newham, Ealing, Hounslow) are already past 70%."
+summary: "Births to non-UK-born mothers rose from 24.1% of the total in 2008 to 33.9% in 2024: an extra 9.8 percentage points in 16 years. The number of UK-born-mother births fell from 537,914 to 393,084. Six London boroughs (Brent, Harrow, City, Newham, Ealing, Hounslow) are already past 70%."
 ---
 
-**A third of England + Wales births in 2024 were to non-UK-born mothers. Birmingham and the London boroughs are running well ahead.**
+**A third of England and Wales births in 2024 were to non-UK-born mothers. Birmingham and the London boroughs are running well ahead.**
 
-ONS Births Table 1, 2024 release. 594,677 live births in England and Wales last year. 201,593 of those — **33.9%** — to mothers born outside the UK.
+ONS Births Table 1, 2024 release. 594,677 live births in England and Wales last year. 201,593 of those, **33.9%**, to mothers born outside the UK.
 
 The trajectory:
 
@@ -24,7 +24,7 @@ The trajectory:
 | 2020 | 613,936 | 29.3% |
 | 2024 | 594,677 | **33.9%** |
 
-Total births fell 16% over the period. Births to UK-born mothers fell from 537,914 to 393,084 — down 27%. Births to non-UK-born mothers rose from 170,797 to 201,593 — up 18%.
+Total births fell 16% over the period. Births to UK-born mothers fell from 537,914 to 393,084 (down 27%). Births to non-UK-born mothers rose from 170,797 to 201,593 (up 18%).
 
 The composition change is driven by two forces moving in the same direction: UK-born fertility falling and the share of women of childbearing age born outside the UK rising. Neither is mean-reverting on current trajectory.
 
@@ -61,6 +61,6 @@ The Middle East and Asia category accounts for 65.6% of Burnley's non-UK-born-mo
 
 ### What it means
 
-When you read the ethnic-projection numbers on a place page, the engine driving the change is mostly already here. The 2024 birth cohort is the composition of the under-5 age band in 2029. That, in turn, is the composition of the 5–9 band in 2034 — and so on. Projection isn't speculation about migration policy; it's the demographic momentum of cohorts that have already arrived and already given birth.
+When you read the ethnic-projection numbers on a place page, the engine driving the change is mostly already here. The 2024 birth cohort is the composition of the under-5 age band in 2029. That, in turn, is the composition of the 5 to 9 band in 2034, and so on. Projection is not speculation about migration policy; it is the demographic momentum of cohorts that have already arrived and already given birth.
 
-**Sources.** ONS Births by parents' country of birth, England and Wales 2024 release. National time series 2008–2024 from Table 1; per-LA 2024 from Table 6a. Resident non-UK-born share from Census 2021 (TS012 country of birth, NOMIS NM_2032_1). See `/national/` for the rolling chart and any place page for the local birth-region split.
+**Sources.** ONS Births by parents' country of birth, England and Wales 2024 release. National time series 2008 to 2024 from Table 1; per-LA 2024 from Table 6a. Resident non-UK-born share from Census 2021 (TS012 country of birth, NOMIS NM_2032_1). See `/national/` for the rolling chart and any place page for the local birth-region split.

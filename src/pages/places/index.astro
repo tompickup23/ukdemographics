@@ -7,11 +7,11 @@ const sortedAreas = [...areas].sort((a, b) => (a.wbiPct2021 ?? 100) - (b.wbiPct2
 ---
 
 <BaseLayout
-  title="All places — demographic profiles"
+  title="All places, demographic profiles"
   description={`Browse ${areas.length} local authority demographic profiles with ethnic projections to 2061.`}
 >
   <h1 class="page-title">{areas.length} local authorities</h1>
-  <p class="page-desc">Every area with demographic projections. Sorted by White British share (2021 Census, ascending).</p>
+  <p class="page-desc">Every area with demographic projections. Sorted by White British share (2021 Census, ascending). "White British" is the Census 2021 self-identification category.</p>
 
   <div class="area-search-wrapper">
     <input type="search" id="places-search" placeholder="Filter by name..." autocomplete="off" spellcheck="false" />
@@ -19,7 +19,7 @@ const sortedAreas = [...areas].sort((a, b) => (a.wbiPct2021 ?? 100) - (b.wbiPct2
 
   <div class="area-table" id="places-table">
     <div class="area-table-header">
-      <span>Area</span><span>Region</span><span>WBI 2021</span><span>WBI 2041</span><span>Population</span>
+      <span>Area</span><span>Region</span><span>White British 2021</span><span>White British 2041</span><span>Population</span>
     </div>
     {sortedAreas.map((area) => (
       <a href={`/places/${slugifyAreaName(area.areaName)}/`} class="area-row" data-name={area.areaName.toLowerCase()}>
