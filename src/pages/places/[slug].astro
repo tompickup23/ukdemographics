@@ -4,6 +4,7 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import DataFreshness from "../../components/DataFreshness.astro";
 import ShareButton from "../../components/ShareButton.astro";
 import StatCard from "../../components/StatCard.astro";
+import MiniMap from "../../components/MiniMap.astro";
 import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
 import ProjectionChart from "../../components/ProjectionChart.astro";
 import ShiftShareChart from "../../components/ShiftShareChart.astro";
@@ -369,12 +370,26 @@ function fmtInt(n: number | undefined | null): string {
       <h1>{area.areaName}</h1>
       <span class="place-region">{area.regionName} &middot; {area.countryName}</span>
     </div>
-    <ShareButton
-      url={canonicalUrl}
-      title={`${area.areaName} demographic profile — UK Demographics`}
-      text={`${area.areaName}: WBI ${fmtPct(wbi2021)} (2021) → ${fmtPct(wbi2051)} (2051). See the full profile.`}
-      compact
-    />
+    <div class="place-header-aside">
+      <MiniMap
+        focalCode={area.areaCode}
+        focalName={area.areaName}
+        focalKind="lad"
+        focalColour="var(--accent)"
+        contextColour="#243049"
+        contextStroke="#4a5b7e"
+        width={260}
+        height={170}
+        padding={1.6}
+        ariaLabel={`Location map showing ${area.areaName} highlighted against neighbouring local authorities.`}
+      />
+      <ShareButton
+        url={canonicalUrl}
+        title={`${area.areaName} demographic profile — UK Demographics`}
+        text={`${area.areaName}: WBI ${fmtPct(wbi2021)} (2021) → ${fmtPct(wbi2051)} (2051). See the full profile.`}
+        compact
+      />
+    </div>
   </div>
 
   {headlineStat && (
@@ -1362,6 +1377,21 @@ function fmtInt(n: number | undefined | null): string {
   .place-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
   .place-identity h1 { font-family: "Sora", sans-serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin: 0; color: var(--ink); }
   .place-region { font-size: 0.88rem; color: var(--muted); }
+  .place-header-aside { display: flex; flex-direction: column; align-items: flex-end; gap: 0.65rem; flex: 0 0 auto; }
+  .place-header-aside :global(.mini-map) {
+    margin: 0;
+    padding: 0.4rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    line-height: 0;
+    width: 272px;
+  }
+  .place-header-aside :global(.mini-map svg) { display: block; width: 100%; height: auto; }
+  @media (max-width: 600px) {
+    .place-header-aside { align-items: flex-start; width: 100%; }
+    .place-header-aside :global(.mini-map) { width: 100%; max-width: 280px; }
+  }
 
   .place-hero-row { grid-template-columns: 1fr; max-width: 32rem; margin: 0 0 1.25rem; }
   .place-hero-row .stat-card-value { font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--accent); }
