@@ -18,7 +18,7 @@ The 2011 to 2021 White British decline in every local authority has been decompo
 - **Age structure: -0.4pp** (5%)
 - **Local migration: -0.8pp** (11%)
 
-Burnley's total WBI decline: -7.6pp (from 85.5% to 77.9%). 84% of that is the national trend. Burnley would have seen almost the same change even with zero local migration, because the national White British share fell from 80.5% to 74.4% across England and Wales.
+Burnley's total WBI decline: -7.6pp (from 85.5% to 77.9%). 84% of that is the national trend. Burnley would have seen almost the same change even with zero local migration, because the national White British share fell from 80.1% to 74.5% across England and Wales.
 
 The areas where local migration IS the dominant driver are London boroughs (Barking, Tower Hamlets, Newham) and specific university cities. For most of England, the national trend does the heavy lifting.
 

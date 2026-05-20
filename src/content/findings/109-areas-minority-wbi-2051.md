@@ -37,7 +37,7 @@ This is not a London story. Coventry, Wolverhampton, Reading, Derby, Peterboroug
 
 **Already below 50% in 2021 (33 areas):** Birmingham (42.9%), Leicester (33.2%), Luton (31.8%), Slough (24.0%), Newham (14.8%), Brent (15.2%). These areas passed the threshold years ago. By 2051, several are projected below 10% White British.
 
-**The national picture.** England and Wales White British share: 74.4% (Census 2021, ONS TS021). Across the 278 areas the HP model projects, the weighted WBI share is 72.5% in 2021 falling to approximately 50.5% by 2051. The cohort-component model (with fertility convergence) projects 52.7% for 2051. Both agree: nationally, White British approaches 50% in the early 2050s.
+**The national picture.** England and Wales White British share: 74.4% (Census 2021, ONS TS021). Across the 320 areas the HP model projects, the pop-weighted 2021 WBI share is 74.5% falling to 52.1% by 2051. The cohort-component model (with fertility convergence) projects 52.7% for 2051. Both agree: nationally, White British approaches 50% in the early 2050s.
 
 Three things drive every one of these 109 areas. Fertility: White British TFR 1.31, below replacement. Age structure: the White British population is older, dying faster than it replaces itself. Migration: selective out-migration of White British to surrounding areas, combined with international in-migration to cities.
 

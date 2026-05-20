@@ -30,13 +30,23 @@ export interface DemographicAreaSummary {
 
 const INDEXABLE_STATIC_PATHS = [
   "/",
-  "/places/",
+  "/accessibility/",
   "/compare/",
+  "/constituencies/",
+  "/findings/",
+  "/glossary/",
+  "/housing/",
+  "/methodology/",
   "/national/",
+  "/places/",
+  "/pressure/",
+  "/privacy/",
   "/regional/",
   "/releases/",
+  "/schools/",
   "/sources/",
-  "/methodology/"
+  "/terms/",
+  "/your-area/"
 ] as const;
 
 function slugifyRegionName(regionName: string): string {
