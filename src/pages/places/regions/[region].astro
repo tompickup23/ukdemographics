@@ -22,7 +22,7 @@ const totalPop = regionAreas.reduce((s, a) => s + (a.population ?? 0), 0);
 ---
 
 <BaseLayout
-  title={`${regionName} — regional demographic profile`}
+  title={`${regionName}: regional demographic profile`}
   description={`${regionName}: ${regionAreas.length} local authorities, population ${totalPop.toLocaleString()}. Ethnic composition projections to 2061.`}
 >
   <Breadcrumbs items={[

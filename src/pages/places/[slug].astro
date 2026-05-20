@@ -338,7 +338,7 @@ const natChartLines = nativityData
   : [];
 
 const canonicalUrl = buildAbsoluteUrl(`/places/${slugifyAreaName(area.areaName)}/`);
-const popText = population != null ? population.toLocaleString() : "—";
+const popText = population != null ? population.toLocaleString() : "n/a";
 const wbi2021Text = wbi2021 != null ? `${wbi2021.toFixed(1)}%` : "n/a";
 const wbi2051Text = wbi2051 != null ? `${wbi2051.toFixed(1)}%` : "n/a";
 const pageDescription = `${area.areaName} demographic profile: population ${popText}, White British ${wbi2021Text} (2021) to ${wbi2051Text} (2051 projected). Ethnic composition, religion, nativity, shift-share analysis.`;
@@ -602,7 +602,7 @@ function fmtInt(n: number | undefined | null): string {
           <h3 class="subhead">Census 2021</h3>
           <div class="data-grid">
             <div class="data-item"><span class="data-label">Main language English</span><span class="data-value">{((censusEnglish.mainEnglish ?? 0) / censusEnglish.total * 100).toFixed(1)}%</span></div>
-            <div class="data-item"><span class="data-label">Main language not English</span><span class="data-value">{censusEnglish.nonEnglishPct?.toFixed(1) ?? "—"}%</span></div>
+            <div class="data-item"><span class="data-label">Main language not English</span><span class="data-value">{censusEnglish.nonEnglishPct?.toFixed(1) ?? "n/a"}%</span></div>
             <div class="data-item"><span class="data-label">Cannot speak English well</span><span class="data-value">{((censusEnglish.mainNotEnglishNotWell ?? 0) / censusEnglish.total * 100).toFixed(1)}%</span></div>
             <div class="data-item"><span class="data-label">Cannot speak English at all</span><span class="data-value">{((censusEnglish.mainNotEnglishCannot ?? 0) / censusEnglish.total * 100).toFixed(1)}%</span></div>
             <div class="data-item"><span class="data-label">Total population 3+</span><span class="data-value">{censusEnglish.total.toLocaleString()}</span></div>
@@ -1098,7 +1098,7 @@ function fmtInt(n: number | undefined | null): string {
         {topHealthByEthnic.map(({ group, data }) => (
           <div class="data-item">
             <span class="data-label">{group.split(",")[0]}</span>
-            <span class="data-value">{data.notGoodHealthPct != null ? `${data.notGoodHealthPct.toFixed(1)}%` : "—"}</span>
+            <span class="data-value">{data.notGoodHealthPct != null ? `${data.notGoodHealthPct.toFixed(1)}%` : "n/a"}</span>
           </div>
         ))}
       </div>
@@ -1294,7 +1294,7 @@ function fmtInt(n: number | undefined | null): string {
             {topTenureByEthnic.map(({ group, data }) => (
               <div class="data-item">
                 <span class="data-label">{group.split(",")[0]}: owned</span>
-                <span class="data-value">{data.ownershipPct != null ? `${data.ownershipPct.toFixed(1)}%` : "—"}</span>
+                <span class="data-value">{data.ownershipPct != null ? `${data.ownershipPct.toFixed(1)}%` : "n/a"}</span>
               </div>
             ))}
           </div>
@@ -1349,7 +1349,7 @@ function fmtInt(n: number | undefined | null): string {
           <a class="pcon-overlap-card" href={`/constituencies/${p.slug}/`}>
             <span class="pcon-overlap-name">{p.name}</span>
             <span class="pcon-overlap-meta">
-              <span>{p.ge2024.winner ?? "—"}</span>
+              <span>{p.ge2024.winner ?? "n/a"}</span>
               <span class="muted">{p.ge2024.majorityPp != null ? `+${p.ge2024.majorityPp.toFixed(1)}pp` : ""}</span>
             </span>
           </a>

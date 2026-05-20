@@ -1,5 +1,5 @@
 {
-  "source": "ONS Census 2021 RM192 \u2014 Number of dwellings that are houses in multiple occupation, by local authority. NOMIS NM_2292_1. Population denominator from health-demand.json (Census 2021).",
+  "source": "ONS Census 2021 RM192, Number of dwellings that are houses in multiple occupation, by local authority. NOMIS NM_2292_1. Population denominator from health-demand.json (Census 2021).",
   "lastUpdated": "2026-04-29",
   "caveat": "Census 2021 RM192 counts dwellings classified as HMO on Census Day (21 March 2021). NOT a current licensing register; those are held by individual councils and not centrally published. Small HMO = up to 4 unrelated adults; Large HMO = 5+ adults (the mandatory licensing threshold).",
   "totalLAs": 318,

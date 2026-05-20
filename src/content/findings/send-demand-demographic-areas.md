@@ -7,7 +7,7 @@ stat_label: "Average 5yr EHCP growth"
 verdict: alert
 source_url: "https://explore-education-statistics.service.gov.uk/find-statistics/special-educational-needs-in-england"
 source_label: "DfE SEND Statistics"
-summary: "Across 25 tracked local authorities, the average five-year growth in Education, Health and Care Plans is 42%. Areas experiencing faster demographic change - including Blackpool (+51%), Preston (+47%), and Doncaster (+45%) - tend to show above-average SEND demand growth. Multiple factors drive this pattern."
+summary: "Across 25 tracked local authorities, the average five-year growth in Education, Health and Care Plans is 42%. Areas experiencing faster demographic change (including Blackpool +51%, Preston +47%, and Doncaster +45%) tend to show above-average SEND demand growth. Multiple factors drive this pattern."
 ---
 
 Education, Health and Care Plan (EHCP) numbers have grown by an average of **42%** over five years across our 25 tracked local authorities.

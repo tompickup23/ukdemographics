@@ -1,5 +1,5 @@
 {
-  "source": "ONS Open Geography Portal — LAD24_CTY24_EN_LU",
+  "source": "ONS Open Geography Portal (LAD24_CTY24_EN_LU)",
   "sourceUrl": "https://geoportal.statistics.gov.uk/datasets/ons::lad24-cty24-en-lu/about",
   "lastFetched": "2026-05-19",
   "description": "Maps each English non-metropolitan district (E07*) to its parent non-metropolitan county (E10*). Used to fall back ASC/SEND data on district place pages, since those services are delivered by the upper-tier authority not the district.",

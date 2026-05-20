@@ -1,7 +1,7 @@
 {
   "source": "DfE Schools, Pupils and their Characteristics, academic year 2024/25 (and four prior years for time series)",
   "lastUpdated": "2026-04-28",
-  "caveat": "Pupils whose first language is 'Known or believed to be other than English' captures children for whom the home language is not English. It is a household-level signal, not a measure of new arrivals: a child born in the UK whose parents speak a non-English language at home is counted as EAL. The DfE publishes this at upper-tier local authority level only \u2014 Lancashire, Kent and other two-tier counties report a single figure covering all their districts. For districts in this data file the dataLevel field is 'parent_county' and the figure is the county aggregate, not an intra-county figure.",
+  "caveat": "Pupils whose first language is 'Known or believed to be other than English' captures children for whom the home language is not English. It is a household-level signal, not a measure of new arrivals: a child born in the UK whose parents speak a non-English language at home is counted as EAL. The DfE publishes this at upper-tier local authority level only, Lancashire, Kent and other two-tier counties report a single figure covering all their districts. For districts in this data file the dataLevel field is 'parent_county' and the figure is the county aggregate, not an intra-county figure.",
   "totalUpperTierLAs": 163,
   "totalAreasIncludingDistricts": 325,
   "topEalUTLAs": [

@@ -2,7 +2,7 @@
   "source": "DfE Special educational needs in England, academic year 2024/25 (sen_phase_type_.csv + sen_secondary_need_.csv).",
   "methodology": "Total EHC plans summed across all phases and establishment types per LA (phase_type_grouping=Total, type_of_establishment=Total). 5-year growth compares 2024/25 to 2019/20. ASD prevalence and primary-need breakdown filtered to pupil_sen_status=EHC plan + phase_type_grouping=Total.",
   "lastUpdated": "2026-04-28",
-  "caveat": "EHCP responsibility sits with upper-tier authorities only \u2014 ~153 LAs in coverage. Rate-per-10k uses total LA population (Census 2021) as denominator since school-age population is not in the ethnic-projections feed; cross-LA comparison is therefore directional rather than absolute. Rising EHCP counts may reflect improved identification, changes in diagnostic criteria, increased parental awareness, or genuine prevalence change.",
+  "caveat": "EHCP responsibility sits with upper-tier authorities only, ~153 LAs in coverage. Rate-per-10k uses total LA population (Census 2021) as denominator since school-age population is not in the ethnic-projections feed; cross-LA comparison is therefore directional rather than absolute. Rising EHCP counts may reflect improved identification, changes in diagnostic criteria, increased parental awareness, or genuine prevalence change.",
   "areas": {
     "E06000001": {
       "areaName": "Hartlepool",

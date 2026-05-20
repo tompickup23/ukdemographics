@@ -1,9 +1,9 @@
 {
-  "source": "HMRC Real Time Information via ONS \u2014 Payrolled employments in the UK by nationality, region and industrial sector, July 2014 to December 2024 (Table 1: monthly counts of UK payrolled employments by nationality). Joined with DWP Stat-Xplore NINo flow rolling year ending Q4 2025.",
+  "source": "HMRC Real Time Information via ONS, Payrolled employments in the UK by nationality, region and industrial sector, July 2014 to December 2024 (Table 1: monthly counts of UK payrolled employments by nationality). Joined with DWP Stat-Xplore NINo flow rolling year ending Q4 2025.",
   "lastUpdated": "2026-04-28",
   "latestSnapshotDate": "December 2024",
   "fiveYearBaselineDate": "December 2019",
-  "caveat": "HMRC RTI counts EMPLOYMENTS not employees \u2014 one person with two jobs is counted twice. The series excludes self-employed, students, dependants and the inactive. 47 nationalities are published; smaller cohorts (Eritrea, Sudan, Iraq, Afghanistan and many others) are aggregated into UK / EU / Non-EU rollups only. National granularity only at this level \u2014 there is no LA-level RTI by nationality. NINo flow and HMRC payroll are different concepts and should not be summed.",
+  "caveat": "HMRC RTI counts EMPLOYMENTS not employees, one person with two jobs is counted twice. The series excludes self-employed, students, dependants and the inactive. 47 nationalities are published; smaller cohorts (Eritrea, Sudan, Iraq, Afghanistan and many others) are aggregated into UK / EU / Non-EU rollups only. National granularity only at this level, there is no LA-level RTI by nationality. NINo flow and HMRC payroll are different concepts and should not be summed.",
   "totalNationalitiesPublished": 47,
   "topByLatestPayroll": [
     {

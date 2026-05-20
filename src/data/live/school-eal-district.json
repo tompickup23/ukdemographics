@@ -1,5 +1,5 @@
 {
-  "source": "DfE Schools, Pupils and their Characteristics, academic year 2024/25 \u2014 school-level underlying data, aggregated to district administrative code (E07/E06/E08/E09).",
+  "source": "DfE Schools, Pupils and their Characteristics, academic year 2024/25, school-level underlying data, aggregated to district administrative code (E07/E06/E08/E09).",
   "lastUpdated": "2026-04-29",
   "caveat": "Aggregated per district where the school sits, not where the pupil lives. Only state-funded schools are in scope; private schools excluded. Suppressed cells in the source are treated as zero (this affects very small schools).",
   "schoolsProcessed": 24479,

@@ -1,5 +1,5 @@
 {
-  "source": "DWP Stat-Xplore Ninos cube \u2014 LA \u00d7 Age band \u00d7 Sex, rolling year ending Q4 2025 (Jan-Dec 2025 calendar year). Counts are NEW NINo registrations to adult overseas nationals.",
+  "source": "DWP Stat-Xplore Ninos cube, LA \u00d7 Age band \u00d7 Sex, rolling year ending Q4 2025 (Jan-Dec 2025 calendar year). Counts are NEW NINo registrations to adult overseas nationals.",
   "lastUpdated": "2026-04-29",
   "caveat": "Age is age at NINo registration, not age at arrival. The registration may follow arrival by months. 'Less than 18' is rare in this dataset because the published Ninos series is filtered to adult overseas nationals; values reflect young workers/claimants close to 18. 'Unknown' age is a small residual.",
   "ageBandsOrder": [

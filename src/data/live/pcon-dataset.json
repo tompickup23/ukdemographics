@@ -1,5 +1,5 @@
 {
-  "source": "Composite — GE 2024 shares from UKE backtest, PCON↔LAD24/LAD25 crosswalk from ONS, PCON names from DWP Stat-Xplore (via PIP)",
+  "source": "Composite: GE 2024 shares from UKE backtest, PCON↔LAD24/LAD25 crosswalk from ONS, PCON names from DWP Stat-Xplore (via PIP)",
   "generatedAt": "2026-05-19T17:49:39.651Z",
   "constituencyCount": 631,
   "unmatchedSlugs": [

@@ -1,6 +1,6 @@
 {
   "source": "NHS Digital ASCFR & SALT data tables 2023-24 (CASSR-level). Quality-of-life and DToC fields omitted (DToC discontinued post-COVID; ASCOF measures live in a separate publication).",
-  "methodology": "Gross spend per capita = Total Gross Current Expenditure (T14 col 13, \u00a3k) \u00d7 1,000 \u00f7 LA total population (Census 2021). Residential placement rate per 10k 65+ = T34 65+ residential clients \u00f7 (total population \u00d7 0.185) \u00d7 10,000 \u2014 uses England-average 65+ share as denominator since per-LA age detail is not in this feed.",
+  "methodology": "Gross spend per capita = Total Gross Current Expenditure (T14 col 13, \u00a3k) \u00d7 1,000 \u00f7 LA total population (Census 2021). Residential placement rate per 10k 65+ = T34 65+ residential clients \u00f7 (total population \u00d7 0.185) \u00d7 10,000, uses England-average 65+ share as denominator since per-LA age detail is not in this feed.",
   "lastUpdated": "2026-04-28",
   "caveat": "ASC sits with upper-tier authorities only (counties, unitaries, London boroughs, mets); ~153 LAs in coverage and districts are not present. Spending is shaped by demographic composition, deprivation, and informal-care availability and direct cross-area comparison must control for those.",
   "areas": {

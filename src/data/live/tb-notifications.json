@@ -1,11 +1,11 @@
 {
-  "source": "UKHSA \u2014 Tuberculosis in England 2025 report (data through end-2024). Supplementary Table 8 (per-LA 3-year-average rates) and Supplementary Table 14 (time series of notifications by country of birth in the non-UK-born population).",
+  "source": "UKHSA, Tuberculosis in England 2025 report (data through end-2024). Supplementary Table 8 (per-LA 3-year-average rates) and Supplementary Table 14 (time series of notifications by country of birth in the non-UK-born population).",
   "lastUpdated": "2026-04-28",
   "englandAverageRatePer100k_2024": 9.5,
   "totalNotifications2024": 5480,
   "totalNotifications2023": 4850,
   "totalChange2024Pct": 13.0,
-  "caveat": "TB notifications are not arrivals data \u2014 they reflect a multi-year mix of cumulative country-of-birth composition. Roughly 75% of UK TB cases are in non-UK-born people. The per-LA data is a 3-year average (2022-2024) which smooths small-district volatility. Country-of-birth detail is national only \u2014 there is no published per-LA \u00d7 COB crosstab for TB notifications.",
+  "caveat": "TB notifications are not arrivals data, they reflect a multi-year mix of cumulative country-of-birth composition. Roughly 75% of UK TB cases are in non-UK-born people. The per-LA data is a 3-year average (2022-2024) which smooths small-district volatility. Country-of-birth detail is national only, there is no published per-LA \u00d7 COB crosstab for TB notifications.",
   "topLaByRate": [
     {
       "code": "E06000016",

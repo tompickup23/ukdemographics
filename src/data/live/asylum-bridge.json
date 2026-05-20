@@ -1,7 +1,7 @@
 {
   "source": "Home Office Immigration Statistics, year ending December 2025: Asy_D01 (claims), Ret_D01 (returns), and asylum-grant-rates.json (lifted from asylumstats, derived from Asy_D02 with appeal uplift from FT-IAC outcomes). Joined with DWP Stat-Xplore NINo flow rolling year ending Q4 2025.",
   "lastUpdated": "2026-04-28",
-  "caveat": "Each metric comes from a different concept and they cannot be summed or netted. NINo flow is who registered to work or claim. Asylum claims are who applied for protection. Grant rate is on substantive initial decisions (the cohort being decided in the recent period, not the same individuals as 2025 claimants). Returns include enforced removals AND voluntary departures AND port refusals \u2014 three distinct flows surfaced separately. The bridge does not produce a per-individual story; it shows the aggregate composition of each flow per nationality.",
+  "caveat": "Each metric comes from a different concept and they cannot be summed or netted. NINo flow is who registered to work or claim. Asylum claims are who applied for protection. Grant rate is on substantive initial decisions (the cohort being decided in the recent period, not the same individuals as 2025 claimants). Returns include enforced removals AND voluntary departures AND port refusals, three distinct flows surfaced separately. The bridge does not produce a per-individual story; it shows the aggregate composition of each flow per nationality.",
   "nationalTotals": {
     "asylumClaims2025": 100625,
     "returns2025": 56197,

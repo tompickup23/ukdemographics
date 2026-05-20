@@ -1,5 +1,5 @@
 ---
-headline: "What's really driving ethnic change - national trend, not local migration"
+headline: "What's really driving ethnic change: national trend, not local migration"
 date: "2026-04-11"
 category: demographics
 stat_value: "84%"
@@ -7,7 +7,7 @@ stat_label: "Change from national trend"
 verdict: info
 source_url: "https://www.ons.gov.uk/datasets/TS021/editions/2021/versions/1"
 source_label: "ONS Census 2011 & 2021"
-summary: "Shift-share decomposition of 305 local authorities shows that 84% of Burnley's White British decline is explained by the national trend - not local immigration. Most areas are changing because the whole country is changing, not because of exceptional local migration."
+summary: "Shift-share decomposition of 305 local authorities shows that 84% of Burnley's White British decline is explained by the national trend, not local immigration. Most areas are changing because the whole country is changing, not because of exceptional local migration."
 ---
 
 **Burnley's ethnic change is not mainly about Burnley.** It's about Britain.

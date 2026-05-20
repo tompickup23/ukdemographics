@@ -57,7 +57,7 @@ const years = ["2031", "2041", "2051", "2061"].filter(y => centralData?.[y]);
   <p class="scenario-range-text">
     Under different assumptions, White British share in {areaName} ranges from
     <strong>{min2051.toFixed(1)}%</strong> to <strong>{max2051.toFixed(1)}%</strong>
-    by 2051 — a <strong>{spreadPp}pp spread</strong>.
+    by 2051: a <strong>{spreadPp}pp spread</strong>.
   </p>
 
   <!-- 3×3 selector grid -->
@@ -89,7 +89,7 @@ const years = ["2031", "2041", "2051", "2061"].filter(y => centralData?.[y]);
                 data-scenario={key}
                 title={`${f.label} fertility, ${m.label} migration`}
               >
-                <span class="sg-cell-value">{val !== undefined ? `${val.toFixed(1)}%` : "—"}</span>
+                <span class="sg-cell-value">{val !== undefined ? `${val.toFixed(1)}%` : "n/a"}</span>
                 {isCentral && <span class="sg-cell-badge">Central</span>}
               </button>
             );
