@@ -163,7 +163,7 @@ function findingColor(verdict: string): string {
       <h2 class="strip-title">Latest research</h2>
       <div class="findings-row">
         {topFindings.map((finding) => (
-          <a href={`/findings/${finding.slug}/`} class="finding-strip-card">
+          <a href={`/findings/${finding.id.replace(/\.md$/, "")}/`} class="finding-strip-card">
             <span class="fsc-verdict" style={`color: ${findingColor(finding.data.verdict)}`}>{findingLabel(finding.data.verdict)}</span>
             <span class="fsc-stat" style={`color: ${findingColor(finding.data.verdict)}`}>{finding.data.stat_value}</span>
             <span class="fsc-headline">{finding.data.headline}</span>
