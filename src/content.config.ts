@@ -1,7 +1,8 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const findings = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/findings" }),
   schema: z.object({
     headline: z.string(),
     date: z.string(),
@@ -13,10 +14,8 @@ const findings = defineCollection({
     source_url: z.string().url(),
     source_label: z.string().default("Source"),
     summary: z.string(),
-    // SR integration
     sr_article_id: z.string().optional(),
     sr_published: z.boolean().default(false),
-    // Social
     video_url: z.string().optional(),
     video_poster: z.string().optional()
   })
