@@ -1,29 +1,52 @@
 ---
-const primaryNav = [
-  { href: "/places", label: "Places" },
-  { href: "/your-area", label: "Your Area" },
-  { href: "/constituencies", label: "Constituencies" },
-  { href: "/findings", label: "Research" },
-  { href: "/national", label: "National" },
-];
+type NavItem = { href: string; label: string; desc: string };
+type NavGroup = { label: string; items: NavItem[] };
 
-const moreNav = [
-  { href: "/pressure", label: "Pressure Index" },
-  { href: "/schools", label: "Schools" },
-  { href: "/housing", label: "Housing" },
-  { href: "/regional", label: "Regional" },
-  { href: "/compare", label: "Compare" },
-  { href: "/methodology", label: "Methodology" },
-  { href: "/sources", label: "Sources" },
-  { href: "/releases", label: "Releases" },
-  { href: "/glossary", label: "Glossary" },
+const NAV_GROUPS: NavGroup[] = [
+  {
+    label: "Explore",
+    items: [
+      { href: "/your-area", label: "Your Area", desc: "Look up any UK community by postcode" },
+      { href: "/places", label: "Places", desc: "320 local authorities" },
+      { href: "/constituencies", label: "Constituencies", desc: "650 parliamentary seats" },
+      { href: "/national", label: "National", desc: "UK-level projections" },
+      { href: "/compare", label: "Compare", desc: "Side-by-side any two places" },
+    ],
+  },
+  {
+    label: "Themes",
+    items: [
+      { href: "/pressure", label: "Pressure Index", desc: "Composite stress score" },
+      { href: "/schools", label: "Schools", desc: "DfE school census" },
+      { href: "/housing", label: "Housing", desc: "Tenure, prices, stress" },
+      { href: "/regional", label: "Regional", desc: "9 English regions + nations" },
+    ],
+  },
+  {
+    label: "Research",
+    items: [
+      { href: "/findings", label: "Findings", desc: "Published research" },
+      { href: "/releases", label: "Releases", desc: "Version history" },
+    ],
+  },
+  {
+    label: "About",
+    items: [
+      { href: "/methodology", label: "Methodology", desc: "How the projections work" },
+      { href: "/sources", label: "Sources", desc: "Data provenance" },
+      { href: "/glossary", label: "Glossary", desc: "Terms & definitions" },
+    ],
+  },
 ];
 
 const pathname = Astro.url.pathname;
 
-function isActive(href: string): boolean {
+function isActiveItem(href: string): boolean {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
+}
+function isActiveGroup(group: NavGroup): boolean {
+  return group.items.some((item) => isActiveItem(item.href));
 }
 ---
 
@@ -31,12 +54,10 @@ function isActive(href: string): boolean {
   <a class="brand" href="/">
     <span class="brand-mark">
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28" aria-hidden="true">
-        <!-- UK Demographics — Population bars icon -->
         <rect x="3" y="18" width="5" height="11" rx="1.5" fill="#4f46e5"/>
         <rect x="10" y="12" width="5" height="17" rx="1.5" fill="#4f46e5" opacity="0.8"/>
         <rect x="17" y="7" width="5" height="22" rx="1.5" fill="#4f46e5" opacity="0.6"/>
         <rect x="24" y="3" width="5" height="26" rx="1.5" fill="#4f46e5" opacity="0.4"/>
-        <!-- Trend line -->
         <path d="M5.5 17 L12.5 11 L19.5 6 L26.5 2" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round" fill="none"/>
         <circle cx="5.5" cy="17" r="1.5" fill="#818cf8"/>
         <circle cx="26.5" cy="2" r="1.5" fill="#10b981"/>
@@ -49,6 +70,34 @@ function isActive(href: string): boolean {
   </a>
 
   <div class="site-tools">
+    <nav class="site-nav-mega desktop-nav" aria-label="Primary">
+      {NAV_GROUPS.map((group) => (
+        <details class="mega-group" data-active={isActiveGroup(group) ? "true" : "false"}>
+          <summary class="mega-trigger">
+            <span>{group.label}</span>
+            <span class="mega-caret" aria-hidden="true">
+              <svg viewBox="0 0 10 6" width="10" height="6" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </summary>
+          <div class="mega-panel" role="menu">
+            {group.items.map((item) => (
+              <a
+                href={item.href}
+                class="mega-item"
+                role="menuitem"
+                aria-current={isActiveItem(item.href) ? "page" : undefined}
+              >
+                <span class="mega-item-label">{item.label}</span>
+                <span class="mega-item-desc">{item.desc}</span>
+              </a>
+            ))}
+          </div>
+        </details>
+      ))}
+    </nav>
+
     <button
       class="search-launch"
       type="button"
@@ -60,68 +109,77 @@ function isActive(href: string): boolean {
       <span class="search-shortcut">/</span>
     </button>
 
-    <!-- Desktop nav -->
-    <nav class="site-nav desktop-nav" aria-label="Primary">
-      {primaryNav.map((item) => (
-        <a
-          href={item.href}
-          class="priority"
-          aria-current={isActive(item.href) ? "page" : undefined}
-        >
-          {item.label}
-        </a>
-      ))}
-      <details class="more-dropdown">
-        <summary class="more-trigger">More</summary>
-        <div class="more-panel">
-          {moreNav.map((item) => (
-            <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
-              {item.label}
-            </a>
-          ))}
-        </div>
-      </details>
-    </nav>
-
-    <!-- Mobile hamburger -->
     <button class="mobile-menu-btn" type="button" data-mobile-menu-toggle aria-label="Open menu" aria-expanded="false">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
 </header>
 
-<!-- Mobile drawer -->
 <div class="mobile-drawer" data-mobile-drawer hidden>
   <div class="mobile-drawer-backdrop" data-mobile-drawer-close></div>
   <nav class="mobile-drawer-panel" aria-label="Mobile navigation">
     <div class="mobile-drawer-head">
       <span class="mobile-drawer-title">Menu</span>
       <button type="button" class="mobile-drawer-close" data-mobile-drawer-close aria-label="Close menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
-    <div class="mobile-drawer-links">
-      <a href="/" class={pathname === "/" ? "active" : ""}>Home</a>
-      {primaryNav.map((item) => (
-        <a href={item.href} class={isActive(item.href) ? "active" : ""}>
-          {item.label}
-        </a>
-      ))}
-      <hr />
-      {moreNav.map((item) => (
-        <a href={item.href} class={isActive(item.href) ? "active" : ""}>
-          {item.label}
-        </a>
+    <div class="mobile-drawer-body">
+      <a href="/" class={"mobile-drawer-home" + (pathname === "/" ? " active" : "")}>Home</a>
+      {NAV_GROUPS.map((group) => (
+        <details class="mobile-group" open={isActiveGroup(group)}>
+          <summary class="mobile-group-trigger">
+            <span>{group.label}</span>
+            <span class="mobile-group-caret" aria-hidden="true">
+              <svg viewBox="0 0 10 6" width="10" height="6" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </summary>
+          <div class="mobile-group-items">
+            {group.items.map((item) => (
+              <a
+                href={item.href}
+                class="mobile-group-item"
+                aria-current={isActiveItem(item.href) ? "page" : undefined}
+              >
+                <span class="mobile-item-label">{item.label}</span>
+                <span class="mobile-item-desc">{item.desc}</span>
+              </a>
+            ))}
+          </div>
+        </details>
       ))}
     </div>
   </nav>
 </div>
 
 <script>
-  // Mobile drawer toggle
-  const toggle = document.querySelector("[data-mobile-menu-toggle]");
-  const drawer = document.querySelector("[data-mobile-drawer]");
-  const closers = document.querySelectorAll("[data-mobile-drawer-close]");
+  const groups = Array.from(document.querySelectorAll<HTMLDetailsElement>(".site-nav-mega .mega-group"));
+
+  groups.forEach((g) => {
+    g.addEventListener("toggle", () => {
+      if (g.open) {
+        groups.forEach((other) => {
+          if (other !== g) other.open = false;
+        });
+      }
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    const target = e.target as Node;
+    if (!groups.some((g) => g.contains(target))) {
+      groups.forEach((g) => (g.open = false));
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") groups.forEach((g) => (g.open = false));
+  });
+
+  const toggle = document.querySelector<HTMLButtonElement>("[data-mobile-menu-toggle]");
+  const drawer = document.querySelector<HTMLDivElement>("[data-mobile-drawer]");
+  const closers = document.querySelectorAll<HTMLElement>("[data-mobile-drawer-close]");
 
   function openDrawer() {
     if (!drawer) return;
@@ -139,7 +197,7 @@ function isActive(href: string): boolean {
   toggle?.addEventListener("click", openDrawer);
   closers.forEach((c) => c.addEventListener("click", closeDrawer));
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !drawer?.hasAttribute("hidden")) closeDrawer();
+    if (e.key === "Escape" && drawer && !drawer.hasAttribute("hidden")) closeDrawer();
   });
 </script>
 
@@ -191,65 +249,96 @@ function isActive(href: string): boolean {
 </div>
 
 <style>
-  /* More dropdown (desktop) */
-  .more-dropdown {
-    position: relative;
+  .site-nav-mega {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
   }
-  .more-trigger {
-    cursor: pointer;
-    font-size: 0.88rem;
-    font-weight: 500;
+
+  .mega-group { position: relative; }
+  .mega-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 600;
     color: var(--muted);
-    list-style: none;
-    padding: 0.25rem 0.5rem;
     border-radius: 8px;
-    transition: color 180ms;
+    cursor: pointer;
+    list-style: none;
+    transition: color 180ms, background 180ms;
+    user-select: none;
   }
-  .more-trigger:hover { color: var(--ink); }
-  .more-trigger::-webkit-details-marker { display: none; }
-  .more-trigger::after {
+  .mega-trigger::-webkit-details-marker { display: none; }
+  .mega-trigger::marker { content: ""; }
+  .mega-trigger:hover { color: var(--ink); background: var(--panel-soft); }
+  .mega-group[open] .mega-trigger { color: var(--ink); background: var(--panel-soft); }
+  .mega-group[data-active="true"] .mega-trigger { color: var(--ink); }
+  .mega-group[data-active="true"] .mega-trigger::after {
     content: "";
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid currentColor;
-    margin-left: 4px;
-    vertical-align: middle;
-  }
-  .more-panel {
     position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    min-width: 180px;
+    bottom: -3px;
+    left: 0.85rem;
+    right: 0.85rem;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--accent);
+  }
+  .mega-caret { display: inline-flex; transition: transform 180ms; opacity: 0.7; }
+  .mega-group[open] .mega-caret { transform: rotate(180deg); }
+
+  .mega-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    min-width: 340px;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.55rem;
     background: var(--bg-soft);
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 0.5rem;
     box-shadow: var(--shadow);
-    z-index: 50;
-    display: flex;
-    flex-direction: column;
+    z-index: 60;
+    animation: megaFadeIn 180ms ease-out;
   }
-  .more-panel a {
-    padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: background 180ms, color 180ms;
-  }
-  .more-panel a:hover {
-    background: var(--panel-soft);
-    color: var(--ink);
-  }
-  .more-panel a[aria-current="page"] {
-    color: var(--accent);
-    font-weight: 600;
+  .mega-group:last-of-type .mega-panel { left: auto; right: 0; }
+
+  @keyframes megaFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Mobile menu button */
+  .mega-item {
+    display: block;
+    padding: 0.7rem 0.85rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 180ms;
+  }
+  .mega-item:hover { background: var(--panel-soft); }
+  .mega-item[aria-current="page"] {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+  .mega-item-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .mega-item[aria-current="page"] .mega-item-label { color: var(--accent); }
+  .mega-item-desc {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.4;
+    margin-top: 0.2rem;
+  }
+
   .mobile-menu-btn {
     display: none;
     align-items: center;
@@ -267,6 +356,122 @@ function isActive(href: string): boolean {
 
   @media (max-width: 900px) {
     .desktop-nav { display: none; }
-    .mobile-menu-btn { display: flex; }
+    .mobile-menu-btn { display: inline-flex; }
+  }
+
+  /* Mobile drawer */
+  .mobile-drawer { position: fixed; inset: 0; z-index: 1000; }
+  .mobile-drawer[hidden] { display: none; }
+  .mobile-drawer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    animation: drawerFadeIn 200ms ease-out;
+  }
+  .mobile-drawer-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: min(92vw, 380px);
+    background: var(--bg-soft);
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto;
+    animation: drawerSlideIn 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes drawerFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes drawerSlideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+  .mobile-drawer-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-drawer-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .mobile-drawer-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: none;
+    color: var(--ink-soft);
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  .mobile-drawer-close:hover { background: var(--panel-soft); }
+  .mobile-drawer-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .mobile-drawer-home {
+    padding: 0.85rem 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-drawer-home.active { color: var(--accent); }
+  .mobile-group { border-bottom: 1px solid var(--border); }
+  .mobile-group:last-of-type { border-bottom: none; }
+  .mobile-group-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+  }
+  .mobile-group-trigger::-webkit-details-marker { display: none; }
+  .mobile-group-caret { transition: transform 180ms; opacity: 0.6; }
+  .mobile-group[open] .mobile-group-caret { transform: rotate(180deg); }
+  .mobile-group-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0 0 0.5rem;
+  }
+  .mobile-group-item {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .mobile-group-item:hover { background: var(--panel-soft); }
+  .mobile-group-item[aria-current="page"] {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+  }
+  .mobile-item-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .mobile-item-desc {
+    display: block;
+    font-size: 0.76rem;
+    color: var(--muted);
+    line-height: 1.35;
+    margin-top: 0.15rem;
   }
 </style>
