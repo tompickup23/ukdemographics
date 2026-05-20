@@ -49,28 +49,6 @@ function isActive(href: string): boolean {
   </a>
 
   <div class="site-tools">
-    <a
-      class="sister-pill sister-pill--uke"
-      href="https://ukelections.co.uk"
-      target="_blank"
-      rel="noopener"
-      title="Sister site — UK election forecasting"
-    >
-      <span class="sister-pill-dot" aria-hidden="true"></span>
-      <span class="sister-pill-label">ukelections.co.uk</span>
-      <span class="sister-pill-arrow" aria-hidden="true">&#8599;</span>
-    </a>
-    <a
-      class="sister-pill sister-pill--as"
-      href="https://asylumstats.co.uk"
-      target="_blank"
-      rel="noopener"
-      title="Sister site — asylum spending data"
-    >
-      <span class="sister-pill-dot" aria-hidden="true"></span>
-      <span class="sister-pill-label">asylumstats.co.uk</span>
-      <span class="sister-pill-arrow" aria-hidden="true">&#8599;</span>
-    </a>
     <button
       class="search-launch"
       type="button"
@@ -287,66 +265,8 @@ function isActive(href: string): boolean {
   }
   .mobile-menu-btn:hover { background: var(--panel-soft); }
 
-  /* Sister-site pills — UKE (emerald) + AS (cyan) */
-  .sister-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.35rem 0.7rem;
-    font-size: 0.78rem;
-    font-weight: 600;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: background 180ms, border-color 180ms, transform 180ms;
-    white-space: nowrap;
-  }
-  .sister-pill:hover { transform: translateY(-1px); }
-  .sister-pill-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-  }
-  .sister-pill-arrow { font-size: 0.82rem; opacity: 0.7; }
-
-  .sister-pill--as {
-    color: var(--accent-3);
-    background: color-mix(in srgb, var(--accent-3) 8%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-3) 25%, transparent);
-  }
-  .sister-pill--as:hover {
-    background: color-mix(in srgb, var(--accent-3) 14%, transparent);
-    border-color: color-mix(in srgb, var(--accent-3) 45%, transparent);
-  }
-  .sister-pill--as .sister-pill-dot {
-    background: var(--accent-3);
-    box-shadow: 0 0 8px color-mix(in srgb, var(--accent-3) 60%, transparent);
-  }
-
-  .sister-pill--uke {
-    color: var(--accent-2);
-    background: color-mix(in srgb, var(--accent-2) 8%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-2) 25%, transparent);
-  }
-  .sister-pill--uke:hover {
-    background: color-mix(in srgb, var(--accent-2) 14%, transparent);
-    border-color: color-mix(in srgb, var(--accent-2) 45%, transparent);
-  }
-  .sister-pill--uke .sister-pill-dot {
-    background: var(--accent-2);
-    box-shadow: 0 0 8px color-mix(in srgb, var(--accent-2) 60%, transparent);
-  }
-
   @media (max-width: 900px) {
     .desktop-nav { display: none; }
     .mobile-menu-btn { display: flex; }
-    .sister-pill-label { display: none; }
-    .sister-pill { padding: 0.35rem 0.55rem; }
-  }
-  @media (max-width: 720px) {
-    /* Below tablet: hide UKE pill to keep header compact; AS retained as primary cross-link */
-    .sister-pill--uke { display: none; }
-  }
-  @media (max-width: 520px) {
-    .sister-pill { display: none; }
   }
 </style>
