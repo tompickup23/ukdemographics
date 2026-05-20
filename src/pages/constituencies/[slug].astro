@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import StatCard from "../../components/StatCard.astro";
 import RaceBar from "../../components/RaceBar.astro";
+import MiniMap from "../../components/MiniMap.astro";
 import {
   getAllPcons,
   getMpForPcon,
@@ -58,11 +59,27 @@ const raceBarSegments = Object.entries(pcon.ge2024.shares)
   description={`${pcon.name} (UK Parliament constituency ${pcon.code}) — 2024 General Election result, MP, PIP claimants and the constituent local authorities.`}
 >
   <a class="back-link" href="/constituencies/">&larr; All constituencies</a>
-  <h1>{pcon.name}</h1>
-  <p class="meta">
-    <span class="meta-tag">{pcon.country}</span>
-    <span class="meta-tag">PCON {pcon.code}</span>
-  </p>
+  <div class="pcon-header">
+    <div class="pcon-identity">
+      <h1>{pcon.name}</h1>
+      <p class="meta">
+        <span class="meta-tag">{pcon.country}</span>
+        <span class="meta-tag">PCON {pcon.code}</span>
+      </p>
+    </div>
+    <MiniMap
+      focalCode={pcon.code}
+      focalName={pcon.name}
+      focalKind="pcon"
+      focalColour={pcon.ge2024.winner ? (partyColors[pcon.ge2024.winner] ?? "var(--accent)") : "var(--accent)"}
+      contextColour="#243049"
+      contextStroke="#4a5b7e"
+      width={260}
+      height={170}
+      padding={1.6}
+      ariaLabel={`Location map showing the ${pcon.name} constituency.`}
+    />
+  </div>
 
   {mp && (
     <section class="section" id="mp">
@@ -142,6 +159,22 @@ const raceBarSegments = Object.entries(pcon.ge2024.shares)
   .back-link:hover { color: var(--accent); }
   h1 { font-family: "Sora", sans-serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin: 0 0 0.5rem; }
   .meta { display: flex; gap: 0.5rem; margin: 0 0 1.5rem; }
+  .pcon-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .pcon-identity { min-width: 0; flex: 1 1 auto; }
+  .pcon-header :global(.mini-map) {
+    margin: 0;
+    padding: 0.4rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    line-height: 0;
+    flex: 0 0 auto;
+    width: 272px;
+  }
+  .pcon-header :global(.mini-map svg) { display: block; width: 100%; height: auto; }
+  @media (max-width: 600px) {
+    .pcon-header :global(.mini-map) { width: 100%; max-width: 280px; }
+  }
   .meta-tag { display: inline-block; font-size: 0.78rem; padding: 0.2rem 0.55rem; background: var(--panel); border: 1px solid var(--border); border-radius: 999px; color: var(--muted); }
   .section { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
   .section h2 { font-family: "Sora", sans-serif; font-size: 1.15rem; font-weight: 800; margin: 0 0 0.75rem; }
