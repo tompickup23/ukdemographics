@@ -45,8 +45,8 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
-ASY_XLSX = Path("/Users/tompickup/asylumstats/data/raw/uk_routes/asylum-claims-datasets-dec-2025.xlsx")
-RET_XLSX = Path("/Users/tompickup/asylumstats/data/raw/uk_routes/returns-datasets-dec-2025.xlsx")
+ASY_XLSX = Path("/Users/tompickup/asylumstats/data/raw/uk_routes/asylum-claims-datasets-mar-2026.xlsx")
+RET_XLSX = Path("/Users/tompickup/asylumstats/data/raw/uk_routes/returns-datasets-mar-2026.xlsx")
 GRANT_RATES = ROOT / "src/data/live/asylum-grant-rates.json"
 NINO_CUBE = ROOT / "data/raw/supplementary/nino-statxplore-cube.json"
 OUT = ROOT / "src/data/live/asylum-bridge.json"
@@ -171,13 +171,13 @@ def main():
 
     out = {
         "source": (
-            "Home Office Immigration Statistics, year ending December 2025: "
+            "Home Office Immigration Statistics, year ending March 2026 (released 21 May 2026): "
             "Asy_D01 (claims), Ret_D01 (returns), and asylum-grant-rates.json "
             "(lifted from asylumstats, derived from Asy_D02 with appeal uplift "
             "from FT-IAC outcomes). Joined with DWP Stat-Xplore NINo flow "
             "rolling year ending Q4 2025."
         ),
-        "lastUpdated": "2026-04-28",
+        "lastUpdated": "2026-05-27",
         "caveat": (
             "Each metric comes from a different concept and they cannot be "
             "summed or netted. NINo flow is who registered to work or claim. "

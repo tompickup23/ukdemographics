@@ -47,8 +47,8 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
-XLSX = ROOT / "data/raw/ho_visas/entry-clearance-visa-outcomes-datasets-dec-2025.xlsx"
-HUM_ODS = ROOT / "data/raw/ho_visas/safe-legal-routes-summary-tables-dec-2025.ods"
+XLSX = ROOT / "data/raw/ho_visas/entry-clearance-visa-outcomes-datasets-mar-2026.xlsx"
+HUM_ODS = ROOT / "data/raw/ho_visas/safe-legal-routes-summary-tables-mar-2026.ods"
 NINO_CUBE = ROOT / "data/raw/supplementary/nino-statxplore-cube.json"
 OUT = ROOT / "src/data/live/visa-routes.json"
 
@@ -211,12 +211,12 @@ def main():
 
     out = {
         "source": (
-            "Home Office, Immigration system statistics, year ending December 2025; "
+            "Home Office, Immigration system statistics, year ending March 2026 (released 21 May 2026); "
             "Vis_D02 (Entry clearance visa outcomes by nationality, visa type, and "
             "outcome). Joined with DWP Stat-Xplore NINo registrations rolling year "
             "ending Q4 2025."
         ),
-        "lastUpdated": "2026-04-28",
+        "lastUpdated": "2026-05-27",
         "caveat": (
             "Visa grants are issued at the point of entry-clearance application "
             "and are NOT the same population as NINo registrations. Visitor visas "
