@@ -45,6 +45,8 @@ data/raw/council_taxbase/
 data/raw/census_econ_passport/
 data/raw/aps_regional_cob/
 data/raw/census_cob_2011/
+data/raw/ons_ltim/
+data/raw/ho_visas_extra/
 
 # Environment and credential files
 *.env

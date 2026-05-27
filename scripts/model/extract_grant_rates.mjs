@@ -17,7 +17,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import xlsx from "xlsx";
 
-const SOURCE = path.resolve("data/raw/uk_routes/asylum-claims-datasets-dec-2025.xlsx");
+const SOURCE = path.resolve("data/raw/uk_routes/asylum-claims-datasets-mar-2026.xlsx");
 const OUTPUT = path.resolve("src/data/live/grant-rates-nationality.json");
 
 console.log("Reading Asy_D02 (asylum initial decisions by nationality)...");
@@ -190,7 +190,7 @@ const likelyEconomic = leagueTable.filter(d => d.grantRatePct < 25);
 
 const output = {
   generatedAt: new Date().toISOString(),
-  source: "Home Office Immigration Statistics: Asylum initial decisions (Asy_D02), Dec 2025 release",
+  source: "Home Office Immigration Statistics: Asylum initial decisions (Asy_D02), year ending March 2026 release (21 May 2026)",
   methodology: "Grant rate = (grants of protection + grants of other leave) / (grants + refusals) × 100. Excludes withdrawn cases and administrative outcomes from denominator (substantive decisions only). Recent period = 2020-2025. Minimum 50 substantive decisions for league table inclusion. 'Refugee' and 'Stateless person' status entries excluded as they are not nationalities.",
   caveats: [
     "These are INITIAL decision grant rates only. Many refusals are overturned on appeal — the true grant rate (after appeals) is significantly higher for some nationalities. For example, Iranian initial grant rate ~72% rises to ~85% after successful appeals.",
@@ -214,7 +214,7 @@ const output = {
 };
 
 // ── ASY_D04: Outcome Analysis — Initial + Appeal (True Grant Rate) ──
-const OUTCOME_SOURCE = path.resolve("data/raw/uk_routes/outcome-analysis-asylum-claims-datasets-dec-2025.xlsx");
+const OUTCOME_SOURCE = path.resolve("data/raw/uk_routes/outcome-analysis-asylum-claims-datasets-mar-2026.xlsx");
 console.log("\n\n=== OUTCOME ANALYSIS (Asy_D04): True Grant Rates ===");
 console.log(`Reading ${OUTCOME_SOURCE}...`);
 
@@ -225,19 +225,20 @@ try {
   console.log(`  ${outcomeRows.length} rows`);
 
   // Row 0 is title, row 1 is headers
-  // Columns: Year of Claim, Region, Nationality, Claims,
+  // Columns (YE Mar 2026 release): Year of Claim, Nationality, Region, Claims,
   //   Initial Decisions, Initial: Grants of Protection, Initial: Grants of Other Leave,
   //   Initial: Refusals, Initial: Withdrawals, Initial: Administrative Outcomes, Initial: Not yet known,
-  //   Enforced Returns, Voluntary Returns, ...,
+  //   Enforced Returns, Voluntary Returns, (3x Voluntary subsets at 13,14,15),
   //   Latest: Grants of Protection, Latest: Grants of Other Leave,
   //   Latest: Refusals, Latest: Withdrawals, Latest: Administrative Outcomes, Latest: Not yet known
+  // Note: cols 1 and 2 (Nationality, Region) were swapped vs the Dec 2025 release.
 
   // Aggregate by nationality (recent claim years 2020-2024 for stable latest outcomes)
   const outcomeByNat = {};
   for (let i = 2; i < outcomeRows.length; i++) {
     const row = outcomeRows[i];
     const year = parseInt(row[0]);
-    const nationality = String(row[2] || "").trim();
+    const nationality = String(row[1] || "").trim();
     if (!year || !nationality) continue;
     if (nationality === "Total" || nationality.startsWith("Total ") || nationality === "Other" || nationality === "Refugee" || nationality === "Stateless person") continue;
     if (nationality.includes("(excluding")) continue;
@@ -317,7 +318,7 @@ try {
 
   // Add outcome analysis metadata to output
   output.outcomeAnalysis = {
-    source: "Home Office Immigration Statistics: Outcome analysis (Asy_D04), Dec 2025 release",
+    source: "Home Office Immigration Statistics: Outcome analysis (Asy_D04), year ending March 2026 release (21 May 2026)",
     claimYears: "2015-2023",
     methodology: "True grant rate = (latest grants of protection + other leave) / (latest grants + latest refusals) × 100. 'Latest' outcome includes appeal results and all subsequent decisions. Claim years 2015-2023 used so most cases have settled outcomes.",
     nationalitiesWithTrueRate: Object.keys(trueGrantRates).length,

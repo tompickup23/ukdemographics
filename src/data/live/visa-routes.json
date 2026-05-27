@@ -1,6 +1,6 @@
 {
-  "source": "Home Office, Immigration system statistics, year ending December 2025; Vis_D02 (Entry clearance visa outcomes by nationality, visa type, and outcome). Joined with DWP Stat-Xplore NINo registrations rolling year ending Q4 2025.",
-  "lastUpdated": "2026-04-28",
+  "source": "Home Office, Immigration system statistics, year ending March 2026 (released 21 May 2026); Vis_D02 (Entry clearance visa outcomes by nationality, visa type, and outcome). Joined with DWP Stat-Xplore NINo registrations rolling year ending Q4 2025.",
+  "lastUpdated": "2026-05-27",
   "caveat": "Visa grants are issued at the point of entry-clearance application and are NOT the same population as NINo registrations. Visitor visas (2.24 million in 2025) do not lead to NINo and are excluded from the route-mix percentages so the Work / Study / Family / Other proportions are interpretable. Humanitarian routes (BN(O), Ukraine schemes, Resettlement, Asylum) are surfaced as national totals only because the same nationality split is not provided in this dataset. EU/EEA nationals largely fall outside entry-clearance for short stays, so their NINo flow is materially understated by visa data alone.",
   "year": 2025,
   "nationalRouteTotals2025": {
@@ -1870,25 +1870,6 @@
       }
     },
     {
-      "country": "Botswana",
-      "visaCountryNameUsed": "Botswana",
-      "ninoFlowRollingYear_UK": 164,
-      "visaGrants2025_total_workShareRoutes": 399,
-      "visaGrants2025_total_visitor": 279,
-      "visaRouteMixCounts": {
-        "Work": 154,
-        "Study": 181,
-        "Family": 32,
-        "Other": 32
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 38.6,
-        "Study": 45.4,
-        "Family": 8.0,
-        "Other": 8.0
-      }
-    },
-    {
       "country": "Zambia",
       "visaCountryNameUsed": "Zambia",
       "ninoFlowRollingYear_UK": 164,
@@ -1905,6 +1886,25 @@
         "Study": 25.9,
         "Family": 6.8,
         "Other": 9.5
+      }
+    },
+    {
+      "country": "Botswana",
+      "visaCountryNameUsed": "Botswana",
+      "ninoFlowRollingYear_UK": 164,
+      "visaGrants2025_total_workShareRoutes": 399,
+      "visaGrants2025_total_visitor": 279,
+      "visaRouteMixCounts": {
+        "Work": 154,
+        "Study": 181,
+        "Family": 32,
+        "Other": 32
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 38.6,
+        "Study": 45.4,
+        "Family": 8.0,
+        "Other": 8.0
       }
     },
     {
@@ -2592,25 +2592,6 @@
       }
     },
     {
-      "country": "United Arab Emirates",
-      "visaCountryNameUsed": "United Arab Emirates",
-      "ninoFlowRollingYear_UK": 23,
-      "visaGrants2025_total_workShareRoutes": 296,
-      "visaGrants2025_total_visitor": 174,
-      "visaRouteMixCounts": {
-        "Work": 22,
-        "Study": 265,
-        "Family": 1,
-        "Other": 8
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 7.4,
-        "Study": 89.5,
-        "Family": 0.3,
-        "Other": 2.7
-      }
-    },
-    {
       "country": "Guyana",
       "visaCountryNameUsed": "Guyana",
       "ninoFlowRollingYear_UK": 23,
@@ -2646,6 +2627,25 @@
         "Study": 36.8,
         "Family": 10.8,
         "Other": 1.1
+      }
+    },
+    {
+      "country": "United Arab Emirates",
+      "visaCountryNameUsed": "United Arab Emirates",
+      "ninoFlowRollingYear_UK": 23,
+      "visaGrants2025_total_workShareRoutes": 296,
+      "visaGrants2025_total_visitor": 174,
+      "visaRouteMixCounts": {
+        "Work": 22,
+        "Study": 265,
+        "Family": 1,
+        "Other": 8
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 7.4,
+        "Study": 89.5,
+        "Family": 0.3,
+        "Other": 2.7
       }
     },
     {
@@ -2763,25 +2763,6 @@
       }
     },
     {
-      "country": "St Lucia",
-      "visaCountryNameUsed": "St Lucia",
-      "ninoFlowRollingYear_UK": 12,
-      "visaGrants2025_total_workShareRoutes": 98,
-      "visaGrants2025_total_visitor": 3,
-      "visaRouteMixCounts": {
-        "Work": 24,
-        "Study": 39,
-        "Family": 34,
-        "Other": 1
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 24.5,
-        "Study": 39.8,
-        "Family": 34.7,
-        "Other": 1.0
-      }
-    },
-    {
       "country": "Turkmenistan",
       "visaCountryNameUsed": "Turkmenistan",
       "ninoFlowRollingYear_UK": 12,
@@ -2798,6 +2779,25 @@
         "Study": 27.3,
         "Family": 4.0,
         "Other": 33.8
+      }
+    },
+    {
+      "country": "St Lucia",
+      "visaCountryNameUsed": "St Lucia",
+      "ninoFlowRollingYear_UK": 12,
+      "visaGrants2025_total_workShareRoutes": 98,
+      "visaGrants2025_total_visitor": 3,
+      "visaRouteMixCounts": {
+        "Work": 24,
+        "Study": 39,
+        "Family": 34,
+        "Other": 1
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 24.5,
+        "Study": 39.8,
+        "Family": 34.7,
+        "Other": 1.0
       }
     },
     {
@@ -2915,6 +2915,25 @@
       }
     },
     {
+      "country": "Cuba",
+      "visaCountryNameUsed": "Cuba",
+      "ninoFlowRollingYear_UK": 6,
+      "visaGrants2025_total_workShareRoutes": 195,
+      "visaGrants2025_total_visitor": 806,
+      "visaRouteMixCounts": {
+        "Work": 116,
+        "Study": 15,
+        "Family": 28,
+        "Other": 36
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 59.5,
+        "Study": 7.7,
+        "Family": 14.4,
+        "Other": 18.5
+      }
+    },
+    {
       "country": "Qatar",
       "visaCountryNameUsed": "Qatar",
       "ninoFlowRollingYear_UK": 6,
@@ -2953,41 +2972,22 @@
       }
     },
     {
-      "country": "Cuba",
-      "visaCountryNameUsed": "Cuba",
-      "ninoFlowRollingYear_UK": 6,
-      "visaGrants2025_total_workShareRoutes": 195,
-      "visaGrants2025_total_visitor": 806,
-      "visaRouteMixCounts": {
-        "Work": 116,
-        "Study": 15,
-        "Family": 28,
-        "Other": 36
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 59.5,
-        "Study": 7.7,
-        "Family": 14.4,
-        "Other": 18.5
-      }
-    },
-    {
-      "country": "Madagascar",
-      "visaCountryNameUsed": "Madagascar",
+      "country": "Lesotho",
+      "visaCountryNameUsed": "Lesotho",
       "ninoFlowRollingYear_UK": 5,
-      "visaGrants2025_total_workShareRoutes": 88,
-      "visaGrants2025_total_visitor": 479,
+      "visaGrants2025_total_workShareRoutes": 44,
+      "visaGrants2025_total_visitor": 205,
       "visaRouteMixCounts": {
-        "Work": 24,
-        "Study": 20,
-        "Family": 6,
-        "Other": 38
+        "Work": 28,
+        "Study": 7,
+        "Family": 1,
+        "Other": 8
       },
       "visaRouteMixPct_workShareBasis": {
-        "Work": 27.3,
-        "Study": 22.7,
-        "Family": 6.8,
-        "Other": 43.2
+        "Work": 63.6,
+        "Study": 15.9,
+        "Family": 2.3,
+        "Other": 18.2
       }
     },
     {
@@ -3029,155 +3029,60 @@
       }
     },
     {
-      "country": "Lesotho",
-      "visaCountryNameUsed": "Lesotho",
+      "country": "Madagascar",
+      "visaCountryNameUsed": "Madagascar",
       "ninoFlowRollingYear_UK": 5,
-      "visaGrants2025_total_workShareRoutes": 44,
-      "visaGrants2025_total_visitor": 205,
-      "visaRouteMixCounts": {
-        "Work": 28,
-        "Study": 7,
-        "Family": 1,
-        "Other": 8
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 63.6,
-        "Study": 15.9,
-        "Family": 2.3,
-        "Other": 18.2
-      }
-    },
-    {
-      "country": "Burkina Faso",
-      "visaCountryNameUsed": "Burkina Faso",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 51,
-      "visaGrants2025_total_visitor": 275,
-      "visaRouteMixCounts": {
-        "Work": 20,
-        "Study": 12,
-        "Family": 3,
-        "Other": 16
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 39.2,
-        "Study": 23.5,
-        "Family": 5.9,
-        "Other": 31.4
-      }
-    },
-    {
-      "country": "Solomon Islands",
-      "visaCountryNameUsed": "Solomon Islands",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 7,
-      "visaGrants2025_total_visitor": 0,
-      "visaRouteMixCounts": {
-        "Work": 0,
-        "Study": 7,
-        "Family": 0,
-        "Other": 0
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 0.0,
-        "Study": 100.0,
-        "Family": 0.0,
-        "Other": 0.0
-      }
-    },
-    {
-      "country": "Sao Tome and Principe",
-      "visaCountryNameUsed": "Sao Tome and Principe",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 11,
-      "visaGrants2025_total_visitor": 21,
-      "visaRouteMixCounts": {
-        "Work": 0,
-        "Study": 1,
-        "Family": 1,
-        "Other": 9
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 0.0,
-        "Study": 9.1,
-        "Family": 9.1,
-        "Other": 81.8
-      }
-    },
-    {
-      "country": "Mozambique",
-      "visaCountryNameUsed": "Mozambique",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 121,
-      "visaGrants2025_total_visitor": 869,
+      "visaGrants2025_total_workShareRoutes": 88,
+      "visaGrants2025_total_visitor": 479,
       "visaRouteMixCounts": {
         "Work": 24,
-        "Study": 82,
-        "Family": 7,
-        "Other": 8
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 19.8,
-        "Study": 67.8,
-        "Family": 5.8,
-        "Other": 6.6
-      }
-    },
-    {
-      "country": "Seychelles",
-      "visaCountryNameUsed": "Seychelles",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 74,
-      "visaGrants2025_total_visitor": 1,
-      "visaRouteMixCounts": {
-        "Work": 17,
-        "Study": 51,
+        "Study": 20,
         "Family": 6,
-        "Other": 0
+        "Other": 38
       },
       "visaRouteMixPct_workShareBasis": {
-        "Work": 23.0,
-        "Study": 68.9,
-        "Family": 8.1,
-        "Other": 0.0
+        "Work": 27.3,
+        "Study": 22.7,
+        "Family": 6.8,
+        "Other": 43.2
       }
     },
     {
-      "country": "Myanmar (Burma)",
-      "visaCountryNameUsed": "Myanmar (Burma)",
+      "country": "Niger",
+      "visaCountryNameUsed": "Niger",
       "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 2531,
-      "visaGrants2025_total_visitor": 2709,
+      "visaGrants2025_total_workShareRoutes": 27,
+      "visaGrants2025_total_visitor": 135,
       "visaRouteMixCounts": {
-        "Work": 353,
-        "Study": 2084,
-        "Family": 52,
-        "Other": 42
+        "Work": 16,
+        "Study": 10,
+        "Family": 0,
+        "Other": 1
       },
       "visaRouteMixPct_workShareBasis": {
-        "Work": 13.9,
-        "Study": 82.3,
-        "Family": 2.1,
-        "Other": 1.7
+        "Work": 59.3,
+        "Study": 37.0,
+        "Family": 0.0,
+        "Other": 3.7
       }
     },
     {
-      "country": "Gibraltar (British)",
-      "visaCountryNameUsed": "Gibraltar (British)",
+      "country": "Other and unknown",
+      "visaCountryNameUsed": "Other and unknown",
       "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 1,
-      "visaGrants2025_total_visitor": 1,
+      "visaGrants2025_total_workShareRoutes": 1060,
+      "visaGrants2025_total_visitor": 1020,
       "visaRouteMixCounts": {
-        "Work": 0,
-        "Study": 0,
-        "Family": 1,
-        "Other": 0
+        "Work": 13,
+        "Study": 16,
+        "Family": 997,
+        "Other": 34
       },
       "visaRouteMixPct_workShareBasis": {
-        "Work": 0.0,
-        "Study": 0.0,
-        "Family": 100.0,
-        "Other": 0.0
+        "Work": 1.2,
+        "Study": 1.5,
+        "Family": 94.1,
+        "Other": 3.2
       }
     },
     {
@@ -3200,41 +3105,60 @@
       }
     },
     {
-      "country": "Laos",
-      "visaCountryNameUsed": "Laos",
+      "country": "Mozambique",
+      "visaCountryNameUsed": "Mozambique",
       "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 82,
-      "visaGrants2025_total_visitor": 595,
+      "visaGrants2025_total_workShareRoutes": 121,
+      "visaGrants2025_total_visitor": 869,
       "visaRouteMixCounts": {
-        "Work": 10,
-        "Study": 55,
+        "Work": 24,
+        "Study": 82,
         "Family": 7,
-        "Other": 10
+        "Other": 8
       },
       "visaRouteMixPct_workShareBasis": {
-        "Work": 12.2,
-        "Study": 67.1,
-        "Family": 8.5,
-        "Other": 12.2
+        "Work": 19.8,
+        "Study": 67.8,
+        "Family": 5.8,
+        "Other": 6.6
       }
     },
     {
-      "country": "Barbados",
-      "visaCountryNameUsed": "Barbados",
+      "country": "Tuvalu",
+      "visaCountryNameUsed": "Tuvalu",
       "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 142,
-      "visaGrants2025_total_visitor": 2,
+      "visaGrants2025_total_workShareRoutes": 2,
+      "visaGrants2025_total_visitor": 0,
       "visaRouteMixCounts": {
-        "Work": 40,
-        "Study": 72,
-        "Family": 18,
-        "Other": 12
+        "Work": 0,
+        "Study": 2,
+        "Family": 0,
+        "Other": 0
       },
       "visaRouteMixPct_workShareBasis": {
-        "Work": 28.2,
-        "Study": 50.7,
-        "Family": 12.7,
-        "Other": 8.5
+        "Work": 0.0,
+        "Study": 100.0,
+        "Family": 0.0,
+        "Other": 0.0
+      }
+    },
+    {
+      "country": "Cape Verde",
+      "visaCountryNameUsed": "Cape Verde",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 16,
+      "visaGrants2025_total_visitor": 121,
+      "visaRouteMixCounts": {
+        "Work": 1,
+        "Study": 1,
+        "Family": 6,
+        "Other": 8
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 6.2,
+        "Study": 6.2,
+        "Family": 37.5,
+        "Other": 50.0
       }
     },
     {
@@ -3257,22 +3181,22 @@
       }
     },
     {
-      "country": "Kiribati",
-      "visaCountryNameUsed": "Kiribati",
+      "country": "Kosovo",
+      "visaCountryNameUsed": "Kosovo",
       "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 2,
-      "visaGrants2025_total_visitor": 0,
+      "visaGrants2025_total_workShareRoutes": 171,
+      "visaGrants2025_total_visitor": 4517,
       "visaRouteMixCounts": {
-        "Work": 2,
-        "Study": 0,
-        "Family": 0,
-        "Other": 0
+        "Work": 36,
+        "Study": 46,
+        "Family": 72,
+        "Other": 17
       },
       "visaRouteMixPct_workShareBasis": {
-        "Work": 100.0,
-        "Study": 0.0,
-        "Family": 0.0,
-        "Other": 0.0
+        "Work": 21.1,
+        "Study": 26.9,
+        "Family": 42.1,
+        "Other": 9.9
       }
     },
     {
@@ -3295,25 +3219,6 @@
       }
     },
     {
-      "country": "Refugee",
-      "visaCountryNameUsed": "Refugee",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 284,
-      "visaGrants2025_total_visitor": 5760,
-      "visaRouteMixCounts": {
-        "Work": 27,
-        "Study": 38,
-        "Family": 200,
-        "Other": 19
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 9.5,
-        "Study": 13.4,
-        "Family": 70.4,
-        "Other": 6.7
-      }
-    },
-    {
       "country": "Democratic Republic of the Congo",
       "visaCountryNameUsed": "Congo (Democratic Republic)",
       "ninoFlowRollingYear_UK": 0,
@@ -3333,6 +3238,329 @@
       }
     },
     {
+      "country": "Bahamas",
+      "visaCountryNameUsed": "Bahamas, The",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 81,
+      "visaGrants2025_total_visitor": 1,
+      "visaRouteMixCounts": {
+        "Work": 6,
+        "Study": 62,
+        "Family": 6,
+        "Other": 7
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 7.4,
+        "Study": 76.5,
+        "Family": 7.4,
+        "Other": 8.6
+      }
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "visaCountryNameUsed": "Trinidad and Tobago",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 1378,
+      "visaGrants2025_total_visitor": 7675,
+      "visaRouteMixCounts": {
+        "Work": 226,
+        "Study": 104,
+        "Family": 66,
+        "Other": 982
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 16.4,
+        "Study": 7.5,
+        "Family": 4.8,
+        "Other": 71.3
+      }
+    },
+    {
+      "country": "Barbados",
+      "visaCountryNameUsed": "Barbados",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 142,
+      "visaGrants2025_total_visitor": 2,
+      "visaRouteMixCounts": {
+        "Work": 40,
+        "Study": 72,
+        "Family": 18,
+        "Other": 12
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 28.2,
+        "Study": 50.7,
+        "Family": 12.7,
+        "Other": 8.5
+      }
+    },
+    {
+      "country": "Vanuatu",
+      "visaCountryNameUsed": "Vanuatu",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 34,
+      "visaGrants2025_total_visitor": 213,
+      "visaRouteMixCounts": {
+        "Work": 16,
+        "Study": 11,
+        "Family": 1,
+        "Other": 6
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 47.1,
+        "Study": 32.4,
+        "Family": 2.9,
+        "Other": 17.6
+      }
+    },
+    {
+      "country": "Czechia",
+      "visaCountryNameUsed": "Czechia",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 540,
+      "visaGrants2025_total_visitor": 40,
+      "visaRouteMixCounts": {
+        "Work": 198,
+        "Study": 283,
+        "Family": 46,
+        "Other": 13
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 36.7,
+        "Study": 52.4,
+        "Family": 8.5,
+        "Other": 2.4
+      }
+    },
+    {
+      "country": "Eswatini",
+      "visaCountryNameUsed": "Eswatini",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 155,
+      "visaGrants2025_total_visitor": 441,
+      "visaRouteMixCounts": {
+        "Work": 126,
+        "Study": 12,
+        "Family": 2,
+        "Other": 15
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 81.3,
+        "Study": 7.7,
+        "Family": 1.3,
+        "Other": 9.7
+      }
+    },
+    {
+      "country": "Burundi",
+      "visaCountryNameUsed": "Burundi",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 68,
+      "visaGrants2025_total_visitor": 160,
+      "visaRouteMixCounts": {
+        "Work": 7,
+        "Study": 41,
+        "Family": 14,
+        "Other": 6
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 10.3,
+        "Study": 60.3,
+        "Family": 20.6,
+        "Other": 8.8
+      }
+    },
+    {
+      "country": "Andorra",
+      "visaCountryNameUsed": "Andorra",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 15,
+      "visaGrants2025_total_visitor": 0,
+      "visaRouteMixCounts": {
+        "Work": 5,
+        "Study": 9,
+        "Family": 0,
+        "Other": 1
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 33.3,
+        "Study": 60.0,
+        "Family": 0.0,
+        "Other": 6.7
+      }
+    },
+    {
+      "country": "Mali",
+      "visaCountryNameUsed": "Mali",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 52,
+      "visaGrants2025_total_visitor": 386,
+      "visaRouteMixCounts": {
+        "Work": 23,
+        "Study": 18,
+        "Family": 5,
+        "Other": 6
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 44.2,
+        "Study": 34.6,
+        "Family": 9.6,
+        "Other": 11.5
+      }
+    },
+    {
+      "country": "Laos",
+      "visaCountryNameUsed": "Laos",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 82,
+      "visaGrants2025_total_visitor": 595,
+      "visaRouteMixCounts": {
+        "Work": 10,
+        "Study": 55,
+        "Family": 7,
+        "Other": 10
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 12.2,
+        "Study": 67.1,
+        "Family": 8.5,
+        "Other": 12.2
+      }
+    },
+    {
+      "country": "Burkina Faso",
+      "visaCountryNameUsed": "Burkina Faso",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 51,
+      "visaGrants2025_total_visitor": 275,
+      "visaRouteMixCounts": {
+        "Work": 20,
+        "Study": 12,
+        "Family": 3,
+        "Other": 16
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 39.2,
+        "Study": 23.5,
+        "Family": 5.9,
+        "Other": 31.4
+      }
+    },
+    {
+      "country": "Refugee",
+      "visaCountryNameUsed": "Refugee",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 284,
+      "visaGrants2025_total_visitor": 5760,
+      "visaRouteMixCounts": {
+        "Work": 27,
+        "Study": 38,
+        "Family": 200,
+        "Other": 19
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 9.5,
+        "Study": 13.4,
+        "Family": 70.4,
+        "Other": 6.7
+      }
+    },
+    {
+      "country": "Samoa",
+      "visaCountryNameUsed": "Samoa",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 3,
+      "visaGrants2025_total_visitor": 0,
+      "visaRouteMixCounts": {
+        "Work": 2,
+        "Study": 1,
+        "Family": 0,
+        "Other": 0
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 66.7,
+        "Study": 33.3,
+        "Family": 0.0,
+        "Other": 0.0
+      }
+    },
+    {
+      "country": "Stateless",
+      "visaCountryNameUsed": "Stateless",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 60,
+      "visaGrants2025_total_visitor": 138,
+      "visaRouteMixCounts": {
+        "Work": 8,
+        "Study": 5,
+        "Family": 37,
+        "Other": 10
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 13.3,
+        "Study": 8.3,
+        "Family": 61.7,
+        "Other": 16.7
+      }
+    },
+    {
+      "country": "Cyprus (Northern part of)",
+      "visaCountryNameUsed": "Cyprus (Northern part of)",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 18,
+      "visaGrants2025_total_visitor": 248,
+      "visaRouteMixCounts": {
+        "Work": 7,
+        "Study": 5,
+        "Family": 3,
+        "Other": 3
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 38.9,
+        "Study": 27.8,
+        "Family": 16.7,
+        "Other": 16.7
+      }
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "visaCountryNameUsed": "Bosnia and Herzegovina",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 141,
+      "visaGrants2025_total_visitor": 2572,
+      "visaRouteMixCounts": {
+        "Work": 31,
+        "Study": 28,
+        "Family": 14,
+        "Other": 68
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 22.0,
+        "Study": 19.9,
+        "Family": 9.9,
+        "Other": 48.2
+      }
+    },
+    {
+      "country": "Gibraltar (British)",
+      "visaCountryNameUsed": "Gibraltar (British)",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 1,
+      "visaGrants2025_total_visitor": 1,
+      "visaRouteMixCounts": {
+        "Work": 0,
+        "Study": 0,
+        "Family": 1,
+        "Other": 0
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 0.0,
+        "Study": 0.0,
+        "Family": 100.0,
+        "Other": 0.0
+      }
+    },
+    {
       "country": "British overseas citizens",
       "visaCountryNameUsed": "British overseas citizens",
       "ninoFlowRollingYear_UK": 0,
@@ -3347,6 +3575,120 @@
       "visaRouteMixPct_workShareBasis": {
         "Work": 9.4,
         "Study": 90.6,
+        "Family": 0.0,
+        "Other": 0.0
+      }
+    },
+    {
+      "country": "Palestine",
+      "visaCountryNameUsed": "Palestine",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 911,
+      "visaGrants2025_total_visitor": 2233,
+      "visaRouteMixCounts": {
+        "Work": 141,
+        "Study": 321,
+        "Family": 136,
+        "Other": 313
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 15.5,
+        "Study": 35.2,
+        "Family": 14.9,
+        "Other": 34.4
+      }
+    },
+    {
+      "country": "Comoros",
+      "visaCountryNameUsed": "Comoros",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 8,
+      "visaGrants2025_total_visitor": 185,
+      "visaRouteMixCounts": {
+        "Work": 4,
+        "Study": 2,
+        "Family": 0,
+        "Other": 2
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 50.0,
+        "Study": 25.0,
+        "Family": 0.0,
+        "Other": 25.0
+      }
+    },
+    {
+      "country": "Liechtenstein",
+      "visaCountryNameUsed": "Liechtenstein",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 4,
+      "visaGrants2025_total_visitor": 0,
+      "visaRouteMixCounts": {
+        "Work": 1,
+        "Study": 3,
+        "Family": 0,
+        "Other": 0
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 25.0,
+        "Study": 75.0,
+        "Family": 0.0,
+        "Other": 0.0
+      }
+    },
+    {
+      "country": "North Macedonia",
+      "visaCountryNameUsed": "North Macedonia",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 428,
+      "visaGrants2025_total_visitor": 3612,
+      "visaRouteMixCounts": {
+        "Work": 313,
+        "Study": 57,
+        "Family": 21,
+        "Other": 37
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 73.1,
+        "Study": 13.3,
+        "Family": 4.9,
+        "Other": 8.6
+      }
+    },
+    {
+      "country": "Equatorial Guinea",
+      "visaCountryNameUsed": "Equatorial Guinea",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 22,
+      "visaGrants2025_total_visitor": 69,
+      "visaRouteMixCounts": {
+        "Work": 0,
+        "Study": 9,
+        "Family": 1,
+        "Other": 12
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 0.0,
+        "Study": 40.9,
+        "Family": 4.5,
+        "Other": 54.5
+      }
+    },
+    {
+      "country": "San Marino",
+      "visaCountryNameUsed": "San Marino",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 3,
+      "visaGrants2025_total_visitor": 0,
+      "visaRouteMixCounts": {
+        "Work": 2,
+        "Study": 1,
+        "Family": 0,
+        "Other": 0
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 66.7,
+        "Study": 33.3,
         "Family": 0.0,
         "Other": 0.0
       }
@@ -3371,459 +3713,60 @@
       }
     },
     {
-      "country": "St. Vincent",
-      "visaCountryNameUsed": "St Vincent and the Grenadines",
+      "country": "Kiribati",
+      "visaCountryNameUsed": "Kiribati",
       "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 84,
+      "visaGrants2025_total_workShareRoutes": 2,
       "visaGrants2025_total_visitor": 0,
       "visaRouteMixCounts": {
-        "Work": 16,
-        "Study": 18,
-        "Family": 47,
-        "Other": 3
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 19.0,
-        "Study": 21.4,
-        "Family": 56.0,
-        "Other": 3.6
-      }
-    },
-    {
-      "country": "Dominican Republic",
-      "visaCountryNameUsed": "Dominican Republic",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 277,
-      "visaGrants2025_total_visitor": 2056,
-      "visaRouteMixCounts": {
-        "Work": 33,
-        "Study": 43,
-        "Family": 40,
-        "Other": 161
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 11.9,
-        "Study": 15.5,
-        "Family": 14.4,
-        "Other": 58.1
-      }
-    },
-    {
-      "country": "Cape Verde",
-      "visaCountryNameUsed": "Cape Verde",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 16,
-      "visaGrants2025_total_visitor": 121,
-      "visaRouteMixCounts": {
-        "Work": 1,
-        "Study": 1,
-        "Family": 6,
-        "Other": 8
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 6.2,
-        "Study": 6.2,
-        "Family": 37.5,
-        "Other": 50.0
-      }
-    },
-    {
-      "country": "Bosnia and Herzegovina",
-      "visaCountryNameUsed": "Bosnia and Herzegovina",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 141,
-      "visaGrants2025_total_visitor": 2572,
-      "visaRouteMixCounts": {
-        "Work": 31,
-        "Study": 28,
-        "Family": 14,
-        "Other": 68
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 22.0,
-        "Study": 19.9,
-        "Family": 9.9,
-        "Other": 48.2
-      }
-    },
-    {
-      "country": "Equatorial Guinea",
-      "visaCountryNameUsed": "Equatorial Guinea",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 22,
-      "visaGrants2025_total_visitor": 69,
-      "visaRouteMixCounts": {
-        "Work": 0,
-        "Study": 9,
-        "Family": 1,
-        "Other": 12
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 0.0,
-        "Study": 40.9,
-        "Family": 4.5,
-        "Other": 54.5
-      }
-    },
-    {
-      "country": "Djibouti",
-      "visaCountryNameUsed": "Djibouti",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 48,
-      "visaGrants2025_total_visitor": 101,
-      "visaRouteMixCounts": {
-        "Work": 15,
-        "Study": 8,
-        "Family": 7,
-        "Other": 18
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 31.2,
-        "Study": 16.7,
-        "Family": 14.6,
-        "Other": 37.5
-      }
-    },
-    {
-      "country": "Burundi",
-      "visaCountryNameUsed": "Burundi",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 68,
-      "visaGrants2025_total_visitor": 160,
-      "visaRouteMixCounts": {
-        "Work": 7,
-        "Study": 41,
-        "Family": 14,
-        "Other": 6
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 10.3,
-        "Study": 60.3,
-        "Family": 20.6,
-        "Other": 8.8
-      }
-    },
-    {
-      "country": "Suriname",
-      "visaCountryNameUsed": "Suriname",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 6,
-      "visaGrants2025_total_visitor": 177,
-      "visaRouteMixCounts": {
-        "Work": 1,
-        "Study": 1,
-        "Family": 3,
-        "Other": 1
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 16.7,
-        "Study": 16.7,
-        "Family": 50.0,
-        "Other": 16.7
-      }
-    },
-    {
-      "country": "Antigua and Barbuda",
-      "visaCountryNameUsed": "Antigua and Barbuda",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 64,
-      "visaGrants2025_total_visitor": 1,
-      "visaRouteMixCounts": {
-        "Work": 17,
-        "Study": 43,
-        "Family": 2,
-        "Other": 2
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 26.6,
-        "Study": 67.2,
-        "Family": 3.1,
-        "Other": 3.1
-      }
-    },
-    {
-      "country": "South Sudan",
-      "visaCountryNameUsed": "South Sudan",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 150,
-      "visaGrants2025_total_visitor": 123,
-      "visaRouteMixCounts": {
-        "Work": 69,
-        "Study": 47,
-        "Family": 26,
-        "Other": 8
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 46.0,
-        "Study": 31.3,
-        "Family": 17.3,
-        "Other": 5.3
-      }
-    },
-    {
-      "country": "North Macedonia",
-      "visaCountryNameUsed": "North Macedonia",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 428,
-      "visaGrants2025_total_visitor": 3612,
-      "visaRouteMixCounts": {
-        "Work": 313,
-        "Study": 57,
-        "Family": 21,
-        "Other": 37
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 73.1,
-        "Study": 13.3,
-        "Family": 4.9,
-        "Other": 8.6
-      }
-    },
-    {
-      "country": "Stateless",
-      "visaCountryNameUsed": "Stateless",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 60,
-      "visaGrants2025_total_visitor": 138,
-      "visaRouteMixCounts": {
-        "Work": 8,
-        "Study": 5,
-        "Family": 37,
-        "Other": 10
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 13.3,
-        "Study": 8.3,
-        "Family": 61.7,
-        "Other": 16.7
-      }
-    },
-    {
-      "country": "North Korea",
-      "visaCountryNameUsed": "North Korea",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 5,
-      "visaGrants2025_total_visitor": 2,
-      "visaRouteMixCounts": {
-        "Work": 0,
+        "Work": 2,
         "Study": 0,
         "Family": 0,
-        "Other": 5
+        "Other": 0
       },
       "visaRouteMixPct_workShareBasis": {
-        "Work": 0.0,
+        "Work": 100.0,
         "Study": 0.0,
         "Family": 0.0,
-        "Other": 100.0
+        "Other": 0.0
       }
     },
     {
-      "country": "Comoros",
-      "visaCountryNameUsed": "Comoros",
+      "country": "Myanmar (Burma)",
+      "visaCountryNameUsed": "Myanmar (Burma)",
       "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 8,
-      "visaGrants2025_total_visitor": 185,
+      "visaGrants2025_total_workShareRoutes": 2531,
+      "visaGrants2025_total_visitor": 2709,
+      "visaRouteMixCounts": {
+        "Work": 353,
+        "Study": 2084,
+        "Family": 52,
+        "Other": 42
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 13.9,
+        "Study": 82.3,
+        "Family": 2.1,
+        "Other": 1.7
+      }
+    },
+    {
+      "country": "Tonga",
+      "visaCountryNameUsed": "Tonga",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 10,
+      "visaGrants2025_total_visitor": 0,
       "visaRouteMixCounts": {
         "Work": 4,
         "Study": 2,
         "Family": 0,
-        "Other": 2
+        "Other": 4
       },
       "visaRouteMixPct_workShareBasis": {
-        "Work": 50.0,
-        "Study": 25.0,
+        "Work": 40.0,
+        "Study": 20.0,
         "Family": 0.0,
-        "Other": 25.0
-      }
-    },
-    {
-      "country": "Palestine",
-      "visaCountryNameUsed": "Palestine",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 911,
-      "visaGrants2025_total_visitor": 2233,
-      "visaRouteMixCounts": {
-        "Work": 141,
-        "Study": 321,
-        "Family": 136,
-        "Other": 313
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 15.5,
-        "Study": 35.2,
-        "Family": 14.9,
-        "Other": 34.4
-      }
-    },
-    {
-      "country": "Andorra",
-      "visaCountryNameUsed": "Andorra",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 15,
-      "visaGrants2025_total_visitor": 0,
-      "visaRouteMixCounts": {
-        "Work": 5,
-        "Study": 9,
-        "Family": 0,
-        "Other": 1
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 33.3,
-        "Study": 60.0,
-        "Family": 0.0,
-        "Other": 6.7
-      }
-    },
-    {
-      "country": "Czechia",
-      "visaCountryNameUsed": "Czechia",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 540,
-      "visaGrants2025_total_visitor": 40,
-      "visaRouteMixCounts": {
-        "Work": 198,
-        "Study": 283,
-        "Family": 46,
-        "Other": 13
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 36.7,
-        "Study": 52.4,
-        "Family": 8.5,
-        "Other": 2.4
-      }
-    },
-    {
-      "country": "San Marino",
-      "visaCountryNameUsed": "San Marino",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 3,
-      "visaGrants2025_total_visitor": 0,
-      "visaRouteMixCounts": {
-        "Work": 2,
-        "Study": 1,
-        "Family": 0,
-        "Other": 0
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 66.7,
-        "Study": 33.3,
-        "Family": 0.0,
-        "Other": 0.0
-      }
-    },
-    {
-      "country": "Mali",
-      "visaCountryNameUsed": "Mali",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 52,
-      "visaGrants2025_total_visitor": 386,
-      "visaRouteMixCounts": {
-        "Work": 23,
-        "Study": 18,
-        "Family": 5,
-        "Other": 6
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 44.2,
-        "Study": 34.6,
-        "Family": 9.6,
-        "Other": 11.5
-      }
-    },
-    {
-      "country": "Liechtenstein",
-      "visaCountryNameUsed": "Liechtenstein",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 4,
-      "visaGrants2025_total_visitor": 0,
-      "visaRouteMixCounts": {
-        "Work": 1,
-        "Study": 3,
-        "Family": 0,
-        "Other": 0
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 25.0,
-        "Study": 75.0,
-        "Family": 0.0,
-        "Other": 0.0
-      }
-    },
-    {
-      "country": "Other and unknown",
-      "visaCountryNameUsed": "Other and unknown",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 1060,
-      "visaGrants2025_total_visitor": 1020,
-      "visaRouteMixCounts": {
-        "Work": 13,
-        "Study": 16,
-        "Family": 997,
-        "Other": 34
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 1.2,
-        "Study": 1.5,
-        "Family": 94.1,
-        "Other": 3.2
-      }
-    },
-    {
-      "country": "Trinidad and Tobago",
-      "visaCountryNameUsed": "Trinidad and Tobago",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 1378,
-      "visaGrants2025_total_visitor": 7675,
-      "visaRouteMixCounts": {
-        "Work": 226,
-        "Study": 104,
-        "Family": 66,
-        "Other": 982
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 16.4,
-        "Study": 7.5,
-        "Family": 4.8,
-        "Other": 71.3
-      }
-    },
-    {
-      "country": "Papua New Guinea",
-      "visaCountryNameUsed": "Papua New Guinea",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 20,
-      "visaGrants2025_total_visitor": 2,
-      "visaRouteMixCounts": {
-        "Work": 5,
-        "Study": 12,
-        "Family": 1,
-        "Other": 2
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 25.0,
-        "Study": 60.0,
-        "Family": 5.0,
-        "Other": 10.0
-      }
-    },
-    {
-      "country": "Bahamas",
-      "visaCountryNameUsed": "Bahamas, The",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 81,
-      "visaGrants2025_total_visitor": 1,
-      "visaRouteMixCounts": {
-        "Work": 6,
-        "Study": 62,
-        "Family": 6,
-        "Other": 7
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 7.4,
-        "Study": 76.5,
-        "Family": 7.4,
-        "Other": 8.6
+        "Other": 40.0
       }
     },
     {
@@ -3846,14 +3789,52 @@
       }
     },
     {
-      "country": "Tuvalu",
-      "visaCountryNameUsed": "Tuvalu",
+      "country": "Djibouti",
+      "visaCountryNameUsed": "Djibouti",
       "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 2,
+      "visaGrants2025_total_workShareRoutes": 48,
+      "visaGrants2025_total_visitor": 101,
+      "visaRouteMixCounts": {
+        "Work": 15,
+        "Study": 8,
+        "Family": 7,
+        "Other": 18
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 31.2,
+        "Study": 16.7,
+        "Family": 14.6,
+        "Other": 37.5
+      }
+    },
+    {
+      "country": "Dominican Republic",
+      "visaCountryNameUsed": "Dominican Republic",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 277,
+      "visaGrants2025_total_visitor": 2056,
+      "visaRouteMixCounts": {
+        "Work": 33,
+        "Study": 43,
+        "Family": 40,
+        "Other": 161
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 11.9,
+        "Study": 15.5,
+        "Family": 14.4,
+        "Other": 58.1
+      }
+    },
+    {
+      "country": "Solomon Islands",
+      "visaCountryNameUsed": "Solomon Islands",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 7,
       "visaGrants2025_total_visitor": 0,
       "visaRouteMixCounts": {
         "Work": 0,
-        "Study": 2,
+        "Study": 7,
         "Family": 0,
         "Other": 0
       },
@@ -3861,6 +3842,177 @@
         "Work": 0.0,
         "Study": 100.0,
         "Family": 0.0,
+        "Other": 0.0
+      }
+    },
+    {
+      "country": "The Gambia",
+      "visaCountryNameUsed": "Gambia, The",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 586,
+      "visaGrants2025_total_visitor": 1365,
+      "visaRouteMixCounts": {
+        "Work": 71,
+        "Study": 68,
+        "Family": 241,
+        "Other": 206
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 12.1,
+        "Study": 11.6,
+        "Family": 41.1,
+        "Other": 35.2
+      }
+    },
+    {
+      "country": "North Korea",
+      "visaCountryNameUsed": "North Korea",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 5,
+      "visaGrants2025_total_visitor": 2,
+      "visaRouteMixCounts": {
+        "Work": 0,
+        "Study": 0,
+        "Family": 0,
+        "Other": 5
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 0.0,
+        "Study": 0.0,
+        "Family": 0.0,
+        "Other": 100.0
+      }
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "visaCountryNameUsed": "Antigua and Barbuda",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 64,
+      "visaGrants2025_total_visitor": 1,
+      "visaRouteMixCounts": {
+        "Work": 17,
+        "Study": 43,
+        "Family": 2,
+        "Other": 2
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 26.6,
+        "Study": 67.2,
+        "Family": 3.1,
+        "Other": 3.1
+      }
+    },
+    {
+      "country": "Papua New Guinea",
+      "visaCountryNameUsed": "Papua New Guinea",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 20,
+      "visaGrants2025_total_visitor": 2,
+      "visaRouteMixCounts": {
+        "Work": 5,
+        "Study": 12,
+        "Family": 1,
+        "Other": 2
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 25.0,
+        "Study": 60.0,
+        "Family": 5.0,
+        "Other": 10.0
+      }
+    },
+    {
+      "country": "St. Vincent",
+      "visaCountryNameUsed": "St Vincent and the Grenadines",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 84,
+      "visaGrants2025_total_visitor": 0,
+      "visaRouteMixCounts": {
+        "Work": 16,
+        "Study": 18,
+        "Family": 47,
+        "Other": 3
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 19.0,
+        "Study": 21.4,
+        "Family": 56.0,
+        "Other": 3.6
+      }
+    },
+    {
+      "country": "Togo",
+      "visaCountryNameUsed": "Togo",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 57,
+      "visaGrants2025_total_visitor": 351,
+      "visaRouteMixCounts": {
+        "Work": 9,
+        "Study": 15,
+        "Family": 9,
+        "Other": 24
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 15.8,
+        "Study": 26.3,
+        "Family": 15.8,
+        "Other": 42.1
+      }
+    },
+    {
+      "country": "Suriname",
+      "visaCountryNameUsed": "Suriname",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 6,
+      "visaGrants2025_total_visitor": 177,
+      "visaRouteMixCounts": {
+        "Work": 1,
+        "Study": 1,
+        "Family": 3,
+        "Other": 1
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 16.7,
+        "Study": 16.7,
+        "Family": 50.0,
+        "Other": 16.7
+      }
+    },
+    {
+      "country": "Sao Tome and Principe",
+      "visaCountryNameUsed": "Sao Tome and Principe",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 11,
+      "visaGrants2025_total_visitor": 21,
+      "visaRouteMixCounts": {
+        "Work": 0,
+        "Study": 1,
+        "Family": 1,
+        "Other": 9
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 0.0,
+        "Study": 9.1,
+        "Family": 9.1,
+        "Other": 81.8
+      }
+    },
+    {
+      "country": "Seychelles",
+      "visaCountryNameUsed": "Seychelles",
+      "ninoFlowRollingYear_UK": 0,
+      "visaGrants2025_total_workShareRoutes": 74,
+      "visaGrants2025_total_visitor": 1,
+      "visaRouteMixCounts": {
+        "Work": 17,
+        "Study": 51,
+        "Family": 6,
+        "Other": 0
+      },
+      "visaRouteMixPct_workShareBasis": {
+        "Work": 23.0,
+        "Study": 68.9,
+        "Family": 8.1,
         "Other": 0.0
       }
     },
@@ -3884,174 +4036,22 @@
       }
     },
     {
-      "country": "Tonga",
-      "visaCountryNameUsed": "Tonga",
+      "country": "South Sudan",
+      "visaCountryNameUsed": "South Sudan",
       "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 10,
-      "visaGrants2025_total_visitor": 0,
+      "visaGrants2025_total_workShareRoutes": 150,
+      "visaGrants2025_total_visitor": 123,
       "visaRouteMixCounts": {
-        "Work": 4,
-        "Study": 2,
-        "Family": 0,
-        "Other": 4
+        "Work": 69,
+        "Study": 47,
+        "Family": 26,
+        "Other": 8
       },
       "visaRouteMixPct_workShareBasis": {
-        "Work": 40.0,
-        "Study": 20.0,
-        "Family": 0.0,
-        "Other": 40.0
-      }
-    },
-    {
-      "country": "Eswatini",
-      "visaCountryNameUsed": "Eswatini",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 155,
-      "visaGrants2025_total_visitor": 441,
-      "visaRouteMixCounts": {
-        "Work": 126,
-        "Study": 12,
-        "Family": 2,
-        "Other": 15
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 81.3,
-        "Study": 7.7,
-        "Family": 1.3,
-        "Other": 9.7
-      }
-    },
-    {
-      "country": "Vanuatu",
-      "visaCountryNameUsed": "Vanuatu",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 34,
-      "visaGrants2025_total_visitor": 213,
-      "visaRouteMixCounts": {
-        "Work": 16,
-        "Study": 11,
-        "Family": 1,
-        "Other": 6
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 47.1,
-        "Study": 32.4,
-        "Family": 2.9,
-        "Other": 17.6
-      }
-    },
-    {
-      "country": "Cyprus (Northern part of)",
-      "visaCountryNameUsed": "Cyprus (Northern part of)",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 18,
-      "visaGrants2025_total_visitor": 248,
-      "visaRouteMixCounts": {
-        "Work": 7,
-        "Study": 5,
-        "Family": 3,
-        "Other": 3
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 38.9,
-        "Study": 27.8,
-        "Family": 16.7,
-        "Other": 16.7
-      }
-    },
-    {
-      "country": "Togo",
-      "visaCountryNameUsed": "Togo",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 57,
-      "visaGrants2025_total_visitor": 351,
-      "visaRouteMixCounts": {
-        "Work": 9,
-        "Study": 15,
-        "Family": 9,
-        "Other": 24
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 15.8,
-        "Study": 26.3,
-        "Family": 15.8,
-        "Other": 42.1
-      }
-    },
-    {
-      "country": "Kosovo",
-      "visaCountryNameUsed": "Kosovo",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 171,
-      "visaGrants2025_total_visitor": 4517,
-      "visaRouteMixCounts": {
-        "Work": 36,
-        "Study": 46,
-        "Family": 72,
-        "Other": 17
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 21.1,
-        "Study": 26.9,
-        "Family": 42.1,
-        "Other": 9.9
-      }
-    },
-    {
-      "country": "The Gambia",
-      "visaCountryNameUsed": "Gambia, The",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 586,
-      "visaGrants2025_total_visitor": 1365,
-      "visaRouteMixCounts": {
-        "Work": 71,
-        "Study": 68,
-        "Family": 241,
-        "Other": 206
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 12.1,
-        "Study": 11.6,
-        "Family": 41.1,
-        "Other": 35.2
-      }
-    },
-    {
-      "country": "Niger",
-      "visaCountryNameUsed": "Niger",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 27,
-      "visaGrants2025_total_visitor": 135,
-      "visaRouteMixCounts": {
-        "Work": 16,
-        "Study": 10,
-        "Family": 0,
-        "Other": 1
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 59.3,
-        "Study": 37.0,
-        "Family": 0.0,
-        "Other": 3.7
-      }
-    },
-    {
-      "country": "Samoa",
-      "visaCountryNameUsed": "Samoa",
-      "ninoFlowRollingYear_UK": 0,
-      "visaGrants2025_total_workShareRoutes": 3,
-      "visaGrants2025_total_visitor": 0,
-      "visaRouteMixCounts": {
-        "Work": 2,
-        "Study": 1,
-        "Family": 0,
-        "Other": 0
-      },
-      "visaRouteMixPct_workShareBasis": {
-        "Work": 66.7,
-        "Study": 33.3,
-        "Family": 0.0,
-        "Other": 0.0
+        "Work": 46.0,
+        "Study": 31.3,
+        "Family": 17.3,
+        "Other": 5.3
       }
     }
   ]

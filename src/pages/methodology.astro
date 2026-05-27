@@ -22,6 +22,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </ul>
   </section>
 
+  <section id="migration-data">
+    <h2>Migration data sources (YE March 2026)</h2>
+    <p>For migration-specific surfaces, UK Demographics tracks the Home Office Immigration Statistics quarterly release and the ONS Long-Term International Migration provisional estimates. Both were published 21 May 2026.</p>
+    <ul>
+      <li><strong>ONS LTIM YE Dec 2025:</strong> Net migration 171,000 (95 percent CI 145,000 to 197,000). Peak 944,000 YE Mar 2023. Methodology shifted from International Passenger Survey (IPS) to RAPID + HOBID admin data from YE June 2021 onwards, so pre-2021 estimates are NOT directly comparable. See the <a href="/migration/">net migration page</a> for the full revisions tracker and the LTIM vs Home Office vs DWP NINo triangulation.</li>
+      <li><strong>Home Office YE Mar 2026:</strong> 778,625 non-visit visas granted (study 412,825, work 252,775, family 62,470, other 50,555). Skilled Worker visas 111,000 (-76 percent from YE Dec 2023 peak), driven by the Health and Care Worker route collapse (Caring Personal Service grants fell from 108,000 to 1,400). 94,000 asylum claims (-12 percent YoY), 128,000 decisions (+32 percent), grant rate 39 percent (down from 49 percent). Backlog 49,000 (-55 percent). 39,000 returns (+7 percent). 23,000 entered detention.</li>
+      <li><strong>EU Settlement Scheme:</strong> 371,000 settled-status grants in YE Mar 2026, up 12 percent. Not counted as immigration in LTIM because it confirms status for people already in the UK.</li>
+    </ul>
+    <p>Caveats: ONS LTIM provisional figures are routinely revised. YE December 2024 was revised down by 100,000 (-23 percent) versus its initial estimate, almost entirely because of methodology change rather than underlying trend. Visa overstayers without asylum claims are assumed emigrated under the current method; irregular migrants who do not claim asylum are not counted at all. See the <a href="/migration/">net migration page</a> for the full discussion.</p>
+  </section>
+
   <section id="validation">
     <h2>Validation</h2>
     <p><strong>How NEWETHPOP performed against Census 2021.</strong> NEWETHPOP (Rees, Wohland et al., University of Leeds, the previous academic benchmark) published a 2021 ethnic projection from a 2011 base. Compared against actual Census 2021 results across 296 local authorities, that projection had a mean absolute error (MAE) of <strong>3.95pp</strong> for the White British share. It over-predicted White British in 282 of 296 areas (95%).</p>
