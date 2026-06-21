@@ -472,7 +472,7 @@ function findingColor(verdict: string): string {
       }
 
       const matches = areas
-        .filter((a) => a.areaName.toLowerCase().includes(queryLower))
+        .filter((a) => a.areaName && a.areaName.toLowerCase().includes(queryLower))
         .slice(0, 8);
 
       if (matches.length === 0) {
@@ -529,7 +529,7 @@ function findingColor(verdict: string): string {
       }
 
       const matches = futureAreas
-        .filter((a: any) => a.areaName.toLowerCase().includes(query))
+        .filter((a: any) => a.areaName && a.areaName.toLowerCase().includes(query))
         .slice(0, 6);
 
       if (matches.length === 0) {

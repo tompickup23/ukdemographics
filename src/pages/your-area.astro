@@ -136,7 +136,7 @@ const areas = getPublicPlaceAreas();
     }
 
     // Name search
-    const matches = allAreas.filter(a => a.areaName.toLowerCase().includes(q.toLowerCase())).slice(0, 8);
+    const matches = allAreas.filter(a => a.areaName && a.areaName.toLowerCase().includes(q.toLowerCase())).slice(0, 8);
     if (!matches.length) { results.hidden = true; return; }
     results.hidden = false;
     for (const area of matches) {
