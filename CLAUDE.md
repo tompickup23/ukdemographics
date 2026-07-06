@@ -58,3 +58,7 @@ Other Python transforms in `scripts/transform/transform_*.py` handle the NINo / 
 ## Session memory
 
 End-of-session state for the 19 May 2026 P0+P1+P2 sprint: `~/.claude/projects/-Users-tompickup-clawd/memory/session_19may_ukd_p0_p1_p2.md`. End-of-session state for the 19-20 May aesthetic + OG harmonisation: `session_19_20may_ukd_elevation_og_harmonisation.md`. P3 plan: `ukdemographics_p3_plan.md`.
+
+## Cross-repo lessons (5 Jul 2026)
+
+Hard-won gotchas for this site live in the clawd repo: `/Users/tompickup/clawd/docs/lessons/sister-sites.md` (deploy flows, CSP/Pagefind/Astro 6 gotchas, OG-card standard, em-dash sweep method) and `/Users/tompickup/clawd/docs/lessons/editorial-method.md` (fact-check protocol, factual anchors). Read the relevant one before major work, and append new lessons there, not here.
