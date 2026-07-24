@@ -1,6 +1,6 @@
 ---
 /**
- * MiniMap.astro — tiny inline SVG thumbnail showing a single focal area
+ * MiniMap.astro, tiny inline SVG thumbnail showing a single focal area
  * (constituency / council / ward) highlighted in winner colour, with
  * surrounding context features greyed.
  *
@@ -52,7 +52,7 @@ const {
   ariaLabel,
 } = Astro.props;
 
-// File registry — code field name + file path per kind
+// File registry, code field name + file path per kind
 const REGISTRY = {
   pcon: {
     file: "data/geography/pcon24-simplified.geojson",
@@ -86,7 +86,7 @@ function normName(s: string): string {
     .replace(/[̀-ͯ]/g, "")
     .toLowerCase()
     .replace(/[,'’]/g, "")
-    .replace(/[-‐‑‒–—]/g, " ")
+    .replace(/[-‐‑‒, ]/g, " ")
     .replace(/&/g, "and")
     .replace(/\s+/g, " ")
     .trim();

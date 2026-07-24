@@ -3,9 +3,9 @@
   "source": "Home Office Immigration Statistics: Asylum initial decisions (Asy_D02), year ending March 2026 release (21 May 2026)",
   "methodology": "Grant rate = (grants of protection + grants of other leave) / (grants + refusals) × 100. Excludes withdrawn cases and administrative outcomes from denominator (substantive decisions only). Recent period = 2020-2025. Minimum 50 substantive decisions for league table inclusion. 'Refugee' and 'Stateless person' status entries excluded as they are not nationalities.",
   "caveats": [
-    "These are INITIAL decision grant rates only. Many refusals are overturned on appeal — the true grant rate (after appeals) is significantly higher for some nationalities. For example, Iranian initial grant rate ~72% rises to ~85% after successful appeals.",
+    "These are INITIAL decision grant rates only. Many refusals are overturned on appeal, the true grant rate (after appeals) is significantly higher for some nationalities. For example, Iranian initial grant rate ~72% rises to ~85% after successful appeals.",
     "Grant rate measures what proportion of substantive decisions are positive. It does not account for withdrawn cases or administrative outcomes, which can represent a large share of total decisions for some nationalities.",
-    "Post-2009 data is fully disaggregated by age, sex, applicant type, and UASC status. All rows are summed to produce totals — there are no subtotal rows in the source data.",
+    "Post-2009 data is fully disaggregated by age, sex, applicant type, and UASC status. All rows are summed to produce totals, there are no subtotal rows in the source data.",
     "Dependant applicants are included alongside main applicants. Dependants generally receive the same outcome as the main applicant."
   ],
   "summary": {

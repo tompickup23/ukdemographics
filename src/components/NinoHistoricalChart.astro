@@ -39,7 +39,7 @@ const laVals = totalByYear.filter((v): v is number => v != null);
 const laMax = Math.max(...laVals, 1);
 const laMin = 0;
 
-// National scale (right axis) — independent so both lines are visually comparable
+// National scale (right axis), independent so both lines are visually comparable
 const natVals = nationalByYear.filter((v): v is number => v != null);
 const natMax = Math.max(...natVals, 1);
 
@@ -81,7 +81,7 @@ const natTicks = Array.from({ length: tickCount }, (_, i) =>
   Math.round((natMax / (tickCount - 1)) * i),
 );
 
-// X-axis labels — every 5 years plus first and last
+// X-axis labels, every 5 years plus first and last
 const xLabels = Array.from(new Set([
   minYear,
   ...years.filter((y) => y % 5 === 0),
@@ -121,7 +121,7 @@ const fmt = (n: number) => n.toLocaleString();
       >{fmt(t)}</text>
     ))}
 
-    <!-- National scale ticks (right) — show the value range -->
+    <!-- National scale ticks (right), show the value range -->
     {natTicks.map((t) => (
       <text
         x={width - pad.right + 8}
@@ -160,7 +160,7 @@ const fmt = (n: number) => n.toLocaleString();
       stroke-linejoin="round"
     />
 
-    <!-- Peak marker — flip label side when near edges to avoid overlap -->
+    <!-- Peak marker, flip label side when near edges to avoid overlap -->
     {peakX != null && peakY != null && (() => {
       const nearRight = peakX > width - pad.right - 90;
       const nearLeft = peakX < pad.left + 90;

@@ -139,7 +139,7 @@ const ctSpd = (councilTaxSpd as any).areas?.[area.areaCode];
 // Census 2011 → Census 2021 country-of-birth stock change
 const cobChange = (cobChange1121 as any).areas?.[area.areaCode];
 
-// PIP claimants — by best-match Westminster constituency
+// PIP claimants, by best-match Westminster constituency
 const pipMatch = (pipPcon as any).laToPconBestMatch?.[area.areaName] as
   | { code: string; name: string; claimants: number }
   | undefined;
@@ -434,7 +434,7 @@ function fmtInt(n: number | undefined | null): string {
     />
   </section>
 
-  <!-- Ethnic composition — trajectory chart + timeline -->
+  <!-- Ethnic composition, trajectory chart + timeline -->
   {ethnicProjection && ethChartLines.length > 0 && (
     <section class="section" id="ethnic-composition">
       <h2>Ethnic composition trajectory</h2>
@@ -497,7 +497,7 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
-  <!-- Shift-share — visual decomposition -->
+  <!-- Shift-share, visual decomposition -->
   {shiftShareData && typeof shiftShareData.totalChangePp === 'number' && typeof shiftShareData.nationalEffectPp === 'number' && typeof shiftShareData.structuralEffectPp === 'number' && typeof shiftShareData.localEffectPp === 'number' && (
     <section class="section" id="shift-share">
       <h2>What&rsquo;s driving change</h2>
@@ -1211,7 +1211,7 @@ function fmtInt(n: number | undefined | null): string {
           <span class="data-value">£{ihsRevenueLatest.amount_gbp_millions.toLocaleString()}m</span>
         </div>
         <div class="data-item">
-          <span class="data-label">Cumulative IHS revenue 2015–2024</span>
+          <span class="data-label">Cumulative IHS revenue 2015-2024</span>
           <span class="data-value">£{(nhsCtx.ihsCumulativeRevenueSince2015.amount_gbp_millions / 1000).toFixed(1)}bn</span>
         </div>
       </div>
@@ -1231,10 +1231,10 @@ function fmtInt(n: number | undefined | null): string {
           Maternity care is classified as "immediately necessary": it cannot be refused or delayed for charging, but it is invoiced afterwards at 150% of the NHS national tariff.
         </p>
         <ul class="nhs-charge-list">
-          <li>Routine vaginal delivery, no complications: <strong>£3,000–£5,500</strong></li>
-          <li>Caesarean section: <strong>£5,000–£7,500</strong></li>
-          <li>Premature birth with NICU stay: <strong>£15,000–£30,000+</strong></li>
-          <li>Antenatal appointment: £150–£400 each</li>
+          <li>Routine vaginal delivery, no complications: <strong>£3,000-£5,500</strong></li>
+          <li>Caesarean section: <strong>£5,000-£7,500</strong></li>
+          <li>Premature birth with NICU stay: <strong>£15,000-£30,000+</strong></li>
+          <li>Antenatal appointment: £150-£400 each</li>
         </ul>
       </details>
       <p class="section-note">
@@ -1512,7 +1512,7 @@ function fmtInt(n: number | undefined | null): string {
     .nino-nat-head, .nino-nat-row { grid-template-columns: 1fr 90px 60px; padding-inline: 0.6rem; }
   }
 
-  /* Routes of arrival — visa-route mix per top NINo nationality */
+  /* Routes of arrival, visa-route mix per top NINo nationality */
   .vr-legend {
     display: flex;
     flex-wrap: wrap;

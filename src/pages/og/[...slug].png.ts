@@ -1,17 +1,17 @@
 /**
- * /og/[...slug].png — dynamic per-page Open Graph card endpoint.
+ * /og/[...slug].png, dynamic per-page Open Graph card endpoint.
  *
  * Each path enumerated in getStaticPaths emits a 1200×630 PNG rendered
  * by Satori (text + flex layout → SVG) and @resvg/resvg-js (SVG → PNG).
- * Per-card cost is roughly 250–350ms on a modern Mac.
+ * Per-card cost is roughly 250-350ms on a modern Mac.
  *
  * Gated behind BUILD_OG=1. When unset, getStaticPaths returns [] which
- * means no OG endpoints are generated — iteration builds stay sub-10s.
+ * means no OG endpoints are generated, iteration builds stay sub-10s.
  * Production deploys set BUILD_OG=1 in the GitHub Actions workflow.
  *
  * Standard layout (shared with ukelections.co.uk + asylumstats.co.uk):
  *   Brand row (40×40 logo tile + name + tagline)
- *   Hero block (site-specific — UKD uses stat + uppercase label + title)
+ *   Hero block (site-specific, UKD uses stat + uppercase label + title)
  *   Single-line footer (site URL · brand sourced-tagline)
  */
 import type { APIRoute, GetStaticPaths } from "astro";
@@ -27,7 +27,7 @@ const BUILD_OG = process.env.BUILD_OG === "1";
 const OG_WIDTH = 1200;
 const OG_HEIGHT = 630;
 
-// Brand colors — UK Demographics (indigo) on the shared dark surface.
+// Brand colors, UK Demographics (indigo) on the shared dark surface.
 const COLORS = {
   bg: "#04070d",
   surface: "#0b1220",
@@ -129,7 +129,7 @@ export const GET: APIRoute = async ({ props }) => {
           fontFamily: "Manrope"
         },
         children: [
-          // Brand row — shared standard across UKD / UKE / AS.
+          // Brand row, shared standard across UKD / UKE / AS.
           {
             type: "div",
             props: {
@@ -195,7 +195,7 @@ export const GET: APIRoute = async ({ props }) => {
               ]
             }
           },
-          // Hero block — stat (Sora 96, brand colour) + label + title.
+          // Hero block, stat (Sora 96, brand colour) + label + title.
           {
             type: "div",
             props: {
@@ -250,7 +250,7 @@ export const GET: APIRoute = async ({ props }) => {
               ]
             }
           },
-          // Single-line footer — URL (brand colour) + tagline (muted).
+          // Single-line footer, URL (brand colour) + tagline (muted).
           {
             type: "div",
             props: {

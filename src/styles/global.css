@@ -26,7 +26,7 @@
   --accent: #4f46e5;          /* brand accent: indigo */
   --accent-2: #10b981;        /* brand success: emerald */
   --accent-3: #06b6d4;        /* brand secondary: cyan */
-  --accent-teal: #06b6d4;     /* alias of accent-3 — UKE-compat name */
+  --accent-teal: #06b6d4;     /* alias of accent-3, UKE-compat name */
   --accent-teal-deep: #0a6c7a; /* shadowed companion */
   --accent-glow: rgba(79, 70, 229, 0.28);
   --coral: #ef4444;           /* brand critical */
@@ -5581,7 +5581,7 @@ tr:last-child td {
 }
 
 /* ====================================================================
-   Phase 1 components — ported from UKE elevation campaign (19 May 2026)
+   Phase 1 components, ported from UKE elevation campaign (19 May 2026)
    ==================================================================== */
 
 /* === HeroClock === */
@@ -5613,7 +5613,7 @@ tr:last-child td {
   color: var(--ink-soft);
 }
 
-/* === RaceBar — categorical stacked share bar === */
+/* === RaceBar, categorical stacked share bar === */
 .hero-race {
   margin: 0 0 1.75rem;
 }
@@ -5812,7 +5812,7 @@ tr:last-child td {
   line-height: 1.4;
 }
 
-/* === Mobile responsive — race bar + clock === */
+/* === Mobile responsive, race bar + clock === */
 @media (max-width: 720px) {
   .hero-clock {
     flex-direction: row;
