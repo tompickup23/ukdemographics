@@ -2,131 +2,136 @@
   "source": "data.police.uk Stop and Search API, latest 3 months published by each force (force coverage 36 of 45 forces in window). Self-defined ethnicity bucketed into broad groups.",
   "lastUpdated": "2026-04-28",
   "monthsCovered": [
-    "2026-03",
     "2026-04",
-    "2026-05"
+    "2026-05",
+    "2026-06"
   ],
-  "totalRecords": 116079,
+  "totalRecords": 111141,
   "totalForces": 34,
   "caveat": "Stop-and-search composition is NOT a crime-rate measure. The ethnicity mix shown is who was stopped, not who committed an offence. Disparity-ratio interpretation requires a population denominator by ethnicity per force area, which is not computed here. data.police.uk caps response sizes at 2,000 records per force-month; high-volume forces (Met, West Midlands) may truncate.",
   "national": {
-    "totalSearches": 116079,
+    "totalSearches": 111141,
     "ethnicityBroad": {
       "White": {
-        "count": 65558,
-        "pct": 56.5
+        "count": 61442,
+        "pct": 55.3
       },
       "Not stated": {
-        "count": 28594,
-        "pct": 24.6
+        "count": 27944,
+        "pct": 25.1
       },
       "Black": {
-        "count": 10395,
-        "pct": 9.0
+        "count": 10226,
+        "pct": 9.2
       },
       "Asian": {
-        "count": 8771,
-        "pct": 7.6
+        "count": 8897,
+        "pct": 8.0
       },
       "Mixed": {
-        "count": 1911,
+        "count": 1800,
         "pct": 1.6
       },
       "Arab": {
-        "count": 850,
+        "count": 832,
         "pct": 0.7
       }
     },
     "topObjectsOfSearch": [
       {
         "object": "Controlled drugs",
-        "count": 65924,
-        "pct": 56.8
+        "count": 62378,
+        "pct": 56.1
       },
       {
         "object": "Offensive weapons",
-        "count": 15180,
-        "pct": 13.1
+        "count": 15075,
+        "pct": 13.6
       },
       {
         "object": "Unknown",
-        "count": 11865,
-        "pct": 10.2
+        "count": 11459,
+        "pct": 10.3
       },
       {
         "object": "Stolen goods",
-        "count": 11598,
-        "pct": 10.0
+        "count": 11449,
+        "pct": 10.3
       },
       {
         "object": "Article for use in theft",
-        "count": 6305,
-        "pct": 5.4
+        "count": 5848,
+        "pct": 5.3
       },
       {
         "object": "Evidence of offences under the Act",
-        "count": 1918,
+        "count": 1837,
         "pct": 1.7
       }
     ],
     "topOutcomes": [
       {
         "outcome": "A no further action disposal",
-        "count": 77753,
-        "pct": 67.0
+        "count": 74278,
+        "pct": 66.8
       },
       {
         "outcome": "Arrest",
-        "count": 17183,
-        "pct": 14.8
+        "count": 16548,
+        "pct": 14.9
       },
       {
         "outcome": "Community resolution",
-        "count": 12731,
-        "pct": 11.0
+        "count": 12089,
+        "pct": 10.9
       },
       {
         "outcome": "Unknown",
-        "count": 4565,
-        "pct": 3.9
+        "count": 4470,
+        "pct": 4.0
       },
       {
         "outcome": "Summons / charged by post",
-        "count": 2285,
+        "count": 2189,
         "pct": 2.0
       },
       {
         "outcome": "Penalty Notice for Disorder",
-        "count": 796,
-        "pct": 0.7
+        "count": 842,
+        "pct": 0.8
       }
     ]
   },
   "topForcesByAsianShare": [
     {
       "force": "bedfordshire",
-      "totalSearches": 774,
-      "asianPct": 19.3
+      "totalSearches": 393,
+      "asianPct": 24.4
     },
     {
       "force": "west-midlands",
-      "totalSearches": 8364,
-      "asianPct": 17.2
-    },
-    {
-      "force": "city-of-london",
-      "totalSearches": 385,
-      "asianPct": 13.8
+      "totalSearches": 7996,
+      "asianPct": 18.6
     },
     {
       "force": "lancashire",
-      "totalSearches": 11990,
+      "totalSearches": 13892,
+      "asianPct": 13.2
+    },
+    {
+      "force": "warwickshire",
+      "totalSearches": 302,
+      "asianPct": 13.2
+    },
+    {
+      "force": "city-of-london",
+      "totalSearches": 342,
       "asianPct": 12.6
     },
     {
       "force": "cambridgeshire",
-      "totalSearches": 686,
-      "asianPct": 12.0
+      "totalSearches": 434,
+      "asianPct": 11.3
     },
     {
       "force": "metropolitan",
@@ -135,23 +140,18 @@
     },
     {
       "force": "thames-valley",
-      "totalSearches": 4556,
-      "asianPct": 10.7
-    },
-    {
-      "force": "warwickshire",
-      "totalSearches": 368,
-      "asianPct": 10.1
-    },
-    {
-      "force": "btp",
-      "totalSearches": 2730,
-      "asianPct": 8.4
+      "totalSearches": 4131,
+      "asianPct": 10.9
     },
     {
       "force": "leicestershire",
-      "totalSearches": 1302,
-      "asianPct": 8.4
+      "totalSearches": 1305,
+      "asianPct": 9.2
+    },
+    {
+      "force": "btp",
+      "totalSearches": 2349,
+      "asianPct": 8.6
     }
   ],
   "topForcesByBlackShare": [
@@ -162,74 +162,74 @@
     },
     {
       "force": "btp",
-      "totalSearches": 2730,
-      "blackPct": 19.0
+      "totalSearches": 2349,
+      "blackPct": 19.4
     },
     {
       "force": "city-of-london",
-      "totalSearches": 385,
-      "blackPct": 15.6
+      "totalSearches": 342,
+      "blackPct": 16.7
     },
     {
       "force": "west-midlands",
-      "totalSearches": 8364,
-      "blackPct": 14.2
+      "totalSearches": 7996,
+      "blackPct": 15.3
     },
     {
       "force": "northamptonshire",
-      "totalSearches": 770,
-      "blackPct": 13.6
+      "totalSearches": 743,
+      "blackPct": 14.4
     },
     {
       "force": "bedfordshire",
-      "totalSearches": 774,
-      "blackPct": 10.1
+      "totalSearches": 393,
+      "blackPct": 9.9
     },
     {
       "force": "hertfordshire",
-      "totalSearches": 1990,
-      "blackPct": 8.7
+      "totalSearches": 1320,
+      "blackPct": 9.0
     },
     {
       "force": "thames-valley",
-      "totalSearches": 4556,
-      "blackPct": 8.7
+      "totalSearches": 4131,
+      "blackPct": 8.8
     },
     {
       "force": "leicestershire",
-      "totalSearches": 1302,
+      "totalSearches": 1305,
       "blackPct": 8.4
     },
     {
       "force": "cambridgeshire",
-      "totalSearches": 686,
+      "totalSearches": 434,
       "blackPct": 8.3
     }
   ],
   "forces": {
     "avon-and-somerset": {
-      "totalSearches": 1883,
+      "totalSearches": 1798,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 951,
-          "pct": 50.5
+          "count": 917,
+          "pct": 51.0
         },
         "Not stated": {
-          "count": 739,
-          "pct": 39.2
+          "count": 699,
+          "pct": 38.9
         },
         "Black": {
           "count": 132,
-          "pct": 7.0
+          "pct": 7.3
         },
         "Asian": {
-          "count": 37,
-          "pct": 2.0
+          "count": 26,
+          "pct": 1.4
         },
         "Mixed": {
           "count": 24,
@@ -239,1314 +239,1295 @@
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 783,
-          "pct": 41.6
-        },
-        {
-          "object": "Stolen goods",
-          "count": 282,
-          "pct": 15.0
+          "count": 738,
+          "pct": 41.0
         },
         {
           "object": "Offensive weapons",
-          "count": 273,
-          "pct": 14.5
+          "count": 293,
+          "pct": 16.3
+        },
+        {
+          "object": "Stolen goods",
+          "count": 267,
+          "pct": 14.8
         },
         {
           "object": "Unknown",
-          "count": 227,
-          "pct": 12.1
+          "count": 228,
+          "pct": 12.7
         },
         {
           "object": "Article for use in theft",
-          "count": 156,
-          "pct": 8.3
+          "count": 127,
+          "pct": 7.1
         },
         {
-          "object": "Articles for use in criminal damage",
-          "count": 58,
-          "pct": 3.1
+          "object": "Evidence of offences under the Act",
+          "count": 50,
+          "pct": 2.8
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 911,
-          "pct": 48.4
+          "count": 850,
+          "pct": 47.3
         },
         {
           "outcome": "Unknown",
-          "count": 364,
-          "pct": 19.3
+          "count": 360,
+          "pct": 20.0
         },
         {
           "outcome": "Arrest",
-          "count": 343,
-          "pct": 18.2
-        },
-        {
-          "outcome": "Community resolution",
-          "count": 106,
-          "pct": 5.6
+          "count": 315,
+          "pct": 17.5
         },
         {
           "outcome": "Khat or Cannabis warning",
-          "count": 101,
-          "pct": 5.4
+          "count": 105,
+          "pct": 5.8
         },
         {
-          "outcome": "Summons / charged by post",
-          "count": 31,
-          "pct": 1.6
+          "outcome": "Community resolution",
+          "count": 100,
+          "pct": 5.6
+        },
+        {
+          "outcome": "Caution (simple or conditional)",
+          "count": 38,
+          "pct": 2.1
         }
       ],
       "genderBreakdown": {
-        "Male": 1482,
+        "Male": 1406,
         "Female": 324,
-        "Unknown": 77
+        "Unknown": 68
       },
       "ageRangeBreakdown": {
-        "25-34": 332,
-        "over 34": 546,
-        "10-17": 421,
-        "Unknown": 157,
-        "18-24": 427
+        "25-34": 318,
+        "10-17": 407,
+        "18-24": 428,
+        "over 34": 508,
+        "Unknown": 137
       }
     },
     "bedfordshire": {
-      "totalSearches": 774,
+      "totalSearches": 393,
       "monthsCovered": [
-        "2026-03",
         "2026-04"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 369,
-          "pct": 47.7
-        },
-        "Not stated": {
-          "count": 155,
-          "pct": 20.0
+          "count": 170,
+          "pct": 43.3
         },
         "Asian": {
-          "count": 149,
-          "pct": 19.3
+          "count": 96,
+          "pct": 24.4
+        },
+        "Not stated": {
+          "count": 77,
+          "pct": 19.6
         },
         "Black": {
-          "count": 78,
-          "pct": 10.1
+          "count": 39,
+          "pct": 9.9
         },
         "Mixed": {
-          "count": 19,
-          "pct": 2.5
+          "count": 7,
+          "pct": 1.8
         },
         "Arab": {
           "count": 4,
-          "pct": 0.5
+          "pct": 1.0
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 490,
-          "pct": 63.3
+          "count": 237,
+          "pct": 60.3
         },
         {
           "object": "Article for use in theft",
-          "count": 125,
-          "pct": 16.1
+          "count": 73,
+          "pct": 18.6
         },
         {
           "object": "Offensive weapons",
-          "count": 120,
+          "count": 61,
           "pct": 15.5
         },
         {
           "object": "Stolen goods",
-          "count": 27,
-          "pct": 3.5
+          "count": 14,
+          "pct": 3.6
         },
         {
           "object": "Articles for use in criminal damage",
           "count": 8,
-          "pct": 1.0
-        },
-        {
-          "object": "Firearms",
-          "count": 4,
-          "pct": 0.5
+          "pct": 2.0
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 554,
-          "pct": 71.6
-        },
-        {
-          "outcome": "Arrest",
-          "count": 94,
-          "pct": 12.1
+          "count": 279,
+          "pct": 71.0
         },
         {
           "outcome": "Community resolution",
-          "count": 87,
-          "pct": 11.2
+          "count": 48,
+          "pct": 12.2
+        },
+        {
+          "outcome": "Arrest",
+          "count": 43,
+          "pct": 10.9
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 34,
-          "pct": 4.4
+          "count": 20,
+          "pct": 5.1
         },
         {
           "outcome": "Khat or Cannabis warning",
-          "count": 4,
+          "count": 2,
           "pct": 0.5
         },
         {
           "outcome": "Caution (simple or conditional)",
           "count": 1,
-          "pct": 0.1
+          "pct": 0.3
         }
       ],
       "genderBreakdown": {
-        "Male": 406,
-        "Unknown": 320,
-        "Female": 48
+        "Male": 196,
+        "Unknown": 174,
+        "Female": 23
       },
       "ageRangeBreakdown": {
-        "25-34": 155,
-        "18-24": 176,
-        "Unknown": 85,
-        "over 34": 244,
-        "10-17": 113,
-        "under 10": 1
+        "25-34": 80,
+        "over 34": 111,
+        "18-24": 97,
+        "Unknown": 39,
+        "10-17": 66
       }
     },
     "btp": {
-      "totalSearches": 2730,
+      "totalSearches": 2349,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 1487,
-          "pct": 54.5
+          "count": 1239,
+          "pct": 52.7
         },
         "Black": {
-          "count": 518,
-          "pct": 19.0
+          "count": 456,
+          "pct": 19.4
         },
         "Not stated": {
-          "count": 398,
-          "pct": 14.6
+          "count": 363,
+          "pct": 15.5
         },
         "Asian": {
-          "count": 229,
-          "pct": 8.4
+          "count": 202,
+          "pct": 8.6
         },
         "Mixed": {
-          "count": 98,
-          "pct": 3.6
+          "count": 89,
+          "pct": 3.8
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 1673,
-          "pct": 61.3
-        },
-        {
-          "object": "Stolen goods",
-          "count": 328,
-          "pct": 12.0
+          "count": 1384,
+          "pct": 58.9
         },
         {
           "object": "Offensive weapons",
-          "count": 300,
-          "pct": 11.0
+          "count": 332,
+          "pct": 14.1
         },
         {
-          "object": "Anything to threaten or harm anyone",
-          "count": 154,
-          "pct": 5.6
+          "object": "Stolen goods",
+          "count": 275,
+          "pct": 11.7
         },
         {
           "object": "Unknown",
-          "count": 124,
-          "pct": 4.5
+          "count": 160,
+          "pct": 6.8
+        },
+        {
+          "object": "Anything to threaten or harm anyone",
+          "count": 79,
+          "pct": 3.4
         },
         {
           "object": "Evidence of offences under the Act",
-          "count": 68,
-          "pct": 2.5
+          "count": 54,
+          "pct": 2.3
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 2361,
-          "pct": 86.5
+          "count": 2008,
+          "pct": 85.5
         },
         {
           "outcome": "Arrest",
-          "count": 197,
-          "pct": 7.2
+          "count": 177,
+          "pct": 7.5
         },
         {
           "outcome": "Community resolution",
-          "count": 119,
-          "pct": 4.4
+          "count": 111,
+          "pct": 4.7
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 32,
-          "pct": 1.2
+          "count": 25,
+          "pct": 1.1
         },
         {
           "outcome": "Caution (simple or conditional)",
-          "count": 13,
-          "pct": 0.5
+          "count": 20,
+          "pct": 0.9
         },
         {
           "outcome": "Unknown",
-          "count": 5,
-          "pct": 0.2
+          "count": 6,
+          "pct": 0.3
         }
       ],
       "genderBreakdown": {
-        "Male": 2310,
-        "Female": 251,
-        "Unknown": 168,
-        "Other": 1
+        "Male": 1981,
+        "Unknown": 143,
+        "Female": 223,
+        "Other": 2
       },
       "ageRangeBreakdown": {
-        "18-24": 724,
-        "over 34": 585,
-        "Unknown": 301,
-        "10-17": 597,
-        "25-34": 520,
-        "under 10": 3
+        "10-17": 509,
+        "over 34": 540,
+        "25-34": 475,
+        "Unknown": 249,
+        "18-24": 574,
+        "under 10": 2
       }
     },
     "cambridgeshire": {
-      "totalSearches": 686,
+      "totalSearches": 434,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
         "2026-05"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 395,
-          "pct": 57.6
+          "count": 254,
+          "pct": 58.5
         },
         "Not stated": {
-          "count": 123,
-          "pct": 17.9
+          "count": 75,
+          "pct": 17.3
         },
         "Asian": {
-          "count": 82,
-          "pct": 12.0
+          "count": 49,
+          "pct": 11.3
         },
         "Black": {
-          "count": 57,
+          "count": 36,
           "pct": 8.3
         },
         "Mixed": {
-          "count": 20,
-          "pct": 2.9
+          "count": 15,
+          "pct": 3.5
         },
         "Arab": {
-          "count": 9,
-          "pct": 1.3
+          "count": 5,
+          "pct": 1.2
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 440,
-          "pct": 64.1
+          "count": 273,
+          "pct": 62.9
         },
         {
           "object": "Offensive weapons",
-          "count": 126,
-          "pct": 18.4
+          "count": 87,
+          "pct": 20.0
         },
         {
           "object": "Article for use in theft",
-          "count": 74,
-          "pct": 10.8
+          "count": 48,
+          "pct": 11.1
         },
         {
           "object": "Stolen goods",
-          "count": 16,
-          "pct": 2.3
+          "count": 12,
+          "pct": 2.8
         },
         {
           "object": "Articles for use in criminal damage",
-          "count": 16,
-          "pct": 2.3
+          "count": 8,
+          "pct": 1.8
         },
         {
           "object": "Fireworks",
-          "count": 7,
-          "pct": 1.0
+          "count": 6,
+          "pct": 1.4
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 437,
-          "pct": 63.7
+          "count": 286,
+          "pct": 65.9
         },
         {
           "outcome": "Arrest",
-          "count": 141,
-          "pct": 20.6
+          "count": 85,
+          "pct": 19.6
         },
         {
           "outcome": "Community resolution",
-          "count": 88,
-          "pct": 12.8
-        },
-        {
-          "outcome": "Summons / charged by post",
-          "count": 11,
-          "pct": 1.6
+          "count": 49,
+          "pct": 11.3
         },
         {
           "outcome": "Caution (simple or conditional)",
-          "count": 9,
-          "pct": 1.3
+          "count": 8,
+          "pct": 1.8
+        },
+        {
+          "outcome": "Summons / charged by post",
+          "count": 6,
+          "pct": 1.4
         }
       ],
       "genderBreakdown": {
-        "Male": 593,
-        "Unknown": 25,
-        "Female": 68
+        "Male": 369,
+        "Unknown": 13,
+        "Female": 52
       },
       "ageRangeBreakdown": {
-        "10-17": 112,
-        "18-24": 194,
-        "25-34": 159,
-        "over 34": 171,
-        "Unknown": 49,
+        "18-24": 117,
+        "Unknown": 27,
+        "25-34": 102,
+        "over 34": 115,
+        "10-17": 72,
         "under 10": 1
       }
     },
     "cheshire": {
-      "totalSearches": 3323,
+      "totalSearches": 2139,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
         "2026-05"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 2776,
+          "count": 1786,
           "pct": 83.5
         },
         "Not stated": {
-          "count": 320,
+          "count": 205,
           "pct": 9.6
         },
-        "Black": {
-          "count": 88,
-          "pct": 2.6
-        },
         "Asian": {
-          "count": 85,
+          "count": 65,
+          "pct": 3.0
+        },
+        "Black": {
+          "count": 55,
           "pct": 2.6
         },
         "Arab": {
-          "count": 30,
-          "pct": 0.9
+          "count": 15,
+          "pct": 0.7
         },
         "Mixed": {
-          "count": 24,
-          "pct": 0.7
+          "count": 13,
+          "pct": 0.6
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 2550,
+          "count": 1641,
           "pct": 76.7
         },
         {
-          "object": "Article for use in theft",
-          "count": 242,
-          "pct": 7.3
-        },
-        {
           "object": "Offensive weapons",
-          "count": 239,
-          "pct": 7.2
-        },
-        {
-          "object": "Stolen goods",
-          "count": 145,
-          "pct": 4.4
-        },
-        {
-          "object": "Articles for use in criminal damage",
-          "count": 93,
-          "pct": 2.8
-        },
-        {
-          "object": "Unknown",
-          "count": 35,
-          "pct": 1.1
-        }
-      ],
-      "topOutcomes": [
-        {
-          "outcome": "A no further action disposal",
-          "count": 2321,
-          "pct": 69.8
-        },
-        {
-          "outcome": "Community resolution",
-          "count": 378,
-          "pct": 11.4
-        },
-        {
-          "outcome": "Arrest",
-          "count": 359,
-          "pct": 10.8
-        },
-        {
-          "outcome": "Summons / charged by post",
-          "count": 159,
-          "pct": 4.8
-        },
-        {
-          "outcome": "Unknown",
-          "count": 103,
-          "pct": 3.1
-        },
-        {
-          "outcome": "Khat or Cannabis warning",
-          "count": 3,
-          "pct": 0.1
-        }
-      ],
-      "genderBreakdown": {
-        "Male": 2774,
-        "Female": 464,
-        "Unknown": 79,
-        "Other": 6
-      },
-      "ageRangeBreakdown": {
-        "Unknown": 2328,
-        "25-34": 229,
-        "over 34": 367,
-        "18-24": 217,
-        "10-17": 182
-      }
-    },
-    "city-of-london": {
-      "totalSearches": 385,
-      "monthsCovered": [
-        "2026-03",
-        "2026-04",
-        "2026-05"
-      ],
-      "ethnicityBroad": {
-        "Not stated": {
-          "count": 139,
-          "pct": 36.1
-        },
-        "White": {
-          "count": 121,
-          "pct": 31.4
-        },
-        "Black": {
-          "count": 60,
-          "pct": 15.6
-        },
-        "Asian": {
-          "count": 53,
-          "pct": 13.8
-        },
-        "Mixed": {
-          "count": 12,
-          "pct": 3.1
-        }
-      },
-      "topObjectsOfSearch": [
-        {
-          "object": "Controlled drugs",
-          "count": 190,
-          "pct": 49.4
-        },
-        {
-          "object": "Stolen goods",
-          "count": 72,
-          "pct": 18.7
-        },
-        {
-          "object": "Article for use in theft",
-          "count": 56,
-          "pct": 14.5
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 30,
-          "pct": 7.8
-        },
-        {
-          "object": "Evidence of offences under the Act",
-          "count": 16,
-          "pct": 4.2
-        },
-        {
-          "object": "Firearms",
-          "count": 12,
-          "pct": 3.1
-        }
-      ],
-      "topOutcomes": [
-        {
-          "outcome": "A no further action disposal",
-          "count": 289,
-          "pct": 75.1
-        },
-        {
-          "outcome": "Arrest",
-          "count": 63,
-          "pct": 16.4
-        },
-        {
-          "outcome": "Community resolution",
-          "count": 25,
-          "pct": 6.5
-        },
-        {
-          "outcome": "Khat or Cannabis warning",
-          "count": 5,
-          "pct": 1.3
-        },
-        {
-          "outcome": "Summons / charged by post",
-          "count": 3,
-          "pct": 0.8
-        }
-      ],
-      "genderBreakdown": {
-        "Male": 356,
-        "Female": 29
-      },
-      "ageRangeBreakdown": {
-        "25-34": 118,
-        "over 34": 88,
-        "10-17": 35,
-        "18-24": 94,
-        "Unknown": 50
-      }
-    },
-    "cleveland": {
-      "totalSearches": 833,
-      "monthsCovered": [
-        "2026-03",
-        "2026-04"
-      ],
-      "ethnicityBroad": {
-        "White": {
-          "count": 598,
-          "pct": 71.8
-        },
-        "Not stated": {
-          "count": 191,
-          "pct": 22.9
-        },
-        "Asian": {
-          "count": 29,
-          "pct": 3.5
-        },
-        "Black": {
-          "count": 11,
-          "pct": 1.3
-        },
-        "Mixed": {
-          "count": 4,
-          "pct": 0.5
-        }
-      },
-      "topObjectsOfSearch": [
-        {
-          "object": "Controlled drugs",
-          "count": 536,
-          "pct": 64.3
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 109,
-          "pct": 13.1
-        },
-        {
-          "object": "Article for use in theft",
-          "count": 56,
-          "pct": 6.7
-        },
-        {
-          "object": "Unknown",
-          "count": 52,
-          "pct": 6.2
-        },
-        {
-          "object": "Stolen goods",
-          "count": 39,
-          "pct": 4.7
-        },
-        {
-          "object": "Evidence of offences under the Act",
-          "count": 29,
-          "pct": 3.5
-        }
-      ],
-      "topOutcomes": [
-        {
-          "outcome": "A no further action disposal",
-          "count": 561,
-          "pct": 67.3
-        },
-        {
-          "outcome": "Unknown",
-          "count": 151,
-          "pct": 18.1
-        },
-        {
-          "outcome": "Arrest",
-          "count": 93,
-          "pct": 11.2
-        },
-        {
-          "outcome": "Caution (simple or conditional)",
-          "count": 12,
-          "pct": 1.4
-        },
-        {
-          "outcome": "Summons / charged by post",
-          "count": 10,
-          "pct": 1.2
-        },
-        {
-          "outcome": "Community resolution",
-          "count": 4,
-          "pct": 0.5
-        }
-      ],
-      "genderBreakdown": {
-        "Male": 578,
-        "Female": 132,
-        "Unknown": 123
-      },
-      "ageRangeBreakdown": {
-        "25-34": 150,
-        "over 34": 292,
-        "Unknown": 129,
-        "10-17": 115,
-        "18-24": 147
-      }
-    },
-    "cumbria": {
-      "totalSearches": 1947,
-      "monthsCovered": [
-        "2026-03",
-        "2026-04",
-        "2026-05"
-      ],
-      "ethnicityBroad": {
-        "White": {
-          "count": 1538,
-          "pct": 79.0
-        },
-        "Not stated": {
-          "count": 301,
-          "pct": 15.5
-        },
-        "Asian": {
-          "count": 56,
-          "pct": 2.9
-        },
-        "Black": {
-          "count": 33,
-          "pct": 1.7
-        },
-        "Mixed": {
-          "count": 19,
-          "pct": 1.0
-        }
-      },
-      "topObjectsOfSearch": [
-        {
-          "object": "Controlled drugs",
-          "count": 1452,
-          "pct": 74.6
-        },
-        {
-          "object": "Article for use in theft",
-          "count": 186,
-          "pct": 9.6
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 175,
-          "pct": 9.0
-        },
-        {
-          "object": "Unknown",
-          "count": 121,
-          "pct": 6.2
-        },
-        {
-          "object": "Fireworks",
-          "count": 7,
-          "pct": 0.4
-        },
-        {
-          "object": "Game or poaching equipment",
-          "count": 3,
-          "pct": 0.2
-        }
-      ],
-      "topOutcomes": [
-        {
-          "outcome": "A no further action disposal",
-          "count": 1368,
-          "pct": 70.3
-        },
-        {
-          "outcome": "Arrest",
-          "count": 333,
-          "pct": 17.1
-        },
-        {
-          "outcome": "Community resolution",
-          "count": 114,
-          "pct": 5.9
-        },
-        {
-          "outcome": "Unknown",
-          "count": 108,
-          "pct": 5.5
-        },
-        {
-          "outcome": "Summons / charged by post",
-          "count": 21,
-          "pct": 1.1
-        },
-        {
-          "outcome": "Caution (simple or conditional)",
-          "count": 3,
-          "pct": 0.2
-        }
-      ],
-      "genderBreakdown": {
-        "Male": 1591,
-        "Female": 307,
-        "Other": 49
-      },
-      "ageRangeBreakdown": {
-        "18-24": 474,
-        "25-34": 443,
-        "over 34": 704,
-        "10-17": 283,
-        "Unknown": 41,
-        "under 10": 2
-      }
-    },
-    "derbyshire": {
-      "totalSearches": 1894,
-      "monthsCovered": [
-        "2026-03",
-        "2026-04",
-        "2026-05"
-      ],
-      "ethnicityBroad": {
-        "White": {
-          "count": 1423,
-          "pct": 75.1
-        },
-        "Not stated": {
-          "count": 255,
-          "pct": 13.5
-        },
-        "Asian": {
-          "count": 101,
-          "pct": 5.3
-        },
-        "Black": {
-          "count": 88,
-          "pct": 4.6
-        },
-        "Mixed": {
-          "count": 27,
-          "pct": 1.4
-        }
-      },
-      "topObjectsOfSearch": [
-        {
-          "object": "Controlled drugs",
-          "count": 1370,
-          "pct": 72.3
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 256,
-          "pct": 13.5
+          "count": 162,
+          "pct": 7.6
         },
         {
           "object": "Article for use in theft",
           "count": 149,
-          "pct": 7.9
+          "pct": 7.0
         },
         {
           "object": "Stolen goods",
-          "count": 63,
-          "pct": 3.3
+          "count": 81,
+          "pct": 3.8
         },
         {
-          "object": "Evidence of offences under the Act",
-          "count": 17,
-          "pct": 0.9
+          "object": "Articles for use in criminal damage",
+          "count": 67,
+          "pct": 3.1
         },
         {
-          "object": "Firearms",
-          "count": 16,
-          "pct": 0.8
+          "object": "Unknown",
+          "count": 25,
+          "pct": 1.2
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 1471,
-          "pct": 77.7
+          "count": 1514,
+          "pct": 70.8
         },
         {
           "outcome": "Arrest",
-          "count": 178,
-          "pct": 9.4
+          "count": 229,
+          "pct": 10.7
         },
         {
           "outcome": "Community resolution",
-          "count": 137,
-          "pct": 7.2
+          "count": 223,
+          "pct": 10.4
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 101,
-          "pct": 5.3
+          "count": 103,
+          "pct": 4.8
+        },
+        {
+          "outcome": "Unknown",
+          "count": 69,
+          "pct": 3.2
+        },
+        {
+          "outcome": "Khat or Cannabis warning",
+          "count": 1,
+          "pct": 0.0
+        }
+      ],
+      "genderBreakdown": {
+        "Male": 1779,
+        "Female": 306,
+        "Unknown": 52,
+        "Other": 2
+      },
+      "ageRangeBreakdown": {
+        "Unknown": 1515,
+        "18-24": 135,
+        "25-34": 126,
+        "10-17": 127,
+        "over 34": 236
+      }
+    },
+    "city-of-london": {
+      "totalSearches": 342,
+      "monthsCovered": [
+        "2026-04",
+        "2026-05",
+        "2026-06"
+      ],
+      "ethnicityBroad": {
+        "Not stated": {
+          "count": 126,
+          "pct": 36.8
+        },
+        "White": {
+          "count": 104,
+          "pct": 30.4
+        },
+        "Black": {
+          "count": 57,
+          "pct": 16.7
+        },
+        "Asian": {
+          "count": 43,
+          "pct": 12.6
+        },
+        "Mixed": {
+          "count": 12,
+          "pct": 3.5
+        }
+      },
+      "topObjectsOfSearch": [
+        {
+          "object": "Controlled drugs",
+          "count": 157,
+          "pct": 45.9
+        },
+        {
+          "object": "Stolen goods",
+          "count": 67,
+          "pct": 19.6
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 51,
+          "pct": 14.9
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 34,
+          "pct": 9.9
+        },
+        {
+          "object": "Firearms",
+          "count": 19,
+          "pct": 5.6
+        },
+        {
+          "object": "Evidence of offences under the Act",
+          "count": 6,
+          "pct": 1.8
+        }
+      ],
+      "topOutcomes": [
+        {
+          "outcome": "A no further action disposal",
+          "count": 248,
+          "pct": 72.5
+        },
+        {
+          "outcome": "Arrest",
+          "count": 71,
+          "pct": 20.8
+        },
+        {
+          "outcome": "Community resolution",
+          "count": 16,
+          "pct": 4.7
+        },
+        {
+          "outcome": "Khat or Cannabis warning",
+          "count": 5,
+          "pct": 1.5
+        },
+        {
+          "outcome": "Summons / charged by post",
+          "count": 2,
+          "pct": 0.6
+        }
+      ],
+      "genderBreakdown": {
+        "Male": 314,
+        "Female": 28
+      },
+      "ageRangeBreakdown": {
+        "over 34": 86,
+        "18-24": 73,
+        "25-34": 97,
+        "Unknown": 52,
+        "10-17": 34
+      }
+    },
+    "cleveland": {
+      "totalSearches": 382,
+      "monthsCovered": [
+        "2026-04"
+      ],
+      "ethnicityBroad": {
+        "White": {
+          "count": 250,
+          "pct": 65.4
+        },
+        "Not stated": {
+          "count": 105,
+          "pct": 27.5
+        },
+        "Asian": {
+          "count": 21,
+          "pct": 5.5
+        },
+        "Black": {
+          "count": 3,
+          "pct": 0.8
+        },
+        "Mixed": {
+          "count": 3,
+          "pct": 0.8
+        }
+      },
+      "topObjectsOfSearch": [
+        {
+          "object": "Controlled drugs",
+          "count": 239,
+          "pct": 62.6
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 56,
+          "pct": 14.7
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 27,
+          "pct": 7.1
+        },
+        {
+          "object": "Stolen goods",
+          "count": 25,
+          "pct": 6.5
+        },
+        {
+          "object": "Evidence of offences under the Act",
+          "count": 16,
+          "pct": 4.2
+        },
+        {
+          "object": "Unknown",
+          "count": 13,
+          "pct": 3.4
+        }
+      ],
+      "topOutcomes": [
+        {
+          "outcome": "A no further action disposal",
+          "count": 235,
+          "pct": 61.5
+        },
+        {
+          "outcome": "Unknown",
+          "count": 85,
+          "pct": 22.3
+        },
+        {
+          "outcome": "Arrest",
+          "count": 47,
+          "pct": 12.3
+        },
+        {
+          "outcome": "Caution (simple or conditional)",
+          "count": 8,
+          "pct": 2.1
+        },
+        {
+          "outcome": "Community resolution",
+          "count": 3,
+          "pct": 0.8
+        },
+        {
+          "outcome": "Summons / charged by post",
+          "count": 2,
+          "pct": 0.5
+        }
+      ],
+      "genderBreakdown": {
+        "Male": 246,
+        "Unknown": 70,
+        "Female": 66
+      },
+      "ageRangeBreakdown": {
+        "10-17": 41,
+        "Unknown": 72,
+        "over 34": 130,
+        "25-34": 66,
+        "18-24": 73
+      }
+    },
+    "cumbria": {
+      "totalSearches": 1874,
+      "monthsCovered": [
+        "2026-04",
+        "2026-05",
+        "2026-06"
+      ],
+      "ethnicityBroad": {
+        "White": {
+          "count": 1478,
+          "pct": 78.9
+        },
+        "Not stated": {
+          "count": 290,
+          "pct": 15.5
+        },
+        "Asian": {
+          "count": 58,
+          "pct": 3.1
+        },
+        "Black": {
+          "count": 36,
+          "pct": 1.9
+        },
+        "Mixed": {
+          "count": 12,
+          "pct": 0.6
+        }
+      },
+      "topObjectsOfSearch": [
+        {
+          "object": "Controlled drugs",
+          "count": 1373,
+          "pct": 73.3
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 189,
+          "pct": 10.1
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 178,
+          "pct": 9.5
+        },
+        {
+          "object": "Unknown",
+          "count": 119,
+          "pct": 6.4
+        },
+        {
+          "object": "Fireworks",
+          "count": 8,
+          "pct": 0.4
+        },
+        {
+          "object": "Evidence of wildlife offences",
+          "count": 6,
+          "pct": 0.3
+        }
+      ],
+      "topOutcomes": [
+        {
+          "outcome": "A no further action disposal",
+          "count": 1265,
+          "pct": 67.5
+        },
+        {
+          "outcome": "Arrest",
+          "count": 356,
+          "pct": 19.0
+        },
+        {
+          "outcome": "Community resolution",
+          "count": 120,
+          "pct": 6.4
+        },
+        {
+          "outcome": "Unknown",
+          "count": 117,
+          "pct": 6.2
+        },
+        {
+          "outcome": "Summons / charged by post",
+          "count": 12,
+          "pct": 0.6
         },
         {
           "outcome": "Caution (simple or conditional)",
           "count": 4,
           "pct": 0.2
-        },
-        {
-          "outcome": "Khat or Cannabis warning",
-          "count": 2,
-          "pct": 0.1
         }
       ],
       "genderBreakdown": {
-        "Male": 1488,
-        "Female": 312,
-        "Unknown": 88,
-        "Other": 6
+        "Male": 1544,
+        "Female": 280,
+        "Other": 50
       },
       "ageRangeBreakdown": {
-        "10-17": 295,
-        "over 34": 665,
-        "25-34": 431,
-        "18-24": 383,
-        "Unknown": 120
+        "18-24": 504,
+        "over 34": 653,
+        "10-17": 265,
+        "25-34": 416,
+        "Unknown": 34,
+        "under 10": 2
       }
     },
-    "devon-and-cornwall": {
-      "totalSearches": 1438,
+    "derbyshire": {
+      "totalSearches": 1847,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 1250,
-          "pct": 86.9
+          "count": 1337,
+          "pct": 72.4
         },
         "Not stated": {
-          "count": 115,
-          "pct": 8.0
-        },
-        "Black": {
-          "count": 34,
-          "pct": 2.4
+          "count": 273,
+          "pct": 14.8
         },
         "Asian": {
-          "count": 22,
-          "pct": 1.5
+          "count": 117,
+          "pct": 6.3
+        },
+        "Black": {
+          "count": 99,
+          "pct": 5.4
         },
         "Mixed": {
-          "count": 12,
-          "pct": 0.8
-        },
-        "Arab": {
-          "count": 5,
-          "pct": 0.3
+          "count": 21,
+          "pct": 1.1
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 862,
-          "pct": 59.9
+          "count": 1342,
+          "pct": 72.7
         },
         {
           "object": "Offensive weapons",
-          "count": 240,
-          "pct": 16.7
-        },
-        {
-          "object": "Stolen goods",
-          "count": 111,
-          "pct": 7.7
+          "count": 163,
+          "pct": 8.8
         },
         {
           "object": "Article for use in theft",
-          "count": 101,
-          "pct": 7.0
+          "count": 155,
+          "pct": 8.4
         },
         {
-          "object": "Unknown",
-          "count": 70,
-          "pct": 4.9
-        },
-        {
-          "object": "Articles for use in criminal damage",
-          "count": 36,
-          "pct": 2.5
-        }
-      ],
-      "topOutcomes": [
-        {
-          "outcome": "A no further action disposal",
-          "count": 898,
-          "pct": 62.4
-        },
-        {
-          "outcome": "Arrest",
-          "count": 316,
-          "pct": 22.0
-        },
-        {
-          "outcome": "Community resolution",
-          "count": 107,
-          "pct": 7.4
-        },
-        {
-          "outcome": "Unknown",
-          "count": 101,
-          "pct": 7.0
-        },
-        {
-          "outcome": "Summons / charged by post",
-          "count": 13,
-          "pct": 0.9
-        },
-        {
-          "outcome": "Khat or Cannabis warning",
-          "count": 2,
-          "pct": 0.1
-        }
-      ],
-      "genderBreakdown": {
-        "Female": 231,
-        "Male": 1148,
-        "Unknown": 59
-      },
-      "ageRangeBreakdown": {
-        "10-17": 261,
-        "over 34": 462,
-        "25-34": 306,
-        "18-24": 355,
-        "Unknown": 54
-      }
-    },
-    "dorset": {
-      "totalSearches": 577,
-      "monthsCovered": [
-        "2026-03",
-        "2026-04",
-        "2026-05"
-      ],
-      "ethnicityBroad": {
-        "Not stated": {
-          "count": 367,
-          "pct": 63.6
-        },
-        "White": {
-          "count": 189,
-          "pct": 32.8
-        },
-        "Asian": {
-          "count": 12,
-          "pct": 2.1
-        },
-        "Black": {
-          "count": 9,
-          "pct": 1.6
-        }
-      },
-      "topObjectsOfSearch": [
-        {
-          "object": "Controlled drugs",
-          "count": 385,
-          "pct": 66.7
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 84,
-          "pct": 14.6
+          "object": "Anything to threaten or harm anyone",
+          "count": 88,
+          "pct": 4.8
         },
         {
           "object": "Stolen goods",
-          "count": 63,
-          "pct": 10.9
-        },
-        {
-          "object": "Article for use in theft",
-          "count": 24,
-          "pct": 4.2
-        },
-        {
-          "object": "Unknown",
-          "count": 8,
-          "pct": 1.4
+          "count": 37,
+          "pct": 2.0
         },
         {
           "object": "Evidence of offences under the Act",
-          "count": 5,
-          "pct": 0.9
+          "count": 24,
+          "pct": 1.3
         }
       ],
       "topOutcomes": [
         {
-          "outcome": "Unknown",
-          "count": 282,
-          "pct": 48.9
-        },
-        {
           "outcome": "A no further action disposal",
-          "count": 141,
-          "pct": 24.4
+          "count": 1440,
+          "pct": 78.0
         },
         {
           "outcome": "Arrest",
-          "count": 77,
-          "pct": 13.3
+          "count": 167,
+          "pct": 9.0
         },
         {
           "outcome": "Community resolution",
-          "count": 55,
-          "pct": 9.5
+          "count": 131,
+          "pct": 7.1
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 21,
-          "pct": 3.6
+          "count": 95,
+          "pct": 5.1
         },
         {
           "outcome": "Khat or Cannabis warning",
-          "count": 1,
+          "count": 8,
+          "pct": 0.4
+        },
+        {
+          "outcome": "Penalty Notice for Disorder",
+          "count": 4,
           "pct": 0.2
         }
       ],
       "genderBreakdown": {
-        "Male": 494,
-        "Female": 82,
-        "Unknown": 1
+        "Male": 1436,
+        "Unknown": 94,
+        "Female": 312,
+        "Other": 5
       },
       "ageRangeBreakdown": {
-        "18-24": 147,
-        "over 34": 199,
-        "25-34": 120,
-        "10-17": 107,
-        "Unknown": 4
+        "10-17": 280,
+        "over 34": 636,
+        "25-34": 403,
+        "18-24": 387,
+        "Unknown": 140,
+        "under 10": 1
       }
     },
-    "durham": {
-      "totalSearches": 789,
+    "devon-and-cornwall": {
+      "totalSearches": 1415,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 683,
-          "pct": 86.6
+          "count": 1231,
+          "pct": 87.0
         },
         "Not stated": {
-          "count": 95,
-          "pct": 12.0
+          "count": 105,
+          "pct": 7.4
         },
         "Black": {
-          "count": 5,
-          "pct": 0.6
+          "count": 42,
+          "pct": 3.0
         },
         "Asian": {
-          "count": 3,
-          "pct": 0.4
+          "count": 19,
+          "pct": 1.3
         },
         "Mixed": {
-          "count": 3,
-          "pct": 0.4
+          "count": 11,
+          "pct": 0.8
+        },
+        "Arab": {
+          "count": 7,
+          "pct": 0.5
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 444,
-          "pct": 56.3
+          "count": 845,
+          "pct": 59.7
         },
         {
           "object": "Offensive weapons",
-          "count": 140,
-          "pct": 17.7
-        },
-        {
-          "object": "Article for use in theft",
-          "count": 103,
-          "pct": 13.1
+          "count": 254,
+          "pct": 18.0
         },
         {
           "object": "Stolen goods",
-          "count": 53,
-          "pct": 6.7
+          "count": 100,
+          "pct": 7.1
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 97,
+          "pct": 6.9
+        },
+        {
+          "object": "Unknown",
+          "count": 65,
+          "pct": 4.6
         },
         {
           "object": "Articles for use in criminal damage",
-          "count": 39,
-          "pct": 4.9
-        },
-        {
-          "object": "Game or poaching equipment",
-          "count": 8,
-          "pct": 1.0
+          "count": 30,
+          "pct": 2.1
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 473,
-          "pct": 59.9
+          "count": 887,
+          "pct": 62.7
         },
         {
           "outcome": "Arrest",
-          "count": 142,
-          "pct": 18.0
+          "count": 281,
+          "pct": 19.9
         },
         {
           "outcome": "Unknown",
-          "count": 80,
-          "pct": 10.1
+          "count": 114,
+          "pct": 8.1
         },
         {
           "outcome": "Community resolution",
-          "count": 68,
-          "pct": 8.6
+          "count": 114,
+          "pct": 8.1
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 17,
-          "pct": 2.2
+          "count": 14,
+          "pct": 1.0
         },
         {
-          "outcome": "Khat or Cannabis warning",
-          "count": 5,
-          "pct": 0.6
+          "outcome": "Caution (simple or conditional)",
+          "count": 4,
+          "pct": 0.3
         }
       ],
       "genderBreakdown": {
-        "Male": 602,
-        "Female": 124,
-        "Other": 37,
-        "Unknown": 26
+        "Male": 1120,
+        "Female": 229,
+        "Unknown": 66
       },
       "ageRangeBreakdown": {
-        "over 34": 234,
-        "25-34": 186,
-        "18-24": 201,
-        "10-17": 139,
-        "Unknown": 28,
+        "25-34": 296,
+        "10-17": 276,
+        "over 34": 459,
+        "18-24": 333,
+        "Unknown": 51
+      }
+    },
+    "dorset": {
+      "totalSearches": 739,
+      "monthsCovered": [
+        "2026-04",
+        "2026-05",
+        "2026-06"
+      ],
+      "ethnicityBroad": {
+        "Not stated": {
+          "count": 466,
+          "pct": 63.1
+        },
+        "White": {
+          "count": 249,
+          "pct": 33.7
+        },
+        "Black": {
+          "count": 13,
+          "pct": 1.8
+        },
+        "Asian": {
+          "count": 11,
+          "pct": 1.5
+        }
+      },
+      "topObjectsOfSearch": [
+        {
+          "object": "Controlled drugs",
+          "count": 496,
+          "pct": 67.1
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 108,
+          "pct": 14.6
+        },
+        {
+          "object": "Stolen goods",
+          "count": 84,
+          "pct": 11.4
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 26,
+          "pct": 3.5
+        },
+        {
+          "object": "Unknown",
+          "count": 8,
+          "pct": 1.1
+        },
+        {
+          "object": "Firearms",
+          "count": 6,
+          "pct": 0.8
+        }
+      ],
+      "topOutcomes": [
+        {
+          "outcome": "Unknown",
+          "count": 386,
+          "pct": 52.2
+        },
+        {
+          "outcome": "A no further action disposal",
+          "count": 162,
+          "pct": 21.9
+        },
+        {
+          "outcome": "Arrest",
+          "count": 84,
+          "pct": 11.4
+        },
+        {
+          "outcome": "Community resolution",
+          "count": 79,
+          "pct": 10.7
+        },
+        {
+          "outcome": "Summons / charged by post",
+          "count": 28,
+          "pct": 3.8
+        }
+      ],
+      "genderBreakdown": {
+        "Male": 631,
+        "Female": 108
+      },
+      "ageRangeBreakdown": {
+        "10-17": 144,
+        "over 34": 237,
+        "18-24": 188,
+        "25-34": 165,
+        "Unknown": 3,
+        "under 10": 2
+      }
+    },
+    "durham": {
+      "totalSearches": 805,
+      "monthsCovered": [
+        "2026-04",
+        "2026-05",
+        "2026-06"
+      ],
+      "ethnicityBroad": {
+        "White": {
+          "count": 689,
+          "pct": 85.6
+        },
+        "Not stated": {
+          "count": 106,
+          "pct": 13.2
+        },
+        "Black": {
+          "count": 8,
+          "pct": 1.0
+        },
+        "Asian": {
+          "count": 1,
+          "pct": 0.1
+        },
+        "Mixed": {
+          "count": 1,
+          "pct": 0.1
+        }
+      },
+      "topObjectsOfSearch": [
+        {
+          "object": "Controlled drugs",
+          "count": 443,
+          "pct": 55.0
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 156,
+          "pct": 19.4
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 106,
+          "pct": 13.2
+        },
+        {
+          "object": "Stolen goods",
+          "count": 56,
+          "pct": 7.0
+        },
+        {
+          "object": "Articles for use in criminal damage",
+          "count": 35,
+          "pct": 4.3
+        },
+        {
+          "object": "Game or poaching equipment",
+          "count": 4,
+          "pct": 0.5
+        }
+      ],
+      "topOutcomes": [
+        {
+          "outcome": "A no further action disposal",
+          "count": 516,
+          "pct": 64.1
+        },
+        {
+          "outcome": "Arrest",
+          "count": 135,
+          "pct": 16.8
+        },
+        {
+          "outcome": "Unknown",
+          "count": 74,
+          "pct": 9.2
+        },
+        {
+          "outcome": "Community resolution",
+          "count": 61,
+          "pct": 7.6
+        },
+        {
+          "outcome": "Summons / charged by post",
+          "count": 16,
+          "pct": 2.0
+        },
+        {
+          "outcome": "Khat or Cannabis warning",
+          "count": 2,
+          "pct": 0.2
+        }
+      ],
+      "genderBreakdown": {
+        "Male": 593,
+        "Female": 142,
+        "Unknown": 35,
+        "Other": 35
+      },
+      "ageRangeBreakdown": {
+        "over 34": 244,
+        "25-34": 185,
+        "18-24": 188,
+        "Unknown": 36,
+        "10-17": 151,
         "under 10": 1
       }
     },
     "essex": {
-      "totalSearches": 3468,
+      "totalSearches": 3421,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 2026,
-          "pct": 58.4
+          "count": 1996,
+          "pct": 58.3
         },
         "Not stated": {
-          "count": 979,
+          "count": 966,
           "pct": 28.2
         },
         "Black": {
-          "count": 254,
-          "pct": 7.3
+          "count": 233,
+          "pct": 6.8
         },
         "Asian": {
-          "count": 112,
-          "pct": 3.2
+          "count": 140,
+          "pct": 4.1
         },
         "Mixed": {
-          "count": 85,
-          "pct": 2.5
+          "count": 71,
+          "pct": 2.1
         },
         "Arab": {
-          "count": 12,
-          "pct": 0.3
+          "count": 15,
+          "pct": 0.4
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Unknown",
-          "count": 3468,
+          "count": 3421,
           "pct": 100.0
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 2398,
-          "pct": 69.1
+          "count": 2387,
+          "pct": 69.8
         },
         {
           "outcome": "Arrest",
-          "count": 527,
-          "pct": 15.2
+          "count": 532,
+          "pct": 15.6
         },
         {
           "outcome": "Community resolution",
-          "count": 507,
-          "pct": 14.6
-        },
-        {
-          "outcome": "Caution (simple or conditional)",
-          "count": 17,
-          "pct": 0.5
+          "count": 469,
+          "pct": 13.7
         },
         {
           "outcome": "Summons / charged by post",
@@ -1554,73 +1535,74 @@
           "pct": 0.5
         },
         {
+          "outcome": "Caution (simple or conditional)",
+          "count": 13,
+          "pct": 0.4
+        },
+        {
           "outcome": "Khat or Cannabis warning",
-          "count": 3,
+          "count": 4,
           "pct": 0.1
         }
       ],
       "genderBreakdown": {
-        "Male": 2745,
-        "Female": 479,
-        "Unknown": 243,
-        "Other": 1
+        "Male": 2712,
+        "Unknown": 230,
+        "Female": 475,
+        "Other": 4
       },
       "ageRangeBreakdown": {
-        "25-34": 566,
-        "10-17": 678,
-        "18-24": 803,
-        "Unknown": 714,
-        "over 34": 707
+        "18-24": 786,
+        "10-17": 672,
+        "Unknown": 703,
+        "25-34": 555,
+        "over 34": 704,
+        "under 10": 1
       }
     },
     "hampshire": {
-      "totalSearches": 4737,
+      "totalSearches": 4269,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 3415,
-          "pct": 72.1
+          "count": 3033,
+          "pct": 71.0
         },
         "Not stated": {
-          "count": 659,
-          "pct": 13.9
+          "count": 603,
+          "pct": 14.1
         },
         "Black": {
-          "count": 326,
-          "pct": 6.9
+          "count": 331,
+          "pct": 7.8
         },
         "Asian": {
-          "count": 197,
-          "pct": 4.2
+          "count": 163,
+          "pct": 3.8
         },
         "Mixed": {
-          "count": 99,
-          "pct": 2.1
+          "count": 95,
+          "pct": 2.2
         },
         "Arab": {
-          "count": 41,
-          "pct": 0.9
+          "count": 44,
+          "pct": 1.0
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Unknown",
-          "count": 4727,
-          "pct": 99.8
+          "count": 4258,
+          "pct": 99.7
         },
         {
           "object": "Firearms",
-          "count": 8,
+          "count": 10,
           "pct": 0.2
-        },
-        {
-          "object": "Evidence of offences under the Act",
-          "count": 1,
-          "pct": 0.0
         },
         {
           "object": "Psychoactive substances",
@@ -1631,400 +1613,399 @@
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 2889,
-          "pct": 61.0
-        },
-        {
-          "outcome": "Community resolution",
-          "count": 862,
-          "pct": 18.2
+          "count": 2556,
+          "pct": 59.9
         },
         {
           "outcome": "Arrest",
-          "count": 833,
-          "pct": 17.6
+          "count": 784,
+          "pct": 18.4
+        },
+        {
+          "outcome": "Community resolution",
+          "count": 777,
+          "pct": 18.2
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 107,
+          "count": 100,
           "pct": 2.3
         },
         {
           "outcome": "Unknown",
-          "count": 46,
-          "pct": 1.0
+          "count": 52,
+          "pct": 1.2
         }
       ],
       "genderBreakdown": {
-        "Male": 3968,
-        "Female": 707,
-        "Other": 62
+        "Female": 636,
+        "Male": 3563,
+        "Other": 70
       },
       "ageRangeBreakdown": {
-        "18-24": 1473,
-        "25-34": 994,
-        "over 34": 1252,
-        "10-17": 1016,
+        "18-24": 1315,
+        "over 34": 1152,
+        "10-17": 885,
+        "25-34": 915,
         "under 10": 2
       }
     },
     "hertfordshire": {
-      "totalSearches": 1990,
+      "totalSearches": 1320,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
         "2026-05"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 1233,
-          "pct": 62.0
+          "count": 803,
+          "pct": 60.8
         },
         "Not stated": {
-          "count": 400,
-          "pct": 20.1
+          "count": 277,
+          "pct": 21.0
         },
         "Black": {
-          "count": 174,
-          "pct": 8.7
+          "count": 119,
+          "pct": 9.0
         },
         "Asian": {
-          "count": 118,
-          "pct": 5.9
+          "count": 74,
+          "pct": 5.6
         },
         "Mixed": {
-          "count": 54,
-          "pct": 2.7
+          "count": 40,
+          "pct": 3.0
         },
         "Arab": {
-          "count": 11,
-          "pct": 0.6
+          "count": 7,
+          "pct": 0.5
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 1126,
-          "pct": 56.6
+          "count": 761,
+          "pct": 57.7
         },
         {
           "object": "Article for use in theft",
-          "count": 433,
-          "pct": 21.8
+          "count": 275,
+          "pct": 20.8
         },
         {
           "object": "Offensive weapons",
-          "count": 299,
-          "pct": 15.0
+          "count": 205,
+          "pct": 15.5
         },
         {
           "object": "Stolen goods",
-          "count": 69,
-          "pct": 3.5
+          "count": 40,
+          "pct": 3.0
         },
         {
           "object": "Articles for use in criminal damage",
-          "count": 34,
-          "pct": 1.7
+          "count": 26,
+          "pct": 2.0
         },
         {
           "object": "Psychoactive substances",
-          "count": 10,
-          "pct": 0.5
+          "count": 5,
+          "pct": 0.4
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 1283,
-          "pct": 64.5
+          "count": 839,
+          "pct": 63.6
         },
         {
           "outcome": "Arrest",
-          "count": 297,
-          "pct": 14.9
+          "count": 212,
+          "pct": 16.1
         },
         {
           "outcome": "Community resolution",
-          "count": 258,
-          "pct": 13.0
+          "count": 179,
+          "pct": 13.6
         },
         {
           "outcome": "Unknown",
-          "count": 124,
-          "pct": 6.2
-        },
-        {
-          "outcome": "Caution (simple or conditional)",
-          "count": 13,
-          "pct": 0.7
+          "count": 71,
+          "pct": 5.4
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 13,
-          "pct": 0.7
+          "count": 11,
+          "pct": 0.8
+        },
+        {
+          "outcome": "Caution (simple or conditional)",
+          "count": 8,
+          "pct": 0.6
         }
       ],
       "genderBreakdown": {
-        "Other": 715,
-        "Male": 998,
-        "Female": 221,
-        "Unknown": 56
+        "Male": 670,
+        "Other": 453,
+        "Unknown": 37,
+        "Female": 160
       },
       "ageRangeBreakdown": {
-        "25-34": 375,
-        "over 34": 581,
-        "18-24": 492,
-        "Unknown": 142,
-        "10-17": 400
+        "18-24": 331,
+        "25-34": 237,
+        "10-17": 268,
+        "Unknown": 105,
+        "over 34": 379
       }
     },
     "kent": {
-      "totalSearches": 4788,
+      "totalSearches": 4547,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 2885,
-          "pct": 60.3
+          "count": 2781,
+          "pct": 61.2
         },
         "Not stated": {
-          "count": 1340,
-          "pct": 28.0
+          "count": 1266,
+          "pct": 27.8
         },
         "Black": {
-          "count": 243,
-          "pct": 5.1
+          "count": 216,
+          "pct": 4.8
         },
         "Asian": {
-          "count": 150,
+          "count": 142,
           "pct": 3.1
         },
         "Mixed": {
-          "count": 134,
-          "pct": 2.8
+          "count": 110,
+          "pct": 2.4
         },
         "Arab": {
-          "count": 36,
-          "pct": 0.8
+          "count": 32,
+          "pct": 0.7
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 2650,
-          "pct": 55.3
+          "count": 2466,
+          "pct": 54.2
         },
         {
           "object": "Stolen goods",
-          "count": 628,
-          "pct": 13.1
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 565,
-          "pct": 11.8
+          "count": 650,
+          "pct": 14.3
         },
         {
           "object": "Article for use in theft",
-          "count": 537,
-          "pct": 11.2
+          "count": 531,
+          "pct": 11.7
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 518,
+          "pct": 11.4
         },
         {
           "object": "Articles for use in criminal damage",
-          "count": 270,
-          "pct": 5.6
+          "count": 248,
+          "pct": 5.5
         },
         {
-          "object": "Goods on which duty has not been paid etc.",
-          "count": 42,
-          "pct": 0.9
+          "object": "Firearms",
+          "count": 46,
+          "pct": 1.0
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 2821,
-          "pct": 58.9
+          "count": 2729,
+          "pct": 60.0
         },
         {
           "outcome": "Community resolution",
-          "count": 1075,
-          "pct": 22.5
+          "count": 988,
+          "pct": 21.7
         },
         {
           "outcome": "Arrest",
-          "count": 858,
-          "pct": 17.9
+          "count": 801,
+          "pct": 17.6
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 22,
-          "pct": 0.5
+          "count": 18,
+          "pct": 0.4
         },
         {
           "outcome": "Caution (simple or conditional)",
-          "count": 9,
+          "count": 10,
           "pct": 0.2
         },
         {
-          "outcome": "Khat or Cannabis warning",
-          "count": 2,
+          "outcome": "Penalty Notice for Disorder",
+          "count": 1,
           "pct": 0.0
         }
       ],
       "genderBreakdown": {
-        "Male": 3932,
-        "Female": 780,
-        "Other": 76
+        "Male": 3677,
+        "Female": 791,
+        "Other": 79
       },
       "ageRangeBreakdown": {
-        "18-24": 1194,
-        "over 34": 1233,
-        "25-34": 1020,
-        "Unknown": 374,
-        "10-17": 959,
-        "under 10": 8
+        "18-24": 1109,
+        "10-17": 910,
+        "over 34": 1212,
+        "25-34": 925,
+        "Unknown": 381,
+        "under 10": 10
       }
     },
     "lancashire": {
-      "totalSearches": 11990,
+      "totalSearches": 13892,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 7338,
-          "pct": 61.2
+          "count": 8357,
+          "pct": 60.2
         },
         "Not stated": {
-          "count": 2893,
-          "pct": 24.1
+          "count": 3422,
+          "pct": 24.6
         },
         "Asian": {
-          "count": 1507,
-          "pct": 12.6
+          "count": 1827,
+          "pct": 13.2
         },
         "Black": {
-          "count": 157,
+          "count": 185,
           "pct": 1.3
         },
         "Mixed": {
-          "count": 95,
-          "pct": 0.8
+          "count": 101,
+          "pct": 0.7
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 7462,
-          "pct": 62.2
+          "count": 8759,
+          "pct": 63.1
         },
         {
           "object": "Offensive weapons",
-          "count": 1775,
-          "pct": 14.8
+          "count": 1902,
+          "pct": 13.7
         },
         {
           "object": "Article for use in theft",
-          "count": 1227,
-          "pct": 10.2
+          "count": 1408,
+          "pct": 10.1
         },
         {
           "object": "Unknown",
-          "count": 865,
-          "pct": 7.2
+          "count": 1061,
+          "pct": 7.6
         },
         {
           "object": "Stolen goods",
-          "count": 516,
+          "count": 594,
           "pct": 4.3
         },
         {
           "object": "Articles for use in criminal damage",
-          "count": 69,
+          "count": 85,
           "pct": 0.6
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 9155,
-          "pct": 76.4
+          "count": 10562,
+          "pct": 76.0
         },
         {
           "outcome": "Arrest",
-          "count": 1285,
-          "pct": 10.7
+          "count": 1505,
+          "pct": 10.8
         },
         {
           "outcome": "Community resolution",
-          "count": 972,
-          "pct": 8.1
+          "count": 1096,
+          "pct": 7.9
         },
         {
           "outcome": "Unknown",
-          "count": 293,
-          "pct": 2.4
+          "count": 362,
+          "pct": 2.6
         },
         {
           "outcome": "Penalty Notice for Disorder",
-          "count": 162,
-          "pct": 1.4
+          "count": 217,
+          "pct": 1.6
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 108,
-          "pct": 0.9
+          "count": 132,
+          "pct": 1.0
         }
       ],
       "genderBreakdown": {
-        "Male": 9743,
-        "Female": 1436,
-        "Unknown": 802,
-        "Other": 9
+        "Female": 1622,
+        "Male": 11276,
+        "Unknown": 987,
+        "Other": 7
       },
       "ageRangeBreakdown": {
-        "over 34": 3479,
-        "25-34": 2241,
-        "10-17": 1796,
-        "Unknown": 2151,
-        "18-24": 2322,
-        "under 10": 1
+        "18-24": 2665,
+        "25-34": 2615,
+        "10-17": 1985,
+        "Unknown": 2553,
+        "over 34": 4070,
+        "under 10": 4
       }
     },
     "leicestershire": {
-      "totalSearches": 1302,
+      "totalSearches": 1305,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 680,
-          "pct": 52.2
+          "count": 621,
+          "pct": 47.6
         },
         "Not stated": {
-          "count": 373,
-          "pct": 28.6
+          "count": 404,
+          "pct": 31.0
+        },
+        "Asian": {
+          "count": 120,
+          "pct": 9.2
         },
         "Black": {
           "count": 110,
           "pct": 8.4
         },
-        "Asian": {
-          "count": 109,
-          "pct": 8.4
-        },
         "Arab": {
-          "count": 24,
-          "pct": 1.8
+          "count": 44,
+          "pct": 3.4
         },
         "Mixed": {
           "count": 6,
@@ -2034,168 +2015,169 @@
       "topObjectsOfSearch": [
         {
           "object": "Unknown",
-          "count": 548,
-          "pct": 42.1
+          "count": 556,
+          "pct": 42.6
         },
         {
           "object": "Controlled drugs",
-          "count": 410,
-          "pct": 31.5
+          "count": 421,
+          "pct": 32.3
         },
         {
           "object": "Offensive weapons",
-          "count": 162,
-          "pct": 12.4
+          "count": 167,
+          "pct": 12.8
         },
         {
           "object": "Article for use in theft",
-          "count": 86,
-          "pct": 6.6
+          "count": 72,
+          "pct": 5.5
         },
         {
           "object": "Stolen goods",
-          "count": 53,
-          "pct": 4.1
+          "count": 50,
+          "pct": 3.8
         },
         {
           "object": "Articles for use in criminal damage",
-          "count": 15,
+          "count": 16,
           "pct": 1.2
         }
       ],
       "topOutcomes": [
         {
           "outcome": "Unknown",
-          "count": 1067,
-          "pct": 82.0
+          "count": 1072,
+          "pct": 82.1
         },
         {
           "outcome": "Arrest",
-          "count": 235,
-          "pct": 18.0
+          "count": 233,
+          "pct": 17.9
         }
       ],
       "genderBreakdown": {
-        "Other": 1249,
+        "Other": 1252,
         "Unknown": 53
       },
       "ageRangeBreakdown": {
-        "18-24": 333,
-        "25-34": 253,
+        "25-34": 267,
+        "18-24": 360,
+        "over 34": 280,
+        "10-17": 247,
         "Unknown": 150,
-        "over 34": 294,
-        "10-17": 271,
         "under 10": 1
       }
     },
     "merseyside": {
-      "totalSearches": 14202,
+      "totalSearches": 13648,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 12100,
-          "pct": 85.2
+          "count": 11496,
+          "pct": 84.2
         },
         "Not stated": {
-          "count": 1065,
-          "pct": 7.5
+          "count": 1047,
+          "pct": 7.7
         },
         "Black": {
-          "count": 423,
-          "pct": 3.0
+          "count": 489,
+          "pct": 3.6
         },
         "Asian": {
-          "count": 269,
-          "pct": 1.9
+          "count": 281,
+          "pct": 2.1
         },
         "Arab": {
-          "count": 216,
-          "pct": 1.5
+          "count": 197,
+          "pct": 1.4
         },
         "Mixed": {
-          "count": 129,
-          "pct": 0.9
+          "count": 138,
+          "pct": 1.0
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 10235,
-          "pct": 72.1
+          "count": 9531,
+          "pct": 69.8
         },
         {
           "object": "Offensive weapons",
-          "count": 1534,
-          "pct": 10.8
+          "count": 1720,
+          "pct": 12.6
         },
         {
           "object": "Stolen goods",
-          "count": 733,
-          "pct": 5.2
+          "count": 790,
+          "pct": 5.8
         },
         {
           "object": "Unknown",
-          "count": 681,
-          "pct": 4.8
+          "count": 673,
+          "pct": 4.9
         },
         {
           "object": "Article for use in theft",
-          "count": 353,
-          "pct": 2.5
+          "count": 294,
+          "pct": 2.2
         },
         {
-          "object": "Evidence of offences under the Act",
-          "count": 309,
-          "pct": 2.2
+          "object": "Articles for use in criminal damage",
+          "count": 293,
+          "pct": 2.1
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 10975,
-          "pct": 77.3
+          "count": 10573,
+          "pct": 77.5
         },
         {
           "outcome": "Arrest",
-          "count": 1358,
+          "count": 1314,
           "pct": 9.6
         },
         {
           "outcome": "Community resolution",
-          "count": 1165,
-          "pct": 8.2
+          "count": 1085,
+          "pct": 7.9
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 631,
-          "pct": 4.4
+          "count": 611,
+          "pct": 4.5
         },
         {
           "outcome": "Caution (simple or conditional)",
-          "count": 52,
-          "pct": 0.4
+          "count": 42,
+          "pct": 0.3
         },
         {
           "outcome": "Khat or Cannabis warning",
-          "count": 10,
+          "count": 12,
           "pct": 0.1
         }
       ],
       "genderBreakdown": {
-        "Male": 11544,
-        "Unknown": 830,
-        "Female": 1828
+        "Male": 11153,
+        "Female": 1689,
+        "Unknown": 805,
+        "Other": 1
       },
       "ageRangeBreakdown": {
-        "18-24": 3113,
-        "10-17": 1936,
-        "over 34": 5409,
-        "25-34": 2944,
-        "Unknown": 796,
+        "18-24": 2970,
+        "over 34": 5281,
+        "25-34": 2788,
+        "10-17": 1840,
+        "Unknown": 765,
         "under 10": 4
       }
     },
@@ -2296,9 +2278,9 @@
         }
       ],
       "genderBreakdown": {
+        "Other": 2095,
         "Male": 19807,
-        "Female": 2305,
-        "Other": 2095
+        "Female": 2305
       },
       "ageRangeBreakdown": {
         "Unknown": 2462,
@@ -2310,20 +2292,20 @@
       }
     },
     "north-wales": {
-      "totalSearches": 937,
+      "totalSearches": 933,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 810,
-          "pct": 86.4
+          "count": 802,
+          "pct": 86.0
         },
         "Not stated": {
-          "count": 99,
-          "pct": 10.6
+          "count": 104,
+          "pct": 11.1
         },
         "Black": {
           "count": 12,
@@ -2334,209 +2316,209 @@
           "pct": 1.1
         },
         "Mixed": {
-          "count": 6,
-          "pct": 0.6
+          "count": 5,
+          "pct": 0.5
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 529,
-          "pct": 56.5
+          "count": 519,
+          "pct": 55.6
         },
         {
           "object": "Offensive weapons",
-          "count": 147,
-          "pct": 15.7
+          "count": 144,
+          "pct": 15.4
         },
         {
           "object": "Stolen goods",
-          "count": 98,
-          "pct": 10.5
+          "count": 116,
+          "pct": 12.4
         },
         {
           "object": "Evidence of offences under the Act",
-          "count": 48,
-          "pct": 5.1
-        },
-        {
-          "object": "Article for use in theft",
-          "count": 46,
-          "pct": 4.9
+          "count": 49,
+          "pct": 5.3
         },
         {
           "object": "Articles for use in criminal damage",
           "count": 43,
           "pct": 4.6
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 33,
+          "pct": 3.5
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 658,
-          "pct": 70.2
+          "count": 641,
+          "pct": 68.7
         },
         {
           "outcome": "Arrest",
-          "count": 149,
-          "pct": 15.9
+          "count": 141,
+          "pct": 15.1
         },
         {
           "outcome": "Community resolution",
-          "count": 72,
-          "pct": 7.7
+          "count": 84,
+          "pct": 9.0
         },
         {
           "outcome": "Unknown",
-          "count": 43,
-          "pct": 4.6
+          "count": 50,
+          "pct": 5.4
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 15,
-          "pct": 1.6
+          "count": 17,
+          "pct": 1.8
         }
       ],
       "genderBreakdown": {
-        "Male": 752,
-        "Female": 139,
-        "Unknown": 46
+        "Male": 735,
+        "Female": 156,
+        "Unknown": 42
       },
       "ageRangeBreakdown": {
-        "25-34": 192,
-        "18-24": 219,
-        "10-17": 190,
-        "over 34": 301,
+        "10-17": 191,
+        "18-24": 214,
+        "25-34": 182,
+        "over 34": 311,
         "Unknown": 35
       }
     },
     "northamptonshire": {
-      "totalSearches": 770,
+      "totalSearches": 743,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 521,
-          "pct": 67.7
+          "count": 494,
+          "pct": 66.5
         },
         "Black": {
-          "count": 105,
-          "pct": 13.6
+          "count": 107,
+          "pct": 14.4
         },
         "Not stated": {
-          "count": 104,
-          "pct": 13.5
+          "count": 99,
+          "pct": 13.3
         },
         "Asian": {
           "count": 26,
-          "pct": 3.4
+          "pct": 3.5
         },
         "Mixed": {
-          "count": 14,
-          "pct": 1.8
+          "count": 17,
+          "pct": 2.3
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Evidence of offences under the Act",
-          "count": 278,
-          "pct": 36.1
+          "count": 274,
+          "pct": 36.9
         },
         {
           "object": "Controlled drugs",
-          "count": 272,
-          "pct": 35.3
+          "count": 231,
+          "pct": 31.1
         },
         {
           "object": "Offensive weapons",
-          "count": 124,
-          "pct": 16.1
+          "count": 138,
+          "pct": 18.6
         },
         {
           "object": "Article for use in theft",
-          "count": 46,
-          "pct": 6.0
+          "count": 55,
+          "pct": 7.4
         },
         {
           "object": "Stolen goods",
-          "count": 39,
-          "pct": 5.1
+          "count": 32,
+          "pct": 4.3
         },
         {
           "object": "Firearms",
-          "count": 8,
-          "pct": 1.0
+          "count": 10,
+          "pct": 1.3
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 664,
-          "pct": 86.2
+          "count": 651,
+          "pct": 87.6
         },
         {
           "outcome": "Arrest",
-          "count": 76,
-          "pct": 9.9
+          "count": 66,
+          "pct": 8.9
         },
         {
           "outcome": "Community resolution",
-          "count": 24,
-          "pct": 3.1
-        },
-        {
-          "outcome": "Caution (simple or conditional)",
-          "count": 4,
-          "pct": 0.5
+          "count": 18,
+          "pct": 2.4
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 2,
-          "pct": 0.3
+          "count": 7,
+          "pct": 0.9
+        },
+        {
+          "outcome": "Caution (simple or conditional)",
+          "count": 1,
+          "pct": 0.1
         }
       ],
       "genderBreakdown": {
-        "Male": 656,
-        "Female": 108,
-        "Unknown": 6
+        "Male": 623,
+        "Female": 110,
+        "Unknown": 10
       },
       "ageRangeBreakdown": {
-        "over 34": 214,
-        "25-34": 155,
-        "10-17": 171,
-        "18-24": 188,
-        "Unknown": 42
+        "25-34": 157,
+        "18-24": 170,
+        "over 34": 220,
+        "Unknown": 36,
+        "10-17": 160
       }
     },
     "northumbria": {
-      "totalSearches": 1728,
+      "totalSearches": 1588,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
-        "Not stated": {
-          "count": 847,
-          "pct": 49.0
-        },
         "White": {
-          "count": 795,
-          "pct": 46.0
+          "count": 754,
+          "pct": 47.5
+        },
+        "Not stated": {
+          "count": 749,
+          "pct": 47.2
         },
         "Asian": {
-          "count": 45,
-          "pct": 2.6
+          "count": 48,
+          "pct": 3.0
         },
         "Black": {
-          "count": 24,
-          "pct": 1.4
+          "count": 21,
+          "pct": 1.3
         },
         "Arab": {
-          "count": 9,
+          "count": 8,
           "pct": 0.5
         },
         "Mixed": {
@@ -2547,436 +2529,435 @@
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 914,
-          "pct": 52.9
+          "count": 833,
+          "pct": 52.5
         },
         {
           "object": "Offensive weapons",
-          "count": 310,
-          "pct": 17.9
+          "count": 299,
+          "pct": 18.8
         },
         {
           "object": "Stolen goods",
-          "count": 193,
-          "pct": 11.2
+          "count": 190,
+          "pct": 12.0
         },
         {
           "object": "Unknown",
-          "count": 130,
-          "pct": 7.5
+          "count": 110,
+          "pct": 6.9
         },
         {
           "object": "Article for use in theft",
-          "count": 66,
-          "pct": 3.8
+          "count": 55,
+          "pct": 3.5
         },
         {
           "object": "Anything to threaten or harm anyone",
-          "count": 38,
+          "count": 37,
+          "pct": 2.3
+        }
+      ],
+      "topOutcomes": [
+        {
+          "outcome": "A no further action disposal",
+          "count": 1072,
+          "pct": 67.5
+        },
+        {
+          "outcome": "Arrest",
+          "count": 362,
+          "pct": 22.8
+        },
+        {
+          "outcome": "Community resolution",
+          "count": 84,
+          "pct": 5.3
+        },
+        {
+          "outcome": "Summons / charged by post",
+          "count": 67,
+          "pct": 4.2
+        },
+        {
+          "outcome": "Khat or Cannabis warning",
+          "count": 2,
+          "pct": 0.1
+        },
+        {
+          "outcome": "Caution (simple or conditional)",
+          "count": 1,
+          "pct": 0.1
+        }
+      ],
+      "genderBreakdown": {
+        "Unknown": 166,
+        "Male": 1243,
+        "Female": 176,
+        "Other": 3
+      },
+      "ageRangeBreakdown": {
+        "Unknown": 188,
+        "18-24": 280,
+        "over 34": 544,
+        "10-17": 200,
+        "25-34": 374,
+        "under 10": 2
+      }
+    },
+    "south-wales": {
+      "totalSearches": 664,
+      "monthsCovered": [
+        "2026-04"
+      ],
+      "ethnicityBroad": {
+        "White": {
+          "count": 461,
+          "pct": 69.4
+        },
+        "Not stated": {
+          "count": 154,
+          "pct": 23.2
+        },
+        "Black": {
+          "count": 23,
+          "pct": 3.5
+        },
+        "Asian": {
+          "count": 14,
+          "pct": 2.1
+        },
+        "Mixed": {
+          "count": 7,
+          "pct": 1.1
+        },
+        "Arab": {
+          "count": 5,
+          "pct": 0.8
+        }
+      },
+      "topObjectsOfSearch": [
+        {
+          "object": "Controlled drugs",
+          "count": 408,
+          "pct": 61.4
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 89,
+          "pct": 13.4
+        },
+        {
+          "object": "Stolen goods",
+          "count": 81,
+          "pct": 12.2
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 30,
+          "pct": 4.5
+        },
+        {
+          "object": "Articles for use in criminal damage",
+          "count": 25,
+          "pct": 3.8
+        },
+        {
+          "object": "Evidence of offences under the Act",
+          "count": 23,
+          "pct": 3.5
+        }
+      ],
+      "topOutcomes": [
+        {
+          "outcome": "A no further action disposal",
+          "count": 522,
+          "pct": 78.6
+        },
+        {
+          "outcome": "Arrest",
+          "count": 94,
+          "pct": 14.2
+        },
+        {
+          "outcome": "Community resolution",
+          "count": 24,
+          "pct": 3.6
+        },
+        {
+          "outcome": "Summons / charged by post",
+          "count": 18,
+          "pct": 2.7
+        },
+        {
+          "outcome": "Caution (simple or conditional)",
+          "count": 4,
+          "pct": 0.6
+        },
+        {
+          "outcome": "Unknown",
+          "count": 2,
+          "pct": 0.3
+        }
+      ],
+      "genderBreakdown": {
+        "Male": 560,
+        "Female": 97,
+        "Unknown": 7
+      },
+      "ageRangeBreakdown": {
+        "over 34": 262,
+        "25-34": 119,
+        "18-24": 163,
+        "10-17": 100,
+        "Unknown": 20
+      }
+    },
+    "south-yorkshire": {
+      "totalSearches": 2789,
+      "monthsCovered": [
+        "2026-04",
+        "2026-05",
+        "2026-06"
+      ],
+      "ethnicityBroad": {
+        "White": {
+          "count": 1575,
+          "pct": 56.5
+        },
+        "Not stated": {
+          "count": 792,
+          "pct": 28.4
+        },
+        "Asian": {
+          "count": 241,
+          "pct": 8.6
+        },
+        "Black": {
+          "count": 150,
+          "pct": 5.4
+        },
+        "Mixed": {
+          "count": 31,
+          "pct": 1.1
+        }
+      },
+      "topObjectsOfSearch": [
+        {
+          "object": "Controlled drugs",
+          "count": 1915,
+          "pct": 68.7
+        },
+        {
+          "object": "Stolen goods",
+          "count": 316,
+          "pct": 11.3
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 203,
+          "pct": 7.3
+        },
+        {
+          "object": "Unknown",
+          "count": 199,
+          "pct": 7.1
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 78,
+          "pct": 2.8
+        },
+        {
+          "object": "Firearms",
+          "count": 60,
           "pct": 2.2
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 1163,
-          "pct": 67.3
+          "count": 1944,
+          "pct": 69.7
         },
         {
           "outcome": "Arrest",
-          "count": 400,
-          "pct": 23.1
+          "count": 346,
+          "pct": 12.4
         },
         {
           "outcome": "Community resolution",
-          "count": 94,
-          "pct": 5.4
-        },
-        {
-          "outcome": "Summons / charged by post",
-          "count": 61,
-          "pct": 3.5
-        },
-        {
-          "outcome": "Caution (simple or conditional)",
-          "count": 5,
-          "pct": 0.3
-        },
-        {
-          "outcome": "Khat or Cannabis warning",
-          "count": 5,
-          "pct": 0.3
-        }
-      ],
-      "genderBreakdown": {
-        "Unknown": 196,
-        "Male": 1334,
-        "Female": 194,
-        "Other": 4
-      },
-      "ageRangeBreakdown": {
-        "Unknown": 215,
-        "over 34": 599,
-        "25-34": 413,
-        "18-24": 288,
-        "10-17": 208,
-        "under 10": 5
-      }
-    },
-    "south-wales": {
-      "totalSearches": 1359,
-      "monthsCovered": [
-        "2026-03",
-        "2026-04"
-      ],
-      "ethnicityBroad": {
-        "White": {
-          "count": 933,
-          "pct": 68.7
-        },
-        "Not stated": {
-          "count": 317,
-          "pct": 23.3
-        },
-        "Black": {
-          "count": 47,
-          "pct": 3.5
-        },
-        "Asian": {
-          "count": 32,
-          "pct": 2.4
-        },
-        "Mixed": {
-          "count": 18,
-          "pct": 1.3
-        },
-        "Arab": {
-          "count": 12,
-          "pct": 0.9
-        }
-      },
-      "topObjectsOfSearch": [
-        {
-          "object": "Controlled drugs",
-          "count": 844,
-          "pct": 62.1
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 187,
-          "pct": 13.8
-        },
-        {
-          "object": "Stolen goods",
-          "count": 135,
-          "pct": 9.9
-        },
-        {
-          "object": "Article for use in theft",
-          "count": 67,
-          "pct": 4.9
-        },
-        {
-          "object": "Articles for use in criminal damage",
-          "count": 63,
-          "pct": 4.6
-        },
-        {
-          "object": "Evidence of offences under the Act",
-          "count": 41,
-          "pct": 3.0
-        }
-      ],
-      "topOutcomes": [
-        {
-          "outcome": "A no further action disposal",
-          "count": 1047,
-          "pct": 77.0
-        },
-        {
-          "outcome": "Arrest",
-          "count": 193,
-          "pct": 14.2
-        },
-        {
-          "outcome": "Community resolution",
-          "count": 47,
-          "pct": 3.5
-        },
-        {
-          "outcome": "Summons / charged by post",
-          "count": 39,
-          "pct": 2.9
-        },
-        {
-          "outcome": "Unknown",
-          "count": 26,
-          "pct": 1.9
-        },
-        {
-          "outcome": "Caution (simple or conditional)",
-          "count": 7,
-          "pct": 0.5
-        }
-      ],
-      "genderBreakdown": {
-        "Male": 1147,
-        "Female": 198,
-        "Unknown": 14
-      },
-      "ageRangeBreakdown": {
-        "over 34": 491,
-        "25-34": 264,
-        "10-17": 221,
-        "18-24": 333,
-        "Unknown": 50
-      }
-    },
-    "south-yorkshire": {
-      "totalSearches": 3037,
-      "monthsCovered": [
-        "2026-03",
-        "2026-04",
-        "2026-05"
-      ],
-      "ethnicityBroad": {
-        "White": {
-          "count": 1699,
-          "pct": 55.9
-        },
-        "Not stated": {
-          "count": 896,
-          "pct": 29.5
-        },
-        "Asian": {
-          "count": 229,
-          "pct": 7.5
-        },
-        "Black": {
-          "count": 166,
-          "pct": 5.5
-        },
-        "Mixed": {
-          "count": 47,
-          "pct": 1.5
-        }
-      },
-      "topObjectsOfSearch": [
-        {
-          "object": "Controlled drugs",
-          "count": 2082,
-          "pct": 68.6
-        },
-        {
-          "object": "Stolen goods",
-          "count": 348,
+          "count": 320,
           "pct": 11.5
         },
         {
-          "object": "Article for use in theft",
-          "count": 205,
-          "pct": 6.8
-        },
-        {
-          "object": "Unknown",
-          "count": 200,
-          "pct": 6.6
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 124,
-          "pct": 4.1
-        },
-        {
-          "object": "Firearms",
-          "count": 63,
-          "pct": 2.1
-        }
-      ],
-      "topOutcomes": [
-        {
-          "outcome": "A no further action disposal",
-          "count": 2109,
-          "pct": 69.4
-        },
-        {
-          "outcome": "Arrest",
-          "count": 383,
-          "pct": 12.6
-        },
-        {
-          "outcome": "Community resolution",
-          "count": 343,
-          "pct": 11.3
-        },
-        {
           "outcome": "Summons / charged by post",
-          "count": 165,
-          "pct": 5.4
+          "count": 149,
+          "pct": 5.3
         },
         {
           "outcome": "Caution (simple or conditional)",
-          "count": 26,
+          "count": 25,
           "pct": 0.9
         },
         {
           "outcome": "Khat or Cannabis warning",
-          "count": 9,
-          "pct": 0.3
+          "count": 5,
+          "pct": 0.2
         }
       ],
       "genderBreakdown": {
-        "Male": 2227,
-        "Unknown": 470,
-        "Female": 340
+        "Male": 2050,
+        "Unknown": 415,
+        "Female": 324
       },
       "ageRangeBreakdown": {
-        "18-24": 660,
-        "10-17": 362,
-        "over 34": 818,
-        "25-34": 565,
-        "Unknown": 630,
-        "under 10": 2
+        "25-34": 519,
+        "over 34": 752,
+        "18-24": 603,
+        "10-17": 339,
+        "Unknown": 573,
+        "under 10": 3
       }
     },
     "staffordshire": {
-      "totalSearches": 1764,
+      "totalSearches": 1622,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 1061,
-          "pct": 60.1
+          "count": 992,
+          "pct": 61.2
         },
         "Not stated": {
-          "count": 491,
-          "pct": 27.8
+          "count": 437,
+          "pct": 26.9
         },
         "Asian": {
-          "count": 126,
-          "pct": 7.1
+          "count": 104,
+          "pct": 6.4
         },
         "Black": {
-          "count": 54,
-          "pct": 3.1
+          "count": 59,
+          "pct": 3.6
         },
         "Mixed": {
-          "count": 30,
-          "pct": 1.7
+          "count": 29,
+          "pct": 1.8
         },
         "Arab": {
-          "count": 2,
+          "count": 1,
           "pct": 0.1
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 987,
-          "pct": 56.0
-        },
-        {
-          "object": "Stolen goods",
-          "count": 218,
-          "pct": 12.4
+          "count": 895,
+          "pct": 55.2
         },
         {
           "object": "Offensive weapons",
-          "count": 186,
-          "pct": 10.5
+          "count": 207,
+          "pct": 12.8
+        },
+        {
+          "object": "Stolen goods",
+          "count": 195,
+          "pct": 12.0
         },
         {
           "object": "Evidence of offences under the Act",
-          "count": 118,
-          "pct": 6.7
+          "count": 115,
+          "pct": 7.1
         },
         {
           "object": "Article for use in theft",
-          "count": 105,
-          "pct": 6.0
+          "count": 91,
+          "pct": 5.6
         },
         {
           "object": "Anything to threaten or harm anyone",
-          "count": 61,
-          "pct": 3.5
+          "count": 35,
+          "pct": 2.2
         }
       ],
       "topOutcomes": [
         {
           "outcome": "Unknown",
-          "count": 953,
-          "pct": 54.0
+          "count": 699,
+          "pct": 43.1
         },
         {
           "outcome": "A no further action disposal",
-          "count": 418,
-          "pct": 23.7
+          "count": 522,
+          "pct": 32.2
         },
         {
           "outcome": "Community resolution",
-          "count": 231,
-          "pct": 13.1
+          "count": 206,
+          "pct": 12.7
         },
         {
           "outcome": "Arrest",
-          "count": 136,
-          "pct": 7.7
+          "count": 157,
+          "pct": 9.7
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 15,
-          "pct": 0.9
+          "count": 21,
+          "pct": 1.3
         },
         {
           "outcome": "Caution (simple or conditional)",
-          "count": 8,
-          "pct": 0.5
+          "count": 13,
+          "pct": 0.8
         }
       ],
       "genderBreakdown": {
-        "Female": 247,
-        "Male": 1388,
-        "Other": 129
+        "Male": 1269,
+        "Female": 223,
+        "Other": 130
       },
       "ageRangeBreakdown": {
-        "over 34": 543,
-        "10-17": 296,
-        "25-34": 356,
-        "Unknown": 162,
-        "18-24": 390,
-        "under 10": 17
+        "25-34": 321,
+        "over 34": 499,
+        "18-24": 358,
+        "10-17": 279,
+        "Unknown": 155,
+        "under 10": 10
       }
     },
     "surrey": {
-      "totalSearches": 1321,
+      "totalSearches": 1235,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 827,
-          "pct": 62.6
+          "count": 774,
+          "pct": 62.7
         },
         "Not stated": {
-          "count": 266,
-          "pct": 20.1
+          "count": 261,
+          "pct": 21.1
         },
         "Asian": {
-          "count": 106,
-          "pct": 8.0
+          "count": 105,
+          "pct": 8.5
         },
         "Black": {
-          "count": 83,
-          "pct": 6.3
+          "count": 70,
+          "pct": 5.7
         },
         "Mixed": {
-          "count": 36,
-          "pct": 2.7
+          "count": 22,
+          "pct": 1.8
         },
         "Arab": {
           "count": 3,
@@ -2986,840 +2967,837 @@
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 720,
-          "pct": 54.5
+          "count": 652,
+          "pct": 52.8
         },
         {
           "object": "Offensive weapons",
-          "count": 218,
-          "pct": 16.5
+          "count": 243,
+          "pct": 19.7
         },
         {
           "object": "Stolen goods",
-          "count": 193,
-          "pct": 14.6
+          "count": 170,
+          "pct": 13.8
         },
         {
           "object": "Unknown",
-          "count": 122,
-          "pct": 9.2
+          "count": 98,
+          "pct": 7.9
         },
         {
           "object": "Article for use in theft",
           "count": 36,
-          "pct": 2.7
+          "pct": 2.9
         },
         {
           "object": "Articles for use in criminal damage",
-          "count": 21,
-          "pct": 1.6
+          "count": 18,
+          "pct": 1.5
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 780,
-          "pct": 59.0
+          "count": 746,
+          "pct": 60.4
         },
         {
           "outcome": "Arrest",
-          "count": 273,
-          "pct": 20.7
-        },
-        {
-          "outcome": "Community resolution",
-          "count": 196,
-          "pct": 14.8
-        },
-        {
-          "outcome": "Summons / charged by post",
-          "count": 58,
-          "pct": 4.4
-        },
-        {
-          "outcome": "Caution (simple or conditional)",
-          "count": 7,
-          "pct": 0.5
-        },
-        {
-          "outcome": "Unknown",
-          "count": 6,
-          "pct": 0.5
-        }
-      ],
-      "genderBreakdown": {
-        "Male": 1083,
-        "Female": 206,
-        "Unknown": 32
-      },
-      "ageRangeBreakdown": {
-        "10-17": 291,
-        "18-24": 417,
-        "Unknown": 115,
-        "25-34": 265,
-        "over 34": 233
-      }
-    },
-    "sussex": {
-      "totalSearches": 1338,
-      "monthsCovered": [
-        "2026-03",
-        "2026-04"
-      ],
-      "ethnicityBroad": {
-        "White": {
-          "count": 964,
-          "pct": 72.0
-        },
-        "Not stated": {
-          "count": 235,
-          "pct": 17.6
-        },
-        "Black": {
-          "count": 63,
-          "pct": 4.7
-        },
-        "Asian": {
-          "count": 37,
-          "pct": 2.8
-        },
-        "Mixed": {
-          "count": 27,
-          "pct": 2.0
-        },
-        "Arab": {
-          "count": 12,
-          "pct": 0.9
-        }
-      },
-      "topObjectsOfSearch": [
-        {
-          "object": "Controlled drugs",
-          "count": 835,
-          "pct": 62.4
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 233,
-          "pct": 17.4
-        },
-        {
-          "object": "Article for use in theft",
-          "count": 111,
-          "pct": 8.3
-        },
-        {
-          "object": "Stolen goods",
-          "count": 103,
-          "pct": 7.7
-        },
-        {
-          "object": "Articles for use in criminal damage",
-          "count": 24,
-          "pct": 1.8
-        },
-        {
-          "object": "Detailed object of search unavailable",
-          "count": 15,
-          "pct": 1.1
-        }
-      ],
-      "topOutcomes": [
-        {
-          "outcome": "A no further action disposal",
-          "count": 754,
-          "pct": 56.4
-        },
-        {
-          "outcome": "Arrest",
-          "count": 340,
-          "pct": 25.4
+          "count": 247,
+          "pct": 20.0
         },
         {
           "outcome": "Community resolution",
           "count": 185,
-          "pct": 13.8
+          "pct": 15.0
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 49,
-          "pct": 3.7
+          "count": 44,
+          "pct": 3.6
         },
         {
           "outcome": "Unknown",
-          "count": 4,
-          "pct": 0.3
+          "count": 7,
+          "pct": 0.6
         },
         {
-          "outcome": "Penalty Notice for Disorder",
+          "outcome": "Caution (simple or conditional)",
           "count": 3,
           "pct": 0.2
         }
       ],
       "genderBreakdown": {
-        "Unknown": 1338
+        "Male": 1024,
+        "Female": 175,
+        "Unknown": 36
       },
       "ageRangeBreakdown": {
-        "over 34": 343,
-        "Unknown": 87,
-        "25-34": 285,
-        "18-24": 354,
-        "10-17": 269
+        "10-17": 276,
+        "over 34": 207,
+        "Unknown": 115,
+        "18-24": 380,
+        "25-34": 257
       }
     },
-    "thames-valley": {
-      "totalSearches": 4556,
+    "sussex": {
+      "totalSearches": 1711,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 2492,
-          "pct": 54.7
+          "count": 1188,
+          "pct": 69.4
         },
         "Not stated": {
-          "count": 1063,
-          "pct": 23.3
-        },
-        "Asian": {
-          "count": 488,
-          "pct": 10.7
+          "count": 307,
+          "pct": 17.9
         },
         "Black": {
-          "count": 396,
-          "pct": 8.7
+          "count": 96,
+          "pct": 5.6
+        },
+        "Asian": {
+          "count": 50,
+          "pct": 2.9
         },
         "Mixed": {
-          "count": 77,
+          "count": 49,
+          "pct": 2.9
+        },
+        "Arab": {
+          "count": 21,
+          "pct": 1.2
+        }
+      },
+      "topObjectsOfSearch": [
+        {
+          "object": "Controlled drugs",
+          "count": 1005,
+          "pct": 58.7
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 314,
+          "pct": 18.4
+        },
+        {
+          "object": "Stolen goods",
+          "count": 184,
+          "pct": 10.8
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 140,
+          "pct": 8.2
+        },
+        {
+          "object": "Articles for use in criminal damage",
+          "count": 27,
+          "pct": 1.6
+        },
+        {
+          "object": "Firearms",
+          "count": 20,
+          "pct": 1.2
+        }
+      ],
+      "topOutcomes": [
+        {
+          "outcome": "A no further action disposal",
+          "count": 958,
+          "pct": 56.0
+        },
+        {
+          "outcome": "Arrest",
+          "count": 427,
+          "pct": 25.0
+        },
+        {
+          "outcome": "Community resolution",
+          "count": 223,
+          "pct": 13.0
+        },
+        {
+          "outcome": "Summons / charged by post",
+          "count": 82,
+          "pct": 4.8
+        },
+        {
+          "outcome": "Unknown",
+          "count": 14,
+          "pct": 0.8
+        },
+        {
+          "outcome": "Caution (simple or conditional)",
+          "count": 5,
+          "pct": 0.3
+        }
+      ],
+      "genderBreakdown": {
+        "Unknown": 1711
+      },
+      "ageRangeBreakdown": {
+        "18-24": 390,
+        "over 34": 454,
+        "25-34": 342,
+        "Unknown": 112,
+        "10-17": 413
+      }
+    },
+    "thames-valley": {
+      "totalSearches": 4131,
+      "monthsCovered": [
+        "2026-04",
+        "2026-05",
+        "2026-06"
+      ],
+      "ethnicityBroad": {
+        "White": {
+          "count": 2241,
+          "pct": 54.2
+        },
+        "Not stated": {
+          "count": 965,
+          "pct": 23.4
+        },
+        "Asian": {
+          "count": 452,
+          "pct": 10.9
+        },
+        "Black": {
+          "count": 363,
+          "pct": 8.8
+        },
+        "Mixed": {
+          "count": 71,
           "pct": 1.7
         },
         "Arab": {
-          "count": 40,
+          "count": 39,
           "pct": 0.9
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 2989,
-          "pct": 65.6
+          "count": 2597,
+          "pct": 62.9
         },
         {
           "object": "Offensive weapons",
-          "count": 667,
-          "pct": 14.6
+          "count": 654,
+          "pct": 15.8
         },
         {
           "object": "Stolen goods",
-          "count": 566,
-          "pct": 12.4
+          "count": 543,
+          "pct": 13.1
         },
         {
           "object": "Article for use in theft",
-          "count": 244,
-          "pct": 5.4
+          "count": 249,
+          "pct": 6.0
         },
         {
           "object": "Articles for use in criminal damage",
-          "count": 50,
-          "pct": 1.1
+          "count": 57,
+          "pct": 1.4
         },
         {
           "object": "Firearms",
-          "count": 23,
-          "pct": 0.5
+          "count": 24,
+          "pct": 0.6
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 3175,
-          "pct": 69.7
+          "count": 2870,
+          "pct": 69.5
         },
         {
           "outcome": "Community resolution",
-          "count": 827,
-          "pct": 18.2
+          "count": 766,
+          "pct": 18.5
         },
         {
           "outcome": "Arrest",
-          "count": 438,
-          "pct": 9.6
+          "count": 391,
+          "pct": 9.5
         },
         {
           "outcome": "Unknown",
-          "count": 35,
+          "count": 33,
           "pct": 0.8
         },
         {
           "outcome": "Penalty Notice for Disorder",
-          "count": 28,
-          "pct": 0.6
+          "count": 27,
+          "pct": 0.7
         },
         {
           "outcome": "Khat or Cannabis warning",
-          "count": 24,
+          "count": 19,
           "pct": 0.5
         }
       ],
       "genderBreakdown": {
-        "Unknown": 35,
-        "Male": 3813,
-        "Female": 640,
-        "Other": 68
+        "Male": 3497,
+        "Female": 549,
+        "Other": 52,
+        "Unknown": 33
       },
       "ageRangeBreakdown": {
-        "Unknown": 251,
-        "18-24": 1228,
-        "25-34": 975,
-        "over 34": 1187,
-        "10-17": 914,
+        "10-17": 858,
+        "25-34": 850,
+        "over 34": 1064,
+        "Unknown": 225,
+        "18-24": 1133,
         "under 10": 1
       }
     },
     "warwickshire": {
-      "totalSearches": 368,
+      "totalSearches": 302,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 267,
-          "pct": 72.6
-        },
-        "Not stated": {
-          "count": 40,
-          "pct": 10.9
+          "count": 207,
+          "pct": 68.5
         },
         "Asian": {
-          "count": 37,
-          "pct": 10.1
+          "count": 40,
+          "pct": 13.2
+        },
+        "Not stated": {
+          "count": 34,
+          "pct": 11.3
         },
         "Black": {
-          "count": 20,
-          "pct": 5.4
+          "count": 15,
+          "pct": 5.0
         },
         "Arab": {
-          "count": 3,
-          "pct": 0.8
+          "count": 4,
+          "pct": 1.3
         },
         "Mixed": {
-          "count": 1,
-          "pct": 0.3
+          "count": 2,
+          "pct": 0.7
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 164,
-          "pct": 44.6
+          "count": 131,
+          "pct": 43.4
         },
         {
           "object": "Stolen goods",
-          "count": 60,
-          "pct": 16.3
+          "count": 44,
+          "pct": 14.6
         },
         {
           "object": "Offensive weapons",
-          "count": 39,
-          "pct": 10.6
-        },
-        {
-          "object": "Article for use in theft",
-          "count": 34,
-          "pct": 9.2
+          "count": 42,
+          "pct": 13.9
         },
         {
           "object": "Anything to threaten or harm anyone",
-          "count": 32,
-          "pct": 8.7
+          "count": 33,
+          "pct": 10.9
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 24,
+          "pct": 7.9
         },
         {
           "object": "Firearms",
-          "count": 16,
-          "pct": 4.3
+          "count": 14,
+          "pct": 4.6
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 253,
-          "pct": 68.8
+          "count": 200,
+          "pct": 66.2
         },
         {
           "outcome": "Arrest",
-          "count": 72,
-          "pct": 19.6
+          "count": 58,
+          "pct": 19.2
         },
         {
           "outcome": "Community resolution",
-          "count": 24,
-          "pct": 6.5
+          "count": 23,
+          "pct": 7.6
         },
         {
           "outcome": "Caution (simple or conditional)",
-          "count": 9,
-          "pct": 2.4
+          "count": 11,
+          "pct": 3.6
         },
         {
           "outcome": "Summons / charged by post",
           "count": 8,
-          "pct": 2.2
+          "pct": 2.6
         },
         {
           "outcome": "Khat or Cannabis warning",
           "count": 2,
-          "pct": 0.5
+          "pct": 0.7
         }
       ],
       "genderBreakdown": {
-        "Male": 311,
-        "Female": 54,
-        "Unknown": 3
+        "Male": 256,
+        "Female": 44,
+        "Unknown": 2
       },
       "ageRangeBreakdown": {
-        "18-24": 97,
-        "10-17": 60,
-        "Unknown": 59,
-        "25-34": 68,
-        "over 34": 84
+        "18-24": 73,
+        "Unknown": 51,
+        "25-34": 56,
+        "10-17": 46,
+        "over 34": 76
       }
     },
     "west-mercia": {
-      "totalSearches": 955,
+      "totalSearches": 830,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 624,
-          "pct": 65.3
+          "count": 547,
+          "pct": 65.9
         },
         "Not stated": {
-          "count": 228,
-          "pct": 23.9
+          "count": 194,
+          "pct": 23.4
         },
         "Asian": {
-          "count": 58,
-          "pct": 6.1
+          "count": 46,
+          "pct": 5.5
         },
         "Black": {
           "count": 37,
-          "pct": 3.9
+          "pct": 4.5
         },
         "Mixed": {
-          "count": 7,
+          "count": 6,
           "pct": 0.7
-        },
-        "Arab": {
-          "count": 1,
-          "pct": 0.1
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 575,
-          "pct": 60.2
+          "count": 470,
+          "pct": 56.6
         },
         {
           "object": "Offensive weapons",
-          "count": 149,
-          "pct": 15.6
+          "count": 147,
+          "pct": 17.7
         },
         {
           "object": "Stolen goods",
-          "count": 113,
-          "pct": 11.8
+          "count": 123,
+          "pct": 14.8
         },
         {
           "object": "Article for use in theft",
-          "count": 78,
-          "pct": 8.2
+          "count": 50,
+          "pct": 6.0
         },
         {
           "object": "Anything to threaten or harm anyone",
-          "count": 14,
-          "pct": 1.5
+          "count": 18,
+          "pct": 2.2
         },
         {
-          "object": "Articles for use in criminal damage",
+          "object": "Unknown",
           "count": 10,
-          "pct": 1.0
+          "pct": 1.2
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 673,
-          "pct": 70.5
+          "count": 425,
+          "pct": 51.2
         },
         {
           "outcome": "Arrest",
-          "count": 208,
-          "pct": 21.8
+          "count": 191,
+          "pct": 23.0
         },
         {
-          "outcome": "Community resolution",
-          "count": 49,
-          "pct": 5.1
-        },
-        {
-          "outcome": "Khat or Cannabis warning",
-          "count": 9,
-          "pct": 0.9
-        },
-        {
-          "outcome": "Summons / charged by post",
-          "count": 8,
-          "pct": 0.8
-        },
-        {
-          "outcome": "Penalty Notice for Disorder",
-          "count": 7,
-          "pct": 0.7
-        }
-      ],
-      "genderBreakdown": {
-        "Male": 775,
-        "Female": 140,
-        "Unknown": 40
-      },
-      "ageRangeBreakdown": {
-        "10-17": 189,
-        "over 34": 239,
-        "18-24": 233,
-        "25-34": 189,
-        "Unknown": 103,
-        "under 10": 2
-      }
-    },
-    "west-midlands": {
-      "totalSearches": 8364,
-      "monthsCovered": [
-        "2026-03",
-        "2026-04",
-        "2026-05"
-      ],
-      "ethnicityBroad": {
-        "White": {
-          "count": 3389,
-          "pct": 40.5
-        },
-        "Not stated": {
-          "count": 2154,
-          "pct": 25.8
-        },
-        "Asian": {
-          "count": 1437,
-          "pct": 17.2
-        },
-        "Black": {
-          "count": 1187,
-          "pct": 14.2
-        },
-        "Mixed": {
-          "count": 197,
-          "pct": 2.4
-        }
-      },
-      "topObjectsOfSearch": [
-        {
-          "object": "Controlled drugs",
-          "count": 4210,
-          "pct": 50.3
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 2047,
-          "pct": 24.5
-        },
-        {
-          "object": "Stolen goods",
-          "count": 1004,
-          "pct": 12.0
-        },
-        {
-          "object": "Article for use in theft",
-          "count": 846,
-          "pct": 10.1
-        },
-        {
-          "object": "Firearms",
-          "count": 160,
-          "pct": 1.9
-        },
-        {
-          "object": "Articles for use in criminal damage",
-          "count": 72,
-          "pct": 0.9
-        }
-      ],
-      "topOutcomes": [
-        {
-          "outcome": "A no further action disposal",
-          "count": 5101,
-          "pct": 61.0
-        },
-        {
-          "outcome": "Arrest",
-          "count": 1483,
+          "outcome": "Unknown",
+          "count": 147,
           "pct": 17.7
         },
         {
           "outcome": "Community resolution",
-          "count": 998,
-          "pct": 11.9
+          "count": 48,
+          "pct": 5.8
+        },
+        {
+          "outcome": "Khat or Cannabis warning",
+          "count": 9,
+          "pct": 1.1
+        },
+        {
+          "outcome": "Summons / charged by post",
+          "count": 6,
+          "pct": 0.7
+        }
+      ],
+      "genderBreakdown": {
+        "Male": 667,
+        "Female": 129,
+        "Unknown": 34
+      },
+      "ageRangeBreakdown": {
+        "Unknown": 87,
+        "25-34": 156,
+        "over 34": 213,
+        "18-24": 212,
+        "10-17": 160,
+        "under 10": 2
+      }
+    },
+    "west-midlands": {
+      "totalSearches": 7996,
+      "monthsCovered": [
+        "2026-04",
+        "2026-05",
+        "2026-06"
+      ],
+      "ethnicityBroad": {
+        "White": {
+          "count": 3072,
+          "pct": 38.4
+        },
+        "Not stated": {
+          "count": 2008,
+          "pct": 25.1
+        },
+        "Asian": {
+          "count": 1489,
+          "pct": 18.6
+        },
+        "Black": {
+          "count": 1222,
+          "pct": 15.3
+        },
+        "Mixed": {
+          "count": 205,
+          "pct": 2.6
+        }
+      },
+      "topObjectsOfSearch": [
+        {
+          "object": "Controlled drugs",
+          "count": 3967,
+          "pct": 49.6
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 2050,
+          "pct": 25.6
+        },
+        {
+          "object": "Stolen goods",
+          "count": 961,
+          "pct": 12.0
+        },
+        {
+          "object": "Article for use in theft",
+          "count": 766,
+          "pct": 9.6
+        },
+        {
+          "object": "Firearms",
+          "count": 169,
+          "pct": 2.1
+        },
+        {
+          "object": "Articles for use in criminal damage",
+          "count": 64,
+          "pct": 0.8
+        }
+      ],
+      "topOutcomes": [
+        {
+          "outcome": "A no further action disposal",
+          "count": 4885,
+          "pct": 61.1
+        },
+        {
+          "outcome": "Arrest",
+          "count": 1437,
+          "pct": 18.0
+        },
+        {
+          "outcome": "Community resolution",
+          "count": 936,
+          "pct": 11.7
         },
         {
           "outcome": "Unknown",
-          "count": 629,
+          "count": 602,
           "pct": 7.5
         },
         {
           "outcome": "Khat or Cannabis warning",
-          "count": 60,
-          "pct": 0.7
+          "count": 51,
+          "pct": 0.6
         },
         {
           "outcome": "Penalty Notice for Disorder",
-          "count": 50,
-          "pct": 0.6
+          "count": 43,
+          "pct": 0.5
         }
       ],
       "genderBreakdown": {
-        "Male": 6679,
-        "Unknown": 1061,
-        "Female": 624
+        "Male": 6415,
+        "Unknown": 968,
+        "Female": 613
       },
       "ageRangeBreakdown": {
-        "18-24": 1268,
-        "Unknown": 3834,
-        "10-17": 1208,
-        "25-34": 993,
-        "over 34": 1061
+        "Unknown": 3745,
+        "18-24": 1202,
+        "over 34": 1031,
+        "25-34": 897,
+        "10-17": 1121
       }
     },
     "west-yorkshire": {
-      "totalSearches": 4883,
+      "totalSearches": 4755,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
         "White": {
-          "count": 2443,
-          "pct": 50.0
+          "count": 2304,
+          "pct": 48.5
         },
         "Not stated": {
-          "count": 2203,
-          "pct": 45.1
+          "count": 2224,
+          "pct": 46.8
         },
         "Asian": {
-          "count": 138,
+          "count": 135,
           "pct": 2.8
         },
         "Black": {
-          "count": 61,
+          "count": 55,
           "pct": 1.2
         },
         "Arab": {
-          "count": 38,
+          "count": 37,
           "pct": 0.8
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
-          "count": 3365,
-          "pct": 68.9
+          "count": 3269,
+          "pct": 68.7
         },
         {
           "object": "Article for use in theft",
-          "count": 446,
-          "pct": 9.1
+          "count": 445,
+          "pct": 9.4
         },
         {
           "object": "Unknown",
-          "count": 339,
-          "pct": 6.9
-        },
-        {
-          "object": "Offensive weapons",
-          "count": 322,
-          "pct": 6.6
+          "count": 331,
+          "pct": 7.0
         },
         {
           "object": "Stolen goods",
-          "count": 307,
-          "pct": 6.3
+          "count": 325,
+          "pct": 6.8
+        },
+        {
+          "object": "Offensive weapons",
+          "count": 291,
+          "pct": 6.1
         },
         {
           "object": "Firearms",
-          "count": 45,
+          "count": 43,
           "pct": 0.9
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 3161,
-          "pct": 64.7
+          "count": 3046,
+          "pct": 64.1
         },
         {
           "outcome": "Arrest",
-          "count": 805,
-          "pct": 16.5
+          "count": 770,
+          "pct": 16.2
         },
         {
           "outcome": "Community resolution",
-          "count": 659,
-          "pct": 13.5
+          "count": 666,
+          "pct": 14.0
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 168,
-          "pct": 3.4
+          "count": 180,
+          "pct": 3.8
         },
         {
           "outcome": "Unknown",
-          "count": 60,
-          "pct": 1.2
+          "count": 64,
+          "pct": 1.3
         },
         {
           "outcome": "Caution (simple or conditional)",
-          "count": 30,
+          "count": 29,
           "pct": 0.6
         }
       ],
       "genderBreakdown": {
-        "Unknown": 376,
-        "Male": 4007,
-        "Female": 500
+        "Male": 3871,
+        "Female": 498,
+        "Unknown": 386
       },
       "ageRangeBreakdown": {
-        "Unknown": 350,
-        "over 34": 1184,
-        "25-34": 1152,
-        "10-17": 724,
-        "18-24": 1473
+        "18-24": 1471,
+        "25-34": 1081,
+        "10-17": 647,
+        "over 34": 1189,
+        "Unknown": 367
       }
     },
     "wiltshire": {
-      "totalSearches": 756,
+      "totalSearches": 716,
       "monthsCovered": [
-        "2026-03",
         "2026-04",
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "ethnicityBroad": {
-        "White": {
-          "count": 355,
-          "pct": 47.0
-        },
         "Not stated": {
-          "count": 343,
-          "pct": 45.4
+          "count": 340,
+          "pct": 47.5
         },
-        "Black": {
-          "count": 24,
-          "pct": 3.2
+        "White": {
+          "count": 319,
+          "pct": 44.6
         },
         "Asian": {
           "count": 23,
-          "pct": 3.0
+          "pct": 3.2
+        },
+        "Black": {
+          "count": 21,
+          "pct": 2.9
         },
         "Mixed": {
           "count": 9,
-          "pct": 1.2
+          "pct": 1.3
         },
         "Arab": {
-          "count": 2,
-          "pct": 0.3
+          "count": 4,
+          "pct": 0.6
         }
       },
       "topObjectsOfSearch": [
         {
           "object": "Controlled drugs",
           "count": 402,
-          "pct": 53.2
+          "pct": 56.1
         },
         {
           "object": "Offensive weapons",
-          "count": 145,
-          "pct": 19.2
+          "count": 128,
+          "pct": 17.9
         },
         {
           "object": "Stolen goods",
-          "count": 84,
-          "pct": 11.1
-        },
-        {
-          "object": "Evidence of offences under the Act",
-          "count": 41,
-          "pct": 5.4
+          "count": 88,
+          "pct": 12.3
         },
         {
           "object": "Unknown",
-          "count": 31,
-          "pct": 4.1
+          "count": 32,
+          "pct": 4.5
+        },
+        {
+          "object": "Evidence of offences under the Act",
+          "count": 28,
+          "pct": 3.9
         },
         {
           "object": "Articles for use in criminal damage",
-          "count": 22,
-          "pct": 2.9
+          "count": 12,
+          "pct": 1.7
         }
       ],
       "topOutcomes": [
         {
           "outcome": "A no further action disposal",
-          "count": 442,
-          "pct": 58.5
+          "count": 411,
+          "pct": 57.4
         },
         {
           "outcome": "Arrest",
-          "count": 165,
-          "pct": 21.8
+          "count": 157,
+          "pct": 21.9
         },
         {
           "outcome": "Community resolution",
-          "count": 65,
-          "pct": 8.6
+          "count": 67,
+          "pct": 9.4
         },
         {
           "outcome": "Unknown",
-          "count": 62,
-          "pct": 8.2
+          "count": 61,
+          "pct": 8.5
         },
         {
           "outcome": "Caution (simple or conditional)",
-          "count": 13,
-          "pct": 1.7
+          "count": 10,
+          "pct": 1.4
         },
         {
           "outcome": "Summons / charged by post",
-          "count": 6,
-          "pct": 0.8
+          "count": 8,
+          "pct": 1.1
         }
       ],
       "genderBreakdown": {
-        "Female": 124,
-        "Male": 600,
-        "Unknown": 32
+        "Male": 567,
+        "Female": 119,
+        "Unknown": 30
       },
       "ageRangeBreakdown": {
-        "18-24": 210,
-        "10-17": 203,
-        "over 34": 171,
-        "25-34": 139,
-        "Unknown": 33
+        "10-17": 174,
+        "18-24": 189,
+        "over 34": 180,
+        "25-34": 144,
+        "Unknown": 29
       }
     }
   }
