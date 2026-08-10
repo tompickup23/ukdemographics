@@ -8,6 +8,8 @@ Population data for every community. Ethnic projections, school data, housing de
 **Domain:** ukdemographics.co.uk.
 **Data:** ONS Census 2021 (NOMIS — TS012, TS029, RM134, RM043, RM192, RM021), DWP NINo + PIP (Stat-Xplore), ONS births, MHCLG CTB1, DfE School Census, ONS Open Geography Portal LAD24↔CTY24 + PCON24↔LAD25 crosswalks, UKE GE 2024 shares, Parliament Members API.
 
+**Cross-repo data dependency (10 Aug 2026):** `scripts/transform/transform_asylum_bridge.py` reads `/Users/tompickup/asylumstats/data/raw/uk_routes/*.xlsx` directly off disk — a hardcoded absolute path, not an API. Local-only (not in CI); output gets committed. Only works on this Mac with `asylumstats` present at that exact path.
+
 ## Key surfaces
 
 - `/places/<slug>/` — 320 LA profiles, 23 sections each. NOMIS Census data wired (TS029 English proficiency, RM134 tenure by ethnic group, RM043 health by ethnic group). District pages fall back to parent county for ASC with a clear caveat banner.
