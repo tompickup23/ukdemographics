@@ -237,6 +237,16 @@ console.log("Computing CCRs and CWRs...");
 const areaCodes = Object.keys(base2021.areas).filter(c => areas2011.has(c));
 console.log(`  ${areaCodes.length} areas in both censuses`);
 
+// CCR guardrails. Both of these truncate in one direction: the ceiling clips
+// fast-growing cohorts (which are overwhelmingly minority groups growing from a
+// small 2011 base) and the small-base freeze discards their growth outright.
+// Overridable so the sweep in docs/data-currency-audit-2026-08-13.md can be
+// reproduced: CCR_CEILING=... CCR_FLOOR=... CCR_MIN_BASE=... node scripts/model/validate_backcast.mjs
+const CCR_CEILING = Number(process.env.CCR_CEILING ?? 5.0);
+const CCR_FLOOR = Number(process.env.CCR_FLOOR ?? 0.05);
+const MIN_BASE = Number(process.env.CCR_MIN_BASE ?? 5);
+let truncatedUp = 0, frozenCells = 0, frozenPop21 = 0;
+
 const ccrs = new Map();
 const cwrs = new Map();
 
@@ -259,17 +269,28 @@ for (const code of areaCodes) {
         const pop21 = base2021.areas[code][eth]?.[sex]?.[toAge] || 0;
 
         let ccr;
-        if (pop11 > 5) {
+        if (pop11 > MIN_BASE) {
           ccr = pop21 / pop11;
-          ccr = Math.max(0.05, Math.min(5.0, ccr));
+          if (ccr > CCR_CEILING) truncatedUp++;
+          ccr = Math.max(CCR_FLOOR, Math.min(CCR_CEILING, ccr));
         } else {
+          // Thin 2011 cell. Freezing at 1.0 discards the observed growth
+          // entirely, which is one-directional: minority groups are the ones
+          // sitting below the threshold, so freezing them holds diversity down
+          // and pushes the White British share up. Recorded here so the effect
+          // can be measured; see the sweep note below.
           ccr = 1.0;
+          frozenCells++;
+          frozenPop21 += pop21;
         }
         ccrs.set(`${code}|${eth}|${sex}|${fromAge}`, ccr);
       }
     }
   }
 }
+console.log(`  ${truncatedUp} cells truncated by the CCR ceiling (${CCR_CEILING}), ` +
+  `${frozenCells} cells frozen at 1.0 (2011 base <= ${MIN_BASE}), ` +
+  `holding ${Math.round(frozenPop21).toLocaleString()} people of 2021 population`);
 
 // Brexit WHO adjustment.
 //
