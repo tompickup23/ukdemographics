@@ -27,7 +27,16 @@ const DC2101EW_PATH = path.resolve("data/raw/census_2011_ethnicity_age/dc2101ew_
 const NEWETHPOP_2011 = path.resolve("data/raw/newethpop/extracted/2DataArchive/OutputData/Population/Population2011_LEEDS2.csv");
 const SNPP_PATH = path.resolve("data/raw/snpp/2022 SNPP Population persons.csv");
 const SCHOOL_VALIDATION_PATH = path.resolve("src/data/live/school-validation.json");
-const SITE_OUTPUT = path.resolve("src/data/live/ethnic-projections.json");
+// The published file by default. Override to run the model without touching what
+// the site serves, which is how you compare a code change against the live
+// output before deciding to publish it:
+//   HP_OUTPUT=/tmp/candidate.json node scripts/model/run_hp_single_year.mjs
+// The script merges into the existing published file, so the base is always read
+// from src/data/live/ regardless of where the result is written.
+const SITE_INPUT = path.resolve("src/data/live/ethnic-projections.json");
+const SITE_OUTPUT = process.env.HP_OUTPUT
+  ? path.resolve(process.env.HP_OUTPUT)
+  : SITE_INPUT;
 
 const base2021 = JSON.parse(readFileSync(BASE_2021_PATH, "utf8"));
 const ETHNIC_GROUPS = base2021.ethnicGroups; // 20 groups
@@ -267,6 +276,53 @@ console.log("Computing single-year CCRs (20 groups)...");
 const areaCodes = Object.keys(base2021.areas).filter(c => areas2011.has(c));
 console.log(`  ${areaCodes.length} areas in both censuses`);
 
+// Optional empirical-Bayes shrinkage toward the national CCR.
+//
+// The default guardrails are a hard ceiling of 5.0 and a rule that freezes any
+// cell whose 2011 base held five people or fewer to CCR 1.0. Both truncate in
+// one direction, because the cells concerned are overwhelmingly minority groups
+// growing from a thin base: 557,013 frozen cells covering 1,174,312 people of
+// 2021 population in the published run. That is most of the backcast's one-sided
+// +1.2pp bias, and a ceiling of 5.0 still lets a group quintuple per decade,
+// which compounds to 625x over four steps and produces the runaway "Other"
+// projections (Enfield at 67% by 2051).
+//
+// Shrinkage replaces both with one rule: trust a local ratio in proportion to
+// how much data it rests on.
+//
+//   ccr = (n11 * ccr_local + K * ccr_national) / (n11 + K)
+//
+// A cell with thousands of people keeps its own ratio. A cell with two people
+// borrows the national rate for its group, age and sex rather than being frozen
+// at 1.0, which is the honest answer when there is no local signal. Extreme
+// ratios off a small base are pulled in automatically, so the ceiling stops
+// doing the work.
+//
+// Opt in with CCR_SHRINKAGE=1; tune with CCR_SHRINK_K (default 10).
+const USE_SHRINKAGE = process.env.CCR_SHRINKAGE === "1";
+const SHRINK_K = Number(process.env.CCR_SHRINK_K ?? 10);
+
+const nationalCCRs = new Map(); // "eth|sex|fromAge" -> pop-weighted national ratio
+if (USE_SHRINKAGE) {
+  const num = new Map(), den = new Map();
+  for (const code of areaCodes) {
+    for (const eth of ETHNIC_GROUPS) {
+      for (const sex of SEXES) {
+        for (let fromAge = 0; fromAge <= 80; fromAge++) {
+          const key = `${eth}|${sex}|${fromAge}`;
+          num.set(key, (num.get(key) || 0) + (base2021.areas[code][eth]?.[sex]?.[fromAge + 10] || 0));
+          den.set(key, (den.get(key) || 0) + (pop2011.get(`${code}|${eth}|${sex}|${fromAge}`) || 0));
+        }
+      }
+    }
+  }
+  for (const [key, n] of num) {
+    const d = den.get(key) || 0;
+    nationalCCRs.set(key, d > 5 ? Math.max(0.05, Math.min(5.0, n / d)) : 1.0);
+  }
+  console.log(`  shrinkage on, K=${SHRINK_K}, ${nationalCCRs.size} national CCRs`);
+}
+
 const ccrs = new Map();
 const cwrs = new Map();
 
@@ -289,7 +345,12 @@ for (const code of areaCodes) {
         const pop21 = base2021.areas[code][eth]?.[sex]?.[toAge] || 0;
 
         let ccr;
-        if (pop11 > 5) {
+        if (USE_SHRINKAGE) {
+          const nat = nationalCCRs.get(`${eth}|${sex}|${fromAge}`) ?? 1.0;
+          const local = pop11 > 0 ? pop21 / pop11 : nat;
+          ccr = (pop11 * local + SHRINK_K * nat) / (pop11 + SHRINK_K);
+          ccr = Math.max(0.05, Math.min(5.0, ccr));
+        } else if (pop11 > 5) {
           ccr = pop21 / pop11;
           ccr = Math.max(0.05, Math.min(5.0, ccr));
         } else {
@@ -594,7 +655,7 @@ for (const code of ["E06000008", "E08000025", "E07000117"]) {
 // UPDATE SITE DATA
 // ============================================================
 console.log("\nUpdating ethnic-projections.json...");
-const existing = JSON.parse(readFileSync(SITE_OUTPUT, "utf8"));
+const existing = JSON.parse(readFileSync(SITE_INPUT, "utf8"));
 
 // 6-group output (backwards compatible)
 function toSimple(eth, total) {

@@ -233,6 +233,83 @@ crosswalk already uses LAD25), `mp-directory.json` (Apr 2026).
 
 The DWP ones need a Stat-Xplore key and were not reachable in this pass.
 
+## Part 2b: what happens when the forward model is actually re-run
+
+The inputs live in `~/asylumstats/data/`, so the forward model can be run after
+all. `run_hp_single_year.mjs` now takes `HP_OUTPUT` so a candidate can be
+generated without touching what the site serves.
+
+### The code fixes move every published number
+
+Re-running with the births fix in place changes **1,073 year-cells**. The 2051
+White British share falls by a mean of 1.06pp (median 0.87pp), by up to 4.13pp in
+Telford and Wrekin, and in no area does it rise by more than 0.13pp. That is the
+expected direction: the bug lagged male births by a full projection step, which
+suppressed growing groups, so correcting it lowers the White British share
+everywhere. The bug was real and it was material.
+
+### But the fixes make the runaway worse, not better
+
+| | published | after the code fixes |
+|---|---:|---:|
+| "Other" runaway area-years | 92 | **101** |
+| Enfield "Other" 2051 | 67.1% | 69.2% |
+| Enfield "Other" 2061 | 82.5% | 84.1% |
+| areas with White British below 5% by 2061 | 13 | 17 |
+
+So the runaway is not a symptom of the births bug. It is the CCR compounding and
+the guardrails, as diagnosed. **Fixing the code is not sufficient to publish.**
+
+### The principled guardrail replacement does not settle it either
+
+`run_hp_single_year.mjs` now implements empirical-Bayes shrinkage toward the
+national CCR behind `CCR_SHRINKAGE=1`, tuned by `CCR_SHRINK_K`:
+
+```
+ccr = (n11 * ccr_local + K * ccr_national) / (n11 + K)
+```
+
+One rule replaces both guardrails: trust a local ratio in proportion to how much
+data it rests on. A cell with thousands of people keeps its own ratio; a cell with
+two people borrows the national rate for its group, age and sex instead of being
+frozen at 1.0. It is a better-motivated rule than either a hard ceiling or a
+five-person cliff.
+
+It does not behave the way I expected:
+
+| Run | runaway area-years | max "Other" | median WB 2051 | national WB 2051 |
+|---|---:|---:|---:|---:|
+| published | 92 | 82.5% | 67.9% | n/a |
+| code fixes only | 101 | 84.1% | 67.1% | 49.1% |
+| shrinkage K=5 | 195 | 86.6% | 56.2% | 41.9% |
+| shrinkage K=10 | 181 | 83.5% | 56.3% | 43.0% |
+| shrinkage K=25 | 164 | 75.9% | 57.5% | 44.5% |
+
+Shrinkage tames the worst individual trajectories (Enfield's 2061 "Other" falls
+from 84.1% to 75.2%, and the site-wide maximum falls at K=25) but it raises the
+runaway count sharply, because un-freezing 557,013 thin cells lets moderate
+minority growth appear in far more areas at once. Some of that count increase is
+an artefact of the threshold used to define a runaway rather than worse behaviour.
+
+The part that matters is the size of the disagreement. National White British in
+2051 is 49.1% under the corrected default and 41.9% to 44.5% under shrinkage. The
+median area moves by about 11 percentage points. **These are not refinements of
+each other, they are different answers**, and the choice between them changes the
+headline finding of the site.
+
+### Which is why this stops here
+
+There is no way to choose between them with what is on hand. The backcast is
+circular, so it cannot referee: with the guardrails off it reproduces Census 2021
+to 0.14pp by construction. The DfE school data is already an input to the forward
+model through the calibration step, so it is not out-of-sample either.
+
+Shrinkage is therefore shipped **off by default and inert when off** (verified:
+the default output is byte-identical to a run from before the shrinkage code
+existed). It is not a recommendation. Choosing between these requires a genuine
+out-of-sample test, which most plausibly means holding back a data source the
+model has never seen, or waiting for a mid-decade estimate to score against.
+
 ## Part 3: presentation sweep
 
 Applied against `.claude/rules/dataviz.md` and `.claude/rules/presentation.md`
