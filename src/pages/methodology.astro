@@ -8,7 +8,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section id="model">
     <h2>Hamilton-Perry cohort change ratio model</h2>
     <p>UK Demographics uses the Hamilton-Perry (HP) method to project ethnic composition at local authority level. The HP method computes cohort change ratios (CCRs) from two Census observations (2011 and 2021), then applies these ratios forward to project future populations by age, sex, and ethnic group.</p>
-    <p>The model covers 320 English local authorities, 20 ethnic groups, single year of age (0-100+), and both sexes. Projections extend to 2061, with 2051 as the primary horizon and 2061 as illustrative.</p>
+    <p>The model covers 320 English local authorities, 20 ethnic groups, single year of age from 0 to 90 (with 90 as a closing group), and both sexes. Projections extend to 2061, with 2051 as the primary horizon and 2061 as illustrative. 2061 is projected for 271 of the 320 areas.</p>
   </section>
 
   <section id="data">
@@ -38,7 +38,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <p><strong>How NEWETHPOP performed against Census 2021.</strong> NEWETHPOP (Rees, Wohland et al., University of Leeds, the previous academic benchmark) published a 2021 ethnic projection from a 2011 base. Compared against actual Census 2021 results across 296 local authorities, that projection had a mean absolute error (MAE) of <strong>3.95pp</strong> for the White British share. It over-predicted White British in 282 of 296 areas (95%).</p>
     <p><strong>How this model compares on the same areas.</strong> On the 269 areas with complete Census 2021 custom-dataset coverage, this model's backcast (Census 2011 forward to 2021) achieves MAE <strong>1.71pp</strong>. NEWETHPOP on the same 269 areas: <strong>2.58pp</strong>.</p>
     <p><strong>The backcast is partially circular.</strong> The cohort change ratios used in the backcast are derived from the same 2011 and 2021 Census endpoints that the backcast is then tested against. A more honest measure is the national-CCR baseline, which throws away all local information and uses population-weighted national ratios only: that baseline scores MAE <strong>2.32pp</strong>. The per-area model beats the national baseline in 136 of 269 areas; the national baseline beats the per-area model in 133. The genuine local-information improvement over the baseline is small.</p>
-    <p><strong>Independent out-of-sample validation.</strong> DfE School Census data, which the model never trained on, provides an independent check for ages 0-15. School validation MAE: 2.36pp across 121 areas with 10 years of annual data.</p>
+    <p><strong>The backcast error is one-sided, and that matters more than the MAE.</strong> Mean absolute error hides direction. The backcast's mean signed error is <strong>+1.70pp</strong> against an MAE of 1.71pp, and it over-predicts the White British share in <strong>268 of 269 areas</strong>. Almost none of the error is scatter: it is systematic bias in a single direction. Read plainly, the model was too slow by about 1.7 percentage points of White British share over one decade, and a projection to 2051 runs that step three more times. Every published projection on this site should be read as a probable understatement of the pace of change, not as a central estimate with symmetric error either side. NEWETHPOP is biased the same way and by more (mean +2.43pp).</p>
+    <p><strong>School Census check, and why it is not fully independent.</strong> DfE School Census data provides a check for ages 4-15: MAE <strong>2.36pp</strong> across <strong>126</strong> areas with 10 years of annual data. That headline is an average across all six groups, and it flatters the group this site actually reports on. For White British specifically the age-specific MAE is <strong>6.20pp</strong>, the worst of any group. The other five range from 0.88pp to 2.51pp.</p>
+    <p>This check is also not out-of-sample for the published projection. The backcast excludes the DfE calibration on the grounds that including it would be circular, but the forward model that produces every figure on this site does apply it, as a 20% damped CCR adjustment for ages 0-5. The school data is therefore an input to the published model, not an independent test of it. Treat it as a consistency check.</p>
   </section>
 
   <section id="two-models">
@@ -57,15 +59,35 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section id="uncertainty">
     <h2>Uncertainty quantification</h2>
     <p>1,000 Monte Carlo simulations with stochastic perturbation (sigma = 0.02) generate 80% and 95% confidence intervals for all projections. This captures the range of plausible outcomes within the Hamilton-Perry method, not a single point estimate.</p>
+    <p><strong>Known defect: the Monte Carlo bands are currently out of step with the published projections.</strong> The stochastic run and the deterministic run are separate jobs, and in the current data release they were not run against the same model version. The published point estimate falls outside its own 80% band in 71% of area-year combinations, and outside the 95% band in 59%. Place pages therefore only draw the band where it genuinely brackets the projection line, which is 52 of 320 areas, and omit it otherwise. Until both jobs are re-run together from the same base, treat the two-model spread below as the only usable uncertainty measure on this site.</p>
     <p>For structural uncertainty, the disagreement between modelling approaches, see the two-model comparison above. The two-model spread is generally the larger of the two uncertainty signals and the one to weight more heavily when reading any single projection.</p>
+  </section>
+
+  <section id="adjustments">
+    <h2>Hand adjustments applied to the raw CCRs</h2>
+    <p>The Hamilton-Perry projection is not a pure extrapolation. Three adjustments are applied on top of the observed cohort change ratios, and each one moves the answer:</p>
+    <ul>
+      <li><strong>Brexit White Other damp.</strong> Where the 2011 to 2021 CCR for the White Other group exceeds 1.0 at ages 10 to 34, the excess growth is cut by 15%. This is a judgement about EU migration after free movement ended, not an observation.</li>
+      <li><strong>DfE School Census calibration.</strong> Cohort change ratios for ages 0 to 5 are nudged toward the observed school-census ethnic mix, damped to 20% of the implied correction.</li>
+      <li><strong>CCR clamp and small-count freeze.</strong> Ratios are clamped to the range 0.05 to 5.0, and where a 2011 cell holds five people or fewer the ratio is set to 1.0, freezing that group. A clamp of 5.0 still permits a group to quintuple in a single ten-year step, which compounds to a factor of 625 over four steps. Small-group projections in areas with a thin 2011 base should not be read as forecasts.</li>
+    </ul>
+    <p>None of these adjustments is applied to the backcast in the validation section above, so the validation numbers describe the unadjusted method rather than the published one.</p>
+  </section>
+
+  <section id="reproducibility">
+    <h2>Reproducibility</h2>
+    <p>The model inputs are not distributed with this site. The Census 2021 custom dataset base, the Census 2011 DC2101EW extract, the NEWETHPOP archive and the ONS SNPP file all sit outside version control, so a fresh checkout cannot regenerate the published projections. The model code is in the repository and the outputs are in the repository; the bridge between them is not. Until that is closed, the projections on this site cannot be independently reproduced and should be read as a published result rather than a verifiable one.</p>
+    <p>What can be checked without the inputs is internal consistency, and a guard script does that on every published release: group shares summing to 100, projections that run away from their own 2021 base, confidence bands that fail to contain the estimate they annotate, and agreement between the headline model and the scenario fields.</p>
   </section>
 
   <section id="limitations">
     <h2>Known limitations</h2>
     <ul>
-      <li>No international migration component. CCRs from 2011 to 2021 capture about 300K net migration per year, but post-2021 net migration peaked at 745K. This means the model likely understates the pace of change in high-migration areas.</li>
-      <li>Per-group confidence intervals not yet computed (national stochastic only).</li>
-      <li>No out-of-sample validation beyond DfE school data.</li>
+      <li>No international migration component. CCRs from 2011 to 2021 capture about 300K net migration per year, but post-2021 net migration peaked at 944,000 in the year ending March 2023 on the current ONS series. This means the model likely understates the pace of change in high-migration areas, and it is one reason the backcast bias runs in the direction it does.</li>
+      <li><strong>Long-horizon divergence in residual categories.</strong> Because CCRs compound without any envelope on individual groups, the residual Other category runs away in high-diversity urban areas: 92 area-year projections put Other above 25% of the population against a 2021 base under 13%, reaching 67% in Enfield by 2051 and 82% by 2061. These are arithmetic outputs of unconstrained compounding, not demographic forecasts, and should be disregarded. The 2041, 2051 and 2061 figures for any area where Other exceeds roughly a quarter of the population are not usable.</li>
+      <li>Per-group confidence intervals not yet computed (national stochastic only), and the national bands do not currently match the published projections. See the uncertainty section.</li>
+      <li>2061 is projected for 271 of 320 areas. National 2061 aggregates cover that subset only.</li>
+      <li>No out-of-sample validation beyond DfE school data, and that validation uses the 2024/25 school census. The 2025/26 release is now available and has not yet been incorporated.</li>
       <li>Not peer-reviewed (submission to Demographic Research planned).</li>
       <li>COVID period (2020-21) may distort the 2021 Census baseline for some groups and areas.</li>
     </ul>

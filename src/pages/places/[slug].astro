@@ -289,14 +289,32 @@ const ethChartLines = ethnicTimeline
       }))
   : [];
 
-const ethConfidenceBand = stochasticData
+// The stochastic percentiles come from a separate Monte Carlo run
+// (run_stochastic_hp.mjs) to the deterministic projection drawn on the chart
+// (run_hp_single_year.mjs). When the two runs are out of step the band does not
+// contain the line it is supposed to describe: as of the v7.0 data that is true
+// for 71% of area-years, and in the worst cases (Isles of Scilly 2051: line
+// 71.7%, band 0.8-4.0%) the band sits nowhere near the projection.
+//
+// Only draw the band where it actually brackets the line it annotates. Run
+// `node scripts/validate-projections.mjs` to see the current mismatch count.
+const bandCandidates = stochasticData
   ? [2031, 2041, 2051]
-      .filter((y) => (stochasticData as any)[y])
+      .filter((y) => (stochasticData as any)[y]?.wbi)
       .map((y) => ({
         year: y,
         low: (stochasticData as any)[y].wbi.p10,
         high: (stochasticData as any)[y].wbi.p90,
+        point: projData?.projections?.[String(y)]?.white_british,
       }))
+  : [];
+const bandIsConsistent =
+  bandCandidates.length > 0 &&
+  bandCandidates.every(
+    (b) => b.point != null && b.point >= b.low && b.point <= b.high
+  );
+const ethConfidenceBand = bandIsConsistent
+  ? bandCandidates.map(({ year, low, high }) => ({ year, low, high }))
   : undefined;
 
 const relChartLines = religionData

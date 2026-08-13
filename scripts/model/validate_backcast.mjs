@@ -271,16 +271,30 @@ for (const code of areaCodes) {
   }
 }
 
-// Brexit WHO adjustment (identical to run_hp_single_year.mjs lines 109-124)
+// Brexit WHO adjustment.
+//
+// The forward model damps White Other growth by 15% (ages 10-34) as a
+// judgement about post-Brexit EU migration. Applying that same damp inside the
+// 2011->2021 backcast is a category error: the 2011->2021 CCR is the OBSERVED
+// change over a window that already contains the referendum and the end of free
+// movement. Damping it a second time guarantees the backcast under-projects
+// White Other and therefore over-projects the White British share, which is a
+// large part of why the backcast error was one-sided (+1.70pp mean, over-
+// predicting in 268 of 269 areas).
+//
+// Default off. Set BREXIT_DAMP_IN_BACKCAST=1 to reproduce the old numbers.
+const APPLY_BREXIT_DAMP = process.env.BREXIT_DAMP_IN_BACKCAST === "1";
 let brexitAdjusted = 0;
-for (const code of areaCodes) {
-  for (const sex of SEXES) {
-    for (let fromAge = 10; fromAge <= 34; fromAge++) {
-      const key = `${code}|WHO|${sex}|${fromAge}`;
-      const ccr = ccrs.get(key);
-      if (ccr && ccr > 1.0) {
-        ccrs.set(key, 1.0 + (ccr - 1.0) * 0.85);
-        brexitAdjusted++;
+if (APPLY_BREXIT_DAMP) {
+  for (const code of areaCodes) {
+    for (const sex of SEXES) {
+      for (let fromAge = 10; fromAge <= 34; fromAge++) {
+        const key = `${code}|WHO|${sex}|${fromAge}`;
+        const ccr = ccrs.get(key);
+        if (ccr && ccr > 1.0) {
+          ccrs.set(key, 1.0 + (ccr - 1.0) * 0.85);
+          brexitAdjusted++;
+        }
       }
     }
   }
@@ -340,13 +354,15 @@ for (const eth of ETHNIC_GROUPS) {
     }
   }
 }
-// Apply Brexit adjustment to national WHO CCRs
-for (const sex of SEXES) {
-  for (let fromAge = 10; fromAge <= 34; fromAge++) {
-    const key = `WHO|${sex}|${fromAge}`;
-    const ccr = nationalCCRs.get(key);
-    if (ccr && ccr > 1.0) {
-      nationalCCRs.set(key, 1.0 + (ccr - 1.0) * 0.85);
+// Apply Brexit adjustment to national WHO CCRs (see note above; off by default)
+if (APPLY_BREXIT_DAMP) {
+  for (const sex of SEXES) {
+    for (let fromAge = 10; fromAge <= 34; fromAge++) {
+      const key = `WHO|${sex}|${fromAge}`;
+      const ccr = nationalCCRs.get(key);
+      if (ccr && ccr > 1.0) {
+        nationalCCRs.set(key, 1.0 + (ccr - 1.0) * 0.85);
+      }
     }
   }
 }
@@ -370,7 +386,9 @@ function runHPBackcast(useNationalCCRs) {
       }
     }
 
-    // One 10-year HP step
+    // One 10-year HP step.
+    // Pass 1: advance every surviving cohort for BOTH sexes before any births
+    // are computed. See run_hp_single_year.mjs for why the two must be split.
     const newPop = {};
     for (const eth of ETHNIC_GROUPS) {
       newPop[eth] = {};
@@ -392,16 +410,20 @@ function runHPBackcast(useNationalCCRs) {
         // 90+: add survivors from current 90+
         newPop[eth][sex][90] = (newPop[eth][sex][90] || 0) +
           Math.round((currentPop[eth][sex][90] || 0) * 0.3);
+      }
+    }
 
-        // Births (ages 0-9): use CWR
-        const cwr = useNationalCCRs
-          ? (nationalCWRs.get(eth) || 0.03)
-          : (cwrs.get(`${code}|${eth}`) || 0.03);
-        let women = 0;
-        for (let age = 15; age <= 44; age++) {
-          women += newPop[eth]?.F?.[age] || currentPop[eth]?.F?.[age] || 0;
-        }
-        const birthsPerYear = women * cwr;
+    // Pass 2: births (ages 0-9) from the projected women of this step
+    for (const eth of ETHNIC_GROUPS) {
+      const cwr = useNationalCCRs
+        ? (nationalCWRs.get(eth) || 0.03)
+        : (cwrs.get(`${code}|${eth}`) || 0.03);
+      let women = 0;
+      for (let age = 15; age <= 44; age++) {
+        women += newPop[eth].F[age] || 0;
+      }
+      const birthsPerYear = women * cwr;
+      for (const sex of SEXES) {
         const sexRatio = sex === "M" ? 0.512 : 0.488;
         for (let age = 0; age <= 9; age++) {
           newPop[eth][sex][age] = Math.round(birthsPerYear * sexRatio);
@@ -466,9 +488,9 @@ const validation = {
 
 // Accumulators
 const metrics = {
-  hp_local: { absErr: 0, sqErr: 0, overPredict: 0, count: 0 },
-  hp_national: { absErr: 0, sqErr: 0, overPredict: 0, count: 0 },
-  newethpop: { absErr: 0, sqErr: 0, overPredict: 0, count: 0 }
+  hp_local: { absErr: 0, sqErr: 0, signedErr: 0, overPredict: 0, count: 0 },
+  hp_national: { absErr: 0, sqErr: 0, signedErr: 0, overPredict: 0, count: 0 },
+  newethpop: { absErr: 0, sqErr: 0, signedErr: 0, overPredict: 0, count: 0 }
 };
 
 // Per-group accumulators
@@ -510,6 +532,7 @@ for (const [areaCode, censusArea] of Object.entries(census.areas)) {
 
     metrics.newethpop.absErr += Math.abs(newethpopErr);
     metrics.newethpop.sqErr += newethpopErr * newethpopErr;
+    metrics.newethpop.signedErr += newethpopErr;
     if (newethpopErr > 0) metrics.newethpop.overPredict++;
     metrics.newethpop.count++;
     validation.errorDistribution.newethpop.push(newethpopErr);
@@ -517,12 +540,14 @@ for (const [areaCode, censusArea] of Object.entries(census.areas)) {
 
   metrics.hp_local.absErr += Math.abs(localErr);
   metrics.hp_local.sqErr += localErr * localErr;
+  metrics.hp_local.signedErr += localErr;
   if (localErr > 0) metrics.hp_local.overPredict++;
   metrics.hp_local.count++;
   validation.errorDistribution.hp_local.push(r(localErr));
 
   metrics.hp_national.absErr += Math.abs(nationalErr);
   metrics.hp_national.sqErr += nationalErr * nationalErr;
+  metrics.hp_national.signedErr += nationalErr;
   if (nationalErr > 0) metrics.hp_national.overPredict++;
   metrics.hp_national.count++;
   validation.errorDistribution.hp_national.push(r(nationalErr));
@@ -553,12 +578,24 @@ for (const [areaCode, censusArea] of Object.entries(census.areas)) {
   };
 }
 
-// Compute summary metrics
+// Compute summary metrics.
+//
+// meanBias is reported alongside MAE because MAE alone hides direction. In the
+// v7.0 run the hp_local backcast scored MAE 1.71pp with a mean bias of +1.70pp
+// and over-predicted the White British share in 268 of 269 areas: essentially
+// all of the "error" was one-sided systematic bias, not scatter. A low MAE with
+// meanBias ~= MAE is a warning sign, not a good score, and any confidence band
+// derived from that error distribution is one-sided and must not be applied to
+// forward projections as a symmetric +/- interval.
 function computeSummary(m) {
   if (m.count === 0) return { mae: 0, rmse: 0, count: 0 };
+  const meanBias = r(m.signedErr / m.count);
+  const mae = r(m.absErr / m.count);
   return {
-    mae: r(m.absErr / m.count),
+    mae,
     rmse: r(Math.sqrt(m.sqErr / m.count)),
+    meanBias,
+    biasShareOfMae: mae > 0 ? r(Math.abs(meanBias) / mae) : 0,
     overPredictWBCount: m.overPredict,
     underPredictWBCount: m.count - m.overPredict,
     count: m.count

@@ -451,6 +451,10 @@ for (const code of areaCodes) {
   for (const year of PROJ_YEARS) {
     const newPop = {};
 
+    // Pass 1: advance every surviving cohort for BOTH sexes.
+    // Births must not be computed inside this loop: the female 15-44 population
+    // that drives them does not exist until the "F" iteration has run, so a
+    // births block here sizes male births off the PREVIOUS step's women.
     for (const eth of ETHNIC_GROUPS) {
       newPop[eth] = {};
       for (const sex of SEXES) {
@@ -466,14 +470,18 @@ for (const code of areaCodes) {
         // 90+ survivors
         newPop[eth][sex][90] = (newPop[eth][sex][90] || 0) +
           Math.round((currentPop[eth][sex][90] || 0) * 0.3);
+      }
+    }
 
-        // Births (ages 0-9)
-        const cwr = cwrs.get(`${code}|${eth}`) || 0.03;
-        let women = 0;
-        for (let age = 15; age <= 44; age++) {
-          women += newPop[eth]?.F?.[age] || currentPop[eth]?.F?.[age] || 0;
-        }
-        const birthsPerYear = women * cwr;
+    // Pass 2: births (ages 0-9), driven by the projected women of this step.
+    for (const eth of ETHNIC_GROUPS) {
+      const cwr = cwrs.get(`${code}|${eth}`) || 0.03;
+      let women = 0;
+      for (let age = 15; age <= 44; age++) {
+        women += newPop[eth].F[age] || 0;
+      }
+      const birthsPerYear = women * cwr;
+      for (const sex of SEXES) {
         const sexRatio = sex === "M" ? 0.512 : 0.488;
         for (let age = 0; age <= 9; age++) {
           newPop[eth][sex][age] = Math.round(birthsPerYear * sexRatio);
