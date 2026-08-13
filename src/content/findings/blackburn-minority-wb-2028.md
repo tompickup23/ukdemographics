@@ -14,7 +14,7 @@ summary: "Blackburn with Darwen: 56.9% White British in Census 2021. Projected b
 
 Census 2021: Blackburn with Darwen, 56.9% White British. Down from 66.6% in 2011. Nearly 10 percentage points gone in one decade.
 
-The Hamilton-Perry model (MAE 1.71pp, validated against Census 2021) projects:
+The Hamilton-Perry model projects, with a known bias toward overstating the White British share:
 
 | Year | Blackburn WBI |
 |------|--------------|
@@ -36,4 +36,4 @@ Four Lancashire mill towns. Same industry. Same deprivation. Same trajectory. Di
 
 Blackburn gets there first because it started from a lower base (56.9% vs Burnley's 77.9%) and has a larger established South Asian community driving higher cohort change ratios. The dynamics are identical. Only the speed differs.
 
-**Source:** Census 2021 custom dataset. Hamilton-Perry v7.0, Census 2011 DC2101EW base, SNPP-constrained. Threshold years interpolated from decadal projections. Backcast MAE 1.71pp across 269 areas.
+**Source:** Census 2021 custom dataset. Hamilton-Perry v7.0, Census 2011 DC2101EW base, SNPP-constrained. Threshold years interpolated from decadal projections. The backcast score previously quoted here has been withdrawn; it measured the model's own guardrails rather than its accuracy. See the methodology.

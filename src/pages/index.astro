@@ -66,7 +66,6 @@ const natWb2021 = natAgg.wb2021;
 const natWb2051 = natAgg.wb2051;
 const natWb2061 = natAgg.wb2061;
 const natCoverage2061Pct = totalAreas > 0 ? (natAgg.n2061 / totalAreas) * 100 : 0;
-const modelMaeText = projData.methodology?.match(/MAE\s+(\d+\.\d+)\s*pp/i)?.[1] ?? "1.71";
 
 // Regional summary
 const regionCounts = new Map<string, { count: number; avgWbi2021: number; sumPop: number }>();
@@ -139,7 +138,7 @@ function findingColor(verdict: string): string {
         From 2021 observed data to 2061 projections.
       </p>
       <a class="hero-source" href="/methodology/">
-        Hamilton-Perry CCR model &middot; backcast MAE {modelMaeText}pp (see methodology for caveat) &middot; Full methodology &rarr;
+        Hamilton-Perry CCR model &middot; known bias toward overstating White British &middot; Full methodology &rarr;
       </a>
 
       <!-- Search in hero -->
@@ -195,7 +194,7 @@ function findingColor(verdict: string): string {
         <span class="impact-context">{muslimMajority2051} projected Muslim majority by 2051.</span>
       </div>
     </div>
-    <p class="impact-source">Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations. Backcast MAE {modelMaeText}pp on the same area set (see methodology for the circularity caveat). <a href="/methodology/">Full methodology &rarr;</a></p>
+    <p class="impact-source">Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations. The projections carry a known bias toward overstating the White British share, and areas where the model diverged are withheld. <a href="/methodology/">Full methodology &rarr;</a></p>
   </section>
 
   <!-- ═══ DEMOGRAPHIC PROJECTIONS ═══ -->

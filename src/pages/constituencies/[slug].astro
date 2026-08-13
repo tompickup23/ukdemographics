@@ -168,7 +168,8 @@ const winnerShareText = pcon.ge2024.winnerSharePct > 0
         <StatCard
           value={demog.wbi2051 != null ? `${demog.wbi2051.toFixed(1)}%` : "n/a"}
           label="White British 2051 projected (derived)"
-          accent="var(--coral)"
+          accent="var(--accent)"
+          note="Projected"
           trend={demog.wbi2021 != null && demog.wbi2051 != null ? `${(demog.wbi2051 - demog.wbi2021).toFixed(1)}pp` : null}
           trendDirection="neutral"
         />

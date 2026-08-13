@@ -23,6 +23,7 @@
 import { getPconByCode, type PconEntry } from "./pcon-data";
 import { getPublicPlaceAreas, type DemographicAreaSummary } from "./site";
 import rawProjections from "../data/live/ethnic-projections.json";
+import { publishableValue } from "./projection-plausibility";
 
 const projData = rawProjections as {
   areas: Record<string, {
@@ -82,11 +83,16 @@ export function getPconDemographics(pconCodeOrEntry: string | PconEntry): PconDe
     coverageCount++;
     totalWeight += weight;
 
+    // A constituency rollup inherits whatever its constituent LAs carry, so an
+    // LA whose projection has diverged would drag the aggregate with it.
+    // publishableValue withholds those contributions; because each metric keeps
+    // its own weight, the LA simply drops out of that year's average rather
+    // than counting as a zero.
     const wb2021 = area.wbiPct2021;
-    const wb2041 = area.wbiPct2041;
-    const wb2051 = proj?.projections?.["2051"]?.white_british;
+    const wb2041 = publishableValue(proj, 2041, area.wbiPct2041);
+    const wb2051 = publishableValue(proj, 2051, proj?.projections?.["2051"]?.white_british);
     const fb2021 = proj?.nativity?.["2021"]?.foreignBornPct;
-    const fb2051 = proj?.nativity?.["2051"]?.foreignBornPct;
+    const fb2051 = publishableValue(proj, 2051, proj?.nativity?.["2051"]?.foreignBornPct);
 
     if (wb2021 != null) { wbi2021Acc += wb2021 * weight; wbi2021Weight += weight; }
     if (wb2041 != null) { wbi2041Acc += wb2041 * weight; wbi2041Weight += weight; }
@@ -101,6 +107,9 @@ export function getPconDemographics(pconCodeOrEntry: string | PconEntry): PconDe
   const expectedCount = pcon.constituentLas.length;
   if (coverageCount < expectedCount) {
     notes.push(`${expectedCount - coverageCount} of ${expectedCount} constituent local authorities have no UKD profile and are excluded from the aggregate.`);
+  }
+  if (wbi2051Weight > 0 && wbi2051Weight < totalWeight * 0.999) {
+    notes.push("Some constituent local authorities are excluded from the 2051 figure because their projection diverged. See the methodology.");
   }
 
   return {

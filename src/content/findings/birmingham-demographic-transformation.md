@@ -35,10 +35,10 @@ Four things drive this.
 
 **International settlement.** Birmingham is a major settlement city. 2.3% of the population arrived from outside the UK in the year before Census 2021. South Asian and African countries dominate.
 
-**The models agree on direction.** Our Hamilton-Perry model (MAE 1.71pp, validated against Census 2021) projects 10.7% WBI by 2051. Our cohort-component model (which assumes some fertility convergence) projects approximately 28-30% WBI. The true outcome sits somewhere between. Both models agree: Birmingham passed majority non-White-British years ago. The question is how fast it continues.
+**The models agree on direction.** Our Hamilton-Perry model projected 10.7% White British by 2051, though that year is no longer published for Birmingham: the model diverges past 2041 here, so the site now stops at 2041 (18.8%). Our cohort-component model (which assumes some fertility convergence) projects approximately 28-30% WBI. The true outcome sits somewhere between. Both models agree: Birmingham passed majority non-White-British years ago. The question is how fast it continues.
 
 **Religion.** Birmingham's Muslim population: 31.8% in 2021 (Census). Christian: 29.9%. Muslim already exceeds Christian. Hamilton-Perry religion projections suggest Muslim majority in the early 2040s. First major English city.
 
 Birmingham is not the exception. It is the preview. Leicester, Luton, Slough: similar trajectories. Blackburn: projected minority White British by the late 2020s. The dynamics are national. Birmingham just gets there first.
 
-**Source:** Census 2021 custom dataset (direct observations, 20 ethnic groups). Hamilton-Perry v7.0 single-year CCR model, SNPP-constrained. Census 2011 DC2101EW (observed, not proportionally split). Backcast validated: MAE 1.71pp across 269 areas.
+**Source:** Census 2021 custom dataset (direct observations, 20 ethnic groups). Hamilton-Perry v7.0 single-year CCR model, SNPP-constrained. Census 2011 DC2101EW (observed, not proportionally split). The backcast score previously quoted here has been withdrawn; it measured the model's own guardrails rather than its accuracy. See the methodology.

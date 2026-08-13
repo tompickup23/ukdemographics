@@ -8,7 +8,7 @@ place pages.
 
 Five problems, in severity order. The first three are visible to readers today.
 
-### 1. Residual categories diverge at long horizons (published, wrong)
+### 1. Residual categories diverge at long horizons (FIXED: those years are now withheld)
 
 Cohort change ratios compound with no envelope on individual ethnic groups, so
 the residual Other category runs away in high-diversity urban areas. 92
@@ -33,8 +33,59 @@ small 2011 base that is enough to take a residual category to a plurality. The
 corresponding output is that 13 areas project White British below 5% by 2061 and
 37 below 10%.
 
-The fix is a per-group envelope or a damped CCR at long horizons. It requires
-re-running the model, which is currently not possible (see item 5).
+**Resolution.** A per-group envelope or damped CCR would need the model re-run
+and a guardrail decision that nothing on hand can referee (Part 2b). So this takes
+the move the sister site already established for the contradictory confidence
+intervals: withhold what is incoherent, pick no winner, change no figure.
+
+`src/lib/projection-plausibility.ts` truncates each area at the last year the
+model was still projecting rather than diverging. Divergence compounds, so the
+horizon is shortened rather than holed: an area whose 2031 and 2041 are sound
+keeps them and loses only 2051 and 2061.
+
+The first version of the rule only checked the residual categories on the
+reasoning that a residual cannot credibly become the plurality. That was too
+narrow. The divergence signature is a group multiplying several-fold off a modest
+base to reach an implausible share, and that is not special to residual
+categories: Barnsley's White Other is projected from 4.3% in 2021 to 45.3% by
+2061, a factor of ten, and it was being published while Enfield's "Other" was
+caught. The rule now tests every group except White British.
+
+| Last publishable year | Areas |
+|---|---:|
+| 2061 (unaffected) | 163 |
+| 2051 | 98 |
+| 2041 | 49 |
+| 2031 | 10 |
+
+108 of 320 areas lose part of their horizon; 212 keep a full 2051 or 2061 view.
+Enfield stops at 2031, Birmingham at 2041. Applied to the trajectory chart, the stacked timeline
+bars, the religion and nativity charts (same projection underneath), the key
+metric cards, the hero headline, the two-model spread, the meta description, the
+share text, and the constituency rollups, which drop a diverged local authority
+from the affected year rather than averaging it in. Truncated pages carry a note
+saying why. Verified on the live render: Enfield's largest "Other" bar falls from
+82.5% to 25.7%, Birmingham's from 46.5% to 18.6%, and Pendle and Torridge are
+unchanged.
+
+The threshold is a judgement (25% of the population **and** at least three times
+the 2021 share) and the borderline cases are worth knowing. It catches Boston's
+White Other at 3.13x and leaves Pendle's Asian at 2.36x and Blackburn's at 1.77x,
+both of which rise from an already-substantial base and read as continuation
+rather than divergence. Leicester and Redbridge, at 1.1x, are nowhere near it.
+Tightening further would start removing plausible projections, so the threshold
+is documented and tested rather than tuned to taste.
+
+The same guard is applied on the sister site, which publishes the identical run.
+
+**Downstream corrections.** The finding "109 local authorities projected minority
+White British by 2051" rested on this. Recomputed on publishable data the count is
+**56**, the currently-majority subset is **44** not 76, and the 2041 count is
+**64** not 74. Excluding the diverged areas makes the count conservative: the true
+number crossing the threshold is very likely higher than 56, not lower. The article now carries a dated correction
+and a rebuilt table. Four other findings and the homepage hero cited the withdrawn
+backcast score as validation; those citations are removed or replaced with the bias
+statement.
 
 ### 2. Confidence bands do not contain the projections they annotate (published, wrong)
 
