@@ -233,6 +233,95 @@ crosswalk already uses LAD25), `mp-directory.json` (Apr 2026).
 
 The DWP ones need a Stat-Xplore key and were not reachable in this pass.
 
+## Part 3: presentation sweep
+
+Applied against `.claude/rules/dataviz.md` and `.claude/rules/presentation.md`
+(profile `sister-site`: job "believe", neutral register, `anger_budget: none`,
+no out-group, no moral-emotional language).
+
+The governing constraint came from the presentation rules themselves: *if a claim
+is not triple-checked, then no fluency technique may be applied to it.* Repetition
+and confident presentation raise perceived truth for false claims exactly as much
+as for true ones, so with the projections in the state described above, the right
+move was not to make them more persuasive. It was to make their status
+unmistakable and to fix what was actively misleading.
+
+### Fixed
+
+**A false provenance claim in the hero, on 52 pages.** The stored headline trend
+carried a model-version tag, and three different tags are in the data across the
+320 areas. 266 areas say "20-group HP, Census-direct, SNPP-constrained", 2 say
+"single-year HP, SNPP-constrained", and 52 say **"v2, SNPP-constrained,
+bias-corrected"**. That last one is wrong twice over: the published model is v7.0,
+and the backcast over-predicts the White British share in 268 of 269 areas, so the
+figure is the opposite of bias-corrected. The page now derives its label and drops
+the parenthetical rather than echoing it, and expands the "WBI" abbreviation.
+
+**Red encoding on the White British projection.** The three key-metric cards were
+the same measure at three dates, but escalated indigo to cyan to coral, and the
+delta badge used `swing-down`, which is styled with `--status-bad-text`. A falling
+White British share was therefore rendered in alarm red on a site whose stated
+register is neutral, and red/green-only encoding fails the colour-vision rule as
+well. All three cards now share one accent, because colour should identify the
+entity rather than rate it, and the projected ones carry a "Projected" chip
+instead. The delta badge takes a new `neutral` direction. Those three cards were
+the only valenced badges on the whole site.
+
+**Modelled data looked exactly like observed data.** The projection chart drew
+2011 and 2021 Census points and the 2031 to 2061 model output as one continuous
+line of identical weight. Census is now solid and projected is dashed, with a
+worded key underneath, so a reader can see where the record stops and the model
+starts without reading a caption.
+
+**No chart carried a source line**, against the rule that every public chart does.
+The three projection charts now take a `source` prop and render it as a
+figcaption. `aria-label` was just the chart title; it now follows the chart type,
+data, takeaway formula.
+
+**No route to the values except reading the chart.** A `Show the figures` table
+twin now sits under each projection chart, with modelled years marked, for the
+roughly one third of readers with low graph literacy.
+
+**Every minimap on the site was a solid coloured square.** See below.
+
+**Duplicated breadcrumb.** `Breadcrumbs.astro` renders its own Home item and two
+callers passed another, so every place page and region page read
+"Home / Home / Places / ...".
+
+### The minimap bug
+
+`data/geography/*.geojson` rings are wound the opposite way to what d3-geo wants.
+d3-geo works in spherical geometry, where a ring wound the wrong way is not the
+same polygon drawn backwards, it is the complement: everything on the globe except
+that shape. `geoArea(Torridge)` returned 12.566 steradians, which is 4*pi, the
+whole sphere, and `geoBounds` returned `[-180, -90, 180, 90]` for all 1,011
+features across the LAD and PCON files.
+
+Downstream that made the focal bbox the whole world, so `fitExtent` squeezed the
+globe into a 260x170 thumbnail, every boundary collapsed to a sub-pixel speck, all
+360 other features "intersected" the focal bbox, and each one painted the clipped
+sphere as a full-canvas rectangle. Every place page and every constituency page,
+roughly 950 pages, rendered a solid accent-coloured square where the location map
+should be.
+
+Fixed by rewinding rings at load time, and separately by rewinding the synthetic
+bbox rectangle handed to `fitExtent`, which had the same defect and kept the map
+collapsed even after the source data was corrected. Verified: `geoArea(Torridge)`
+= 0.000024 sr, and the focal path now spans 79 to 181 in a 260-unit viewBox
+instead of 127.9 to 128.2.
+
+### Not changed, and why
+
+The confidence-band guard was replaced with `consistentBandSeries` ported verbatim
+from the sister site, which had already solved this problem. It drops only the
+years that disagree rather than the whole band, so a coherent year keeps its
+interval. Both sites publish the same model run, so the ported tests apply here
+unchanged: Burnley's 2051 line of 43.1 against a band of 46.4 to 50.8 is live on
+both.
+
+The empty right-hand space in the place-page header is cosmetic and would need a
+layout change rather than a rule fix, so it is left alone.
+
 ## Guard script
 
 `npm run validate:projections` checks the published

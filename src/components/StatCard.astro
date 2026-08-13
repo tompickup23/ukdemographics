@@ -14,18 +14,24 @@
  *   label: small descriptor below
  *   accent: optional CSS colour for the value (e.g. var(--accent))
  *   trend: optional delta annotation ("+2.5pp", "-3.1pp")
- *   trendDirection: "up" | "down" | "flat", picks the badge tone
+ *   trendDirection: "up" | "down" | "flat" | "neutral". Picks the badge tone.
+ *         "neutral" keeps the muted badge for a measure where a direction is
+ *         neither good nor bad, which is most of them on this site.
  *   sparkline: optional array of numbers; renders 80×24 inline SVG
  *   sparklineColor: optional stroke colour (default --accent-3 cyan)
+ *   note: optional provenance chip ("Census", "Projected"). Use this rather
+ *         than a hotter accent colour to mark a modelled figure: colour should
+ *         identify the entity, not rate it.
  */
 interface Props {
   value: string;
   label: string;
   accent?: string | null;
   trend?: string | null;
-  trendDirection?: "up" | "down" | "flat";
+  trendDirection?: "up" | "down" | "flat" | "neutral";
   sparkline?: number[] | null;
   sparklineColor?: string | null;
+  note?: string | null;
 }
 
 const {
@@ -36,6 +42,7 @@ const {
   trendDirection = "flat",
   sparkline = null,
   sparklineColor = "var(--accent-3)",
+  note = null,
 } = Astro.props;
 
 function sparklinePath(values: number[]): string {
@@ -75,4 +82,5 @@ const sparkD = sparkline ? sparklinePath(sparkline) : null;
     </svg>
   )}
   <span class="stat-card-label">{label}</span>
+  {note && <span class={`stat-card-note${note.toLowerCase() === "projected" ? " is-projected" : ""}`}>{note}</span>}
 </article>

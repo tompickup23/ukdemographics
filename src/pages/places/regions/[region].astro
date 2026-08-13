@@ -26,7 +26,6 @@ const totalPop = regionAreas.reduce((s, a) => s + (a.population ?? 0), 0);
   description={`${regionName}: ${regionAreas.length} local authorities, population ${totalPop.toLocaleString()}. Ethnic composition projections to 2061.`}
 >
   <Breadcrumbs items={[
-    { label: "Home", href: "/" },
     { label: "Places", href: "/places/" },
     { label: regionName }
   ]} />
