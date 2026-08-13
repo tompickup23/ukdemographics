@@ -7,7 +7,7 @@ stat_label: "Roma + Gypsy/Traveller combined"
 verdict: info
 source_url: "https://www.ons.gov.uk/datasets/create"
 source_label: "ONS Census 2021 Custom Dataset"
-summary: "Our v7.0 model separates Roma (98,785) and Gypsy/Irish Traveller (63,348) from the White Other category for the first time. Roma are concentrated in London boroughs (Hammersmith 0.81%, Haringey 0.76%). Gypsy/Travellers are concentrated in rural LAs (Maidstone 0.58%, Fenland 0.57%). These populations were previously invisible in demographic projections."
+summary: "Our model separates Roma (98,785) and Gypsy/Irish Traveller (63,348) from the White Other category for the first time. Roma are concentrated in London boroughs (Hammersmith 0.81%, Haringey 0.76%). Gypsy/Travellers are concentrated in rural LAs (Maidstone 0.58%, Fenland 0.57%). These populations were previously invisible in demographic projections."
 ---
 
 **Two populations that have never been separately projected: Roma and Gypsy/Irish Traveller.**
@@ -34,4 +34,4 @@ Census 2021 distinguishes White: Roma (98,785 people, 0.18%) from White: Gypsy o
 
 **CWR-implied fertility:** Gypsy/Traveller has the highest CWR-implied TFR of any group at approximately 2.56, well above the national average. Roma CWR-implied TFR: approximately 1.33. These rates drive different population growth trajectories despite both groups being small.
 
-**Methodology:** Hamilton-Perry v7.0 with 20 ethnic groups. Census 2021 direct observations. Roma separated from White Other (previously merged). Gypsy/Irish Traveller separated from White Other. Small population sizes mean wider confidence intervals than for larger groups.
+**Methodology:** Hamilton-Perry v8.0 with 20 ethnic groups. Census 2021 direct observations. Roma separated from White Other (previously merged). Gypsy/Irish Traveller separated from White Other. Small population sizes mean wider confidence intervals than for larger groups.

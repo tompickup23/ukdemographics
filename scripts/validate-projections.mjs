@@ -23,15 +23,24 @@ const data = JSON.parse(readFileSync(PROJ_PATH, "utf8"));
 const areas = data.areas;
 const asJson = process.argv.includes("--json");
 
-// A residual Census category (Other, Mixed) cannot credibly become the plurality
-// group in a local authority within one projection horizon. Anything past this
-// ceiling is model divergence, not a demographic forecast.
+// Every group except White British is tested, matching src/lib/projection-plausibility.ts.
+// The signature of divergence is a group multiplying several-fold off a modest base
+// to an implausible share, and that is not special to the residual categories.
 const RUNAWAY_CEILING_PCT = 25;
 const RUNAWAY_MULTIPLE = 3; // vs the 2021 observed share
-const RESIDUAL_GROUPS = ["other", "mixed"];
+const RESIDUAL_GROUPS = ["other", "mixed", "white_other", "asian", "black"];
 const PROJ_YEARS = ["2031", "2041", "2051", "2061"];
 
-const failures = { sum: [], runaway: [], band: [], central: [], coverage: [] };
+const failures = {
+  sum: [], runaway: [], band: [], central: [], coverage: [],
+  spread: [], duplicate: [], religion: []
+};
+
+// Two authorities appear twice, under their retired and their current ONS code.
+// Only the current codes are in the public area registry, so only one page
+// renders for each, but anything keyed off the raw projection object counts them
+// twice. Recorded here so the duplication cannot quietly return.
+const seenByNameAndPop = new Map();
 
 for (const [code, a] of Object.entries(areas)) {
   const name = a.areaName ?? code;
@@ -91,6 +100,35 @@ for (const [code, a] of Object.entries(areas)) {
   if (proj["2051"] && !proj["2061"]) {
     failures.coverage.push({ code, name });
   }
+
+  // The Hamilton-Perry side of the two-model comparison is rendered next to the
+  // trajectory chart and must be the same number the chart draws. These are
+  // written by different scripts and drifted apart after the v8.0 recalibration.
+  const hp2051 = proj["2051"]?.white_british;
+  if (hp2051 != null && ms && typeof ms.hamiltonPerry === "number") {
+    if (Math.abs(ms.hamiltonPerry - hp2051) > 0.05) {
+      failures.spread.push({ code, name, stored: ms.hamiltonPerry, live: round(hp2051) });
+    }
+  }
+
+  // Religion and nativity are projected from the ethnic projections. If the
+  // ethnic projections are re-run and these are not, they describe a model that
+  // is no longer published.
+  const muslim = a.muslimPct2051;
+  const relMuslim = a.religion?.["2051"]?.Muslim;
+  if (muslim != null && relMuslim != null && Math.abs(muslim - relMuslim) > 0.05) {
+    failures.religion.push({ code, name, headline: muslim, series: relMuslim });
+  }
+
+  const pop = a.current?.total_population;
+  if (pop) {
+    const key = `${name}|${pop}`;
+    if (seenByNameAndPop.has(key)) {
+      failures.duplicate.push({ code, name, alsoAs: seenByNameAndPop.get(key), pop });
+    } else {
+      seenByNameAndPop.set(key, code);
+    }
+  }
 }
 
 function round(n) { return Math.round(n * 100) / 100; }
@@ -112,6 +150,12 @@ if (asJson) {
   report("scenarioRange2051.central does not match the Hamilton-Perry headline", failures.central,
     f => `${f.name}: central ${f.scenarioCentral}% vs HP ${f.hamiltonPerry}% (CC ${f.cohortComponent}%)`);
   report("2051 present but 2061 missing", failures.coverage, f => f.name);
+  report("Two-model spread disagrees with the published projection", failures.spread,
+    f => `${f.name}: stored ${f.stored}% vs live ${f.live}%`);
+  report("Religion headline disagrees with the religion series", failures.religion,
+    f => `${f.name}: ${f.headline}% vs ${f.series}%`);
+  report("Same authority present under two codes", failures.duplicate,
+    f => `${f.name}: ${f.code} duplicates ${f.alsoAs} (population ${f.pop.toLocaleString()})`);
   console.log(total === 0 ? "PASS" : `FAIL: ${total} problems across ${Object.entries(counts).filter(([, v]) => v > 0).length} checks`);
 }
 

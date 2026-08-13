@@ -16,6 +16,12 @@ const releases = [
     sourceUrl: "https://ukdemographics.co.uk"
   },
   {
+    date: "2026-08-13",
+    title: "Model v8.0, recalibrated on an out-of-sample test",
+    summary: "Cohort change ratios are now shrunk toward the national ratio by cell size and capped at 1.6 growth per decade. Both settings were selected on a new validation that fits ratios on Census 2001 to 2011 and forecasts 2021, scored against the actual Census 2021, so the fitting window never touches the target. On that test the model scores MAE 1.53pp on the White British share with a bias of +0.03pp, against 2.82pp and -2.13pp for the settings it replaces. The previous backcast score of 1.71pp has been withdrawn: it fitted on the same two Censuses it was tested against and was measuring the model's own guardrails, not its accuracy. It also had the direction wrong. The old settings were projecting change too fast, not too slow. Two code fixes land with it: births were being sized off the previous projection step's women for male cohorts, and the stochastic run carried its own separate copy of the ratio construction, which is why confidence bands failed to contain their own point estimate in 71% of area-years. Runaway long-horizon projections fall from 177 area-years to 19.",
+    sourceUrl: "https://ukdemographics.co.uk/methodology/"
+  },
+  {
     date: "2026-05-19",
     title: "Coverage parity (P2)",
     summary: "Added 631 Westminster constituency pages with 2024 General Election results, sitting MPs and Personal Independence Payment claimant counts. Constituency-to-local-authority cross-links use postcode-share weights from the ONS pcon-lookup. Three new findings: 24-year NINo arrivals arc, working-and-not-working by passport group (Census 2021 RM021), and 2024 births by mother's country of birth.",
@@ -24,7 +30,7 @@ const releases = [
   {
     date: "2026-04-29",
     title: "Model v7.0",
-    summary: "Census 2011 DC2101EW (18 groups, observed) replaces the previous proportional-splitting Census 2011 base, so per-area Hamilton-Perry CCRs now derive from direct Census observations at both ends of the calibration window. DfE School Census 2024/25 independent calibration applied to ages 0-5 (20% damped). Per-area MAE published on the methodology page. Backcast MAE on the apples-to-apples 269-area comparison against NEWETHPOP: 1.71pp (NEWETHPOP 2.58pp on the same areas). The methodology page documents the circularity caveat: cohort change ratios in the backcast are derived from the same endpoints being validated, and the genuine non-circular measure is the national-CCR baseline at 2.32pp.",
+    summary: "Census 2011 DC2101EW (18 groups, observed) replaces the previous proportional-splitting Census 2011 base, so per-area Hamilton-Perry CCRs now derive from direct Census observations at both ends of the calibration window. DfE School Census 2024/25 independent calibration applied to ages 0-5 (20% damped). Per-area MAE published on the methodology page. Backcast MAE reported at the time as 1.71pp against NEWETHPOP 2.58pp. That comparison was withdrawn on 13 August 2026: the backcast fitted on the same endpoints it was tested against, so it measured the guardrails rather than accuracy. See the v8.0 entry above.",
     sourceUrl: "https://ukdemographics.co.uk"
   },
   {

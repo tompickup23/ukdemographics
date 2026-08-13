@@ -23,7 +23,14 @@ const demographicShifts2061 = getSignificantDemographicShifts(2061);
 const areasBelow50by2061 = demographicShifts2061.length;
 
 // Dynamic demographic counts
-const allAreaCodes = Object.keys(projData.areas);
+// ethnic-projections.json carries two authorities twice, under both their
+// retired and their current ONS codes: Barnsley as E08000016 and E08000038,
+// Sheffield as E08000019 and E08000039, with identical populations. Only the
+// current codes are in the public area registry, so only one page renders for
+// each, but keying off the raw projection object double-counted 801,000 people
+// in every national aggregate on this page. The registry is the canonical set.
+const publicAreaCodes = new Set(publicAreas.map((a) => a.areaCode));
+const allAreaCodes = Object.keys(projData.areas).filter((c) => publicAreaCodes.has(c));
 const muslimMajority2051 = allAreaCodes.filter(code => {
   const mp = projData.areas[code]?.muslimPct2051;
   return mp && mp > 50;

@@ -299,8 +299,26 @@ console.log(`  ${areaCodes.length} areas in both censuses`);
 // doing the work.
 //
 // Opt in with CCR_SHRINKAGE=1; tune with CCR_SHRINK_K (default 10).
-const USE_SHRINKAGE = process.env.CCR_SHRINKAGE === "1";
-const SHRINK_K = Number(process.env.CCR_SHRINK_K ?? 10);
+// Defaults selected on the out-of-sample test in
+// scripts/model/validate_out_of_sample.mjs, which fits ratios on Census 2001 to
+// 2011 and forecasts 2021, so the fitting window never touches the target. On
+// that test the previous settings (freeze at a 2011 base of five or fewer,
+// ceiling 5.0) scored MAE 2.82pp on the White British share with a bias of
+// -2.12pp, under-predicting in 192 of 285 areas: the model was projecting change
+// too fast, not too slow. These settings score MAE 1.53pp with a bias of +0.03pp,
+// and improve five of the six groups. Total MAE across all groups falls from
+// 8.14 to 5.53.
+//
+// The ceiling is what mattered. At 5.0 a group could quintuple in a decade,
+// which is 625x over four steps and is what produced the runaway projections.
+// The optimum is a broad plateau: ceilings of 1.6 to 2.0 all score between 1.52
+// and 1.69, so 1.6 is not a knife-edge fit. It was chosen as the point where the
+// forecast is unbiased rather than the point that minimises MAE by a hair,
+// because bias compounds across projection steps and noise does not.
+const USE_SHRINKAGE = process.env.CCR_SHRINKAGE !== "0";
+const SHRINK_K = Number(process.env.CCR_SHRINK_K ?? 25);
+const CCR_CEILING = Number(process.env.CCR_CEILING ?? 1.6);
+const CCR_FLOOR = Number(process.env.CCR_FLOOR ?? 0.05);
 
 const nationalCCRs = new Map(); // "eth|sex|fromAge" -> pop-weighted national ratio
 if (USE_SHRINKAGE) {
@@ -318,7 +336,7 @@ if (USE_SHRINKAGE) {
   }
   for (const [key, n] of num) {
     const d = den.get(key) || 0;
-    nationalCCRs.set(key, d > 5 ? Math.max(0.05, Math.min(5.0, n / d)) : 1.0);
+    nationalCCRs.set(key, d > 5 ? Math.max(CCR_FLOOR, Math.min(CCR_CEILING, n / d)) : 1.0);
   }
   console.log(`  shrinkage on, K=${SHRINK_K}, ${nationalCCRs.size} national CCRs`);
 }
@@ -349,10 +367,10 @@ for (const code of areaCodes) {
           const nat = nationalCCRs.get(`${eth}|${sex}|${fromAge}`) ?? 1.0;
           const local = pop11 > 0 ? pop21 / pop11 : nat;
           ccr = (pop11 * local + SHRINK_K * nat) / (pop11 + SHRINK_K);
-          ccr = Math.max(0.05, Math.min(5.0, ccr));
+          ccr = Math.max(CCR_FLOOR, Math.min(CCR_CEILING, ccr));
         } else if (pop11 > 5) {
           ccr = pop21 / pop11;
-          ccr = Math.max(0.05, Math.min(5.0, ccr));
+          ccr = Math.max(CCR_FLOOR, Math.min(CCR_CEILING, ccr));
         } else {
           ccr = 1.0;
         }
@@ -440,7 +458,7 @@ if (schoolData?.areas) {
             const key = `${code}|${eth}|${sex}|${fromAge}`;
             const ccr = ccrs.get(key);
             if (ccr) {
-              const newCcr = Math.max(0.05, Math.min(5.0, ccr * adjustment));
+              const newCcr = Math.max(CCR_FLOOR, Math.min(CCR_CEILING, ccr * adjustment));
               ccrs.set(key, newCcr);
             }
           }
@@ -726,8 +744,8 @@ for (const code of areaCodes) {
   }
 }
 
-existing.methodology = "Hamilton-Perry v7.0 single-year-of-age model with 20 ethnic groups. Census 2021 base from ONS custom dataset (direct observations, no IPF). Census 2011 base from DC2101EW (18 groups, 21 age bands, Beers interpolation to single-year; Roma split from Gypsy/Traveller using 2021 proportions). 91 age groups x 20 ethnic groups x 2 sexes. SNPP 2022-based envelope constraint (linear extrapolation beyond 2047). Brexit WHO adjustment (-15% growth ages 20-44). DfE School Census 2024/25 calibration (20% damped CCR adjustment for ages 0-5). Backcast validated: MAE 1.71pp across 269 areas (beats NEWETHPOP 2.58pp by 33%). Monte Carlo stochastic: 1000 simulations, sigma=0.02.";
-existing.modelVersion = "7.0-dc2101ew-census-direct";
+existing.methodology = "Hamilton-Perry v8.0 single-year-of-age model with 20 ethnic groups. Census 2021 base from ONS custom dataset (direct observations, no IPF). Census 2011 base from DC2101EW (18 groups, 21 age bands, interpolated to single-year; Roma split from Gypsy/Traveller using 2021 proportions). 91 age groups x 20 ethnic groups x 2 sexes. SNPP 2022-based envelope constraint (linear extrapolation beyond 2047). Cohort change ratios shrunk toward the national ratio by cell size (K=25) with a growth ceiling of 1.6 per decade, both selected on an out-of-sample test that fits 2001 to 2011 and forecasts 2021: MAE 1.53pp on the White British share across 285 areas, bias +0.03pp. The previous settings (freeze at a 2011 base of five or fewer, ceiling 5.0) scored MAE 2.82pp with a bias of -2.13pp on the same test. Brexit WHO adjustment (-15% growth ages 10-34). DfE School Census 2024/25 calibration (20% damped adjustment for ages 0-5). Monte Carlo stochastic: 1000 simulations, run from the same ratios as the deterministic projection."
+existing.modelVersion = "8.0-out-of-sample-calibrated";
 existing.lastUpdated = new Date().toISOString().slice(0, 10);
 
 writeFileSync(SITE_OUTPUT, JSON.stringify(existing, null, 2), "utf8");

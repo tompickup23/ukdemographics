@@ -91,39 +91,47 @@ describe("publishableValue and publishableYears", () => {
 describe("the live dataset", () => {
   const areas = (rawProjections as { areas: Record<string, any> }).areas;
 
-  it("truncates the areas that ran away and leaves the rest alone", () => {
+  // The v8.0 calibration fixed most divergence at source: the growth ceiling
+  // selected on the out-of-sample test took runaway area-years from 177 to 19
+  // and truncated areas from 108 to 14. These assertions therefore describe a
+  // backstop, not the main defence, and deliberately avoid pinning to particular
+  // areas so that a further model improvement does not fail the suite.
+
+  it("leaves the great majority of areas with their full horizon", () => {
     let truncated = 0;
-    let full = 0;
+    for (const area of Object.values(areas)) if (isTruncated(area)) truncated += 1;
+    expect(truncated).toBeLessThan(Object.keys(areas).length * 0.1);
+  });
+
+  it("still withholds anything that does diverge", () => {
     for (const area of Object.values(areas)) {
-      if (isTruncated(area)) truncated += 1;
-      else full += 1;
+      const through = plausibleThrough(area);
+      for (const year of [2031, 2041, 2051, 2061]) {
+        const row = area.projections?.[String(year)];
+        if (!row) continue;
+        const withheld = through === null || year > through;
+        if (yearHasDiverged(row, area.current?.groups)) {
+          expect(withheld).toBe(true);
+        }
+      }
     }
-    // 108 of 320 when this guard was generalised from the residual categories to
-    // every non-White-British group. The majority are still unaffected, which is
-    // the point: this withholds divergence, it does not blank the site.
-    expect(truncated).toBeGreaterThan(0);
-    expect(full).toBeGreaterThan(truncated);
-    expect(truncated + full).toBe(Object.keys(areas).length);
   });
 
-  it("withholds Enfield past 2031, which published Other at 67% for 2051", () => {
-    const enfield = Object.values(areas).find((a: any) => a.areaName === "Enfield");
-    expect(enfield).toBeTruthy();
-    expect(enfield.projections["2051"].other).toBeGreaterThan(60);
-    expect(plausibleThrough(enfield)).toBe(2031);
-    expect(publishableValue(enfield, 2051, enfield.projections["2051"].white_british)).toBeNull();
+  it("publishes nothing where a group exceeds the ceiling off a small base", () => {
+    let published = 0;
+    for (const area of Object.values(areas)) {
+      const through = plausibleThrough(area);
+      if (through === null) continue;
+      for (const year of [2031, 2041, 2051, 2061]) {
+        if (year > through) continue;
+        const row = area.projections?.[String(year)];
+        if (row && yearHasDiverged(row, area.current?.groups)) published += 1;
+      }
+    }
+    expect(published).toBe(0);
   });
 
-  it("catches White Other running away, not just the residual categories", () => {
-    // Barnsley: 4.27% White Other in 2021, projected 45.28% by 2061. A factor of
-    // ten. This was published while Enfield's "Other" was being caught.
-    const barnsley = Object.values(areas).find((a: any) => a.areaName === "Barnsley");
-    expect(barnsley).toBeTruthy();
-    expect(barnsley.projections["2061"].white_other).toBeGreaterThan(40);
-    expect(isTruncated(barnsley)).toBe(true);
-  });
-
-  it("leaves a well-behaved area with its full horizon", () => {
+  it("keeps a well-behaved area intact", () => {
     const pendle = Object.values(areas).find((a: any) => a.areaName === "Pendle");
     expect(pendle).toBeTruthy();
     expect(isTruncated(pendle)).toBe(false);

@@ -361,6 +361,103 @@ existed). It is not a recommendation. Choosing between these requires a genuine
 out-of-sample test, which most plausibly means holding back a data source the
 model has never seen, or waiting for a mid-decade estimate to score against.
 
+## Part 2c: the guardrail question, resolved
+
+Part 2b ended by saying nothing on hand could referee the choice between guardrail
+settings, because the backcast is circular and the DfE school data is already a
+model input. That was true of what was on hand. It was not true of what was
+obtainable.
+
+### The test
+
+ONS publishes Census 2001 table ST101 (sex and age by ethnic group) on NOMIS as
+`NM_1869_1`, and publishes it on **TYPE464, the 2011 local authority geography**,
+which is the same geography as the 2011 DC2101EW extract the model already uses.
+That removes the boundary crosswalk that would otherwise make a 2001 comparison
+painful. `scripts/fetch/fetch-census-2001-ethnicity-age.mjs` pulls it, 244,992
+rows.
+
+`scripts/model/validate_out_of_sample.mjs` then fits cohort change ratios on 2001
+to 2011, projects one full decade to 2021, and scores against the actual Census
+2021. **The fitting window never touches the target**, so the result is a real
+forecast error. It is the exact analogue of what the published model does, fit on
+2011 to 2021 and project forward, so the error it reports is the error the
+published projections carry.
+
+285 local authorities have an unchanged code across all three censuses. Only the
+six broad groups are scored: 2001 used 16 detailed groups against 18 in 2011 and
+20 in 2021, and the broad groups are the only classification stable throughout.
+Chinese moved from "Chinese/Other" in 2001 to "Asian" from 2011 and is mapped to
+asian throughout.
+
+### The result reverses the previous conclusion
+
+| Setting | MAE | Bias | Under-predicts WB |
+|---|---:|---:|---:|
+| Ceiling 5.0, freeze at 5 (**what was published**) | 2.82pp | **-2.13pp** | 192 of 285 |
+| Shrinkage K=25, ceiling 1.6 (**now default**) | **1.53pp** | **+0.03pp** | 139 of 285 |
+
+The published model was **under**-predicting the White British share, which means
+it was projecting change **too fast**. Every earlier statement in this document
+and on the site, derived from the circular backcast, said the opposite: that the
+model over-predicted White British by +1.70pp and therefore understated the pace
+of change. The direction was wrong, and it was wrong because the backcast was
+measuring guardrail distortion on a fit that already contained its own answer.
+
+This is the single most important correction in the whole audit, and it could only
+be found by getting data the model had never seen.
+
+### Choosing the setting
+
+| Ceiling | MAE | Bias |
+|---:|---:|---:|
+| 3.0 | 2.61 | -2.35 |
+| 2.5 | 2.17 | -1.80 |
+| 2.0 | 1.69 | -0.96 |
+| 1.8 | 1.56 | -0.49 |
+| **1.6** | **1.59** | **+0.11** |
+| 1.4 | 1.87 | +0.89 |
+
+Adding shrinkage at K=25 on top improves it slightly further, to MAE 1.53 and bias
++0.03. The optimum is a **plateau, not a knife edge**: every ceiling from 1.6 to
+2.0 scores between 1.52 and 1.69. 1.6 was chosen as the point where the forecast
+is unbiased rather than the point that minimises MAE by a hundredth, because bias
+compounds across projection steps and noise does not.
+
+It improves five of the six groups. Total MAE across all groups falls from 8.14 to
+5.53. White Other is the exception: its bias worsens from +0.35 to -1.02, because
+the tighter ceiling constrains exactly the group that grew fastest in the 2010s.
+
+**Honest caveat.** These settings were selected on a single decade transition. A
+hyperparameter chosen on one holdout can overfit that holdout. The plateau and the
+improvement across five of six groups argue against it here, but the next Census
+is the real test, and the site says so.
+
+### Effect on the published projections
+
+| | before | after |
+|---|---:|---:|
+| runaway area-years | 177 | **19** |
+| areas needing truncation | 108 of 320 | **14 of 320** |
+| largest projected minority-group share | 82.5% | 64.4% |
+| areas below 5% White British by 2061 | 13 | 6 |
+| median area White British 2051 | 67.9% | 68.2% |
+
+The divergence is now fixed at source rather than hidden by the display guard,
+which becomes a backstop. Enfield's "Other" falls from 67% to 37% for 2051;
+Barnsley's White Other from 45.3% to 12.9% for 2061. The median area barely moves,
+which is the reassuring part: the headline national picture is stable, and what
+changed is the tail that was never credible.
+
+### The stochastic run was a different model
+
+`run_stochastic_hp.mjs` turned out to carry its own copy of the ratio
+construction, with James-Stein shrinkage at K=50 that the deterministic model did
+not have, plus the same births bug. That is the root cause of the confidence bands
+failing to contain their own point estimate in 71% of area-years: the two scripts
+were not two runs of one model, they were two different models. Both now read the
+same settings and share the same two-pass births block.
+
 ## Part 3: presentation sweep
 
 Applied against `.claude/rules/dataviz.md` and `.claude/rules/presentation.md`
