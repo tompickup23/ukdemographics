@@ -7,7 +7,7 @@ stat_label: "Arab population (Census 2021)"
 verdict: info
 source_url: "https://www.ons.gov.uk/datasets/create"
 source_label: "ONS Census 2021 Custom Dataset"
-summary: "Our model is the first to project the Arab ethnic group separately. Census 2021 counts 319,452 people identifying as Arab. previously hidden inside 'Other ethnic group'. In areas like Brent (5.3% to 12.9%) and Westminster (7.6% to 9.3%), the Arab population is projected to grow faster than most other groups."
+summary: "Our model is the first to project the Arab ethnic group separately. Census 2021 counts 319,452 people identifying as Arab. previously hidden inside 'Other ethnic group'. In areas like Brent (5.3% to 12.9%) and Westminster (7.6% to 9.2%), the Arab population is projected to grow faster than most other groups."
 ---
 
 **No demographic model has ever projected the Arab population of England separately. Until now.**
@@ -19,7 +19,7 @@ Census 2021 introduced a standalone "Arab" ethnic category. Previous projections
 **The fastest-growing Arab communities:**
 - Brent: 5.3% to 12.9% by 2051
 - Ealing: 4.4% → 13.9%
-- Westminster: 7.6% to 9.3% by 2051
+- Westminster: 7.6% to 9.2% by 2051
 - Harrow: 2.4% → 10.8%
 - Kingston upon Thames: 2.1% → 10.5%
 - Manchester: 2.7% → 8.8%

@@ -18,9 +18,16 @@ describe("out-of-sample calibration", () => {
     expect((oos as any).areasScored).toBeGreaterThan(250);
   });
 
+  it("is fitted at the granularity the published model runs at", () => {
+    // The shrinkage constant is a cell count, not a proportion, so a setting
+    // selected on a six-group fit shrinks the published 20-group model much
+    // harder than intended. The validation fits at 16 groups for that reason.
+    expect((oos as any).grouping).toBe("detailed");
+  });
+
   it("is close to unbiased on the White British share", () => {
     // Bias matters more than MAE because it compounds across projection steps.
-    // Selected at +0.03pp; anything beyond half a point in either direction means
+    // Selected at +0.05pp; anything beyond half a point in either direction means
     // the calibration has drifted and needs reselecting.
     expect(Math.abs(wb.bias)).toBeLessThan(0.5);
   });
@@ -40,7 +47,7 @@ describe("out-of-sample calibration", () => {
     const total = Object.values((oos as any).summary)
       .filter(Boolean)
       .reduce((t: number, s: any) => t + s.mae, 0);
-    // 5.53 at selection, against 8.14 for the settings replaced.
+    // 5.34 at selection, against 8.14 for the settings replaced.
     expect(total).toBeLessThan(7);
   });
 });

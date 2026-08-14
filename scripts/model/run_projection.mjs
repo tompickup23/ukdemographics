@@ -334,10 +334,14 @@ for (const areaCode of areaCodes) {
 }
 
 // Update metadata
-existingProjections.methodology = "Cohort-component model (5-year age bands, 12 ethnic groups, 2 sexes). Census 2021 base population. Ethnic-specific fertility, mortality, and migration rates. 9 scenarios (3 fertility × 3 migration). Central scenario: half fertility convergence + ONS principal migration.";
+
 existingProjections.lastUpdated = new Date().toISOString().slice(0, 10);
 existingProjections.source = "Census 2021 (ONS RM032 + TS007A via NOMIS) + NEWETHPOP methodology + ONS 2022-based SNPP assumptions";
-existingProjections.modelVersion = "2.0-cohort-component";
+// modelVersion and methodology are owned by run_hp_single_year.mjs, which is
+// the model. This script is a consumer of the model output, so it must not
+// stamp its own version: ten scripts used to write this field and whichever
+// ran last won, which is how the published file came to report a version
+// three releases behind the projections it actually contained.
 
 writeFileSync(SITE_OUTPUT_PATH, JSON.stringify(existingProjections, null, 2), "utf8");
 console.log(`Updated ${SITE_OUTPUT_PATH}`);

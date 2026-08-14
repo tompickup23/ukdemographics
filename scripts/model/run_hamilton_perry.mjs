@@ -439,8 +439,12 @@ for (const code of commonAreas) {
   }
 }
 
-existing.methodology = "Hamilton-Perry cohort change ratio model. CCRs computed from Census 2011 → 2021 by ethnic group × age × sex × LA. CWRs for births. SNPP 2022-based envelope constraint. Every rate derived from Census observations.";
-existing.modelVersion = "3.0-hamilton-perry";
+// modelVersion and methodology are owned by run_hp_single_year.mjs, which is
+// the model. This script is a consumer of the model output, so it must not
+// stamp its own version: ten scripts used to write this field and whichever
+// ran last won, which is how the published file came to report a version
+// three releases behind the projections it actually contained.
+
 existing.lastUpdated = new Date().toISOString().slice(0, 10);
 existing.source = "Census 2011 DC2101EW + Census 2021 RM032 (NOMIS API) + ONS SNPP 2022-based Z1";
 

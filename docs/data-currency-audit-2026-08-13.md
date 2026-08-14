@@ -4,6 +4,29 @@ Scope: every file in `src/data/live/`, the Hamilton-Perry projection code in
 `scripts/model/`, and the model claims published on `/methodology/` and the
 place pages.
 
+> **Read this first.** The document is chronological, and the investigation
+> changed its own conclusions twice. Parts 1 and 2 describe what was found and
+> what was done about it at the time; several of their numbers were superseded by
+> the recalibration in Part 2c and the critique in Part 2d. Where they disagree,
+> the later part is current.
+>
+> The short version of where it ended up:
+>
+> - The old backcast score of 1.71pp was not an accuracy measure. It fitted on the
+>   same two Censuses it was tested against and was measuring the model's own
+>   guardrails. It also had the direction of the error backwards.
+> - A genuine out-of-sample test (fit 2001 to 2011, forecast 2021, score on Census
+>   2021) showed the published settings were projecting change **too fast**, with a
+>   bias of -2.13pp.
+> - v8.0 recalibrates on that test: ratios shrunk toward the national ratio and
+>   capped at 1.65 growth per decade. MAE 1.56pp, bias +0.05pp.
+> - Runaway long-horizon projections fell from 177 area-years to a handful, so the
+>   display guard that withholds them is now a backstop rather than the main
+>   defence.
+> - The one thing this does **not** establish is the horizon. It validates a single
+>   ten-year step. 2051 runs that step three times and nothing available tests
+>   whether the calibration holds that far.
+
 ## Part 1: model integrity
 
 Five problems, in severity order. The first three are visible to readers today.
@@ -457,6 +480,155 @@ not have, plus the same births bug. That is the root cause of the confidence ban
 failing to contain their own point estimate in 71% of area-years: the two scripts
 were not two runs of one model, they were two different models. Both now read the
 same settings and share the same two-pass births block.
+
+## Part 2d: critique of the v8.0 methodology
+
+A deliberate adversarial pass over the work in Part 2c, looking for errors in it
+rather than in what it replaced. Eight findings, four of them errors in my own
+method or reporting.
+
+### Errors found and fixed
+
+**1. The reported accuracy was measured at the wrong granularity.** The
+validation originally fitted ratios at six broad groups while the published model
+runs at twenty. That matters because the shrinkage constant K is a **cell count,
+not a proportion**, so the same K shrinks a fine-grained model far harder:
+
+| | median cell | cells below K=25 | weight on local information |
+|---|---:|---:|---:|
+| 6-group fit (where K was selected) | 13.4 | 60.5% | 0.35 |
+| 20-group published model | 5.0 | 79.1% | 0.17 |
+
+Refitting the validation at the 16 groups common to all three censuses moved the
+unbiased ceiling from **1.60 to 1.65** and the honest error from 1.53pp to
+**1.56pp**. The published figure was flattered by aggregation. K itself turned out
+to matter very little once the ceiling is in place (MAE varies 0.03pp from K=5 to
+K=50), so the practical damage was small, but the reported number was wrong and
+the setting was chosen on the wrong surface.
+
+**2. Selecting and reporting on the same set.** The ceiling was chosen by
+sweeping on the same 285 areas the score was then quoted from, which is
+optimistic by construction. A split-half check (select the ceiling on half the
+areas, score on the other half, both directions) puts that optimism at
+**+0.02pp**. Small, because the optimum is a wide plateau rather than a spike, but
+it should have been measured before publishing rather than after.
+
+**3. The validation docstring described an envelope the code never applied.** It
+claimed a total-population constraint "playing the part SNPP plays in the forward
+model". No such code existed. This is harmless for the result, because an envelope
+scales every cell by one factor and leaves shares unchanged, and shares are what
+is scored, but the documentation asserted something untrue about the method.
+
+**4. "320 English local authorities" was wrong twice over.** 22 of the 320 are
+Welsh. Two are duplicates (Barnsley and Sheffield each appear under a retired and
+a current ONS code), so there are 318 distinct authorities. And the model projects
+only **269** of them. The page now says so.
+
+**5. A downstream script was stamping the model version.**
+`project_religion_nativity.mjs` set `modelVersion` to
+`"5.1-single-year-hp-religion-nativity"`, overwriting whatever the forward model
+had written, so the published version depended on which script ran last. Caught by
+the calibration test, which is the case for having written it.
+
+### Limitations that cannot be fixed with available data, now stated
+
+**6. The horizon is unvalidated, and this is the largest weakness.** The test
+covers **one ten-year step**. The published 2051 figure runs that step three times
+and 2061 runs it four. A growth ceiling is a per-step correction, and applying the
+same one at every step assumes the tendency it corrects for does not itself change
+with distance. Nothing available here tests that. 2031 is the best-evidenced year
+on the site; 2051 is materially more uncertain than its error bar suggests.
+
+**7. One decade transition, and not a typical one.** The calibration assumes the
+relationship between consecutive decades is stable. 2001 to 2011 spans EU
+accession; 2011 to 2021 spans the referendum and the end of free movement; the
+projection period begins with net migration at a post-war peak. Each is unlike the
+others.
+
+**8. The Brexit damp pushes the same way as a known error.** White Other growth is
+cut by 15% at ages 10 to 34 as a judgement about EU migration. The out-of-sample
+test cannot referee it, because "post-Brexit" falls inside that test's target
+window. What the test does say is that the undamped model already under-projects
+White Other by **-0.87pp**. Removing the damp would raise projected White Other in
+2051 by 0.42pp on average and lower White British by 0.26pp. It is kept, because
+the end of free movement is a real discontinuity the ratios cannot see, but it is
+a hand adjustment that moves the site's headline number in one direction and it is
+now disclosed with its magnitude and a `BREXIT_DAMP=0` switch.
+
+### Further findings from the same pass
+
+**9. Ten scripts were each stamping `modelVersion`.** `run_stochastic_hp.mjs` set
+`"6.0-stochastic-hp"`, `project_religion_nativity.mjs` set
+`"5.1-single-year-hp-religion-nativity"`, and eight others set their own. Whichever
+ran last won, so the published file reported a version that depended on pipeline
+ordering rather than on the model. One script, `run_projection_v2.mjs`, already
+carried the correct convention as a comment ("Do NOT overwrite methodology or
+modelVersion, HP model owns these"), so the rule existed and was simply not
+followed. All ten now defer to the forward model. Caught by the calibration test.
+
+**10. Two stochastic runs were computing at once.** An hour-long job that writes
+`ethnic-projections.json` at the end had no protection against a second writer,
+and both would have raced on that write with the loser silently discarded. My own
+error caused it: the first run's output was buffered behind a pipe, I misread that
+as a failure, and started a duplicate. Both were 85% through before it was
+noticed. `run_stochastic_hp.mjs` now takes a single-writer lock (a directory,
+because `mkdir` is atomic) released on exit and on SIGINT/SIGTERM. Verified: a
+second invocation exits with a clear message rather than proceeding.
+
+**11. The residual band mismatch took four attempts to diagnose, and the first
+three were wrong.** After the runs were first aligned, 185 of 807 model-covered
+area-years still had a projection outside its own band.
+
+| Attempt | Hypothesis | Result |
+|---|---|---|
+| 1 | Monte Carlo boundary noise | A guess stated as a finding. Wrong. |
+| 2 | SNPP envelope extrapolation (stochastic clamped at 2047, deterministic extrapolates) | A real difference. Fixed it. Count did not move: 185 to 185. |
+| 3 | DfE calibration and Brexit damp applied by one script only | Also real. Ported them. Count went **up** to 273, and Cornwall was unchanged. |
+| 4 | Run one simulation with the noise switched off | Decisive. |
+
+The fourth is the method that should have been used first. A zero-noise
+simulation must reproduce the deterministic projection exactly. It did not: only
+**1 of 269** areas matched, mean gap +0.35pp, up to 2.76pp in Cornwall. That
+turned an argument between hypotheses into a measurement, and it found two
+things:
+
+- **Clamp-then-shrink versus shrink-then-clamp.** The deterministic shrinks the
+  unclamped ratio toward the national one and then caps the result; the
+  stochastic capped first. Capping first pulls a fast-growing cell below the
+  ceiling where shrinking first leaves it at the ceiling, so it under-projected
+  exactly the cells that grow fastest, which are minority groups on a thin base.
+  Mean gap 0.345pp to 0.082pp.
+- **Two different 2011 populations.** The stochastic read NEWETHPOP (12 modelled
+  groups split to 20 using 2021 proportions) while the deterministic uses Census
+  2011 DC2101EW (18 observed groups). The stochastic's own header comment claimed
+  DC2101EW. Cohort change ratios are the 2021 population over the 2011
+  population, so a different 2011 base is a different model. Max discrepancy
+  2.76pp to 0.74pp, and Cornwall stopped being an outlier.
+
+**The fix is structural.** The 200-line 2011-base loader now lives in
+`scripts/model/lib/census-2011-base.mjs` and both scripts import it. Neither has
+its own copy left to drift. The refactor was verified behaviour-preserving on the
+deterministic model first: zero areas changed.
+
+Result across the whole chase:
+
+| | band misses, of 807 area-years |
+|---|---:|
+| original | 672 |
+| after the first alignment | 185 |
+| after porting the calibration (worse) | 273 |
+| after the shared 2011 base | **68** |
+
+The 68 that remain are small and one-sided: 45 under a quarter of a point, 20
+under a point, 3 above. Place pages now draw a band on **262 of 318**, against 51
+when this work started. Nothing incoherent published at any stage, because the
+render guard withholds any band that does not contain its line.
+
+### Checks that came back clean
+
+Census 2021 shares sum to 100 in every area. No area's White British trajectory
+changes direction, so there is no oscillation artefact. No area shows a first-step
+discontinuity, so the 2021 base joins the projection smoothly.
 
 ## Part 3: presentation sweep
 

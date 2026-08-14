@@ -20,15 +20,24 @@
  *
  * Scope
  * -----
- * Six broad groups, not twenty. The 2001 Census used 16 detailed groups against
- * 18 in 2011 and 20 in 2021, so only the broad groups are stable across all
- * three. Chinese moved from "Chinese/Other" in 2001 to "Asian" from 2011; it is
- * mapped to asian throughout. 307 local authorities have an unchanged code across
- * the whole period and are the scored set.
+ * Scoring is always on the six broad groups so results stay comparable with each
+ * other and with NEWETHPOP. Ratios are fitted at 16 groups by default, the finest
+ * classification common to 2001, 2011 and 2021, because the model being validated
+ * runs at 20 and a setting selected on a coarser fit does not transfer cleanly.
+ * GROUPING=broad reverts to a six-group fit. Chinese moved from "Chinese/Other"
+ * in 2001 to "Asian" from 2011 and is mapped to asian throughout. 285 local
+ * authorities have an unchanged code across all three censuses and carry a Census
+ * 2021 observation; they are the scored set.
  *
- * A total-population envelope is applied at 2021, playing the part SNPP plays in
- * the forward model. It fixes the denominator only, not the composition, which is
- * what is scored.
+ * No total-population envelope is applied. The forward model constrains to SNPP,
+ * but an envelope scales every cell by one factor and so leaves shares unchanged,
+ * and shares are what is scored. Omitting it also keeps any 2021 information out
+ * of the forecast.
+ *
+ * What this does NOT validate: the horizon. It tests one ten-year step, which is
+ * what the published model's first step does. The published 2051 and 2061 figures
+ * run that step three and four times, and no data available here can test whether
+ * a calibration chosen on one step holds over four.
  *
  * Usage
  * -----
@@ -59,7 +68,7 @@ const writeOut = process.argv.includes("--write");
 // Guardrail settings under test. The defaults mirror run_hp_single_year.mjs so
 // that running this with no environment set validates the model as published.
 // Override any of them to reproduce the selection sweep.
-const CCR_CEILING = Number(process.env.CCR_CEILING ?? 1.6);
+const CCR_CEILING = Number(process.env.CCR_CEILING ?? 1.65);
 const CCR_FLOOR = Number(process.env.CCR_FLOOR ?? 0.05);
 const MIN_BASE = Number(process.env.CCR_MIN_BASE ?? 5);
 const USE_SHRINKAGE = process.env.CCR_SHRINKAGE !== "0";
@@ -68,7 +77,52 @@ const LABEL =
   process.env.VARIANT_LABEL ??
   (USE_SHRINKAGE ? `shrinkage K=${SHRINK_K}` : `freeze<=${MIN_BASE}, ceiling ${CCR_CEILING}`);
 
+// Granularity the ratios are computed at. This matters and is easy to get wrong.
+//
+// Scoring is always on the six broad groups, so results stay comparable with each
+// other and with NEWETHPOP. But the RATIOS can be fitted at two granularities,
+// and the shrinkage constant K is not scale-free: it is a cell count, so the same
+// K shrinks a fine-grained model much harder than a coarse one. In the six-group
+// fit the median cell holds 13.4 people and K=25 leaves a weight of 0.35 on local
+// information; in the twenty-group model the published code actually runs, the
+// median cell holds 5 and the same K leaves 0.17. Selecting K on the coarse fit
+// and applying it to the fine one over-shrinks the published model toward the
+// national average.
+//
+// GROUPING=detailed fits at the 16 groups common to all three censuses, which is
+// close to the 20 the model runs at, and is the setting K should be chosen on.
+const GROUPING = process.env.GROUPING ?? "detailed";
 const SIMPLE = ["white_british", "white_other", "asian", "black", "mixed", "other"];
+
+// 16 groups common to 2001, 2011 and 2021. 2001 has no separate Gypsy/Traveller,
+// Roma or Arab, so those sit inside White Other and Other respectively.
+const DETAILED = [
+  "WBI", "WIR", "WHO", "MWC", "MWF", "MWA", "MOM",
+  "IND", "PAK", "BAN", "OAS", "CHI", "BCA", "BAF", "OBL", "OTH"
+];
+const DETAILED_TO_BROAD = {
+  WBI: "white_british", WIR: "white_other", WHO: "white_other",
+  MWC: "mixed", MWF: "mixed", MWA: "mixed", MOM: "mixed",
+  IND: "asian", PAK: "asian", BAN: "asian", OAS: "asian", CHI: "asian",
+  BCA: "black", BAF: "black", OBL: "black",
+  OTH: "other"
+};
+const ETH2001_DETAILED = {
+  1: "WBI", 2: "WIR", 3: "WHO",
+  4: "MWC", 5: "MWF", 6: "MWA", 7: "MOM",
+  8: "IND", 9: "PAK", 10: "BAN", 11: "OAS",
+  12: "BCA", 13: "BAF", 14: "OBL",
+  15: "CHI", 16: "OTH"
+};
+const ETH2011_DETAILED = {
+  2: "WBI", 3: "WIR", 4: "WHO", 5: "WHO",
+  7: "MWC", 8: "MWF", 9: "MWA", 10: "MOM",
+  12: "IND", 13: "PAK", 14: "BAN", 15: "CHI", 16: "OAS",
+  18: "BAF", 19: "BCA", 20: "OBL",
+  22: "OTH", 23: "OTH"
+};
+const FIT_GROUPS = GROUPING === "detailed" ? DETAILED : SIMPLE;
+const toBroad = (g) => (GROUPING === "detailed" ? DETAILED_TO_BROAD[g] : g);
 const SEXES = ["M", "F"];
 const MAX_AGE = 90;
 
@@ -157,12 +211,12 @@ function loadCensus(file, ethMap, bands, cols) {
   return { pop, areas };
 }
 
-console.error("Loading Census 2001 ST101...");
-const c2001 = loadCensus(ST101, ETH2001, BANDS_2001, { geo: 0, eth: 2, sex: 4, age: 6, val: 8 });
+console.error(`Loading Census 2001 ST101 (fitting at ${FIT_GROUPS.length} groups)...`);
+const c2001 = loadCensus(ST101, GROUPING === "detailed" ? ETH2001_DETAILED : ETH2001, BANDS_2001, { geo: 0, eth: 2, sex: 4, age: 6, val: 8 });
 console.error(`  ${c2001.areas.size} areas`);
 
 console.error("Loading Census 2011 DC2101EW...");
-const c2011 = loadCensus(DC2101EW, ETH2011, BANDS_2011, { geo: 0, eth: 2, sex: 4, age: 6, val: 8 });
+const c2011 = loadCensus(DC2101EW, GROUPING === "detailed" ? ETH2011_DETAILED : ETH2011, BANDS_2011, { geo: 0, eth: 2, sex: 4, age: 6, val: 8 });
 console.error(`  ${c2011.areas.size} areas`);
 
 const projections = JSON.parse(readFileSync(PROJ, "utf8")).areas;
@@ -181,7 +235,7 @@ const nationalCCR = new Map();
 if (USE_SHRINKAGE) {
   const num = new Map(), den = new Map();
   for (const code of codes) {
-    for (const g of SIMPLE) for (const s of SEXES) {
+    for (const g of FIT_GROUPS) for (const s of SEXES) {
       for (let a = 0; a <= MAX_AGE - 10; a++) {
         const k = `${g}|${s}|${a}`;
         num.set(k, (num.get(k) || 0) + get(c2011.pop, code, g, s, a + 10));
@@ -212,7 +266,7 @@ for (const code of codes) {
   // Child-woman ratio from the 2011 Census, the fitting endpoint, exactly as the
   // forward model takes its CWR from its own latest Census.
   const cwr = {};
-  for (const g of SIMPLE) {
+  for (const g of FIT_GROUPS) {
     let children = 0, women = 0;
     for (let a = 0; a <= 9; a++) children += get(c2011.pop, code, g, "M", a) + get(c2011.pop, code, g, "F", a);
     for (let a = 15; a <= 44; a++) women += get(c2011.pop, code, g, "F", a);
@@ -222,7 +276,7 @@ for (const code of codes) {
   // One ten-year step, 2011 -> 2021. Cohorts first for both sexes, then births,
   // so male births are not sized off the previous decade's women.
   const next = {};
-  for (const g of SIMPLE) {
+  for (const g of FIT_GROUPS) {
     next[g] = { M: {}, F: {} };
     for (const s of SEXES) {
       for (let toAge = 10; toAge <= MAX_AGE; toAge++) {
@@ -232,7 +286,7 @@ for (const code of codes) {
       next[g][s][MAX_AGE] = (next[g][s][MAX_AGE] || 0) + get(c2011.pop, code, g, s, MAX_AGE) * 0.3;
     }
   }
-  for (const g of SIMPLE) {
+  for (const g of FIT_GROUPS) {
     let women = 0;
     for (let a = 15; a <= 44; a++) women += next[g].F[a] || 0;
     const births = women * cwr[g];
@@ -244,10 +298,11 @@ for (const code of codes) {
 
   let total = 0;
   const totals = {};
-  for (const g of SIMPLE) {
+  for (const g of SIMPLE) totals[g] = 0;
+  for (const g of FIT_GROUPS) {
     let t = 0;
     for (const s of SEXES) for (let a = 0; a <= MAX_AGE; a++) t += next[g][s][a] || 0;
-    totals[g] = t;
+    totals[toBroad(g)] += t;
     total += t;
   }
   if (total <= 0) continue;
@@ -294,6 +349,7 @@ for (const g of SIMPLE) summary[g] = stats(g);
 const out = {
   generatedAt: null,
   variant: LABEL,
+  grouping: GROUPING,
   settings: { CCR_CEILING, CCR_FLOOR, MIN_BASE, USE_SHRINKAGE, SHRINK_K },
   design:
     "Cohort change ratios fitted on Census 2001 to Census 2011, projected one decade to 2021, " +

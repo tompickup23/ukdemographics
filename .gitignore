@@ -58,3 +58,4 @@ data/raw/ho_visas_extra/
 !.env.sample
 **/.env
 **/.env.*
+.stochastic-run.lock

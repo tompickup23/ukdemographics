@@ -18,8 +18,34 @@
  * σ calibrated from HP v7.0 backcast: MAE 1.71pp over 10 years
  * → per-cohort CCR σ = 0.02 (Census 2011 DC2101EW + Census 2021 direct base)
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync } from "node:fs";
+
+// Single-writer lock.
+//
+// This run takes over an hour and writes ethnic-projections.json at the end. Two
+// copies started by mistake will both compute happily and then race on that
+// write, and the second one silently discards the first. That happened during
+// the v8.0 work: the first run's output was buffered behind a pipe so it looked
+// dead, a second was started, and both were 85% through before it was noticed.
+//
+// The lock is a directory because mkdir is atomic. A stale lock from a killed run
+// can be cleared by deleting it; the path is printed on failure.
+const LOCK = ".stochastic-run.lock";
+try {
+  mkdirSync(LOCK);
+} catch (err) {
+  if (err.code === "EEXIST") {
+    console.error(`Another stochastic run holds ${LOCK}.`);
+    console.error("If no run is active, remove that directory and try again.");
+    process.exit(3);
+  }
+  throw err;
+}
+const releaseLock = () => { try { rmSync(LOCK, { recursive: true, force: true }); } catch {} };
+process.on("exit", releaseLock);
+for (const sig of ["SIGINT", "SIGTERM"]) process.on(sig, () => { releaseLock(); process.exit(130); });
 import path from "node:path";
+import { loadBase2011 } from "./lib/census-2011-base.mjs";
 
 const BASE_PATH = path.resolve("data/model/base_single_year_2021.json");
 const NEWETHPOP_2011 = path.resolve("data/raw/newethpop/extracted/2DataArchive/OutputData/Population/Population2011_LEEDS2.csv");
@@ -56,7 +82,7 @@ const CWR_SIGMA_BASE = 0.02;
 // of area-years. They now read the same settings, selected on the out-of-sample
 // test in validate_out_of_sample.mjs.
 const SHRINKAGE_K = Number(process.env.CCR_SHRINK_K ?? 25);
-const CCR_CEILING = Number(process.env.CCR_CEILING ?? 1.6);
+const CCR_CEILING = Number(process.env.CCR_CEILING ?? 1.65);
 const CCR_FLOOR = Number(process.env.CCR_FLOOR ?? 0.05);
 
 function parseCsvLine(line) {
@@ -77,59 +103,15 @@ function randn() {
 // Parse 2011 base (12 groups) and split to 20 (same as run_hp_single_year.mjs)
 // ============================================================
 console.log("Parsing NEWETHPOP 2011 (12 groups) and splitting to 20...");
-const NEWETHPOP_TO_CHILDREN = {
-  WBI: ["WBI"], WIR: ["WIR"],
-  WHO: ["WGT", "WRO", "WHO"],
-  MIX: ["MWA", "MWF", "MWC", "MOM"],
-  IND: ["IND"], PAK: ["PAK"], BAN: ["BAN"], CHI: ["CHI"], OAS: ["OAS"],
-  BLA: ["BAF"], BLC: ["BCA"], OBL: ["OBL"],
-  OTH: ["ARB", "OOT"]
-};
-const pop2011_12 = new Map();
-const lines2011 = readFileSync(NEWETHPOP_2011, "utf8").split("\n").filter(l => l.trim());
-for (let i = 1; i < lines2011.length; i++) {
-  const cols = parseCsvLine(lines2011[i]);
-  const rawCode = cols[2];
-  if (!rawCode) continue;
-  const eth = cols[3];
-  for (const code of rawCode.split("+")) {
-    for (let age = 0; age <= 90; age++) {
-      let mVal = age < 90 ? (parseFloat(cols[4 + age]) || 0) : 0;
-      let fVal = age < 90 ? (parseFloat(cols[105 + age]) || 0) : 0;
-      if (age === 90) { for (let a = 90; a <= 100; a++) { mVal += parseFloat(cols[4+a])||0; fVal += parseFloat(cols[105+a])||0; } }
-      const n = rawCode.split("+").length;
-      pop2011_12.set(`${code}|${eth}|M|${age}`, (pop2011_12.get(`${code}|${eth}|M|${age}`)||0) + mVal/n);
-      pop2011_12.set(`${code}|${eth}|F|${age}`, (pop2011_12.get(`${code}|${eth}|F|${age}`)||0) + fVal/n);
-    }
-  }
-}
-
-// Split 12→20 using 2021 sub-group proportions
-const pop2011 = new Map();
-for (const code of Object.keys(base2021.areas)) {
-  for (const sex of SEXES) {
-    for (let age = 0; age <= 90; age++) {
-      for (const [parentEth, children] of Object.entries(NEWETHPOP_TO_CHILDREN)) {
-        const parentPop = pop2011_12.get(`${code}|${parentEth}|${sex}|${age}`) || 0;
-        if (children.length === 1) {
-          pop2011.set(`${code}|${children[0]}|${sex}|${age}`, parentPop);
-          continue;
-        }
-        let parentTotal2021 = 0;
-        for (const child of children) parentTotal2021 += base2021.areas[code]?.[child]?.[sex]?.[age] || 0;
-        if (parentTotal2021 <= 0) {
-          for (const child of children) pop2011.set(`${code}|${child}|${sex}|${age}`, parentPop / children.length);
-        } else {
-          for (const child of children) {
-            const share = (base2021.areas[code]?.[child]?.[sex]?.[age] || 0) / parentTotal2021;
-            pop2011.set(`${code}|${child}|${sex}|${age}`, parentPop * share);
-          }
-        }
-      }
-    }
-  }
-}
-console.log(`  Split complete`);
+// Shared with run_hp_single_year.mjs via scripts/model/lib/census-2011-base.mjs.
+//
+// This script used to read NEWETHPOP directly and split 12 groups to 20 using
+// 2021 proportions, while its own header comment claimed a DC2101EW base. The
+// deterministic model prefers DC2101EW, which is 18 observed groups. Cohort
+// change ratios are the 2021 population over the 2011 population, so a
+// different 2011 base is a different model, and the uncertainty bands were
+// being drawn around a projection they did not describe.
+const { pop2011, areas2011 } = loadBase2011(base2021, ETHNIC_GROUPS, SEXES);
 
 // Compute deterministic CCRs and CWRs
 const areaCodes = Object.keys(base2021.areas).filter(c => pop2011.has(`${c}|WBI|M|0`));
@@ -181,20 +163,89 @@ for (const code of areaCodes) {
         // borrowing the national ratio, which is the honest answer when there is
         // no local signal, rather than freezing the group at no change.
         const natForCell = natCCR.get(`${eth}|${sex}|${fromAge}`) || 1.0;
-        let rawCCR = pop11 > 0
-          ? Math.max(CCR_FLOOR, Math.min(CCR_CEILING, pop21 / pop11))
-          : natForCell;
 
-        // FIX 1: James-Stein shrinkage — pull extreme CCRs toward national average
-        const natAvg = natForCell;
-        const w = pop11 / (pop11 + SHRINKAGE_K); // shrinkage weight: 0 (full shrinkage) to 1 (no shrinkage)
-        const shrunkCCR = Math.max(CCR_FLOOR, Math.min(CCR_CEILING, w * rawCCR + (1 - w) * natAvg));
+        // Shrink the UNCLAMPED ratio, then clamp, matching run_hp_single_year.mjs.
+        //
+        // This script used to clamp first and shrink second. That is not the same
+        // operation: clamping a fast-growing cell to the ceiling before averaging
+        // it with the national ratio pulls it below the ceiling, where shrinking
+        // first leaves it at the ceiling. It therefore under-projected exactly the
+        // cells that grow fastest, which are minority groups on a thin base, and so
+        // over-projected the White British share relative to the deterministic run.
+        //
+        // Found by running one simulation with the noise turned off, which must
+        // reproduce the deterministic projection exactly and did not: only 1 of 269
+        // areas matched, mean gap +0.35pp and up to 2.76pp in Cornwall. Three
+        // earlier hypotheses (sampling noise, the population envelope, the School
+        // Census calibration) were each wrong; the zero-noise comparison is what
+        // isolated it.
+        const localCCR = pop11 > 0 ? pop21 / pop11 : natForCell;
+        const w = pop11 / (pop11 + SHRINKAGE_K); // 0 = full shrinkage, 1 = none
+        const shrunkCCR = Math.max(CCR_FLOOR, Math.min(CCR_CEILING, w * localCCR + (1 - w) * natForCell));
 
         ccrs.set(`${code}|${eth}|${sex}|${fromAge}`, shrunkCCR);
         ccrPops.set(`${code}|${eth}|${sex}|${fromAge}`, pop11);
       }
     }
   }
+}
+
+// Brexit White Other damp and DfE School Census calibration.
+//
+// Ported from run_hp_single_year.mjs so the two runs describe the same model.
+// They did not: the deterministic model applied both of these to its ratios and
+// this script applied neither, so the deterministic projection sat BELOW its own
+// band in 163 of 185 disagreeing area-years, a one-sided pattern that sampling
+// noise cannot produce. Cornwall missed by 9.2pp at 2051 and by 2.5pp at 2031,
+// so it was never a long-horizon or envelope problem.
+const APPLY_BREXIT_DAMP = process.env.BREXIT_DAMP !== "0";
+if (APPLY_BREXIT_DAMP) {
+  for (const code of areaCodes) {
+    for (const sex of SEXES) {
+      for (let fromAge = 10; fromAge <= 34; fromAge++) {
+        const key = `${code}|WHO|${sex}|${fromAge}`;
+        const ccr = ccrs.get(key);
+        if (ccr && ccr > 1.0) ccrs.set(key, 1.0 + (ccr - 1.0) * 0.85);
+      }
+    }
+  }
+}
+
+const CALIBRATION_GROUPS = {
+  white_british: ["WBI"],
+  white_other: ["WIR", "WGT", "WRO", "WHO"],
+  asian: ["IND", "PAK", "BAN", "CHI", "OAS"],
+  black: ["BAF", "BCA", "OBL"],
+  mixed: ["MWA", "MWF", "MWC", "MOM"],
+  other: ["ARB", "OOT"]
+};
+let calibratedAreas = 0;
+try {
+  const schoolData = JSON.parse(readFileSync(path.resolve("src/data/live/school-validation.json"), "utf8"));
+  for (const sv of schoolData?.areas ?? []) {
+    const code = sv.areaCode;
+    if (!base2021.areas[code]) continue;
+    for (const [group, ethCodes] of Object.entries(CALIBRATION_GROUPS)) {
+      const comparison = sv.comparison?.[group];
+      if (!comparison?.censusChildPct || !comparison?.schoolPct) continue;
+      const gapPp = comparison.gapPp;
+      if (Math.abs(gapPp) < 1.5) continue;
+      const adjustment = 1 + (gapPp / 100) * 0.2;
+      for (const eth of ethCodes) {
+        for (const sex of SEXES) {
+          for (let fromAge = 0; fromAge <= 5; fromAge++) {
+            const key = `${code}|${eth}|${sex}|${fromAge}`;
+            const ccr = ccrs.get(key);
+            if (ccr) ccrs.set(key, Math.max(CCR_FLOOR, Math.min(CCR_CEILING, ccr * adjustment)));
+          }
+        }
+      }
+    }
+    calibratedAreas++;
+  }
+  console.log(`  Calibrated ${calibratedAreas} areas using DfE school data (matching the deterministic run)`);
+} catch {
+  console.log("  WARNING: school-validation.json not found, calibration skipped (will disagree with the deterministic run)");
 }
 
 // Parse SNPP
@@ -265,9 +316,29 @@ function runOneSimulation(perturbFactor) {
         }
       }
 
-      // SNPP constraint
-      const snppYear = String(Math.min(year, 2047));
-      const target = snppTotals.get(code)?.[snppYear];
+      // SNPP constraint.
+      //
+      // SNPP stops at 2047. run_hp_single_year.mjs extrapolates the 2043-to-2047
+      // slope linearly beyond that; this script used to clamp to the 2047 total
+      // instead. The two therefore constrained 2051 and 2061 to different
+      // populations, which is a systematic difference between the deterministic
+      // projection and the band drawn around it, not sampling noise. It is why
+      // the residual band mismatches concentrated at the long horizons. Matched
+      // to the deterministic model here.
+      let target;
+      if (year <= 2047) {
+        target = snppTotals.get(code)?.[String(year)];
+      } else {
+        const s43 = snppTotals.get(code)?.["2043"];
+        const s47 = snppTotals.get(code)?.["2047"];
+        if (s43 && s47 && s43 > 0) {
+          const annualGrowth = (s47 - s43) / 4;
+          target = s47 + annualGrowth * (year - 2047);
+          if (target < 0) target = s47;
+        } else {
+          target = snppTotals.get(code)?.["2047"];
+        }
+      }
       if (target > 0) {
         let total = 0;
         for (const eth of ETHNIC_GROUPS) for (const sex of SEXES) for (const a of AGES) total += newPop[eth][sex][a]||0;
@@ -395,8 +466,12 @@ for (const code of areaCodes) {
     };
   }
 }
+// modelVersion and methodology are owned by run_hp_single_year.mjs, which is
+// the model. This script is a consumer of the model output, so it must not
+// stamp its own version: ten scripts used to write this field and whichever
+// ran last won, which is how the published file came to report a version
+// three releases behind the projections it actually contained.
 
-existing.modelVersion = "6.0-stochastic-hp";
 existing.lastUpdated = new Date().toISOString().slice(0, 10);
 existing.methodology += " Monte Carlo stochastic projection (1000 simulations, CCR σ=0.02 calibrated from HP v7.0 backcast validation: MAE 1.71pp over 269 areas). Reports median + 80%/95% prediction intervals.";
 
