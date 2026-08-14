@@ -62,10 +62,15 @@ Luton (31.8%), Slough (24.0%), Newham (14.8%), Brent (15.2%). These areas passed
 the threshold years ago.
 
 **The national picture.** England and Wales White British share: 74.4% (Census
-2021, ONS TS021). Across the 320 areas the HP model covers, the pop-weighted 2021
-share is 74.5%, falling to 52.1% by 2051. The cohort-component model, which
-assumes ethnic fertility rates converge halfway to the national mean, projects
-52.7% for 2051. Both put the national share near 50% in the early 2050s.
+2021, ONS TS021). Across the 314 areas with a published projection, the
+population-weighted share is 74.3% in 2021 and **55.0% by 2051**. The
+cohort-component model, which assumes ethnic fertility rates converge partway to
+the national mean, gives 54.6% on the same weighting.
+
+The two models agreeing to within half a point is worth noting, because they did
+not before. Under the settings replaced in August 2026 the Hamilton-Perry model
+ran several points below the cohort-component one. Two methods with different
+assumptions converging is a check on the recalibration, not a coincidence.
 
 Three things drive it. Fertility: White British TFR 1.31, below replacement. Age
 structure: the White British population is older, dying faster than it replaces
