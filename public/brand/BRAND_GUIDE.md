@@ -1,20 +1,20 @@
-# UK Demographics — Brand Guide
+# UK Demographics: Brand Guide
 
 ## Identity
 
 **Name:** UK Demographics
 **Tagline:** Population Data for Every Community
 **Subtitle:** Ethnic projections, school demand, housing pressure, and demographic change
-**Concept:** Rising population bars with a projection trend line. The bars represent growing demographic scale across local authorities. The trend line shows the forward trajectory — projections from Census 2021 to 2051. Green endpoint = where the data points.
+**Concept:** Rising population bars with a projection trend line. The bars represent growing demographic scale across local authorities. The trend line shows the forward trajectory: projections from Census 2021 to 2051. Green endpoint = where the data points.
 
 ## Logo Variants
 
 | File | Use Case |
 |------|----------|
-| `logo.svg` | Primary horizontal — website header, press, reports |
-| `logo-stacked.svg` | Square — social media avatars, app icon |
-| `icon.svg` | Bars icon only (dark bg) — favicons, UI elements |
-| `icon-light.svg` | Bars icon only (light bg) — print, email |
+| `logo.svg` | Primary horizontal: website header, press, reports |
+| `logo-stacked.svg` | Square: social media avatars, app icon |
+| `icon.svg` | Bars icon only (dark bg): favicons, UI elements |
+| `icon-light.svg` | Bars icon only (light bg): print, email |
 | `favicon.svg` | Browser tab (32x32, dark bg with bars) |
 | `apple-touch-icon.svg` | iOS home screen (180x180) |
 
@@ -34,7 +34,7 @@
 
 | Name | Hex | Usage |
 |------|-----|-------|
-| **Abyss** | `#04070d` | Page background — near-black with blue undertone |
+| **Abyss** | `#04070d` | Page background, near-black with blue undertone |
 | **Deep** | `#0b1220` | Card backgrounds, elevated surfaces |
 | **Slate** | `#1e293b` | Borders, dividers, input backgrounds |
 | **Muted** | `#91a7c4` | Secondary text, labels, timestamps |
@@ -46,10 +46,10 @@
 | Meaning | Hex | Usage |
 |---------|-----|-------|
 | **Growth** | `#10b981` | Population increase, positive change |
-| **Projection** | `#4f46e5` | Indigo — projected values, estimates |
-| **Historical** | `#818cf8` | Light indigo — Census/observed data |
-| **Critical** | `#ef4444` | Red — rapid change, threshold breach |
-| **Neutral** | `#6b7280` | Grey — no data, pending |
+| **Projection** | `#4f46e5` | Indigo: projected values, estimates |
+| **Historical** | `#818cf8` | Light indigo: Census/observed data |
+| **Critical** | `#ef4444` | Red: rapid change, threshold breach |
+| **Neutral** | `#6b7280` | Grey: no data, pending |
 
 ## Typography
 
@@ -70,12 +70,12 @@
 ## The Population Bars Icon
 
 The rising bars chart is the core brand mark:
-- **4 bars, ascending height** — demographic scale across communities
-- **Decreasing opacity** — uncertainty increasing with projection horizon
-- **Trend line** — the projection trajectory, showing direction of change
-- **Start dot (indigo light)** — Census 2021 observed baseline
-- **End dot (green)** — projection endpoint, forward-looking
-- **No radar, no surveillance** — neutral data presentation, not tracking
+- **4 bars, ascending height**: demographic scale across communities
+- **Decreasing opacity**: uncertainty increasing with projection horizon
+- **Trend line**: the projection trajectory, showing direction of change
+- **Start dot (indigo light)**: Census 2021 observed baseline
+- **End dot (green)**: projection endpoint, forward-looking
+- **No radar, no surveillance**: neutral data presentation, not tracking
 
 ### Icon at Scale
 - 80px+: Full detail (all bars, trend line, both dots)
@@ -84,13 +84,13 @@ The rising bars chart is the core brand mark:
 
 ## Logo Usage Rules
 
-1. **Dark backgrounds only** for primary logo — the bars need contrast
+1. **Dark backgrounds only** for primary logo, because the bars need contrast
 2. Use `icon-light.svg` on white/light backgrounds (darker indigo #4338ca)
 3. **Minimum size:** Icon at 24px, full logo at 160px wide
 4. **Clear space:** 1x icon height on all sides
 5. **Never** flatten the bar opacity gradient (it encodes uncertainty)
 6. **Never** reverse the bar order (ascending = growth/change)
-7. The trend line always rises left-to-right — it represents demographic projection
+7. The trend line always rises left-to-right, representing demographic projection
 
 ## CSS Custom Properties
 
@@ -137,7 +137,7 @@ UK Demographics is a neutral demographic research platform. Asylum Stats (asylum
 
 ## Legal Notes
 
-- "UK Demographics" is purely descriptive — tracks public demographic data
+- "UK Demographics" is purely descriptive: it tracks public demographic data
 - All data sourced from official government publications (ONS Census, SNPP, DfE)
 - The population bars icon is original artwork
 - The color palette uses standard Tailwind CSS colors
