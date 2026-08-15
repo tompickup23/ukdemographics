@@ -20,7 +20,7 @@
     </filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)" />
-  <!-- Ambient glow circles — indigo/emerald theme -->
+  <!-- Ambient glow circles: indigo/emerald theme -->
   <circle cx="1034" cy="94" r="188" fill="#818cf8" fill-opacity="0.10" />
   <circle cx="1066" cy="558" r="164" fill="#10b981" fill-opacity="0.08" />
   <circle cx="152" cy="102" r="138" fill="#4f46e5" fill-opacity="0.10" />
