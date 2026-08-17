@@ -63,10 +63,20 @@ const N_SIMULATIONS = 1000;
 const PROJ_YEARS = [2031, 2041, 2051, 2061];
 
 // FIX 1: Cell-size-dependent σ + horizon scaling
-// Base σ calibrated from HP v7.0 backcast MAE: 1.71pp → base σ = 0.02
+// Base σ calibrated from the v8.0 out-of-sample test: White British MAE 1.56pp
+// → base σ = 0.02 (MAE / 100, rounded to 2dp as in validate_backcast.mjs).
+// That test fits ratios on Census 2001 to 2011 and scores the 2021 projection
+// against Census 2021 across 285 areas, so the fitting window never touches the
+// target.
 // History: v5.0 σ=0.04 (MAE 3.57pp). v6.0 σ=0.02 (MAE 2.45pp, Census-direct).
-// v7.0 σ=0.02 (MAE 1.71pp, Census 2011 DC2101EW + Beers interpolation).
-// Beats NEWETHPOP 2.58pp by 33% and national-CCR baseline 2.32pp.
+// v7.0 σ=0.02 was derived instead from the 1.71pp backcast over 269 areas. That
+// backcast was withdrawn on 13 August 2026 as circular, but the value is
+// unchanged: 1.56/100 and 1.71/100 both round to 0.02, so no published band
+// moves. The new basis is also near-unbiased (+0.05pp against +1.70pp), which is
+// what makes the symmetric +/- interval defensible; see the bias warning in
+// validate_backcast.mjs. The withdrawn "beats NEWETHPOP by 33%" comparison has
+// been removed: NEWETHPOP's genuine out-of-sample error is 3.95pp over 296
+// areas, not the 2.58pp that head-to-head used.
 // Additional uncertainty for small populations: 0.25 / sqrt(pop)
 // Horizon scaling: σ_t = σ_base * sqrt(t/10) (uncertainty compounds over time)
 const CCR_SIGMA_BASE = 0.02;
@@ -473,7 +483,7 @@ for (const code of areaCodes) {
 // three releases behind the projections it actually contained.
 
 existing.lastUpdated = new Date().toISOString().slice(0, 10);
-existing.methodology += " Monte Carlo stochastic projection (1000 simulations, CCR σ=0.02 calibrated from HP v7.0 backcast validation: MAE 1.71pp over 269 areas). Reports median + 80%/95% prediction intervals.";
+existing.methodology += " Monte Carlo stochastic projection (1000 simulations, CCR σ=0.02 calibrated from the v8.0 out-of-sample validation: White British MAE 1.56pp with a bias of +0.05pp over 285 areas). Reports median + 80%/95% prediction intervals.";
 
 writeFileSync(SITE_OUTPUT, JSON.stringify(existing, null, 2), "utf8");
 console.log("Done.");

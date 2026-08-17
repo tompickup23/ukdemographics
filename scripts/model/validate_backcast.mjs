@@ -608,6 +608,14 @@ for (const [areaCode, censusArea] of Object.entries(census.areas)) {
 // meanBias ~= MAE is a warning sign, not a good score, and any confidence band
 // derived from that error distribution is one-sided and must not be applied to
 // forward projections as a symmetric +/- interval.
+//
+// That 1.71pp head-to-head was withdrawn on 13 August 2026: the backcast fits
+// its ratios on the same two Censuses it is scored against, so it measures the
+// guardrails rather than predictive skill. The published bands are now sourced
+// from the out-of-sample test in validate_out_of_sample.mjs (npm run validate:oos), whose White British bias
+// is +0.05pp over 285 areas. Symmetric intervals are defensible on that
+// distribution; they were not on this one. Keep reading meanBias here for the
+// same reason, but treat this script as a diagnostic, not the band source.
 function computeSummary(m) {
   if (m.count === 0) return { mae: 0, rmse: 0, count: 0 };
   const meanBias = r(m.signedErr / m.count);
@@ -667,7 +675,7 @@ const hpMAE = validation.summary.hp_local.mae;
 const sigmaRecommendation = r(hpMAE / 100); // Convert pp to proportion
 validation.sigmaRecommendation = {
   value: sigmaRecommendation,
-  description: `CCR_SIGMA_BASE should be ${sigmaRecommendation} (MAE ${hpMAE}pp / 100). v7.0 current: 0.02 (from HP backcast MAE 1.71pp).`
+  description: `CCR_SIGMA_BASE should be ${sigmaRecommendation} (MAE ${hpMAE}pp / 100). Current: 0.02, calibrated from the v8.0 out-of-sample validation (White British MAE 1.56pp over 285 areas), not from this backcast. Read this recommendation as a cross-check only: the backcast fits on the same endpoints it is scored against, so its MAE understates forecast error.`
 };
 
 // ============================================================
