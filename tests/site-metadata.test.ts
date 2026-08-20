@@ -8,6 +8,7 @@ import {
   getIndexableSitePaths,
   normalisePageTitle
 } from "../src/lib/site";
+import { getAllPcons } from "../src/lib/pcon-data";
 
 describe("site metadata helpers", () => {
   it("normalises page titles without duplicating the site name", () => {
@@ -62,5 +63,22 @@ describe("site metadata helpers", () => {
     expect(nodes).toHaveLength(3);
     expect(nodes[1]["@type"]).toBe("CollectionPage");
     expect(nodes[2]["@type"]).toBe("ItemList");
+  });
+});
+
+describe("sitemap covers the generated pages", () => {
+  it("lists every constituency page", () => {
+    const paths = new Set(getIndexableSitePaths());
+    const pcons = getAllPcons();
+
+    // 632 constituency pages sat outside the sitemap until 20 Aug 2026.
+    expect(pcons.length).toBeGreaterThan(500);
+    for (const pcon of pcons) {
+      expect(paths.has(`/constituencies/${pcon.slug}/`)).toBe(true);
+    }
+  });
+
+  it("advertises far more than the hand-listed static routes", () => {
+    expect(getIndexableSitePaths().length).toBeGreaterThan(900);
   });
 });
