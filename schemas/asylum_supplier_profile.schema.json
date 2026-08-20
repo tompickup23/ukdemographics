@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/asylum_supplier_profile.schema.json",
+  "title": "Asylum Supplier Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["supplier_id", "entity_name", "entity_role", "generated_at"],
+  "properties": {
+    "supplier_id": { "type": "string" },
+    "entity_name": { "type": "string" },
+    "entity_role": {
+      "type": "string",
+      "enum": [
+        "prime_provider",
+        "hotel_operator",
+        "freeholder",
+        "owner_group",
+        "brand_operator",
+        "subcontractor",
+        "public_body",
+        "other"
+      ]
+    },
+    "company_number": { "type": ["string", "null"] },
+    "country_of_registration": { "type": ["string", "null"] },
+    "route_families": { "type": ["array", "null"], "items": { "type": "string" } },
+    "site_count": { "type": ["integer", "null"] },
+    "public_contract_count": { "type": ["integer", "null"] },
+    "public_contract_value_gbp": { "type": ["number", "null"] },
+    "risk_level": { "type": ["string", "null"], "enum": ["low", "medium", "elevated", "high", null] },
+    "integrity_signal_count": { "type": ["integer", "null"] },
+    "source_urls": { "type": ["array", "null"], "items": { "type": "string", "format": "uri" } },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

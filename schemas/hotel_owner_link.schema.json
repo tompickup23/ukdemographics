@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/hotel_owner_link.schema.json",
+  "title": "Hotel Site Entity Link",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["link_id", "site_id", "entity_name", "link_role", "confidence", "generated_at"],
+  "properties": {
+    "link_id": { "type": "string" },
+    "site_id": { "type": "string" },
+    "entity_name": { "type": "string" },
+    "company_number": { "type": ["string", "null"] },
+    "link_role": {
+      "type": "string",
+      "enum": [
+        "freeholder",
+        "leaseholder",
+        "operator",
+        "manager",
+        "charge_holder",
+        "owner_group",
+        "brand_operator",
+        "other"
+      ]
+    },
+    "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+    "evidence_count": { "type": ["integer", "null"] },
+    "source_urls": { "type": ["array", "null"], "items": { "type": "string", "format": "uri" } },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,36 @@
+metric_id,metric_label,topic,category,unit,denominator,default_chart,preferred_status,notes
+asylum_applications,Asylum applications,asylum,numbers,people,none,line,official,National core trend
+asylum_initial_grants,Initial grants of protection,asylum,numbers,people,none,line,official,National decisions trend
+asylum_initial_refusals,Initial refusals,asylum,numbers,people,none,line,official,National decisions trend
+illegal_entry_route_arrivals,Detected arrivals via illegal entry routes,asylum_routes,numbers,people,none,line,official,National route context for comparing small boats with other illegal entry detections
+asylum_supported_people,Asylum seekers receiving support,asylum,numbers,people,none,line,official,Core local authority comparison metric
+asylum_supported_people_rate,Asylum seekers receiving support per 10000 residents,asylum,rates,rate_per_10000,resident_population,line,derived_estimate,Derived from official counts and ONS population
+asylum_contingency_accommodation_people,People in contingency accommodation,asylum,numbers,people,none,line,official,Latest local and UK stock snapshot for contingency accommodation
+asylum_supported_households,Asylum support households,asylum,numbers,households,none,line,official,Use if available by source family
+dispersed_asylum_people,Dispersed asylum seekers,asylum,numbers,people,none,line,official,Use if series available consistently
+small_boat_arrivals,People arriving by small boat,asylum_routes,numbers,people,none,line,official,National irregular arrival route series
+small_boat_asylum_claims,Asylum claims raised by small boat arrivals,asylum_routes,numbers,people,none,line,official,Arrival-date cohort view for people arriving by small boat
+small_boat_arrivals_share_illegal_routes,Share of illegal entry route arrivals arriving by small boat,asylum_routes,rates,percentage,illegal_route_arrivals,line,derived_estimate,Derived from official illegal entry route data
+hotel_supported_people,People in hotel or contingency accommodation,asylum,numbers,people,none,line,official,Often national or partial geography and may need partial geography caveats
+hotel_supported_people_share,Share of supported people housed in hotels,asylum,rates,percentage,supported_people,line,derived_estimate,Derived from official support counts and hotel counts
+hotels_in_use,Hotels in use for asylum accommodation,asylum,numbers,sites,none,line,official,National official or public-evidence count depending source family
+named_hotel_sites_publicly_identified,Publicly identified named asylum hotels,asylum,numbers,sites,none,bar,manual_curated,Site-ledger count not equivalent to official total hotels in use
+unnamed_hotel_sightings,Areas with publicly confirmed hotel use but unnamed sites,asylum,numbers,sightings,none,bar,manual_curated,Measures secrecy gap not accommodation volume
+hotel_daily_cost,Average daily cost of asylum hotel use,spending,spend,gbp_per_day,none,line,official,National hotel cost tracker
+hotel_contract_cost_share,Hotel share of asylum accommodation contract cost,spending,rates,percentage,total_contract_cost,bar,official,Useful accountability ratio
+resettled_refugees_arrivals,Resettled refugee arrivals,refugees,numbers,people,none,line,official,Local authority and national comparison
+afghan_resettlement_programme_arrivals,Afghan Resettlement Programme arrivals,refugees,numbers,people,none,line,official,Keep Afghan pathways distinct where possible
+afghan_resettlement_programme_population,Afghan Resettlement Programme population,refugees,numbers,people,none,line,official,Latest local population snapshot from immigration groups tables
+afghan_resettlement_programme_population_rate,Afghan Resettlement Programme population per 10000 residents,refugees,rates,rate_per_10000,resident_population,line,derived_estimate,Derived local stock rate for the Afghan programme
+uk_resettlement_scheme_arrivals,UK Resettlement Scheme and Mandate arrivals,refugees,numbers,people,none,line,official,Often grouped in public scheme outputs
+community_sponsorship_arrivals,Community Sponsorship arrivals,refugees,numbers,people,none,line,official,Keep sponsorship-supported arrivals separate from core scheme totals where possible
+refugee_family_reunion_visas,Refugee Family Reunion visas,refugees,numbers,people,none,line,official,Protection-linked family route not refugee resettlement
+hfu_arrivals,Homes for Ukraine arrivals,ukraine_routes,numbers,people,none,line,official,Humanitarian route not refugee resettlement
+hfu_arrivals_rate,Homes for Ukraine arrivals per 10000 residents,ukraine_routes,rates,rate_per_10000,resident_population,line,derived_estimate,Derived local route rate
+resettled_refugees_arrivals_rate,Resettled refugee arrivals per 10000 residents,refugees,rates,rate_per_10000,resident_population,line,derived_estimate,Derived rate
+uasc_count,Unaccompanied asylum-seeking children,children,numbers,children,none,line,official,England-focused contextual series
+uasc_rate_under18,UASC per 10000 under18 population,children,rates,rate_per_10000,under18_population,line,derived_estimate,Only where denominator exists
+estimated_asylum_dispersal_grant,Estimated asylum dispersal grant,spending,spend,gbp,none,line,derived_estimate,Formula-based estimate not actual audited spend
+estimated_resettlement_tariff_funding,Estimated resettlement funding,spending,spend,gbp,none,line,derived_estimate,Tariff estimate by scheme and arrivals
+estimated_uasc_funding,Estimated UASC funding,spending,spend,gbp,none,line,derived_estimate,England-only estimate
+home_office_national_asylum_spend,Home Office national asylum spend,spending,spend,gbp,none,line,official,National context only

@@ -1,0 +1,78 @@
+---
+/**
+ * StatCard.astro, single big-number card with label + optional
+ * sparkline + trend annotation.
+ *
+ * Ported from UKE 19 May 2026; generalised for UKD use (population
+ * deltas, NINo flows, English-proficiency rates, PIP shares etc.).
+ *
+ * Drop into a CSS grid container, the bundled .stat-card-row class
+ * is a sensible default.
+ *
+ * Props:
+ *   value: big number, pre-formatted ("8.4%", "1.2k", "+312")
+ *   label: small descriptor below
+ *   accent: optional CSS colour for the value (e.g. var(--accent))
+ *   trend: optional delta annotation ("+2.5pp", "-3.1pp")
+ *   trendDirection: "up" | "down" | "flat", picks the badge tone
+ *   sparkline: optional array of numbers; renders 80×24 inline SVG
+ *   sparklineColor: optional stroke colour (default --accent-3 cyan)
+ */
+interface Props {
+  value: string;
+  label: string;
+  accent?: string | null;
+  trend?: string | null;
+  trendDirection?: "up" | "down" | "flat";
+  sparkline?: number[] | null;
+  sparklineColor?: string | null;
+}
+
+const {
+  value,
+  label,
+  accent = null,
+  trend = null,
+  trendDirection = "flat",
+  sparkline = null,
+  sparklineColor = "var(--accent-3)",
+} = Astro.props;
+
+function sparklinePath(values: number[]): string {
+  if (!values || values.length < 2) return "";
+  const W = 80, H = 24, PAD = 2;
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = max - min || 1;
+  const innerW = W - PAD * 2;
+  const innerH = H - PAD * 2;
+  const stepX = innerW / (values.length - 1);
+  const points = values.map((v, i) => {
+    const x = PAD + i * stepX;
+    const y = PAD + innerH - ((v - min) / range) * innerH;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  return `M${points.join(" L")}`;
+}
+
+const sparkD = sparkline ? sparklinePath(sparkline) : null;
+---
+
+<article class="stat-card">
+  <span class="stat-card-value" style={accent ? `color:${accent}` : undefined}>
+    {value}
+  </span>
+  {trend && (
+    <span
+      class={`stat-card-trend ${trendDirection === "up" ? "swing-up" : trendDirection === "down" ? "swing-down" : "swing-flat"}`}
+    >
+      {trend}
+    </span>
+  )}
+  {sparkD && (
+    <svg class="stat-card-spark" viewBox="0 0 80 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d={sparkD} fill="none" stroke={sparklineColor} stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+    </svg>
+  )}
+  <span class="stat-card-label">{label}</span>
+</article>

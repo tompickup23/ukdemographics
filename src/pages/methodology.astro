@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Methodology" description="How the UK Demographics projection model works. Hamilton-Perry CCR methodology, Census-direct data, validation against NEWETHPOP.">
+  <h1>Methodology</h1>
+
+  <section id="model">
+    <h2>Hamilton-Perry cohort change ratio model</h2>
+    <p>UK Demographics uses the Hamilton-Perry (HP) method to project ethnic composition at local authority level. The HP method computes cohort change ratios (CCRs) from two Census observations (2011 and 2021), then applies these ratios forward to project future populations by age, sex, and ethnic group.</p>
+    <p>The model covers 320 English local authorities, 20 ethnic groups, single year of age (0-100+), and both sexes. Projections extend to 2061, with 2051 as the primary horizon and 2061 as illustrative.</p>
+  </section>
+
+  <section id="data">
+    <h2>Data sources</h2>
+    <ul>
+      <li><strong>Census 2021:</strong> ONS custom dataset, single year of age by ethnic group by sex, 292 LAs (direct observations, no IPF dependency)</li>
+      <li><strong>Census 2011:</strong> 18-group age-sex-ethnicity dataset via NOMIS API</li>
+      <li><strong>ONS SNPP 2022:</strong> Subnational Population Projections used as total population envelope constraint</li>
+      <li><strong>DfE School Census 2024/25:</strong> Independent validation, 10 years of ethnic composition data by school and LA</li>
+      <li><strong>ONS Births Table 8:</strong> Age-specific fertility rates by ethnicity and IMD decile</li>
+    </ul>
+  </section>
+
+  <section id="migration-data">
+    <h2>Migration data sources (YE March 2026)</h2>
+    <p>For migration-specific surfaces, UK Demographics tracks the Home Office Immigration Statistics quarterly release and the ONS Long-Term International Migration provisional estimates. Both were published 21 May 2026.</p>
+    <ul>
+      <li><strong>ONS LTIM YE Dec 2025:</strong> Net migration 171,000 (95 percent CI 145,000 to 197,000). Peak 944,000 YE Mar 2023. Methodology shifted from International Passenger Survey (IPS) to RAPID + HOBID admin data from YE June 2021 onwards, so pre-2021 estimates are NOT directly comparable. See the <a href="/migration/">net migration page</a> for the full revisions tracker and the LTIM vs Home Office vs DWP NINo triangulation.</li>
+      <li><strong>Home Office YE Mar 2026:</strong> 778,625 non-visit visas granted (study 412,825, work 252,775, family 62,470, other 50,555). Skilled Worker visas 111,000 (-76 percent from YE Dec 2023 peak), driven by the Health and Care Worker route collapse (Caring Personal Service grants fell from 108,000 to 1,400). 94,000 asylum claims (-12 percent YoY), 128,000 decisions (+32 percent), grant rate 39 percent (down from 49 percent). Backlog 49,000 (-55 percent). 39,000 returns (+7 percent). 23,000 entered detention.</li>
+      <li><strong>EU Settlement Scheme:</strong> 371,000 settled-status grants in YE Mar 2026, up 12 percent. Not counted as immigration in LTIM because it confirms status for people already in the UK.</li>
+    </ul>
+    <p>Caveats: ONS LTIM provisional figures are routinely revised. YE December 2024 was revised down by 100,000 (-23 percent) versus its initial estimate, almost entirely because of methodology change rather than underlying trend. Visa overstayers without asylum claims are assumed emigrated under the current method; irregular migrants who do not claim asylum are not counted at all. See the <a href="/migration/">net migration page</a> for the full discussion.</p>
+  </section>
+
+  <section id="validation">
+    <h2>Validation</h2>
+    <p><strong>How NEWETHPOP performed against Census 2021.</strong> NEWETHPOP (Rees, Wohland et al., University of Leeds, the previous academic benchmark) published a 2021 ethnic projection from a 2011 base. Compared against actual Census 2021 results across 296 local authorities, that projection had a mean absolute error (MAE) of <strong>3.95pp</strong> for the White British share. It over-predicted White British in 282 of 296 areas (95%).</p>
+    <p><strong>How this model compares on the same areas.</strong> On the 269 areas with complete Census 2021 custom-dataset coverage, this model's backcast (Census 2011 forward to 2021) achieves MAE <strong>1.71pp</strong>. NEWETHPOP on the same 269 areas: <strong>2.58pp</strong>.</p>
+    <p><strong>The backcast is partially circular.</strong> The cohort change ratios used in the backcast are derived from the same 2011 and 2021 Census endpoints that the backcast is then tested against. A more honest measure is the national-CCR baseline, which throws away all local information and uses population-weighted national ratios only: that baseline scores MAE <strong>2.32pp</strong>. The per-area model beats the national baseline in 136 of 269 areas; the national baseline beats the per-area model in 133. The genuine local-information improvement over the baseline is small.</p>
+    <p><strong>Independent out-of-sample validation.</strong> DfE School Census data, which the model never trained on, provides an independent check for ages 0-15. School validation MAE: 2.36pp across 121 areas with 10 years of annual data.</p>
+  </section>
+
+  <section id="two-models">
+    <h2>Why we publish two models</h2>
+    <p>Hamilton-Perry is the central published projection. Alongside it, every place page shows the 2051 endpoint of a second, independent model: a classical cohort-component projection with births by ethnicity-specific total fertility rate and a half-convergence assumption (ethnic TFRs move halfway to the national mean by 2061).</p>
+    <p>The two models share the same Census 2011 and Census 2021 base. They differ in what they assume about the future:</p>
+    <ul>
+      <li><strong>Hamilton-Perry (HP)</strong> extrapolates the 2011 to 2021 cohort change ratios forward. It is descriptive: it says "the demographic dynamics of the last decade continue." It captures observed migration, fertility, and mortality jointly through CCRs but cannot decompose them.</li>
+      <li><strong>Cohort-component (CC)</strong> models births, deaths, and migration separately, with explicit ethnicity-specific fertility rates. The half-convergence variant assumes higher-fertility groups gradually converge toward the national mean. This pulls projections toward a slower pace of change.</li>
+    </ul>
+    <p>Because CC has explicit fertility convergence and HP does not, CC typically projects a higher White British share by 2051. The two-model spread for an area is the most honest single-number measure of structural model uncertainty: bigger than the HP-internal Monte Carlo confidence band, because it captures disagreement between methods rather than noise within one method.</p>
+    <p>Across 320 English LAs, the median 2051 spread is approximately 8 percentage points; the largest spreads exceed 20pp (typically high-diversity urban areas where the cohort-component fertility-convergence assumption diverges most sharply from observed CCR dynamics).</p>
+    <p>HP is treated as central because it requires fewer assumptions (it does not impose convergence) and validates better than NEWETHPOP, an established cohort-component model trained on the same Census data, on the apples-to-apples 269-area backcast (1.71pp vs 2.58pp). See the validation section above for the circularity caveat.</p>
+  </section>
+
+  <section id="uncertainty">
+    <h2>Uncertainty quantification</h2>
+    <p>1,000 Monte Carlo simulations with stochastic perturbation (sigma = 0.02) generate 80% and 95% confidence intervals for all projections. This captures the range of plausible outcomes within the Hamilton-Perry method, not a single point estimate.</p>
+    <p>For structural uncertainty, the disagreement between modelling approaches, see the two-model comparison above. The two-model spread is generally the larger of the two uncertainty signals and the one to weight more heavily when reading any single projection.</p>
+  </section>
+
+  <section id="limitations">
+    <h2>Known limitations</h2>
+    <ul>
+      <li>No international migration component. CCRs from 2011 to 2021 capture about 300K net migration per year, but post-2021 net migration peaked at 745K. This means the model likely understates the pace of change in high-migration areas.</li>
+      <li>Per-group confidence intervals not yet computed (national stochastic only).</li>
+      <li>No out-of-sample validation beyond DfE school data.</li>
+      <li>Not peer-reviewed (submission to Demographic Research planned).</li>
+      <li>COVID period (2020-21) may distort the 2021 Census baseline for some groups and areas.</li>
+    </ul>
+  </section>
+
+  <section id="evidence">
+    <h2>Evidence standard</h2>
+    <p>All figures on this site are categorised by evidence quality:</p>
+    <ul>
+      <li><strong>Official:</strong> Published ONS, Census, DfE, or parliamentary data with stable provenance.</li>
+      <li><strong>Derived:</strong> Computed from official sources using documented methods (e.g., CCRs from two Census observations).</li>
+      <li><strong>Modelled:</strong> Output of the projection model. Inherently uncertain, always shown with confidence intervals where available.</li>
+      <li><strong>Estimated:</strong> Best available approximation where no direct data exists. Always flagged.</li>
+    </ul>
+  </section>
+</BaseLayout>

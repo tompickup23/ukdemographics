@@ -1,0 +1,2594 @@
+{
+  "source": "HMRC Real Time Information via ONS, Payrolled employments in the UK by nationality, region and industrial sector, Tables 5-17 (Jul 2014 \u2013 Dec 2024 monthly time series). This file consolidates the latest-month snapshot and 5y change per region per industry.",
+  "lastUpdated": "2026-04-29",
+  "caveat": "Counts are EMPLOYMENTS not employees (a person with two jobs is counted twice). Industry breakdown is at SIC 2007 section level (A-U). Some cells are suppressed [c] and appear as missing here.",
+  "regions": {
+    "England": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": null,
+      "byNationalityGroup": {
+        "UK": 21647900,
+        "EU": 2082100,
+        "NonEU": 3655700
+      },
+      "nonUkSharePct": null,
+      "fiveYearChange": {
+        "Total": null,
+        "UK": -10300,
+        "EU": -301800,
+        "NonEU": 1677300
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 151200,
+          "UK": 126700,
+          "EU": 15800,
+          "NonEU": 8600,
+          "nonUkSharePct": 16.2,
+          "change5y": 2000,
+          "change5yPct": 1.3
+        },
+        "Mining and Quarrying": {
+          "total": 26000,
+          "UK": 23200,
+          "EU": 1200,
+          "NonEU": 1500,
+          "nonUkSharePct": 10.8,
+          "change5y": 100,
+          "change5yPct": 0.4
+        },
+        "Manufacturing": {
+          "total": 1947400,
+          "UK": 1566900,
+          "EU": 226500,
+          "NonEU": 153900,
+          "nonUkSharePct": 19.5,
+          "change5y": -76800,
+          "change5yPct": -3.8
+        },
+        "Energy production and supply": {
+          "total": 87900,
+          "UK": 78600,
+          "EU": 3400,
+          "NonEU": 6000,
+          "nonUkSharePct": 10.6,
+          "change5y": 7600,
+          "change5yPct": 9.5
+        },
+        "Water supply, sewerage and waste": {
+          "total": 173200,
+          "UK": 154100,
+          "EU": 11900,
+          "NonEU": 7300,
+          "nonUkSharePct": 11.0,
+          "change5y": 21900,
+          "change5yPct": 14.5
+        },
+        "Construction": {
+          "total": 1125500,
+          "UK": 975900,
+          "EU": 86200,
+          "NonEU": 63300,
+          "nonUkSharePct": 13.3,
+          "change5y": 82500,
+          "change5yPct": 7.9
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 3868400,
+          "UK": 3183900,
+          "EU": 270100,
+          "NonEU": 414400,
+          "nonUkSharePct": 17.7,
+          "change5y": -123300,
+          "change5yPct": -3.1
+        },
+        "Transportation and storage": {
+          "total": 1245900,
+          "UK": 933700,
+          "EU": 156700,
+          "NonEU": 155600,
+          "nonUkSharePct": 25.1,
+          "change5y": 51500,
+          "change5yPct": 4.3
+        },
+        "Accommodation and food service activities": {
+          "total": 1962300,
+          "UK": 1339600,
+          "EU": 220900,
+          "NonEU": 401900,
+          "nonUkSharePct": 31.7,
+          "change5y": 84700,
+          "change5yPct": 4.5
+        },
+        "Information and communication": {
+          "total": 1148400,
+          "UK": 887000,
+          "EU": 89000,
+          "NonEU": 172400,
+          "nonUkSharePct": 22.8,
+          "change5y": 42100,
+          "change5yPct": 3.8
+        },
+        "Finance and insurance": {
+          "total": 984000,
+          "UK": 810500,
+          "EU": 64900,
+          "NonEU": 108500,
+          "nonUkSharePct": 17.6,
+          "change5y": 26200,
+          "change5yPct": 2.7
+        },
+        "Real estate": {
+          "total": 429800,
+          "UK": 371000,
+          "EU": 22700,
+          "NonEU": 36100,
+          "nonUkSharePct": 13.7,
+          "change5y": 32300,
+          "change5yPct": 8.1
+        },
+        "Professional, scientific and technical": {
+          "total": 2235900,
+          "UK": 1804900,
+          "EU": 166000,
+          "NonEU": 265000,
+          "nonUkSharePct": 19.3,
+          "change5y": 258500,
+          "change5yPct": 13.1
+        },
+        "Administrative and support services": {
+          "total": 2464000,
+          "UK": 1611600,
+          "EU": 306100,
+          "NonEU": 546200,
+          "nonUkSharePct": 34.6,
+          "change5y": 38400,
+          "change5yPct": 1.6
+        },
+        "Public administration and defence; social security": {
+          "total": 1336900,
+          "UK": 1247100,
+          "EU": 29400,
+          "NonEU": 60500,
+          "nonUkSharePct": 6.7,
+          "change5y": 69300,
+          "change5yPct": 5.5
+        },
+        "Education": {
+          "total": 2820900,
+          "UK": 2468200,
+          "EU": 132000,
+          "NonEU": 220700,
+          "nonUkSharePct": 12.5,
+          "change5y": 152600,
+          "change5yPct": 5.7
+        },
+        "Health and social work": {
+          "total": 4046000,
+          "UK": 2950100,
+          "EU": 201500,
+          "NonEU": 894400,
+          "nonUkSharePct": 27.1,
+          "change5y": 626100,
+          "change5yPct": 18.3
+        },
+        "Arts, entertainment and recreation": {
+          "total": 594300,
+          "UK": 534700,
+          "EU": 27100,
+          "NonEU": 32500,
+          "nonUkSharePct": 10.0,
+          "change5y": 33000,
+          "change5yPct": 5.9
+        },
+        "Other service activities": {
+          "total": 502700,
+          "UK": 403800,
+          "EU": 30400,
+          "NonEU": 68500,
+          "nonUkSharePct": 19.7,
+          "change5y": 14600,
+          "change5yPct": 3.0
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 235100,
+          "UK": 176500,
+          "EU": 20200,
+          "NonEU": 38400,
+          "nonUkSharePct": 24.9,
+          "change5y": 22000,
+          "change5yPct": 10.3
+        }
+      }
+    },
+    "North East": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 1187700,
+      "byNationalityGroup": {
+        "UK": 1069800,
+        "EU": 28400,
+        "NonEU": 89500
+      },
+      "nonUkSharePct": 9.9,
+      "fiveYearChange": {
+        "Total": 63600,
+        "UK": 7800,
+        "EU": -1000,
+        "NonEU": 56900
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 4400,
+          "UK": 4200,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 4.5,
+          "change5y": -300,
+          "change5yPct": -6.4
+        },
+        "Mining and Quarrying": {
+          "total": 3200,
+          "UK": 3200,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 0.0,
+          "change5y": 0,
+          "change5yPct": 0.0
+        },
+        "Manufacturing": {
+          "total": 102400,
+          "UK": 94000,
+          "EU": 4100,
+          "NonEU": 4300,
+          "nonUkSharePct": 8.2,
+          "change5y": -5800,
+          "change5yPct": -5.4
+        },
+        "Energy production and supply": {
+          "total": 5500,
+          "UK": 5300,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 3.6,
+          "change5y": -1300,
+          "change5yPct": -19.1
+        },
+        "Water supply, sewerage and waste": {
+          "total": 8100,
+          "UK": 7700,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 4.9,
+          "change5y": 900,
+          "change5yPct": 12.5
+        },
+        "Construction": {
+          "total": 51900,
+          "UK": 50400,
+          "EU": 800,
+          "NonEU": 700,
+          "nonUkSharePct": 2.9,
+          "change5y": 3300,
+          "change5yPct": 6.8
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 159800,
+          "UK": 149200,
+          "EU": 3000,
+          "NonEU": 7500,
+          "nonUkSharePct": 6.6,
+          "change5y": -2300,
+          "change5yPct": -1.4
+        },
+        "Transportation and storage": {
+          "total": 53500,
+          "UK": 45500,
+          "EU": 2100,
+          "NonEU": 5900,
+          "nonUkSharePct": 15.0,
+          "change5y": 8000,
+          "change5yPct": 17.6
+        },
+        "Accommodation and food service activities": {
+          "total": 81400,
+          "UK": 67900,
+          "EU": 3200,
+          "NonEU": 10300,
+          "nonUkSharePct": 16.6,
+          "change5y": 900,
+          "change5yPct": 1.1
+        },
+        "Information and communication": {
+          "total": 36400,
+          "UK": 32700,
+          "EU": 1000,
+          "NonEU": 2700,
+          "nonUkSharePct": 10.2,
+          "change5y": 1600,
+          "change5yPct": 4.6
+        },
+        "Finance and insurance": {
+          "total": 26800,
+          "UK": 25500,
+          "EU": 400,
+          "NonEU": 1000,
+          "nonUkSharePct": 4.9,
+          "change5y": 100,
+          "change5yPct": 0.4
+        },
+        "Real estate": {
+          "total": 18000,
+          "UK": 17000,
+          "EU": 200,
+          "NonEU": 800,
+          "nonUkSharePct": 5.6,
+          "change5y": 800,
+          "change5yPct": 4.7
+        },
+        "Professional, scientific and technical": {
+          "total": 72000,
+          "UK": 65600,
+          "EU": 2000,
+          "NonEU": 4400,
+          "nonUkSharePct": 8.9,
+          "change5y": 10700,
+          "change5yPct": 17.5
+        },
+        "Administrative and support services": {
+          "total": 95400,
+          "UK": 78500,
+          "EU": 3300,
+          "NonEU": 13700,
+          "nonUkSharePct": 17.7,
+          "change5y": 1200,
+          "change5yPct": 1.3
+        },
+        "Public administration and defence; social security": {
+          "total": 97600,
+          "UK": 95100,
+          "EU": 800,
+          "NonEU": 1700,
+          "nonUkSharePct": 2.6,
+          "change5y": 2300,
+          "change5yPct": 2.4
+        },
+        "Education": {
+          "total": 111500,
+          "UK": 103900,
+          "EU": 2500,
+          "NonEU": 5100,
+          "nonUkSharePct": 6.8,
+          "change5y": 12600,
+          "change5yPct": 12.7
+        },
+        "Health and social work": {
+          "total": 202700,
+          "UK": 172300,
+          "EU": 3400,
+          "NonEU": 27100,
+          "nonUkSharePct": 15.0,
+          "change5y": 26100,
+          "change5yPct": 14.8
+        },
+        "Arts, entertainment and recreation": {
+          "total": 25700,
+          "UK": 24000,
+          "EU": 400,
+          "NonEU": 1300,
+          "nonUkSharePct": 6.6,
+          "change5y": 3100,
+          "change5yPct": 13.7
+        },
+        "Other service activities": {
+          "total": 19500,
+          "UK": 17200,
+          "EU": 400,
+          "NonEU": 1900,
+          "nonUkSharePct": 11.8,
+          "change5y": -300,
+          "change5yPct": -1.5
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 11800,
+          "UK": 10600,
+          "EU": 300,
+          "NonEU": 900,
+          "nonUkSharePct": 10.2,
+          "change5y": 1900,
+          "change5yPct": 19.2
+        }
+      }
+    },
+    "North West": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 3531600,
+      "byNationalityGroup": {
+        "UK": 3027200,
+        "EU": 166500,
+        "NonEU": 338000
+      },
+      "nonUkSharePct": 14.3,
+      "fiveYearChange": {
+        "Total": 199600,
+        "UK": 23600,
+        "EU": -16000,
+        "NonEU": 192100
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 12600,
+          "UK": 11200,
+          "EU": 900,
+          "NonEU": 400,
+          "nonUkSharePct": 11.1,
+          "change5y": 100,
+          "change5yPct": 0.8
+        },
+        "Mining and Quarrying": {
+          "total": 2500,
+          "UK": 2400,
+          "EU": 100,
+          "NonEU": 100,
+          "nonUkSharePct": 4.0,
+          "change5y": -300,
+          "change5yPct": -10.7
+        },
+        "Manufacturing": {
+          "total": 295800,
+          "UK": 254100,
+          "EU": 24600,
+          "NonEU": 17100,
+          "nonUkSharePct": 14.1,
+          "change5y": -4900,
+          "change5yPct": -1.6
+        },
+        "Energy production and supply": {
+          "total": 10400,
+          "UK": 9800,
+          "EU": 200,
+          "NonEU": 400,
+          "nonUkSharePct": 5.8,
+          "change5y": 2500,
+          "change5yPct": 31.6
+        },
+        "Water supply, sewerage and waste": {
+          "total": 24900,
+          "UK": 23400,
+          "EU": 900,
+          "NonEU": 600,
+          "nonUkSharePct": 6.0,
+          "change5y": 3700,
+          "change5yPct": 17.5
+        },
+        "Construction": {
+          "total": 141200,
+          "UK": 132200,
+          "EU": 4600,
+          "NonEU": 4300,
+          "nonUkSharePct": 6.4,
+          "change5y": 10800,
+          "change5yPct": 8.3
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 519000,
+          "UK": 452200,
+          "EU": 26400,
+          "NonEU": 40300,
+          "nonUkSharePct": 12.9,
+          "change5y": -17900,
+          "change5yPct": -3.3
+        },
+        "Transportation and storage": {
+          "total": 152900,
+          "UK": 127600,
+          "EU": 12700,
+          "NonEU": 12700,
+          "nonUkSharePct": 16.5,
+          "change5y": 2600,
+          "change5yPct": 1.7
+        },
+        "Accommodation and food service activities": {
+          "total": 247600,
+          "UK": 192500,
+          "EU": 18200,
+          "NonEU": 36900,
+          "nonUkSharePct": 22.3,
+          "change5y": 10700,
+          "change5yPct": 4.5
+        },
+        "Information and communication": {
+          "total": 110500,
+          "UK": 96200,
+          "EU": 4500,
+          "NonEU": 9800,
+          "nonUkSharePct": 12.9,
+          "change5y": 6300,
+          "change5yPct": 6.0
+        },
+        "Finance and insurance": {
+          "total": 99400,
+          "UK": 91300,
+          "EU": 2600,
+          "NonEU": 5600,
+          "nonUkSharePct": 8.1,
+          "change5y": 900,
+          "change5yPct": 0.9
+        },
+        "Real estate": {
+          "total": 57000,
+          "UK": 52400,
+          "EU": 1600,
+          "NonEU": 3000,
+          "nonUkSharePct": 8.1,
+          "change5y": 6000,
+          "change5yPct": 11.8
+        },
+        "Professional, scientific and technical": {
+          "total": 258100,
+          "UK": 230300,
+          "EU": 10200,
+          "NonEU": 17700,
+          "nonUkSharePct": 10.8,
+          "change5y": 35200,
+          "change5yPct": 15.8
+        },
+        "Administrative and support services": {
+          "total": 316800,
+          "UK": 233600,
+          "EU": 24800,
+          "NonEU": 58400,
+          "nonUkSharePct": 26.3,
+          "change5y": 4800,
+          "change5yPct": 1.5
+        },
+        "Public administration and defence; social security": {
+          "total": 163800,
+          "UK": 154500,
+          "EU": 2500,
+          "NonEU": 6700,
+          "nonUkSharePct": 5.7,
+          "change5y": 24900,
+          "change5yPct": 17.9
+        },
+        "Education": {
+          "total": 393700,
+          "UK": 363900,
+          "EU": 10000,
+          "NonEU": 19800,
+          "nonUkSharePct": 7.6,
+          "change5y": 21300,
+          "change5yPct": 5.7
+        },
+        "Health and social work": {
+          "total": 557900,
+          "UK": 451100,
+          "EU": 16100,
+          "NonEU": 90800,
+          "nonUkSharePct": 19.1,
+          "change5y": 82300,
+          "change5yPct": 17.3
+        },
+        "Arts, entertainment and recreation": {
+          "total": 74900,
+          "UK": 69700,
+          "EU": 2000,
+          "NonEU": 3200,
+          "nonUkSharePct": 6.9,
+          "change5y": 3500,
+          "change5yPct": 4.9
+        },
+        "Other service activities": {
+          "total": 57900,
+          "UK": 49700,
+          "EU": 2100,
+          "NonEU": 6100,
+          "nonUkSharePct": 14.2,
+          "change5y": 1600,
+          "change5yPct": 2.8
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 34700,
+          "UK": 29200,
+          "EU": 1500,
+          "NonEU": 4100,
+          "nonUkSharePct": 15.9,
+          "change5y": 5600,
+          "change5yPct": 19.2
+        }
+      }
+    },
+    "Yorkshire and the Humber": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 2543800,
+      "byNationalityGroup": {
+        "UK": 2191000,
+        "EU": 125300,
+        "NonEU": 227500
+      },
+      "nonUkSharePct": 13.9,
+      "fiveYearChange": {
+        "Total": 110800,
+        "UK": 900,
+        "EU": -17000,
+        "NonEU": 126900
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 15800,
+          "UK": 14200,
+          "EU": 1100,
+          "NonEU": 500,
+          "nonUkSharePct": 10.1,
+          "change5y": 300,
+          "change5yPct": 1.9
+        },
+        "Mining and Quarrying": {
+          "total": 2500,
+          "UK": 2400,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 4.0,
+          "change5y": -100,
+          "change5yPct": -3.8
+        },
+        "Manufacturing": {
+          "total": 246600,
+          "UK": 202900,
+          "EU": 28500,
+          "NonEU": 15200,
+          "nonUkSharePct": 17.7,
+          "change5y": -9000,
+          "change5yPct": -3.5
+        },
+        "Energy production and supply": {
+          "total": 6400,
+          "UK": 6000,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 6.2,
+          "change5y": -700,
+          "change5yPct": -9.9
+        },
+        "Water supply, sewerage and waste": {
+          "total": 16000,
+          "UK": 14900,
+          "EU": 700,
+          "NonEU": 400,
+          "nonUkSharePct": 6.9,
+          "change5y": 700,
+          "change5yPct": 4.6
+        },
+        "Construction": {
+          "total": 105100,
+          "UK": 100000,
+          "EU": 2600,
+          "NonEU": 2500,
+          "nonUkSharePct": 4.9,
+          "change5y": 6300,
+          "change5yPct": 6.4
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 382200,
+          "UK": 338600,
+          "EU": 18800,
+          "NonEU": 24800,
+          "nonUkSharePct": 11.4,
+          "change5y": -9900,
+          "change5yPct": -2.5
+        },
+        "Transportation and storage": {
+          "total": 122600,
+          "UK": 96900,
+          "EU": 12800,
+          "NonEU": 12900,
+          "nonUkSharePct": 21.0,
+          "change5y": 9800,
+          "change5yPct": 8.7
+        },
+        "Accommodation and food service activities": {
+          "total": 165600,
+          "UK": 133500,
+          "EU": 8800,
+          "NonEU": 23300,
+          "nonUkSharePct": 19.4,
+          "change5y": 8100,
+          "change5yPct": 5.1
+        },
+        "Information and communication": {
+          "total": 70800,
+          "UK": 61900,
+          "EU": 2400,
+          "NonEU": 6500,
+          "nonUkSharePct": 12.6,
+          "change5y": 4900,
+          "change5yPct": 7.4
+        },
+        "Finance and insurance": {
+          "total": 76700,
+          "UK": 71900,
+          "EU": 1400,
+          "NonEU": 3400,
+          "nonUkSharePct": 6.3,
+          "change5y": -800,
+          "change5yPct": -1.0
+        },
+        "Real estate": {
+          "total": 30700,
+          "UK": 28400,
+          "EU": 800,
+          "NonEU": 1500,
+          "nonUkSharePct": 7.5,
+          "change5y": 2000,
+          "change5yPct": 7.0
+        },
+        "Professional, scientific and technical": {
+          "total": 161800,
+          "UK": 146100,
+          "EU": 5700,
+          "NonEU": 10000,
+          "nonUkSharePct": 9.7,
+          "change5y": 18900,
+          "change5yPct": 13.2
+        },
+        "Administrative and support services": {
+          "total": 215100,
+          "UK": 156300,
+          "EU": 20200,
+          "NonEU": 38500,
+          "nonUkSharePct": 27.3,
+          "change5y": -3400,
+          "change5yPct": -1.6
+        },
+        "Public administration and defence; social security": {
+          "total": 162400,
+          "UK": 156000,
+          "EU": 2000,
+          "NonEU": 4400,
+          "nonUkSharePct": 3.9,
+          "change5y": 7800,
+          "change5yPct": 5.0
+        },
+        "Education": {
+          "total": 258600,
+          "UK": 237800,
+          "EU": 6700,
+          "NonEU": 14100,
+          "nonUkSharePct": 8.0,
+          "change5y": 13400,
+          "change5yPct": 5.5
+        },
+        "Health and social work": {
+          "total": 395600,
+          "UK": 325100,
+          "EU": 9800,
+          "NonEU": 60700,
+          "nonUkSharePct": 17.8,
+          "change5y": 57300,
+          "change5yPct": 16.9
+        },
+        "Arts, entertainment and recreation": {
+          "total": 50700,
+          "UK": 47400,
+          "EU": 1000,
+          "NonEU": 2200,
+          "nonUkSharePct": 6.5,
+          "change5y": 3300,
+          "change5yPct": 7.0
+        },
+        "Other service activities": {
+          "total": 38300,
+          "UK": 33100,
+          "EU": 1100,
+          "NonEU": 4000,
+          "nonUkSharePct": 13.6,
+          "change5y": 1100,
+          "change5yPct": 3.0
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 20600,
+          "UK": 17600,
+          "EU": 800,
+          "NonEU": 2300,
+          "nonUkSharePct": 14.6,
+          "change5y": 1200,
+          "change5yPct": 6.2
+        }
+      }
+    },
+    "East Midlands": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 2344400,
+      "byNationalityGroup": {
+        "UK": 1928600,
+        "EU": 170000,
+        "NonEU": 245800
+      },
+      "nonUkSharePct": 17.7,
+      "fiveYearChange": {
+        "Total": 102500,
+        "UK": -11500,
+        "EU": -23000,
+        "NonEU": 137000
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 19900,
+          "UK": 16100,
+          "EU": 2500,
+          "NonEU": 1300,
+          "nonUkSharePct": 19.1,
+          "change5y": 500,
+          "change5yPct": 2.6
+        },
+        "Mining and Quarrying": {
+          "total": 4100,
+          "UK": 3800,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 7.3,
+          "change5y": 100,
+          "change5yPct": 2.5
+        },
+        "Manufacturing": {
+          "total": 247400,
+          "UK": 195100,
+          "EU": 34400,
+          "NonEU": 17900,
+          "nonUkSharePct": 21.1,
+          "change5y": -17500,
+          "change5yPct": -6.6
+        },
+        "Energy production and supply": {
+          "total": 10100,
+          "UK": 9300,
+          "EU": 200,
+          "NonEU": 600,
+          "nonUkSharePct": 7.9,
+          "change5y": 3000,
+          "change5yPct": 42.3
+        },
+        "Water supply, sewerage and waste": {
+          "total": 16700,
+          "UK": 15200,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 9.0,
+          "change5y": 1900,
+          "change5yPct": 12.8
+        },
+        "Construction": {
+          "total": 98800,
+          "UK": 91800,
+          "EU": 4000,
+          "NonEU": 3000,
+          "nonUkSharePct": 7.1,
+          "change5y": 7100,
+          "change5yPct": 7.7
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 366800,
+          "UK": 313700,
+          "EU": 27000,
+          "NonEU": 26100,
+          "nonUkSharePct": 14.5,
+          "change5y": -12900,
+          "change5yPct": -3.4
+        },
+        "Transportation and storage": {
+          "total": 129000,
+          "UK": 91700,
+          "EU": 23600,
+          "NonEU": 13800,
+          "nonUkSharePct": 28.9,
+          "change5y": 12400,
+          "change5yPct": 10.6
+        },
+        "Accommodation and food service activities": {
+          "total": 140100,
+          "UK": 114200,
+          "EU": 7800,
+          "NonEU": 18200,
+          "nonUkSharePct": 18.5,
+          "change5y": 8000,
+          "change5yPct": 6.1
+        },
+        "Information and communication": {
+          "total": 67400,
+          "UK": 58200,
+          "EU": 2900,
+          "NonEU": 6300,
+          "nonUkSharePct": 13.6,
+          "change5y": 4300,
+          "change5yPct": 6.8
+        },
+        "Finance and insurance": {
+          "total": 51300,
+          "UK": 47000,
+          "EU": 1400,
+          "NonEU": 3000,
+          "nonUkSharePct": 8.4,
+          "change5y": -200,
+          "change5yPct": -0.4
+        },
+        "Real estate": {
+          "total": 27900,
+          "UK": 25600,
+          "EU": 800,
+          "NonEU": 1400,
+          "nonUkSharePct": 8.2,
+          "change5y": 1500,
+          "change5yPct": 5.7
+        },
+        "Professional, scientific and technical": {
+          "total": 142800,
+          "UK": 127000,
+          "EU": 6200,
+          "NonEU": 9600,
+          "nonUkSharePct": 11.1,
+          "change5y": 14200,
+          "change5yPct": 11.0
+        },
+        "Administrative and support services": {
+          "total": 216900,
+          "UK": 137800,
+          "EU": 32400,
+          "NonEU": 46700,
+          "nonUkSharePct": 36.5,
+          "change5y": 5400,
+          "change5yPct": 2.6
+        },
+        "Public administration and defence; social security": {
+          "total": 111200,
+          "UK": 105800,
+          "EU": 1900,
+          "NonEU": 3400,
+          "nonUkSharePct": 4.9,
+          "change5y": 1800,
+          "change5yPct": 1.6
+        },
+        "Education": {
+          "total": 242900,
+          "UK": 222100,
+          "EU": 7200,
+          "NonEU": 13600,
+          "nonUkSharePct": 8.6,
+          "change5y": 10800,
+          "change5yPct": 4.7
+        },
+        "Health and social work": {
+          "total": 349600,
+          "UK": 264100,
+          "EU": 12700,
+          "NonEU": 72900,
+          "nonUkSharePct": 24.5,
+          "change5y": 57400,
+          "change5yPct": 19.6
+        },
+        "Arts, entertainment and recreation": {
+          "total": 45800,
+          "UK": 43300,
+          "EU": 1100,
+          "NonEU": 1400,
+          "nonUkSharePct": 5.5,
+          "change5y": 2500,
+          "change5yPct": 5.8
+        },
+        "Other service activities": {
+          "total": 40100,
+          "UK": 33900,
+          "EU": 2000,
+          "NonEU": 4200,
+          "nonUkSharePct": 15.5,
+          "change5y": 2300,
+          "change5yPct": 6.1
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 15500,
+          "UK": 12800,
+          "EU": 800,
+          "NonEU": 1900,
+          "nonUkSharePct": 17.4,
+          "change5y": -200,
+          "change5yPct": -1.3
+        }
+      }
+    },
+    "West Midlands": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 2780000,
+      "byNationalityGroup": {
+        "UK": 2263400,
+        "EU": 167400,
+        "NonEU": 349100
+      },
+      "nonUkSharePct": 18.6,
+      "fiveYearChange": {
+        "Total": 149800,
+        "UK": -17800,
+        "EU": -23800,
+        "NonEU": 191300
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 16700,
+          "UK": 13000,
+          "EU": 2300,
+          "NonEU": 1400,
+          "nonUkSharePct": 22.2,
+          "change5y": 700,
+          "change5yPct": 4.4
+        },
+        "Mining and Quarrying": {
+          "total": 1500,
+          "UK": 1400,
+          "EU": 100,
+          "NonEU": 100,
+          "nonUkSharePct": 6.7,
+          "change5y": 100,
+          "change5yPct": 7.1
+        },
+        "Manufacturing": {
+          "total": 277800,
+          "UK": 221800,
+          "EU": 30600,
+          "NonEU": 25500,
+          "nonUkSharePct": 20.2,
+          "change5y": -15100,
+          "change5yPct": -5.2
+        },
+        "Energy production and supply": {
+          "total": 9200,
+          "UK": 8200,
+          "EU": 200,
+          "NonEU": 800,
+          "nonUkSharePct": 10.9,
+          "change5y": -500,
+          "change5yPct": -5.2
+        },
+        "Water supply, sewerage and waste": {
+          "total": 21100,
+          "UK": 19000,
+          "EU": 1200,
+          "NonEU": 900,
+          "nonUkSharePct": 10.0,
+          "change5y": 3400,
+          "change5yPct": 19.2
+        },
+        "Construction": {
+          "total": 103400,
+          "UK": 92600,
+          "EU": 4800,
+          "NonEU": 6100,
+          "nonUkSharePct": 10.4,
+          "change5y": 8500,
+          "change5yPct": 9.0
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 417300,
+          "UK": 353100,
+          "EU": 25400,
+          "NonEU": 38800,
+          "nonUkSharePct": 15.4,
+          "change5y": -7400,
+          "change5yPct": -1.7
+        },
+        "Transportation and storage": {
+          "total": 144700,
+          "UK": 103300,
+          "EU": 19900,
+          "NonEU": 21500,
+          "nonUkSharePct": 28.6,
+          "change5y": 6900,
+          "change5yPct": 5.0
+        },
+        "Accommodation and food service activities": {
+          "total": 172900,
+          "UK": 131000,
+          "EU": 11500,
+          "NonEU": 30400,
+          "nonUkSharePct": 24.2,
+          "change5y": 6000,
+          "change5yPct": 3.6
+        },
+        "Information and communication": {
+          "total": 83000,
+          "UK": 68600,
+          "EU": 3600,
+          "NonEU": 10800,
+          "nonUkSharePct": 17.3,
+          "change5y": 4900,
+          "change5yPct": 6.3
+        },
+        "Finance and insurance": {
+          "total": 72800,
+          "UK": 66700,
+          "EU": 1600,
+          "NonEU": 4500,
+          "nonUkSharePct": 8.4,
+          "change5y": -400,
+          "change5yPct": -0.5
+        },
+        "Real estate": {
+          "total": 39700,
+          "UK": 35700,
+          "EU": 1100,
+          "NonEU": 2800,
+          "nonUkSharePct": 10.1,
+          "change5y": 3600,
+          "change5yPct": 10.0
+        },
+        "Professional, scientific and technical": {
+          "total": 178300,
+          "UK": 152900,
+          "EU": 8400,
+          "NonEU": 17000,
+          "nonUkSharePct": 14.2,
+          "change5y": 21700,
+          "change5yPct": 13.9
+        },
+        "Administrative and support services": {
+          "total": 266000,
+          "UK": 176900,
+          "EU": 27900,
+          "NonEU": 61300,
+          "nonUkSharePct": 33.5,
+          "change5y": 19300,
+          "change5yPct": 7.8
+        },
+        "Public administration and defence; social security": {
+          "total": 104600,
+          "UK": 99400,
+          "EU": 1400,
+          "NonEU": 3800,
+          "nonUkSharePct": 5.0,
+          "change5y": 3900,
+          "change5yPct": 3.9
+        },
+        "Education": {
+          "total": 304800,
+          "UK": 277200,
+          "EU": 8400,
+          "NonEU": 19100,
+          "nonUkSharePct": 9.1,
+          "change5y": 14500,
+          "change5yPct": 5.0
+        },
+        "Health and social work": {
+          "total": 442700,
+          "UK": 335400,
+          "EU": 13900,
+          "NonEU": 93300,
+          "nonUkSharePct": 24.2,
+          "change5y": 74000,
+          "change5yPct": 20.1
+        },
+        "Arts, entertainment and recreation": {
+          "total": 53900,
+          "UK": 50000,
+          "EU": 2000,
+          "NonEU": 1900,
+          "nonUkSharePct": 7.2,
+          "change5y": 2100,
+          "change5yPct": 4.1
+        },
+        "Other service activities": {
+          "total": 50500,
+          "UK": 42400,
+          "EU": 2000,
+          "NonEU": 6200,
+          "nonUkSharePct": 16.0,
+          "change5y": 2100,
+          "change5yPct": 4.3
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 18800,
+          "UK": 14700,
+          "EU": 1100,
+          "NonEU": 3000,
+          "nonUkSharePct": 21.8,
+          "change5y": 1200,
+          "change5yPct": 6.8
+        }
+      }
+    },
+    "East": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 3086100,
+      "byNationalityGroup": {
+        "UK": 2487500,
+        "EU": 245600,
+        "NonEU": 353000
+      },
+      "nonUkSharePct": 19.4,
+      "fiveYearChange": {
+        "Total": 135800,
+        "UK": -13400,
+        "EU": -24900,
+        "NonEU": 174100
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 25000,
+          "UK": 21500,
+          "EU": 2600,
+          "NonEU": 900,
+          "nonUkSharePct": 14.0,
+          "change5y": -1200,
+          "change5yPct": -4.6
+        },
+        "Mining and Quarrying": {
+          "total": 2800,
+          "UK": 2500,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 10.7,
+          "change5y": 200,
+          "change5yPct": 7.7
+        },
+        "Manufacturing": {
+          "total": 206200,
+          "UK": 160400,
+          "EU": 31200,
+          "NonEU": 14600,
+          "nonUkSharePct": 22.2,
+          "change5y": -9000,
+          "change5yPct": -4.2
+        },
+        "Energy production and supply": {
+          "total": 9100,
+          "UK": 8400,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 7.7,
+          "change5y": 2000,
+          "change5yPct": 28.2
+        },
+        "Water supply, sewerage and waste": {
+          "total": 21200,
+          "UK": 19000,
+          "EU": 1500,
+          "NonEU": 700,
+          "nonUkSharePct": 10.4,
+          "change5y": 2200,
+          "change5yPct": 11.6
+        },
+        "Construction": {
+          "total": 154500,
+          "UK": 136300,
+          "EU": 12500,
+          "NonEU": 5800,
+          "nonUkSharePct": 11.8,
+          "change5y": 11900,
+          "change5yPct": 8.3
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 444900,
+          "UK": 372800,
+          "EU": 34400,
+          "NonEU": 37700,
+          "nonUkSharePct": 16.2,
+          "change5y": -14000,
+          "change5yPct": -3.1
+        },
+        "Transportation and storage": {
+          "total": 155200,
+          "UK": 116200,
+          "EU": 24700,
+          "NonEU": 14300,
+          "nonUkSharePct": 25.1,
+          "change5y": 3100,
+          "change5yPct": 2.0
+        },
+        "Accommodation and food service activities": {
+          "total": 194900,
+          "UK": 144900,
+          "EU": 18000,
+          "NonEU": 32000,
+          "nonUkSharePct": 25.7,
+          "change5y": 8100,
+          "change5yPct": 4.3
+        },
+        "Information and communication": {
+          "total": 123800,
+          "UK": 100900,
+          "EU": 7400,
+          "NonEU": 15500,
+          "nonUkSharePct": 18.5,
+          "change5y": 3600,
+          "change5yPct": 3.0
+        },
+        "Finance and insurance": {
+          "total": 128600,
+          "UK": 116600,
+          "EU": 4100,
+          "NonEU": 7900,
+          "nonUkSharePct": 9.3,
+          "change5y": 3300,
+          "change5yPct": 2.6
+        },
+        "Real estate": {
+          "total": 48500,
+          "UK": 43700,
+          "EU": 2000,
+          "NonEU": 2800,
+          "nonUkSharePct": 9.9,
+          "change5y": 2700,
+          "change5yPct": 5.9
+        },
+        "Professional, scientific and technical": {
+          "total": 260700,
+          "UK": 218100,
+          "EU": 17700,
+          "NonEU": 24900,
+          "nonUkSharePct": 16.3,
+          "change5y": 29300,
+          "change5yPct": 12.7
+        },
+        "Administrative and support services": {
+          "total": 265200,
+          "UK": 180200,
+          "EU": 35100,
+          "NonEU": 50000,
+          "nonUkSharePct": 32.1,
+          "change5y": -2600,
+          "change5yPct": -1.0
+        },
+        "Public administration and defence; social security": {
+          "total": 149300,
+          "UK": 139700,
+          "EU": 3400,
+          "NonEU": 6200,
+          "nonUkSharePct": 6.4,
+          "change5y": 2400,
+          "change5yPct": 1.6
+        },
+        "Education": {
+          "total": 316200,
+          "UK": 275800,
+          "EU": 16800,
+          "NonEU": 23600,
+          "nonUkSharePct": 12.8,
+          "change5y": 19000,
+          "change5yPct": 6.4
+        },
+        "Health and social work": {
+          "total": 435800,
+          "UK": 304400,
+          "EU": 26400,
+          "NonEU": 105000,
+          "nonUkSharePct": 30.2,
+          "change5y": 69200,
+          "change5yPct": 18.9
+        },
+        "Arts, entertainment and recreation": {
+          "total": 66500,
+          "UK": 61700,
+          "EU": 2400,
+          "NonEU": 2400,
+          "nonUkSharePct": 7.2,
+          "change5y": 4400,
+          "change5yPct": 7.1
+        },
+        "Other service activities": {
+          "total": 55800,
+          "UK": 46800,
+          "EU": 3300,
+          "NonEU": 5600,
+          "nonUkSharePct": 16.1,
+          "change5y": 800,
+          "change5yPct": 1.5
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 22000,
+          "UK": 17700,
+          "EU": 1700,
+          "NonEU": 2600,
+          "nonUkSharePct": 19.5,
+          "change5y": 600,
+          "change5yPct": 2.8
+        }
+      }
+    },
+    "London": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 4688800,
+      "byNationalityGroup": {
+        "UK": 2705200,
+        "EU": 707600,
+        "NonEU": 1276100
+      },
+      "nonUkSharePct": 42.3,
+      "fiveYearChange": {
+        "Total": 274500,
+        "UK": -21300,
+        "EU": -133500,
+        "NonEU": 429400
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 3300,
+          "UK": 2400,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 27.3,
+          "change5y": -200,
+          "change5yPct": -5.7
+        },
+        "Mining and Quarrying": {
+          "total": 1800,
+          "UK": 1000,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 44.4,
+          "change5y": -100,
+          "change5yPct": -5.3
+        },
+        "Manufacturing": {
+          "total": 109900,
+          "UK": 59200,
+          "EU": 22300,
+          "NonEU": 28500,
+          "nonUkSharePct": 46.1,
+          "change5y": -3500,
+          "change5yPct": -3.1
+        },
+        "Energy production and supply": {
+          "total": 8500,
+          "UK": 6000,
+          "EU": 1000,
+          "NonEU": 1500,
+          "nonUkSharePct": 29.4,
+          "change5y": 2600,
+          "change5yPct": 44.1
+        },
+        "Water supply, sewerage and waste": {
+          "total": 14800,
+          "UK": 9400,
+          "EU": 3100,
+          "NonEU": 2200,
+          "nonUkSharePct": 36.5,
+          "change5y": 1200,
+          "change5yPct": 8.8
+        },
+        "Construction": {
+          "total": 152800,
+          "UK": 83000,
+          "EU": 40700,
+          "NonEU": 29100,
+          "nonUkSharePct": 45.7,
+          "change5y": 11100,
+          "change5yPct": 7.8
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 560300,
+          "UK": 322700,
+          "EU": 76500,
+          "NonEU": 161100,
+          "nonUkSharePct": 42.4,
+          "change5y": -17400,
+          "change5yPct": -3.0
+        },
+        "Transportation and storage": {
+          "total": 184400,
+          "UK": 110000,
+          "EU": 27400,
+          "NonEU": 47000,
+          "nonUkSharePct": 40.3,
+          "change5y": 5900,
+          "change5yPct": 3.3
+        },
+        "Accommodation and food service activities": {
+          "total": 440200,
+          "UK": 163400,
+          "EU": 104300,
+          "NonEU": 172600,
+          "nonUkSharePct": 62.9,
+          "change5y": 21400,
+          "change5yPct": 5.1
+        },
+        "Information and communication": {
+          "total": 318400,
+          "UK": 193900,
+          "EU": 47800,
+          "NonEU": 76700,
+          "nonUkSharePct": 39.1,
+          "change5y": 8900,
+          "change5yPct": 2.9
+        },
+        "Finance and insurance": {
+          "total": 270700,
+          "UK": 166800,
+          "EU": 42300,
+          "NonEU": 61600,
+          "nonUkSharePct": 38.4,
+          "change5y": 18500,
+          "change5yPct": 7.3
+        },
+        "Real estate": {
+          "total": 98200,
+          "UK": 67800,
+          "EU": 12300,
+          "NonEU": 18200,
+          "nonUkSharePct": 31.0,
+          "change5y": 7600,
+          "change5yPct": 8.4
+        },
+        "Professional, scientific and technical": {
+          "total": 553700,
+          "UK": 345900,
+          "EU": 80200,
+          "NonEU": 127500,
+          "nonUkSharePct": 37.5,
+          "change5y": 59900,
+          "change5yPct": 12.1
+        },
+        "Administrative and support services": {
+          "total": 509000,
+          "UK": 231800,
+          "EU": 102400,
+          "NonEU": 174900,
+          "nonUkSharePct": 54.5,
+          "change5y": 5600,
+          "change5yPct": 1.1
+        },
+        "Public administration and defence; social security": {
+          "total": 169100,
+          "UK": 141200,
+          "EU": 9600,
+          "NonEU": 18300,
+          "nonUkSharePct": 16.5,
+          "change5y": 4400,
+          "change5yPct": 2.7
+        },
+        "Education": {
+          "total": 425100,
+          "UK": 308500,
+          "EU": 44200,
+          "NonEU": 72500,
+          "nonUkSharePct": 27.4,
+          "change5y": 19500,
+          "change5yPct": 4.8
+        },
+        "Health and social work": {
+          "total": 601800,
+          "UK": 319400,
+          "EU": 57700,
+          "NonEU": 224600,
+          "nonUkSharePct": 46.9,
+          "change5y": 112100,
+          "change5yPct": 22.9
+        },
+        "Arts, entertainment and recreation": {
+          "total": 109800,
+          "UK": 83500,
+          "EU": 12200,
+          "NonEU": 14100,
+          "nonUkSharePct": 24.0,
+          "change5y": 5100,
+          "change5yPct": 4.9
+        },
+        "Other service activities": {
+          "total": 100900,
+          "UK": 61200,
+          "EU": 12700,
+          "NonEU": 27100,
+          "nonUkSharePct": 39.3,
+          "change5y": 4300,
+          "change5yPct": 4.5
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 56000,
+          "UK": 28100,
+          "EU": 10100,
+          "NonEU": 17800,
+          "nonUkSharePct": 49.8,
+          "change5y": 7400,
+          "change5yPct": 15.2
+        }
+      }
+    },
+    "South East": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 4551700,
+      "byNationalityGroup": {
+        "UK": 3656500,
+        "EU": 326700,
+        "NonEU": 568600
+      },
+      "nonUkSharePct": 19.7,
+      "fiveYearChange": {
+        "Total": 215000,
+        "UK": -1100,
+        "EU": -40200,
+        "NonEU": 256300
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 29200,
+          "UK": 22000,
+          "EU": 4500,
+          "NonEU": 2700,
+          "nonUkSharePct": 24.7,
+          "change5y": 1900,
+          "change5yPct": 7.0
+        },
+        "Mining and Quarrying": {
+          "total": 2800,
+          "UK": 2200,
+          "EU": 200,
+          "NonEU": 400,
+          "nonUkSharePct": 21.4,
+          "change5y": -200,
+          "change5yPct": -6.7
+        },
+        "Manufacturing": {
+          "total": 251200,
+          "UK": 202400,
+          "EU": 28300,
+          "NonEU": 20600,
+          "nonUkSharePct": 19.4,
+          "change5y": -5700,
+          "change5yPct": -2.2
+        },
+        "Energy production and supply": {
+          "total": 16200,
+          "UK": 14400,
+          "EU": 600,
+          "NonEU": 1200,
+          "nonUkSharePct": 11.1,
+          "change5y": -500,
+          "change5yPct": -3.0
+        },
+        "Water supply, sewerage and waste": {
+          "total": 31500,
+          "UK": 27700,
+          "EU": 2300,
+          "NonEU": 1500,
+          "nonUkSharePct": 12.1,
+          "change5y": 4500,
+          "change5yPct": 16.7
+        },
+        "Construction": {
+          "total": 196600,
+          "UK": 174900,
+          "EU": 12200,
+          "NonEU": 9400,
+          "nonUkSharePct": 11.0,
+          "change5y": 14800,
+          "change5yPct": 8.1
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 637300,
+          "UK": 536200,
+          "EU": 41800,
+          "NonEU": 59300,
+          "nonUkSharePct": 15.9,
+          "change5y": -26500,
+          "change5yPct": -4.0
+        },
+        "Transportation and storage": {
+          "total": 208300,
+          "UK": 163900,
+          "EU": 24000,
+          "NonEU": 20500,
+          "nonUkSharePct": 21.3,
+          "change5y": 3500,
+          "change5yPct": 1.7
+        },
+        "Accommodation and food service activities": {
+          "total": 306500,
+          "UK": 218500,
+          "EU": 33300,
+          "NonEU": 54600,
+          "nonUkSharePct": 28.7,
+          "change5y": 13800,
+          "change5yPct": 4.7
+        },
+        "Information and communication": {
+          "total": 244400,
+          "UK": 192300,
+          "EU": 15200,
+          "NonEU": 36900,
+          "nonUkSharePct": 21.3,
+          "change5y": 1300,
+          "change5yPct": 0.5
+        },
+        "Finance and insurance": {
+          "total": 174400,
+          "UK": 149700,
+          "EU": 8300,
+          "NonEU": 16400,
+          "nonUkSharePct": 14.2,
+          "change5y": 4700,
+          "change5yPct": 2.8
+        },
+        "Real estate": {
+          "total": 71100,
+          "UK": 64000,
+          "EU": 2800,
+          "NonEU": 4300,
+          "nonUkSharePct": 10.0,
+          "change5y": 5800,
+          "change5yPct": 8.9
+        },
+        "Professional, scientific and technical": {
+          "total": 404600,
+          "UK": 336000,
+          "EU": 26400,
+          "NonEU": 42200,
+          "nonUkSharePct": 17.0,
+          "change5y": 41100,
+          "change5yPct": 11.3
+        },
+        "Administrative and support services": {
+          "total": 385600,
+          "UK": 267400,
+          "EU": 41800,
+          "NonEU": 76300,
+          "nonUkSharePct": 30.7,
+          "change5y": 9000,
+          "change5yPct": 2.4
+        },
+        "Public administration and defence; social security": {
+          "total": 212500,
+          "UK": 197300,
+          "EU": 4600,
+          "NonEU": 10600,
+          "nonUkSharePct": 7.2,
+          "change5y": 15300,
+          "change5yPct": 7.8
+        },
+        "Education": {
+          "total": 506800,
+          "UK": 438900,
+          "EU": 27100,
+          "NonEU": 40800,
+          "nonUkSharePct": 13.4,
+          "change5y": 27500,
+          "change5yPct": 5.7
+        },
+        "Health and social work": {
+          "total": 637800,
+          "UK": 444500,
+          "EU": 41000,
+          "NonEU": 152200,
+          "nonUkSharePct": 30.3,
+          "change5y": 92600,
+          "change5yPct": 17.0
+        },
+        "Arts, entertainment and recreation": {
+          "total": 109700,
+          "UK": 100800,
+          "EU": 4400,
+          "NonEU": 4500,
+          "nonUkSharePct": 8.1,
+          "change5y": 7000,
+          "change5yPct": 6.8
+        },
+        "Other service activities": {
+          "total": 90300,
+          "UK": 75300,
+          "EU": 5000,
+          "NonEU": 10000,
+          "nonUkSharePct": 16.6,
+          "change5y": 2300,
+          "change5yPct": 2.6
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 35200,
+          "UK": 28100,
+          "EU": 2800,
+          "NonEU": 4300,
+          "nonUkSharePct": 20.2,
+          "change5y": 2900,
+          "change5yPct": 9.0
+        }
+      }
+    },
+    "South West": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 2671500,
+      "byNationalityGroup": {
+        "UK": 2318700,
+        "EU": 144800,
+        "NonEU": 208000
+      },
+      "nonUkSharePct": 13.2,
+      "fiveYearChange": {
+        "Total": 113400,
+        "UK": 22400,
+        "EU": -22200,
+        "NonEU": 113100
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 24400,
+          "UK": 22200,
+          "EU": 1400,
+          "NonEU": 800,
+          "nonUkSharePct": 9.0,
+          "change5y": 300,
+          "change5yPct": 1.2
+        },
+        "Mining and Quarrying": {
+          "total": 4800,
+          "UK": 4300,
+          "EU": 200,
+          "NonEU": 200,
+          "nonUkSharePct": 10.4,
+          "change5y": 400,
+          "change5yPct": 9.1
+        },
+        "Manufacturing": {
+          "total": 210000,
+          "UK": 177100,
+          "EU": 22600,
+          "NonEU": 10300,
+          "nonUkSharePct": 15.7,
+          "change5y": -6400,
+          "change5yPct": -3.0
+        },
+        "Energy production and supply": {
+          "total": 12500,
+          "UK": 11300,
+          "EU": 600,
+          "NonEU": 700,
+          "nonUkSharePct": 9.6,
+          "change5y": 400,
+          "change5yPct": 3.3
+        },
+        "Water supply, sewerage and waste": {
+          "total": 19000,
+          "UK": 17800,
+          "EU": 700,
+          "NonEU": 500,
+          "nonUkSharePct": 6.3,
+          "change5y": 3500,
+          "change5yPct": 22.6
+        },
+        "Construction": {
+          "total": 121000,
+          "UK": 114600,
+          "EU": 3900,
+          "NonEU": 2500,
+          "nonUkSharePct": 5.3,
+          "change5y": 8400,
+          "change5yPct": 7.5
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 380900,
+          "UK": 345400,
+          "EU": 16700,
+          "NonEU": 18700,
+          "nonUkSharePct": 9.3,
+          "change5y": -14900,
+          "change5yPct": -3.8
+        },
+        "Transportation and storage": {
+          "total": 95400,
+          "UK": 78600,
+          "EU": 9800,
+          "NonEU": 7000,
+          "nonUkSharePct": 17.6,
+          "change5y": -600,
+          "change5yPct": -0.6
+        },
+        "Accommodation and food service activities": {
+          "total": 213100,
+          "UK": 173700,
+          "EU": 15800,
+          "NonEU": 23600,
+          "nonUkSharePct": 18.5,
+          "change5y": 7700,
+          "change5yPct": 3.7
+        },
+        "Information and communication": {
+          "total": 93500,
+          "UK": 82100,
+          "EU": 4100,
+          "NonEU": 7200,
+          "nonUkSharePct": 12.2,
+          "change5y": 6200,
+          "change5yPct": 7.1
+        },
+        "Finance and insurance": {
+          "total": 83300,
+          "UK": 74900,
+          "EU": 3000,
+          "NonEU": 5300,
+          "nonUkSharePct": 10.1,
+          "change5y": 100,
+          "change5yPct": 0.1
+        },
+        "Real estate": {
+          "total": 38700,
+          "UK": 36300,
+          "EU": 1100,
+          "NonEU": 1400,
+          "nonUkSharePct": 6.2,
+          "change5y": 2300,
+          "change5yPct": 6.3
+        },
+        "Professional, scientific and technical": {
+          "total": 204000,
+          "UK": 183000,
+          "EU": 9300,
+          "NonEU": 11700,
+          "nonUkSharePct": 10.3,
+          "change5y": 27400,
+          "change5yPct": 15.5
+        },
+        "Administrative and support services": {
+          "total": 193900,
+          "UK": 149100,
+          "EU": 18300,
+          "NonEU": 26500,
+          "nonUkSharePct": 23.1,
+          "change5y": -1100,
+          "change5yPct": -0.6
+        },
+        "Public administration and defence; social security": {
+          "total": 166500,
+          "UK": 158100,
+          "EU": 3000,
+          "NonEU": 5400,
+          "nonUkSharePct": 5.0,
+          "change5y": 6800,
+          "change5yPct": 4.3
+        },
+        "Education": {
+          "total": 261300,
+          "UK": 240200,
+          "EU": 9200,
+          "NonEU": 11900,
+          "nonUkSharePct": 8.1,
+          "change5y": 14000,
+          "change5yPct": 5.7
+        },
+        "Health and social work": {
+          "total": 422100,
+          "UK": 333800,
+          "EU": 20500,
+          "NonEU": 67800,
+          "nonUkSharePct": 20.9,
+          "change5y": 55100,
+          "change5yPct": 15.0
+        },
+        "Arts, entertainment and recreation": {
+          "total": 57400,
+          "UK": 54400,
+          "EU": 1500,
+          "NonEU": 1500,
+          "nonUkSharePct": 5.2,
+          "change5y": 2200,
+          "change5yPct": 4.0
+        },
+        "Other service activities": {
+          "total": 49400,
+          "UK": 44100,
+          "EU": 1900,
+          "NonEU": 3400,
+          "nonUkSharePct": 10.7,
+          "change5y": 500,
+          "change5yPct": 1.0
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 20500,
+          "UK": 17700,
+          "EU": 1200,
+          "NonEU": 1600,
+          "nonUkSharePct": 13.7,
+          "change5y": 1400,
+          "change5yPct": 7.3
+        }
+      }
+    },
+    "Scotland": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 2583100,
+      "byNationalityGroup": {
+        "UK": 2261200,
+        "EU": 135000,
+        "NonEU": 187000
+      },
+      "nonUkSharePct": 12.5,
+      "fiveYearChange": {
+        "Total": 84800,
+        "UK": -13700,
+        "EU": -9500,
+        "NonEU": 108000
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 25700,
+          "UK": 22100,
+          "EU": 2200,
+          "NonEU": 1400,
+          "nonUkSharePct": 14.0,
+          "change5y": 900,
+          "change5yPct": 3.6
+        },
+        "Mining and Quarrying": {
+          "total": 18700,
+          "UK": 17200,
+          "EU": 600,
+          "NonEU": 900,
+          "nonUkSharePct": 8.0,
+          "change5y": -2100,
+          "change5yPct": -10.1
+        },
+        "Manufacturing": {
+          "total": 172700,
+          "UK": 153000,
+          "EU": 13200,
+          "NonEU": 6500,
+          "nonUkSharePct": 11.4,
+          "change5y": -4900,
+          "change5yPct": -2.8
+        },
+        "Energy production and supply": {
+          "total": 18800,
+          "UK": 17200,
+          "EU": 600,
+          "NonEU": 1000,
+          "nonUkSharePct": 8.5,
+          "change5y": 3400,
+          "change5yPct": 22.1
+        },
+        "Water supply, sewerage and waste": {
+          "total": 15600,
+          "UK": 14500,
+          "EU": 800,
+          "NonEU": 300,
+          "nonUkSharePct": 7.1,
+          "change5y": 1500,
+          "change5yPct": 10.6
+        },
+        "Construction": {
+          "total": 119000,
+          "UK": 113500,
+          "EU": 3700,
+          "NonEU": 1800,
+          "nonUkSharePct": 4.6,
+          "change5y": 8800,
+          "change5yPct": 8.0
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 346300,
+          "UK": 312100,
+          "EU": 15000,
+          "NonEU": 19200,
+          "nonUkSharePct": 9.9,
+          "change5y": -9900,
+          "change5yPct": -2.8
+        },
+        "Transportation and storage": {
+          "total": 105300,
+          "UK": 95000,
+          "EU": 5800,
+          "NonEU": 4500,
+          "nonUkSharePct": 9.8,
+          "change5y": -200,
+          "change5yPct": -0.2
+        },
+        "Accommodation and food service activities": {
+          "total": 200500,
+          "UK": 153400,
+          "EU": 18500,
+          "NonEU": 28500,
+          "nonUkSharePct": 23.5,
+          "change5y": 6900,
+          "change5yPct": 3.6
+        },
+        "Information and communication": {
+          "total": 80300,
+          "UK": 66900,
+          "EU": 5100,
+          "NonEU": 8300,
+          "nonUkSharePct": 16.7,
+          "change5y": 3500,
+          "change5yPct": 4.6
+        },
+        "Finance and insurance": {
+          "total": 94700,
+          "UK": 83200,
+          "EU": 4000,
+          "NonEU": 7600,
+          "nonUkSharePct": 12.1,
+          "change5y": 4100,
+          "change5yPct": 4.5
+        },
+        "Real estate": {
+          "total": 29800,
+          "UK": 27200,
+          "EU": 1200,
+          "NonEU": 1400,
+          "nonUkSharePct": 8.7,
+          "change5y": 2300,
+          "change5yPct": 8.4
+        },
+        "Professional, scientific and technical": {
+          "total": 173200,
+          "UK": 152200,
+          "EU": 9300,
+          "NonEU": 11700,
+          "nonUkSharePct": 12.1,
+          "change5y": 14400,
+          "change5yPct": 9.1
+        },
+        "Administrative and support services": {
+          "total": 173300,
+          "UK": 133200,
+          "EU": 14800,
+          "NonEU": 25200,
+          "nonUkSharePct": 23.1,
+          "change5y": -9500,
+          "change5yPct": -5.2
+        },
+        "Public administration and defence; social security": {
+          "total": 130700,
+          "UK": 125200,
+          "EU": 2700,
+          "NonEU": 2800,
+          "nonUkSharePct": 4.2,
+          "change5y": 9300,
+          "change5yPct": 7.7
+        },
+        "Education": {
+          "total": 344200,
+          "UK": 311000,
+          "EU": 15700,
+          "NonEU": 17500,
+          "nonUkSharePct": 9.6,
+          "change5y": 12600,
+          "change5yPct": 3.8
+        },
+        "Health and social work": {
+          "total": 409600,
+          "UK": 352800,
+          "EU": 16600,
+          "NonEU": 40200,
+          "nonUkSharePct": 13.9,
+          "change5y": 37200,
+          "change5yPct": 10.0
+        },
+        "Arts, entertainment and recreation": {
+          "total": 60900,
+          "UK": 56600,
+          "EU": 2200,
+          "NonEU": 2100,
+          "nonUkSharePct": 7.1,
+          "change5y": 1800,
+          "change5yPct": 3.0
+        },
+        "Other service activities": {
+          "total": 42300,
+          "UK": 36400,
+          "EU": 1800,
+          "NonEU": 4100,
+          "nonUkSharePct": 13.9,
+          "change5y": -200,
+          "change5yPct": -0.5
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 21600,
+          "UK": 18700,
+          "EU": 1200,
+          "NonEU": 1800,
+          "nonUkSharePct": 13.4,
+          "change5y": 5100,
+          "change5yPct": 30.9
+        }
+      }
+    },
+    "Wales": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 1386800,
+      "byNationalityGroup": {
+        "UK": 1252800,
+        "EU": 44800,
+        "NonEU": 89200
+      },
+      "nonUkSharePct": 9.7,
+      "fiveYearChange": {
+        "Total": 55900,
+        "UK": 9100,
+        "EU": -6400,
+        "NonEU": 53200
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 7200,
+          "UK": 6500,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 9.7,
+          "change5y": 300,
+          "change5yPct": 4.3
+        },
+        "Mining and Quarrying": {
+          "total": 1900,
+          "UK": 1800,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 5.3,
+          "change5y": -100,
+          "change5yPct": -5.0
+        },
+        "Manufacturing": {
+          "total": 123600,
+          "UK": 109000,
+          "EU": 9400,
+          "NonEU": 5300,
+          "nonUkSharePct": 11.8,
+          "change5y": -10300,
+          "change5yPct": -7.7
+        },
+        "Energy production and supply": {
+          "total": 5800,
+          "UK": 5700,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 1.7,
+          "change5y": -400,
+          "change5yPct": -6.5
+        },
+        "Water supply, sewerage and waste": {
+          "total": 11200,
+          "UK": 10800,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 3.6,
+          "change5y": 1000,
+          "change5yPct": 9.8
+        },
+        "Construction": {
+          "total": 58400,
+          "UK": 56700,
+          "EU": 1000,
+          "NonEU": 700,
+          "nonUkSharePct": 2.9,
+          "change5y": 2600,
+          "change5yPct": 4.7
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 184500,
+          "UK": 170900,
+          "EU": 4900,
+          "NonEU": 8700,
+          "nonUkSharePct": 7.4,
+          "change5y": -6200,
+          "change5yPct": -3.3
+        },
+        "Transportation and storage": {
+          "total": 50100,
+          "UK": 44400,
+          "EU": 2700,
+          "NonEU": 3000,
+          "nonUkSharePct": 11.4,
+          "change5y": 800,
+          "change5yPct": 1.6
+        },
+        "Accommodation and food service activities": {
+          "total": 98800,
+          "UK": 82200,
+          "EU": 4700,
+          "NonEU": 11900,
+          "nonUkSharePct": 16.8,
+          "change5y": 4000,
+          "change5yPct": 4.2
+        },
+        "Information and communication": {
+          "total": 35700,
+          "UK": 32700,
+          "EU": 1000,
+          "NonEU": 2000,
+          "nonUkSharePct": 8.4,
+          "change5y": 2200,
+          "change5yPct": 6.6
+        },
+        "Finance and insurance": {
+          "total": 41700,
+          "UK": 39400,
+          "EU": 800,
+          "NonEU": 1500,
+          "nonUkSharePct": 5.5,
+          "change5y": 4500,
+          "change5yPct": 12.1
+        },
+        "Real estate": {
+          "total": 16800,
+          "UK": 16200,
+          "EU": 200,
+          "NonEU": 400,
+          "nonUkSharePct": 3.6,
+          "change5y": 1700,
+          "change5yPct": 11.3
+        },
+        "Professional, scientific and technical": {
+          "total": 74500,
+          "UK": 68400,
+          "EU": 2400,
+          "NonEU": 3600,
+          "nonUkSharePct": 8.2,
+          "change5y": 8500,
+          "change5yPct": 12.9
+        },
+        "Administrative and support services": {
+          "total": 98200,
+          "UK": 80100,
+          "EU": 5400,
+          "NonEU": 12800,
+          "nonUkSharePct": 18.4,
+          "change5y": 300,
+          "change5yPct": 0.3
+        },
+        "Public administration and defence; social security": {
+          "total": 81100,
+          "UK": 78200,
+          "EU": 1000,
+          "NonEU": 1900,
+          "nonUkSharePct": 3.6,
+          "change5y": 12000,
+          "change5yPct": 17.4
+        },
+        "Education": {
+          "total": 192900,
+          "UK": 183400,
+          "EU": 3700,
+          "NonEU": 5800,
+          "nonUkSharePct": 4.9,
+          "change5y": 5800,
+          "change5yPct": 3.1
+        },
+        "Health and social work": {
+          "total": 239500,
+          "UK": 206400,
+          "EU": 5300,
+          "NonEU": 27800,
+          "nonUkSharePct": 13.8,
+          "change5y": 26400,
+          "change5yPct": 12.4
+        },
+        "Arts, entertainment and recreation": {
+          "total": 28000,
+          "UK": 26900,
+          "EU": 500,
+          "NonEU": 600,
+          "nonUkSharePct": 3.9,
+          "change5y": 1200,
+          "change5yPct": 4.5
+        },
+        "Other service activities": {
+          "total": 23500,
+          "UK": 21100,
+          "EU": 500,
+          "NonEU": 1900,
+          "nonUkSharePct": 10.2,
+          "change5y": -700,
+          "change5yPct": -2.9
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 13100,
+          "UK": 11900,
+          "EU": 400,
+          "NonEU": 800,
+          "nonUkSharePct": 9.2,
+          "change5y": 1800,
+          "change5yPct": 15.9
+        }
+      }
+    },
+    "Northern Ireland": {
+      "latestSnapshotDate": "December 2024",
+      "fiveYearBaselineDate": "December 2019",
+      "totalEmployment": 858000,
+      "byNationalityGroup": {
+        "UK": 760500,
+        "EU": 54000,
+        "NonEU": 43500
+      },
+      "nonUkSharePct": 11.4,
+      "fiveYearChange": {
+        "Total": 62700,
+        "UK": 39100,
+        "EU": -4100,
+        "NonEU": 27700
+      },
+      "byIndustry": {
+        "Agriculture, Forestry and Fishing": {
+          "total": 6300,
+          "UK": 5200,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 17.5,
+          "change5y": 900,
+          "change5yPct": 16.7
+        },
+        "Mining and Quarrying": {
+          "total": 1400,
+          "UK": 1300,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 7.1,
+          "change5y": 100,
+          "change5yPct": 7.7
+        },
+        "Manufacturing": {
+          "total": 89900,
+          "UK": 69700,
+          "EU": 15400,
+          "NonEU": 4800,
+          "nonUkSharePct": 22.5,
+          "change5y": 3600,
+          "change5yPct": 4.2
+        },
+        "Energy production and supply": {
+          "total": 2700,
+          "UK": 2500,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 7.4,
+          "change5y": 800,
+          "change5yPct": 42.1
+        },
+        "Water supply, sewerage and waste": {
+          "total": 5800,
+          "UK": 5000,
+          "EU": null,
+          "NonEU": null,
+          "nonUkSharePct": 13.8,
+          "change5y": 0,
+          "change5yPct": 0.0
+        },
+        "Construction": {
+          "total": 35900,
+          "UK": 34100,
+          "EU": 1400,
+          "NonEU": 400,
+          "nonUkSharePct": 5.0,
+          "change5y": 3300,
+          "change5yPct": 10.1
+        },
+        "Wholesale and retail; repair of motor vehicles": {
+          "total": 136300,
+          "UK": 126700,
+          "EU": 6400,
+          "NonEU": 3200,
+          "nonUkSharePct": 7.0,
+          "change5y": 300,
+          "change5yPct": 0.2
+        },
+        "Transportation and storage": {
+          "total": 27100,
+          "UK": 24900,
+          "EU": 1600,
+          "NonEU": 600,
+          "nonUkSharePct": 8.1,
+          "change5y": 500,
+          "change5yPct": 1.9
+        },
+        "Accommodation and food service activities": {
+          "total": 54300,
+          "UK": 44400,
+          "EU": 4200,
+          "NonEU": 5700,
+          "nonUkSharePct": 18.2,
+          "change5y": 2600,
+          "change5yPct": 5.0
+        },
+        "Information and communication": {
+          "total": 29700,
+          "UK": 26300,
+          "EU": 1500,
+          "NonEU": 1900,
+          "nonUkSharePct": 11.4,
+          "change5y": 4700,
+          "change5yPct": 18.8
+        },
+        "Finance and insurance": {
+          "total": 22900,
+          "UK": 20800,
+          "EU": 900,
+          "NonEU": 1300,
+          "nonUkSharePct": 9.2,
+          "change5y": 1900,
+          "change5yPct": 9.0
+        },
+        "Real estate": {
+          "total": 10800,
+          "UK": 10200,
+          "EU": 400,
+          "NonEU": 200,
+          "nonUkSharePct": 5.6,
+          "change5y": 900,
+          "change5yPct": 9.1
+        },
+        "Professional, scientific and technical": {
+          "total": 46400,
+          "UK": 41900,
+          "EU": 2400,
+          "NonEU": 2100,
+          "nonUkSharePct": 9.7,
+          "change5y": 8900,
+          "change5yPct": 23.7
+        },
+        "Administrative and support services": {
+          "total": 59800,
+          "UK": 48600,
+          "EU": 5900,
+          "NonEU": 5200,
+          "nonUkSharePct": 18.7,
+          "change5y": -100,
+          "change5yPct": -0.2
+        },
+        "Public administration and defence; social security": {
+          "total": 45500,
+          "UK": 44400,
+          "EU": 900,
+          "NonEU": 300,
+          "nonUkSharePct": 2.4,
+          "change5y": 3100,
+          "change5yPct": 7.3
+        },
+        "Education": {
+          "total": 97900,
+          "UK": 91400,
+          "EU": 4100,
+          "NonEU": 2500,
+          "nonUkSharePct": 6.6,
+          "change5y": 18000,
+          "change5yPct": 22.5
+        },
+        "Health and social work": {
+          "total": 148200,
+          "UK": 128700,
+          "EU": 6100,
+          "NonEU": 13500,
+          "nonUkSharePct": 13.2,
+          "change5y": 12100,
+          "change5yPct": 8.9
+        },
+        "Arts, entertainment and recreation": {
+          "total": 14300,
+          "UK": 13500,
+          "EU": 500,
+          "NonEU": 200,
+          "nonUkSharePct": 5.6,
+          "change5y": 700,
+          "change5yPct": 5.1
+        },
+        "Other service activities": {
+          "total": 14700,
+          "UK": 13500,
+          "EU": 600,
+          "NonEU": 600,
+          "nonUkSharePct": 8.2,
+          "change5y": -900,
+          "change5yPct": -5.8
+        },
+        "Households, Extraterritorial Organisations and Unknown Entities": {
+          "total": 8000,
+          "UK": 7400,
+          "EU": 300,
+          "NonEU": 200,
+          "nonUkSharePct": 7.5,
+          "change5y": 1400,
+          "change5yPct": 21.2
+        }
+      }
+    }
+  }
+}

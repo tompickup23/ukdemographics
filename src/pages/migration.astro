@@ -1,0 +1,239 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import StatCard from "../components/StatCard.astro";
+import ltim from "../data/live/ons-ltim.json";
+
+const data = ltim as any;
+const headline = data.headline.ye_dec_25;
+const peak = data.headline.ye_mar_23_peak;
+const prev = data.headline.ye_dec_24_revised;
+
+const tsAll = data.time_series_by_nationality.all;
+const tsBrit = data.time_series_by_nationality.british;
+const tsEU = data.time_series_by_nationality.eu_plus;
+const tsNonEU = data.time_series_by_nationality.non_eu_plus;
+
+const allPeriods: string[] = Array.from(new Set(tsAll.map((r: any) => r.period))) as string[];
+
+const nonEuReason = data.non_eu_plus_by_reason || [];
+const nonEuLatest = nonEuReason.filter((r: any) => r.flow === "immigration").slice(-1)[0];
+
+const revisions = data.revisions || [];
+const dec24Revisions = revisions.filter((r: any) => r.period === "YE Dec 24");
+const sep24Revisions = revisions.filter((r: any) => r.period === "YE Sep 24");
+
+const triangNonEU = data.triangulation_non_eu_plus || [];
+const triangEU = data.triangulation_eu_plus || [];
+const triangLatest = triangNonEU.slice(-4);
+
+// Time-series bars: take the last 16 periods of net migration
+const netSeries = tsAll.filter((r: any) => r.flow === "net_migration").slice(-16);
+const maxNet = Math.max(...netSeries.map((r: any) => r.value || 0));
+
+function fmt(v: number | null | undefined): string {
+  if (v === null || v === undefined) return "n/a";
+  if (Math.abs(v) >= 1000000) return (v / 1000000).toFixed(1) + "M";
+  if (Math.abs(v) >= 1000) return Math.round(v / 1000).toString() + "k";
+  return v.toString();
+}
+
+function fmtFull(v: number | null | undefined): string {
+  if (v === null || v === undefined) return "n/a";
+  return v.toLocaleString();
+}
+---
+
+<BaseLayout
+  title="Net migration: ONS LTIM"
+  description="Long-term international migration estimates, year ending December 2025. Methodology shift, revisions tracker, and the gap between ONS, Home Office and DWP figures."
+>
+  <h1>Net migration</h1>
+  <p class="desc">ONS Long-Term International Migration provisional estimates, year ending December 2025. Released 21 May 2026. The headline figure has fallen 82 percent from its YE March 2023 peak, but methodology change accounts for a substantial part of that move and the figure will be revised.</p>
+
+  <div class="stat-card-row">
+    <StatCard value={fmt(headline.net_migration_all)} label="Net migration YE Dec 2025" accent="var(--accent)" />
+    <StatCard value={fmt(peak.net_migration_all)} label="Peak (YE Mar 2023)" accent="var(--accent-2)" />
+    <StatCard value={fmt(prev.net_migration_all)} label="YE Dec 2024 (revised)" accent="var(--accent-3)" />
+  </div>
+
+  <div class="ci-band">
+    <strong>95 percent uncertainty interval:</strong>
+    {fmtFull(headline.net_migration_uncertainty_95?.lower_95)} to {fmtFull(headline.net_migration_uncertainty_95?.upper_95)}.
+    ONS notes the interval does not include uncertainty from the emigration re-arrival adjustment, so the real spread is wider.
+  </div>
+
+  <h2 class="section-title">Net migration trend (last 16 periods)</h2>
+  <div class="ts-chart">
+    {netSeries.map((r: any) => {
+      const v = r.value || 0;
+      const pct = maxNet > 0 ? (v / maxNet * 100) : 0;
+      const isLatest = r.period.includes("Dec 25") || r.period === netSeries[netSeries.length - 1].period;
+      return (
+        <div class="ts-row">
+          <span class="ts-period">{r.period}</span>
+          <div class="ts-bar-wrap">
+            <div class="ts-bar" style={`width: ${pct}%; background: ${isLatest ? "var(--accent)" : "color-mix(in srgb, var(--accent) 40%, transparent)"};`}></div>
+          </div>
+          <span class="ts-value">{fmtFull(v)}</span>
+        </div>
+      );
+    })}
+  </div>
+  <p class="ts-note">Period codes: P = provisional, R = revised, no suffix = completed. The peak of 944,000 (YE Mar 2023) is itself a revised figure; previously published as 906,000.</p>
+
+  <h2 class="section-title">Non-EU+ immigration by reason, YE Dec 2025</h2>
+  {nonEuLatest && (
+    <div class="reason-grid">
+      <div class="reason-card">
+        <span class="reason-label">Study-related</span>
+        <span class="reason-value">{fmt(nonEuLatest.study_all)}</span>
+        <span class="reason-detail">Main: {fmt(nonEuLatest.study_main)} · Dep: {fmt(nonEuLatest.study_dependant)}</span>
+      </div>
+      <div class="reason-card">
+        <span class="reason-label">Work-related</span>
+        <span class="reason-value">{fmt(nonEuLatest.work_all)}</span>
+        <span class="reason-detail">Main: {fmt(nonEuLatest.work_main)} · Dep: {fmt(nonEuLatest.work_dependant)}</span>
+      </div>
+      <div class="reason-card">
+        <span class="reason-label">Asylum</span>
+        <span class="reason-value">{fmt(nonEuLatest.asylum)}</span>
+        <span class="reason-detail">broadly stable</span>
+      </div>
+      <div class="reason-card">
+        <span class="reason-label">Family</span>
+        <span class="reason-value">{fmt(nonEuLatest.family)}</span>
+      </div>
+      <div class="reason-card">
+        <span class="reason-label">Other</span>
+        <span class="reason-value">{fmt(nonEuLatest.other)}</span>
+      </div>
+    </div>
+  )}
+  <p class="ts-note">Work-related immigration fell 47 percent year on year. The Home Office summary attributes most of this to the Health and Care Worker visa restrictions, with Caring Personal Service grants falling from 108,000 to 1,400.</p>
+
+  <h2 class="section-title">Revisions tracker</h2>
+  <p class="desc">Each provisional estimate is revised twice before settling. The May 2026 vintage of YE December 2024 is the third (completed) estimate. Migration Observatory: this revision results from a change of methodology, not a change in the underlying trend.</p>
+  {dec24Revisions.length > 0 && (
+    <div class="rev-table">
+      <div class="rev-header"><span>Period</span><span>Publication</span><span>Stage</span><span>Immigration</span><span>Emigration</span><span>Net migration</span></div>
+      {dec24Revisions.map((r: any) => (
+        <div class="rev-row">
+          <span>{r.period}</span>
+          <span>{r.publication}</span>
+          <span class="rev-stage">{r.estimate_stage}</span>
+          <span class="rev-num">{fmtFull(r.immigration_all)}</span>
+          <span class="rev-num">{fmtFull(r.emigration_all)}</span>
+          <span class="rev-num rev-net">{fmtFull(r.net_migration_all)}</span>
+        </div>
+      ))}
+    </div>
+  )}
+  {sep24Revisions.length > 0 && (
+    <div class="rev-table" style="margin-top: 0.75rem;">
+      <div class="rev-header"><span>Period</span><span>Publication</span><span>Stage</span><span>Immigration</span><span>Emigration</span><span>Net migration</span></div>
+      {sep24Revisions.map((r: any) => (
+        <div class="rev-row">
+          <span>{r.period}</span>
+          <span>{r.publication}</span>
+          <span class="rev-stage">{r.estimate_stage}</span>
+          <span class="rev-num">{fmtFull(r.immigration_all)}</span>
+          <span class="rev-num">{fmtFull(r.emigration_all)}</span>
+          <span class="rev-num rev-net">{fmtFull(r.net_migration_all)}</span>
+        </div>
+      ))}
+    </div>
+  )}
+
+  <h2 class="section-title">ONS vs Home Office vs DWP triangulation</h2>
+  <p class="desc">The three official sources do not reconcile by design. The Home Office counts visa grants. DWP counts NINo allocations after arrival. ONS LTIM counts long-term arrivals. The same person can be in all three or none.</p>
+  {triangLatest.length > 0 && (
+    <div class="tri-table">
+      <div class="tri-header">
+        <span>Period</span>
+        <span>Non-EU+ LTIM</span>
+        <span>Non-EU+ visas granted (HO)</span>
+        <span>Non-EU+ NINo (DWP)</span>
+      </div>
+      {triangLatest.map((r: any) => (
+        <div class="tri-row">
+          <span>{r.period}</span>
+          <span class="tri-num">{fmtFull(r.non_eu_plus_visa_holder_ltim)}</span>
+          <span class="tri-num">{fmtFull(r.non_eu_plus_visas_granted_ho)}</span>
+          <span class="tri-num">{fmtFull(r.non_eu_plus_nino_allocations)}</span>
+        </div>
+      ))}
+    </div>
+  )}
+  <p class="ts-note">Home Office figures exceed LTIM because not every visa grant leads to a long-term stay. DWP NINo allocations capture people registering to work, which excludes dependants and short stays.</p>
+
+  <h2 class="section-title">What is not counted</h2>
+  <div class="notcounted-grid">
+    <div class="notcounted-card">
+      <span class="nc-label">Visa overstayers without asylum claims</span>
+      <p>Assumed to have emigrated under the current ONS method. If overstaying has risen, net migration is understated.</p>
+    </div>
+    <div class="notcounted-card">
+      <span class="nc-label">Irregular migrants who do not claim asylum</span>
+      <p>Never counted. The small boat arrivals figure (39,000 YE Mar 2026) captures only those who claim asylum after arrival.</p>
+    </div>
+    <div class="notcounted-card">
+      <span class="nc-label">Pre-June 2021 comparability</span>
+      <p>The IPS-based estimates before June 2021 are NOT directly comparable to the current admin-based RAPID and HOBID figures. British emigration YE Dec 2024 alone moved 77,000 to 257,000 with the methodology change.</p>
+    </div>
+    <div class="notcounted-card">
+      <span class="nc-label">EU Settlement Scheme grants</span>
+      <p>371,000 settled-status grants in YE Mar 2026 do not count as immigration in LTIM because they confirm status for people already in the UK. They affect population denominators.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Methodology notes</h2>
+  <p class="meth-text">
+    ONS replaced the International Passenger Survey with the Home Office Borders and Immigration Data (HOBID) for EU and non-EU visa holders, and the Department for Work and Pensions Registration and Population Interaction Database (RAPID) for British nationals. The shift was applied retroactively from year ending June 2021 onwards. Estimates before that period use the older IPS method and are not directly comparable.
+  </p>
+  <p class="meth-text">
+    Source: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/bulletins/longterminternationalmigrationprovisional/yearendingdecember2025" target="_blank" rel="noopener">Long-term international migration, provisional: year ending December 2025</a>. Companion ONS article: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/articles/ukemigrationexplainedwhatweknowaboutbritsmovingabroad/2026-05-21" target="_blank" rel="noopener">UK emigration explained</a>. Independent commentary: <a href="https://migrationobservatory.ox.ac.uk/resources/briefings/long-term-international-migration-flows-to-and-from-the-uk/" target="_blank" rel="noopener">Migration Observatory</a>.
+  </p>
+</BaseLayout>
+
+<style>
+  h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
+  .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 760px; line-height: 1.5; }
+  .section-title { font-family: "Sora", sans-serif; font-size: 1.15rem; font-weight: 800; margin: 2rem 0 0.75rem; }
+
+  .ci-band { background: color-mix(in srgb, var(--accent) 8%, transparent); border-left: 3px solid var(--accent); padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-size: 0.9rem; max-width: 760px; margin: 0.5rem 0 1rem; line-height: 1.5; }
+
+  .ts-chart { max-width: 800px; display: flex; flex-direction: column; gap: 0.2rem; }
+  .ts-row { display: grid; grid-template-columns: 100px 1fr 100px; align-items: center; gap: 0.75rem; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+  .ts-period { font-size: 0.82rem; color: var(--muted); font-weight: 600; font-family: "Sora", sans-serif; }
+  .ts-bar-wrap { height: 18px; background: color-mix(in srgb, var(--border-strong) 30%, transparent); border-radius: 3px; overflow: hidden; }
+  .ts-bar { height: 100%; transition: width 200ms; }
+  .ts-value { font-size: 0.85rem; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; font-family: "Sora", sans-serif; }
+  .ts-note { font-size: 0.82rem; color: var(--muted); margin: 0.75rem 0 0; max-width: 760px; line-height: 1.5; }
+
+  .reason-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.6rem; max-width: 900px; margin: 0.5rem 0 1rem; }
+  .reason-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.85rem; display: flex; flex-direction: column; gap: 0.2rem; }
+  .reason-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+  .reason-value { font-family: "Sora", sans-serif; font-size: 1.6rem; font-weight: 800; }
+  .reason-detail { font-size: 0.78rem; color: var(--muted); }
+
+  .rev-table { max-width: 900px; }
+  .rev-header { display: grid; grid-template-columns: 90px 90px 1fr 110px 110px 110px; padding: 0.45rem 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
+  .rev-row { display: grid; grid-template-columns: 90px 90px 1fr 110px 110px 110px; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+  .rev-stage { font-size: 0.82rem; color: var(--muted); }
+  .rev-num { font-variant-numeric: tabular-nums; text-align: right; }
+  .rev-net { font-weight: 700; color: var(--ink); }
+
+  .tri-table { max-width: 800px; }
+  .tri-header { display: grid; grid-template-columns: 90px 1fr 1fr 1fr; padding: 0.45rem 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
+  .tri-row { display: grid; grid-template-columns: 90px 1fr 1fr 1fr; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+  .tri-num { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; }
+
+  .notcounted-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.75rem; max-width: 900px; margin: 0.5rem 0 1rem; }
+  .notcounted-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .nc-label { font-weight: 800; font-size: 0.9rem; color: var(--ink); font-family: "Sora", sans-serif; }
+  .notcounted-card p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.5; }
+
+  .meth-text { font-size: 0.88rem; color: var(--muted); max-width: 760px; margin: 0 0 0.75rem; line-height: 1.55; }
+  .meth-text a { color: var(--accent); text-decoration: none; }
+  .meth-text a:hover { text-decoration: underline; }
+</style>

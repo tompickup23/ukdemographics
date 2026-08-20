@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/council_supplier_profile.schema.json",
+  "title": "Council Supplier Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "supplier_id",
+    "supplier_name_canonical",
+    "generated_at"
+  ],
+  "properties": {
+    "supplier_profile_id": { "type": "string" },
+    "supplier_id": { "type": "string" },
+    "supplier_name_canonical": { "type": "string" },
+    "company_number": { "type": ["string", "null"] },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "total_spend_gbp": { "type": ["number", "null"] },
+    "transaction_count": { "type": ["integer", "null"] },
+    "bodies_count": { "type": ["integer", "null"] },
+    "body_ids": { "type": ["array", "null"], "items": { "type": "string" } },
+    "first_date": { "type": ["string", "null"], "format": "date" },
+    "last_date": { "type": ["string", "null"], "format": "date" },
+    "risk_level": { "type": ["string", "null"] },
+    "integrity_score": { "type": ["number", "null"] },
+    "integrity_flags": { "type": ["integer", "null"] }
+  }
+}

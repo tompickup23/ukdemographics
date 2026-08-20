@@ -1,0 +1,1953 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import DataFreshness from "../../components/DataFreshness.astro";
+import ShareButton from "../../components/ShareButton.astro";
+import StatCard from "../../components/StatCard.astro";
+import MiniMap from "../../components/MiniMap.astro";
+import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
+import ProjectionChart from "../../components/ProjectionChart.astro";
+import ShiftShareChart from "../../components/ShiftShareChart.astro";
+import ScenarioSelector from "../../components/ScenarioSelector.astro";
+import {
+  getEthnicProjection,
+  getReligionData, getNativityData,
+  getShiftShareData, getDiversityIndex, getEnglishProficiency,
+  getStochasticData, getEthnicCompositionTimeline,
+} from "../../lib/ethnic-projections";
+import { getCrimeProfile, getCrimeRatePercentile, getCrimeSource, getCrimeCaveat } from "../../lib/crime-data";
+import { getAscProfile, getAscSpendPercentile, getAscSource, getAscCaveat } from "../../lib/asc-data";
+import { getSendProfile, getSendGrowthPercentile, getSendSource, getSendCaveat } from "../../lib/send-data";
+import { getParentUtla } from "../../lib/area-hierarchy";
+import { getCensusEnglish } from "../../lib/census-english";
+import { getTopEthnicGroupsByTenure } from "../../lib/census-tenure";
+import { getTopEthnicGroupsByHealth } from "../../lib/census-health";
+import { getPconsForLa } from "../../lib/pcon-data";
+import { getNinoProfile, getNinoTotalPercentile, getNinoSource, getNinoCaveat } from "../../lib/nino-data";
+import { getVisaRouteMix, getVisaRoutesSource, getVisaRoutesCaveat, getVisaRoutesYear } from "../../lib/visa-routes-data";
+import { getNinoHistorical, getNinoHistoricalYears, getNinoHistoricalNational, getNinoHistoricalSource, getNinoHistoricalCaveat } from "../../lib/nino-historical-data";
+import NinoHistoricalChart from "../../components/NinoHistoricalChart.astro";
+import { getNinoDemographic, getNinoDemographicNational, getNinoDemographicSource, getNinoDemographicCaveat } from "../../lib/nino-demographic-data";
+import { getEconPassport, getEconPassportSource, getEconPassportCaveat, getEconPassportGroupsOrder } from "../../lib/econ-passport-data";
+import cobChange1121 from "../../data/live/country-of-birth-change-2011-2021.json";
+import pipPcon from "../../data/live/pip-pcon.json";
+import nhsFundingContext from "../../data/live/nhs-funding-context.json";
+import schoolEalDistrict from "../../data/live/school-eal-district.json";
+import payrollRegional from "../../data/live/payroll-by-region-industry.json";
+import hmoDensity from "../../data/live/hmo-density.json";
+import councilTaxSpd from "../../data/live/council-tax-spd.json";
+import { buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
+import rawProjections from "../../data/live/ethnic-projections.json";
+import economicProfile from "../../data/live/economic-profile.json";
+import housingDemand from "../../data/live/housing-demand.json";
+import schoolPressure from "../../data/live/school-pressure.json";
+import healthDemand from "../../data/live/health-demand.json";
+import languageProjections from "../../data/live/language-projections.json";
+import fiscalResilience from "../../data/live/fiscal-resilience.json";
+import scenarioSummaries from "../../data/live/scenario-summaries.json";
+
+const TOTAL_PUBLIC_AREAS = getPublicPlaceAreas().length;
+
+export function getStaticPaths() {
+  return getPublicPlaceAreas().map((area) => ({
+    params: { slug: slugifyAreaName(area.areaName) },
+    props: { area }
+  }));
+}
+
+const { area } = Astro.props as { area: DemographicAreaSummary };
+const projData = (rawProjections as any).areas?.[area.areaCode];
+
+// Demographic data
+const ethnicProjection = getEthnicProjection(area.areaCode);
+const religionData = getReligionData(area.areaCode);
+const nativityData = getNativityData(area.areaCode);
+const shiftShareData = getShiftShareData(area.areaCode);
+const diversityIndex = getDiversityIndex(area.areaCode);
+const englishProficiency = getEnglishProficiency(area.areaCode);
+
+// New dashboard data
+const econ = (economicProfile as any).areas?.[area.areaCode];
+const housing = (housingDemand as any).areas?.[area.areaCode];
+const school = (schoolPressure as any).areas?.[area.areaCode];
+const health = (healthDemand as any).areas?.[area.areaCode];
+const language = (languageProjections as any).areas?.[area.areaCode];
+const pressure = (fiscalResilience as any).areas?.[area.areaCode];
+
+const crime = getCrimeProfile(area.areaCode);
+const crimePercentile = getCrimeRatePercentile(area.areaCode);
+
+// ASC and SEND are delivered by upper-tier authorities. For non-metropolitan
+// districts (E07*), fall back to the parent county's data, clearly labelled.
+const parentUtla = getParentUtla(area.areaCode);
+const ascDirect = getAscProfile(area.areaCode);
+const sendDirect = getSendProfile(area.areaCode);
+const asc = ascDirect ?? (parentUtla ? getAscProfile(parentUtla.countyCode) : null);
+const send = sendDirect ?? (parentUtla ? getSendProfile(parentUtla.countyCode) : null);
+const ascIsFallback = !ascDirect && asc != null;
+const sendIsFallback = !sendDirect && send != null;
+const ascPercentile = ascIsFallback && parentUtla
+  ? getAscSpendPercentile(parentUtla.countyCode)
+  : getAscSpendPercentile(area.areaCode);
+const sendGrowthPercentile = sendIsFallback && parentUtla
+  ? getSendGrowthPercentile(parentUtla.countyCode)
+  : getSendGrowthPercentile(area.areaCode);
+const nino = getNinoProfile(area.areaCode);
+const ninoPercentile = getNinoTotalPercentile(area.areaCode);
+
+// Census 2021 NOMIS layers (TS029 / RM134 / RM043).
+const censusEnglish = getCensusEnglish(area.areaCode);
+const topTenureByEthnic = getTopEthnicGroupsByTenure(area.areaCode, 3);
+const topHealthByEthnic = getTopEthnicGroupsByHealth(area.areaCode, 3);
+
+// Constituencies that overlap this LA, sorted by postcode share desc.
+const overlappingPcons = getPconsForLa(area.areaCode).slice(0, 8);
+
+// Top NINo nationalities for this area, joined with national 2025 visa-route mix
+const visaRouteRows = nino?.byNationality
+  ?.slice(0, 5)
+  .map((n) => {
+    const mix = getVisaRouteMix(n.nationality);
+    return mix ? { ...n, mix } : null;
+  })
+  .filter((r): r is NonNullable<typeof r> => r !== null) ?? [];
+const visaYear = getVisaRoutesYear();
+
+// 24-year NINo time series for this LA + national
+const ninoHistorical = getNinoHistorical(area.areaCode);
+const ninoHistoricalYears = getNinoHistoricalYears();
+const ninoHistoricalNational = getNinoHistoricalNational();
+
+// Demographic profile of NINo arrivals (age × sex)
+const ninoDemog = getNinoDemographic(area.areaCode);
+const ninoDemogNational = getNinoDemographicNational();
+
+// District-level school EAL
+const ealDistrict = (schoolEalDistrict as any).areas?.[area.areaCode];
+
+// Regional labour market (Burnley → North West, etc.)
+// Map LA region name from area-series or guess from area object
+const regionFromArea = (area as any).regionName as string | undefined;
+const payrollRegion = regionFromArea
+  ? (payrollRegional as any).regions?.[regionFromArea]
+  : null;
+
+// HMO + council tax SPD
+const hmo = (hmoDensity as any).areas?.[area.areaCode];
+const ctSpd = (councilTaxSpd as any).areas?.[area.areaCode];
+
+// Census 2011 → Census 2021 country-of-birth stock change
+const cobChange = (cobChange1121 as any).areas?.[area.areaCode];
+
+// PIP claimants, by best-match Westminster constituency
+const pipMatch = (pipPcon as any).laToPconBestMatch?.[area.areaName] as
+  | { code: string; name: string; claimants: number }
+  | undefined;
+const pipPopulation = (healthDemand as any).areas?.[area.areaCode]?.population as number | undefined;
+const pipRatePct = pipMatch && pipPopulation
+  ? +(pipMatch.claimants / pipPopulation * 100).toFixed(1)
+  : null;
+const pipNationalRatePct = (() => {
+  const tot = (pipPcon as any).totalClaimants as number;
+  // National rate using ONS England + Wales population estimate ~60M working-age + over;
+  // approximate using 67M (E+W mid-2023 estimate ~60M, with Scotland 5.4M, NI 1.9M).
+  // For PIP (England + Wales only), use 60M as the rough denominator.
+  return tot ? +(tot / 60_000_000 * 100).toFixed(1) : null;
+})();
+const pipLatestMonth = (pipPcon as any).latestMonth as string;
+
+// NHS funding context (national, hand-curated)
+const nhsCtx = nhsFundingContext as any;
+const ihsLatest = nhsCtx?.ihsRateHistory?.[nhsCtx.ihsRateHistory.length - 1];
+const ihsRevenueLatest = nhsCtx?.ihsRevenueByYear?.[nhsCtx.ihsRevenueByYear.length - 1];
+const cobChangeGroupLabels: Record<string, string> = {
+  UK: "UK-born",
+  Ireland: "Ireland-born",
+  EU_pre2001: "EU pre-2001 (France, Germany, Italy, etc.)",
+  EU_post2001_pre2011: "EU 2001-2011 accession (Poland, Romania, Bulgaria, etc.)",
+  RestOfWorld: "Rest of World",
+};
+const cobChangeRows: Array<{ group: string; label: string; v11: number; v21: number; pct11: number | null; pct21: number | null; ch: number }> = [];
+if (cobChange?.byGroup) {
+  for (const [g, d] of Object.entries(cobChange.byGroup as Record<string, any>)) {
+    cobChangeRows.push({
+      group: g,
+      label: cobChangeGroupLabels[g] || g,
+      v11: d.count2011,
+      v21: d.count2021,
+      pct11: d.pctOfPop2011,
+      pct21: d.pctOfPop2021,
+      ch: d.absoluteChange,
+    });
+  }
+}
+
+// Census 2021 economic activity by passports held
+const econPassport = getEconPassport(area.areaCode);
+const passportGroupsOrder = getEconPassportGroupsOrder();
+// Build an ordered list of group rows that have meaningful sample size (≥50)
+type EpRow = {
+  group: string;
+  groupLabel: string;
+  pop: number;
+  inEmployment: number;
+  unemployed: number;
+  inactive: number;
+  empRateActive: number | null;
+  inactivityRate: number | null;
+  empPopRatio: number | null; // employment-to-population ratio (16+)
+  unempRatio: number | null;  // unemployment as % of all 16+
+};
+let epRows: EpRow[] = [];
+if (econPassport) {
+  const labelMap: Record<string, string> = {
+    Total: "All passport groups",
+    UK: "UK passport",
+    Ireland: "Irish passport",
+    EU_member: "EU member country passport",
+    Rest_of_Europe: "Rest of Europe (non-EU)",
+    Africa: "African passport",
+    Middle_East_and_Asia: "Middle East / Asian passport",
+    Americas_and_Caribbean: "Americas / Caribbean passport",
+    Antarctica_Oceania: "Oceania / Antarctica passport",
+    British_Overseas_Territories: "British Overseas Territories",
+    No_passport_held: "No passport held",
+  };
+  for (const g of passportGroupsOrder) {
+    if (g === "Total") continue;
+    const stats = econPassport.byPassportGroup[g];
+    if (!stats || stats.totalPopulation16plus < 50) continue;
+    const empPopRatio = stats.totalPopulation16plus
+      ? +(stats.inEmployment_total / stats.totalPopulation16plus * 100).toFixed(1)
+      : null;
+    const unempRatio = stats.totalPopulation16plus
+      ? +(stats.unemployed_total / stats.totalPopulation16plus * 100).toFixed(1)
+      : null;
+    epRows.push({
+      group: g,
+      groupLabel: labelMap[g] ?? g,
+      pop: stats.totalPopulation16plus,
+      inEmployment: stats.inEmployment_total,
+      unemployed: stats.unemployed_total,
+      inactive: stats.economicallyInactive,
+      empRateActive: stats.employmentRate_excludingFTstudents_pct,
+      inactivityRate: stats.inactivityRate_pct,
+      empPopRatio,
+      unempRatio,
+    });
+  }
+}
+
+// Top industries by non-UK share for the LA's region
+type IndustryEntry = { total: number; nonUkSharePct: number | null };
+let topRegionIndustries: Array<[string, IndustryEntry]> = [];
+if (payrollRegion?.byIndustry) {
+  topRegionIndustries = (Object.entries(payrollRegion.byIndustry) as Array<[string, any]>)
+    .filter(([_, v]) => v.nonUkSharePct != null && v.total)
+    .sort((a, b) => (b[1].nonUkSharePct ?? 0) - (a[1].nonUkSharePct ?? 0))
+    .slice(0, 5);
+}
+
+const modelSpread = projData?.modelSpread2051 as { hamiltonPerry: number; cohortComponent: number; spreadPp: number } | undefined;
+const areaScenarios = (scenarioSummaries as any).areas?.[area.areaCode];
+const centralScenario = (scenarioSummaries as any).centralScenario as string | undefined;
+
+const headlineStat = projData?.headlineStat;
+const population = projData?.current?.total_population ?? area.population ?? 0;
+const wbi2021 = projData?.current?.groups?.white_british ?? area.wbiPct2021;
+const wbi2041 = projData?.projections?.["2041"]?.white_british ?? area.wbiPct2041;
+const wbi2051 = projData?.projections?.["2051"]?.white_british;
+
+// Chart data builders
+const ethnicTimeline = getEthnicCompositionTimeline(area.areaCode);
+const stochasticData = getStochasticData(area.areaCode);
+
+const GROUP_COLORS: Record<string, string> = {
+  white_british: "#4f46e5",
+  white_other: "#8b9cb3",
+  asian: "#f59e0b",
+  black: "#a78bfa",
+  mixed: "#10b981",
+  other: "#6b7280",
+};
+const GROUP_LABELS: Record<string, string> = {
+  white_british: "White British",
+  white_other: "White Other",
+  asian: "Asian",
+  black: "Black",
+  mixed: "Mixed",
+  other: "Other",
+};
+
+const ethChartLines = ethnicTimeline
+  ? (Object.keys(GROUP_LABELS) as Array<keyof typeof GROUP_LABELS>)
+      .filter((g) => Math.max(...ethnicTimeline.map((t: any) => t.groups[g] ?? 0)) > 3)
+      .map((g) => ({
+        label: GROUP_LABELS[g],
+        color: GROUP_COLORS[g],
+        points: ethnicTimeline.map((t: any) => ({ year: Number(t.year), value: t.groups[g] ?? 0 })),
+      }))
+  : [];
+
+const ethConfidenceBand = stochasticData
+  ? [2031, 2041, 2051]
+      .filter((y) => (stochasticData as any)[y])
+      .map((y) => ({
+        year: y,
+        low: (stochasticData as any)[y].wbi.p10,
+        high: (stochasticData as any)[y].wbi.p90,
+      }))
+  : undefined;
+
+const relChartLines = religionData
+  ? (() => {
+      const groups = [
+        { key: "Christian", color: "#7dd3fc", label: "Christian" },
+        { key: "No religion", color: "#6b7280", label: "No religion" },
+        { key: "Muslim", color: "#f59e0b", label: "Muslim" },
+        { key: "Hindu", color: "#a78bfa", label: "Hindu" },
+        { key: "Sikh", color: "#10b981", label: "Sikh" },
+      ];
+      const years = [2021, 2031, 2041, 2051].filter((y) => (religionData as any)[y]);
+      return groups
+        .filter((g) => years.some((y) => ((religionData as any)[y]?.[g.key] ?? 0) > 3))
+        .map((g) => ({
+          label: g.label,
+          color: g.color,
+          points: years.map((y) => ({ year: y, value: (religionData as any)[y]?.[g.key] ?? 0 })),
+        }));
+    })()
+  : [];
+
+const natChartLines = nativityData
+  ? (() => {
+      const years = [2021, 2031, 2041, 2051].filter((y) => (nativityData as any)[y]);
+      return [
+        {
+          label: "UK-born",
+          color: "#4f46e5",
+          points: years.map((y) => ({ year: y, value: (nativityData as any)[y].ukBornPct })),
+        },
+        {
+          label: "Foreign-born",
+          color: "#f59e0b",
+          points: years.map((y) => ({ year: y, value: (nativityData as any)[y].foreignBornPct })),
+        },
+      ];
+    })()
+  : [];
+
+const canonicalUrl = buildAbsoluteUrl(`/places/${slugifyAreaName(area.areaName)}/`);
+const popText = population != null ? population.toLocaleString() : "n/a";
+const wbi2021Text = wbi2021 != null ? `${wbi2021.toFixed(1)}%` : "n/a";
+const wbi2051Text = wbi2051 != null ? `${wbi2051.toFixed(1)}%` : "n/a";
+const pageDescription = `${area.areaName} demographic profile: population ${popText}, White British ${wbi2021Text} (2021) to ${wbi2051Text} (2051 projected). Ethnic composition, religion, nativity, shift-share analysis.`;
+
+// Search intent: people type "<place> population", not "<place> demographic
+// profile". Leading with the figure follows the pattern that already works on
+// the sister asylum site, where titles carry the number.
+const pageTitle = population != null
+  ? `${area.areaName} population: ${popText}. Ethnicity and projections`
+  : `${area.areaName}. Population, ethnicity and projections`;
+
+const structuredData = buildPlaceStructuredData(area, {
+  canonicalUrl,
+  description: pageDescription,
+  socialImageUrl: buildAbsoluteUrl(`/og/places/${slugifyAreaName(area.areaName)}.png`),
+  snapshotDate: (rawProjections as any).lastUpdated ?? "2026-04-14",
+});
+
+function fmtPct(n: number | undefined | null): string {
+  return n != null ? `${n.toFixed(1)}%` : "n/a";
+}
+function fmtInt(n: number | undefined | null): string {
+  return n != null ? n.toLocaleString("en-GB") : "n/a";
+}
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={`/og/places/${slugifyAreaName(area.areaName)}.png`}
+  structuredData={structuredData}
+>
+  <Breadcrumbs items={[
+    { label: "Home", href: "/" },
+    { label: "Places", href: "/places/" },
+    { label: area.areaName }
+  ]} />
+
+  <div class="place-header">
+    <div class="place-identity">
+      <h1>{area.areaName}</h1>
+      <span class="place-region">{area.regionName} &middot; {area.countryName}</span>
+    </div>
+    <div class="place-header-aside">
+      <MiniMap
+        focalCode={area.areaCode}
+        focalName={area.areaName}
+        focalKind="lad"
+        focalColour="var(--accent)"
+        contextColour="#243049"
+        contextStroke="#4a5b7e"
+        width={260}
+        height={170}
+        padding={1.6}
+        ariaLabel={`Location map showing ${area.areaName} highlighted against neighbouring local authorities.`}
+      />
+      <ShareButton
+        url={canonicalUrl}
+        title={`${area.areaName} demographic profile, UK Demographics`}
+        text={`${area.areaName}: White British ${fmtPct(wbi2021)} (2021) to ${fmtPct(wbi2051)} (2051). See the full profile.`}
+        compact
+      />
+    </div>
+  </div>
+
+  {headlineStat && (
+    <div class="stat-card-row place-hero-row">
+      <StatCard
+        value={headlineStat.value}
+        label={headlineStat.trend ?? ""}
+        accent="var(--accent)"
+      />
+    </div>
+  )}
+
+  <!-- Key metrics -->
+  <section class="stat-card-row">
+    <StatCard
+      value={fmtInt(population)}
+      label="Population (2021 Census)"
+    />
+    <StatCard
+      value={fmtPct(wbi2021)}
+      label="White British (2021)"
+      accent="var(--accent)"
+    />
+    <StatCard
+      value={fmtPct(wbi2041)}
+      label="White British (2041 projected)"
+      accent="var(--accent-3)"
+      trend={wbi2021 != null && wbi2041 != null ? `${(wbi2041 - wbi2021).toFixed(1)}pp` : null}
+      trendDirection={wbi2021 != null && wbi2041 != null ? (wbi2041 < wbi2021 ? "down" : "up") : "flat"}
+    />
+    <StatCard
+      value={fmtPct(wbi2051)}
+      label="White British (2051 projected)"
+      accent="var(--coral)"
+      trend={wbi2021 != null && wbi2051 != null ? `${(wbi2051 - wbi2021).toFixed(1)}pp` : null}
+      trendDirection={wbi2021 != null && wbi2051 != null ? (wbi2051 < wbi2021 ? "down" : "up") : "flat"}
+    />
+  </section>
+
+  <!-- Ethnic composition, trajectory chart + timeline -->
+  {ethnicProjection && ethChartLines.length > 0 && (
+    <section class="section" id="ethnic-composition">
+      <h2>Ethnic composition trajectory</h2>
+      <p class="section-desc">
+        Census 2011 and 2021 observed, Hamilton-Perry projections to 2061.
+        {ethConfidenceBand ? " Shaded band shows 80% confidence interval for White British share." : ""}
+      </p>
+      <div class="chart-holder">
+        <ProjectionChart
+          title={`Ethnic composition, ${area.areaName}`}
+          lines={ethChartLines}
+          confidenceBand={ethConfidenceBand}
+          nowYear={2021}
+          yLabel="%"
+          height={260}
+        />
+      </div>
+      {ethnicTimeline && ethnicTimeline.length > 0 && (
+        <div class="chart-holder" style="margin-top: 1.25rem;">
+          <EthnicityTimeline timeline={ethnicTimeline as any} areaName={area.areaName} />
+        </div>
+      )}
+
+      {modelSpread && typeof modelSpread.hamiltonPerry === 'number' && typeof modelSpread.cohortComponent === 'number' && (
+        <div class="model-compare">
+          <div class="model-compare-head">
+            <h3>Two-model comparison: White British, 2051</h3>
+            <span class="model-spread-badge">&plusmn;{Number(modelSpread.spreadPp ?? 0).toFixed(1)}pp spread</span>
+          </div>
+          <div class="model-compare-grid">
+            <div class="model-card model-card-primary">
+              <span class="model-card-label">Hamilton-Perry (HP) <span class="model-card-tag">central</span></span>
+              <span class="model-card-value">{modelSpread.hamiltonPerry.toFixed(1)}%</span>
+              <span class="model-card-desc">Cohort change ratios from Census 2011 to 2021. Demographic momentum only, no fertility convergence.</span>
+            </div>
+            <div class="model-card">
+              <span class="model-card-label">Cohort-component</span>
+              <span class="model-card-value">{modelSpread.cohortComponent.toFixed(1)}%</span>
+              <span class="model-card-desc">Births by ethnicity-specific total fertility rate (TFR) with half-convergence to the national mean by 2061. Slower change.</span>
+            </div>
+          </div>
+          <p class="model-compare-note">
+            Two independent models trained on the same Census base disagree by {Number(modelSpread.spreadPp ?? 0).toFixed(1)}pp on White British share in {area.areaName} by 2051.
+            HP captures observed 2011 to 2021 cohort dynamics. The cohort-component model adds explicit fertility assumptions that pull projections toward the national mean.
+            The chart above shows HP. See the <a href="/methodology/#two-models">methodology</a> for why both numbers are published.
+          </p>
+        </div>
+      )}
+
+      {areaScenarios && centralScenario && (
+        <div class="scenario-wrap">
+          <ScenarioSelector
+            areaCode={area.areaCode}
+            areaName={area.areaName}
+            scenarioData={areaScenarios}
+            centralScenario={centralScenario}
+          />
+        </div>
+      )}
+    </section>
+  )}
+
+  <!-- Shift-share, visual decomposition -->
+  {shiftShareData && typeof shiftShareData.totalChangePp === 'number' && typeof shiftShareData.nationalEffectPp === 'number' && typeof shiftShareData.structuralEffectPp === 'number' && typeof shiftShareData.localEffectPp === 'number' && (
+    <section class="section" id="shift-share">
+      <h2>What&rsquo;s driving change</h2>
+      <p class="section-desc">
+        Shift-share splits the change in White British share into national trend,
+        age structure, and local factors. Dominant driver: <strong>{shiftShareData.dominantDriver}</strong>.
+      </p>
+      <div class="chart-holder">
+        <ShiftShareChart
+          total={Number(shiftShareData.totalChangePp.toFixed(1))}
+          national={Number(shiftShareData.nationalEffectPp.toFixed(1))}
+          structural={Number(shiftShareData.structuralEffectPp.toFixed(1))}
+          local={Number(shiftShareData.localEffectPp.toFixed(1))}
+          areaName={area.areaName}
+        />
+      </div>
+    </section>
+  )}
+
+  <!-- Diversity index -->
+  {diversityIndex && (
+    <section class="section" id="diversity">
+      <h2>Diversity index</h2>
+      <div class="diversity-card">
+        <span class="diversity-level">{diversityIndex.diversityLevel}</span>
+        <span class="diversity-detail">Shannon entropy: {diversityIndex.entropy.toFixed(2)} &middot; Dissimilarity: {diversityIndex.dissimilarity.toFixed(1)}</span>
+      </div>
+    </section>
+  )}
+
+  <!-- Religion -->
+  {religionData && (
+    <section class="section" id="religion">
+      <h2>Religion</h2>
+      <p class="section-desc">Census 2021 religious composition with projections to 2051.</p>
+      {relChartLines.length > 0 ? (
+        <div class="chart-holder">
+          <ProjectionChart
+            title="Religious composition trajectory"
+            lines={relChartLines}
+            nowYear={2021}
+            yLabel="%"
+          />
+        </div>
+      ) : (
+        <div class="data-grid">
+          {Object.entries(religionData).filter(([k]) => k !== "source").slice(0, 8).map(([religion, pct]) => (
+            <div class="data-item">
+              <span class="data-label">{religion.replace(/_/g, " ")}</span>
+              <span class="data-value">{typeof pct === "number" ? `${(pct as number).toFixed(1)}%` : String(pct)}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {projData?.muslimPct2051 != null && (
+        <p class="section-note">Muslim population projected: {projData.muslimPct2051.toFixed(1)}% by 2051</p>
+      )}
+    </section>
+  )}
+
+  <!-- Nativity -->
+  {nativityData && (
+    <section class="section" id="nativity">
+      <h2>Country of birth</h2>
+      <p class="section-desc">UK-born vs foreign-born share, with projection to 2051.</p>
+      {natChartLines.length > 0 ? (
+        <div class="chart-holder">
+          <ProjectionChart
+            title="Nativity trajectory"
+            lines={natChartLines}
+            nowYear={2021}
+            yLabel="%"
+          />
+        </div>
+      ) : (
+        <div class="data-grid">
+          <div class="data-item">
+            <span class="data-label">UK-born (2021)</span>
+            <span class="data-value">{fmtPct(100 - (projData?.foreignBornPct2021 ?? 0))}</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Foreign-born (2021)</span>
+            <span class="data-value">{fmtPct(projData?.foreignBornPct2021)}</span>
+          </div>
+          {projData?.foreignBornPct2051 != null && (
+            <div class="data-item">
+              <span class="data-label">Foreign-born (2051 projected)</span>
+              <span class="data-value">{fmtPct(projData.foreignBornPct2051)}</span>
+            </div>
+          )}
+        </div>
+      )}
+    </section>
+  )}
+
+  <!-- English proficiency (Census 2021 + projection) -->
+  {(censusEnglish || englishProficiency || language?.dataAvailable) && (
+    <section class="section" id="english">
+      <h2>English proficiency</h2>
+      {censusEnglish ? (
+        <>
+          <h3 class="subhead">Census 2021</h3>
+          <div class="data-grid">
+            <div class="data-item"><span class="data-label">Main language English</span><span class="data-value">{((censusEnglish.mainEnglish ?? 0) / censusEnglish.total * 100).toFixed(1)}%</span></div>
+            <div class="data-item"><span class="data-label">Main language not English</span><span class="data-value">{censusEnglish.nonEnglishPct?.toFixed(1) ?? "n/a"}%</span></div>
+            <div class="data-item"><span class="data-label">Cannot speak English well</span><span class="data-value">{((censusEnglish.mainNotEnglishNotWell ?? 0) / censusEnglish.total * 100).toFixed(1)}%</span></div>
+            <div class="data-item"><span class="data-label">Cannot speak English at all</span><span class="data-value">{((censusEnglish.mainNotEnglishCannot ?? 0) / censusEnglish.total * 100).toFixed(1)}%</span></div>
+            <div class="data-item"><span class="data-label">Total population 3+</span><span class="data-value">{censusEnglish.total.toLocaleString()}</span></div>
+          </div>
+          <p class="section-note">ONS Census 2021 (TS029) via NOMIS. Reference date 21 March 2021.</p>
+        </>
+      ) : englishProficiency && (
+        <>
+          <h3 class="subhead">Census 2021</h3>
+          <div class="data-grid">
+            {Object.entries(englishProficiency).filter(([k]) => k !== "source").map(([level, pct]) => (
+              <div class="data-item">
+                <span class="data-label">{level.replace(/_/g, " ")}</span>
+                <span class="data-value">{typeof pct === "number" ? `${(pct as number).toFixed(1)}%` : String(pct)}</span>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+      {language?.dataAvailable && language.projectedNonEnglishIncrease > 0 && (
+        <>
+          <h3 class="subhead">Projection</h3>
+          <div class="data-grid">
+            <div class="data-item">
+              <span class="data-label">Projected non-English growth</span>
+              <span class="data-value" style="color: var(--accent-3);">+{language.projectedNonEnglishIncrease}pp</span>
+            </div>
+          </div>
+          {language.interpreterImplication && <p class="section-note">{language.interpreterImplication}</p>}
+        </>
+      )}
+    </section>
+  )}
+
+  <!-- Service demand pressure -->
+  {pressure && (
+    <section class="section" id="pressure">
+      <h2>Service demand pressure</h2>
+      <div class="pressure-banner" style={`border-left: 4px solid ${pressure.serviceDemandPressureScore >= 70 ? 'var(--coral)' : pressure.serviceDemandPressureScore >= 45 ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
+        <span class="pressure-score">{pressure.serviceDemandPressureScore}/100</span>
+        <span class="pressure-category">{pressure.category}</span>
+        <span class="pressure-rank">Rank {pressure.pressureRank} of {TOTAL_PUBLIC_AREAS}</span>
+      </div>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Ethnic change</span><span class="data-value">{pressure.components?.ethnicChangeContribution}/20</span></div>
+        <div class="data-item"><span class="data-label">Asylum</span><span class="data-value">{pressure.components?.asylumConcentration}/20</span></div>
+        <div class="data-item"><span class="data-label">School</span><span class="data-value">{pressure.components?.schoolPressure}/20</span></div>
+        <div class="data-item"><span class="data-label">Language</span><span class="data-value">{pressure.components?.languagePressure}/20</span></div>
+        <div class="data-item"><span class="data-label">Housing</span><span class="data-value">{pressure.components?.housingPressure}/20</span></div>
+      </div>
+    </section>
+  )}
+
+  <!-- NINo registrations -->
+  {nino && nino.totalRollingYear > 0 && (
+    <section class="section" id="nino">
+      <h2>New arrivals (NINo registrations)</h2>
+      <p class="section-desc">
+        Adults from overseas registering for a National Insurance number, rolling year ending {nino.periodEnd}.
+        {ninoPercentile != null && (
+          <> {area.areaName} ranks at the <strong>{ninoPercentile}th percentile</strong> nationally for total NINo registrations.</>
+        )}
+      </p>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Registrations (rolling year)</span><span class="data-value">{nino.totalRollingYear.toLocaleString()}</span></div>
+        {nino.yearOnYearChangePct != null && (
+          <div class="data-item">
+            <span class="data-label">Year-on-year</span>
+            <span class="data-value" style={`color: ${nino.yearOnYearChangePct > 0 ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
+              {nino.yearOnYearChangePct > 0 ? '+' : ''}{nino.yearOnYearChangePct.toFixed(1)}%
+            </span>
+          </div>
+        )}
+      </div>
+      {nino.byNationality && nino.byNationality.length > 0 && (
+        <div class="nino-nat-table">
+          <div class="nino-nat-head">
+            <span>Nationality</span><span>Registrations</span><span>Share</span>
+          </div>
+          {nino.byNationality.map((n) => (
+            <div class="nino-nat-row">
+              <span class="nino-nat-name">{n.nationality}</span>
+              <span class="nino-nat-count">{n.count.toLocaleString()}</span>
+              <span class="nino-nat-share">{n.sharePct.toFixed(1)}%</span>
+            </div>
+          ))}
+        </div>
+      )}
+      <p class="section-note">{getNinoSource()}. {getNinoCaveat()}</p>
+    </section>
+  )}
+
+  <!-- 24-year NINo flow trajectory -->
+  {ninoHistorical && ninoHistorical.totalByYear.some(v => v != null) && (
+    <section class="section" id="nino-history">
+      <h2>Arrivals over the last 24 years</h2>
+      <p class="section-desc">
+        Annual NINo registrations to adults from overseas in {area.areaName} from {ninoHistoricalYears[0]} to {ninoHistoricalYears[ninoHistoricalYears.length - 1]}, alongside the UK total for context.
+        {ninoHistorical.peakYear && ninoHistorical.peakValue && (
+          <> The peak year was <strong>{ninoHistorical.peakYear}</strong> ({ninoHistorical.peakValue.toLocaleString()} registrations).</>
+        )}
+        {ninoHistorical.cumulativeFlow_2002_2025 > 0 && (
+          <> Total over the full period: <strong>{ninoHistorical.cumulativeFlow_2002_2025.toLocaleString()}</strong> registrations.</>
+        )}
+      </p>
+      <NinoHistoricalChart
+        areaName={area.areaName}
+        years={ninoHistoricalYears}
+        totalByYear={ninoHistorical.totalByYear}
+        nationalByYear={ninoHistoricalNational.totalByYear}
+        peakYear={ninoHistorical.peakYear}
+        peakValue={ninoHistorical.peakValue}
+        troughYear={ninoHistorical.troughYear}
+        troughValue={ninoHistorical.troughValue}
+      />
+      <p class="section-note">{getNinoHistoricalSource()} {getNinoHistoricalCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Demographic profile of arrivals (age + sex) -->
+  {ninoDemog && ninoDemog.rollingYearTotal > 0 && (
+    <section class="section" id="nino-demographic">
+      <h2>Who is arriving</h2>
+      <p class="section-desc">
+        Age and sex profile of {ninoDemog.rollingYearTotal.toLocaleString()} NINo registrations to adults from overseas in {area.areaName} in 2025. National comparison shown alongside.
+      </p>
+
+      <div class="demog-grid">
+        <div class="demog-card">
+          <h3 class="demog-card-title">Age at registration</h3>
+          <div class="demog-bars">
+            {ninoDemog.byAgeBand.map((b) => {
+              const nat = ninoDemogNational.byAgeBand.find(n => n.band === b.band)?.sharePct ?? 0;
+              const maxScale = Math.max(...ninoDemog!.byAgeBand.map(x => x.sharePct), ...ninoDemogNational.byAgeBand.map(x => x.sharePct), 25);
+              return (
+                <div class="demog-bar-row">
+                  <span class="demog-band">{b.band}</span>
+                  <span class="demog-bar-track">
+                    <span class="demog-bar-la" style={`width: ${(b.sharePct / maxScale) * 100}%`}></span>
+                    <span class="demog-bar-nat-marker" style={`left: ${(nat / maxScale) * 100}%`} title={`UK ${nat}%`}></span>
+                  </span>
+                  <span class="demog-pct">{b.sharePct.toFixed(1)}%</span>
+                </div>
+              );
+            })}
+          </div>
+          <p class="demog-legend">
+            <span class="demog-legend-la"></span> {area.areaName}  &nbsp;
+            <span class="demog-legend-nat"></span> UK marker
+          </p>
+        </div>
+
+        <div class="demog-card">
+          <h3 class="demog-card-title">Sex</h3>
+          <div class="demog-sex-bar">
+            {ninoDemog.bySex.map((s) => {
+              const cls = s.sex.toLowerCase() === 'male' ? 'sex-male' : 'sex-female';
+              return (
+                <span class={`demog-sex-seg ${cls}`} style={`width: ${s.sharePct}%`}>
+                  {s.sex} {s.sharePct.toFixed(1)}%
+                </span>
+              );
+            })}
+          </div>
+          {(() => {
+            const maleSh = ninoDemog!.bySex.find(s => s.sex.toLowerCase() === 'male')?.sharePct ?? 0;
+            const natMaleSh = ninoDemogNational.bySex.find(s => s.sex.toLowerCase() === 'male')?.sharePct ?? 0;
+            const diff = +(maleSh - natMaleSh).toFixed(1);
+            return (
+              <p class="demog-summary">
+                {diff > 0 ? (
+                  <>Male share is <strong>{Math.abs(diff).toFixed(1)}pp higher</strong> than the UK average ({natMaleSh.toFixed(1)}%).</>
+                ) : diff < 0 ? (
+                  <>Male share is <strong>{Math.abs(diff).toFixed(1)}pp lower</strong> than the UK average ({natMaleSh.toFixed(1)}%).</>
+                ) : (
+                  <>Male share is <strong>in line</strong> with the UK average ({natMaleSh.toFixed(1)}%).</>
+                )}
+              </p>
+            );
+          })()}
+        </div>
+      </div>
+
+      <p class="section-note">{getNinoDemographicSource()} {getNinoDemographicCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Routes of arrival -->
+  {visaRouteRows.length > 0 && (
+    <section class="section" id="visa-routes">
+      <h2>Why people are coming</h2>
+      <p class="section-desc">
+        For each of the top arriving nationalities in {area.areaName}, this is the national mix of visa routes used in {visaYear}.
+        It shows whether arrivals from that country are typically <strong>students</strong>, <strong>workers</strong>, on <strong>family</strong> routes (including refugee family reunion), or in some <strong>other</strong> category.
+        Local-authority breakdowns of visa routes are not published, so we apply the national mix at nationality level.
+      </p>
+
+      <div class="vr-legend" aria-hidden="true">
+        <span class="vr-legend-item"><span class="vr-swatch vr-work"></span>Work</span>
+        <span class="vr-legend-item"><span class="vr-swatch vr-study"></span>Study</span>
+        <span class="vr-legend-item"><span class="vr-swatch vr-family"></span>Family</span>
+        <span class="vr-legend-item"><span class="vr-swatch vr-other"></span>Other</span>
+      </div>
+
+      <div class="vr-list">
+        {visaRouteRows.map((r) => {
+          const m = r.mix.visaRouteMixPct_workShareBasis;
+          // Identify dominant route for plain-English summary
+          const entries: [keyof typeof m, number][] = (["Study","Work","Family","Other"] as const).map((k) => [k, m[k]] as [keyof typeof m, number]);
+          entries.sort((a,b) => b[1]-a[1]);
+          const dom = entries[0];
+          const summary = (() => {
+            // Country-specific messaging where the published visa-route mix
+            // is misleading without context.
+            if (r.nationality === "Ukraine") {
+              return "Most Ukrainians arrive on in-country Ukraine schemes not captured in entry-clearance data";
+            }
+            if (r.nationality === "Afghanistan" && dom[0] === "Other") {
+              return "Mostly Afghan resettlement schemes (ARAP / ACRS)";
+            }
+            if (dom[0] === "Other" && dom[1] >= 45) {
+              return "Mostly resettlement or other humanitarian routes";
+            }
+            const label = (() => {
+              switch (dom[0]) {
+                case "Work": return "workers";
+                case "Study": return "students";
+                case "Family": return "family-route arrivals (often refugee family reunion)";
+                case "Other": return "other-category arrivals";
+                default: return `${String(dom[0]).toLowerCase()}-route arrivals`;
+              }
+            })();
+            if (dom[1] >= 60) return `Mostly ${label}`;
+            if (dom[1] >= 45) return `Predominantly ${label}`;
+            return `Mixed routes, led by ${label}`;
+          })();
+          const noVisaData = r.mix.visaGrants2025_total_workShareRoutes === 0;
+          return (
+            <div class="vr-row">
+              <div class="vr-row-head">
+                <span class="vr-country">{r.nationality}</span>
+                <span class="vr-local">{r.count.toLocaleString()} in {area.areaName}<span class="vr-share"> ({r.sharePct.toFixed(1)}%)</span></span>
+              </div>
+              {noVisaData ? (
+                <div class="vr-no-data">
+                  No entry-clearance visa data. {r.nationality} is non-visa-national or in the Common Travel Area, so visa-route mix is not informative for this country. NINo flow is the better signal.
+                </div>
+              ) : (
+                <>
+                  <div class="vr-bar" role="img" aria-label={`${r.nationality}: Work ${m.Work}%, Study ${m.Study}%, Family ${m.Family}%, Other ${m.Other}%`}>
+                    {m.Work > 0 && (<span class="vr-seg vr-work" style={`width: ${m.Work}%`}>{m.Work >= 8 ? `${m.Work.toFixed(0)}%` : ''}</span>)}
+                    {m.Study > 0 && (<span class="vr-seg vr-study" style={`width: ${m.Study}%`}>{m.Study >= 8 ? `${m.Study.toFixed(0)}%` : ''}</span>)}
+                    {m.Family > 0 && (<span class="vr-seg vr-family" style={`width: ${m.Family}%`}>{m.Family >= 8 ? `${m.Family.toFixed(0)}%` : ''}</span>)}
+                    {m.Other > 0 && (<span class="vr-seg vr-other" style={`width: ${m.Other}%`}>{m.Other >= 8 ? `${m.Other.toFixed(0)}%` : ''}</span>)}
+                  </div>
+                  <div class="vr-meta">
+                    <span class="vr-summary">{summary}</span>
+                    <span class="vr-uk">UK total {r.mix.ninoFlowRollingYear_UK.toLocaleString()} NINos · {r.mix.visaGrants2025_total_workShareRoutes.toLocaleString()} non-visitor visas issued {visaYear}</span>
+                  </div>
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      <p class="section-note">{getVisaRoutesSource()} {getVisaRoutesCaveat()}</p>
+    </section>
+  )}
+
+  <!-- 2011 to 2021 country-of-birth stock change -->
+  {cobChange && cobChange.population2011 > 0 && (
+    <section class="section" id="cob-change">
+      <h2>How {area.areaName} changed: 2011 to 2021</h2>
+      <p class="section-desc">
+        Two snapshots from two consecutive Censuses, ten years apart.
+        Population changed from <strong>{cobChange.population2011.toLocaleString()}</strong> in 2011 to <strong>{cobChange.population2021.toLocaleString()}</strong> in 2021 ({cobChange.populationChangePct != null ? `${cobChange.populationChangePct > 0 ? '+' : ''}${cobChange.populationChangePct.toFixed(1)}%` : "change n/a"}).
+        Non-UK-born residents went from <strong>{cobChange.nonUkBorn2011.toLocaleString()}</strong> ({cobChange.nonUkBornPct2011 != null ? `${cobChange.nonUkBornPct2011.toFixed(1)}% of population` : "share n/a"}) to <strong>{cobChange.nonUkBorn2021.toLocaleString()}</strong> ({cobChange.nonUkBornPct2021 != null ? `${cobChange.nonUkBornPct2021.toFixed(1)}%` : "share n/a"}).
+      </p>
+      <div class="cc-table">
+        <div class="cc-row cc-head">
+          <span>Group</span>
+          <span>2011</span>
+          <span>2021</span>
+          <span>Change</span>
+        </div>
+        {cobChangeRows.map((r) => (
+          <div class="cc-row">
+            <span class="cc-name">{r.label}</span>
+            <span class="cc-v">{r.v11.toLocaleString()}<span class="cc-pct">{r.pct11 != null ? ` ${r.pct11}%` : ''}</span></span>
+            <span class="cc-v">{r.v21.toLocaleString()}<span class="cc-pct">{r.pct21 != null ? ` ${r.pct21}%` : ''}</span></span>
+            <span class={`cc-change ${r.ch > 0 ? 'pos' : r.ch < 0 ? 'neg' : ''}`}>{r.ch > 0 ? '+' : ''}{r.ch.toLocaleString()}</span>
+          </div>
+        ))}
+      </div>
+      <p class="section-note">
+        Source: ONS Census 2011 KS204EW (NOMIS NM_611_1) and Census 2021 TS012 (NOMIS NM_2032_1), aligned to broad country-of-birth groups.
+        2011 data uses 2011 LA boundaries; 2021 data uses 2023 boundaries. LAs whose ONS code changed between Censuses (Buckinghamshire, Northamptonshire, North Yorkshire, Somerset reorganisations) are not in this comparison.
+      </p>
+    </section>
+  )}
+
+  <!-- Working vs not working by passport group (Census 2021) -->
+  {epRows.length > 0 && (
+    <section class="section" id="econ-passport">
+      <h2>Working and not working, by passport group</h2>
+      <p class="section-desc">
+        Census 2021 employment status of {area.areaName} residents aged 16 and over, by passport held. Three numbers shown per group:
+      </p>
+      <ul class="ep-help">
+        <li>The first three columns sum to 100% for each row. Every adult is either in work, unemployed, or inactive.</li>
+        <li><strong>In work</strong>: share of all adults aged 16+ who have a paid job.</li>
+        <li><strong>Unemployed</strong>: share of all adults aged 16+ who are looking for work but do not have a job.</li>
+        <li><strong>Inactive</strong>: share of all adults aged 16+ who are not in the labour market. Includes retirees, full-time students, those looking after family, the long-term sick.</li>
+        <li><strong>Employment rate</strong> (last column): share of those who <em>are</em> trying to work (excluding full-time students) who have a job. Almost always higher than In Work because it leaves out everyone who is retired, raising kids, or in full-time study.</li>
+      </ul>
+      <div class="ep-table">
+        <div class="ep-row ep-head">
+          <span>Passport group</span>
+          <span>Pop 16+</span>
+          <span>In work</span>
+          <span>Unemployed</span>
+          <span>Inactive</span>
+          <span>Employment rate</span>
+        </div>
+        {epRows.map((r) => (
+          <div class="ep-row">
+            <span class="ep-name">{r.groupLabel}</span>
+            <span class="ep-pop">{r.pop.toLocaleString()}</span>
+            <span class="ep-emp-pop">{r.empPopRatio != null ? `${r.empPopRatio.toFixed(1)}%` : 'n/a'}</span>
+            <span class="ep-unemp">{r.unempRatio != null ? `${r.unempRatio.toFixed(1)}%` : 'n/a'}</span>
+            <span class="ep-inactive">{r.inactivityRate != null ? `${r.inactivityRate.toFixed(1)}%` : 'n/a'}</span>
+            <span class="ep-emp-rate">{r.empRateActive != null ? `${r.empRateActive.toFixed(1)}%` : 'n/a'}</span>
+          </div>
+        ))}
+      </div>
+      <p class="section-note">{getEconPassportSource()} {getEconPassportCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Schools (district-level EAL) -->
+  {ealDistrict && ealDistrict.totalPupils > 0 && (
+    <section class="section" id="schools-eal">
+      <h2>Schools, first language</h2>
+      <p class="section-desc">
+        Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, 2024/25),
+        <strong> {ealDistrict.ealPct.toFixed(1)}% have a first language other than English</strong>.
+        {ealDistrict.parentUtlaName && ealDistrict.parentUtlaName !== ealDistrict.areaName && (
+          <> The published {ealDistrict.parentUtlaName}-wide upper-tier figure is much lower because it averages every district in the county; this is the genuine {area.areaName} number.</>
+        )}
+      </p>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Pupils with first language other than English</span><span class="data-value">{ealDistrict.ealCount.toLocaleString()} ({ealDistrict.ealPct.toFixed(1)}%)</span></div>
+        <div class="data-item"><span class="data-label">Pupils with first language English</span><span class="data-value">{ealDistrict.englishCount.toLocaleString()} ({ealDistrict.englishPct.toFixed(1)}%)</span></div>
+        {ealDistrict.fsmPct != null && (
+          <div class="data-item"><span class="data-label">Free school meals</span><span class="data-value">{ealDistrict.fsmPct.toFixed(1)}%</span></div>
+        )}
+      </div>
+      <p class="section-note">
+        Source: DfE Schools, Pupils and their Characteristics 2024/25, school-level data aggregated to district. EAL (English as Additional Language) is a household-level signal: children born in the UK to non-English-speaking households count as EAL.
+      </p>
+    </section>
+  )}
+
+  <!-- Regional labour market (HMRC RTI) -->
+  {payrollRegion && payrollRegion.totalEmployment && (
+    <section class="section" id="regional-labour">
+      <h2>{regionFromArea} labour market</h2>
+      <p class="section-desc">
+        Payrolled employments in the {regionFromArea} region ({payrollRegion.latestSnapshotDate}). Provides {area.areaName} with regional context. Local-authority RTI is not published; the region is the smallest geography for HMRC's nationality breakdown.
+      </p>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Total employments</span><span class="data-value">{payrollRegion.totalEmployment.toLocaleString()}</span></div>
+        <div class="data-item"><span class="data-label">Non-UK share</span><span class="data-value">{payrollRegion.nonUkSharePct != null ? `${payrollRegion.nonUkSharePct.toFixed(1)}%` : "n/a"}</span></div>
+        {payrollRegion.fiveYearChange?.NonEU != null && (
+          <div class="data-item">
+            <span class="data-label">5-year change · Non-EU</span>
+            <span class="data-value" style={`color: ${payrollRegion.fiveYearChange.NonEU > 0 ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
+              {payrollRegion.fiveYearChange.NonEU > 0 ? '+' : ''}{payrollRegion.fiveYearChange.NonEU.toLocaleString()}
+            </span>
+          </div>
+        )}
+        {payrollRegion.fiveYearChange?.EU != null && (
+          <div class="data-item">
+            <span class="data-label">5-year change · EU</span>
+            <span class="data-value" style={`color: ${payrollRegion.fiveYearChange.EU > 0 ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
+              {payrollRegion.fiveYearChange.EU > 0 ? '+' : ''}{payrollRegion.fiveYearChange.EU.toLocaleString()}
+            </span>
+          </div>
+        )}
+      </div>
+      {topRegionIndustries.length > 0 && (
+        <div class="rl-industries">
+          <h3 class="rl-sub">Top industries by non-UK share ({regionFromArea})</h3>
+          {topRegionIndustries.map(([name, v]) => (
+            <div class="rl-row">
+              <span class="rl-name">{name}</span>
+              <span class="rl-track">
+                <span class="rl-fill" style={`width: ${v.nonUkSharePct}%`}></span>
+              </span>
+              <span class="rl-pct">{(v.nonUkSharePct ?? 0).toFixed(1)}%</span>
+            </div>
+          ))}
+        </div>
+      )}
+      <p class="section-note">
+        Source: HMRC Real Time Information via ONS, payrolled employments by region and industrial sector, July 2014 to {payrollRegion.latestSnapshotDate}. Counts are employments not employees; suppressed cells appear as missing.
+      </p>
+    </section>
+  )}
+
+  <!-- Crime -->
+  {crime && (
+    <section class="section" id="crime">
+      <h2>Crime</h2>
+      <p class="section-desc">
+        Police-recorded crime rates per 1,000 population, {crime.period}.
+        {crimePercentile != null && (
+          <> {area.areaName} ranks at the <strong>{crimePercentile}th percentile</strong> nationally for total crime rate.</>
+        )}
+      </p>
+      <div class="data-grid">
+        {crime.totalCrimeRate != null && (
+          <div class="data-item"><span class="data-label">Total crime / 1k</span><span class="data-value">{crime.totalCrimeRate.toFixed(1)}</span></div>
+        )}
+        {crime.violentCrimeRate != null && (
+          <div class="data-item"><span class="data-label">Violent crime / 1k</span><span class="data-value">{crime.violentCrimeRate.toFixed(1)}</span></div>
+        )}
+        {crime.theftRate != null && (
+          <div class="data-item"><span class="data-label">Theft / 1k</span><span class="data-value">{crime.theftRate.toFixed(1)}</span></div>
+        )}
+        {crime.asbRate != null && (
+          <div class="data-item"><span class="data-label">ASB / 1k</span><span class="data-value">{crime.asbRate.toFixed(1)}</span></div>
+        )}
+        {crime.drugRate != null && (
+          <div class="data-item"><span class="data-label">Drug offences / 1k</span><span class="data-value">{crime.drugRate.toFixed(1)}</span></div>
+        )}
+        {crime.hateCrimeCount != null && (
+          <div class="data-item"><span class="data-label">Hate crime (count)</span><span class="data-value">{crime.hateCrimeCount.toLocaleString()}</span></div>
+        )}
+        {crime.yearOnYearChange != null && (
+          <div class="data-item">
+            <span class="data-label">Year-on-year</span>
+            <span class="data-value" style={`color: ${crime.yearOnYearChange > 0 ? 'var(--coral)' : 'var(--accent-2)'}`}>
+              {crime.yearOnYearChange > 0 ? '+' : ''}{crime.yearOnYearChange.toFixed(1)}%
+            </span>
+          </div>
+        )}
+      </div>
+      <p class="section-note">{getCrimeSource()}. {getCrimeCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Adult social care -->
+  {asc && (
+    <section class="section" id="asc">
+      <h2>Adult social care</h2>
+      {ascIsFallback && parentUtla && (
+        <p class="tier-note">
+          Adult social care for {area.areaName} residents is delivered by <strong>{parentUtla.countyName} County Council</strong>. Figures below are the county-wide ASC profile.
+        </p>
+      )}
+      <p class="section-desc">
+        Council ASC spend, residential placements, and quality-of-life outcomes, {asc.period}.
+        {ascPercentile != null && (
+          <> Spend per head sits at the <strong>{ascPercentile}th percentile</strong> nationally.</>
+        )}
+      </p>
+      <div class="data-grid">
+        {asc.grossSpendPerCapita != null && (
+          <div class="data-item"><span class="data-label">Gross spend / head</span><span class="data-value">&pound;{Math.round(asc.grossSpendPerCapita).toLocaleString()}</span></div>
+        )}
+        {asc.residentialRatePer10k65 != null && (
+          <div class="data-item"><span class="data-label">Residential / 10k 65+</span><span class="data-value">{asc.residentialRatePer10k65.toFixed(0)}</span></div>
+        )}
+        {asc.qualityOfLifeScore != null && (
+          <div class="data-item"><span class="data-label">Quality-of-life score</span><span class="data-value">{asc.qualityOfLifeScore.toFixed(1)}</span></div>
+        )}
+        {asc.dtocDaysAnnual != null && (
+          <div class="data-item"><span class="data-label">DToC days / yr</span><span class="data-value">{asc.dtocDaysAnnual.toLocaleString()}</span></div>
+        )}
+      </div>
+      <p class="section-note">{getAscSource()}. {getAscCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Health by ethnic group (RM043) -->
+  {topHealthByEthnic.length > 0 && (
+    <section class="section" id="health-ethnic">
+      <h2>Health by ethnic group</h2>
+      <p class="section-desc">Share reporting "not good health" in each of {area.areaName}'s largest ethnic groups, Census 2021.</p>
+      <div class="data-grid">
+        {topHealthByEthnic.map(({ group, data }) => (
+          <div class="data-item">
+            <span class="data-label">{group.split(",")[0]}</span>
+            <span class="data-value">{data.notGoodHealthPct != null ? `${data.notGoodHealthPct.toFixed(1)}%` : "n/a"}</span>
+          </div>
+        ))}
+      </div>
+      <p class="section-note">ONS Census 2021 (RM043 - General health by ethnic group by age) via NOMIS. All ages, no age-standardisation: younger ethnic-group populations will show lower rates partly because they're younger, not necessarily because they're healthier. Group labels shortened for display.</p>
+    </section>
+  )}
+
+  <!-- SEND -->
+  {send && (
+    <section class="section" id="send">
+      <h2>Special educational needs</h2>
+      {sendIsFallback && parentUtla && (
+        <p class="tier-note">
+          SEND for {area.areaName} pupils is administered by <strong>{parentUtla.countyName} County Council</strong>. Figures below are the county-wide EHCP profile.
+        </p>
+      )}
+      <p class="section-desc">
+        EHCPs and primary need breakdown, {send.period}.
+        {sendGrowthPercentile != null && (
+          <> 5-year EHCP growth at the <strong>{sendGrowthPercentile}th percentile</strong> nationally.</>
+        )}
+      </p>
+      <div class="data-grid">
+        {send.ehcpRatePer10k != null && (
+          <div class="data-item"><span class="data-label">EHCPs / 10k</span><span class="data-value">{send.ehcpRatePer10k.toFixed(0)}</span></div>
+        )}
+        {send.totalEhcps != null && (
+          <div class="data-item"><span class="data-label">Total EHCPs</span><span class="data-value">{send.totalEhcps.toLocaleString()}</span></div>
+        )}
+        {send.asdPrevalencePct != null && (
+          <div class="data-item"><span class="data-label">ASD prevalence</span><span class="data-value">{send.asdPrevalencePct.toFixed(1)}%</span></div>
+        )}
+        {send.fiveYearGrowthPct != null && (
+          <div class="data-item">
+            <span class="data-label">5-yr growth</span>
+            <span class="data-value" style={`color: ${send.fiveYearGrowthPct > 30 ? 'var(--coral)' : 'var(--accent-3)'}`}>
+              {send.fiveYearGrowthPct > 0 ? '+' : ''}{send.fiveYearGrowthPct.toFixed(1)}%
+            </span>
+          </div>
+        )}
+      </div>
+      {send.primaryNeeds && send.primaryNeeds.length > 0 && (
+        <div class="data-grid" style="margin-top: 0.75rem;">
+          {send.primaryNeeds.slice(0, 6).map((n) => (
+            <div class="data-item">
+              <span class="data-label">{n.need}</span>
+              <span class="data-value">{n.pct.toFixed(1)}%</span>
+            </div>
+          ))}
+        </div>
+      )}
+      <p class="section-note">{getSendSource()}. {getSendCaveat()}</p>
+    </section>
+  )}
+
+  <!-- Personal Independence Payment (PIP) -->
+  {pipMatch && (
+    <section class="section" id="pip">
+      <h2>Personal Independence Payment (PIP)</h2>
+      <p class="section-desc">
+        PIP is the working-age disability benefit. Claimant count is residence-based, by Westminster Parliamentary Constituency 2024.
+        {pipMatch.name !== area.areaName && (
+          <> {area.areaName} (the local authority) is mapped to the <strong>{pipMatch.name}</strong> constituency for this figure.</>
+        )}
+      </p>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">PIP claimants ({pipLatestMonth})</span>
+          <span class="data-value">{pipMatch.claimants.toLocaleString()}</span>
+        </div>
+        {pipRatePct != null && (
+          <div class="data-item">
+            <span class="data-label">PIP claimants as % of population</span>
+            <span class="data-value">{pipRatePct.toFixed(1)}%</span>
+          </div>
+        )}
+        {pipNationalRatePct != null && pipRatePct != null && (
+          <div class="data-item">
+            <span class="data-label">vs England + Wales rate ({pipNationalRatePct.toFixed(1)}%)</span>
+            <span class="data-value" style={`color: ${pipRatePct > pipNationalRatePct ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
+              {pipRatePct > pipNationalRatePct ? '+' : ''}{(pipRatePct - pipNationalRatePct).toFixed(1)}pp
+            </span>
+          </div>
+        )}
+      </div>
+      <p class="section-note">
+        Source: DWP Stat-Xplore PIP_Monthly_new (Westminster Parliamentary Constituency 2024). PIP figures are NOT broken down by nationality at any geography on the public Stat-Xplore API; this is the closest local figure available. Population denominator from Census 2021. Constituency boundaries do not align perfectly with LA boundaries.
+      </p>
+    </section>
+  )}
+
+  <!-- NHS overseas-visitor funding context (national) -->
+  {nhsCtx && ihsLatest && ihsRevenueLatest && (
+    <section class="section" id="nhs-funding">
+      <h2>How NHS care for overseas residents is funded (national context)</h2>
+      <p class="section-desc">
+        Most non-UK residents in {area.areaName} pay for NHS care up-front through the Immigration Health Surcharge (IHS), which is added to most visa applications. Asylum seekers, refugees, ILR holders and Irish citizens are exempt. Visitors and undocumented residents are charged at 150% of the national NHS tariff. The figures below are England + Wales national totals; per-LA NHS cost-recovery is not centrally published.
+      </p>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">Current IHS rate (adult, per year)</span>
+          <span class="data-value">£{ihsLatest.adult_per_year_gbp.toLocaleString()}</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">IHS rate, students/under-18s (per year)</span>
+          <span class="data-value">£{ihsLatest.student_under18_per_year_gbp.toLocaleString()}</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">IHS revenue {ihsRevenueLatest.year} (£m)</span>
+          <span class="data-value">£{ihsRevenueLatest.amount_gbp_millions.toLocaleString()}m</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Cumulative IHS revenue 2015-2024</span>
+          <span class="data-value">£{(nhsCtx.ihsCumulativeRevenueSince2015.amount_gbp_millions / 1000).toFixed(1)}bn</span>
+        </div>
+      </div>
+      <details class="nhs-details">
+        <summary>IHS rate history</summary>
+        <ul class="nhs-rate-list">
+          {nhsCtx.ihsRateHistory.map((r: any) => (
+            <li>
+              <strong>From {r.effective_from}:</strong> £{r.adult_per_year_gbp}/year adult, £{r.student_under18_per_year_gbp}/year students/under-18s
+            </li>
+          ))}
+        </ul>
+      </details>
+      <details class="nhs-details">
+        <summary>Indicative charges for visitors and undocumented residents</summary>
+        <p class="nhs-charge-note">
+          Maternity care is classified as "immediately necessary": it cannot be refused or delayed for charging, but it is invoiced afterwards at 150% of the NHS national tariff.
+        </p>
+        <ul class="nhs-charge-list">
+          <li>Routine vaginal delivery, no complications: <strong>£3,000-£5,500</strong></li>
+          <li>Caesarean section: <strong>£5,000-£7,500</strong></li>
+          <li>Premature birth with NICU stay: <strong>£15,000-£30,000+</strong></li>
+          <li>Antenatal appointment: £150-£400 each</li>
+        </ul>
+      </details>
+      <p class="section-note">
+        Sources: NHS (Charges to Overseas Visitors) Regulations 2015 (as amended); Home Office IHS caseworker guidance (Sept 2025); House of Commons Library briefing CBP-7274; NHS England NHS Payment Scheme (national tariff). Approximately 80% of identified overseas-visitor debt across all NHS treatment is uncollected (NAO, follow-up scrutiny).
+      </p>
+    </section>
+  )}
+
+  <!-- Economic profile -->
+  {econ?.summary && (
+    <section class="section" id="economy">
+      <h2>Economic profile</h2>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">Avg employment rate</span><span class="data-value">{econ.summary.avgEmploymentRate}%</span></div>
+        <div class="data-item"><span class="data-label">Avg home ownership</span><span class="data-value">{econ.summary.avgOwnershipRate}%</span></div>
+        <div class="data-item"><span class="data-label">Avg social rent</span><span class="data-value">{econ.summary.avgSocialRentRate}%</span></div>
+        <div class="data-item"><span class="data-label">Degree or above</span><span class="data-value">{econ.summary.avgDegreeRate}%</span></div>
+        <div class="data-item"><span class="data-label">No qualifications</span><span class="data-value">{econ.summary.avgNoQualsRate}%</span></div>
+      </div>
+    </section>
+  )}
+
+  <!-- Housing (composition today + tenure projection) -->
+  {(hmo || ctSpd || housing?.dataAvailable) && (
+    <section class="section" id="housing">
+      <h2>Housing</h2>
+      {(hmo || ctSpd) && (
+        <>
+          <h3 class="subhead">Composition today</h3>
+          <p class="section-desc">
+            How dwellings in {area.areaName} are occupied. Single-person households and houses in multiple occupation are the two cleanest signals.
+          </p>
+          <div class="data-grid">
+            {ctSpd && ctSpd.singlePersonDiscountPctOfChargeable != null && (
+              <>
+                <div class="data-item"><span class="data-label">Single-person discount take-up</span><span class="data-value">{ctSpd.singlePersonDiscountPctOfChargeable.toFixed(1)}%</span></div>
+                <div class="data-item"><span class="data-label">Dwellings on 25% single-person discount</span><span class="data-value">{ctSpd.singlePersonDiscount25.toLocaleString()}</span></div>
+              </>
+            )}
+            {hmo && hmo.hmoPer1kPopulation != null && (
+              <>
+                <div class="data-item"><span class="data-label">HMO dwellings (Census 2021)</span><span class="data-value">{hmo.totalHmoDwellings.toLocaleString()}</span></div>
+                <div class="data-item"><span class="data-label">HMOs per 1,000 population</span><span class="data-value">{hmo.hmoPer1kPopulation.toFixed(2)}</span></div>
+              </>
+            )}
+          </div>
+          <p class="section-note">
+            Sources: MHCLG Council Taxbase 2024 (CTB1, snapshot 7 October 2024) for single-person discount; ONS Census 2021 RM192 for HMO dwellings. HMO Census numbers reflect dwellings classified as HMO on Census Day; current licensing registers held by individual councils are not centrally published.
+          </p>
+        </>
+      )}
+      {topTenureByEthnic.length > 0 && (
+        <>
+          <h3 class="subhead">Tenure by ethnic group</h3>
+          <p class="section-desc">Household ownership rates for {area.areaName}'s largest ethnic groups, Census 2021.</p>
+          <div class="data-grid">
+            {topTenureByEthnic.map(({ group, data }) => (
+              <div class="data-item">
+                <span class="data-label">{group.split(",")[0]}: owned</span>
+                <span class="data-value">{data.ownershipPct != null ? `${data.ownershipPct.toFixed(1)}%` : "n/a"}</span>
+              </div>
+            ))}
+          </div>
+          <p class="section-note">ONS Census 2021 (RM134 - Tenure by ethnic group, Household Reference Persons) via NOMIS. Group labels shortened for display.</p>
+        </>
+      )}
+      {housing?.dataAvailable && (
+        <>
+          <h3 class="subhead">Tenure projection</h3>
+          <p class="section-desc">Census 2021 tenure patterns by ethnicity, projected to 2041 from demographic composition change.</p>
+          <div class="data-grid">
+            <div class="data-item"><span class="data-label">Ownership (2021)</span><span class="data-value">{housing.currentTenure?.ownershipPct}%</span></div>
+            <div class="data-item"><span class="data-label">Social rent (2021)</span><span class="data-value">{housing.currentTenure?.socialRentPct}%</span></div>
+            <div class="data-item"><span class="data-label">Private rent (2021)</span><span class="data-value">{housing.currentTenure?.privateRentPct}%</span></div>
+            {housing.projectedTenure2041 && (
+              <>
+                <div class="data-item"><span class="data-label">Ownership (2041)</span><span class="data-value" style="color: var(--accent-3);">{housing.projectedTenure2041.ownershipPct}%</span></div>
+                <div class="data-item"><span class="data-label">Social rent (2041)</span><span class="data-value" style="color: var(--accent-3);">{housing.projectedTenure2041.socialRentPct}%</span></div>
+                <div class="data-item"><span class="data-label">Social rent change</span><span class="data-value" style={`color: ${(housing.socialRentChangePp ?? 0) > 0 ? 'var(--coral)' : 'var(--accent-2)'}`}>{housing.socialRentChangePp > 0 ? '+' : ''}{housing.socialRentChangePp}pp</span></div>
+              </>
+            )}
+          </div>
+          {housing.housingImplication && <p class="section-note">{housing.housingImplication}</p>}
+        </>
+      )}
+    </section>
+  )}
+
+  <!-- School pressure -->
+  {school?.dataAvailable && (
+    <section class="section" id="schools">
+      <h2>School demographics</h2>
+      <p class="section-desc">DfE School Census {school.year}. {fmtInt(school.totalPupils)} pupils.</p>
+      <div class="data-grid">
+        <div class="data-item"><span class="data-label">White British pupils</span><span class="data-value">{school.wbiPupilsPct != null ? `${school.wbiPupilsPct.toFixed(1)}%` : "n/a"}</span></div>
+        <div class="data-item"><span class="data-label">Minority pupils</span><span class="data-value" style="color: var(--accent);">{school.minorityPupilsPct?.toFixed(1)}%</span></div>
+        {school.ealDemandGrowthPp != null && (
+          <div class="data-item"><span class="data-label">EAL growth (projected)</span><span class="data-value" style="color: var(--accent-3);">+{school.ealDemandGrowthPp.toFixed(1)}pp</span></div>
+        )}
+        <div class="data-item"><span class="data-label">White British gap (school vs population)</span><span class="data-value">{school.wbiGap != null ? `${school.wbiGap.toFixed(1)}pp` : "n/a"}</span></div>
+      </div>
+      {school.insight && <p class="section-note">{school.insight}</p>}
+    </section>
+  )}
+
+  {overlappingPcons.length > 0 && (
+    <section class="section" id="constituencies">
+      <h2>Westminster constituencies</h2>
+      <p class="section-desc">Parliamentary constituencies overlapping {area.areaName}, sorted by share of LA postcodes the constituency covers.</p>
+      <div class="pcon-overlap-grid">
+        {overlappingPcons.map((p) => (
+          <a class="pcon-overlap-card" href={`/constituencies/${p.slug}/`}>
+            <span class="pcon-overlap-name">{p.name}</span>
+            <span class="pcon-overlap-meta">
+              <span>{p.ge2024.winner ?? "n/a"}</span>
+              <span class="muted">{p.ge2024.majorityPp != null ? `+${p.ge2024.majorityPp.toFixed(1)}pp` : ""}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Asylum Stats cross-link -->
+  <div class="as-cross-link">
+    <div class="as-cross-inner">
+      <span class="as-cross-label">Asylum and immigration data</span>
+      <span class="as-cross-desc">
+        Asylum seekers on support, hotel costs, grant rates, and the True Cost of Asylum for this area.
+      </span>
+      <a href={`https://asylumstats.co.uk/places/${slugifyAreaName(area.areaName)}/`} class="as-cross-btn" rel="noopener">
+        View {area.areaName} on Asylum Stats &rarr;
+      </a>
+    </div>
+  </div>
+
+  <DataFreshness
+    updated={(rawProjections as any).lastUpdated ?? "2026-04-14"}
+    source="Census 2021, ONS SNPP, DfE School Census"
+    sourceUrl="https://www.ons.gov.uk/census"
+  />
+</BaseLayout>
+
+<style>
+  .place-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
+  .place-identity h1 { font-family: "Sora", sans-serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin: 0; color: var(--ink); }
+  .place-region { font-size: 0.88rem; color: var(--muted); }
+  .place-header-aside { display: flex; flex-direction: column; align-items: flex-end; gap: 0.65rem; flex: 0 0 auto; }
+  .place-header-aside :global(.mini-map) {
+    margin: 0;
+    padding: 0.4rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    line-height: 0;
+    width: 272px;
+  }
+  .place-header-aside :global(.mini-map svg) { display: block; width: 100%; height: auto; }
+  @media (max-width: 600px) {
+    .place-header-aside { align-items: flex-start; width: 100%; }
+    .place-header-aside :global(.mini-map) { width: 100%; max-width: 280px; }
+  }
+
+  .place-hero-row { grid-template-columns: 1fr; max-width: 32rem; margin: 0 0 1.25rem; }
+  .place-hero-row .stat-card-value { font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--accent); }
+  .place-hero-row .stat-card-label { color: var(--ink-soft); }
+
+
+  .section { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+  .section h2 { font-family: "Sora", sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--ink); margin: 0 0 0.5rem; }
+  .section-desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1rem; max-width: 700px; }
+  .section-note { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; }
+  /* Banner shown when a district's data is the parent county's (e.g. ASC, SEND). */
+  .tier-note {
+    background: var(--panel);
+    border-left: 3px solid var(--accent-3);
+    padding: 0.6rem 0.85rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.85rem;
+    border-radius: 4px;
+  }
+
+  /* Westminster constituency overlap cards on a place page. */
+  .pcon-overlap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.5rem; }
+  .pcon-overlap-card { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.7rem 0.85rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--ink); transition: background 120ms; }
+  .pcon-overlap-card:hover { background: rgba(79, 70, 229, 0.06); }
+  .pcon-overlap-name { font-weight: 600; font-size: 0.92rem; }
+  .pcon-overlap-meta { display: flex; justify-content: space-between; font-size: 0.82rem; font-family: "Sora", sans-serif; }
+  .pcon-overlap-meta .muted { color: var(--muted); }
+
+  .shift-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
+  .shift-item { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; text-align: center; }
+  .shift-value { display: block; font-family: "Sora", sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+  .shift-label { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+
+  .diversity-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; }
+  .diversity-level { display: block; font-family: "Sora", sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--accent); text-transform: capitalize; }
+  .diversity-detail { font-size: 0.82rem; color: var(--muted); }
+
+  .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.5rem; }
+  .data-item { display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+  .data-label { font-size: 0.85rem; color: var(--ink-soft); text-transform: capitalize; }
+  .data-value { font-family: "Sora", sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+
+  /* Sub-heading inside a merged section (e.g. Housing → Composition / Tenure projection). */
+  .subhead {
+    font-family: "Sora", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 1.5rem 0 0.6rem;
+  }
+  .subhead:first-of-type { margin-top: 0; }
+
+  .pressure-banner {
+    background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 1.25rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .pressure-score { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--ink); }
+  .pressure-category { font-size: 0.92rem; font-weight: 700; color: var(--ink-soft); }
+  .pressure-rank { font-size: 0.82rem; color: var(--muted); }
+
+  .model-compare {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+  .model-compare-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .model-compare-head h3 { font-family: "Sora", sans-serif; font-size: 1rem; font-weight: 700; margin: 0; color: var(--ink); }
+  .model-spread-badge { font-family: "Sora", sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--coral); background: rgba(255, 99, 99, 0.08); padding: 0.25rem 0.6rem; border-radius: 999px; border: 1px solid rgba(255, 99, 99, 0.25); }
+  .model-compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; }
+  .model-card { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.9rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: rgba(255,255,255,0.02); }
+  .model-card-primary { border-color: var(--accent); background: rgba(79, 70, 229, 0.06); }
+  .model-card-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; display: flex; gap: 0.4rem; align-items: center; }
+  .model-card-tag { font-size: 0.65rem; background: var(--accent); color: #fff; padding: 0.05rem 0.4rem; border-radius: 999px; letter-spacing: 0.04em; }
+  .model-card-value { font-family: "Sora", sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--ink); }
+  .model-card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
+  .model-compare-note { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-top: 0.9rem; max-width: 700px; }
+  .model-compare-note a { color: var(--accent); }
+
+  .scenario-wrap { margin-top: 1.75rem; }
+
+  .nino-nat-table {
+    margin-top: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .nino-nat-head {
+    display: grid;
+    grid-template-columns: 1fr 130px 80px;
+    padding: 0.55rem 0.85rem;
+    background: rgba(255,255,255,0.04);
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .nino-nat-row {
+    display: grid;
+    grid-template-columns: 1fr 130px 80px;
+    padding: 0.5rem 0.85rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .nino-nat-name { color: var(--ink); }
+  .nino-nat-count { font-family: "Sora", sans-serif; font-weight: 700; color: var(--accent); text-align: right; font-variant-numeric: tabular-nums; }
+  .nino-nat-share { font-family: "Sora", sans-serif; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+  @media (max-width: 540px) {
+    .nino-nat-head, .nino-nat-row { grid-template-columns: 1fr 90px 60px; padding-inline: 0.6rem; }
+  }
+
+  /* Routes of arrival, visa-route mix per top NINo nationality */
+  .vr-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0.25rem 0 1.25rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .vr-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: "Sora", sans-serif;
+  }
+  .vr-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .vr-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .vr-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .vr-row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .vr-country {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+  .vr-local {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .vr-share { color: var(--muted); }
+  .vr-bar {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .vr-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Sora", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+  .vr-seg:hover { opacity: 0.85; }
+  .vr-work   { background: #1f6feb; }   /* blue */
+  .vr-study  { background: #14904a; }   /* green */
+  .vr-family { background: #c2410c; }   /* orange-red */
+  .vr-other  { background: #6b7280; }   /* slate */
+  .vr-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .vr-summary {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .vr-uk { font-variant-numeric: tabular-nums; }
+  .vr-no-data {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding: 0.6rem 0.8rem;
+    background: rgba(0,0,0,0.03);
+    border-radius: 6px;
+    border-left: 3px solid var(--muted);
+  }
+  @media (max-width: 540px) {
+    .vr-bar { height: 26px; }
+    .vr-seg { font-size: 0.72rem; }
+  }
+
+  /* Demographic profile (age + sex) */
+  .demog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 0.5rem 0 1rem;
+  }
+  .demog-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    background: rgba(255,255,255,0.02);
+  }
+  .demog-card-title {
+    font-family: "Sora", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.85rem;
+    letter-spacing: 0.02em;
+  }
+  .demog-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .demog-bar-row {
+    display: grid;
+    grid-template-columns: 70px 1fr 50px;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .demog-band {
+    color: var(--muted);
+    font-family: "Sora", sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+  .demog-bar-track {
+    position: relative;
+    height: 14px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    overflow: visible;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  .demog-bar-la {
+    position: absolute; top: 0; left: 0; bottom: 0;
+    background: #7c3aed;
+    border-radius: 4px;
+    transition: width 0.2s;
+  }
+  .demog-bar-nat-marker {
+    position: absolute; top: -3px; bottom: -3px;
+    width: 2px;
+    background: rgba(255,255,255,0.65);
+    transform: translateX(-1px);
+  }
+  .demog-pct {
+    color: var(--ink);
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .demog-legend {
+    margin: 0.85rem 0 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .demog-legend-la, .demog-legend-nat {
+    display: inline-block;
+    width: 14px; height: 4px; border-radius: 2px;
+    vertical-align: middle;
+  }
+  .demog-legend-la { background: #7c3aed; }
+  .demog-legend-nat { background: rgba(255,255,255,0.65); height: 14px; width: 2px; }
+  .demog-sex-bar {
+    display: flex;
+    width: 100%;
+    height: 36px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .demog-sex-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+    transition: opacity 0.15s ease;
+  }
+  .demog-sex-seg.sex-male   { background: #1f6feb; }
+  .demog-sex-seg.sex-female { background: #c2410c; }
+  .demog-summary {
+    margin: 0.85rem 0 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .demog-summary strong { color: var(--ink); }
+  @media (max-width: 760px) {
+    .demog-grid { grid-template-columns: 1fr; }
+  }
+
+  /* NHS funding context details */
+  .nhs-details {
+    margin: 0.85rem 0 0.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 0.6rem 0.85rem;
+    background: rgba(255,255,255,0.02);
+  }
+  .nhs-details summary {
+    cursor: pointer;
+    color: var(--ink);
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.15rem 0;
+    list-style: none;
+  }
+  .nhs-details summary::before {
+    content: "▸ ";
+    color: var(--accent);
+    font-weight: 800;
+    margin-right: 0.3rem;
+  }
+  .nhs-details[open] summary::before { content: "▾ "; }
+  .nhs-rate-list, .nhs-charge-list {
+    margin: 0.6rem 0 0.2rem;
+    padding-left: 1.4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .nhs-rate-list li, .nhs-charge-list li { margin-bottom: 0.3rem; }
+  .nhs-rate-list strong, .nhs-charge-list strong { color: var(--ink); }
+  .nhs-charge-note {
+    margin: 0.6rem 0 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* 2011 -> 2021 country-of-birth change */
+  .cc-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0.5rem 0 0;
+  }
+  .cc-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 110px;
+    gap: 0.6rem;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: center;
+  }
+  .cc-row:last-child { border-bottom: none; }
+  .cc-head {
+    background: rgba(255,255,255,0.04);
+    color: var(--muted);
+    font-family: "Sora", sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .cc-row span:not(:first-child) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .cc-name { color: var(--ink); }
+  .cc-v {
+    font-family: "Sora", sans-serif;
+    color: var(--ink);
+  }
+  .cc-pct {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 0.78rem;
+  }
+  .cc-change {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+  }
+  .cc-change.pos { color: var(--accent-3); }
+  .cc-change.neg { color: var(--accent-2); }
+  @media (max-width: 640px) {
+    .cc-row {
+      grid-template-columns: 1.6fr 1fr 1fr 90px;
+      font-size: 0.78rem;
+      gap: 0.4rem;
+      padding: 0.45rem 0.55rem;
+    }
+  }
+
+  /* Working / not working table */
+  .ep-help {
+    margin: 0.4rem 0 0.8rem;
+    padding-left: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .ep-help li { margin-bottom: 0.25rem; }
+  .ep-help strong { color: var(--ink); }
+  .ep-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .ep-row {
+    display: grid;
+    grid-template-columns: 1.6fr 70px 70px 80px 70px 90px;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .ep-row:last-child { border-bottom: none; }
+  .ep-head {
+    background: rgba(255,255,255,0.04);
+    color: var(--muted);
+    font-family: "Sora", sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .ep-row span:not(:first-child) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .ep-name { color: var(--ink); white-space: normal; }
+  .ep-pop { color: var(--muted); }
+  .ep-emp-pop, .ep-emp-rate, .ep-inactive, .ep-unemp {
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .ep-unemp { color: var(--accent-3); }
+  /* Tight tablet: tighten columns */
+  @media (max-width: 900px) {
+    .ep-row {
+      grid-template-columns: 1.4fr 65px 65px 75px 65px 75px;
+      font-size: 0.78rem;
+      gap: 0.35rem;
+      padding: 0.5rem 0.6rem;
+    }
+  }
+  /* Mobile: drop the Employment-rate column. The In-Work / Unemployed /
+     Inactive trio is the key comparison; Employment Rate is derived and
+     covered by the explainer. */
+  @media (max-width: 640px) {
+    .ep-row {
+      grid-template-columns: 1.3fr 55px 55px 60px 55px;
+      font-size: 0.72rem;
+      gap: 0.25rem;
+      padding: 0.45rem 0.5rem;
+    }
+    .ep-row > span:nth-child(6) { display: none; }
+  }
+
+  /* Regional labour mini bars */
+  .rl-industries { margin-top: 0.85rem; }
+  .rl-sub {
+    font-family: "Sora", sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.6rem;
+  }
+  .rl-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 50px;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.35rem;
+  }
+  .rl-name {
+    color: var(--ink);
+    font-family: "Sora", sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rl-track {
+    height: 12px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .rl-fill { display: block; height: 100%; background: #14904a; }
+  .rl-pct {
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    text-align: right;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 540px) {
+    .rl-row { grid-template-columns: 1fr 60px; }
+    .rl-row .rl-track { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .metric-value { font-size: 1.2rem; }
+    .shift-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+/**
+ * HeroClock.astro, giant tabular-numeral count-down / count-up /
+ * headline-stat block.
+ *
+ * Ported from UKE 19 May 2026 and repurposed: UKD has no election
+ * target, so use this for "next ONS release", "next NOMIS refresh",
+ * "days since Census 2021", or any page where a single big number
+ * carries the hero.
+ *
+ * Layout responsibility is OUTSIDE this component, wrap it in a
+ * grid cell or flex row. On mobile it auto-restacks via the bundled
+ * .hero-clock class.
+ *
+ * Props:
+ *   value: number or string ("17", "1,234", "Today", ", ")
+ *   label: descriptor below the number ("days to next release")
+ *   ariaLabel: optional override of the wrapping <aside> aria-label
+ */
+interface Props {
+  value: number | string;
+  label: string;
+  ariaLabel?: string;
+}
+
+const { value, label, ariaLabel = "Headline stat" } = Astro.props;
+---
+
+<aside class="hero-clock" aria-label={ariaLabel}>
+  <span class="clock-number">{value}</span>
+  <span class="clock-label">{label}</span>
+</aside>

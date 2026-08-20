@@ -1,0 +1,3351 @@
+{
+  "source": "DWP Stat-Xplore PIP_Monthly_new dataset, latest published month. Geography: Westminster Parliamentary Constituency 2024 boundaries.",
+  "lastUpdated": "2026-04-29",
+  "latestMonth": "Jan-26",
+  "totalConstituencies": 634,
+  "totalClaimants": 3925969,
+  "caveat": "PIP is the working-age disability benefit. Claimant count is residence-based, by Westminster Parliamentary Constituency 2024. PCON does not perfectly align with LA for two-tier counties. PCON figures are NOT broken down by nationality at any level on the public Stat-Xplore API.",
+  "topConstituencies": [
+    {
+      "code": "E14001339",
+      "name": "Liverpool Walton",
+      "claimants": 15311
+    },
+    {
+      "code": "E14001338",
+      "name": "Liverpool Riverside",
+      "claimants": 14417
+    },
+    {
+      "code": "E14001105",
+      "name": "Blackpool South",
+      "claimants": 13974
+    },
+    {
+      "code": "E14001091",
+      "name": "Birkenhead",
+      "claimants": 13586
+    },
+    {
+      "code": "W07000084",
+      "name": "Blaenau Gwent and Rhymney",
+      "claimants": 13313
+    },
+    {
+      "code": "E14001317",
+      "name": "Knowsley",
+      "claimants": 13270
+    },
+    {
+      "code": "E14001113",
+      "name": "Bootle",
+      "claimants": 13255
+    },
+    {
+      "code": "E14001211",
+      "name": "Easington",
+      "claimants": 13244
+    },
+    {
+      "code": "W07000099",
+      "name": "Merthyr Tydfil and Aberdare",
+      "claimants": 12822
+    },
+    {
+      "code": "E14001466",
+      "name": "Sheffield Brightside and Hillsborough",
+      "claimants": 12778
+    }
+  ],
+  "bottomConstituencies": [
+    {
+      "code": "S14000077",
+      "name": "East Kilbride and Strathaven",
+      "claimants": 18
+    },
+    {
+      "code": "S14000103",
+      "name": "Perth and Kinross-shire",
+      "claimants": 17
+    },
+    {
+      "code": "S14000072",
+      "name": "Cumbernauld and Kirkintilloch",
+      "claimants": 16
+    },
+    {
+      "code": "S14000100",
+      "name": "North East Fife",
+      "claimants": 16
+    },
+    {
+      "code": "S14000098",
+      "name": "Moray West, Nairn and Strathspey",
+      "claimants": 15
+    },
+    {
+      "code": "S14000111",
+      "name": "West Aberdeenshire and Kincardine",
+      "claimants": 15
+    },
+    {
+      "code": "S14000080",
+      "name": "Edinburgh South",
+      "claimants": 11
+    },
+    {
+      "code": "S14000097",
+      "name": "Mid Dunbartonshire",
+      "claimants": 10
+    },
+    {
+      "code": "S14000051",
+      "name": "Orkney and Shetland",
+      "claimants": 8
+    },
+    {
+      "code": "S14000027",
+      "name": "Na h-Eileanan an Iar",
+      "claimants": 5
+    }
+  ],
+  "byPconCode": {
+    "E14001101": {
+      "code": "E14001101",
+      "name": "Bishop Auckland",
+      "claimants": 9437
+    },
+    "E14001106": {
+      "code": "E14001106",
+      "name": "Blaydon and Consett",
+      "claimants": 7962
+    },
+    "E14001107": {
+      "code": "E14001107",
+      "name": "Blyth and Ashington",
+      "claimants": 11177
+    },
+    "E14001173": {
+      "code": "E14001173",
+      "name": "City of Durham",
+      "claimants": 7796
+    },
+    "E14001183": {
+      "code": "E14001183",
+      "name": "Cramlington and Killingworth",
+      "claimants": 7801
+    },
+    "E14001190": {
+      "code": "E14001190",
+      "name": "Darlington",
+      "claimants": 8005
+    },
+    "E14001211": {
+      "code": "E14001211",
+      "name": "Easington",
+      "claimants": 13244
+    },
+    "E14001244": {
+      "code": "E14001244",
+      "name": "Gateshead Central and Whickham",
+      "claimants": 8778
+    },
+    "E14001272": {
+      "code": "E14001272",
+      "name": "Hartlepool",
+      "claimants": 11396
+    },
+    "E14001285": {
+      "code": "E14001285",
+      "name": "Hexham",
+      "claimants": 5049
+    },
+    "E14001295": {
+      "code": "E14001295",
+      "name": "Houghton and Sunderland South",
+      "claimants": 11961
+    },
+    "E14001307": {
+      "code": "E14001307",
+      "name": "Jarrow and Gateshead East",
+      "claimants": 10420
+    },
+    "E14001368": {
+      "code": "E14001368",
+      "name": "Middlesbrough South and East Cleveland",
+      "claimants": 8927
+    },
+    "E14001367": {
+      "code": "E14001367",
+      "name": "Middlesbrough and Thornaby East",
+      "claimants": 12429
+    },
+    "E14001377": {
+      "code": "E14001377",
+      "name": "Newcastle upon Tyne Central and West",
+      "claimants": 11997
+    },
+    "E14001378": {
+      "code": "E14001378",
+      "name": "Newcastle upon Tyne East and Wallsend",
+      "claimants": 11627
+    },
+    "E14001379": {
+      "code": "E14001379",
+      "name": "Newcastle upon Tyne North",
+      "claimants": 5928
+    },
+    "E14001382": {
+      "code": "E14001382",
+      "name": "Newton Aycliffe and Spennymoor",
+      "claimants": 10432
+    },
+    "E14001389": {
+      "code": "E14001389",
+      "name": "North Durham",
+      "claimants": 9462
+    },
+    "E14001397": {
+      "code": "E14001397",
+      "name": "North Northumberland",
+      "claimants": 6115
+    },
+    "E14001440": {
+      "code": "E14001440",
+      "name": "Redcar",
+      "claimants": 9852
+    },
+    "E14001492": {
+      "code": "E14001492",
+      "name": "South Shields",
+      "claimants": 9451
+    },
+    "E14001518": {
+      "code": "E14001518",
+      "name": "Stockton North",
+      "claimants": 10622
+    },
+    "E14001519": {
+      "code": "E14001519",
+      "name": "Stockton West",
+      "claimants": 4942
+    },
+    "E14001531": {
+      "code": "E14001531",
+      "name": "Sunderland Central",
+      "claimants": 10544
+    },
+    "E14001557": {
+      "code": "E14001557",
+      "name": "Tynemouth",
+      "claimants": 6802
+    },
+    "E14001567": {
+      "code": "E14001567",
+      "name": "Washington and Gateshead South",
+      "claimants": 10419
+    },
+    "E14001065": {
+      "code": "E14001065",
+      "name": "Altrincham and Sale West",
+      "claimants": 4308
+    },
+    "E14001070": {
+      "code": "E14001070",
+      "name": "Ashton-under-Lyne",
+      "claimants": 8943
+    },
+    "E14001076": {
+      "code": "E14001076",
+      "name": "Barrow and Furness",
+      "claimants": 7346
+    },
+    "E14001091": {
+      "code": "E14001091",
+      "name": "Birkenhead",
+      "claimants": 13586
+    },
+    "E14001102": {
+      "code": "E14001102",
+      "name": "Blackburn",
+      "claimants": 10648
+    },
+    "E14001103": {
+      "code": "E14001103",
+      "name": "Blackley and Middleton South",
+      "claimants": 11235
+    },
+    "E14001104": {
+      "code": "E14001104",
+      "name": "Blackpool North and Fleetwood",
+      "claimants": 9366
+    },
+    "E14001105": {
+      "code": "E14001105",
+      "name": "Blackpool South",
+      "claimants": 13974
+    },
+    "E14001110": {
+      "code": "E14001110",
+      "name": "Bolton North East",
+      "claimants": 9643
+    },
+    "E14001111": {
+      "code": "E14001111",
+      "name": "Bolton South and Walkden",
+      "claimants": 11963
+    },
+    "E14001112": {
+      "code": "E14001112",
+      "name": "Bolton West",
+      "claimants": 6603
+    },
+    "E14001113": {
+      "code": "E14001113",
+      "name": "Bootle",
+      "claimants": 13255
+    },
+    "E14001142": {
+      "code": "E14001142",
+      "name": "Burnley",
+      "claimants": 10323
+    },
+    "E14001144": {
+      "code": "E14001144",
+      "name": "Bury North",
+      "claimants": 7596
+    },
+    "E14001145": {
+      "code": "E14001145",
+      "name": "Bury South",
+      "claimants": 7653
+    },
+    "E14001152": {
+      "code": "E14001152",
+      "name": "Carlisle",
+      "claimants": 7566
+    },
+    "E14001158": {
+      "code": "E14001158",
+      "name": "Cheadle",
+      "claimants": 3979
+    },
+    "E14001163": {
+      "code": "E14001163",
+      "name": "Chester North and Neston",
+      "claimants": 5943
+    },
+    "E14001164": {
+      "code": "E14001164",
+      "name": "Chester South and Eddisbury",
+      "claimants": 4287
+    },
+    "E14001170": {
+      "code": "E14001170",
+      "name": "Chorley",
+      "claimants": 6959
+    },
+    "E14001178": {
+      "code": "E14001178",
+      "name": "Congleton",
+      "claimants": 4871
+    },
+    "E14001185": {
+      "code": "E14001185",
+      "name": "Crewe and Nantwich",
+      "claimants": 7561
+    },
+    "E14001222": {
+      "code": "E14001222",
+      "name": "Ellesmere Port and Bromborough",
+      "claimants": 8701
+    },
+    "E14001242": {
+      "code": "E14001242",
+      "name": "Fylde",
+      "claimants": 6455
+    },
+    "E14001251": {
+      "code": "E14001251",
+      "name": "Gorton and Denton",
+      "claimants": 10128
+    },
+    "E14001277": {
+      "code": "E14001277",
+      "name": "Hazel Grove",
+      "claimants": 5962
+    },
+    "E14001286": {
+      "code": "E14001286",
+      "name": "Heywood and Middleton North",
+      "claimants": 9009
+    },
+    "E14001299": {
+      "code": "E14001299",
+      "name": "Hyndburn",
+      "claimants": 8905
+    },
+    "E14001317": {
+      "code": "E14001317",
+      "name": "Knowsley",
+      "claimants": 13270
+    },
+    "E14001318": {
+      "code": "E14001318",
+      "name": "Lancaster and Wyre",
+      "claimants": 5841
+    },
+    "E14001329": {
+      "code": "E14001329",
+      "name": "Leigh and Atherton",
+      "claimants": 9775
+    },
+    "E14001337": {
+      "code": "E14001337",
+      "name": "Liverpool Garston",
+      "claimants": 9974
+    },
+    "E14001338": {
+      "code": "E14001338",
+      "name": "Liverpool Riverside",
+      "claimants": 14417
+    },
+    "E14001339": {
+      "code": "E14001339",
+      "name": "Liverpool Walton",
+      "claimants": 15311
+    },
+    "E14001340": {
+      "code": "E14001340",
+      "name": "Liverpool Wavertree",
+      "claimants": 9307
+    },
+    "E14001341": {
+      "code": "E14001341",
+      "name": "Liverpool West Derby",
+      "claimants": 12234
+    },
+    "E14001347": {
+      "code": "E14001347",
+      "name": "Macclesfield",
+      "claimants": 4585
+    },
+    "E14001350": {
+      "code": "E14001350",
+      "name": "Makerfield",
+      "claimants": 8427
+    },
+    "E14001352": {
+      "code": "E14001352",
+      "name": "Manchester Central",
+      "claimants": 9994
+    },
+    "E14001353": {
+      "code": "E14001353",
+      "name": "Manchester Rusholme",
+      "claimants": 8053
+    },
+    "E14001354": {
+      "code": "E14001354",
+      "name": "Manchester Withington",
+      "claimants": 5077
+    },
+    "E14001361": {
+      "code": "E14001361",
+      "name": "Mid Cheshire",
+      "claimants": 7399
+    },
+    "E14001372": {
+      "code": "E14001372",
+      "name": "Morecambe and Lunesdale",
+      "claimants": 6937
+    },
+    "E14001415": {
+      "code": "E14001415",
+      "name": "Oldham East and Saddleworth",
+      "claimants": 8824
+    },
+    "E14001416": {
+      "code": "E14001416",
+      "name": "Oldham West, Chadderton and Royton",
+      "claimants": 9587
+    },
+    "E14001422": {
+      "code": "E14001422",
+      "name": "Pendle and Clitheroe",
+      "claimants": 7669
+    },
+    "E14001424": {
+      "code": "E14001424",
+      "name": "Penrith and Solway",
+      "claimants": 5743
+    },
+    "E14001433": {
+      "code": "E14001433",
+      "name": "Preston",
+      "claimants": 10494
+    },
+    "E14001443": {
+      "code": "E14001443",
+      "name": "Ribble Valley",
+      "claimants": 5146
+    },
+    "E14001446": {
+      "code": "E14001446",
+      "name": "Rochdale",
+      "claimants": 8934
+    },
+    "E14001450": {
+      "code": "E14001450",
+      "name": "Rossendale and Darwen",
+      "claimants": 7891
+    },
+    "E14001455": {
+      "code": "E14001455",
+      "name": "Runcorn and Helsby",
+      "claimants": 9115
+    },
+    "E14001459": {
+      "code": "E14001459",
+      "name": "Salford",
+      "claimants": 10862
+    },
+    "E14001463": {
+      "code": "E14001463",
+      "name": "Sefton Central",
+      "claimants": 6328
+    },
+    "E14001491": {
+      "code": "E14001491",
+      "name": "South Ribble",
+      "claimants": 5758
+    },
+    "E14001504": {
+      "code": "E14001504",
+      "name": "Southport",
+      "claimants": 7744
+    },
+    "E14001509": {
+      "code": "E14001509",
+      "name": "St Helens North",
+      "claimants": 10253
+    },
+    "E14001510": {
+      "code": "E14001510",
+      "name": "St Helens South and Whiston",
+      "claimants": 10177
+    },
+    "E14001515": {
+      "code": "E14001515",
+      "name": "Stalybridge and Hyde",
+      "claimants": 8177
+    },
+    "E14001517": {
+      "code": "E14001517",
+      "name": "Stockport",
+      "claimants": 8764
+    },
+    "E14001528": {
+      "code": "E14001528",
+      "name": "Stretford and Urmston",
+      "claimants": 7599
+    },
+    "E14001539": {
+      "code": "E14001539",
+      "name": "Tatton",
+      "claimants": 4211
+    },
+    "E14001561": {
+      "code": "E14001561",
+      "name": "Wallasey",
+      "claimants": 11265
+    },
+    "E14001564": {
+      "code": "E14001564",
+      "name": "Warrington North",
+      "claimants": 7979
+    },
+    "E14001565": {
+      "code": "E14001565",
+      "name": "Warrington South",
+      "claimants": 5998
+    },
+    "E14001577": {
+      "code": "E14001577",
+      "name": "West Lancashire",
+      "claimants": 7667
+    },
+    "E14001580": {
+      "code": "E14001580",
+      "name": "Westmorland and Lonsdale",
+      "claimants": 3648
+    },
+    "E14001583": {
+      "code": "E14001583",
+      "name": "Whitehaven and Workington",
+      "claimants": 8572
+    },
+    "E14001584": {
+      "code": "E14001584",
+      "name": "Widnes and Halewood",
+      "claimants": 9682
+    },
+    "E14001585": {
+      "code": "E14001585",
+      "name": "Wigan",
+      "claimants": 9559
+    },
+    "E14001589": {
+      "code": "E14001589",
+      "name": "Wirral West",
+      "claimants": 5315
+    },
+    "E14001598": {
+      "code": "E14001598",
+      "name": "Worsley and Eccles",
+      "claimants": 8413
+    },
+    "E14001602": {
+      "code": "E14001602",
+      "name": "Wythenshawe and Sale East",
+      "claimants": 11109
+    },
+    "E14001074": {
+      "code": "E14001074",
+      "name": "Barnsley North",
+      "claimants": 11101
+    },
+    "E14001075": {
+      "code": "E14001075",
+      "name": "Barnsley South",
+      "claimants": 11989
+    },
+    "E14001087": {
+      "code": "E14001087",
+      "name": "Beverley and Holderness",
+      "claimants": 4911
+    },
+    "E14001118": {
+      "code": "E14001118",
+      "name": "Bradford East",
+      "claimants": 10768
+    },
+    "E14001119": {
+      "code": "E14001119",
+      "name": "Bradford South",
+      "claimants": 10700
+    },
+    "E14001120": {
+      "code": "E14001120",
+      "name": "Bradford West",
+      "claimants": 11401
+    },
+    "E14001127": {
+      "code": "E14001127",
+      "name": "Bridlington and The Wolds",
+      "claimants": 6791
+    },
+    "E14001128": {
+      "code": "E14001128",
+      "name": "Brigg and Immingham",
+      "claimants": 5944
+    },
+    "E14001147": {
+      "code": "E14001147",
+      "name": "Calder Valley",
+      "claimants": 6083
+    },
+    "E14001177": {
+      "code": "E14001177",
+      "name": "Colne Valley",
+      "claimants": 5431
+    },
+    "E14001196": {
+      "code": "E14001196",
+      "name": "Dewsbury and Batley",
+      "claimants": 8660
+    },
+    "E14001198": {
+      "code": "E14001198",
+      "name": "Doncaster Central",
+      "claimants": 9883
+    },
+    "E14001199": {
+      "code": "E14001199",
+      "name": "Doncaster East and the Isle of Axholme",
+      "claimants": 7292
+    },
+    "E14001200": {
+      "code": "E14001200",
+      "name": "Doncaster North",
+      "claimants": 9329
+    },
+    "E14001250": {
+      "code": "E14001250",
+      "name": "Goole and Pocklington",
+      "claimants": 4476
+    },
+    "E14001255": {
+      "code": "E14001255",
+      "name": "Great Grimsby and Cleethorpes",
+      "claimants": 10608
+    },
+    "E14001262": {
+      "code": "E14001262",
+      "name": "Halifax",
+      "claimants": 9563
+    },
+    "E14001269": {
+      "code": "E14001269",
+      "name": "Harrogate and Knaresborough",
+      "claimants": 4297
+    },
+    "E14001297": {
+      "code": "E14001297",
+      "name": "Huddersfield",
+      "claimants": 9902
+    },
+    "E14001308": {
+      "code": "E14001308",
+      "name": "Keighley and Ilkley",
+      "claimants": 6679
+    },
+    "E14001313": {
+      "code": "E14001313",
+      "name": "Kingston upon Hull East",
+      "claimants": 10154
+    },
+    "E14001314": {
+      "code": "E14001314",
+      "name": "Kingston upon Hull North and Cottingham",
+      "claimants": 8609
+    },
+    "E14001315": {
+      "code": "E14001315",
+      "name": "Kingston upon Hull West and Haltemprice",
+      "claimants": 7661
+    },
+    "E14001319": {
+      "code": "E14001319",
+      "name": "Leeds Central and Headingley",
+      "claimants": 5065
+    },
+    "E14001320": {
+      "code": "E14001320",
+      "name": "Leeds East",
+      "claimants": 9037
+    },
+    "E14001321": {
+      "code": "E14001321",
+      "name": "Leeds North East",
+      "claimants": 5439
+    },
+    "E14001322": {
+      "code": "E14001322",
+      "name": "Leeds North West",
+      "claimants": 4145
+    },
+    "E14001323": {
+      "code": "E14001323",
+      "name": "Leeds South",
+      "claimants": 10675
+    },
+    "E14001324": {
+      "code": "E14001324",
+      "name": "Leeds South West and Morley",
+      "claimants": 6573
+    },
+    "E14001325": {
+      "code": "E14001325",
+      "name": "Leeds West and Pudsey",
+      "claimants": 8045
+    },
+    "E14001383": {
+      "code": "E14001383",
+      "name": "Normanton and Hemsworth",
+      "claimants": 10263
+    },
+    "E14001418": {
+      "code": "E14001418",
+      "name": "Ossett and Denby Dale",
+      "claimants": 5292
+    },
+    "E14001423": {
+      "code": "E14001423",
+      "name": "Penistone and Stocksbridge",
+      "claimants": 6130
+    },
+    "E14001428": {
+      "code": "E14001428",
+      "name": "Pontefract, Castleford and Knottingley",
+      "claimants": 9289
+    },
+    "E14001436": {
+      "code": "E14001436",
+      "name": "Rawmarsh and Conisbrough",
+      "claimants": 9762
+    },
+    "E14001444": {
+      "code": "E14001444",
+      "name": "Richmond and Northallerton",
+      "claimants": 4586
+    },
+    "E14001451": {
+      "code": "E14001451",
+      "name": "Rother Valley",
+      "claimants": 7348
+    },
+    "E14001452": {
+      "code": "E14001452",
+      "name": "Rotherham",
+      "claimants": 12054
+    },
+    "E14001461": {
+      "code": "E14001461",
+      "name": "Scarborough and Whitby",
+      "claimants": 7563
+    },
+    "E14001462": {
+      "code": "E14001462",
+      "name": "Scunthorpe",
+      "claimants": 8453
+    },
+    "E14001464": {
+      "code": "E14001464",
+      "name": "Selby",
+      "claimants": 5595
+    },
+    "E14001466": {
+      "code": "E14001466",
+      "name": "Sheffield Brightside and Hillsborough",
+      "claimants": 12778
+    },
+    "E14001467": {
+      "code": "E14001467",
+      "name": "Sheffield Central",
+      "claimants": 4451
+    },
+    "E14001468": {
+      "code": "E14001468",
+      "name": "Sheffield Hallam",
+      "claimants": 3155
+    },
+    "E14001469": {
+      "code": "E14001469",
+      "name": "Sheffield Heeley",
+      "claimants": 10259
+    },
+    "E14001470": {
+      "code": "E14001470",
+      "name": "Sheffield South East",
+      "claimants": 10165
+    },
+    "E14001472": {
+      "code": "E14001472",
+      "name": "Shipley",
+      "claimants": 5787
+    },
+    "E14001475": {
+      "code": "E14001475",
+      "name": "Skipton and Ripon",
+      "claimants": 4077
+    },
+    "E14001506": {
+      "code": "E14001506",
+      "name": "Spen Valley",
+      "claimants": 6654
+    },
+    "E14001544": {
+      "code": "E14001544",
+      "name": "Thirsk and Malton",
+      "claimants": 4771
+    },
+    "E14001560": {
+      "code": "E14001560",
+      "name": "Wakefield and Rothwell",
+      "claimants": 8212
+    },
+    "E14001582": {
+      "code": "E14001582",
+      "name": "Wetherby and Easingwold",
+      "claimants": 3400
+    },
+    "E14001604": {
+      "code": "E14001604",
+      "name": "York Central",
+      "claimants": 5231
+    },
+    "E14001605": {
+      "code": "E14001605",
+      "name": "York Outer",
+      "claimants": 3260
+    },
+    "E14001066": {
+      "code": "E14001066",
+      "name": "Amber Valley",
+      "claimants": 7521
+    },
+    "E14001068": {
+      "code": "E14001068",
+      "name": "Ashfield",
+      "claimants": 8917
+    },
+    "E14001079": {
+      "code": "E14001079",
+      "name": "Bassetlaw",
+      "claimants": 8755
+    },
+    "E14001109": {
+      "code": "E14001109",
+      "name": "Bolsover",
+      "claimants": 10092
+    },
+    "E14001114": {
+      "code": "E14001114",
+      "name": "Boston and Skegness",
+      "claimants": 10357
+    },
+    "E14001140": {
+      "code": "E14001140",
+      "name": "Broxtowe",
+      "claimants": 5748
+    },
+    "E14001165": {
+      "code": "E14001165",
+      "name": "Chesterfield",
+      "claimants": 8885
+    },
+    "E14001179": {
+      "code": "E14001179",
+      "name": "Corby and East Northamptonshire",
+      "claimants": 7467
+    },
+    "E14001192": {
+      "code": "E14001192",
+      "name": "Daventry",
+      "claimants": 4882
+    },
+    "E14001193": {
+      "code": "E14001193",
+      "name": "Derby North",
+      "claimants": 7956
+    },
+    "E14001194": {
+      "code": "E14001194",
+      "name": "Derby South",
+      "claimants": 10880
+    },
+    "E14001195": {
+      "code": "E14001195",
+      "name": "Derbyshire Dales",
+      "claimants": 4328
+    },
+    "E14001228": {
+      "code": "E14001228",
+      "name": "Erewash",
+      "claimants": 7202
+    },
+    "E14001243": {
+      "code": "E14001243",
+      "name": "Gainsborough",
+      "claimants": 6930
+    },
+    "E14001245": {
+      "code": "E14001245",
+      "name": "Gedling",
+      "claimants": 6793
+    },
+    "E14001253": {
+      "code": "E14001253",
+      "name": "Grantham and Bourne",
+      "claimants": 5731
+    },
+    "E14001266": {
+      "code": "E14001266",
+      "name": "Harborough, Oadby and Wigston",
+      "claimants": 5022
+    },
+    "E14001287": {
+      "code": "E14001287",
+      "name": "High Peak",
+      "claimants": 5718
+    },
+    "E14001288": {
+      "code": "E14001288",
+      "name": "Hinckley and Bosworth",
+      "claimants": 5488
+    },
+    "E14001311": {
+      "code": "E14001311",
+      "name": "Kettering",
+      "claimants": 7032
+    },
+    "E14001326": {
+      "code": "E14001326",
+      "name": "Leicester East",
+      "claimants": 7634
+    },
+    "E14001327": {
+      "code": "E14001327",
+      "name": "Leicester South",
+      "claimants": 7455
+    },
+    "E14001328": {
+      "code": "E14001328",
+      "name": "Leicester West",
+      "claimants": 9762
+    },
+    "E14001336": {
+      "code": "E14001336",
+      "name": "Lincoln",
+      "claimants": 8261
+    },
+    "E14001342": {
+      "code": "E14001342",
+      "name": "Loughborough",
+      "claimants": 5265
+    },
+    "E14001343": {
+      "code": "E14001343",
+      "name": "Louth and Horncastle",
+      "claimants": 8234
+    },
+    "E14001355": {
+      "code": "E14001355",
+      "name": "Mansfield",
+      "claimants": 9740
+    },
+    "E14001357": {
+      "code": "E14001357",
+      "name": "Melton and Syston",
+      "claimants": 4833
+    },
+    "E14001362": {
+      "code": "E14001362",
+      "name": "Mid Derbyshire",
+      "claimants": 4545
+    },
+    "E14001364": {
+      "code": "E14001364",
+      "name": "Mid Leicestershire",
+      "claimants": 4587
+    },
+    "E14001375": {
+      "code": "E14001375",
+      "name": "Newark",
+      "claimants": 5896
+    },
+    "E14001391": {
+      "code": "E14001391",
+      "name": "North East Derbyshire",
+      "claimants": 7230
+    },
+    "E14001404": {
+      "code": "E14001404",
+      "name": "North West Leicestershire",
+      "claimants": 5595
+    },
+    "E14001406": {
+      "code": "E14001406",
+      "name": "Northampton North",
+      "claimants": 8186
+    },
+    "E14001407": {
+      "code": "E14001407",
+      "name": "Northampton South",
+      "claimants": 5624
+    },
+    "E14001410": {
+      "code": "E14001410",
+      "name": "Nottingham East",
+      "claimants": 9757
+    },
+    "E14001411": {
+      "code": "E14001411",
+      "name": "Nottingham North and Kimberley",
+      "claimants": 10880
+    },
+    "E14001412": {
+      "code": "E14001412",
+      "name": "Nottingham South",
+      "claimants": 8158
+    },
+    "E14001457": {
+      "code": "E14001457",
+      "name": "Rushcliffe",
+      "claimants": 4149
+    },
+    "E14001458": {
+      "code": "E14001458",
+      "name": "Rutland and Stamford",
+      "claimants": 3760
+    },
+    "E14001471": {
+      "code": "E14001471",
+      "name": "Sherwood Forest",
+      "claimants": 8179
+    },
+    "E14001476": {
+      "code": "E14001476",
+      "name": "Sleaford and North Hykeham",
+      "claimants": 5822
+    },
+    "E14001483": {
+      "code": "E14001483",
+      "name": "South Derbyshire",
+      "claimants": 6175
+    },
+    "E14001487": {
+      "code": "E14001487",
+      "name": "South Holland and The Deepings",
+      "claimants": 6818
+    },
+    "E14001488": {
+      "code": "E14001488",
+      "name": "South Leicestershire",
+      "claimants": 4644
+    },
+    "E14001490": {
+      "code": "E14001490",
+      "name": "South Northamptonshire",
+      "claimants": 3691
+    },
+    "E14001571": {
+      "code": "E14001571",
+      "name": "Wellingborough and Rushden",
+      "claimants": 7179
+    },
+    "E14001064": {
+      "code": "E14001064",
+      "name": "Aldridge-Brownhills",
+      "claimants": 5957
+    },
+    "E14001092": {
+      "code": "E14001092",
+      "name": "Birmingham Edgbaston",
+      "claimants": 7828
+    },
+    "E14001093": {
+      "code": "E14001093",
+      "name": "Birmingham Erdington",
+      "claimants": 12416
+    },
+    "E14001094": {
+      "code": "E14001094",
+      "name": "Birmingham Hall Green and Moseley",
+      "claimants": 8647
+    },
+    "E14001095": {
+      "code": "E14001095",
+      "name": "Birmingham Hodge Hill and Solihull North",
+      "claimants": 11785
+    },
+    "E14001096": {
+      "code": "E14001096",
+      "name": "Birmingham Ladywood",
+      "claimants": 11223
+    },
+    "E14001097": {
+      "code": "E14001097",
+      "name": "Birmingham Northfield",
+      "claimants": 10472
+    },
+    "E14001098": {
+      "code": "E14001098",
+      "name": "Birmingham Perry Barr",
+      "claimants": 9827
+    },
+    "E14001099": {
+      "code": "E14001099",
+      "name": "Birmingham Selly Oak",
+      "claimants": 7781
+    },
+    "E14001100": {
+      "code": "E14001100",
+      "name": "Birmingham Yardley",
+      "claimants": 9584
+    },
+    "E14001138": {
+      "code": "E14001138",
+      "name": "Bromsgrove",
+      "claimants": 4959
+    },
+    "E14001143": {
+      "code": "E14001143",
+      "name": "Burton and Uttoxeter",
+      "claimants": 6868
+    },
+    "E14001150": {
+      "code": "E14001150",
+      "name": "Cannock Chase",
+      "claimants": 7957
+    },
+    "E14001180": {
+      "code": "E14001180",
+      "name": "Coventry East",
+      "claimants": 10351
+    },
+    "E14001181": {
+      "code": "E14001181",
+      "name": "Coventry North West",
+      "claimants": 7202
+    },
+    "E14001182": {
+      "code": "E14001182",
+      "name": "Coventry South",
+      "claimants": 6798
+    },
+    "E14001203": {
+      "code": "E14001203",
+      "name": "Droitwich and Evesham",
+      "claimants": 5354
+    },
+    "E14001204": {
+      "code": "E14001204",
+      "name": "Dudley",
+      "claimants": 8500
+    },
+    "E14001261": {
+      "code": "E14001261",
+      "name": "Halesowen",
+      "claimants": 6642
+    },
+    "E14001281": {
+      "code": "E14001281",
+      "name": "Hereford and South Herefordshire",
+      "claimants": 5670
+    },
+    "E14001309": {
+      "code": "E14001309",
+      "name": "Kenilworth and Southam",
+      "claimants": 3378
+    },
+    "E14001316": {
+      "code": "E14001316",
+      "name": "Kingswinford and South Staffordshire",
+      "claimants": 4560
+    },
+    "E14001335": {
+      "code": "E14001335",
+      "name": "Lichfield",
+      "claimants": 5240
+    },
+    "E14001358": {
+      "code": "E14001358",
+      "name": "Meriden and Solihull East",
+      "claimants": 6551
+    },
+    "E14001380": {
+      "code": "E14001380",
+      "name": "Newcastle-under-Lyme",
+      "claimants": 6639
+    },
+    "E14001395": {
+      "code": "E14001395",
+      "name": "North Herefordshire",
+      "claimants": 4691
+    },
+    "E14001398": {
+      "code": "E14001398",
+      "name": "North Shropshire",
+      "claimants": 6016
+    },
+    "E14001400": {
+      "code": "E14001400",
+      "name": "North Warwickshire and Bedworth",
+      "claimants": 6970
+    },
+    "E14001413": {
+      "code": "E14001413",
+      "name": "Nuneaton",
+      "claimants": 7451
+    },
+    "E14001441": {
+      "code": "E14001441",
+      "name": "Redditch",
+      "claimants": 6246
+    },
+    "E14001453": {
+      "code": "E14001453",
+      "name": "Rugby",
+      "claimants": 5830
+    },
+    "E14001473": {
+      "code": "E14001473",
+      "name": "Shrewsbury",
+      "claimants": 5485
+    },
+    "E14001478": {
+      "code": "E14001478",
+      "name": "Smethwick",
+      "claimants": 8516
+    },
+    "E14001479": {
+      "code": "E14001479",
+      "name": "Solihull West and Shirley",
+      "claimants": 4405
+    },
+    "E14001493": {
+      "code": "E14001493",
+      "name": "South Shropshire",
+      "claimants": 4778
+    },
+    "E14001513": {
+      "code": "E14001513",
+      "name": "Stafford",
+      "claimants": 5584
+    },
+    "E14001514": {
+      "code": "E14001514",
+      "name": "Staffordshire Moorlands",
+      "claimants": 4881
+    },
+    "E14001520": {
+      "code": "E14001520",
+      "name": "Stoke-on-Trent Central",
+      "claimants": 10136
+    },
+    "E14001521": {
+      "code": "E14001521",
+      "name": "Stoke-on-Trent North",
+      "claimants": 8559
+    },
+    "E14001522": {
+      "code": "E14001522",
+      "name": "Stoke-on-Trent South",
+      "claimants": 6893
+    },
+    "E14001523": {
+      "code": "E14001523",
+      "name": "Stone, Great Wyrley and Penkridge",
+      "claimants": 5315
+    },
+    "E14001524": {
+      "code": "E14001524",
+      "name": "Stourbridge",
+      "claimants": 6378
+    },
+    "E14001526": {
+      "code": "E14001526",
+      "name": "Stratford-on-Avon",
+      "claimants": 4122
+    },
+    "E14001535": {
+      "code": "E14001535",
+      "name": "Sutton Coldfield",
+      "claimants": 4447
+    },
+    "E14001538": {
+      "code": "E14001538",
+      "name": "Tamworth",
+      "claimants": 6595
+    },
+    "E14001541": {
+      "code": "E14001541",
+      "name": "Telford",
+      "claimants": 9447
+    },
+    "E14001543": {
+      "code": "E14001543",
+      "name": "The Wrekin",
+      "claimants": 7115
+    },
+    "E14001547": {
+      "code": "E14001547",
+      "name": "Tipton and Wednesbury",
+      "claimants": 11094
+    },
+    "E14001562": {
+      "code": "E14001562",
+      "name": "Walsall and Bloxwich",
+      "claimants": 11254
+    },
+    "E14001566": {
+      "code": "E14001566",
+      "name": "Warwick and Leamington",
+      "claimants": 4870
+    },
+    "E14001574": {
+      "code": "E14001574",
+      "name": "West Bromwich",
+      "claimants": 8257
+    },
+    "E14001579": {
+      "code": "E14001579",
+      "name": "West Worcestershire",
+      "claimants": 5050
+    },
+    "E14001594": {
+      "code": "E14001594",
+      "name": "Wolverhampton North East",
+      "claimants": 8830
+    },
+    "E14001595": {
+      "code": "E14001595",
+      "name": "Wolverhampton South East",
+      "claimants": 11228
+    },
+    "E14001596": {
+      "code": "E14001596",
+      "name": "Wolverhampton West",
+      "claimants": 7566
+    },
+    "E14001597": {
+      "code": "E14001597",
+      "name": "Worcester",
+      "claimants": 6007
+    },
+    "E14001601": {
+      "code": "E14001601",
+      "name": "Wyre Forest",
+      "claimants": 7268
+    },
+    "E14001077": {
+      "code": "E14001077",
+      "name": "Basildon and Billericay",
+      "claimants": 6868
+    },
+    "E14001084": {
+      "code": "E14001084",
+      "name": "Bedford",
+      "claimants": 7127
+    },
+    "E14001121": {
+      "code": "E14001121",
+      "name": "Braintree",
+      "claimants": 5213
+    },
+    "E14001125": {
+      "code": "E14001125",
+      "name": "Brentwood and Ongar",
+      "claimants": 3942
+    },
+    "E14001136": {
+      "code": "E14001136",
+      "name": "Broadland and Fakenham",
+      "claimants": 4954
+    },
+    "E14001139": {
+      "code": "E14001139",
+      "name": "Broxbourne",
+      "claimants": 6203
+    },
+    "E14001146": {
+      "code": "E14001146",
+      "name": "Bury St Edmunds and Stowmarket",
+      "claimants": 5409
+    },
+    "E14001149": {
+      "code": "E14001149",
+      "name": "Cambridge",
+      "claimants": 4554
+    },
+    "E14001154": {
+      "code": "E14001154",
+      "name": "Castle Point",
+      "claimants": 5218
+    },
+    "E14001156": {
+      "code": "E14001156",
+      "name": "Central Suffolk and North Ipswich",
+      "claimants": 4566
+    },
+    "E14001159": {
+      "code": "E14001159",
+      "name": "Chelmsford",
+      "claimants": 5085
+    },
+    "E14001174": {
+      "code": "E14001174",
+      "name": "Clacton",
+      "claimants": 10209
+    },
+    "E14001176": {
+      "code": "E14001176",
+      "name": "Colchester",
+      "claimants": 6862
+    },
+    "E14001206": {
+      "code": "E14001206",
+      "name": "Dunstable and Leighton Buzzard",
+      "claimants": 5589
+    },
+    "E14001224": {
+      "code": "E14001224",
+      "name": "Ely and East Cambridgeshire",
+      "claimants": 4800
+    },
+    "E14001226": {
+      "code": "E14001226",
+      "name": "Epping Forest",
+      "claimants": 4767
+    },
+    "E14001256": {
+      "code": "E14001256",
+      "name": "Great Yarmouth",
+      "claimants": 9769
+    },
+    "E14001267": {
+      "code": "E14001267",
+      "name": "Harlow",
+      "claimants": 6781
+    },
+    "E14001268": {
+      "code": "E14001268",
+      "name": "Harpenden and Berkhamsted",
+      "claimants": 2557
+    },
+    "E14001273": {
+      "code": "E14001273",
+      "name": "Harwich and North Essex",
+      "claimants": 5875
+    },
+    "E14001278": {
+      "code": "E14001278",
+      "name": "Hemel Hempstead",
+      "claimants": 5889
+    },
+    "E14001283": {
+      "code": "E14001283",
+      "name": "Hertford and Stortford",
+      "claimants": 3772
+    },
+    "E14001284": {
+      "code": "E14001284",
+      "name": "Hertsmere",
+      "claimants": 5225
+    },
+    "E14001289": {
+      "code": "E14001289",
+      "name": "Hitchin",
+      "claimants": 3990
+    },
+    "E14001298": {
+      "code": "E14001298",
+      "name": "Huntingdon",
+      "claimants": 4608
+    },
+    "E14001302": {
+      "code": "E14001302",
+      "name": "Ipswich",
+      "claimants": 8162
+    },
+    "E14001344": {
+      "code": "E14001344",
+      "name": "Lowestoft",
+      "claimants": 8577
+    },
+    "E14001345": {
+      "code": "E14001345",
+      "name": "Luton North",
+      "claimants": 6658
+    },
+    "E14001346": {
+      "code": "E14001346",
+      "name": "Luton South and South Bedfordshire",
+      "claimants": 7304
+    },
+    "E14001351": {
+      "code": "E14001351",
+      "name": "Maldon",
+      "claimants": 4641
+    },
+    "E14001359": {
+      "code": "E14001359",
+      "name": "Mid Bedfordshire",
+      "claimants": 3970
+    },
+    "E14001365": {
+      "code": "E14001365",
+      "name": "Mid Norfolk",
+      "claimants": 5401
+    },
+    "E14001384": {
+      "code": "E14001384",
+      "name": "North Bedfordshire",
+      "claimants": 4562
+    },
+    "E14001390": {
+      "code": "E14001390",
+      "name": "North East Cambridgeshire",
+      "claimants": 7379
+    },
+    "E14001393": {
+      "code": "E14001393",
+      "name": "North East Hertfordshire",
+      "claimants": 4526
+    },
+    "E14001396": {
+      "code": "E14001396",
+      "name": "North Norfolk",
+      "claimants": 5465
+    },
+    "E14001401": {
+      "code": "E14001401",
+      "name": "North West Cambridgeshire",
+      "claimants": 6437
+    },
+    "E14001402": {
+      "code": "E14001402",
+      "name": "North West Essex",
+      "claimants": 3953
+    },
+    "E14001405": {
+      "code": "E14001405",
+      "name": "North West Norfolk",
+      "claimants": 6656
+    },
+    "E14001408": {
+      "code": "E14001408",
+      "name": "Norwich North",
+      "claimants": 6730
+    },
+    "E14001409": {
+      "code": "E14001409",
+      "name": "Norwich South",
+      "claimants": 7332
+    },
+    "E14001425": {
+      "code": "E14001425",
+      "name": "Peterborough",
+      "claimants": 9586
+    },
+    "E14001437": {
+      "code": "E14001437",
+      "name": "Rayleigh and Wickford",
+      "claimants": 3964
+    },
+    "E14001480": {
+      "code": "E14001480",
+      "name": "South Basildon and East Thurrock",
+      "claimants": 6571
+    },
+    "E14001481": {
+      "code": "E14001481",
+      "name": "South Cambridgeshire",
+      "claimants": 3753
+    },
+    "E14001489": {
+      "code": "E14001489",
+      "name": "South Norfolk",
+      "claimants": 4417
+    },
+    "E14001494": {
+      "code": "E14001494",
+      "name": "South Suffolk",
+      "claimants": 4340
+    },
+    "E14001496": {
+      "code": "E14001496",
+      "name": "South West Hertfordshire",
+      "claimants": 3871
+    },
+    "E14001497": {
+      "code": "E14001497",
+      "name": "South West Norfolk",
+      "claimants": 6580
+    },
+    "E14001501": {
+      "code": "E14001501",
+      "name": "Southend East and Rochford",
+      "claimants": 7853
+    },
+    "E14001502": {
+      "code": "E14001502",
+      "name": "Southend West and Leigh",
+      "claimants": 5658
+    },
+    "E14001507": {
+      "code": "E14001507",
+      "name": "St Albans",
+      "claimants": 3785
+    },
+    "E14001512": {
+      "code": "E14001512",
+      "name": "St Neots and Mid Cambridgeshire",
+      "claimants": 4390
+    },
+    "E14001516": {
+      "code": "E14001516",
+      "name": "Stevenage",
+      "claimants": 6042
+    },
+    "E14001530": {
+      "code": "E14001530",
+      "name": "Suffolk Coastal",
+      "claimants": 5210
+    },
+    "E14001546": {
+      "code": "E14001546",
+      "name": "Thurrock",
+      "claimants": 6705
+    },
+    "E14001568": {
+      "code": "E14001568",
+      "name": "Watford",
+      "claimants": 5150
+    },
+    "E14001569": {
+      "code": "E14001569",
+      "name": "Waveney Valley",
+      "claimants": 4727
+    },
+    "E14001573": {
+      "code": "E14001573",
+      "name": "Welwyn Hatfield",
+      "claimants": 5890
+    },
+    "E14001578": {
+      "code": "E14001578",
+      "name": "West Suffolk",
+      "claimants": 5753
+    },
+    "E14001590": {
+      "code": "E14001590",
+      "name": "Witham",
+      "claimants": 5460
+    },
+    "E14001073": {
+      "code": "E14001073",
+      "name": "Barking",
+      "claimants": 8497
+    },
+    "E14001081": {
+      "code": "E14001081",
+      "name": "Battersea",
+      "claimants": 4303
+    },
+    "E14001083": {
+      "code": "E14001083",
+      "name": "Beckenham and Penge",
+      "claimants": 4270
+    },
+    "E14001085": {
+      "code": "E14001085",
+      "name": "Bermondsey and Old Southwark",
+      "claimants": 6166
+    },
+    "E14001086": {
+      "code": "E14001086",
+      "name": "Bethnal Green and Stepney",
+      "claimants": 8500
+    },
+    "E14001089": {
+      "code": "E14001089",
+      "name": "Bexleyheath and Crayford",
+      "claimants": 5542
+    },
+    "E14001122": {
+      "code": "E14001122",
+      "name": "Brent East",
+      "claimants": 9326
+    },
+    "E14001123": {
+      "code": "E14001123",
+      "name": "Brent West",
+      "claimants": 5801
+    },
+    "E14001124": {
+      "code": "E14001124",
+      "name": "Brentford and Isleworth",
+      "claimants": 5835
+    },
+    "E14001137": {
+      "code": "E14001137",
+      "name": "Bromley and Biggin Hill",
+      "claimants": 3808
+    },
+    "E14001153": {
+      "code": "E14001153",
+      "name": "Carshalton and Wallington",
+      "claimants": 5746
+    },
+    "E14001160": {
+      "code": "E14001160",
+      "name": "Chelsea and Fulham",
+      "claimants": 5358
+    },
+    "E14001167": {
+      "code": "E14001167",
+      "name": "Chingford and Woodford Green",
+      "claimants": 5423
+    },
+    "E14001169": {
+      "code": "E14001169",
+      "name": "Chipping Barnet",
+      "claimants": 5160
+    },
+    "E14001172": {
+      "code": "E14001172",
+      "name": "Cities of London and Westminster",
+      "claimants": 5622
+    },
+    "E14001175": {
+      "code": "E14001175",
+      "name": "Clapham and Brixton Hill",
+      "claimants": 5606
+    },
+    "E14001186": {
+      "code": "E14001186",
+      "name": "Croydon East",
+      "claimants": 6967
+    },
+    "E14001187": {
+      "code": "E14001187",
+      "name": "Croydon South",
+      "claimants": 4235
+    },
+    "E14001188": {
+      "code": "E14001188",
+      "name": "Croydon West",
+      "claimants": 7788
+    },
+    "E14001189": {
+      "code": "E14001189",
+      "name": "Dagenham and Rainham",
+      "claimants": 7409
+    },
+    "E14001205": {
+      "code": "E14001205",
+      "name": "Dulwich and West Norwood",
+      "claimants": 6005
+    },
+    "E14001207": {
+      "code": "E14001207",
+      "name": "Ealing Central and Acton",
+      "claimants": 6334
+    },
+    "E14001208": {
+      "code": "E14001208",
+      "name": "Ealing North",
+      "claimants": 6785
+    },
+    "E14001209": {
+      "code": "E14001209",
+      "name": "Ealing Southall",
+      "claimants": 5987
+    },
+    "E14001213": {
+      "code": "E14001213",
+      "name": "East Ham",
+      "claimants": 6863
+    },
+    "E14001221": {
+      "code": "E14001221",
+      "name": "Edmonton and Winchmore Hill",
+      "claimants": 8994
+    },
+    "E14001223": {
+      "code": "E14001223",
+      "name": "Eltham and Chislehurst",
+      "claimants": 6721
+    },
+    "E14001225": {
+      "code": "E14001225",
+      "name": "Enfield North",
+      "claimants": 9659
+    },
+    "E14001229": {
+      "code": "E14001229",
+      "name": "Erith and Thamesmead",
+      "claimants": 9093
+    },
+    "E14001236": {
+      "code": "E14001236",
+      "name": "Feltham and Heston",
+      "claimants": 7187
+    },
+    "E14001238": {
+      "code": "E14001238",
+      "name": "Finchley and Golders Green",
+      "claimants": 5801
+    },
+    "E14001257": {
+      "code": "E14001257",
+      "name": "Greenwich and Woolwich",
+      "claimants": 6274
+    },
+    "E14001259": {
+      "code": "E14001259",
+      "name": "Hackney North and Stoke Newington",
+      "claimants": 8009
+    },
+    "E14001260": {
+      "code": "E14001260",
+      "name": "Hackney South and Shoreditch",
+      "claimants": 8477
+    },
+    "E14001264": {
+      "code": "E14001264",
+      "name": "Hammersmith and Chiswick",
+      "claimants": 5417
+    },
+    "E14001265": {
+      "code": "E14001265",
+      "name": "Hampstead and Highgate",
+      "claimants": 6004
+    },
+    "E14001270": {
+      "code": "E14001270",
+      "name": "Harrow East",
+      "claimants": 4777
+    },
+    "E14001271": {
+      "code": "E14001271",
+      "name": "Harrow West",
+      "claimants": 5505
+    },
+    "E14001276": {
+      "code": "E14001276",
+      "name": "Hayes and Harlington",
+      "claimants": 6830
+    },
+    "E14001279": {
+      "code": "E14001279",
+      "name": "Hendon",
+      "claimants": 6971
+    },
+    "E14001290": {
+      "code": "E14001290",
+      "name": "Holborn and St Pancras",
+      "claimants": 8308
+    },
+    "E14001292": {
+      "code": "E14001292",
+      "name": "Hornchurch and Upminster",
+      "claimants": 5516
+    },
+    "E14001293": {
+      "code": "E14001293",
+      "name": "Hornsey and Friern Barnet",
+      "claimants": 4733
+    },
+    "E14001300": {
+      "code": "E14001300",
+      "name": "Ilford North",
+      "claimants": 5977
+    },
+    "E14001301": {
+      "code": "E14001301",
+      "name": "Ilford South",
+      "claimants": 6660
+    },
+    "E14001305": {
+      "code": "E14001305",
+      "name": "Islington North",
+      "claimants": 8220
+    },
+    "E14001306": {
+      "code": "E14001306",
+      "name": "Islington South and Finsbury",
+      "claimants": 8863
+    },
+    "E14001310": {
+      "code": "E14001310",
+      "name": "Kensington and Bayswater",
+      "claimants": 6292
+    },
+    "E14001312": {
+      "code": "E14001312",
+      "name": "Kingston and Surbiton",
+      "claimants": 4342
+    },
+    "E14001331": {
+      "code": "E14001331",
+      "name": "Lewisham East",
+      "claimants": 8446
+    },
+    "E14001332": {
+      "code": "E14001332",
+      "name": "Lewisham North",
+      "claimants": 6529
+    },
+    "E14001333": {
+      "code": "E14001333",
+      "name": "Lewisham West and East Dulwich",
+      "claimants": 5102
+    },
+    "E14001334": {
+      "code": "E14001334",
+      "name": "Leyton and Wanstead",
+      "claimants": 5363
+    },
+    "E14001371": {
+      "code": "E14001371",
+      "name": "Mitcham and Morden",
+      "claimants": 6056
+    },
+    "E14001414": {
+      "code": "E14001414",
+      "name": "Old Bexley and Sidcup",
+      "claimants": 4185
+    },
+    "E14001417": {
+      "code": "E14001417",
+      "name": "Orpington",
+      "claimants": 4939
+    },
+    "E14001421": {
+      "code": "E14001421",
+      "name": "Peckham",
+      "claimants": 7115
+    },
+    "E14001430": {
+      "code": "E14001430",
+      "name": "Poplar and Limehouse",
+      "claimants": 7775
+    },
+    "E14001434": {
+      "code": "E14001434",
+      "name": "Putney",
+      "claimants": 4517
+    },
+    "E14001435": {
+      "code": "E14001435",
+      "name": "Queen's Park and Maida Vale",
+      "claimants": 9426
+    },
+    "E14001445": {
+      "code": "E14001445",
+      "name": "Richmond Park",
+      "claimants": 3277
+    },
+    "E14001448": {
+      "code": "E14001448",
+      "name": "Romford",
+      "claimants": 5402
+    },
+    "E14001454": {
+      "code": "E14001454",
+      "name": "Ruislip, Northwood and Pinner",
+      "claimants": 3416
+    },
+    "E14001503": {
+      "code": "E14001503",
+      "name": "Southgate and Wood Green",
+      "claimants": 7758
+    },
+    "E14001525": {
+      "code": "E14001525",
+      "name": "Stratford and Bow",
+      "claimants": 6989
+    },
+    "E14001527": {
+      "code": "E14001527",
+      "name": "Streatham and Croydon North",
+      "claimants": 6212
+    },
+    "E14001534": {
+      "code": "E14001534",
+      "name": "Sutton and Cheam",
+      "claimants": 3739
+    },
+    "E14001550": {
+      "code": "E14001550",
+      "name": "Tooting",
+      "claimants": 4660
+    },
+    "E14001553": {
+      "code": "E14001553",
+      "name": "Tottenham",
+      "claimants": 10130
+    },
+    "E14001556": {
+      "code": "E14001556",
+      "name": "Twickenham",
+      "claimants": 3462
+    },
+    "E14001558": {
+      "code": "E14001558",
+      "name": "Uxbridge and South Ruislip",
+      "claimants": 5438
+    },
+    "E14001559": {
+      "code": "E14001559",
+      "name": "Vauxhall and Camberwell Green",
+      "claimants": 6410
+    },
+    "E14001563": {
+      "code": "E14001563",
+      "name": "Walthamstow",
+      "claimants": 6764
+    },
+    "E14001576": {
+      "code": "E14001576",
+      "name": "West Ham and Beckton",
+      "claimants": 8652
+    },
+    "E14001586": {
+      "code": "E14001586",
+      "name": "Wimbledon",
+      "claimants": 3087
+    },
+    "E14001063": {
+      "code": "E14001063",
+      "name": "Aldershot",
+      "claimants": 4919
+    },
+    "E14001067": {
+      "code": "E14001067",
+      "name": "Arundel and South Downs",
+      "claimants": 3440
+    },
+    "E14001069": {
+      "code": "E14001069",
+      "name": "Ashford",
+      "claimants": 6530
+    },
+    "E14001071": {
+      "code": "E14001071",
+      "name": "Aylesbury",
+      "claimants": 5073
+    },
+    "E14001072": {
+      "code": "E14001072",
+      "name": "Banbury",
+      "claimants": 4446
+    },
+    "E14001078": {
+      "code": "E14001078",
+      "name": "Basingstoke",
+      "claimants": 5380
+    },
+    "E14001082": {
+      "code": "E14001082",
+      "name": "Beaconsfield",
+      "claimants": 3063
+    },
+    "E14001088": {
+      "code": "E14001088",
+      "name": "Bexhill and Battle",
+      "claimants": 5496
+    },
+    "E14001090": {
+      "code": "E14001090",
+      "name": "Bicester and Woodstock",
+      "claimants": 3920
+    },
+    "E14001108": {
+      "code": "E14001108",
+      "name": "Bognor Regis and Littlehampton",
+      "claimants": 6508
+    },
+    "E14001117": {
+      "code": "E14001117",
+      "name": "Bracknell",
+      "claimants": 4191
+    },
+    "E14001129": {
+      "code": "E14001129",
+      "name": "Brighton Kemptown and Peacehaven",
+      "claimants": 7942
+    },
+    "E14001130": {
+      "code": "E14001130",
+      "name": "Brighton Pavilion",
+      "claimants": 5536
+    },
+    "E14001141": {
+      "code": "E14001141",
+      "name": "Buckingham and Bletchley",
+      "claimants": 5100
+    },
+    "E14001151": {
+      "code": "E14001151",
+      "name": "Canterbury",
+      "claimants": 6399
+    },
+    "E14001157": {
+      "code": "E14001157",
+      "name": "Chatham and Aylesford",
+      "claimants": 7498
+    },
+    "E14001162": {
+      "code": "E14001162",
+      "name": "Chesham and Amersham",
+      "claimants": 2780
+    },
+    "E14001166": {
+      "code": "E14001166",
+      "name": "Chichester",
+      "claimants": 5130
+    },
+    "E14001184": {
+      "code": "E14001184",
+      "name": "Crawley",
+      "claimants": 6363
+    },
+    "E14001191": {
+      "code": "E14001191",
+      "name": "Dartford",
+      "claimants": 5549
+    },
+    "E14001197": {
+      "code": "E14001197",
+      "name": "Didcot and Wantage",
+      "claimants": 3890
+    },
+    "E14001201": {
+      "code": "E14001201",
+      "name": "Dorking and Horley",
+      "claimants": 3480
+    },
+    "E14001202": {
+      "code": "E14001202",
+      "name": "Dover and Deal",
+      "claimants": 8458
+    },
+    "E14001210": {
+      "code": "E14001210",
+      "name": "Earley and Woodley",
+      "claimants": 3917
+    },
+    "E14001212": {
+      "code": "E14001212",
+      "name": "East Grinstead and Uckfield",
+      "claimants": 3395
+    },
+    "E14001214": {
+      "code": "E14001214",
+      "name": "East Hampshire",
+      "claimants": 3051
+    },
+    "E14001215": {
+      "code": "E14001215",
+      "name": "East Surrey",
+      "claimants": 3994
+    },
+    "E14001216": {
+      "code": "E14001216",
+      "name": "East Thanet",
+      "claimants": 10093
+    },
+    "E14001218": {
+      "code": "E14001218",
+      "name": "East Worthing and Shoreham",
+      "claimants": 5250
+    },
+    "E14001219": {
+      "code": "E14001219",
+      "name": "Eastbourne",
+      "claimants": 7367
+    },
+    "E14001220": {
+      "code": "E14001220",
+      "name": "Eastleigh",
+      "claimants": 4057
+    },
+    "E14001227": {
+      "code": "E14001227",
+      "name": "Epsom and Ewell",
+      "claimants": 3686
+    },
+    "E14001230": {
+      "code": "E14001230",
+      "name": "Esher and Walton",
+      "claimants": 3082
+    },
+    "E14001233": {
+      "code": "E14001233",
+      "name": "Fareham and Waterlooville",
+      "claimants": 4898
+    },
+    "E14001234": {
+      "code": "E14001234",
+      "name": "Farnham and Bordon",
+      "claimants": 3163
+    },
+    "E14001235": {
+      "code": "E14001235",
+      "name": "Faversham and Mid Kent",
+      "claimants": 6082
+    },
+    "E14001239": {
+      "code": "E14001239",
+      "name": "Folkestone and Hythe",
+      "claimants": 7593
+    },
+    "E14001246": {
+      "code": "E14001246",
+      "name": "Gillingham and Rainham",
+      "claimants": 6597
+    },
+    "E14001249": {
+      "code": "E14001249",
+      "name": "Godalming and Ash",
+      "claimants": 3300
+    },
+    "E14001252": {
+      "code": "E14001252",
+      "name": "Gosport",
+      "claimants": 5868
+    },
+    "E14001254": {
+      "code": "E14001254",
+      "name": "Gravesham",
+      "claimants": 6657
+    },
+    "E14001258": {
+      "code": "E14001258",
+      "name": "Guildford",
+      "claimants": 3150
+    },
+    "E14001263": {
+      "code": "E14001263",
+      "name": "Hamble Valley",
+      "claimants": 4092
+    },
+    "E14001274": {
+      "code": "E14001274",
+      "name": "Hastings and Rye",
+      "claimants": 8936
+    },
+    "E14001275": {
+      "code": "E14001275",
+      "name": "Havant",
+      "claimants": 6625
+    },
+    "E14001280": {
+      "code": "E14001280",
+      "name": "Henley and Thame",
+      "claimants": 2659
+    },
+    "E14001282": {
+      "code": "E14001282",
+      "name": "Herne Bay and Sandwich",
+      "claimants": 7622
+    },
+    "E14001294": {
+      "code": "E14001294",
+      "name": "Horsham",
+      "claimants": 3617
+    },
+    "E14001296": {
+      "code": "E14001296",
+      "name": "Hove and Portslade",
+      "claimants": 6174
+    },
+    "E14001303": {
+      "code": "E14001303",
+      "name": "Isle of Wight East",
+      "claimants": 5753
+    },
+    "E14001304": {
+      "code": "E14001304",
+      "name": "Isle of Wight West",
+      "claimants": 5202
+    },
+    "E14001330": {
+      "code": "E14001330",
+      "name": "Lewes",
+      "claimants": 5339
+    },
+    "E14001348": {
+      "code": "E14001348",
+      "name": "Maidenhead",
+      "claimants": 3102
+    },
+    "E14001349": {
+      "code": "E14001349",
+      "name": "Maidstone and Malling",
+      "claimants": 5486
+    },
+    "E14001360": {
+      "code": "E14001360",
+      "name": "Mid Buckinghamshire",
+      "claimants": 2796
+    },
+    "E14001366": {
+      "code": "E14001366",
+      "name": "Mid Sussex",
+      "claimants": 3473
+    },
+    "E14001369": {
+      "code": "E14001369",
+      "name": "Milton Keynes Central",
+      "claimants": 7097
+    },
+    "E14001370": {
+      "code": "E14001370",
+      "name": "Milton Keynes North",
+      "claimants": 5047
+    },
+    "E14001373": {
+      "code": "E14001373",
+      "name": "New Forest East",
+      "claimants": 4442
+    },
+    "E14001374": {
+      "code": "E14001374",
+      "name": "New Forest West",
+      "claimants": 3859
+    },
+    "E14001376": {
+      "code": "E14001376",
+      "name": "Newbury",
+      "claimants": 3886
+    },
+    "E14001392": {
+      "code": "E14001392",
+      "name": "North East Hampshire",
+      "claimants": 2859
+    },
+    "E14001403": {
+      "code": "E14001403",
+      "name": "North West Hampshire",
+      "claimants": 5044
+    },
+    "E14001419": {
+      "code": "E14001419",
+      "name": "Oxford East",
+      "claimants": 5334
+    },
+    "E14001420": {
+      "code": "E14001420",
+      "name": "Oxford West and Abingdon",
+      "claimants": 2925
+    },
+    "E14001431": {
+      "code": "E14001431",
+      "name": "Portsmouth North",
+      "claimants": 6258
+    },
+    "E14001432": {
+      "code": "E14001432",
+      "name": "Portsmouth South",
+      "claimants": 6855
+    },
+    "E14001438": {
+      "code": "E14001438",
+      "name": "Reading Central",
+      "claimants": 4334
+    },
+    "E14001439": {
+      "code": "E14001439",
+      "name": "Reading West and Mid Berkshire",
+      "claimants": 3773
+    },
+    "E14001442": {
+      "code": "E14001442",
+      "name": "Reigate",
+      "claimants": 3915
+    },
+    "E14001447": {
+      "code": "E14001447",
+      "name": "Rochester and Strood",
+      "claimants": 6899
+    },
+    "E14001449": {
+      "code": "E14001449",
+      "name": "Romsey and Southampton North",
+      "claimants": 3868
+    },
+    "E14001456": {
+      "code": "E14001456",
+      "name": "Runnymede and Weybridge",
+      "claimants": 3748
+    },
+    "E14001465": {
+      "code": "E14001465",
+      "name": "Sevenoaks",
+      "claimants": 4330
+    },
+    "E14001474": {
+      "code": "E14001474",
+      "name": "Sittingbourne and Sheppey",
+      "claimants": 9714
+    },
+    "E14001477": {
+      "code": "E14001477",
+      "name": "Slough",
+      "claimants": 6090
+    },
+    "E14001499": {
+      "code": "E14001499",
+      "name": "Southampton Itchen",
+      "claimants": 7524
+    },
+    "E14001500": {
+      "code": "E14001500",
+      "name": "Southampton Test",
+      "claimants": 7505
+    },
+    "E14001505": {
+      "code": "E14001505",
+      "name": "Spelthorne",
+      "claimants": 4726
+    },
+    "E14001532": {
+      "code": "E14001532",
+      "name": "Surrey Heath",
+      "claimants": 3116
+    },
+    "E14001533": {
+      "code": "E14001533",
+      "name": "Sussex Weald",
+      "claimants": 3851
+    },
+    "E14001549": {
+      "code": "E14001549",
+      "name": "Tonbridge",
+      "claimants": 4090
+    },
+    "E14001555": {
+      "code": "E14001555",
+      "name": "Tunbridge Wells",
+      "claimants": 4303
+    },
+    "E14001570": {
+      "code": "E14001570",
+      "name": "Weald of Kent",
+      "claimants": 4762
+    },
+    "E14001587": {
+      "code": "E14001587",
+      "name": "Winchester",
+      "claimants": 3829
+    },
+    "E14001588": {
+      "code": "E14001588",
+      "name": "Windsor",
+      "claimants": 3654
+    },
+    "E14001591": {
+      "code": "E14001591",
+      "name": "Witney",
+      "claimants": 3586
+    },
+    "E14001592": {
+      "code": "E14001592",
+      "name": "Woking",
+      "claimants": 3573
+    },
+    "E14001593": {
+      "code": "E14001593",
+      "name": "Wokingham",
+      "claimants": 2712
+    },
+    "E14001599": {
+      "code": "E14001599",
+      "name": "Worthing West",
+      "claimants": 5438
+    },
+    "E14001600": {
+      "code": "E14001600",
+      "name": "Wycombe",
+      "claimants": 4282
+    },
+    "E14001080": {
+      "code": "E14001080",
+      "name": "Bath",
+      "claimants": 4542
+    },
+    "E14001115": {
+      "code": "E14001115",
+      "name": "Bournemouth East",
+      "claimants": 6852
+    },
+    "E14001116": {
+      "code": "E14001116",
+      "name": "Bournemouth West",
+      "claimants": 7189
+    },
+    "E14001126": {
+      "code": "E14001126",
+      "name": "Bridgwater",
+      "claimants": 6738
+    },
+    "E14001131": {
+      "code": "E14001131",
+      "name": "Bristol Central",
+      "claimants": 3053
+    },
+    "E14001132": {
+      "code": "E14001132",
+      "name": "Bristol East",
+      "claimants": 7482
+    },
+    "E14001133": {
+      "code": "E14001133",
+      "name": "Bristol North East",
+      "claimants": 7212
+    },
+    "E14001134": {
+      "code": "E14001134",
+      "name": "Bristol North West",
+      "claimants": 6754
+    },
+    "E14001135": {
+      "code": "E14001135",
+      "name": "Bristol South",
+      "claimants": 9016
+    },
+    "E14001148": {
+      "code": "E14001148",
+      "name": "Camborne and Redruth",
+      "claimants": 7678
+    },
+    "E14001155": {
+      "code": "E14001155",
+      "name": "Central Devon",
+      "claimants": 4819
+    },
+    "E14001161": {
+      "code": "E14001161",
+      "name": "Cheltenham",
+      "claimants": 4106
+    },
+    "E14001168": {
+      "code": "E14001168",
+      "name": "Chippenham",
+      "claimants": 4639
+    },
+    "E14001171": {
+      "code": "E14001171",
+      "name": "Christchurch",
+      "claimants": 4429
+    },
+    "E14001217": {
+      "code": "E14001217",
+      "name": "East Wiltshire",
+      "claimants": 4231
+    },
+    "E14001231": {
+      "code": "E14001231",
+      "name": "Exeter",
+      "claimants": 5891
+    },
+    "E14001232": {
+      "code": "E14001232",
+      "name": "Exmouth and Exeter East",
+      "claimants": 5628
+    },
+    "E14001237": {
+      "code": "E14001237",
+      "name": "Filton and Bradley Stoke",
+      "claimants": 4942
+    },
+    "E14001240": {
+      "code": "E14001240",
+      "name": "Forest of Dean",
+      "claimants": 5312
+    },
+    "E14001241": {
+      "code": "E14001241",
+      "name": "Frome and East Somerset",
+      "claimants": 4717
+    },
+    "E14001247": {
+      "code": "E14001247",
+      "name": "Glastonbury and Somerton",
+      "claimants": 4791
+    },
+    "E14001248": {
+      "code": "E14001248",
+      "name": "Gloucester",
+      "claimants": 7942
+    },
+    "E14001291": {
+      "code": "E14001291",
+      "name": "Honiton and Sidmouth",
+      "claimants": 4090
+    },
+    "E14001356": {
+      "code": "E14001356",
+      "name": "Melksham and Devizes",
+      "claimants": 4327
+    },
+    "E14001363": {
+      "code": "E14001363",
+      "name": "Mid Dorset and North Poole",
+      "claimants": 4527
+    },
+    "E14001381": {
+      "code": "E14001381",
+      "name": "Newton Abbot",
+      "claimants": 5985
+    },
+    "E14001385": {
+      "code": "E14001385",
+      "name": "North Cornwall",
+      "claimants": 6499
+    },
+    "E14001386": {
+      "code": "E14001386",
+      "name": "North Cotswolds",
+      "claimants": 3776
+    },
+    "E14001387": {
+      "code": "E14001387",
+      "name": "North Devon",
+      "claimants": 6059
+    },
+    "E14001388": {
+      "code": "E14001388",
+      "name": "North Dorset",
+      "claimants": 4550
+    },
+    "E14001394": {
+      "code": "E14001394",
+      "name": "North East Somerset and Hanham",
+      "claimants": 4537
+    },
+    "E14001399": {
+      "code": "E14001399",
+      "name": "North Somerset",
+      "claimants": 3698
+    },
+    "E14001426": {
+      "code": "E14001426",
+      "name": "Plymouth Moor View",
+      "claimants": 9860
+    },
+    "E14001427": {
+      "code": "E14001427",
+      "name": "Plymouth Sutton and Devonport",
+      "claimants": 9606
+    },
+    "E14001429": {
+      "code": "E14001429",
+      "name": "Poole",
+      "claimants": 5530
+    },
+    "E14001460": {
+      "code": "E14001460",
+      "name": "Salisbury",
+      "claimants": 4438
+    },
+    "E14001482": {
+      "code": "E14001482",
+      "name": "South Cotswolds",
+      "claimants": 3212
+    },
+    "E14001484": {
+      "code": "E14001484",
+      "name": "South Devon",
+      "claimants": 5648
+    },
+    "E14001485": {
+      "code": "E14001485",
+      "name": "South Dorset",
+      "claimants": 7303
+    },
+    "E14001486": {
+      "code": "E14001486",
+      "name": "South East Cornwall",
+      "claimants": 6362
+    },
+    "E14001495": {
+      "code": "E14001495",
+      "name": "South West Devon",
+      "claimants": 5314
+    },
+    "E14001498": {
+      "code": "E14001498",
+      "name": "South West Wiltshire",
+      "claimants": 5646
+    },
+    "E14001508": {
+      "code": "E14001508",
+      "name": "St Austell and Newquay",
+      "claimants": 7380
+    },
+    "E14001511": {
+      "code": "E14001511",
+      "name": "St Ives",
+      "claimants": 5955
+    },
+    "E14001529": {
+      "code": "E14001529",
+      "name": "Stroud",
+      "claimants": 4441
+    },
+    "E14001536": {
+      "code": "E14001536",
+      "name": "Swindon North",
+      "claimants": 5856
+    },
+    "E14001537": {
+      "code": "E14001537",
+      "name": "Swindon South",
+      "claimants": 6258
+    },
+    "E14001540": {
+      "code": "E14001540",
+      "name": "Taunton and Wellington",
+      "claimants": 6169
+    },
+    "E14001542": {
+      "code": "E14001542",
+      "name": "Tewkesbury",
+      "claimants": 4356
+    },
+    "E14001545": {
+      "code": "E14001545",
+      "name": "Thornbury and Yate",
+      "claimants": 4920
+    },
+    "E14001548": {
+      "code": "E14001548",
+      "name": "Tiverton and Minehead",
+      "claimants": 5391
+    },
+    "E14001551": {
+      "code": "E14001551",
+      "name": "Torbay",
+      "claimants": 9105
+    },
+    "E14001552": {
+      "code": "E14001552",
+      "name": "Torridge and Tavistock",
+      "claimants": 5927
+    },
+    "E14001554": {
+      "code": "E14001554",
+      "name": "Truro and Falmouth",
+      "claimants": 5290
+    },
+    "E14001572": {
+      "code": "E14001572",
+      "name": "Wells and Mendip Hills",
+      "claimants": 4398
+    },
+    "E14001575": {
+      "code": "E14001575",
+      "name": "West Dorset",
+      "claimants": 5108
+    },
+    "E14001581": {
+      "code": "E14001581",
+      "name": "Weston-super-Mare",
+      "claimants": 7905
+    },
+    "E14001603": {
+      "code": "E14001603",
+      "name": "Yeovil",
+      "claimants": 6095
+    },
+    "W07000081": {
+      "code": "W07000081",
+      "name": "Aberafan Maesteg",
+      "claimants": 12325
+    },
+    "W07000082": {
+      "code": "W07000082",
+      "name": "Alyn and Deeside",
+      "claimants": 7784
+    },
+    "W07000083": {
+      "code": "W07000083",
+      "name": "Bangor Aberconwy",
+      "claimants": 6406
+    },
+    "W07000084": {
+      "code": "W07000084",
+      "name": "Blaenau Gwent and Rhymney",
+      "claimants": 13313
+    },
+    "W07000085": {
+      "code": "W07000085",
+      "name": "Brecon, Radnor and Cwm Tawe",
+      "claimants": 7443
+    },
+    "W07000086": {
+      "code": "W07000086",
+      "name": "Bridgend",
+      "claimants": 8207
+    },
+    "W07000087": {
+      "code": "W07000087",
+      "name": "Caerfyrddin",
+      "claimants": 8075
+    },
+    "W07000088": {
+      "code": "W07000088",
+      "name": "Caerphilly",
+      "claimants": 10887
+    },
+    "W07000089": {
+      "code": "W07000089",
+      "name": "Cardiff East",
+      "claimants": 9530
+    },
+    "W07000090": {
+      "code": "W07000090",
+      "name": "Cardiff North",
+      "claimants": 5422
+    },
+    "W07000091": {
+      "code": "W07000091",
+      "name": "Cardiff South and Penarth",
+      "claimants": 6692
+    },
+    "W07000092": {
+      "code": "W07000092",
+      "name": "Cardiff West",
+      "claimants": 9013
+    },
+    "W07000093": {
+      "code": "W07000093",
+      "name": "Ceredigion Preseli",
+      "claimants": 6387
+    },
+    "W07000094": {
+      "code": "W07000094",
+      "name": "Clwyd East",
+      "claimants": 7719
+    },
+    "W07000095": {
+      "code": "W07000095",
+      "name": "Clwyd North",
+      "claimants": 10923
+    },
+    "W07000096": {
+      "code": "W07000096",
+      "name": "Dwyfor Meirionnydd",
+      "claimants": 6264
+    },
+    "W07000097": {
+      "code": "W07000097",
+      "name": "Gower",
+      "claimants": 7674
+    },
+    "W07000098": {
+      "code": "W07000098",
+      "name": "Llanelli",
+      "claimants": 10375
+    },
+    "W07000099": {
+      "code": "W07000099",
+      "name": "Merthyr Tydfil and Aberdare",
+      "claimants": 12822
+    },
+    "W07000100": {
+      "code": "W07000100",
+      "name": "Mid and South Pembrokeshire",
+      "claimants": 8746
+    },
+    "W07000101": {
+      "code": "W07000101",
+      "name": "Monmouthshire",
+      "claimants": 5808
+    },
+    "W07000102": {
+      "code": "W07000102",
+      "name": "Montgomeryshire and Glyndwr",
+      "claimants": 7720
+    },
+    "W07000103": {
+      "code": "W07000103",
+      "name": "Neath and Swansea East",
+      "claimants": 11194
+    },
+    "W07000104": {
+      "code": "W07000104",
+      "name": "Newport East",
+      "claimants": 10631
+    },
+    "W07000105": {
+      "code": "W07000105",
+      "name": "Newport West and Islwyn",
+      "claimants": 9483
+    },
+    "W07000106": {
+      "code": "W07000106",
+      "name": "Pontypridd",
+      "claimants": 10133
+    },
+    "W07000107": {
+      "code": "W07000107",
+      "name": "Rhondda and Ogmore",
+      "claimants": 12648
+    },
+    "W07000108": {
+      "code": "W07000108",
+      "name": "Swansea West",
+      "claimants": 11991
+    },
+    "W07000109": {
+      "code": "W07000109",
+      "name": "Torfaen",
+      "claimants": 10323
+    },
+    "W07000110": {
+      "code": "W07000110",
+      "name": "Vale of Glamorgan",
+      "claimants": 7953
+    },
+    "W07000111": {
+      "code": "W07000111",
+      "name": "Wrexham",
+      "claimants": 8410
+    },
+    "W07000112": {
+      "code": "W07000112",
+      "name": "Ynys M\u00f4n",
+      "claimants": 5369
+    },
+    "S14000060": {
+      "code": "S14000060",
+      "name": "Aberdeen North",
+      "claimants": 30
+    },
+    "S14000061": {
+      "code": "S14000061",
+      "name": "Aberdeen South",
+      "claimants": 20
+    },
+    "S14000062": {
+      "code": "S14000062",
+      "name": "Aberdeenshire North and Moray East",
+      "claimants": 29
+    },
+    "S14000063": {
+      "code": "S14000063",
+      "name": "Airdrie and Shotts",
+      "claimants": 35
+    },
+    "S14000064": {
+      "code": "S14000064",
+      "name": "Alloa and Grangemouth",
+      "claimants": 39
+    },
+    "S14000065": {
+      "code": "S14000065",
+      "name": "Angus and Perthshire Glens",
+      "claimants": 32
+    },
+    "S14000066": {
+      "code": "S14000066",
+      "name": "Arbroath and Broughty Ferry",
+      "claimants": 23
+    },
+    "S14000067": {
+      "code": "S14000067",
+      "name": "Argyll, Bute and South Lochaber",
+      "claimants": 28
+    },
+    "S14000107": {
+      "code": "S14000107",
+      "name": "Ayr, Carrick and Cumnock",
+      "claimants": 27
+    },
+    "S14000068": {
+      "code": "S14000068",
+      "name": "Bathgate and Linlithgow",
+      "claimants": 27
+    },
+    "S14000108": {
+      "code": "S14000108",
+      "name": "Berwickshire, Roxburgh and Selkirk",
+      "claimants": 37
+    },
+    "S14000069": {
+      "code": "S14000069",
+      "name": "Caithness, Sutherland and Easter Ross",
+      "claimants": 28
+    },
+    "S14000109": {
+      "code": "S14000109",
+      "name": "Central Ayrshire",
+      "claimants": 32
+    },
+    "S14000070": {
+      "code": "S14000070",
+      "name": "Coatbridge and Bellshill",
+      "claimants": 41
+    },
+    "S14000071": {
+      "code": "S14000071",
+      "name": "Cowdenbeath and Kirkcaldy",
+      "claimants": 25
+    },
+    "S14000072": {
+      "code": "S14000072",
+      "name": "Cumbernauld and Kirkintilloch",
+      "claimants": 16
+    },
+    "S14000073": {
+      "code": "S14000073",
+      "name": "Dumfries and Galloway",
+      "claimants": 35
+    },
+    "S14000074": {
+      "code": "S14000074",
+      "name": "Dumfriesshire, Clydesdale and Tweeddale",
+      "claimants": 37
+    },
+    "S14000075": {
+      "code": "S14000075",
+      "name": "Dundee Central",
+      "claimants": 33
+    },
+    "S14000076": {
+      "code": "S14000076",
+      "name": "Dunfermline and Dollar",
+      "claimants": 23
+    },
+    "S14000077": {
+      "code": "S14000077",
+      "name": "East Kilbride and Strathaven",
+      "claimants": 18
+    },
+    "S14000021": {
+      "code": "S14000021",
+      "name": "East Renfrewshire",
+      "claimants": 19
+    },
+    "S14000078": {
+      "code": "S14000078",
+      "name": "Edinburgh East and Musselburgh",
+      "claimants": 30
+    },
+    "S14000079": {
+      "code": "S14000079",
+      "name": "Edinburgh North and Leith",
+      "claimants": 21
+    },
+    "S14000080": {
+      "code": "S14000080",
+      "name": "Edinburgh South",
+      "claimants": 11
+    },
+    "S14000081": {
+      "code": "S14000081",
+      "name": "Edinburgh South West",
+      "claimants": 30
+    },
+    "S14000082": {
+      "code": "S14000082",
+      "name": "Edinburgh West",
+      "claimants": 21
+    },
+    "S14000083": {
+      "code": "S14000083",
+      "name": "Falkirk",
+      "claimants": 28
+    },
+    "S14000084": {
+      "code": "S14000084",
+      "name": "Glasgow East",
+      "claimants": 41
+    },
+    "S14000085": {
+      "code": "S14000085",
+      "name": "Glasgow North",
+      "claimants": 47
+    },
+    "S14000086": {
+      "code": "S14000086",
+      "name": "Glasgow North East",
+      "claimants": 63
+    },
+    "S14000087": {
+      "code": "S14000087",
+      "name": "Glasgow South",
+      "claimants": 32
+    },
+    "S14000088": {
+      "code": "S14000088",
+      "name": "Glasgow South West",
+      "claimants": 41
+    },
+    "S14000089": {
+      "code": "S14000089",
+      "name": "Glasgow West",
+      "claimants": 33
+    },
+    "S14000090": {
+      "code": "S14000090",
+      "name": "Glenrothes and Mid Fife",
+      "claimants": 33
+    },
+    "S14000091": {
+      "code": "S14000091",
+      "name": "Gordon and Buchan",
+      "claimants": 21
+    },
+    "S14000092": {
+      "code": "S14000092",
+      "name": "Hamilton and Clyde Valley",
+      "claimants": 30
+    },
+    "S14000093": {
+      "code": "S14000093",
+      "name": "Inverclyde and Renfrewshire West",
+      "claimants": 32
+    },
+    "S14000094": {
+      "code": "S14000094",
+      "name": "Inverness, Skye and West Ross-shire",
+      "claimants": 22
+    },
+    "S14000110": {
+      "code": "S14000110",
+      "name": "Kilmarnock and Loudoun",
+      "claimants": 24
+    },
+    "S14000095": {
+      "code": "S14000095",
+      "name": "Livingston",
+      "claimants": 23
+    },
+    "S14000096": {
+      "code": "S14000096",
+      "name": "Lothian East",
+      "claimants": 24
+    },
+    "S14000097": {
+      "code": "S14000097",
+      "name": "Mid Dunbartonshire",
+      "claimants": 10
+    },
+    "S14000045": {
+      "code": "S14000045",
+      "name": "Midlothian",
+      "claimants": 23
+    },
+    "S14000098": {
+      "code": "S14000098",
+      "name": "Moray West, Nairn and Strathspey",
+      "claimants": 15
+    },
+    "S14000099": {
+      "code": "S14000099",
+      "name": "Motherwell, Wishaw and Carluke",
+      "claimants": 36
+    },
+    "S14000027": {
+      "code": "S14000027",
+      "name": "Na h-Eileanan an Iar",
+      "claimants": 5
+    },
+    "S14000048": {
+      "code": "S14000048",
+      "name": "North Ayrshire and Arran",
+      "claimants": 35
+    },
+    "S14000100": {
+      "code": "S14000100",
+      "name": "North East Fife",
+      "claimants": 16
+    },
+    "S14000051": {
+      "code": "S14000051",
+      "name": "Orkney and Shetland",
+      "claimants": 8
+    },
+    "S14000101": {
+      "code": "S14000101",
+      "name": "Paisley and Renfrewshire North",
+      "claimants": 30
+    },
+    "S14000102": {
+      "code": "S14000102",
+      "name": "Paisley and Renfrewshire South",
+      "claimants": 33
+    },
+    "S14000103": {
+      "code": "S14000103",
+      "name": "Perth and Kinross-shire",
+      "claimants": 17
+    },
+    "S14000104": {
+      "code": "S14000104",
+      "name": "Rutherglen",
+      "claimants": 37
+    },
+    "S14000105": {
+      "code": "S14000105",
+      "name": "Stirling and Strathallan",
+      "claimants": 24
+    },
+    "S14000111": {
+      "code": "S14000111",
+      "name": "West Aberdeenshire and Kincardine",
+      "claimants": 15
+    },
+    "S14000106": {
+      "code": "S14000106",
+      "name": "West Dunbartonshire",
+      "claimants": 43
+    },
+    "XXZZZZZZZ": {
+      "code": "XXZZZZZZZ",
+      "name": "Abroad",
+      "claimants": 2269
+    },
+    "ZZXXXXXXX": {
+      "code": "ZZXXXXXXX",
+      "name": "Unknown",
+      "claimants": 3049
+    }
+  },
+  "laToPconBestMatch": {
+    "Burnley": {
+      "code": "E14001142",
+      "name": "Burnley",
+      "claimants": 10323
+    },
+    "Preston": {
+      "code": "E14001433",
+      "name": "Preston",
+      "claimants": 10494
+    },
+    "Hyndburn": {
+      "code": "E14001299",
+      "name": "Hyndburn",
+      "claimants": 8905
+    },
+    "Chorley": {
+      "code": "E14001170",
+      "name": "Chorley",
+      "claimants": 6959
+    },
+    "Ribble Valley": {
+      "code": "E14001443",
+      "name": "Ribble Valley",
+      "claimants": 5146
+    },
+    "Lancaster": {
+      "code": "E14001318",
+      "name": "Lancaster and Wyre",
+      "claimants": 5841
+    },
+    "Wyre": {
+      "code": "E14001318",
+      "name": "Lancaster and Wyre",
+      "claimants": 5841
+    },
+    "South Ribble": {
+      "code": "E14001491",
+      "name": "South Ribble",
+      "claimants": 5758
+    },
+    "West Lancashire": {
+      "code": "E14001577",
+      "name": "West Lancashire",
+      "claimants": 7667
+    },
+    "Rossendale": {
+      "code": "E14001450",
+      "name": "Rossendale and Darwen",
+      "claimants": 7891
+    },
+    "Fylde": {
+      "code": "E14001242",
+      "name": "Fylde",
+      "claimants": 6455
+    },
+    "Blackburn with Darwen": {
+      "code": "E14001102",
+      "name": "Blackburn",
+      "claimants": 10648
+    },
+    "Blackpool": {
+      "code": "E14001105",
+      "name": "Blackpool South",
+      "claimants": 13974
+    }
+  }
+}

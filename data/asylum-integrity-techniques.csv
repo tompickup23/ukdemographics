@@ -1,0 +1,11 @@
+technique_id,label,category,applies_to,public_publishable,origin,notes
+beneficial_ownership_chain,Beneficial ownership chain mapping,ownership,hotel sites and suppliers,yes_with_evidence,asylumstats,Link operator freeholder PSCs directors and charges before publication
+company_status_and_shell_signals,Company status and shell indicators,entity_risk,hotel owners and suppliers,yes_with_caveats,Lancashire integrity,Use dormant dissolved shell-like and newly formed signals with source links
+cross_body_supplier_matching,Cross-body supplier matching,procurement,Home Office councils NHS and other bodies,yes_with_evidence,Supplier model,Show repeat entities across multiple public bodies
+property_to_spend_linking,Property-to-spend linking,site_intelligence,sites assets and spend rows,yes_with_evidence,Lancashire asset enrichment,Join addresses postcodes and site names to transactions and contracts
+threshold_splitting,Threshold-splitting detection,procurement,contracts and transaction clusters,yes_with_caveats,Threshold analysis,Use as a risk signal not a standalone allegation
+temporal_clustering,Temporal clustering and sudden activation,timing,site opening and supplier change,yes_with_caveats,Temporal analysis,Look for bursts around hotel activation policy changes or ownership shifts
+director_overlap_and_networks,Director overlap and network scoring,network,owners operators and suppliers,yes_with_evidence,Network analysis,Use co-director shared-address and linked-company graphs
+revolving_door_and_interest_checks,Revolving-door and interest checks,governance,decision-makers and linked suppliers,yes_with_evidence,Governance layer,Compare registers of interest company roles and route-linked supplier relationships
+price_and_pattern_anomalies,Price volume and repeat-pattern anomalies,spend,contracts and local response spend,yes_with_caveats,Accountability marts,Use peer comparisons and explain denominator limits
+secrecy_gap_tracking,Secrecy-gap tracking,transparency,hotels operators and ownership,yes,asylumstats hotel model,Treat withheld site or owner visibility as a reportable system risk

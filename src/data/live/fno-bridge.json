@@ -1,0 +1,733 @@
+{
+  "source": "Ministry of Justice, Offender Management Statistics Quarterly (July to September 2025), Table 1.Q.12 (snapshot 31 Dec 2025) + DWP Stat-Xplore NINo registrations (rolling year ending Q4 2025)",
+  "lastUpdated": "2026-04-28",
+  "caveat": "Stock vs flow, never combined into a ratio: prison population is a snapshot on 31 December 2025; NINo flow is one rolling year of new registrations. Geographic scope differs: FNO is England and Wales only, NINo is UK-wide. Concept differs: MOJ records nationality of the prisoner; NINo records nationality self-declared at registration. Both numbers tell you nothing about whether overseas arrivals commit crime at any particular rate, because we have no per-individual link between the two datasets and no shared denominator. The bridge is offered to surface composition only.",
+  "totals": {
+    "fno_prisonPopulation_total": 85613,
+    "fno_prisonPopulation_British": 74973,
+    "fno_prisonPopulation_foreignNational": 10377,
+    "fno_prisonPopulation_foreignNational_mapped": 9446,
+    "fno_prisonPopulation_foreignNational_unmapped": 931,
+    "fno_prisonPopulation_nationalityNotRecorded": 263,
+    "fno_foreignSharePct": 12.1,
+    "nino_uk_rollingYearTotal": 569659
+  },
+  "topFnoForeignCountries": [
+    {
+      "country": "Albania",
+      "prisonPopulation": 944
+    },
+    {
+      "country": "Ireland",
+      "prisonPopulation": 679
+    },
+    {
+      "country": "Poland",
+      "prisonPopulation": 677
+    },
+    {
+      "country": "Romania",
+      "prisonPopulation": 658
+    },
+    {
+      "country": "India",
+      "prisonPopulation": 389
+    },
+    {
+      "country": "Jamaica",
+      "prisonPopulation": 364
+    },
+    {
+      "country": "Pakistan",
+      "prisonPopulation": 326
+    },
+    {
+      "country": "Iran",
+      "prisonPopulation": 290
+    },
+    {
+      "country": "Iraq",
+      "prisonPopulation": 284
+    },
+    {
+      "country": "Lithuania",
+      "prisonPopulation": 283
+    },
+    {
+      "country": "Afghanistan",
+      "prisonPopulation": 273
+    },
+    {
+      "country": "Portugal",
+      "prisonPopulation": 266
+    },
+    {
+      "country": "Nigeria",
+      "prisonPopulation": 255
+    },
+    {
+      "country": "Sudan",
+      "prisonPopulation": 209
+    },
+    {
+      "country": "Algeria",
+      "prisonPopulation": 190
+    },
+    {
+      "country": "Eritrea",
+      "prisonPopulation": 153
+    },
+    {
+      "country": "Italy",
+      "prisonPopulation": 151
+    },
+    {
+      "country": "Zimbabwe",
+      "prisonPopulation": 148
+    },
+    {
+      "country": "Bulgaria",
+      "prisonPopulation": 146
+    },
+    {
+      "country": "Vietnam",
+      "prisonPopulation": 143
+    }
+  ],
+  "topNinoArrivingCountries": [
+    {
+      "country": "India",
+      "ninoFlow": 129772
+    },
+    {
+      "country": "Pakistan",
+      "ninoFlow": 56201
+    },
+    {
+      "country": "Nigeria",
+      "ninoFlow": 45877
+    },
+    {
+      "country": "China",
+      "ninoFlow": 27837
+    },
+    {
+      "country": "Nepal",
+      "ninoFlow": 25087
+    },
+    {
+      "country": "Bangladesh",
+      "ninoFlow": 16145
+    },
+    {
+      "country": "United States",
+      "ninoFlow": 15508
+    },
+    {
+      "country": "Ukraine",
+      "ninoFlow": 13167
+    },
+    {
+      "country": "Iran",
+      "ninoFlow": 11911
+    },
+    {
+      "country": "Ireland",
+      "ninoFlow": 11421
+    },
+    {
+      "country": "Afghanistan",
+      "ninoFlow": 10337
+    },
+    {
+      "country": "Australia",
+      "ninoFlow": 9516
+    },
+    {
+      "country": "Eritrea",
+      "ninoFlow": 9289
+    },
+    {
+      "country": "Ghana",
+      "ninoFlow": 9227
+    },
+    {
+      "country": "Sudan",
+      "ninoFlow": 8277
+    },
+    {
+      "country": "Sri Lanka",
+      "ninoFlow": 8244
+    },
+    {
+      "country": "Other / unknown",
+      "ninoFlow": 7924
+    },
+    {
+      "country": "Turkey",
+      "ninoFlow": 7662
+    },
+    {
+      "country": "Philippines",
+      "ninoFlow": 6903
+    },
+    {
+      "country": "Romania",
+      "ninoFlow": 6604
+    }
+  ],
+  "bridge": [
+    {
+      "country": "Albania",
+      "ninoFlowRollingYear_UK": 2716,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 944
+    },
+    {
+      "country": "Ireland",
+      "ninoFlowRollingYear_UK": 11421,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 679
+    },
+    {
+      "country": "Poland",
+      "ninoFlowRollingYear_UK": 1692,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 677
+    },
+    {
+      "country": "Romania",
+      "ninoFlowRollingYear_UK": 6604,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 658
+    },
+    {
+      "country": "India",
+      "ninoFlowRollingYear_UK": 129772,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 389
+    },
+    {
+      "country": "Jamaica",
+      "ninoFlowRollingYear_UK": 661,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 364
+    },
+    {
+      "country": "Pakistan",
+      "ninoFlowRollingYear_UK": 56201,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 326
+    },
+    {
+      "country": "Iran",
+      "ninoFlowRollingYear_UK": 11911,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 290
+    },
+    {
+      "country": "Iraq",
+      "ninoFlowRollingYear_UK": 5278,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 284
+    },
+    {
+      "country": "Lithuania",
+      "ninoFlowRollingYear_UK": 177,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 283
+    },
+    {
+      "country": "Afghanistan",
+      "ninoFlowRollingYear_UK": 10337,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 273
+    },
+    {
+      "country": "Portugal",
+      "ninoFlowRollingYear_UK": 1665,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 266
+    },
+    {
+      "country": "Nigeria",
+      "ninoFlowRollingYear_UK": 45877,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 255
+    },
+    {
+      "country": "Sudan",
+      "ninoFlowRollingYear_UK": 8277,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 209
+    },
+    {
+      "country": "Algeria",
+      "ninoFlowRollingYear_UK": 866,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 190
+    },
+    {
+      "country": "Eritrea",
+      "ninoFlowRollingYear_UK": 9289,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 153
+    },
+    {
+      "country": "Italy",
+      "ninoFlowRollingYear_UK": 4811,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 151
+    },
+    {
+      "country": "Zimbabwe",
+      "ninoFlowRollingYear_UK": 5097,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 148
+    },
+    {
+      "country": "Bulgaria",
+      "ninoFlowRollingYear_UK": 1701,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 146
+    },
+    {
+      "country": "Vietnam",
+      "ninoFlowRollingYear_UK": 2948,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 143
+    },
+    {
+      "country": "Bangladesh",
+      "ninoFlowRollingYear_UK": 16145,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 141
+    },
+    {
+      "country": "China",
+      "ninoFlowRollingYear_UK": 27837,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 88
+    },
+    {
+      "country": "Ghana",
+      "ninoFlowRollingYear_UK": 9227,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 74
+    },
+    {
+      "country": "United States",
+      "ninoFlowRollingYear_UK": 15508,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 56
+    },
+    {
+      "country": "Ukraine",
+      "ninoFlowRollingYear_UK": 13167,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 40
+    },
+    {
+      "country": "Nepal",
+      "ninoFlowRollingYear_UK": 25087,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 9
+    },
+    {
+      "country": "Australia",
+      "ninoFlowRollingYear_UK": 9516,
+      "fnoPrisonPopulation_EnglandAndWales_31Dec2025": 0
+    }
+  ],
+  "fnoUnmappedAdjectives": [
+    {
+      "region": "Africa",
+      "adjective": "Beninese",
+      "count": 1
+    },
+    {
+      "region": "Africa",
+      "adjective": "Bissau-Guinean",
+      "count": 3
+    },
+    {
+      "region": "Africa",
+      "adjective": "Burkinabe",
+      "count": 1
+    },
+    {
+      "region": "Africa",
+      "adjective": "Burundian",
+      "count": 6
+    },
+    {
+      "region": "Africa",
+      "adjective": "Cape Verdian",
+      "count": 2
+    },
+    {
+      "region": "Africa",
+      "adjective": "Central African",
+      "count": 23
+    },
+    {
+      "region": "Africa",
+      "adjective": "Chadian",
+      "count": 5
+    },
+    {
+      "region": "Africa",
+      "adjective": "Comoran",
+      "count": 1
+    },
+    {
+      "region": "Africa",
+      "adjective": "Congolese",
+      "count": 13
+    },
+    {
+      "region": "Africa",
+      "adjective": "Congolese (Congo, Republic of)",
+      "count": 28
+    },
+    {
+      "region": "Africa",
+      "adjective": "Equatoguinean",
+      "count": 2
+    },
+    {
+      "region": "Africa",
+      "adjective": "Guinean",
+      "count": 18
+    },
+    {
+      "region": "Africa",
+      "adjective": "Ivorian",
+      "count": 18
+    },
+    {
+      "region": "Africa",
+      "adjective": "Malawian",
+      "count": 9
+    },
+    {
+      "region": "Africa",
+      "adjective": "Malian",
+      "count": 1
+    },
+    {
+      "region": "Africa",
+      "adjective": "Mauritanian",
+      "count": 3
+    },
+    {
+      "region": "Africa",
+      "adjective": "Motswana",
+      "count": 2
+    },
+    {
+      "region": "Africa",
+      "adjective": "Mozambican",
+      "count": 1
+    },
+    {
+      "region": "Africa",
+      "adjective": "Nigerien",
+      "count": 11
+    },
+    {
+      "region": "Africa",
+      "adjective": "Sahrawi",
+      "count": 1
+    },
+    {
+      "region": "Africa",
+      "adjective": "Senegalese",
+      "count": 11
+    },
+    {
+      "region": "Africa",
+      "adjective": "Seychellois",
+      "count": 1
+    },
+    {
+      "region": "Africa",
+      "adjective": "Somalian",
+      "count": 247
+    },
+    {
+      "region": "Africa",
+      "adjective": "South Sudanese",
+      "count": 4
+    },
+    {
+      "region": "Africa",
+      "adjective": "Swazi",
+      "count": 1
+    },
+    {
+      "region": "Asia",
+      "adjective": "East Timorese",
+      "count": 6
+    },
+    {
+      "region": "Asia",
+      "adjective": "Hongkonger",
+      "count": 2
+    },
+    {
+      "region": "Asia",
+      "adjective": "Kyrgyzstani",
+      "count": 3
+    },
+    {
+      "region": "Asia",
+      "adjective": "Maldivian",
+      "count": 2
+    },
+    {
+      "region": "Asia",
+      "adjective": "North Korean",
+      "count": 1
+    },
+    {
+      "region": "Asia",
+      "adjective": "South Korean",
+      "count": 2
+    },
+    {
+      "region": "Asia",
+      "adjective": "Tajikistani",
+      "count": 2
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Argentine",
+      "count": 3
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Bolivian",
+      "count": 8
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Chilean",
+      "count": 5
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Costa Rican",
+      "count": 2
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Ecuadorian",
+      "count": 10
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Guyanese",
+      "count": 6
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Honduran",
+      "count": 6
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Paraguayan",
+      "count": 1
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Peruvian",
+      "count": 6
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Salvadoran",
+      "count": 2
+    },
+    {
+      "region": "Central and South America",
+      "adjective": "Uruguayan",
+      "count": 1
+    },
+    {
+      "region": "Europe",
+      "adjective": "Armenian",
+      "count": 2
+    },
+    {
+      "region": "Europe",
+      "adjective": "Austrian",
+      "count": 5
+    },
+    {
+      "region": "Europe",
+      "adjective": "Azerbaijani",
+      "count": 2
+    },
+    {
+      "region": "Europe",
+      "adjective": "Belgian",
+      "count": 26
+    },
+    {
+      "region": "Europe",
+      "adjective": "Bosnian, Herzegovinian",
+      "count": 3
+    },
+    {
+      "region": "Europe",
+      "adjective": "Croat",
+      "count": 6
+    },
+    {
+      "region": "Europe",
+      "adjective": "Kosovan",
+      "count": 22
+    },
+    {
+      "region": "Europe",
+      "adjective": "Macedonian",
+      "count": 3
+    },
+    {
+      "region": "Europe",
+      "adjective": "Manx",
+      "count": 1
+    },
+    {
+      "region": "Europe",
+      "adjective": "Montenegrin",
+      "count": 1
+    },
+    {
+      "region": "Europe",
+      "adjective": "Serb",
+      "count": 3
+    },
+    {
+      "region": "Europe",
+      "adjective": "Serb or Croat",
+      "count": 2
+    },
+    {
+      "region": "Europe",
+      "adjective": "Slovene",
+      "count": 2
+    },
+    {
+      "region": "Europe",
+      "adjective": "Swede",
+      "count": 32
+    },
+    {
+      "region": "Europe",
+      "adjective": "Turk",
+      "count": 130
+    },
+    {
+      "region": "Middle East",
+      "adjective": "Bahraini",
+      "count": 1
+    },
+    {
+      "region": "Middle East",
+      "adjective": "Emirati",
+      "count": 6
+    },
+    {
+      "region": "Middle East",
+      "adjective": "Qatari",
+      "count": 2
+    },
+    {
+      "region": "Middle East",
+      "adjective": "Yemenite",
+      "count": 14
+    },
+    {
+      "region": "North America",
+      "adjective": "Canadian",
+      "count": 17
+    },
+    {
+      "region": "Oceania",
+      "adjective": "American Samoan",
+      "count": 1
+    },
+    {
+      "region": "Oceania",
+      "adjective": "Australian",
+      "count": 10
+    },
+    {
+      "region": "Oceania",
+      "adjective": "Fijian",
+      "count": 7
+    },
+    {
+      "region": "Oceania",
+      "adjective": "New Zealander",
+      "count": 5
+    },
+    {
+      "region": "Oceania",
+      "adjective": "Papua New Guinean",
+      "count": 2
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Anguillan",
+      "count": 3
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Antiguan, Barbudan",
+      "count": 2
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Bahamian",
+      "count": 1
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Barbadian or Bajuns",
+      "count": 16
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Bermudian",
+      "count": 3
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Cuban",
+      "count": 6
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Dominican (Dominica)",
+      "count": 16
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Dutch Antillean",
+      "count": 1
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Grenadian",
+      "count": 18
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Haitian",
+      "count": 2
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Kittitian or Nevisian",
+      "count": 4
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Montserratian",
+      "count": 1
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Saint Lucian",
+      "count": 18
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Trinidadian, Tobagonian",
+      "count": 42
+    },
+    {
+      "region": "West Indies",
+      "adjective": "Vincentian",
+      "count": 12
+    }
+  ]
+}

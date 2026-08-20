@@ -1,0 +1,243 @@
+---
+/**
+ * 24-year NINo flow line chart for a single LA, with national reference
+ * shown as a normalised second axis on the right (per 1k UK population
+ * indexed to 100 at the LA's earliest non-null year).
+ *
+ * The line is the LA's annual count. Peak and trough are highlighted
+ * with markers. National trend is a thin secondary line so readers
+ * can see whether the LA tracks national or diverges.
+ */
+interface Props {
+  areaName: string;
+  years: number[];
+  totalByYear: Array<number | null>;
+  nationalByYear: Array<number | null>;
+  peakYear: number | null;
+  peakValue: number | null;
+  troughYear: number | null;
+  troughValue: number | null;
+}
+
+const {
+  areaName, years, totalByYear, nationalByYear,
+  peakYear, peakValue, troughYear, troughValue,
+} = Astro.props as Props;
+
+const width = 720;
+const height = 260;
+const pad = { top: 20, right: 56, bottom: 40, left: 52 };
+const uw = width - pad.left - pad.right;
+const uh = height - pad.top - pad.bottom;
+
+const minYear = years[0];
+const maxYear = years[years.length - 1];
+const yearRange = maxYear - minYear;
+
+// LA scale (left axis)
+const laVals = totalByYear.filter((v): v is number => v != null);
+const laMax = Math.max(...laVals, 1);
+const laMin = 0;
+
+// National scale (right axis), independent so both lines are visually comparable
+const natVals = nationalByYear.filter((v): v is number => v != null);
+const natMax = Math.max(...natVals, 1);
+
+function x(year: number): number {
+  return pad.left + ((year - minYear) / yearRange) * uw;
+}
+function yLA(val: number): number {
+  return pad.top + uh - ((val - laMin) / (laMax - laMin)) * uh;
+}
+function yNat(val: number): number {
+  return pad.top + uh - (val / natMax) * uh;
+}
+
+function buildPath(values: Array<number | null>, scaleFn: (v: number) => number): string {
+  let d = "";
+  let started = false;
+  values.forEach((v, i) => {
+    if (v == null) {
+      started = false;
+      return;
+    }
+    const px = x(years[i]).toFixed(1);
+    const py = scaleFn(v).toFixed(1);
+    d += started ? ` L ${px} ${py}` : `M ${px} ${py}`;
+    started = true;
+  });
+  return d;
+}
+
+const laPath = buildPath(totalByYear, yLA);
+const natPath = buildPath(nationalByYear, yNat);
+
+// Y-axis ticks for LA scale (5 ticks)
+const tickCount = 5;
+const laTicks = Array.from({ length: tickCount }, (_, i) =>
+  Math.round((laMax / (tickCount - 1)) * i),
+);
+const natTicks = Array.from({ length: tickCount }, (_, i) =>
+  Math.round((natMax / (tickCount - 1)) * i),
+);
+
+// X-axis labels, every 5 years plus first and last
+const xLabels = Array.from(new Set([
+  minYear,
+  ...years.filter((y) => y % 5 === 0),
+  maxYear,
+])).sort((a, b) => a - b);
+
+const peakX = peakYear != null ? x(peakYear) : null;
+const peakY = peakValue != null ? yLA(peakValue) : null;
+const troughX = troughYear != null ? x(troughYear) : null;
+const troughYpt = troughValue != null ? yLA(troughValue) : null;
+
+const fmt = (n: number) => n.toLocaleString();
+---
+
+<figure class="nino-history-chart">
+  <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`Annual NINo registrations in ${areaName}, ${minYear} to ${maxYear}`}>
+    <!-- Grid -->
+    {laTicks.map((t) => (
+      <line
+        x1={pad.left}
+        y1={yLA(t)}
+        x2={width - pad.right}
+        y2={yLA(t)}
+        stroke="rgba(255,255,255,0.07)"
+        stroke-width="1"
+        stroke-dasharray="3 5"
+      />
+    ))}
+
+    <!-- LA scale ticks (left) -->
+    {laTicks.map((t) => (
+      <text
+        x={pad.left - 8}
+        y={yLA(t) + 4}
+        text-anchor="end"
+        class="nh-tick"
+      >{fmt(t)}</text>
+    ))}
+
+    <!-- National scale ticks (right), show the value range -->
+    {natTicks.map((t) => (
+      <text
+        x={width - pad.right + 8}
+        y={yNat(t) + 4}
+        text-anchor="start"
+        class="nh-tick nh-tick-national"
+      >{Math.round(t / 1000)}k</text>
+    ))}
+
+    <!-- X-axis labels -->
+    {xLabels.map((yr) => (
+      <text
+        x={x(yr)}
+        y={height - 8}
+        text-anchor="middle"
+        class="nh-tick"
+      >{yr}</text>
+    ))}
+
+    <!-- National line (thin reference) -->
+    <path
+      d={natPath}
+      fill="none"
+      stroke="rgba(255,255,255,0.30)"
+      stroke-width="1.5"
+      stroke-dasharray="3 3"
+    />
+
+    <!-- LA line -->
+    <path
+      d={laPath}
+      fill="none"
+      stroke="#7c3aed"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <!-- Peak marker, flip label side when near edges to avoid overlap -->
+    {peakX != null && peakY != null && (() => {
+      const nearRight = peakX > width - pad.right - 90;
+      const nearLeft = peakX < pad.left + 90;
+      const labelAnchor = nearRight ? "end" : nearLeft ? "start" : "middle";
+      const labelDx = nearRight ? -10 : nearLeft ? 10 : 0;
+      const labelDy = peakY - pad.top < 24 ? 22 : -12;
+      return (
+        <g>
+          <circle cx={peakX} cy={peakY} r="5" fill="#fbbf24" stroke="#0f0f17" stroke-width="2" />
+          <text x={peakX + labelDx} y={peakY + labelDy} text-anchor={labelAnchor} class="nh-marker-label">
+            peak {peakYear} ({fmt(peakValue!)})
+          </text>
+        </g>
+      );
+    })()}
+
+    <!-- Trough marker -->
+    {troughX != null && troughYpt != null && (() => {
+      const nearRight = troughX > width - pad.right - 90;
+      const nearLeft = troughX < pad.left + 90;
+      const labelAnchor = nearRight ? "end" : nearLeft ? "start" : "middle";
+      const labelDx = nearRight ? -10 : nearLeft ? 10 : 0;
+      return (
+        <g>
+          <circle cx={troughX} cy={troughYpt} r="4" fill="#06b6d4" stroke="#0f0f17" stroke-width="2" />
+          <text x={troughX + labelDx} y={troughYpt + 18} text-anchor={labelAnchor} class="nh-marker-label nh-marker-trough">
+            low {troughYear} ({fmt(troughValue!)})
+          </text>
+        </g>
+      );
+    })()}
+
+    <!-- Axis labels -->
+    <text x={pad.left} y={12} text-anchor="start" class="nh-axis-label">{areaName} (annual)</text>
+    <text x={width - pad.right} y={12} text-anchor="end" class="nh-axis-label nh-axis-label-national">UK (annual)</text>
+  </svg>
+</figure>
+
+<style>
+  .nino-history-chart {
+    margin: 0.75rem 0 0;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .nino-history-chart svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .nh-tick {
+    font-family: "Sora", sans-serif;
+    font-size: 11px;
+    fill: rgba(255,255,255,0.55);
+    font-variant-numeric: tabular-nums;
+  }
+  .nh-tick-national {
+    fill: rgba(255,255,255,0.42);
+  }
+  .nh-axis-label {
+    font-family: "Sora", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    fill: #7c3aed;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .nh-axis-label-national {
+    fill: rgba(255,255,255,0.55);
+  }
+  .nh-marker-label {
+    font-family: "Sora", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    fill: #fbbf24;
+    font-variant-numeric: tabular-nums;
+  }
+  .nh-marker-trough {
+    fill: #06b6d4;
+  }
+</style>

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/council_budget_mapping.schema.json",
+  "title": "Council Budget Mapping Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "body_id",
+    "source_label",
+    "mapped_budget_category",
+    "confidence"
+  ],
+  "properties": {
+    "mapping_id": { "type": "string" },
+    "body_id": { "type": "string" },
+    "source_label": { "type": "string" },
+    "mapped_budget_category": { "type": "string" },
+    "confidence": { "type": "string", "enum": ["none", "low", "medium", "high"] },
+    "mapping_method": { "type": ["string", "null"] },
+    "review_status": { "type": ["string", "null"], "enum": ["unreviewed", "reviewed", "approved", null] },
+    "mapped_spend_gbp": { "type": ["number", "null"] },
+    "valid_from": { "type": ["string", "null"], "format": "date" },
+    "valid_to": { "type": ["string", "null"], "format": "date" },
+    "notes": { "type": ["string", "null"] }
+  }
+}
