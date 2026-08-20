@@ -5812,6 +5812,30 @@ tr:last-child td {
   line-height: 1.4;
 }
 
+/* Provenance chip. Marks a figure as observed or modelled without recolouring
+   the number, so the accent keeps identifying the entity rather than rating it. */
+.stat-card-note {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 0.35rem;
+  padding: 0.1rem 0.42rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border: 1px solid color-mix(in oklab, var(--ink-soft) 30%, transparent);
+  background: color-mix(in oklab, var(--ink-soft) 8%, transparent);
+}
+
+.stat-card-note.is-projected {
+  color: color-mix(in oklab, var(--accent) 70%, var(--ink-soft));
+  border-style: dashed;
+  border-color: color-mix(in oklab, var(--accent) 40%, transparent);
+  background: color-mix(in oklab, var(--accent) 8%, transparent);
+}
+
 /* === Mobile responsive, race bar + clock === */
 @media (max-width: 720px) {
   .hero-clock {

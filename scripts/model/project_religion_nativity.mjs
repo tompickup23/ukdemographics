@@ -230,7 +230,12 @@ for (const [code, area] of Object.entries(existing.areas)) {
   }
 }
 
-existing.modelVersion = "5.1-single-year-hp-religion-nativity";
+// Deliberately does NOT set modelVersion. This script projects religion and
+// nativity FROM the ethnic projections; it is a consumer of the model, not the
+// model. It previously stamped "5.1-single-year-hp-religion-nativity" over
+// whatever run_hp_single_year.mjs had written, so the published file reported a
+// model version three releases behind the projections it actually contained, and
+// the version stamp could silently depend on which script happened to run last.
 existing.lastUpdated = new Date().toISOString().slice(0, 10);
 
 writeFileSync(SITE_OUTPUT, JSON.stringify(existing, null, 2), "utf8");

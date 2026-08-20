@@ -1,0 +1,8064 @@
+{
+  "generatedAt": null,
+  "variant": "shrinkage K=25",
+  "grouping": "detailed",
+  "settings": {
+    "CCR_CEILING": 1.65,
+    "CCR_FLOOR": 0.05,
+    "MIN_BASE": 5,
+    "USE_SHRINKAGE": true,
+    "SHRINK_K": 25
+  },
+  "design": "Cohort change ratios fitted on Census 2001 to Census 2011, projected one decade to 2021, scored against Census 2021. The fitting window never touches the target, so this is a real forecast error rather than the circular backcast. Ratios are fitted at the 16 groups common to all three censuses and scored on the six broad groups, the only classification stable across all three.",
+  "areasScored": 285,
+  "summary": {
+    "white_british": {
+      "n": 285,
+      "mae": 1.561,
+      "bias": 0.047,
+      "rmse": 2.347,
+      "overPredict": 174,
+      "underPredict": 111,
+      "p10": -2.41,
+      "median": 0.36,
+      "p90": 2.32
+    },
+    "white_other": {
+      "n": 285,
+      "mae": 1.037,
+      "bias": -0.873,
+      "rmse": 1.35,
+      "overPredict": 36,
+      "underPredict": 249,
+      "p10": -2.14,
+      "median": -0.7,
+      "p90": 0.06
+    },
+    "asian": {
+      "n": 285,
+      "mae": 0.796,
+      "bias": 0.45,
+      "rmse": 1.312,
+      "overPredict": 192,
+      "underPredict": 93,
+      "p10": -0.49,
+      "median": 0.17,
+      "p90": 1.96
+    },
+    "black": {
+      "n": 285,
+      "mae": 0.661,
+      "bias": 0.205,
+      "rmse": 1.324,
+      "overPredict": 85,
+      "underPredict": 200,
+      "p10": -0.68,
+      "median": -0.08,
+      "p90": 1.73
+    },
+    "mixed": {
+      "n": 285,
+      "mae": 0.693,
+      "bias": 0.683,
+      "rmse": 1.041,
+      "overPredict": 265,
+      "underPredict": 20,
+      "p10": 0.08,
+      "median": 0.43,
+      "p90": 1.61
+    },
+    "other": {
+      "n": 285,
+      "mae": 0.591,
+      "bias": -0.512,
+      "rmse": 0.865,
+      "overPredict": 18,
+      "underPredict": 267,
+      "p10": -1.26,
+      "median": -0.36,
+      "p90": -0.08
+    }
+  },
+  "areas": [
+    {
+      "code": "E06000001",
+      "areaName": "Hartlepool",
+      "predicted": {
+        "white_british": 95.01,
+        "white_other": 1.31,
+        "asian": 2.19,
+        "black": 0.33,
+        "mixed": 0.96,
+        "other": 0.2
+      },
+      "actual": {
+        "white_british": 95.04,
+        "white_other": 1.42,
+        "asian": 1.75,
+        "black": 0.48,
+        "mixed": 0.73,
+        "other": 0.59
+      },
+      "error": {
+        "white_british": -0.03,
+        "white_other": -0.11,
+        "asian": 0.44,
+        "black": -0.15,
+        "mixed": 0.23,
+        "other": -0.39
+      }
+    },
+    {
+      "code": "E06000002",
+      "areaName": "Middlesbrough",
+      "predicted": {
+        "white_british": 78.37,
+        "white_other": 2.8,
+        "asian": 11.18,
+        "black": 2.4,
+        "mixed": 3.19,
+        "other": 2.04
+      },
+      "actual": {
+        "white_british": 79.52,
+        "white_other": 2.86,
+        "asian": 10.48,
+        "black": 2.64,
+        "mixed": 2.09,
+        "other": 2.41
+      },
+      "error": {
+        "white_british": -1.15,
+        "white_other": -0.06,
+        "asian": 0.7,
+        "black": -0.24,
+        "mixed": 1.1,
+        "other": -0.37
+      }
+    },
+    {
+      "code": "E06000003",
+      "areaName": "Redcar and Cleveland",
+      "predicted": {
+        "white_british": 96.36,
+        "white_other": 1.09,
+        "asian": 0.95,
+        "black": 0.13,
+        "mixed": 1.3,
+        "other": 0.17
+      },
+      "actual": {
+        "white_british": 96.53,
+        "white_other": 1.16,
+        "asian": 0.85,
+        "black": 0.19,
+        "mixed": 0.87,
+        "other": 0.4
+      },
+      "error": {
+        "white_british": -0.17,
+        "white_other": -0.07,
+        "asian": 0.1,
+        "black": -0.06,
+        "mixed": 0.43,
+        "other": -0.23
+      }
+    },
+    {
+      "code": "E06000004",
+      "areaName": "Stockton-on-Tees",
+      "predicted": {
+        "white_british": 90.11,
+        "white_other": 1.43,
+        "asian": 4.95,
+        "black": 1.11,
+        "mixed": 1.93,
+        "other": 0.46
+      },
+      "actual": {
+        "white_british": 90.32,
+        "white_other": 1.73,
+        "asian": 4.59,
+        "black": 1.12,
+        "mixed": 1.39,
+        "other": 0.85
+      },
+      "error": {
+        "white_british": -0.21,
+        "white_other": -0.3,
+        "asian": 0.36,
+        "black": -0.01,
+        "mixed": 0.54,
+        "other": -0.39
+      }
+    },
+    {
+      "code": "E06000005",
+      "areaName": "Darlington",
+      "predicted": {
+        "white_british": 90.57,
+        "white_other": 3.64,
+        "asian": 2.88,
+        "black": 0.47,
+        "mixed": 2.02,
+        "other": 0.42
+      },
+      "actual": {
+        "white_british": 90.3,
+        "white_other": 4.08,
+        "asian": 2.75,
+        "black": 0.64,
+        "mixed": 1.37,
+        "other": 0.86
+      },
+      "error": {
+        "white_british": 0.27,
+        "white_other": -0.44,
+        "asian": 0.13,
+        "black": -0.17,
+        "mixed": 0.65,
+        "other": -0.44
+      }
+    },
+    {
+      "code": "E06000006",
+      "areaName": "Halton",
+      "predicted": {
+        "white_british": 95.03,
+        "white_other": 1.65,
+        "asian": 1,
+        "black": 0.25,
+        "mixed": 1.86,
+        "other": 0.21
+      },
+      "actual": {
+        "white_british": 93.63,
+        "white_other": 2.86,
+        "asian": 1.11,
+        "black": 0.4,
+        "mixed": 1.4,
+        "other": 0.6
+      },
+      "error": {
+        "white_british": 1.4,
+        "white_other": -1.21,
+        "asian": -0.11,
+        "black": -0.15,
+        "mixed": 0.46,
+        "other": -0.39
+      }
+    },
+    {
+      "code": "E06000007",
+      "areaName": "Warrington",
+      "predicted": {
+        "white_british": 89.79,
+        "white_other": 3.99,
+        "asian": 3.48,
+        "black": 0.46,
+        "mixed": 1.88,
+        "other": 0.39
+      },
+      "actual": {
+        "white_british": 88.15,
+        "white_other": 5.38,
+        "asian": 3.28,
+        "black": 0.75,
+        "mixed": 1.58,
+        "other": 0.86
+      },
+      "error": {
+        "white_british": 1.64,
+        "white_other": -1.39,
+        "asian": 0.2,
+        "black": -0.29,
+        "mixed": 0.3,
+        "other": -0.47
+      }
+    },
+    {
+      "code": "E06000008",
+      "areaName": "Blackburn with Darwen",
+      "predicted": {
+        "white_british": 55.91,
+        "white_other": 3.27,
+        "asian": 36.58,
+        "black": 0.94,
+        "mixed": 1.9,
+        "other": 1.41
+      },
+      "actual": {
+        "white_british": 56.88,
+        "white_other": 3.5,
+        "asian": 35.65,
+        "black": 0.9,
+        "mixed": 1.67,
+        "other": 1.39
+      },
+      "error": {
+        "white_british": -0.97,
+        "white_other": -0.23,
+        "asian": 0.93,
+        "black": 0.04,
+        "mixed": 0.23,
+        "other": 0.02
+      }
+    },
+    {
+      "code": "E06000009",
+      "areaName": "Blackpool",
+      "predicted": {
+        "white_british": 90.56,
+        "white_other": 4.02,
+        "asian": 2.42,
+        "black": 0.33,
+        "mixed": 2.25,
+        "other": 0.42
+      },
+      "actual": {
+        "white_british": 90.36,
+        "white_other": 4.32,
+        "asian": 2.6,
+        "black": 0.51,
+        "mixed": 1.57,
+        "other": 0.64
+      },
+      "error": {
+        "white_british": 0.2,
+        "white_other": -0.3,
+        "asian": -0.18,
+        "black": -0.18,
+        "mixed": 0.68,
+        "other": -0.22
+      }
+    },
+    {
+      "code": "E06000010",
+      "areaName": "Kingston upon Hull, City of",
+      "predicted": {
+        "white_british": 83.03,
+        "white_other": 7.43,
+        "asian": 3.67,
+        "black": 1.91,
+        "mixed": 2.42,
+        "other": 1.54
+      },
+      "actual": {
+        "white_british": 83.89,
+        "white_other": 7.87,
+        "asian": 2.81,
+        "black": 1.89,
+        "mixed": 1.69,
+        "other": 1.85
+      },
+      "error": {
+        "white_british": -0.86,
+        "white_other": -0.44,
+        "asian": 0.86,
+        "black": 0.02,
+        "mixed": 0.73,
+        "other": -0.31
+      }
+    },
+    {
+      "code": "E06000011",
+      "areaName": "East Riding of Yorkshire",
+      "predicted": {
+        "white_british": 94.42,
+        "white_other": 2.6,
+        "asian": 1.21,
+        "black": 0.24,
+        "mixed": 1.26,
+        "other": 0.27
+      },
+      "actual": {
+        "white_british": 94.63,
+        "white_other": 2.73,
+        "asian": 1.07,
+        "black": 0.26,
+        "mixed": 0.93,
+        "other": 0.37
+      },
+      "error": {
+        "white_british": -0.21,
+        "white_other": -0.13,
+        "asian": 0.14,
+        "black": -0.02,
+        "mixed": 0.33,
+        "other": -0.1
+      }
+    },
+    {
+      "code": "E06000012",
+      "areaName": "North East Lincolnshire",
+      "predicted": {
+        "white_british": 92.95,
+        "white_other": 2.85,
+        "asian": 1.98,
+        "black": 0.36,
+        "mixed": 1.34,
+        "other": 0.52
+      },
+      "actual": {
+        "white_british": 92.59,
+        "white_other": 3.61,
+        "asian": 1.56,
+        "black": 0.55,
+        "mixed": 1.03,
+        "other": 0.65
+      },
+      "error": {
+        "white_british": 0.36,
+        "white_other": -0.76,
+        "asian": 0.42,
+        "black": -0.19,
+        "mixed": 0.31,
+        "other": -0.13
+      }
+    },
+    {
+      "code": "E06000013",
+      "areaName": "North Lincolnshire",
+      "predicted": {
+        "white_british": 88.63,
+        "white_other": 5.45,
+        "asian": 3.76,
+        "black": 0.43,
+        "mixed": 1.3,
+        "other": 0.42
+      },
+      "actual": {
+        "white_british": 88.71,
+        "white_other": 5.61,
+        "asian": 3.32,
+        "black": 0.48,
+        "mixed": 1.07,
+        "other": 0.81
+      },
+      "error": {
+        "white_british": -0.08,
+        "white_other": -0.16,
+        "asian": 0.44,
+        "black": -0.05,
+        "mixed": 0.23,
+        "other": -0.39
+      }
+    },
+    {
+      "code": "E06000014",
+      "areaName": "York",
+      "predicted": {
+        "white_british": 86.2,
+        "white_other": 5.01,
+        "asian": 4.92,
+        "black": 0.95,
+        "mixed": 2.09,
+        "other": 0.83
+      },
+      "actual": {
+        "white_british": 87.25,
+        "white_other": 5.53,
+        "asian": 3.77,
+        "black": 0.65,
+        "mixed": 1.84,
+        "other": 0.96
+      },
+      "error": {
+        "white_british": -1.05,
+        "white_other": -0.52,
+        "asian": 1.15,
+        "black": 0.3,
+        "mixed": 0.25,
+        "other": -0.13
+      }
+    },
+    {
+      "code": "E06000015",
+      "areaName": "Derby",
+      "predicted": {
+        "white_british": 65.97,
+        "white_other": 6.57,
+        "asian": 16.56,
+        "black": 3.96,
+        "mixed": 4.73,
+        "other": 2.2
+      },
+      "actual": {
+        "white_british": 66.23,
+        "white_other": 7.58,
+        "asian": 15.64,
+        "black": 4,
+        "mixed": 3.66,
+        "other": 2.89
+      },
+      "error": {
+        "white_british": -0.26,
+        "white_other": -1.01,
+        "asian": 0.92,
+        "black": -0.04,
+        "mixed": 1.07,
+        "other": -0.69
+      }
+    },
+    {
+      "code": "E06000016",
+      "areaName": "Leicester",
+      "predicted": {
+        "white_british": 32.44,
+        "white_other": 6.77,
+        "asian": 42.08,
+        "black": 9.22,
+        "mixed": 5.28,
+        "other": 4.2
+      },
+      "actual": {
+        "white_british": 33.21,
+        "white_other": 7.66,
+        "asian": 43.41,
+        "black": 7.8,
+        "mixed": 3.77,
+        "other": 4.14
+      },
+      "error": {
+        "white_british": -0.77,
+        "white_other": -0.89,
+        "asian": -1.33,
+        "black": 1.42,
+        "mixed": 1.51,
+        "other": 0.06
+      }
+    },
+    {
+      "code": "E06000017",
+      "areaName": "Rutland",
+      "predicted": {
+        "white_british": 92.61,
+        "white_other": 3.25,
+        "asian": 1.27,
+        "black": 0.92,
+        "mixed": 1.67,
+        "other": 0.27
+      },
+      "actual": {
+        "white_british": 91.04,
+        "white_other": 3.74,
+        "asian": 1.54,
+        "black": 2.15,
+        "mixed": 1.01,
+        "other": 0.51
+      },
+      "error": {
+        "white_british": 1.57,
+        "white_other": -0.49,
+        "asian": -0.27,
+        "black": -1.23,
+        "mixed": 0.66,
+        "other": -0.24
+      }
+    },
+    {
+      "code": "E06000018",
+      "areaName": "Nottingham",
+      "predicted": {
+        "white_british": 50.34,
+        "white_other": 7.89,
+        "asian": 17.43,
+        "black": 10.21,
+        "mixed": 11.74,
+        "other": 2.39
+      },
+      "actual": {
+        "white_british": 57.35,
+        "white_other": 8.6,
+        "asian": 14.9,
+        "black": 9.95,
+        "mixed": 5.89,
+        "other": 3.31
+      },
+      "error": {
+        "white_british": -7.01,
+        "white_other": -0.71,
+        "asian": 2.53,
+        "black": 0.26,
+        "mixed": 5.85,
+        "other": -0.92
+      }
+    },
+    {
+      "code": "E06000019",
+      "areaName": "Herefordshire, County of",
+      "predicted": {
+        "white_british": 90.23,
+        "white_other": 6.96,
+        "asian": 1.14,
+        "black": 0.25,
+        "mixed": 1.18,
+        "other": 0.23
+      },
+      "actual": {
+        "white_british": 91.11,
+        "white_other": 5.79,
+        "asian": 1.2,
+        "black": 0.3,
+        "mixed": 1.06,
+        "other": 0.55
+      },
+      "error": {
+        "white_british": -0.88,
+        "white_other": 1.17,
+        "asian": -0.06,
+        "black": -0.05,
+        "mixed": 0.12,
+        "other": -0.32
+      }
+    },
+    {
+      "code": "E06000020",
+      "areaName": "Telford and Wrekin",
+      "predicted": {
+        "white_british": 84.42,
+        "white_other": 4.55,
+        "asian": 5.57,
+        "black": 1.52,
+        "mixed": 3.5,
+        "other": 0.43
+      },
+      "actual": {
+        "white_british": 82.95,
+        "white_other": 5.23,
+        "asian": 5.43,
+        "black": 2.89,
+        "mixed": 2.61,
+        "other": 0.89
+      },
+      "error": {
+        "white_british": 1.47,
+        "white_other": -0.68,
+        "asian": 0.14,
+        "black": -1.37,
+        "mixed": 0.89,
+        "other": -0.46
+      }
+    },
+    {
+      "code": "E06000021",
+      "areaName": "Stoke-on-Trent",
+      "predicted": {
+        "white_british": 78.37,
+        "white_other": 3.17,
+        "asian": 11.63,
+        "black": 2.41,
+        "mixed": 3.32,
+        "other": 1.1
+      },
+      "actual": {
+        "white_british": 78.53,
+        "white_other": 4.96,
+        "asian": 9.91,
+        "black": 2.66,
+        "mixed": 2.26,
+        "other": 1.68
+      },
+      "error": {
+        "white_british": -0.16,
+        "white_other": -1.79,
+        "asian": 1.72,
+        "black": -0.25,
+        "mixed": 1.06,
+        "other": -0.58
+      }
+    },
+    {
+      "code": "E06000022",
+      "areaName": "Bath and North East Somerset",
+      "predicted": {
+        "white_british": 86.81,
+        "white_other": 5.29,
+        "asian": 3.46,
+        "black": 0.94,
+        "mixed": 2.82,
+        "other": 0.67
+      },
+      "actual": {
+        "white_british": 85.57,
+        "white_other": 6.63,
+        "asian": 3.3,
+        "black": 0.95,
+        "mixed": 2.71,
+        "other": 0.84
+      },
+      "error": {
+        "white_british": 1.24,
+        "white_other": -1.34,
+        "asian": 0.16,
+        "black": -0.01,
+        "mixed": 0.11,
+        "other": -0.17
+      }
+    },
+    {
+      "code": "E06000023",
+      "areaName": "Bristol, City of",
+      "predicted": {
+        "white_british": 67.89,
+        "white_other": 7.31,
+        "asian": 7.38,
+        "black": 10.05,
+        "mixed": 5.94,
+        "other": 1.43
+      },
+      "actual": {
+        "white_british": 71.63,
+        "white_other": 9.46,
+        "asian": 6.62,
+        "black": 5.9,
+        "mixed": 4.47,
+        "other": 1.92
+      },
+      "error": {
+        "white_british": -3.74,
+        "white_other": -2.15,
+        "asian": 0.76,
+        "black": 4.15,
+        "mixed": 1.47,
+        "other": -0.49
+      }
+    },
+    {
+      "code": "E06000024",
+      "areaName": "North Somerset",
+      "predicted": {
+        "white_british": 91.54,
+        "white_other": 4.32,
+        "asian": 1.66,
+        "black": 0.42,
+        "mixed": 1.77,
+        "other": 0.29
+      },
+      "actual": {
+        "white_british": 90.39,
+        "white_other": 5.31,
+        "asian": 1.54,
+        "black": 0.53,
+        "mixed": 1.68,
+        "other": 0.55
+      },
+      "error": {
+        "white_british": 1.15,
+        "white_other": -0.99,
+        "asian": 0.12,
+        "black": -0.11,
+        "mixed": 0.09,
+        "other": -0.26
+      }
+    },
+    {
+      "code": "E06000025",
+      "areaName": "South Gloucestershire",
+      "predicted": {
+        "white_british": 88.16,
+        "white_other": 4.02,
+        "asian": 3.5,
+        "black": 1.16,
+        "mixed": 2.6,
+        "other": 0.55
+      },
+      "actual": {
+        "white_british": 85.79,
+        "white_other": 5.41,
+        "asian": 3.82,
+        "black": 1.56,
+        "mixed": 2.51,
+        "other": 0.91
+      },
+      "error": {
+        "white_british": 2.37,
+        "white_other": -1.39,
+        "asian": -0.32,
+        "black": -0.4,
+        "mixed": 0.09,
+        "other": -0.36
+      }
+    },
+    {
+      "code": "E06000026",
+      "areaName": "Plymouth",
+      "predicted": {
+        "white_british": 89.43,
+        "white_other": 4.52,
+        "asian": 2.2,
+        "black": 1.03,
+        "mixed": 2.16,
+        "other": 0.66
+      },
+      "actual": {
+        "white_british": 89.47,
+        "white_other": 4.51,
+        "asian": 2.24,
+        "black": 1.05,
+        "mixed": 1.76,
+        "other": 0.98
+      },
+      "error": {
+        "white_british": -0.04,
+        "white_other": 0.01,
+        "asian": -0.04,
+        "black": -0.02,
+        "mixed": 0.4,
+        "other": -0.32
+      }
+    },
+    {
+      "code": "E06000027",
+      "areaName": "Torbay",
+      "predicted": {
+        "white_british": 92.7,
+        "white_other": 3.34,
+        "asian": 1.54,
+        "black": 0.25,
+        "mixed": 1.87,
+        "other": 0.3
+      },
+      "actual": {
+        "white_british": 92.11,
+        "white_other": 3.99,
+        "asian": 1.62,
+        "black": 0.32,
+        "mixed": 1.51,
+        "other": 0.44
+      },
+      "error": {
+        "white_british": 0.59,
+        "white_other": -0.65,
+        "asian": -0.08,
+        "black": -0.07,
+        "mixed": 0.36,
+        "other": -0.14
+      }
+    },
+    {
+      "code": "E06000030",
+      "areaName": "Swindon",
+      "predicted": {
+        "white_british": 78.61,
+        "white_other": 6.14,
+        "asian": 9.4,
+        "black": 1.93,
+        "mixed": 3.39,
+        "other": 0.52
+      },
+      "actual": {
+        "white_british": 74.21,
+        "white_other": 7.25,
+        "asian": 11.64,
+        "black": 2.63,
+        "mixed": 2.78,
+        "other": 1.49
+      },
+      "error": {
+        "white_british": 4.4,
+        "white_other": -1.11,
+        "asian": -2.24,
+        "black": -0.7,
+        "mixed": 0.61,
+        "other": -0.97
+      }
+    },
+    {
+      "code": "E06000031",
+      "areaName": "Peterborough",
+      "predicted": {
+        "white_british": 58.01,
+        "white_other": 17.02,
+        "asian": 16.17,
+        "black": 3.22,
+        "mixed": 4.35,
+        "other": 1.23
+      },
+      "actual": {
+        "white_british": 59.52,
+        "white_other": 15.88,
+        "asian": 14.27,
+        "black": 4.06,
+        "mixed": 3.53,
+        "other": 2.75
+      },
+      "error": {
+        "white_british": -1.51,
+        "white_other": 1.14,
+        "asian": 1.9,
+        "black": -0.84,
+        "mixed": 0.82,
+        "other": -1.52
+      }
+    },
+    {
+      "code": "E06000032",
+      "areaName": "Luton",
+      "predicted": {
+        "white_british": 27.39,
+        "white_other": 11.81,
+        "asian": 39.74,
+        "black": 12.5,
+        "mixed": 6.43,
+        "other": 2.14
+      },
+      "actual": {
+        "white_british": 31.75,
+        "white_other": 13.43,
+        "asian": 37,
+        "black": 10.09,
+        "mixed": 4.28,
+        "other": 3.45
+      },
+      "error": {
+        "white_british": -4.36,
+        "white_other": -1.62,
+        "asian": 2.74,
+        "black": 2.41,
+        "mixed": 2.15,
+        "other": -1.31
+      }
+    },
+    {
+      "code": "E06000033",
+      "areaName": "Southend-on-Sea",
+      "predicted": {
+        "white_british": 81.15,
+        "white_other": 5.78,
+        "asian": 5.05,
+        "black": 3.15,
+        "mixed": 4.12,
+        "other": 0.75
+      },
+      "actual": {
+        "white_british": 81.61,
+        "white_other": 5.89,
+        "asian": 5.45,
+        "black": 2.85,
+        "mixed": 3.07,
+        "other": 1.12
+      },
+      "error": {
+        "white_british": -0.46,
+        "white_other": -0.11,
+        "asian": -0.4,
+        "black": 0.3,
+        "mixed": 1.05,
+        "other": -0.37
+      }
+    },
+    {
+      "code": "E06000034",
+      "areaName": "Thurrock",
+      "predicted": {
+        "white_british": 69.49,
+        "white_other": 6.83,
+        "asian": 5.13,
+        "black": 13.89,
+        "mixed": 3.73,
+        "other": 0.93
+      },
+      "actual": {
+        "white_british": 66.15,
+        "white_other": 10.54,
+        "asian": 6.92,
+        "black": 11.87,
+        "mixed": 2.99,
+        "other": 1.53
+      },
+      "error": {
+        "white_british": 3.34,
+        "white_other": -3.71,
+        "asian": -1.79,
+        "black": 2.02,
+        "mixed": 0.74,
+        "other": -0.6
+      }
+    },
+    {
+      "code": "E06000035",
+      "areaName": "Medway",
+      "predicted": {
+        "white_british": 78.37,
+        "white_other": 5.71,
+        "asian": 7.05,
+        "black": 4.1,
+        "mixed": 3.5,
+        "other": 1.27
+      },
+      "actual": {
+        "white_british": 78.26,
+        "white_other": 6,
+        "asian": 5.9,
+        "black": 5.62,
+        "mixed": 2.81,
+        "other": 1.41
+      },
+      "error": {
+        "white_british": 0.11,
+        "white_other": -0.29,
+        "asian": 1.15,
+        "black": -1.52,
+        "mixed": 0.69,
+        "other": -0.14
+      }
+    },
+    {
+      "code": "E06000036",
+      "areaName": "Bracknell Forest",
+      "predicted": {
+        "white_british": 78.55,
+        "white_other": 6.67,
+        "asian": 7.53,
+        "black": 2.98,
+        "mixed": 3.6,
+        "other": 0.67
+      },
+      "actual": {
+        "white_british": 77.79,
+        "white_other": 8.28,
+        "asian": 7.15,
+        "black": 2.4,
+        "mixed": 3.09,
+        "other": 1.29
+      },
+      "error": {
+        "white_british": 0.76,
+        "white_other": -1.61,
+        "asian": 0.38,
+        "black": 0.58,
+        "mixed": 0.51,
+        "other": -0.62
+      }
+    },
+    {
+      "code": "E06000037",
+      "areaName": "West Berkshire",
+      "predicted": {
+        "white_british": 86.48,
+        "white_other": 5.39,
+        "asian": 3.56,
+        "black": 1.22,
+        "mixed": 2.97,
+        "other": 0.37
+      },
+      "actual": {
+        "white_british": 85.63,
+        "white_other": 6.27,
+        "asian": 3.71,
+        "black": 1.26,
+        "mixed": 2.39,
+        "other": 0.74
+      },
+      "error": {
+        "white_british": 0.85,
+        "white_other": -0.88,
+        "asian": -0.15,
+        "black": -0.04,
+        "mixed": 0.58,
+        "other": -0.37
+      }
+    },
+    {
+      "code": "E06000038",
+      "areaName": "Reading",
+      "predicted": {
+        "white_british": 51.94,
+        "white_other": 10.99,
+        "asian": 19.4,
+        "black": 9.57,
+        "mixed": 6.76,
+        "other": 1.33
+      },
+      "actual": {
+        "white_british": 53.47,
+        "white_other": 13.62,
+        "asian": 17.71,
+        "black": 7.19,
+        "mixed": 5.15,
+        "other": 2.87
+      },
+      "error": {
+        "white_british": -1.53,
+        "white_other": -2.63,
+        "asian": 1.69,
+        "black": 2.38,
+        "mixed": 1.61,
+        "other": -1.54
+      }
+    },
+    {
+      "code": "E06000039",
+      "areaName": "Slough",
+      "predicted": {
+        "white_british": 19.13,
+        "white_other": 13.99,
+        "asian": 46.6,
+        "black": 11.68,
+        "mixed": 4.9,
+        "other": 3.69
+      },
+      "actual": {
+        "white_british": 24.03,
+        "white_other": 12.01,
+        "asian": 46.75,
+        "black": 7.56,
+        "mixed": 3.97,
+        "other": 5.66
+      },
+      "error": {
+        "white_british": -4.9,
+        "white_other": 1.98,
+        "asian": -0.15,
+        "black": 4.12,
+        "mixed": 0.93,
+        "other": -1.97
+      }
+    },
+    {
+      "code": "E06000040",
+      "areaName": "Windsor and Maidenhead",
+      "predicted": {
+        "white_british": 70.17,
+        "white_other": 9.16,
+        "asian": 13.75,
+        "black": 1.76,
+        "mixed": 3.97,
+        "other": 1.19
+      },
+      "actual": {
+        "white_british": 69.06,
+        "white_other": 10.79,
+        "asian": 13.08,
+        "black": 1.54,
+        "mixed": 3.41,
+        "other": 2.14
+      },
+      "error": {
+        "white_british": 1.11,
+        "white_other": -1.63,
+        "asian": 0.67,
+        "black": 0.22,
+        "mixed": 0.56,
+        "other": -0.95
+      }
+    },
+    {
+      "code": "E06000041",
+      "areaName": "Wokingham",
+      "predicted": {
+        "white_british": 76.03,
+        "white_other": 5.49,
+        "asian": 11.38,
+        "black": 1.96,
+        "mixed": 3.9,
+        "other": 1.24
+      },
+      "actual": {
+        "white_british": 72.73,
+        "white_other": 7.19,
+        "asian": 12.88,
+        "black": 2.43,
+        "mixed": 3.15,
+        "other": 1.62
+      },
+      "error": {
+        "white_british": 3.3,
+        "white_other": -1.7,
+        "asian": -1.5,
+        "black": -0.47,
+        "mixed": 0.75,
+        "other": -0.38
+      }
+    },
+    {
+      "code": "E06000042",
+      "areaName": "Milton Keynes",
+      "predicted": {
+        "white_british": 62.57,
+        "white_other": 7.07,
+        "asian": 12.47,
+        "black": 11.1,
+        "mixed": 5.94,
+        "other": 0.86
+      },
+      "actual": {
+        "white_british": 62.22,
+        "white_other": 9.6,
+        "asian": 12.41,
+        "black": 9.7,
+        "mixed": 4.08,
+        "other": 1.99
+      },
+      "error": {
+        "white_british": 0.35,
+        "white_other": -2.53,
+        "asian": 0.06,
+        "black": 1.4,
+        "mixed": 1.86,
+        "other": -1.13
+      }
+    },
+    {
+      "code": "E06000043",
+      "areaName": "Brighton and Hove",
+      "predicted": {
+        "white_british": 74.37,
+        "white_other": 9.44,
+        "asian": 5.25,
+        "black": 2.08,
+        "mixed": 6.65,
+        "other": 2.2
+      },
+      "actual": {
+        "white_british": 73.93,
+        "white_other": 11.45,
+        "asian": 4.77,
+        "black": 1.97,
+        "mixed": 4.77,
+        "other": 3.12
+      },
+      "error": {
+        "white_british": 0.44,
+        "white_other": -2.01,
+        "asian": 0.48,
+        "black": 0.11,
+        "mixed": 1.88,
+        "other": -0.92
+      }
+    },
+    {
+      "code": "E06000044",
+      "areaName": "Portsmouth",
+      "predicted": {
+        "white_british": 76.28,
+        "white_other": 5.3,
+        "asian": 8.09,
+        "black": 2.99,
+        "mixed": 5.71,
+        "other": 1.63
+      },
+      "actual": {
+        "white_british": 77.71,
+        "white_other": 7.51,
+        "asian": 6.91,
+        "black": 3.4,
+        "mixed": 2.64,
+        "other": 1.83
+      },
+      "error": {
+        "white_british": -1.43,
+        "white_other": -2.21,
+        "asian": 1.18,
+        "black": -0.41,
+        "mixed": 3.07,
+        "other": -0.2
+      }
+    },
+    {
+      "code": "E06000045",
+      "areaName": "Southampton",
+      "predicted": {
+        "white_british": 66.71,
+        "white_other": 12.51,
+        "asian": 11.9,
+        "black": 3.21,
+        "mixed": 3.86,
+        "other": 1.8
+      },
+      "actual": {
+        "white_british": 68.08,
+        "white_other": 12.59,
+        "asian": 10.62,
+        "black": 3.03,
+        "mixed": 3.34,
+        "other": 2.34
+      },
+      "error": {
+        "white_british": -1.37,
+        "white_other": -0.08,
+        "asian": 1.28,
+        "black": 0.18,
+        "mixed": 0.52,
+        "other": -0.54
+      }
+    },
+    {
+      "code": "E06000046",
+      "areaName": "Isle of Wight",
+      "predicted": {
+        "white_british": 92.53,
+        "white_other": 2.93,
+        "asian": 1.58,
+        "black": 0.26,
+        "mixed": 2.5,
+        "other": 0.21
+      },
+      "actual": {
+        "white_british": 93.75,
+        "white_other": 3.22,
+        "asian": 1.19,
+        "black": 0.33,
+        "mixed": 1.24,
+        "other": 0.27
+      },
+      "error": {
+        "white_british": -1.22,
+        "white_other": -0.29,
+        "asian": 0.39,
+        "black": -0.07,
+        "mixed": 1.26,
+        "other": -0.06
+      }
+    },
+    {
+      "code": "E06000047",
+      "areaName": "County Durham",
+      "predicted": {
+        "white_british": 95.02,
+        "white_other": 2.13,
+        "asian": 1.36,
+        "black": 0.2,
+        "mixed": 1.03,
+        "other": 0.26
+      },
+      "actual": {
+        "white_british": 94.74,
+        "white_other": 2.07,
+        "asian": 1.5,
+        "black": 0.33,
+        "mixed": 0.95,
+        "other": 0.4
+      },
+      "error": {
+        "white_british": 0.28,
+        "white_other": 0.06,
+        "asian": -0.14,
+        "black": -0.13,
+        "mixed": 0.08,
+        "other": -0.14
+      }
+    },
+    {
+      "code": "E06000049",
+      "areaName": "Cheshire East",
+      "predicted": {
+        "white_british": 90.59,
+        "white_other": 4.27,
+        "asian": 2.38,
+        "black": 0.51,
+        "mixed": 1.88,
+        "other": 0.37
+      },
+      "actual": {
+        "white_british": 89.61,
+        "white_other": 4.82,
+        "asian": 2.38,
+        "black": 0.61,
+        "mixed": 1.77,
+        "other": 0.81
+      },
+      "error": {
+        "white_british": 0.98,
+        "white_other": -0.55,
+        "asian": 0,
+        "black": -0.1,
+        "mixed": 0.11,
+        "other": -0.44
+      }
+    },
+    {
+      "code": "E06000050",
+      "areaName": "Cheshire West and Chester",
+      "predicted": {
+        "white_british": 92.55,
+        "white_other": 3.32,
+        "asian": 1.82,
+        "black": 0.41,
+        "mixed": 1.65,
+        "other": 0.25
+      },
+      "actual": {
+        "white_british": 91.17,
+        "white_other": 4.13,
+        "asian": 2.02,
+        "black": 0.59,
+        "mixed": 1.48,
+        "other": 0.6
+      },
+      "error": {
+        "white_british": 1.38,
+        "white_other": -0.81,
+        "asian": -0.2,
+        "black": -0.18,
+        "mixed": 0.17,
+        "other": -0.35
+      }
+    },
+    {
+      "code": "E06000051",
+      "areaName": "Shropshire",
+      "predicted": {
+        "white_british": 93.56,
+        "white_other": 3.44,
+        "asian": 1.31,
+        "black": 0.27,
+        "mixed": 1.21,
+        "other": 0.21
+      },
+      "actual": {
+        "white_british": 93.31,
+        "white_other": 3.39,
+        "asian": 1.33,
+        "black": 0.34,
+        "mixed": 1.19,
+        "other": 0.44
+      },
+      "error": {
+        "white_british": 0.25,
+        "white_other": 0.05,
+        "asian": -0.02,
+        "black": -0.07,
+        "mixed": 0.02,
+        "other": -0.23
+      }
+    },
+    {
+      "code": "E06000052",
+      "areaName": "Cornwall",
+      "predicted": {
+        "white_british": 94.3,
+        "white_other": 3.04,
+        "asian": 0.9,
+        "black": 0.18,
+        "mixed": 1.34,
+        "other": 0.24
+      },
+      "actual": {
+        "white_british": 93.61,
+        "white_other": 3.2,
+        "asian": 0.71,
+        "black": 0.19,
+        "mixed": 1.23,
+        "other": 1.06
+      },
+      "error": {
+        "white_british": 0.69,
+        "white_other": -0.16,
+        "asian": 0.19,
+        "black": -0.01,
+        "mixed": 0.11,
+        "other": -0.82
+      }
+    },
+    {
+      "code": "E06000053",
+      "areaName": "Isles of Scilly",
+      "predicted": {
+        "white_british": 92.57,
+        "white_other": 5.83,
+        "asian": 0.13,
+        "black": 0.11,
+        "mixed": 1.11,
+        "other": 0.25
+      },
+      "actual": {
+        "white_british": 93.72,
+        "white_other": 3.8,
+        "asian": 0.29,
+        "black": 0.68,
+        "mixed": 0.63,
+        "other": 0.88
+      },
+      "error": {
+        "white_british": -1.15,
+        "white_other": 2.03,
+        "asian": -0.16,
+        "black": -0.57,
+        "mixed": 0.48,
+        "other": -0.63
+      }
+    },
+    {
+      "code": "E06000054",
+      "areaName": "Wiltshire",
+      "predicted": {
+        "white_british": 90.54,
+        "white_other": 4.1,
+        "asian": 1.9,
+        "black": 1.06,
+        "mixed": 2.07,
+        "other": 0.34
+      },
+      "actual": {
+        "white_british": 90.06,
+        "white_other": 4.28,
+        "asian": 2.13,
+        "black": 1.13,
+        "mixed": 1.71,
+        "other": 0.7
+      },
+      "error": {
+        "white_british": 0.48,
+        "white_other": -0.18,
+        "asian": -0.23,
+        "black": -0.07,
+        "mixed": 0.36,
+        "other": -0.36
+      }
+    },
+    {
+      "code": "E06000055",
+      "areaName": "Bedford",
+      "predicted": {
+        "white_british": 61.16,
+        "white_other": 11.3,
+        "asian": 15.04,
+        "black": 5.27,
+        "mixed": 6.12,
+        "other": 1.11
+      },
+      "actual": {
+        "white_british": 64.1,
+        "white_other": 11.55,
+        "asian": 12.58,
+        "black": 5.32,
+        "mixed": 4.64,
+        "other": 1.81
+      },
+      "error": {
+        "white_british": -2.94,
+        "white_other": -0.25,
+        "asian": 2.46,
+        "black": -0.05,
+        "mixed": 1.48,
+        "other": -0.7
+      }
+    },
+    {
+      "code": "E06000056",
+      "areaName": "Central Bedfordshire",
+      "predicted": {
+        "white_british": 85.58,
+        "white_other": 4.7,
+        "asian": 3.48,
+        "black": 2.07,
+        "mixed": 3.63,
+        "other": 0.53
+      },
+      "actual": {
+        "white_british": 83.54,
+        "white_other": 6.72,
+        "asian": 3.51,
+        "black": 2.39,
+        "mixed": 3.01,
+        "other": 0.84
+      },
+      "error": {
+        "white_british": 2.04,
+        "white_other": -2.02,
+        "asian": -0.03,
+        "black": -0.32,
+        "mixed": 0.62,
+        "other": -0.31
+      }
+    },
+    {
+      "code": "E06000057",
+      "areaName": "Northumberland",
+      "predicted": {
+        "white_british": 96.06,
+        "white_other": 1.51,
+        "asian": 1.18,
+        "black": 0.14,
+        "mixed": 0.98,
+        "other": 0.13
+      },
+      "actual": {
+        "white_british": 96.08,
+        "white_other": 1.56,
+        "asian": 1.05,
+        "black": 0.47,
+        "mixed": 0.52,
+        "other": 0.32
+      },
+      "error": {
+        "white_british": -0.02,
+        "white_other": -0.05,
+        "asian": 0.13,
+        "black": -0.33,
+        "mixed": 0.46,
+        "other": -0.19
+      }
+    },
+    {
+      "code": "E07000008",
+      "areaName": "Cambridge",
+      "predicted": {
+        "white_british": 55.72,
+        "white_other": 19.49,
+        "asian": 14.98,
+        "black": 2.29,
+        "mixed": 5.22,
+        "other": 2.29
+      },
+      "actual": {
+        "white_british": 52.98,
+        "white_other": 21.54,
+        "asian": 14.84,
+        "black": 2.46,
+        "mixed": 5.07,
+        "other": 3.11
+      },
+      "error": {
+        "white_british": 2.74,
+        "white_other": -2.05,
+        "asian": 0.14,
+        "black": -0.17,
+        "mixed": 0.15,
+        "other": -0.82
+      }
+    },
+    {
+      "code": "E07000009",
+      "areaName": "East Cambridgeshire",
+      "predicted": {
+        "white_british": 86.39,
+        "white_other": 8.07,
+        "asian": 1.87,
+        "black": 0.91,
+        "mixed": 2.36,
+        "other": 0.4
+      },
+      "actual": {
+        "white_british": 86.49,
+        "white_other": 7.99,
+        "asian": 1.91,
+        "black": 0.8,
+        "mixed": 2.16,
+        "other": 0.66
+      },
+      "error": {
+        "white_british": -0.1,
+        "white_other": 0.08,
+        "asian": -0.04,
+        "black": 0.11,
+        "mixed": 0.2,
+        "other": -0.26
+      }
+    },
+    {
+      "code": "E07000010",
+      "areaName": "Fenland",
+      "predicted": {
+        "white_british": 85.69,
+        "white_other": 10.38,
+        "asian": 1.51,
+        "black": 0.68,
+        "mixed": 1.51,
+        "other": 0.23
+      },
+      "actual": {
+        "white_british": 85.92,
+        "white_other": 10,
+        "asian": 1.2,
+        "black": 0.81,
+        "mixed": 1.37,
+        "other": 0.71
+      },
+      "error": {
+        "white_british": -0.23,
+        "white_other": 0.38,
+        "asian": 0.31,
+        "black": -0.13,
+        "mixed": 0.14,
+        "other": -0.48
+      }
+    },
+    {
+      "code": "E07000011",
+      "areaName": "Huntingdonshire",
+      "predicted": {
+        "white_british": 85.49,
+        "white_other": 6.6,
+        "asian": 3.55,
+        "black": 1.41,
+        "mixed": 2.55,
+        "other": 0.4
+      },
+      "actual": {
+        "white_british": 85.21,
+        "white_other": 7.21,
+        "asian": 3.18,
+        "black": 1.46,
+        "mixed": 2.25,
+        "other": 0.7
+      },
+      "error": {
+        "white_british": 0.28,
+        "white_other": -0.61,
+        "asian": 0.37,
+        "black": -0.05,
+        "mixed": 0.3,
+        "other": -0.3
+      }
+    },
+    {
+      "code": "E07000012",
+      "areaName": "South Cambridgeshire",
+      "predicted": {
+        "white_british": 82.21,
+        "white_other": 7.65,
+        "asian": 5.28,
+        "black": 1.2,
+        "mixed": 3.05,
+        "other": 0.62
+      },
+      "actual": {
+        "white_british": 79.55,
+        "white_other": 9.44,
+        "asian": 5.8,
+        "black": 1.25,
+        "mixed": 2.83,
+        "other": 1.13
+      },
+      "error": {
+        "white_british": 2.66,
+        "white_other": -1.79,
+        "asian": -0.52,
+        "black": -0.05,
+        "mixed": 0.22,
+        "other": -0.51
+      }
+    },
+    {
+      "code": "E07000032",
+      "areaName": "Amber Valley",
+      "predicted": {
+        "white_british": 95.07,
+        "white_other": 2.06,
+        "asian": 1.09,
+        "black": 0.26,
+        "mixed": 1.37,
+        "other": 0.16
+      },
+      "actual": {
+        "white_british": 95.04,
+        "white_other": 2.25,
+        "asian": 0.96,
+        "black": 0.3,
+        "mixed": 1.21,
+        "other": 0.24
+      },
+      "error": {
+        "white_british": 0.03,
+        "white_other": -0.19,
+        "asian": 0.13,
+        "black": -0.04,
+        "mixed": 0.16,
+        "other": -0.08
+      }
+    },
+    {
+      "code": "E07000033",
+      "areaName": "Bolsover",
+      "predicted": {
+        "white_british": 94.7,
+        "white_other": 2.42,
+        "asian": 1.23,
+        "black": 0.47,
+        "mixed": 1.14,
+        "other": 0.03
+      },
+      "actual": {
+        "white_british": 93.27,
+        "white_other": 4.11,
+        "asian": 0.89,
+        "black": 0.53,
+        "mixed": 0.91,
+        "other": 0.29
+      },
+      "error": {
+        "white_british": 1.43,
+        "white_other": -1.69,
+        "asian": 0.34,
+        "black": -0.06,
+        "mixed": 0.23,
+        "other": -0.26
+      }
+    },
+    {
+      "code": "E07000034",
+      "areaName": "Chesterfield",
+      "predicted": {
+        "white_british": 92.98,
+        "white_other": 1.83,
+        "asian": 2.24,
+        "black": 1.01,
+        "mixed": 1.73,
+        "other": 0.21
+      },
+      "actual": {
+        "white_british": 93.05,
+        "white_other": 2.39,
+        "asian": 1.9,
+        "black": 0.81,
+        "mixed": 1.44,
+        "other": 0.41
+      },
+      "error": {
+        "white_british": -0.07,
+        "white_other": -0.56,
+        "asian": 0.34,
+        "black": 0.2,
+        "mixed": 0.29,
+        "other": -0.2
+      }
+    },
+    {
+      "code": "E07000035",
+      "areaName": "Derbyshire Dales",
+      "predicted": {
+        "white_british": 95.71,
+        "white_other": 2.16,
+        "asian": 0.76,
+        "black": 0.15,
+        "mixed": 1.12,
+        "other": 0.1
+      },
+      "actual": {
+        "white_british": 95.51,
+        "white_other": 2.26,
+        "asian": 0.72,
+        "black": 0.58,
+        "mixed": 0.66,
+        "other": 0.26
+      },
+      "error": {
+        "white_british": 0.2,
+        "white_other": -0.1,
+        "asian": 0.04,
+        "black": -0.43,
+        "mixed": 0.46,
+        "other": -0.16
+      }
+    },
+    {
+      "code": "E07000036",
+      "areaName": "Erewash",
+      "predicted": {
+        "white_british": 93.31,
+        "white_other": 2.19,
+        "asian": 1.67,
+        "black": 0.57,
+        "mixed": 2.07,
+        "other": 0.19
+      },
+      "actual": {
+        "white_british": 92.45,
+        "white_other": 2.98,
+        "asian": 1.59,
+        "black": 0.78,
+        "mixed": 1.82,
+        "other": 0.38
+      },
+      "error": {
+        "white_british": 0.86,
+        "white_other": -0.79,
+        "asian": 0.08,
+        "black": -0.21,
+        "mixed": 0.25,
+        "other": -0.19
+      }
+    },
+    {
+      "code": "E07000037",
+      "areaName": "High Peak",
+      "predicted": {
+        "white_british": 94.4,
+        "white_other": 2.21,
+        "asian": 1.15,
+        "black": 0.25,
+        "mixed": 1.84,
+        "other": 0.16
+      },
+      "actual": {
+        "white_british": 94.75,
+        "white_other": 2.69,
+        "asian": 0.76,
+        "black": 0.25,
+        "mixed": 1.3,
+        "other": 0.24
+      },
+      "error": {
+        "white_british": -0.35,
+        "white_other": -0.48,
+        "asian": 0.39,
+        "black": 0,
+        "mixed": 0.54,
+        "other": -0.08
+      }
+    },
+    {
+      "code": "E07000038",
+      "areaName": "North East Derbyshire",
+      "predicted": {
+        "white_british": 95.64,
+        "white_other": 1.32,
+        "asian": 1.15,
+        "black": 0.31,
+        "mixed": 1.37,
+        "other": 0.21
+      },
+      "actual": {
+        "white_british": 95.75,
+        "white_other": 1.67,
+        "asian": 0.93,
+        "black": 0.32,
+        "mixed": 1.14,
+        "other": 0.19
+      },
+      "error": {
+        "white_british": -0.11,
+        "white_other": -0.35,
+        "asian": 0.22,
+        "black": -0.01,
+        "mixed": 0.23,
+        "other": 0.02
+      }
+    },
+    {
+      "code": "E07000039",
+      "areaName": "South Derbyshire",
+      "predicted": {
+        "white_british": 92.26,
+        "white_other": 1.85,
+        "asian": 3.08,
+        "black": 0.52,
+        "mixed": 1.95,
+        "other": 0.33
+      },
+      "actual": {
+        "white_british": 90.17,
+        "white_other": 2.98,
+        "asian": 3.57,
+        "black": 0.78,
+        "mixed": 1.81,
+        "other": 0.69
+      },
+      "error": {
+        "white_british": 2.09,
+        "white_other": -1.13,
+        "asian": -0.49,
+        "black": -0.26,
+        "mixed": 0.14,
+        "other": -0.36
+      }
+    },
+    {
+      "code": "E07000040",
+      "areaName": "East Devon",
+      "predicted": {
+        "white_british": 94.98,
+        "white_other": 2.51,
+        "asian": 1.02,
+        "black": 0.13,
+        "mixed": 1.22,
+        "other": 0.14
+      },
+      "actual": {
+        "white_british": 94.15,
+        "white_other": 3.21,
+        "asian": 0.96,
+        "black": 0.23,
+        "mixed": 1.15,
+        "other": 0.29
+      },
+      "error": {
+        "white_british": 0.83,
+        "white_other": -0.7,
+        "asian": 0.06,
+        "black": -0.1,
+        "mixed": 0.07,
+        "other": -0.15
+      }
+    },
+    {
+      "code": "E07000041",
+      "areaName": "Exeter",
+      "predicted": {
+        "white_british": 82.72,
+        "white_other": 6.14,
+        "asian": 5.88,
+        "black": 0.84,
+        "mixed": 2.94,
+        "other": 1.47
+      },
+      "actual": {
+        "white_british": 82.67,
+        "white_other": 7.61,
+        "asian": 4.88,
+        "black": 0.88,
+        "mixed": 2.54,
+        "other": 1.42
+      },
+      "error": {
+        "white_british": 0.05,
+        "white_other": -1.47,
+        "asian": 1,
+        "black": -0.04,
+        "mixed": 0.4,
+        "other": 0.05
+      }
+    },
+    {
+      "code": "E07000042",
+      "areaName": "Mid Devon",
+      "predicted": {
+        "white_british": 94.5,
+        "white_other": 3.59,
+        "asian": 0.71,
+        "black": 0.16,
+        "mixed": 0.95,
+        "other": 0.09
+      },
+      "actual": {
+        "white_british": 93.78,
+        "white_other": 4.07,
+        "asian": 0.68,
+        "black": 0.5,
+        "mixed": 0.7,
+        "other": 0.27
+      },
+      "error": {
+        "white_british": 0.72,
+        "white_other": -0.48,
+        "asian": 0.03,
+        "black": -0.34,
+        "mixed": 0.25,
+        "other": -0.18
+      }
+    },
+    {
+      "code": "E07000043",
+      "areaName": "North Devon",
+      "predicted": {
+        "white_british": 94.39,
+        "white_other": 2.43,
+        "asian": 1.27,
+        "black": 0.21,
+        "mixed": 1.43,
+        "other": 0.26
+      },
+      "actual": {
+        "white_british": 94.25,
+        "white_other": 2.72,
+        "asian": 1.15,
+        "black": 0.34,
+        "mixed": 1.19,
+        "other": 0.34
+      },
+      "error": {
+        "white_british": 0.14,
+        "white_other": -0.29,
+        "asian": 0.12,
+        "black": -0.13,
+        "mixed": 0.24,
+        "other": -0.08
+      }
+    },
+    {
+      "code": "E07000044",
+      "areaName": "South Hams",
+      "predicted": {
+        "white_british": 94.39,
+        "white_other": 3.03,
+        "asian": 0.82,
+        "black": 0.21,
+        "mixed": 1.32,
+        "other": 0.24
+      },
+      "actual": {
+        "white_british": 94.21,
+        "white_other": 3.32,
+        "asian": 0.69,
+        "black": 0.17,
+        "mixed": 1.17,
+        "other": 0.43
+      },
+      "error": {
+        "white_british": 0.18,
+        "white_other": -0.29,
+        "asian": 0.13,
+        "black": 0.04,
+        "mixed": 0.15,
+        "other": -0.19
+      }
+    },
+    {
+      "code": "E07000045",
+      "areaName": "Teignbridge",
+      "predicted": {
+        "white_british": 95.01,
+        "white_other": 2.47,
+        "asian": 1.01,
+        "black": 0.12,
+        "mixed": 1.24,
+        "other": 0.15
+      },
+      "actual": {
+        "white_british": 94.91,
+        "white_other": 2.76,
+        "asian": 0.75,
+        "black": 0.16,
+        "mixed": 1.17,
+        "other": 0.26
+      },
+      "error": {
+        "white_british": 0.1,
+        "white_other": -0.29,
+        "asian": 0.26,
+        "black": -0.04,
+        "mixed": 0.07,
+        "other": -0.11
+      }
+    },
+    {
+      "code": "E07000046",
+      "areaName": "Torridge",
+      "predicted": {
+        "white_british": 96.31,
+        "white_other": 1.79,
+        "asian": 0.54,
+        "black": 0.08,
+        "mixed": 1.12,
+        "other": 0.15
+      },
+      "actual": {
+        "white_british": 96.09,
+        "white_other": 2.16,
+        "asian": 0.52,
+        "black": 0.42,
+        "mixed": 0.61,
+        "other": 0.2
+      },
+      "error": {
+        "white_british": 0.22,
+        "white_other": -0.37,
+        "asian": 0.02,
+        "black": -0.34,
+        "mixed": 0.51,
+        "other": -0.05
+      }
+    },
+    {
+      "code": "E07000047",
+      "areaName": "West Devon",
+      "predicted": {
+        "white_british": 95.34,
+        "white_other": 2.34,
+        "asian": 0.77,
+        "black": 0.13,
+        "mixed": 1.22,
+        "other": 0.2
+      },
+      "actual": {
+        "white_british": 94.92,
+        "white_other": 2.89,
+        "asian": 0.59,
+        "black": 0.53,
+        "mixed": 0.78,
+        "other": 0.28
+      },
+      "error": {
+        "white_british": 0.42,
+        "white_other": -0.55,
+        "asian": 0.18,
+        "black": -0.4,
+        "mixed": 0.44,
+        "other": -0.08
+      }
+    },
+    {
+      "code": "E07000061",
+      "areaName": "Eastbourne",
+      "predicted": {
+        "white_british": 83.22,
+        "white_other": 8.22,
+        "asian": 3.77,
+        "black": 1.04,
+        "mixed": 2.96,
+        "other": 0.79
+      },
+      "actual": {
+        "white_british": 82.08,
+        "white_other": 8.73,
+        "asian": 3.5,
+        "black": 1.29,
+        "mixed": 2.74,
+        "other": 1.66
+      },
+      "error": {
+        "white_british": 1.14,
+        "white_other": -0.51,
+        "asian": 0.27,
+        "black": -0.25,
+        "mixed": 0.22,
+        "other": -0.87
+      }
+    },
+    {
+      "code": "E07000062",
+      "areaName": "Hastings",
+      "predicted": {
+        "white_british": 85.07,
+        "white_other": 5.4,
+        "asian": 3.42,
+        "black": 1.74,
+        "mixed": 3.51,
+        "other": 0.86
+      },
+      "actual": {
+        "white_british": 85.06,
+        "white_other": 6.35,
+        "asian": 2.79,
+        "black": 1.38,
+        "mixed": 2.9,
+        "other": 1.51
+      },
+      "error": {
+        "white_british": 0.01,
+        "white_other": -0.95,
+        "asian": 0.63,
+        "black": 0.36,
+        "mixed": 0.61,
+        "other": -0.65
+      }
+    },
+    {
+      "code": "E07000063",
+      "areaName": "Lewes",
+      "predicted": {
+        "white_british": 90.04,
+        "white_other": 4.87,
+        "asian": 1.95,
+        "black": 0.54,
+        "mixed": 2.2,
+        "other": 0.39
+      },
+      "actual": {
+        "white_british": 88.94,
+        "white_other": 5.27,
+        "asian": 1.88,
+        "black": 0.72,
+        "mixed": 2.45,
+        "other": 0.74
+      },
+      "error": {
+        "white_british": 1.1,
+        "white_other": -0.4,
+        "asian": 0.07,
+        "black": -0.18,
+        "mixed": -0.25,
+        "other": -0.35
+      }
+    },
+    {
+      "code": "E07000064",
+      "areaName": "Rother",
+      "predicted": {
+        "white_british": 92.52,
+        "white_other": 3.08,
+        "asian": 1.71,
+        "black": 0.44,
+        "mixed": 1.91,
+        "other": 0.34
+      },
+      "actual": {
+        "white_british": 91.71,
+        "white_other": 3.89,
+        "asian": 1.49,
+        "black": 0.59,
+        "mixed": 1.83,
+        "other": 0.5
+      },
+      "error": {
+        "white_british": 0.81,
+        "white_other": -0.81,
+        "asian": 0.22,
+        "black": -0.15,
+        "mixed": 0.08,
+        "other": -0.16
+      }
+    },
+    {
+      "code": "E07000065",
+      "areaName": "Wealden",
+      "predicted": {
+        "white_british": 92.05,
+        "white_other": 4.24,
+        "asian": 1.58,
+        "black": 0.27,
+        "mixed": 1.62,
+        "other": 0.24
+      },
+      "actual": {
+        "white_british": 91.74,
+        "white_other": 4.28,
+        "asian": 1.41,
+        "black": 0.4,
+        "mixed": 1.69,
+        "other": 0.47
+      },
+      "error": {
+        "white_british": 0.31,
+        "white_other": -0.04,
+        "asian": 0.17,
+        "black": -0.13,
+        "mixed": -0.07,
+        "other": -0.23
+      }
+    },
+    {
+      "code": "E07000066",
+      "areaName": "Basildon",
+      "predicted": {
+        "white_british": 84.07,
+        "white_other": 3.96,
+        "asian": 3.9,
+        "black": 4.51,
+        "mixed": 3.14,
+        "other": 0.42
+      },
+      "actual": {
+        "white_british": 82.14,
+        "white_other": 5.36,
+        "asian": 4.25,
+        "black": 4.75,
+        "mixed": 2.63,
+        "other": 0.86
+      },
+      "error": {
+        "white_british": 1.93,
+        "white_other": -1.4,
+        "asian": -0.35,
+        "black": -0.24,
+        "mixed": 0.51,
+        "other": -0.44
+      }
+    },
+    {
+      "code": "E07000067",
+      "areaName": "Braintree",
+      "predicted": {
+        "white_british": 90.77,
+        "white_other": 4.16,
+        "asian": 1.82,
+        "black": 0.84,
+        "mixed": 2.15,
+        "other": 0.26
+      },
+      "actual": {
+        "white_british": 90.35,
+        "white_other": 4.32,
+        "asian": 1.65,
+        "black": 1.21,
+        "mixed": 1.95,
+        "other": 0.52
+      },
+      "error": {
+        "white_british": 0.42,
+        "white_other": -0.16,
+        "asian": 0.17,
+        "black": -0.37,
+        "mixed": 0.2,
+        "other": -0.26
+      }
+    },
+    {
+      "code": "E07000068",
+      "areaName": "Brentwood",
+      "predicted": {
+        "white_british": 85.73,
+        "white_other": 4.71,
+        "asian": 4.32,
+        "black": 1.7,
+        "mixed": 2.96,
+        "other": 0.58
+      },
+      "actual": {
+        "white_british": 82.67,
+        "white_other": 5.84,
+        "asian": 5.08,
+        "black": 2.27,
+        "mixed": 3.09,
+        "other": 1.06
+      },
+      "error": {
+        "white_british": 3.06,
+        "white_other": -1.13,
+        "asian": -0.76,
+        "black": -0.57,
+        "mixed": -0.13,
+        "other": -0.48
+      }
+    },
+    {
+      "code": "E07000069",
+      "areaName": "Castle Point",
+      "predicted": {
+        "white_british": 93.64,
+        "white_other": 1.52,
+        "asian": 1.56,
+        "black": 1.09,
+        "mixed": 1.9,
+        "other": 0.29
+      },
+      "actual": {
+        "white_british": 92.68,
+        "white_other": 2.21,
+        "asian": 1.73,
+        "black": 1.3,
+        "mixed": 1.61,
+        "other": 0.47
+      },
+      "error": {
+        "white_british": 0.96,
+        "white_other": -0.69,
+        "asian": -0.17,
+        "black": -0.21,
+        "mixed": 0.29,
+        "other": -0.18
+      }
+    },
+    {
+      "code": "E07000070",
+      "areaName": "Chelmsford",
+      "predicted": {
+        "white_british": 86.42,
+        "white_other": 4.17,
+        "asian": 4.09,
+        "black": 1.84,
+        "mixed": 2.84,
+        "other": 0.64
+      },
+      "actual": {
+        "white_british": 83.05,
+        "white_other": 5.48,
+        "asian": 5.3,
+        "black": 2.62,
+        "mixed": 2.61,
+        "other": 0.94
+      },
+      "error": {
+        "white_british": 3.37,
+        "white_other": -1.31,
+        "asian": -1.21,
+        "black": -0.78,
+        "mixed": 0.23,
+        "other": -0.3
+      }
+    },
+    {
+      "code": "E07000071",
+      "areaName": "Colchester",
+      "predicted": {
+        "white_british": 83.1,
+        "white_other": 5.02,
+        "asian": 5.06,
+        "black": 2.25,
+        "mixed": 3.03,
+        "other": 1.54
+      },
+      "actual": {
+        "white_british": 80.68,
+        "white_other": 6.34,
+        "asian": 5.14,
+        "black": 3.46,
+        "mixed": 2.91,
+        "other": 1.47
+      },
+      "error": {
+        "white_british": 2.42,
+        "white_other": -1.32,
+        "asian": -0.08,
+        "black": -1.21,
+        "mixed": 0.12,
+        "other": 0.07
+      }
+    },
+    {
+      "code": "E07000072",
+      "areaName": "Epping Forest",
+      "predicted": {
+        "white_british": 79.07,
+        "white_other": 6.42,
+        "asian": 6.59,
+        "black": 2.86,
+        "mixed": 4.01,
+        "other": 1.05
+      },
+      "actual": {
+        "white_british": 75.56,
+        "white_other": 8.51,
+        "asian": 7.18,
+        "black": 2.9,
+        "mixed": 3.63,
+        "other": 2.23
+      },
+      "error": {
+        "white_british": 3.51,
+        "white_other": -2.09,
+        "asian": -0.59,
+        "black": -0.04,
+        "mixed": 0.38,
+        "other": -1.18
+      }
+    },
+    {
+      "code": "E07000073",
+      "areaName": "Harlow",
+      "predicted": {
+        "white_british": 75.7,
+        "white_other": 6.86,
+        "asian": 6.45,
+        "black": 6.17,
+        "mixed": 4.06,
+        "other": 0.75
+      },
+      "actual": {
+        "white_british": 72.86,
+        "white_other": 9.87,
+        "asian": 5.93,
+        "black": 6.23,
+        "mixed": 3.3,
+        "other": 1.81
+      },
+      "error": {
+        "white_british": 2.84,
+        "white_other": -3.01,
+        "asian": 0.52,
+        "black": -0.06,
+        "mixed": 0.76,
+        "other": -1.06
+      }
+    },
+    {
+      "code": "E07000074",
+      "areaName": "Maldon",
+      "predicted": {
+        "white_british": 94.28,
+        "white_other": 2.62,
+        "asian": 1.12,
+        "black": 0.3,
+        "mixed": 1.54,
+        "other": 0.14
+      },
+      "actual": {
+        "white_british": 94.03,
+        "white_other": 2.81,
+        "asian": 1.13,
+        "black": 0.37,
+        "mixed": 1.34,
+        "other": 0.32
+      },
+      "error": {
+        "white_british": 0.25,
+        "white_other": -0.19,
+        "asian": -0.01,
+        "black": -0.07,
+        "mixed": 0.2,
+        "other": -0.18
+      }
+    },
+    {
+      "code": "E07000075",
+      "areaName": "Rochford",
+      "predicted": {
+        "white_british": 94.15,
+        "white_other": 1.53,
+        "asian": 1.44,
+        "black": 0.72,
+        "mixed": 1.92,
+        "other": 0.25
+      },
+      "actual": {
+        "white_british": 93.76,
+        "white_other": 2.06,
+        "asian": 1.4,
+        "black": 0.75,
+        "mixed": 1.68,
+        "other": 0.35
+      },
+      "error": {
+        "white_british": 0.39,
+        "white_other": -0.53,
+        "asian": 0.04,
+        "black": -0.03,
+        "mixed": 0.24,
+        "other": -0.1
+      }
+    },
+    {
+      "code": "E07000076",
+      "areaName": "Tendring",
+      "predicted": {
+        "white_british": 93.7,
+        "white_other": 2.36,
+        "asian": 1.39,
+        "black": 0.43,
+        "mixed": 1.87,
+        "other": 0.25
+      },
+      "actual": {
+        "white_british": 93.45,
+        "white_other": 2.74,
+        "asian": 1.2,
+        "black": 0.61,
+        "mixed": 1.63,
+        "other": 0.37
+      },
+      "error": {
+        "white_british": 0.25,
+        "white_other": -0.38,
+        "asian": 0.19,
+        "black": -0.18,
+        "mixed": 0.24,
+        "other": -0.12
+      }
+    },
+    {
+      "code": "E07000077",
+      "areaName": "Uttlesford",
+      "predicted": {
+        "white_british": 90.1,
+        "white_other": 5.06,
+        "asian": 1.83,
+        "black": 0.65,
+        "mixed": 2.04,
+        "other": 0.31
+      },
+      "actual": {
+        "white_british": 88.94,
+        "white_other": 5.51,
+        "asian": 1.9,
+        "black": 0.76,
+        "mixed": 2.21,
+        "other": 0.67
+      },
+      "error": {
+        "white_british": 1.16,
+        "white_other": -0.45,
+        "asian": -0.07,
+        "black": -0.11,
+        "mixed": -0.17,
+        "other": -0.36
+      }
+    },
+    {
+      "code": "E07000078",
+      "areaName": "Cheltenham",
+      "predicted": {
+        "white_british": 83.18,
+        "white_other": 8.29,
+        "asian": 4.26,
+        "black": 0.92,
+        "mixed": 2.84,
+        "other": 0.51
+      },
+      "actual": {
+        "white_british": 83.26,
+        "white_other": 8.1,
+        "asian": 4.13,
+        "black": 1,
+        "mixed": 2.48,
+        "other": 1.03
+      },
+      "error": {
+        "white_british": -0.08,
+        "white_other": 0.19,
+        "asian": 0.13,
+        "black": -0.08,
+        "mixed": 0.36,
+        "other": -0.52
+      }
+    },
+    {
+      "code": "E07000079",
+      "areaName": "Cotswold",
+      "predicted": {
+        "white_british": 92.61,
+        "white_other": 3.89,
+        "asian": 1.38,
+        "black": 0.42,
+        "mixed": 1.55,
+        "other": 0.16
+      },
+      "actual": {
+        "white_british": 91.97,
+        "white_other": 4.36,
+        "asian": 1.31,
+        "black": 0.44,
+        "mixed": 1.55,
+        "other": 0.37
+      },
+      "error": {
+        "white_british": 0.64,
+        "white_other": -0.47,
+        "asian": 0.07,
+        "black": -0.02,
+        "mixed": 0,
+        "other": -0.21
+      }
+    },
+    {
+      "code": "E07000080",
+      "areaName": "Forest of Dean",
+      "predicted": {
+        "white_british": 95.14,
+        "white_other": 2.25,
+        "asian": 0.86,
+        "black": 0.39,
+        "mixed": 1.23,
+        "other": 0.12
+      },
+      "actual": {
+        "white_british": 94.71,
+        "white_other": 2.82,
+        "asian": 0.73,
+        "black": 0.28,
+        "mixed": 1.07,
+        "other": 0.39
+      },
+      "error": {
+        "white_british": 0.43,
+        "white_other": -0.57,
+        "asian": 0.13,
+        "black": 0.11,
+        "mixed": 0.16,
+        "other": -0.27
+      }
+    },
+    {
+      "code": "E07000081",
+      "areaName": "Gloucester",
+      "predicted": {
+        "white_british": 78.41,
+        "white_other": 6,
+        "asian": 6.57,
+        "black": 3.52,
+        "mixed": 5.08,
+        "other": 0.42
+      },
+      "actual": {
+        "white_british": 78.02,
+        "white_other": 6.9,
+        "asian": 6.46,
+        "black": 3.65,
+        "mixed": 3.78,
+        "other": 1.18
+      },
+      "error": {
+        "white_british": 0.39,
+        "white_other": -0.9,
+        "asian": 0.11,
+        "black": -0.13,
+        "mixed": 1.3,
+        "other": -0.76
+      }
+    },
+    {
+      "code": "E07000082",
+      "areaName": "Stroud",
+      "predicted": {
+        "white_british": 93.01,
+        "white_other": 3.65,
+        "asian": 0.96,
+        "black": 0.28,
+        "mixed": 1.93,
+        "other": 0.17
+      },
+      "actual": {
+        "white_british": 92.43,
+        "white_other": 3.97,
+        "asian": 1.03,
+        "black": 0.43,
+        "mixed": 1.78,
+        "other": 0.37
+      },
+      "error": {
+        "white_british": 0.58,
+        "white_other": -0.32,
+        "asian": -0.07,
+        "black": -0.15,
+        "mixed": 0.15,
+        "other": -0.2
+      }
+    },
+    {
+      "code": "E07000083",
+      "areaName": "Tewkesbury",
+      "predicted": {
+        "white_british": 91.34,
+        "white_other": 4.77,
+        "asian": 1.48,
+        "black": 0.46,
+        "mixed": 1.74,
+        "other": 0.21
+      },
+      "actual": {
+        "white_british": 90.36,
+        "white_other": 4.72,
+        "asian": 2.01,
+        "black": 0.63,
+        "mixed": 1.79,
+        "other": 0.49
+      },
+      "error": {
+        "white_british": 0.98,
+        "white_other": 0.05,
+        "asian": -0.53,
+        "black": -0.17,
+        "mixed": -0.05,
+        "other": -0.28
+      }
+    },
+    {
+      "code": "E07000084",
+      "areaName": "Basingstoke and Deane",
+      "predicted": {
+        "white_british": 83.39,
+        "white_other": 5.76,
+        "asian": 5.73,
+        "black": 1.67,
+        "mixed": 3.04,
+        "other": 0.41
+      },
+      "actual": {
+        "white_british": 81.84,
+        "white_other": 6.62,
+        "asian": 5.93,
+        "black": 1.96,
+        "mixed": 2.56,
+        "other": 1.09
+      },
+      "error": {
+        "white_british": 1.55,
+        "white_other": -0.86,
+        "asian": -0.2,
+        "black": -0.29,
+        "mixed": 0.48,
+        "other": -0.68
+      }
+    },
+    {
+      "code": "E07000085",
+      "areaName": "East Hampshire",
+      "predicted": {
+        "white_british": 90.4,
+        "white_other": 4.28,
+        "asian": 2.39,
+        "black": 0.63,
+        "mixed": 1.86,
+        "other": 0.43
+      },
+      "actual": {
+        "white_british": 90.53,
+        "white_other": 4.91,
+        "asian": 1.86,
+        "black": 0.53,
+        "mixed": 1.66,
+        "other": 0.51
+      },
+      "error": {
+        "white_british": -0.13,
+        "white_other": -0.63,
+        "asian": 0.53,
+        "black": 0.1,
+        "mixed": 0.2,
+        "other": -0.08
+      }
+    },
+    {
+      "code": "E07000086",
+      "areaName": "Eastleigh",
+      "predicted": {
+        "white_british": 88.3,
+        "white_other": 3.6,
+        "asian": 4.15,
+        "black": 0.68,
+        "mixed": 2.49,
+        "other": 0.77
+      },
+      "actual": {
+        "white_british": 88.14,
+        "white_other": 4.28,
+        "asian": 3.84,
+        "black": 0.96,
+        "mixed": 2.06,
+        "other": 0.72
+      },
+      "error": {
+        "white_british": 0.16,
+        "white_other": -0.68,
+        "asian": 0.31,
+        "black": -0.28,
+        "mixed": 0.43,
+        "other": 0.05
+      }
+    },
+    {
+      "code": "E07000087",
+      "areaName": "Fareham",
+      "predicted": {
+        "white_british": 92.53,
+        "white_other": 2.34,
+        "asian": 2.05,
+        "black": 0.45,
+        "mixed": 2.29,
+        "other": 0.34
+      },
+      "actual": {
+        "white_british": 92.76,
+        "white_other": 2.86,
+        "asian": 1.84,
+        "black": 0.59,
+        "mixed": 1.51,
+        "other": 0.44
+      },
+      "error": {
+        "white_british": -0.23,
+        "white_other": -0.52,
+        "asian": 0.21,
+        "black": -0.14,
+        "mixed": 0.78,
+        "other": -0.1
+      }
+    },
+    {
+      "code": "E07000088",
+      "areaName": "Gosport",
+      "predicted": {
+        "white_british": 91.42,
+        "white_other": 2.38,
+        "asian": 1.73,
+        "black": 1.16,
+        "mixed": 2.91,
+        "other": 0.41
+      },
+      "actual": {
+        "white_british": 92.43,
+        "white_other": 2.9,
+        "asian": 1.44,
+        "black": 1.22,
+        "mixed": 1.48,
+        "other": 0.54
+      },
+      "error": {
+        "white_british": -1.01,
+        "white_other": -0.52,
+        "asian": 0.29,
+        "black": -0.06,
+        "mixed": 1.43,
+        "other": -0.13
+      }
+    },
+    {
+      "code": "E07000089",
+      "areaName": "Hart",
+      "predicted": {
+        "white_british": 87.38,
+        "white_other": 4.85,
+        "asian": 3.77,
+        "black": 0.79,
+        "mixed": 2.77,
+        "other": 0.44
+      },
+      "actual": {
+        "white_british": 86.96,
+        "white_other": 5.57,
+        "asian": 3.6,
+        "black": 0.84,
+        "mixed": 2.25,
+        "other": 0.78
+      },
+      "error": {
+        "white_british": 0.42,
+        "white_other": -0.72,
+        "asian": 0.17,
+        "black": -0.05,
+        "mixed": 0.52,
+        "other": -0.34
+      }
+    },
+    {
+      "code": "E07000090",
+      "areaName": "Havant",
+      "predicted": {
+        "white_british": 93.07,
+        "white_other": 2.09,
+        "asian": 1.61,
+        "black": 0.51,
+        "mixed": 2.49,
+        "other": 0.24
+      },
+      "actual": {
+        "white_british": 93.2,
+        "white_other": 2.72,
+        "asian": 1.68,
+        "black": 0.6,
+        "mixed": 1.39,
+        "other": 0.41
+      },
+      "error": {
+        "white_british": -0.13,
+        "white_other": -0.63,
+        "asian": -0.07,
+        "black": -0.09,
+        "mixed": 1.1,
+        "other": -0.17
+      }
+    },
+    {
+      "code": "E07000091",
+      "areaName": "New Forest",
+      "predicted": {
+        "white_british": 92.96,
+        "white_other": 3.18,
+        "asian": 1.36,
+        "black": 0.56,
+        "mixed": 1.57,
+        "other": 0.37
+      },
+      "actual": {
+        "white_british": 93.23,
+        "white_other": 3.57,
+        "asian": 1.19,
+        "black": 0.4,
+        "mixed": 1.25,
+        "other": 0.36
+      },
+      "error": {
+        "white_british": -0.27,
+        "white_other": -0.39,
+        "asian": 0.17,
+        "black": 0.16,
+        "mixed": 0.32,
+        "other": 0.01
+      }
+    },
+    {
+      "code": "E07000092",
+      "areaName": "Rushmoor",
+      "predicted": {
+        "white_british": 69.72,
+        "white_other": 5.36,
+        "asian": 16.9,
+        "black": 3.14,
+        "mixed": 3.83,
+        "other": 1.04
+      },
+      "actual": {
+        "white_british": 71.09,
+        "white_other": 6.3,
+        "asian": 14.69,
+        "black": 2.55,
+        "mixed": 2.59,
+        "other": 2.79
+      },
+      "error": {
+        "white_british": -1.37,
+        "white_other": -0.94,
+        "asian": 2.21,
+        "black": 0.59,
+        "mixed": 1.24,
+        "other": -1.75
+      }
+    },
+    {
+      "code": "E07000093",
+      "areaName": "Test Valley",
+      "predicted": {
+        "white_british": 89.62,
+        "white_other": 4.18,
+        "asian": 2.88,
+        "black": 0.59,
+        "mixed": 2.16,
+        "other": 0.57
+      },
+      "actual": {
+        "white_british": 88.01,
+        "white_other": 5.06,
+        "asian": 3.27,
+        "black": 1.13,
+        "mixed": 1.78,
+        "other": 0.75
+      },
+      "error": {
+        "white_british": 1.61,
+        "white_other": -0.88,
+        "asian": -0.39,
+        "black": -0.54,
+        "mixed": 0.38,
+        "other": -0.18
+      }
+    },
+    {
+      "code": "E07000094",
+      "areaName": "Winchester",
+      "predicted": {
+        "white_british": 88.98,
+        "white_other": 4.58,
+        "asian": 3.22,
+        "black": 0.52,
+        "mixed": 2.33,
+        "other": 0.36
+      },
+      "actual": {
+        "white_british": 88.13,
+        "white_other": 5.5,
+        "asian": 3.07,
+        "black": 0.62,
+        "mixed": 2.03,
+        "other": 0.65
+      },
+      "error": {
+        "white_british": 0.85,
+        "white_other": -0.92,
+        "asian": 0.15,
+        "black": -0.1,
+        "mixed": 0.3,
+        "other": -0.29
+      }
+    },
+    {
+      "code": "E07000095",
+      "areaName": "Broxbourne",
+      "predicted": {
+        "white_british": 72.22,
+        "white_other": 12.35,
+        "asian": 3.17,
+        "black": 6.54,
+        "mixed": 4.33,
+        "other": 1.38
+      },
+      "actual": {
+        "white_british": 68.56,
+        "white_other": 12.54,
+        "asian": 3.7,
+        "black": 6.66,
+        "mixed": 3.97,
+        "other": 4.57
+      },
+      "error": {
+        "white_british": 3.66,
+        "white_other": -0.19,
+        "asian": -0.53,
+        "black": -0.12,
+        "mixed": 0.36,
+        "other": -3.19
+      }
+    },
+    {
+      "code": "E07000096",
+      "areaName": "Dacorum",
+      "predicted": {
+        "white_british": 80.13,
+        "white_other": 5.55,
+        "asian": 6.64,
+        "black": 3.26,
+        "mixed": 3.94,
+        "other": 0.49
+      },
+      "actual": {
+        "white_british": 78.74,
+        "white_other": 8.06,
+        "asian": 5.78,
+        "black": 2.84,
+        "mixed": 3.39,
+        "other": 1.2
+      },
+      "error": {
+        "white_british": 1.39,
+        "white_other": -2.51,
+        "asian": 0.86,
+        "black": 0.42,
+        "mixed": 0.55,
+        "other": -0.71
+      }
+    },
+    {
+      "code": "E07000098",
+      "areaName": "Hertsmere",
+      "predicted": {
+        "white_british": 65.82,
+        "white_other": 11.22,
+        "asian": 10.25,
+        "black": 6.54,
+        "mixed": 4.56,
+        "other": 1.61
+      },
+      "actual": {
+        "white_british": 63.1,
+        "white_other": 14.01,
+        "asian": 10.49,
+        "black": 4.81,
+        "mixed": 3.74,
+        "other": 3.85
+      },
+      "error": {
+        "white_british": 2.72,
+        "white_other": -2.79,
+        "asian": -0.24,
+        "black": 1.73,
+        "mixed": 0.82,
+        "other": -2.24
+      }
+    },
+    {
+      "code": "E07000099",
+      "areaName": "North Hertfordshire",
+      "predicted": {
+        "white_british": 80.18,
+        "white_other": 4.88,
+        "asian": 6.81,
+        "black": 2.41,
+        "mixed": 4.89,
+        "other": 0.83
+      },
+      "actual": {
+        "white_british": 81.3,
+        "white_other": 6.25,
+        "asian": 5.22,
+        "black": 2.43,
+        "mixed": 3.68,
+        "other": 1.11
+      },
+      "error": {
+        "white_british": -1.12,
+        "white_other": -1.37,
+        "asian": 1.59,
+        "black": -0.02,
+        "mixed": 1.21,
+        "other": -0.28
+      }
+    },
+    {
+      "code": "E07000102",
+      "areaName": "Three Rivers",
+      "predicted": {
+        "white_british": 72.23,
+        "white_other": 7.49,
+        "asian": 12.84,
+        "black": 2.62,
+        "mixed": 4.12,
+        "other": 0.71
+      },
+      "actual": {
+        "white_british": 67.98,
+        "white_other": 9.19,
+        "asian": 15.2,
+        "black": 2.37,
+        "mixed": 3.59,
+        "other": 1.67
+      },
+      "error": {
+        "white_british": 4.25,
+        "white_other": -1.7,
+        "asian": -2.36,
+        "black": 0.25,
+        "mixed": 0.53,
+        "other": -0.96
+      }
+    },
+    {
+      "code": "E07000103",
+      "areaName": "Watford",
+      "predicted": {
+        "white_british": 47.88,
+        "white_other": 11.44,
+        "asian": 25.22,
+        "black": 8.28,
+        "mixed": 5.81,
+        "other": 1.36
+      },
+      "actual": {
+        "white_british": 45.78,
+        "white_other": 15.06,
+        "asian": 24.5,
+        "black": 6.35,
+        "mixed": 4.76,
+        "other": 3.57
+      },
+      "error": {
+        "white_british": 2.1,
+        "white_other": -3.62,
+        "asian": 0.72,
+        "black": 1.93,
+        "mixed": 1.05,
+        "other": -2.21
+      }
+    },
+    {
+      "code": "E07000105",
+      "areaName": "Ashford",
+      "predicted": {
+        "white_british": 85.04,
+        "white_other": 5.45,
+        "asian": 4.87,
+        "black": 1.73,
+        "mixed": 2.44,
+        "other": 0.47
+      },
+      "actual": {
+        "white_british": 82.63,
+        "white_other": 5.44,
+        "asian": 5.78,
+        "black": 2.57,
+        "mixed": 2.17,
+        "other": 1.41
+      },
+      "error": {
+        "white_british": 2.41,
+        "white_other": 0.01,
+        "asian": -0.91,
+        "black": -0.84,
+        "mixed": 0.27,
+        "other": -0.94
+      }
+    },
+    {
+      "code": "E07000106",
+      "areaName": "Canterbury",
+      "predicted": {
+        "white_british": 84,
+        "white_other": 6.15,
+        "asian": 4.64,
+        "black": 1.76,
+        "mixed": 2.67,
+        "other": 0.79
+      },
+      "actual": {
+        "white_british": 82.49,
+        "white_other": 6.73,
+        "asian": 4.06,
+        "black": 2.49,
+        "mixed": 2.74,
+        "other": 1.5
+      },
+      "error": {
+        "white_british": 1.51,
+        "white_other": -0.58,
+        "asian": 0.58,
+        "black": -0.73,
+        "mixed": -0.07,
+        "other": -0.71
+      }
+    },
+    {
+      "code": "E07000107",
+      "areaName": "Dartford",
+      "predicted": {
+        "white_british": 74.63,
+        "white_other": 6.06,
+        "asian": 8.31,
+        "black": 5.86,
+        "mixed": 3.88,
+        "other": 1.26
+      },
+      "actual": {
+        "white_british": 67.26,
+        "white_other": 7.18,
+        "asian": 9.87,
+        "black": 10.53,
+        "mixed": 3.12,
+        "other": 2.04
+      },
+      "error": {
+        "white_british": 7.37,
+        "white_other": -1.12,
+        "asian": -1.56,
+        "black": -4.67,
+        "mixed": 0.76,
+        "other": -0.78
+      }
+    },
+    {
+      "code": "E07000108",
+      "areaName": "Dover",
+      "predicted": {
+        "white_british": 89.79,
+        "white_other": 4.89,
+        "asian": 2.92,
+        "black": 0.47,
+        "mixed": 1.57,
+        "other": 0.36
+      },
+      "actual": {
+        "white_british": 90.29,
+        "white_other": 4.57,
+        "asian": 2.08,
+        "black": 0.72,
+        "mixed": 1.5,
+        "other": 0.85
+      },
+      "error": {
+        "white_british": -0.5,
+        "white_other": 0.32,
+        "asian": 0.84,
+        "black": -0.25,
+        "mixed": 0.07,
+        "other": -0.49
+      }
+    },
+    {
+      "code": "E07000109",
+      "areaName": "Gravesham",
+      "predicted": {
+        "white_british": 66.8,
+        "white_other": 8.6,
+        "asian": 12.66,
+        "black": 4.74,
+        "mixed": 3.78,
+        "other": 3.42
+      },
+      "actual": {
+        "white_british": 68.32,
+        "white_other": 8.28,
+        "asian": 11.24,
+        "black": 6.49,
+        "mixed": 2.65,
+        "other": 3.02
+      },
+      "error": {
+        "white_british": -1.52,
+        "white_other": 0.32,
+        "asian": 1.42,
+        "black": -1.75,
+        "mixed": 1.13,
+        "other": 0.4
+      }
+    },
+    {
+      "code": "E07000110",
+      "areaName": "Maidstone",
+      "predicted": {
+        "white_british": 84.1,
+        "white_other": 6.88,
+        "asian": 4.63,
+        "black": 1.39,
+        "mixed": 2.54,
+        "other": 0.46
+      },
+      "actual": {
+        "white_british": 81.99,
+        "white_other": 7.83,
+        "asian": 4.68,
+        "black": 2.04,
+        "mixed": 2.27,
+        "other": 1.19
+      },
+      "error": {
+        "white_british": 2.11,
+        "white_other": -0.95,
+        "asian": -0.05,
+        "black": -0.65,
+        "mixed": 0.27,
+        "other": -0.73
+      }
+    },
+    {
+      "code": "E07000111",
+      "areaName": "Sevenoaks",
+      "predicted": {
+        "white_british": 87.19,
+        "white_other": 5.97,
+        "asian": 2.49,
+        "black": 1.1,
+        "mixed": 2.92,
+        "other": 0.34
+      },
+      "actual": {
+        "white_british": 85.54,
+        "white_other": 6.57,
+        "asian": 2.89,
+        "black": 1.6,
+        "mixed": 2.64,
+        "other": 0.76
+      },
+      "error": {
+        "white_british": 1.65,
+        "white_other": -0.6,
+        "asian": -0.4,
+        "black": -0.5,
+        "mixed": 0.28,
+        "other": -0.42
+      }
+    },
+    {
+      "code": "E07000112",
+      "areaName": "Shepway",
+      "predicted": {
+        "white_british": 87.51,
+        "white_other": 4.64,
+        "asian": 5.02,
+        "black": 0.57,
+        "mixed": 1.82,
+        "other": 0.44
+      },
+      "actual": {
+        "white_british": 88.01,
+        "white_other": 4.58,
+        "asian": 3.88,
+        "black": 0.62,
+        "mixed": 1.92,
+        "other": 0.99
+      },
+      "error": {
+        "white_british": -0.5,
+        "white_other": 0.06,
+        "asian": 1.14,
+        "black": -0.05,
+        "mixed": -0.1,
+        "other": -0.55
+      }
+    },
+    {
+      "code": "E07000113",
+      "areaName": "Swale",
+      "predicted": {
+        "white_british": 89.68,
+        "white_other": 4.94,
+        "asian": 1.38,
+        "black": 1.83,
+        "mixed": 1.94,
+        "other": 0.24
+      },
+      "actual": {
+        "white_british": 88.62,
+        "white_other": 5.25,
+        "asian": 1.52,
+        "black": 2.29,
+        "mixed": 1.8,
+        "other": 0.52
+      },
+      "error": {
+        "white_british": 1.06,
+        "white_other": -0.31,
+        "asian": -0.14,
+        "black": -0.46,
+        "mixed": 0.14,
+        "other": -0.28
+      }
+    },
+    {
+      "code": "E07000114",
+      "areaName": "Thanet",
+      "predicted": {
+        "white_british": 85.75,
+        "white_other": 7.34,
+        "asian": 2.7,
+        "black": 0.98,
+        "mixed": 2.77,
+        "other": 0.46
+      },
+      "actual": {
+        "white_british": 87.34,
+        "white_other": 5.64,
+        "asian": 2.32,
+        "black": 1.05,
+        "mixed": 2.44,
+        "other": 1.21
+      },
+      "error": {
+        "white_british": -1.59,
+        "white_other": 1.7,
+        "asian": 0.38,
+        "black": -0.07,
+        "mixed": 0.33,
+        "other": -0.75
+      }
+    },
+    {
+      "code": "E07000115",
+      "areaName": "Tonbridge and Malling",
+      "predicted": {
+        "white_british": 89.54,
+        "white_other": 4.17,
+        "asian": 2.8,
+        "black": 0.45,
+        "mixed": 2.49,
+        "other": 0.56
+      },
+      "actual": {
+        "white_british": 88.36,
+        "white_other": 4.92,
+        "asian": 2.93,
+        "black": 0.99,
+        "mixed": 2.22,
+        "other": 0.59
+      },
+      "error": {
+        "white_british": 1.18,
+        "white_other": -0.75,
+        "asian": -0.13,
+        "black": -0.54,
+        "mixed": 0.27,
+        "other": -0.03
+      }
+    },
+    {
+      "code": "E07000116",
+      "areaName": "Tunbridge Wells",
+      "predicted": {
+        "white_british": 85.78,
+        "white_other": 6.67,
+        "asian": 3.52,
+        "black": 0.77,
+        "mixed": 2.8,
+        "other": 0.46
+      },
+      "actual": {
+        "white_british": 84.2,
+        "white_other": 7.36,
+        "asian": 3.95,
+        "black": 0.98,
+        "mixed": 2.55,
+        "other": 0.96
+      },
+      "error": {
+        "white_british": 1.58,
+        "white_other": -0.69,
+        "asian": -0.43,
+        "black": -0.21,
+        "mixed": 0.25,
+        "other": -0.5
+      }
+    },
+    {
+      "code": "E07000117",
+      "areaName": "Burnley",
+      "predicted": {
+        "white_british": 78.64,
+        "white_other": 2.07,
+        "asian": 16.46,
+        "black": 0.32,
+        "mixed": 2.02,
+        "other": 0.48
+      },
+      "actual": {
+        "white_british": 77.9,
+        "white_other": 4.61,
+        "asian": 14.73,
+        "black": 0.35,
+        "mixed": 1.59,
+        "other": 0.83
+      },
+      "error": {
+        "white_british": 0.74,
+        "white_other": -2.54,
+        "asian": 1.73,
+        "black": -0.03,
+        "mixed": 0.43,
+        "other": -0.35
+      }
+    },
+    {
+      "code": "E07000118",
+      "areaName": "Chorley",
+      "predicted": {
+        "white_british": 93.37,
+        "white_other": 2.06,
+        "asian": 2.24,
+        "black": 0.42,
+        "mixed": 1.61,
+        "other": 0.31
+      },
+      "actual": {
+        "white_british": 92.94,
+        "white_other": 2.67,
+        "asian": 1.88,
+        "black": 0.56,
+        "mixed": 1.52,
+        "other": 0.43
+      },
+      "error": {
+        "white_british": 0.43,
+        "white_other": -0.61,
+        "asian": 0.36,
+        "black": -0.14,
+        "mixed": 0.09,
+        "other": -0.12
+      }
+    },
+    {
+      "code": "E07000119",
+      "areaName": "Fylde",
+      "predicted": {
+        "white_british": 93.35,
+        "white_other": 2.74,
+        "asian": 1.5,
+        "black": 0.31,
+        "mixed": 1.75,
+        "other": 0.35
+      },
+      "actual": {
+        "white_british": 93.14,
+        "white_other": 3.12,
+        "asian": 1.45,
+        "black": 0.41,
+        "mixed": 1.43,
+        "other": 0.46
+      },
+      "error": {
+        "white_british": 0.21,
+        "white_other": -0.38,
+        "asian": 0.05,
+        "black": -0.1,
+        "mixed": 0.32,
+        "other": -0.11
+      }
+    },
+    {
+      "code": "E07000120",
+      "areaName": "Hyndburn",
+      "predicted": {
+        "white_british": 78.68,
+        "white_other": 3.12,
+        "asian": 16.21,
+        "black": 0.16,
+        "mixed": 1.52,
+        "other": 0.31
+      },
+      "actual": {
+        "white_british": 79.62,
+        "white_other": 3.06,
+        "asian": 15.07,
+        "black": 0.26,
+        "mixed": 1.33,
+        "other": 0.65
+      },
+      "error": {
+        "white_british": -0.94,
+        "white_other": 0.06,
+        "asian": 1.14,
+        "black": -0.1,
+        "mixed": 0.19,
+        "other": -0.34
+      }
+    },
+    {
+      "code": "E07000121",
+      "areaName": "Lancaster",
+      "predicted": {
+        "white_british": 87.65,
+        "white_other": 5.79,
+        "asian": 3.8,
+        "black": 0.65,
+        "mixed": 1.73,
+        "other": 0.38
+      },
+      "actual": {
+        "white_british": 87.85,
+        "white_other": 5.25,
+        "asian": 3.61,
+        "black": 0.84,
+        "mixed": 1.54,
+        "other": 0.91
+      },
+      "error": {
+        "white_british": -0.2,
+        "white_other": 0.54,
+        "asian": 0.19,
+        "black": -0.19,
+        "mixed": 0.19,
+        "other": -0.53
+      }
+    },
+    {
+      "code": "E07000122",
+      "areaName": "Pendle",
+      "predicted": {
+        "white_british": 69.15,
+        "white_other": 3.67,
+        "asian": 24.86,
+        "black": 0.18,
+        "mixed": 1.89,
+        "other": 0.25
+      },
+      "actual": {
+        "white_british": 66.13,
+        "white_other": 4.44,
+        "asian": 26.72,
+        "black": 0.26,
+        "mixed": 1.55,
+        "other": 0.9
+      },
+      "error": {
+        "white_british": 3.02,
+        "white_other": -0.77,
+        "asian": -1.86,
+        "black": -0.08,
+        "mixed": 0.34,
+        "other": -0.65
+      }
+    },
+    {
+      "code": "E07000123",
+      "areaName": "Preston",
+      "predicted": {
+        "white_british": 67.57,
+        "white_other": 6.13,
+        "asian": 19.64,
+        "black": 1.41,
+        "mixed": 4.01,
+        "other": 1.24
+      },
+      "actual": {
+        "white_british": 66.09,
+        "white_other": 6.49,
+        "asian": 20.17,
+        "black": 2.36,
+        "mixed": 2.96,
+        "other": 1.93
+      },
+      "error": {
+        "white_british": 1.48,
+        "white_other": -0.36,
+        "asian": -0.53,
+        "black": -0.95,
+        "mixed": 1.05,
+        "other": -0.69
+      }
+    },
+    {
+      "code": "E07000124",
+      "areaName": "Ribble Valley",
+      "predicted": {
+        "white_british": 94.63,
+        "white_other": 2.24,
+        "asian": 1.73,
+        "black": 0.24,
+        "mixed": 1.02,
+        "other": 0.14
+      },
+      "actual": {
+        "white_british": 94.07,
+        "white_other": 2.18,
+        "asian": 2.05,
+        "black": 0.61,
+        "mixed": 0.79,
+        "other": 0.3
+      },
+      "error": {
+        "white_british": 0.56,
+        "white_other": 0.06,
+        "asian": -0.32,
+        "black": -0.37,
+        "mixed": 0.23,
+        "other": -0.16
+      }
+    },
+    {
+      "code": "E07000125",
+      "areaName": "Rossendale",
+      "predicted": {
+        "white_british": 88.58,
+        "white_other": 1.8,
+        "asian": 7.64,
+        "black": 0.23,
+        "mixed": 1.56,
+        "other": 0.19
+      },
+      "actual": {
+        "white_british": 90.45,
+        "white_other": 2.02,
+        "asian": 5.49,
+        "black": 0.24,
+        "mixed": 1.44,
+        "other": 0.36
+      },
+      "error": {
+        "white_british": -1.87,
+        "white_other": -0.22,
+        "asian": 2.15,
+        "black": -0.01,
+        "mixed": 0.12,
+        "other": -0.17
+      }
+    },
+    {
+      "code": "E07000126",
+      "areaName": "South Ribble",
+      "predicted": {
+        "white_british": 93.52,
+        "white_other": 1.98,
+        "asian": 1.96,
+        "black": 0.29,
+        "mixed": 2.03,
+        "other": 0.22
+      },
+      "actual": {
+        "white_british": 92.84,
+        "white_other": 2.54,
+        "asian": 2.09,
+        "black": 0.5,
+        "mixed": 1.71,
+        "other": 0.33
+      },
+      "error": {
+        "white_british": 0.68,
+        "white_other": -0.56,
+        "asian": -0.13,
+        "black": -0.21,
+        "mixed": 0.32,
+        "other": -0.11
+      }
+    },
+    {
+      "code": "E07000127",
+      "areaName": "West Lancashire",
+      "predicted": {
+        "white_british": 93.56,
+        "white_other": 3.59,
+        "asian": 1.14,
+        "black": 0.22,
+        "mixed": 1.31,
+        "other": 0.18
+      },
+      "actual": {
+        "white_british": 92.82,
+        "white_other": 4.08,
+        "asian": 1.04,
+        "black": 0.33,
+        "mixed": 1.32,
+        "other": 0.4
+      },
+      "error": {
+        "white_british": 0.74,
+        "white_other": -0.49,
+        "asian": 0.1,
+        "black": -0.11,
+        "mixed": -0.01,
+        "other": -0.22
+      }
+    },
+    {
+      "code": "E07000128",
+      "areaName": "Wyre",
+      "predicted": {
+        "white_british": 95.54,
+        "white_other": 1.73,
+        "asian": 1.29,
+        "black": 0.16,
+        "mixed": 1.13,
+        "other": 0.16
+      },
+      "actual": {
+        "white_british": 95.71,
+        "white_other": 1.78,
+        "asian": 0.99,
+        "black": 0.24,
+        "mixed": 1.02,
+        "other": 0.26
+      },
+      "error": {
+        "white_british": -0.17,
+        "white_other": -0.05,
+        "asian": 0.3,
+        "black": -0.08,
+        "mixed": 0.11,
+        "other": -0.1
+      }
+    },
+    {
+      "code": "E07000129",
+      "areaName": "Blaby",
+      "predicted": {
+        "white_british": 83.92,
+        "white_other": 2.92,
+        "asian": 8.11,
+        "black": 1.37,
+        "mixed": 3.05,
+        "other": 0.62
+      },
+      "actual": {
+        "white_british": 82.29,
+        "white_other": 3.91,
+        "asian": 8.26,
+        "black": 1.55,
+        "mixed": 2.7,
+        "other": 1.29
+      },
+      "error": {
+        "white_british": 1.63,
+        "white_other": -0.99,
+        "asian": -0.15,
+        "black": -0.18,
+        "mixed": 0.35,
+        "other": -0.67
+      }
+    },
+    {
+      "code": "E07000130",
+      "areaName": "Charnwood",
+      "predicted": {
+        "white_british": 78.82,
+        "white_other": 3.57,
+        "asian": 12.79,
+        "black": 1.12,
+        "mixed": 2.77,
+        "other": 0.93
+      },
+      "actual": {
+        "white_british": 77.9,
+        "white_other": 4.42,
+        "asian": 12.42,
+        "black": 1.55,
+        "mixed": 2.54,
+        "other": 1.17
+      },
+      "error": {
+        "white_british": 0.92,
+        "white_other": -0.85,
+        "asian": 0.37,
+        "black": -0.43,
+        "mixed": 0.23,
+        "other": -0.24
+      }
+    },
+    {
+      "code": "E07000131",
+      "areaName": "Harborough",
+      "predicted": {
+        "white_british": 90.22,
+        "white_other": 2.64,
+        "asian": 4.22,
+        "black": 0.5,
+        "mixed": 2.05,
+        "other": 0.37
+      },
+      "actual": {
+        "white_british": 87.55,
+        "white_other": 3.45,
+        "asian": 5.44,
+        "black": 0.72,
+        "mixed": 2.05,
+        "other": 0.79
+      },
+      "error": {
+        "white_british": 2.67,
+        "white_other": -0.81,
+        "asian": -1.22,
+        "black": -0.22,
+        "mixed": 0,
+        "other": -0.42
+      }
+    },
+    {
+      "code": "E07000132",
+      "areaName": "Hinckley and Bosworth",
+      "predicted": {
+        "white_british": 92.51,
+        "white_other": 2.15,
+        "asian": 2.89,
+        "black": 0.32,
+        "mixed": 1.87,
+        "other": 0.26
+      },
+      "actual": {
+        "white_british": 90.82,
+        "white_other": 3.48,
+        "asian": 2.78,
+        "black": 0.62,
+        "mixed": 1.75,
+        "other": 0.56
+      },
+      "error": {
+        "white_british": 1.69,
+        "white_other": -1.33,
+        "asian": 0.11,
+        "black": -0.3,
+        "mixed": 0.12,
+        "other": -0.3
+      }
+    },
+    {
+      "code": "E07000133",
+      "areaName": "Melton",
+      "predicted": {
+        "white_british": 93.31,
+        "white_other": 3.54,
+        "asian": 1.39,
+        "black": 0.24,
+        "mixed": 1.42,
+        "other": 0.1
+      },
+      "actual": {
+        "white_british": 92.87,
+        "white_other": 4.02,
+        "asian": 1.16,
+        "black": 0.92,
+        "mixed": 0.73,
+        "other": 0.31
+      },
+      "error": {
+        "white_british": 0.44,
+        "white_other": -0.48,
+        "asian": 0.23,
+        "black": -0.68,
+        "mixed": 0.69,
+        "other": -0.21
+      }
+    },
+    {
+      "code": "E07000134",
+      "areaName": "North West Leicestershire",
+      "predicted": {
+        "white_british": 93.43,
+        "white_other": 2.75,
+        "asian": 1.55,
+        "black": 0.28,
+        "mixed": 1.8,
+        "other": 0.19
+      },
+      "actual": {
+        "white_british": 92.08,
+        "white_other": 3.83,
+        "asian": 1.47,
+        "black": 0.62,
+        "mixed": 1.52,
+        "other": 0.47
+      },
+      "error": {
+        "white_british": 1.35,
+        "white_other": -1.08,
+        "asian": 0.08,
+        "black": -0.34,
+        "mixed": 0.28,
+        "other": -0.28
+      }
+    },
+    {
+      "code": "E07000135",
+      "areaName": "Oadby and Wigston",
+      "predicted": {
+        "white_british": 57.39,
+        "white_other": 2.73,
+        "asian": 31.9,
+        "black": 1.64,
+        "mixed": 3.94,
+        "other": 2.39
+      },
+      "actual": {
+        "white_british": 59.72,
+        "white_other": 3.62,
+        "asian": 27.94,
+        "black": 2.18,
+        "mixed": 3.25,
+        "other": 3.28
+      },
+      "error": {
+        "white_british": -2.33,
+        "white_other": -0.89,
+        "asian": 3.96,
+        "black": -0.54,
+        "mixed": 0.69,
+        "other": -0.89
+      }
+    },
+    {
+      "code": "E07000136",
+      "areaName": "Boston",
+      "predicted": {
+        "white_british": 74.61,
+        "white_other": 20.88,
+        "asian": 1.91,
+        "black": 0.55,
+        "mixed": 1.61,
+        "other": 0.44
+      },
+      "actual": {
+        "white_british": 74.52,
+        "white_other": 20.12,
+        "asian": 2.02,
+        "black": 0.68,
+        "mixed": 1.45,
+        "other": 1.21
+      },
+      "error": {
+        "white_british": 0.09,
+        "white_other": 0.76,
+        "asian": -0.11,
+        "black": -0.13,
+        "mixed": 0.16,
+        "other": -0.77
+      }
+    },
+    {
+      "code": "E07000137",
+      "areaName": "East Lindsey",
+      "predicted": {
+        "white_british": 95.26,
+        "white_other": 2.45,
+        "asian": 0.79,
+        "black": 0.25,
+        "mixed": 1.14,
+        "other": 0.11
+      },
+      "actual": {
+        "white_british": 95.6,
+        "white_other": 2.17,
+        "asian": 0.78,
+        "black": 0.21,
+        "mixed": 1.03,
+        "other": 0.21
+      },
+      "error": {
+        "white_british": -0.34,
+        "white_other": 0.28,
+        "asian": 0.01,
+        "black": 0.04,
+        "mixed": 0.11,
+        "other": -0.1
+      }
+    },
+    {
+      "code": "E07000138",
+      "areaName": "Lincoln",
+      "predicted": {
+        "white_british": 83.77,
+        "white_other": 9.51,
+        "asian": 2.72,
+        "black": 1.23,
+        "mixed": 2.11,
+        "other": 0.67
+      },
+      "actual": {
+        "white_british": 82.72,
+        "white_other": 9.42,
+        "asian": 3.23,
+        "black": 1.41,
+        "mixed": 2,
+        "other": 1.22
+      },
+      "error": {
+        "white_british": 1.05,
+        "white_other": 0.09,
+        "asian": -0.51,
+        "black": -0.18,
+        "mixed": 0.11,
+        "other": -0.55
+      }
+    },
+    {
+      "code": "E07000139",
+      "areaName": "North Kesteven",
+      "predicted": {
+        "white_british": 94.82,
+        "white_other": 2.72,
+        "asian": 0.86,
+        "black": 0.26,
+        "mixed": 1.16,
+        "other": 0.19
+      },
+      "actual": {
+        "white_british": 94.28,
+        "white_other": 2.89,
+        "asian": 0.97,
+        "black": 0.35,
+        "mixed": 1.16,
+        "other": 0.35
+      },
+      "error": {
+        "white_british": 0.54,
+        "white_other": -0.17,
+        "asian": -0.11,
+        "black": -0.09,
+        "mixed": 0,
+        "other": -0.16
+      }
+    },
+    {
+      "code": "E07000140",
+      "areaName": "South Holland",
+      "predicted": {
+        "white_british": 85.17,
+        "white_other": 11.79,
+        "asian": 1.06,
+        "black": 0.36,
+        "mixed": 1.46,
+        "other": 0.16
+      },
+      "actual": {
+        "white_british": 84.37,
+        "white_other": 11.94,
+        "asian": 1.25,
+        "black": 0.54,
+        "mixed": 1.3,
+        "other": 0.61
+      },
+      "error": {
+        "white_british": 0.8,
+        "white_other": -0.15,
+        "asian": -0.19,
+        "black": -0.18,
+        "mixed": 0.16,
+        "other": -0.45
+      }
+    },
+    {
+      "code": "E07000141",
+      "areaName": "South Kesteven",
+      "predicted": {
+        "white_british": 90.87,
+        "white_other": 5.46,
+        "asian": 1.58,
+        "black": 0.54,
+        "mixed": 1.36,
+        "other": 0.18
+      },
+      "actual": {
+        "white_british": 90.49,
+        "white_other": 5.34,
+        "asian": 1.76,
+        "black": 0.61,
+        "mixed": 1.37,
+        "other": 0.44
+      },
+      "error": {
+        "white_british": 0.38,
+        "white_other": 0.12,
+        "asian": -0.18,
+        "black": -0.07,
+        "mixed": -0.01,
+        "other": -0.26
+      }
+    },
+    {
+      "code": "E07000142",
+      "areaName": "West Lindsey",
+      "predicted": {
+        "white_british": 95.36,
+        "white_other": 2.01,
+        "asian": 1.08,
+        "black": 0.32,
+        "mixed": 1.13,
+        "other": 0.1
+      },
+      "actual": {
+        "white_british": 94.54,
+        "white_other": 2.42,
+        "asian": 1.2,
+        "black": 0.34,
+        "mixed": 1.14,
+        "other": 0.35
+      },
+      "error": {
+        "white_british": 0.82,
+        "white_other": -0.41,
+        "asian": -0.12,
+        "black": -0.02,
+        "mixed": -0.01,
+        "other": -0.25
+      }
+    },
+    {
+      "code": "E07000143",
+      "areaName": "Breckland",
+      "predicted": {
+        "white_british": 86.98,
+        "white_other": 9,
+        "asian": 1.11,
+        "black": 0.6,
+        "mixed": 2.09,
+        "other": 0.21
+      },
+      "actual": {
+        "white_british": 88.72,
+        "white_other": 7.72,
+        "asian": 0.95,
+        "black": 0.58,
+        "mixed": 1.46,
+        "other": 0.57
+      },
+      "error": {
+        "white_british": -1.74,
+        "white_other": 1.28,
+        "asian": 0.16,
+        "black": 0.02,
+        "mixed": 0.63,
+        "other": -0.36
+      }
+    },
+    {
+      "code": "E07000144",
+      "areaName": "Broadland",
+      "predicted": {
+        "white_british": 94.29,
+        "white_other": 2.05,
+        "asian": 1.44,
+        "black": 0.39,
+        "mixed": 1.58,
+        "other": 0.24
+      },
+      "actual": {
+        "white_british": 93.58,
+        "white_other": 2.74,
+        "asian": 1.39,
+        "black": 0.52,
+        "mixed": 1.39,
+        "other": 0.38
+      },
+      "error": {
+        "white_british": 0.71,
+        "white_other": -0.69,
+        "asian": 0.05,
+        "black": -0.13,
+        "mixed": 0.19,
+        "other": -0.14
+      }
+    },
+    {
+      "code": "E07000145",
+      "areaName": "Great Yarmouth",
+      "predicted": {
+        "white_british": 88.94,
+        "white_other": 6.04,
+        "asian": 1.8,
+        "black": 0.69,
+        "mixed": 2.1,
+        "other": 0.43
+      },
+      "actual": {
+        "white_british": 88.89,
+        "white_other": 5.71,
+        "asian": 1.93,
+        "black": 1.11,
+        "mixed": 1.59,
+        "other": 0.76
+      },
+      "error": {
+        "white_british": 0.05,
+        "white_other": 0.33,
+        "asian": -0.13,
+        "black": -0.42,
+        "mixed": 0.51,
+        "other": -0.33
+      }
+    },
+    {
+      "code": "E07000146",
+      "areaName": "King's Lynn and West Norfolk",
+      "predicted": {
+        "white_british": 88.56,
+        "white_other": 7.26,
+        "asian": 1.8,
+        "black": 0.54,
+        "mixed": 1.58,
+        "other": 0.26
+      },
+      "actual": {
+        "white_british": 88.75,
+        "white_other": 6.87,
+        "asian": 1.88,
+        "black": 0.55,
+        "mixed": 1.3,
+        "other": 0.66
+      },
+      "error": {
+        "white_british": -0.19,
+        "white_other": 0.39,
+        "asian": -0.08,
+        "black": -0.01,
+        "mixed": 0.28,
+        "other": -0.4
+      }
+    },
+    {
+      "code": "E07000147",
+      "areaName": "North Norfolk",
+      "predicted": {
+        "white_british": 95.32,
+        "white_other": 2.59,
+        "asian": 0.76,
+        "black": 0.18,
+        "mixed": 1.05,
+        "other": 0.11
+      },
+      "actual": {
+        "white_british": 95.57,
+        "white_other": 2.52,
+        "asian": 0.55,
+        "black": 0.17,
+        "mixed": 0.95,
+        "other": 0.24
+      },
+      "error": {
+        "white_british": -0.25,
+        "white_other": 0.07,
+        "asian": 0.21,
+        "black": 0.01,
+        "mixed": 0.1,
+        "other": -0.13
+      }
+    },
+    {
+      "code": "E07000148",
+      "areaName": "Norwich",
+      "predicted": {
+        "white_british": 77.21,
+        "white_other": 8.23,
+        "asian": 6.48,
+        "black": 2.64,
+        "mixed": 4.03,
+        "other": 1.41
+      },
+      "actual": {
+        "white_british": 77.55,
+        "white_other": 9.58,
+        "asian": 5.46,
+        "black": 2.48,
+        "mixed": 3.15,
+        "other": 1.78
+      },
+      "error": {
+        "white_british": -0.34,
+        "white_other": -1.35,
+        "asian": 1.02,
+        "black": 0.16,
+        "mixed": 0.88,
+        "other": -0.37
+      }
+    },
+    {
+      "code": "E07000149",
+      "areaName": "South Norfolk",
+      "predicted": {
+        "white_british": 93.24,
+        "white_other": 2.92,
+        "asian": 1.36,
+        "black": 0.44,
+        "mixed": 1.82,
+        "other": 0.21
+      },
+      "actual": {
+        "white_british": 91.8,
+        "white_other": 3.65,
+        "asian": 1.81,
+        "black": 0.82,
+        "mixed": 1.46,
+        "other": 0.46
+      },
+      "error": {
+        "white_british": 1.44,
+        "white_other": -0.73,
+        "asian": -0.45,
+        "black": -0.38,
+        "mixed": 0.36,
+        "other": -0.25
+      }
+    },
+    {
+      "code": "E07000170",
+      "areaName": "Ashfield",
+      "predicted": {
+        "white_british": 94.04,
+        "white_other": 2.26,
+        "asian": 1.3,
+        "black": 0.55,
+        "mixed": 1.67,
+        "other": 0.18
+      },
+      "actual": {
+        "white_british": 91.81,
+        "white_other": 3.3,
+        "asian": 1.57,
+        "black": 1.24,
+        "mixed": 1.64,
+        "other": 0.43
+      },
+      "error": {
+        "white_british": 2.23,
+        "white_other": -1.04,
+        "asian": -0.27,
+        "black": -0.69,
+        "mixed": 0.03,
+        "other": -0.25
+      }
+    },
+    {
+      "code": "E07000171",
+      "areaName": "Bassetlaw",
+      "predicted": {
+        "white_british": 91.76,
+        "white_other": 4.21,
+        "asian": 1.57,
+        "black": 0.57,
+        "mixed": 1.6,
+        "other": 0.3
+      },
+      "actual": {
+        "white_british": 92.01,
+        "white_other": 4.47,
+        "asian": 1.23,
+        "black": 0.63,
+        "mixed": 1.18,
+        "other": 0.48
+      },
+      "error": {
+        "white_british": -0.25,
+        "white_other": -0.26,
+        "asian": 0.34,
+        "black": -0.06,
+        "mixed": 0.42,
+        "other": -0.18
+      }
+    },
+    {
+      "code": "E07000172",
+      "areaName": "Broxtowe",
+      "predicted": {
+        "white_british": 84.83,
+        "white_other": 3.99,
+        "asian": 5.56,
+        "black": 1.2,
+        "mixed": 3.29,
+        "other": 1.13
+      },
+      "actual": {
+        "white_british": 84.47,
+        "white_other": 4.43,
+        "asian": 5.54,
+        "black": 1.7,
+        "mixed": 2.54,
+        "other": 1.32
+      },
+      "error": {
+        "white_british": 0.36,
+        "white_other": -0.44,
+        "asian": 0.02,
+        "black": -0.5,
+        "mixed": 0.75,
+        "other": -0.19
+      }
+    },
+    {
+      "code": "E07000173",
+      "areaName": "Gedling",
+      "predicted": {
+        "white_british": 85.79,
+        "white_other": 3.06,
+        "asian": 4.23,
+        "black": 1.78,
+        "mixed": 4.72,
+        "other": 0.42
+      },
+      "actual": {
+        "white_british": 85.54,
+        "white_other": 3.87,
+        "asian": 3.88,
+        "black": 2.3,
+        "mixed": 3.55,
+        "other": 0.87
+      },
+      "error": {
+        "white_british": 0.25,
+        "white_other": -0.81,
+        "asian": 0.35,
+        "black": -0.52,
+        "mixed": 1.17,
+        "other": -0.45
+      }
+    },
+    {
+      "code": "E07000174",
+      "areaName": "Mansfield",
+      "predicted": {
+        "white_british": 89.74,
+        "white_other": 5.98,
+        "asian": 1.68,
+        "black": 0.45,
+        "mixed": 1.93,
+        "other": 0.22
+      },
+      "actual": {
+        "white_british": 87.32,
+        "white_other": 7.44,
+        "asian": 2.03,
+        "black": 1.07,
+        "mixed": 1.4,
+        "other": 0.74
+      },
+      "error": {
+        "white_british": 2.42,
+        "white_other": -1.46,
+        "asian": -0.35,
+        "black": -0.62,
+        "mixed": 0.53,
+        "other": -0.52
+      }
+    },
+    {
+      "code": "E07000175",
+      "areaName": "Newark and Sherwood",
+      "predicted": {
+        "white_british": 91.67,
+        "white_other": 4.52,
+        "asian": 1.17,
+        "black": 0.52,
+        "mixed": 1.89,
+        "other": 0.22
+      },
+      "actual": {
+        "white_british": 91.07,
+        "white_other": 5.22,
+        "asian": 1.13,
+        "black": 0.66,
+        "mixed": 1.49,
+        "other": 0.43
+      },
+      "error": {
+        "white_british": 0.6,
+        "white_other": -0.7,
+        "asian": 0.04,
+        "black": -0.14,
+        "mixed": 0.4,
+        "other": -0.21
+      }
+    },
+    {
+      "code": "E07000176",
+      "areaName": "Rushcliffe",
+      "predicted": {
+        "white_british": 86.35,
+        "white_other": 3.06,
+        "asian": 5.77,
+        "black": 0.68,
+        "mixed": 3.5,
+        "other": 0.64
+      },
+      "actual": {
+        "white_british": 86.08,
+        "white_other": 3.66,
+        "asian": 5.68,
+        "black": 0.9,
+        "mixed": 2.77,
+        "other": 0.91
+      },
+      "error": {
+        "white_british": 0.27,
+        "white_other": -0.6,
+        "asian": 0.09,
+        "black": -0.22,
+        "mixed": 0.73,
+        "other": -0.27
+      }
+    },
+    {
+      "code": "E07000177",
+      "areaName": "Cherwell",
+      "predicted": {
+        "white_british": 80.05,
+        "white_other": 7.59,
+        "asian": 6.39,
+        "black": 2.07,
+        "mixed": 3.31,
+        "other": 0.59
+      },
+      "actual": {
+        "white_british": 77.88,
+        "white_other": 10.19,
+        "asian": 6.02,
+        "black": 1.77,
+        "mixed": 2.87,
+        "other": 1.26
+      },
+      "error": {
+        "white_british": 2.17,
+        "white_other": -2.6,
+        "asian": 0.37,
+        "black": 0.3,
+        "mixed": 0.44,
+        "other": -0.67
+      }
+    },
+    {
+      "code": "E07000178",
+      "areaName": "Oxford",
+      "predicted": {
+        "white_british": 50.91,
+        "white_other": 15.14,
+        "asian": 17.86,
+        "black": 7.29,
+        "mixed": 6.95,
+        "other": 1.86
+      },
+      "actual": {
+        "white_british": 53.49,
+        "white_other": 17.2,
+        "asian": 15.44,
+        "black": 4.64,
+        "mixed": 5.55,
+        "other": 3.67
+      },
+      "error": {
+        "white_british": -2.58,
+        "white_other": -2.06,
+        "asian": 2.42,
+        "black": 2.65,
+        "mixed": 1.4,
+        "other": -1.81
+      }
+    },
+    {
+      "code": "E07000179",
+      "areaName": "South Oxfordshire",
+      "predicted": {
+        "white_british": 87.48,
+        "white_other": 6.19,
+        "asian": 2.55,
+        "black": 0.81,
+        "mixed": 2.65,
+        "other": 0.32
+      },
+      "actual": {
+        "white_british": 85.8,
+        "white_other": 7.29,
+        "asian": 2.86,
+        "black": 0.99,
+        "mixed": 2.27,
+        "other": 0.79
+      },
+      "error": {
+        "white_british": 1.68,
+        "white_other": -1.1,
+        "asian": -0.31,
+        "black": -0.18,
+        "mixed": 0.38,
+        "other": -0.47
+      }
+    },
+    {
+      "code": "E07000180",
+      "areaName": "Vale of White Horse",
+      "predicted": {
+        "white_british": 85.83,
+        "white_other": 5.98,
+        "asian": 3.47,
+        "black": 1.73,
+        "mixed": 2.45,
+        "other": 0.54
+      },
+      "actual": {
+        "white_british": 83.16,
+        "white_other": 7.61,
+        "asian": 3.97,
+        "black": 1.66,
+        "mixed": 2.48,
+        "other": 1.12
+      },
+      "error": {
+        "white_british": 2.67,
+        "white_other": -1.63,
+        "asian": -0.5,
+        "black": 0.07,
+        "mixed": -0.03,
+        "other": -0.58
+      }
+    },
+    {
+      "code": "E07000181",
+      "areaName": "West Oxfordshire",
+      "predicted": {
+        "white_british": 89.89,
+        "white_other": 5.28,
+        "asian": 1.89,
+        "black": 0.58,
+        "mixed": 2.11,
+        "other": 0.25
+      },
+      "actual": {
+        "white_british": 88.98,
+        "white_other": 6.26,
+        "asian": 1.68,
+        "black": 0.64,
+        "mixed": 1.86,
+        "other": 0.58
+      },
+      "error": {
+        "white_british": 0.91,
+        "white_other": -0.98,
+        "asian": 0.21,
+        "black": -0.06,
+        "mixed": 0.25,
+        "other": -0.33
+      }
+    },
+    {
+      "code": "E07000192",
+      "areaName": "Cannock Chase",
+      "predicted": {
+        "white_british": 95.16,
+        "white_other": 1.36,
+        "asian": 1.35,
+        "black": 0.37,
+        "mixed": 1.65,
+        "other": 0.12
+      },
+      "actual": {
+        "white_british": 94.54,
+        "white_other": 2.1,
+        "asian": 1.19,
+        "black": 0.47,
+        "mixed": 1.41,
+        "other": 0.29
+      },
+      "error": {
+        "white_british": 0.62,
+        "white_other": -0.74,
+        "asian": 0.16,
+        "black": -0.1,
+        "mixed": 0.24,
+        "other": -0.17
+      }
+    },
+    {
+      "code": "E07000193",
+      "areaName": "East Staffordshire",
+      "predicted": {
+        "white_british": 79.64,
+        "white_other": 6.44,
+        "asian": 9.65,
+        "black": 1.08,
+        "mixed": 2.63,
+        "other": 0.56
+      },
+      "actual": {
+        "white_british": 78.24,
+        "white_other": 8.08,
+        "asian": 9.31,
+        "black": 1.11,
+        "mixed": 2.19,
+        "other": 1.07
+      },
+      "error": {
+        "white_british": 1.4,
+        "white_other": -1.64,
+        "asian": 0.34,
+        "black": -0.03,
+        "mixed": 0.44,
+        "other": -0.51
+      }
+    },
+    {
+      "code": "E07000194",
+      "areaName": "Lichfield",
+      "predicted": {
+        "white_british": 92.71,
+        "white_other": 2.45,
+        "asian": 2.13,
+        "black": 0.65,
+        "mixed": 1.87,
+        "other": 0.18
+      },
+      "actual": {
+        "white_british": 92.05,
+        "white_other": 2.79,
+        "asian": 2.34,
+        "black": 0.55,
+        "mixed": 1.88,
+        "other": 0.4
+      },
+      "error": {
+        "white_british": 0.66,
+        "white_other": -0.34,
+        "asian": -0.21,
+        "black": 0.1,
+        "mixed": -0.01,
+        "other": -0.22
+      }
+    },
+    {
+      "code": "E07000195",
+      "areaName": "Newcastle-under-Lyme",
+      "predicted": {
+        "white_british": 89.87,
+        "white_other": 2.1,
+        "asian": 4.32,
+        "black": 0.98,
+        "mixed": 2.24,
+        "other": 0.49
+      },
+      "actual": {
+        "white_british": 90,
+        "white_other": 2.9,
+        "asian": 3.76,
+        "black": 1.03,
+        "mixed": 1.62,
+        "other": 0.69
+      },
+      "error": {
+        "white_british": -0.13,
+        "white_other": -0.8,
+        "asian": 0.56,
+        "black": -0.05,
+        "mixed": 0.62,
+        "other": -0.2
+      }
+    },
+    {
+      "code": "E07000196",
+      "areaName": "South Staffordshire",
+      "predicted": {
+        "white_british": 92.07,
+        "white_other": 1.36,
+        "asian": 2.74,
+        "black": 0.65,
+        "mixed": 2.76,
+        "other": 0.41
+      },
+      "actual": {
+        "white_british": 92.15,
+        "white_other": 1.57,
+        "asian": 2.84,
+        "black": 0.94,
+        "mixed": 2.02,
+        "other": 0.48
+      },
+      "error": {
+        "white_british": -0.08,
+        "white_other": -0.21,
+        "asian": -0.1,
+        "black": -0.29,
+        "mixed": 0.74,
+        "other": -0.07
+      }
+    },
+    {
+      "code": "E07000197",
+      "areaName": "Stafford",
+      "predicted": {
+        "white_british": 89.81,
+        "white_other": 2.79,
+        "asian": 3.56,
+        "black": 1.04,
+        "mixed": 2.2,
+        "other": 0.6
+      },
+      "actual": {
+        "white_british": 90.02,
+        "white_other": 3.36,
+        "asian": 3.05,
+        "black": 1.05,
+        "mixed": 1.86,
+        "other": 0.66
+      },
+      "error": {
+        "white_british": -0.21,
+        "white_other": -0.57,
+        "asian": 0.51,
+        "black": -0.01,
+        "mixed": 0.34,
+        "other": -0.06
+      }
+    },
+    {
+      "code": "E07000198",
+      "areaName": "Staffordshire Moorlands",
+      "predicted": {
+        "white_british": 96.44,
+        "white_other": 1.38,
+        "asian": 0.74,
+        "black": 0.16,
+        "mixed": 1.18,
+        "other": 0.1
+      },
+      "actual": {
+        "white_british": 96.58,
+        "white_other": 1.42,
+        "asian": 0.69,
+        "black": 0.61,
+        "mixed": 0.53,
+        "other": 0.17
+      },
+      "error": {
+        "white_british": -0.14,
+        "white_other": -0.04,
+        "asian": 0.05,
+        "black": -0.45,
+        "mixed": 0.65,
+        "other": -0.07
+      }
+    },
+    {
+      "code": "E07000199",
+      "areaName": "Tamworth",
+      "predicted": {
+        "white_british": 92.94,
+        "white_other": 2.94,
+        "asian": 1.35,
+        "black": 0.62,
+        "mixed": 1.95,
+        "other": 0.19
+      },
+      "actual": {
+        "white_british": 90.84,
+        "white_other": 4.89,
+        "asian": 1.38,
+        "black": 0.64,
+        "mixed": 1.87,
+        "other": 0.37
+      },
+      "error": {
+        "white_british": 2.1,
+        "white_other": -1.95,
+        "asian": -0.03,
+        "black": -0.02,
+        "mixed": 0.08,
+        "other": -0.18
+      }
+    },
+    {
+      "code": "E07000200",
+      "areaName": "Babergh",
+      "predicted": {
+        "white_british": 93.66,
+        "white_other": 2.84,
+        "asian": 1.05,
+        "black": 0.45,
+        "mixed": 1.75,
+        "other": 0.26
+      },
+      "actual": {
+        "white_british": 93.59,
+        "white_other": 3.09,
+        "asian": 0.95,
+        "black": 0.53,
+        "mixed": 1.46,
+        "other": 0.38
+      },
+      "error": {
+        "white_british": 0.07,
+        "white_other": -0.25,
+        "asian": 0.1,
+        "black": -0.08,
+        "mixed": 0.29,
+        "other": -0.12
+      }
+    },
+    {
+      "code": "E07000202",
+      "areaName": "Ipswich",
+      "predicted": {
+        "white_british": 75.68,
+        "white_other": 8.49,
+        "asian": 5.96,
+        "black": 2.71,
+        "mixed": 5.84,
+        "other": 1.32
+      },
+      "actual": {
+        "white_british": 74.59,
+        "white_other": 9.72,
+        "asian": 5.46,
+        "black": 3.5,
+        "mixed": 4.59,
+        "other": 2.14
+      },
+      "error": {
+        "white_british": 1.09,
+        "white_other": -1.23,
+        "asian": 0.5,
+        "black": -0.79,
+        "mixed": 1.25,
+        "other": -0.82
+      }
+    },
+    {
+      "code": "E07000203",
+      "areaName": "Mid Suffolk",
+      "predicted": {
+        "white_british": 94.42,
+        "white_other": 2.15,
+        "asian": 0.89,
+        "black": 0.58,
+        "mixed": 1.82,
+        "other": 0.15
+      },
+      "actual": {
+        "white_british": 94.04,
+        "white_other": 2.81,
+        "asian": 0.8,
+        "black": 0.54,
+        "mixed": 1.42,
+        "other": 0.39
+      },
+      "error": {
+        "white_british": 0.38,
+        "white_other": -0.66,
+        "asian": 0.09,
+        "black": 0.04,
+        "mixed": 0.4,
+        "other": -0.24
+      }
+    },
+    {
+      "code": "E07000207",
+      "areaName": "Elmbridge",
+      "predicted": {
+        "white_british": 74.93,
+        "white_other": 10.71,
+        "asian": 7.46,
+        "black": 1.03,
+        "mixed": 4.55,
+        "other": 1.32
+      },
+      "actual": {
+        "white_british": 74.14,
+        "white_other": 11.98,
+        "asian": 6.52,
+        "black": 1.24,
+        "mixed": 4.11,
+        "other": 2.01
+      },
+      "error": {
+        "white_british": 0.79,
+        "white_other": -1.27,
+        "asian": 0.94,
+        "black": -0.21,
+        "mixed": 0.44,
+        "other": -0.69
+      }
+    },
+    {
+      "code": "E07000208",
+      "areaName": "Epsom and Ewell",
+      "predicted": {
+        "white_british": 71.92,
+        "white_other": 8.05,
+        "asian": 11.76,
+        "black": 1.96,
+        "mixed": 4.27,
+        "other": 2.04
+      },
+      "actual": {
+        "white_british": 69.35,
+        "white_other": 10.12,
+        "asian": 11.43,
+        "black": 1.91,
+        "mixed": 4.37,
+        "other": 2.81
+      },
+      "error": {
+        "white_british": 2.57,
+        "white_other": -2.07,
+        "asian": 0.33,
+        "black": 0.05,
+        "mixed": -0.1,
+        "other": -0.77
+      }
+    },
+    {
+      "code": "E07000209",
+      "areaName": "Guildford",
+      "predicted": {
+        "white_british": 77.15,
+        "white_other": 8.75,
+        "asian": 6.86,
+        "black": 1.75,
+        "mixed": 3.38,
+        "other": 2.1
+      },
+      "actual": {
+        "white_british": 77.33,
+        "white_other": 9.54,
+        "asian": 6.71,
+        "black": 1.49,
+        "mixed": 3.05,
+        "other": 1.88
+      },
+      "error": {
+        "white_british": -0.18,
+        "white_other": -0.79,
+        "asian": 0.15,
+        "black": 0.26,
+        "mixed": 0.33,
+        "other": 0.22
+      }
+    },
+    {
+      "code": "E07000210",
+      "areaName": "Mole Valley",
+      "predicted": {
+        "white_british": 86.6,
+        "white_other": 5.78,
+        "asian": 3.62,
+        "black": 0.6,
+        "mixed": 2.71,
+        "other": 0.69
+      },
+      "actual": {
+        "white_british": 85.78,
+        "white_other": 6.96,
+        "asian": 3.02,
+        "black": 0.82,
+        "mixed": 2.51,
+        "other": 0.9
+      },
+      "error": {
+        "white_british": 0.82,
+        "white_other": -1.18,
+        "asian": 0.6,
+        "black": -0.22,
+        "mixed": 0.2,
+        "other": -0.21
+      }
+    },
+    {
+      "code": "E07000211",
+      "areaName": "Reigate and Banstead",
+      "predicted": {
+        "white_british": 79.64,
+        "white_other": 6.3,
+        "asian": 7.1,
+        "black": 2.21,
+        "mixed": 3.95,
+        "other": 0.8
+      },
+      "actual": {
+        "white_british": 76.86,
+        "white_other": 7.56,
+        "asian": 7.55,
+        "black": 2.93,
+        "mixed": 3.67,
+        "other": 1.44
+      },
+      "error": {
+        "white_british": 2.78,
+        "white_other": -1.26,
+        "asian": -0.45,
+        "black": -0.72,
+        "mixed": 0.28,
+        "other": -0.64
+      }
+    },
+    {
+      "code": "E07000212",
+      "areaName": "Runnymede",
+      "predicted": {
+        "white_british": 72.59,
+        "white_other": 10.59,
+        "asian": 10.09,
+        "black": 1.6,
+        "mixed": 3.57,
+        "other": 1.56
+      },
+      "actual": {
+        "white_british": 72.61,
+        "white_other": 10.9,
+        "asian": 9.26,
+        "black": 1.8,
+        "mixed": 3.53,
+        "other": 1.9
+      },
+      "error": {
+        "white_british": -0.02,
+        "white_other": -0.31,
+        "asian": 0.83,
+        "black": -0.2,
+        "mixed": 0.04,
+        "other": -0.34
+      }
+    },
+    {
+      "code": "E07000213",
+      "areaName": "Spelthorne",
+      "predicted": {
+        "white_british": 73.2,
+        "white_other": 7.4,
+        "asian": 11.09,
+        "black": 2.45,
+        "mixed": 4.31,
+        "other": 1.54
+      },
+      "actual": {
+        "white_british": 69.21,
+        "white_other": 9.45,
+        "asian": 12.76,
+        "black": 2.48,
+        "mixed": 3.67,
+        "other": 2.43
+      },
+      "error": {
+        "white_british": 3.99,
+        "white_other": -2.05,
+        "asian": -1.67,
+        "black": -0.03,
+        "mixed": 0.64,
+        "other": -0.89
+      }
+    },
+    {
+      "code": "E07000214",
+      "areaName": "Surrey Heath",
+      "predicted": {
+        "white_british": 79.22,
+        "white_other": 5.55,
+        "asian": 9.29,
+        "black": 1.4,
+        "mixed": 3.51,
+        "other": 1.02
+      },
+      "actual": {
+        "white_british": 77.89,
+        "white_other": 7.1,
+        "asian": 8.91,
+        "black": 1.59,
+        "mixed": 2.71,
+        "other": 1.8
+      },
+      "error": {
+        "white_british": 1.33,
+        "white_other": -1.55,
+        "asian": 0.38,
+        "black": -0.19,
+        "mixed": 0.8,
+        "other": -0.78
+      }
+    },
+    {
+      "code": "E07000215",
+      "areaName": "Tandridge",
+      "predicted": {
+        "white_british": 85.38,
+        "white_other": 5.11,
+        "asian": 3.61,
+        "black": 1.41,
+        "mixed": 3.99,
+        "other": 0.49
+      },
+      "actual": {
+        "white_british": 83.5,
+        "white_other": 5.94,
+        "asian": 3.71,
+        "black": 2.19,
+        "mixed": 3.8,
+        "other": 0.85
+      },
+      "error": {
+        "white_british": 1.88,
+        "white_other": -0.83,
+        "asian": -0.1,
+        "black": -0.78,
+        "mixed": 0.19,
+        "other": -0.36
+      }
+    },
+    {
+      "code": "E07000216",
+      "areaName": "Waverley",
+      "predicted": {
+        "white_british": 87.82,
+        "white_other": 6.28,
+        "asian": 2.56,
+        "black": 0.58,
+        "mixed": 2.25,
+        "other": 0.5
+      },
+      "actual": {
+        "white_british": 86.82,
+        "white_other": 6.85,
+        "asian": 2.83,
+        "black": 0.68,
+        "mixed": 2.22,
+        "other": 0.61
+      },
+      "error": {
+        "white_british": 1,
+        "white_other": -0.57,
+        "asian": -0.27,
+        "black": -0.1,
+        "mixed": 0.03,
+        "other": -0.11
+      }
+    },
+    {
+      "code": "E07000217",
+      "areaName": "Woking",
+      "predicted": {
+        "white_british": 66.33,
+        "white_other": 9.5,
+        "asian": 16.28,
+        "black": 2,
+        "mixed": 4.14,
+        "other": 1.76
+      },
+      "actual": {
+        "white_british": 67.24,
+        "white_other": 11.19,
+        "asian": 14.19,
+        "black": 1.8,
+        "mixed": 3.48,
+        "other": 2.1
+      },
+      "error": {
+        "white_british": -0.91,
+        "white_other": -1.69,
+        "asian": 2.09,
+        "black": 0.2,
+        "mixed": 0.66,
+        "other": -0.34
+      }
+    },
+    {
+      "code": "E07000218",
+      "areaName": "North Warwickshire",
+      "predicted": {
+        "white_british": 94.45,
+        "white_other": 2.28,
+        "asian": 1.31,
+        "black": 0.31,
+        "mixed": 1.52,
+        "other": 0.13
+      },
+      "actual": {
+        "white_british": 93.17,
+        "white_other": 2.97,
+        "asian": 1.28,
+        "black": 0.57,
+        "mixed": 1.7,
+        "other": 0.31
+      },
+      "error": {
+        "white_british": 1.28,
+        "white_other": -0.69,
+        "asian": 0.03,
+        "black": -0.26,
+        "mixed": -0.18,
+        "other": -0.18
+      }
+    },
+    {
+      "code": "E07000219",
+      "areaName": "Nuneaton and Bedworth",
+      "predicted": {
+        "white_british": 84.17,
+        "white_other": 3.09,
+        "asian": 8.65,
+        "black": 1.28,
+        "mixed": 2.09,
+        "other": 0.72
+      },
+      "actual": {
+        "white_british": 81.85,
+        "white_other": 5.31,
+        "asian": 8,
+        "black": 1.82,
+        "mixed": 1.84,
+        "other": 1.18
+      },
+      "error": {
+        "white_british": 2.32,
+        "white_other": -2.22,
+        "asian": 0.65,
+        "black": -0.54,
+        "mixed": 0.25,
+        "other": -0.46
+      }
+    },
+    {
+      "code": "E07000220",
+      "areaName": "Rugby",
+      "predicted": {
+        "white_british": 78.01,
+        "white_other": 8.86,
+        "asian": 6.5,
+        "black": 2.66,
+        "mixed": 3.51,
+        "other": 0.46
+      },
+      "actual": {
+        "white_british": 74.92,
+        "white_other": 10.78,
+        "asian": 7.64,
+        "black": 2.72,
+        "mixed": 2.79,
+        "other": 1.15
+      },
+      "error": {
+        "white_british": 3.09,
+        "white_other": -1.92,
+        "asian": -1.14,
+        "black": -0.06,
+        "mixed": 0.72,
+        "other": -0.69
+      }
+    },
+    {
+      "code": "E07000221",
+      "areaName": "Stratford-on-Avon",
+      "predicted": {
+        "white_british": 91.17,
+        "white_other": 4.63,
+        "asian": 1.64,
+        "black": 0.27,
+        "mixed": 2.06,
+        "other": 0.23
+      },
+      "actual": {
+        "white_british": 90.08,
+        "white_other": 5.46,
+        "asian": 1.89,
+        "black": 0.35,
+        "mixed": 1.69,
+        "other": 0.54
+      },
+      "error": {
+        "white_british": 1.09,
+        "white_other": -0.83,
+        "asian": -0.25,
+        "black": -0.08,
+        "mixed": 0.37,
+        "other": -0.31
+      }
+    },
+    {
+      "code": "E07000222",
+      "areaName": "Warwick",
+      "predicted": {
+        "white_british": 78.7,
+        "white_other": 6.3,
+        "asian": 9.11,
+        "black": 0.88,
+        "mixed": 3.64,
+        "other": 1.36
+      },
+      "actual": {
+        "white_british": 75.89,
+        "white_other": 8.69,
+        "asian": 9.7,
+        "black": 1.09,
+        "mixed": 3.01,
+        "other": 1.62
+      },
+      "error": {
+        "white_british": 2.81,
+        "white_other": -2.39,
+        "asian": -0.59,
+        "black": -0.21,
+        "mixed": 0.63,
+        "other": -0.26
+      }
+    },
+    {
+      "code": "E07000223",
+      "areaName": "Adur",
+      "predicted": {
+        "white_british": 90.15,
+        "white_other": 3.51,
+        "asian": 2.44,
+        "black": 0.71,
+        "mixed": 2.48,
+        "other": 0.72
+      },
+      "actual": {
+        "white_british": 88.93,
+        "white_other": 4.49,
+        "asian": 2.17,
+        "black": 0.82,
+        "mixed": 2.51,
+        "other": 1.08
+      },
+      "error": {
+        "white_british": 1.22,
+        "white_other": -0.98,
+        "asian": 0.27,
+        "black": -0.11,
+        "mixed": -0.03,
+        "other": -0.36
+      }
+    },
+    {
+      "code": "E07000224",
+      "areaName": "Arun",
+      "predicted": {
+        "white_british": 87.81,
+        "white_other": 7.81,
+        "asian": 2.01,
+        "black": 0.46,
+        "mixed": 1.66,
+        "other": 0.24
+      },
+      "actual": {
+        "white_british": 88.64,
+        "white_other": 7.17,
+        "asian": 1.6,
+        "black": 0.52,
+        "mixed": 1.51,
+        "other": 0.56
+      },
+      "error": {
+        "white_british": -0.83,
+        "white_other": 0.64,
+        "asian": 0.41,
+        "black": -0.06,
+        "mixed": 0.15,
+        "other": -0.32
+      }
+    },
+    {
+      "code": "E07000225",
+      "areaName": "Chichester",
+      "predicted": {
+        "white_british": 90.67,
+        "white_other": 4.75,
+        "asian": 2.01,
+        "black": 0.67,
+        "mixed": 1.59,
+        "other": 0.32
+      },
+      "actual": {
+        "white_british": 90.14,
+        "white_other": 5.3,
+        "asian": 1.75,
+        "black": 0.63,
+        "mixed": 1.65,
+        "other": 0.54
+      },
+      "error": {
+        "white_british": 0.53,
+        "white_other": -0.55,
+        "asian": 0.26,
+        "black": 0.04,
+        "mixed": -0.06,
+        "other": -0.22
+      }
+    },
+    {
+      "code": "E07000226",
+      "areaName": "Crawley",
+      "predicted": {
+        "white_british": 60.33,
+        "white_other": 10.26,
+        "asian": 17.56,
+        "black": 5.13,
+        "mixed": 5.15,
+        "other": 1.56
+      },
+      "actual": {
+        "white_british": 61.77,
+        "white_other": 11.59,
+        "asian": 15.39,
+        "black": 4.5,
+        "mixed": 4.09,
+        "other": 2.66
+      },
+      "error": {
+        "white_british": -1.44,
+        "white_other": -1.33,
+        "asian": 2.17,
+        "black": 0.63,
+        "mixed": 1.06,
+        "other": -1.1
+      }
+    },
+    {
+      "code": "E07000227",
+      "areaName": "Horsham",
+      "predicted": {
+        "white_british": 89.28,
+        "white_other": 4.42,
+        "asian": 2.83,
+        "black": 0.67,
+        "mixed": 2.57,
+        "other": 0.24
+      },
+      "actual": {
+        "white_british": 88.15,
+        "white_other": 5.51,
+        "asian": 2.7,
+        "black": 0.89,
+        "mixed": 2.13,
+        "other": 0.62
+      },
+      "error": {
+        "white_british": 1.13,
+        "white_other": -1.09,
+        "asian": 0.13,
+        "black": -0.22,
+        "mixed": 0.44,
+        "other": -0.38
+      }
+    },
+    {
+      "code": "E07000228",
+      "areaName": "Mid Sussex",
+      "predicted": {
+        "white_british": 87.31,
+        "white_other": 5.47,
+        "asian": 3.79,
+        "black": 0.75,
+        "mixed": 2.37,
+        "other": 0.32
+      },
+      "actual": {
+        "white_british": 85.86,
+        "white_other": 6.38,
+        "asian": 3.6,
+        "black": 0.88,
+        "mixed": 2.51,
+        "other": 0.77
+      },
+      "error": {
+        "white_british": 1.45,
+        "white_other": -0.91,
+        "asian": 0.19,
+        "black": -0.13,
+        "mixed": -0.14,
+        "other": -0.45
+      }
+    },
+    {
+      "code": "E07000229",
+      "areaName": "Worthing",
+      "predicted": {
+        "white_british": 85.36,
+        "white_other": 4.98,
+        "asian": 4.7,
+        "black": 1.15,
+        "mixed": 3.2,
+        "other": 0.61
+      },
+      "actual": {
+        "white_british": 85,
+        "white_other": 6.31,
+        "asian": 3.94,
+        "black": 1.15,
+        "mixed": 2.57,
+        "other": 1.02
+      },
+      "error": {
+        "white_british": 0.36,
+        "white_other": -1.33,
+        "asian": 0.76,
+        "black": 0,
+        "mixed": 0.63,
+        "other": -0.41
+      }
+    },
+    {
+      "code": "E07000234",
+      "areaName": "Bromsgrove",
+      "predicted": {
+        "white_british": 91.29,
+        "white_other": 2.24,
+        "asian": 2.84,
+        "black": 0.55,
+        "mixed": 2.77,
+        "other": 0.31
+      },
+      "actual": {
+        "white_british": 90.44,
+        "white_other": 2.64,
+        "asian": 3.17,
+        "black": 0.8,
+        "mixed": 2.42,
+        "other": 0.53
+      },
+      "error": {
+        "white_british": 0.85,
+        "white_other": -0.4,
+        "asian": -0.33,
+        "black": -0.25,
+        "mixed": 0.35,
+        "other": -0.22
+      }
+    },
+    {
+      "code": "E07000235",
+      "areaName": "Malvern Hills",
+      "predicted": {
+        "white_british": 93.49,
+        "white_other": 2.85,
+        "asian": 1.64,
+        "black": 0.28,
+        "mixed": 1.55,
+        "other": 0.2
+      },
+      "actual": {
+        "white_british": 93.35,
+        "white_other": 3.24,
+        "asian": 1.31,
+        "black": 0.33,
+        "mixed": 1.42,
+        "other": 0.35
+      },
+      "error": {
+        "white_british": 0.14,
+        "white_other": -0.39,
+        "asian": 0.33,
+        "black": -0.05,
+        "mixed": 0.13,
+        "other": -0.15
+      }
+    },
+    {
+      "code": "E07000236",
+      "areaName": "Redditch",
+      "predicted": {
+        "white_british": 81.47,
+        "white_other": 6.49,
+        "asian": 7.11,
+        "black": 1.2,
+        "mixed": 3.43,
+        "other": 0.31
+      },
+      "actual": {
+        "white_british": 82.42,
+        "white_other": 7.38,
+        "asian": 5.73,
+        "black": 1.22,
+        "mixed": 2.63,
+        "other": 0.62
+      },
+      "error": {
+        "white_british": -0.95,
+        "white_other": -0.89,
+        "asian": 1.38,
+        "black": -0.02,
+        "mixed": 0.8,
+        "other": -0.31
+      }
+    },
+    {
+      "code": "E07000237",
+      "areaName": "Worcester",
+      "predicted": {
+        "white_british": 84.04,
+        "white_other": 5.72,
+        "asian": 6.68,
+        "black": 0.62,
+        "mixed": 2.55,
+        "other": 0.38
+      },
+      "actual": {
+        "white_british": 82.65,
+        "white_other": 7.33,
+        "asian": 5.63,
+        "black": 1.18,
+        "mixed": 2.21,
+        "other": 0.99
+      },
+      "error": {
+        "white_british": 1.39,
+        "white_other": -1.61,
+        "asian": 1.05,
+        "black": -0.56,
+        "mixed": 0.34,
+        "other": -0.61
+      }
+    },
+    {
+      "code": "E07000238",
+      "areaName": "Wychavon",
+      "predicted": {
+        "white_british": 90.81,
+        "white_other": 5.81,
+        "asian": 1.4,
+        "black": 0.25,
+        "mixed": 1.5,
+        "other": 0.23
+      },
+      "actual": {
+        "white_british": 90.61,
+        "white_other": 6.24,
+        "asian": 1.13,
+        "black": 0.36,
+        "mixed": 1.2,
+        "other": 0.46
+      },
+      "error": {
+        "white_british": 0.2,
+        "white_other": -0.43,
+        "asian": 0.27,
+        "black": -0.11,
+        "mixed": 0.3,
+        "other": -0.23
+      }
+    },
+    {
+      "code": "E07000239",
+      "areaName": "Wyre Forest",
+      "predicted": {
+        "white_british": 92.34,
+        "white_other": 3.18,
+        "asian": 2.12,
+        "black": 0.28,
+        "mixed": 1.93,
+        "other": 0.15
+      },
+      "actual": {
+        "white_british": 92.46,
+        "white_other": 3.41,
+        "asian": 1.9,
+        "black": 0.4,
+        "mixed": 1.45,
+        "other": 0.38
+      },
+      "error": {
+        "white_british": -0.12,
+        "white_other": -0.23,
+        "asian": 0.22,
+        "black": -0.12,
+        "mixed": 0.48,
+        "other": -0.23
+      }
+    },
+    {
+      "code": "E07000240",
+      "areaName": "St Albans",
+      "predicted": {
+        "white_british": 75.11,
+        "white_other": 7.62,
+        "asian": 8.93,
+        "black": 2.28,
+        "mixed": 5,
+        "other": 1.07
+      },
+      "actual": {
+        "white_british": 73.54,
+        "white_other": 10.06,
+        "asian": 8.22,
+        "black": 3.45,
+        "mixed": 2.97,
+        "other": 1.76
+      },
+      "error": {
+        "white_british": 1.57,
+        "white_other": -2.44,
+        "asian": 0.71,
+        "black": -1.17,
+        "mixed": 2.03,
+        "other": -0.69
+      }
+    },
+    {
+      "code": "E07000241",
+      "areaName": "Welwyn Hatfield",
+      "predicted": {
+        "white_british": 66.95,
+        "white_other": 9.59,
+        "asian": 10.53,
+        "black": 6.98,
+        "mixed": 4.41,
+        "other": 1.54
+      },
+      "actual": {
+        "white_british": 67.22,
+        "white_other": 11.47,
+        "asian": 8.84,
+        "black": 7.93,
+        "mixed": 2.28,
+        "other": 2.26
+      },
+      "error": {
+        "white_british": -0.27,
+        "white_other": -1.88,
+        "asian": 1.69,
+        "black": -0.95,
+        "mixed": 2.13,
+        "other": -0.72
+      }
+    },
+    {
+      "code": "E07000242",
+      "areaName": "East Hertfordshire",
+      "predicted": {
+        "white_british": 86.9,
+        "white_other": 6.3,
+        "asian": 2.57,
+        "black": 0.97,
+        "mixed": 2.9,
+        "other": 0.36
+      },
+      "actual": {
+        "white_british": 84.74,
+        "white_other": 7.55,
+        "asian": 2.68,
+        "black": 2.37,
+        "mixed": 1.75,
+        "other": 0.9
+      },
+      "error": {
+        "white_british": 2.16,
+        "white_other": -1.25,
+        "asian": -0.11,
+        "black": -1.4,
+        "mixed": 1.15,
+        "other": -0.54
+      }
+    },
+    {
+      "code": "E07000243",
+      "areaName": "Stevenage",
+      "predicted": {
+        "white_british": 74.94,
+        "white_other": 5.51,
+        "asian": 8.46,
+        "black": 5.28,
+        "mixed": 5.07,
+        "other": 0.74
+      },
+      "actual": {
+        "white_british": 75.3,
+        "white_other": 7.49,
+        "asian": 7.49,
+        "black": 6.74,
+        "mixed": 1.7,
+        "other": 1.28
+      },
+      "error": {
+        "white_british": -0.36,
+        "white_other": -1.98,
+        "asian": 0.97,
+        "black": -1.46,
+        "mixed": 3.37,
+        "other": -0.54
+      }
+    },
+    {
+      "code": "E08000001",
+      "areaName": "Bolton",
+      "predicted": {
+        "white_british": 70.1,
+        "white_other": 3.1,
+        "asian": 19.77,
+        "black": 2.95,
+        "mixed": 2.96,
+        "other": 1.12
+      },
+      "actual": {
+        "white_british": 68.75,
+        "white_other": 3.2,
+        "asian": 20.14,
+        "black": 3.79,
+        "mixed": 2.25,
+        "other": 1.87
+      },
+      "error": {
+        "white_british": 1.35,
+        "white_other": -0.1,
+        "asian": -0.37,
+        "black": -0.84,
+        "mixed": 0.71,
+        "other": -0.75
+      }
+    },
+    {
+      "code": "E08000002",
+      "areaName": "Bury",
+      "predicted": {
+        "white_british": 78.5,
+        "white_other": 4.49,
+        "asian": 10.98,
+        "black": 1.55,
+        "mixed": 3.19,
+        "other": 1.3
+      },
+      "actual": {
+        "white_british": 78.17,
+        "white_other": 4.74,
+        "asian": 10.63,
+        "black": 1.91,
+        "mixed": 2.63,
+        "other": 1.92
+      },
+      "error": {
+        "white_british": 0.33,
+        "white_other": -0.25,
+        "asian": 0.35,
+        "black": -0.36,
+        "mixed": 0.56,
+        "other": -0.62
+      }
+    },
+    {
+      "code": "E08000003",
+      "areaName": "Manchester",
+      "predicted": {
+        "white_british": 45.84,
+        "white_other": 7.35,
+        "asian": 22.68,
+        "black": 12.65,
+        "mixed": 6.54,
+        "other": 4.94
+      },
+      "actual": {
+        "white_british": 48.66,
+        "white_other": 8.16,
+        "asian": 20.86,
+        "black": 11.94,
+        "mixed": 5.26,
+        "other": 5.12
+      },
+      "error": {
+        "white_british": -2.82,
+        "white_other": -0.81,
+        "asian": 1.82,
+        "black": 0.71,
+        "mixed": 1.28,
+        "other": -0.18
+      }
+    },
+    {
+      "code": "E08000004",
+      "areaName": "Oldham",
+      "predicted": {
+        "white_british": 63.88,
+        "white_other": 2.03,
+        "asian": 28.76,
+        "black": 1.86,
+        "mixed": 3.08,
+        "other": 0.4
+      },
+      "actual": {
+        "white_british": 65.24,
+        "white_other": 2.87,
+        "asian": 24.61,
+        "black": 3.39,
+        "mixed": 2.53,
+        "other": 1.37
+      },
+      "error": {
+        "white_british": -1.36,
+        "white_other": -0.84,
+        "asian": 4.15,
+        "black": -1.53,
+        "mixed": 0.55,
+        "other": -0.97
+      }
+    },
+    {
+      "code": "E08000005",
+      "areaName": "Rochdale",
+      "predicted": {
+        "white_british": 69.51,
+        "white_other": 3.48,
+        "asian": 21.1,
+        "black": 2.32,
+        "mixed": 2.9,
+        "other": 0.69
+      },
+      "actual": {
+        "white_british": 70.03,
+        "white_other": 3.94,
+        "asian": 18.49,
+        "black": 3.54,
+        "mixed": 2.36,
+        "other": 1.64
+      },
+      "error": {
+        "white_british": -0.52,
+        "white_other": -0.46,
+        "asian": 2.61,
+        "black": -1.22,
+        "mixed": 0.54,
+        "other": -0.95
+      }
+    },
+    {
+      "code": "E08000006",
+      "areaName": "Salford",
+      "predicted": {
+        "white_british": 76.64,
+        "white_other": 7.8,
+        "asian": 5.62,
+        "black": 4.72,
+        "mixed": 3.38,
+        "other": 1.84
+      },
+      "actual": {
+        "white_british": 73.96,
+        "white_other": 8.37,
+        "asian": 5.54,
+        "black": 6.11,
+        "mixed": 3.15,
+        "other": 2.87
+      },
+      "error": {
+        "white_british": 2.68,
+        "white_other": -0.57,
+        "asian": 0.08,
+        "black": -1.39,
+        "mixed": 0.23,
+        "other": -1.03
+      }
+    },
+    {
+      "code": "E08000007",
+      "areaName": "Stockport",
+      "predicted": {
+        "white_british": 83.67,
+        "white_other": 3.23,
+        "asian": 7.73,
+        "black": 0.96,
+        "mixed": 3.41,
+        "other": 0.99
+      },
+      "actual": {
+        "white_british": 83.4,
+        "white_other": 3.97,
+        "asian": 7.29,
+        "black": 1.16,
+        "mixed": 2.61,
+        "other": 1.59
+      },
+      "error": {
+        "white_british": 0.27,
+        "white_other": -0.74,
+        "asian": 0.44,
+        "black": -0.2,
+        "mixed": 0.8,
+        "other": -0.6
+      }
+    },
+    {
+      "code": "E08000008",
+      "areaName": "Tameside",
+      "predicted": {
+        "white_british": 83.06,
+        "white_other": 2.84,
+        "asian": 9.79,
+        "black": 1.3,
+        "mixed": 2.7,
+        "other": 0.31
+      },
+      "actual": {
+        "white_british": 82.36,
+        "white_other": 3.19,
+        "asian": 9.18,
+        "black": 2.28,
+        "mixed": 2.15,
+        "other": 0.85
+      },
+      "error": {
+        "white_british": 0.7,
+        "white_other": -0.35,
+        "asian": 0.61,
+        "black": -0.98,
+        "mixed": 0.55,
+        "other": -0.54
+      }
+    },
+    {
+      "code": "E08000009",
+      "areaName": "Trafford",
+      "predicted": {
+        "white_british": 73,
+        "white_other": 5.31,
+        "asian": 11.54,
+        "black": 3.72,
+        "mixed": 4.73,
+        "other": 1.7
+      },
+      "actual": {
+        "white_british": 72.12,
+        "white_other": 5.63,
+        "asian": 12.58,
+        "black": 3.45,
+        "mixed": 3.76,
+        "other": 2.46
+      },
+      "error": {
+        "white_british": 0.88,
+        "white_other": -0.32,
+        "asian": -1.04,
+        "black": 0.27,
+        "mixed": 0.97,
+        "other": -0.76
+      }
+    },
+    {
+      "code": "E08000010",
+      "areaName": "Wigan",
+      "predicted": {
+        "white_british": 93.17,
+        "white_other": 2.37,
+        "asian": 1.58,
+        "black": 0.87,
+        "mixed": 1.64,
+        "other": 0.37
+      },
+      "actual": {
+        "white_british": 91.86,
+        "white_other": 3.18,
+        "asian": 1.78,
+        "black": 1.18,
+        "mixed": 1.32,
+        "other": 0.69
+      },
+      "error": {
+        "white_british": 1.31,
+        "white_other": -0.81,
+        "asian": -0.2,
+        "black": -0.31,
+        "mixed": 0.32,
+        "other": -0.32
+      }
+    },
+    {
+      "code": "E08000011",
+      "areaName": "Knowsley",
+      "predicted": {
+        "white_british": 93.97,
+        "white_other": 1.35,
+        "asian": 1.5,
+        "black": 0.52,
+        "mixed": 2.39,
+        "other": 0.27
+      },
+      "actual": {
+        "white_british": 92.36,
+        "white_other": 2.94,
+        "asian": 1.61,
+        "black": 0.82,
+        "mixed": 1.72,
+        "other": 0.55
+      },
+      "error": {
+        "white_british": 1.61,
+        "white_other": -1.59,
+        "asian": -0.11,
+        "black": -0.3,
+        "mixed": 0.67,
+        "other": -0.28
+      }
+    },
+    {
+      "code": "E08000012",
+      "areaName": "Liverpool",
+      "predicted": {
+        "white_british": 77.81,
+        "white_other": 5.03,
+        "asian": 5.61,
+        "black": 4.43,
+        "mixed": 3.76,
+        "other": 3.36
+      },
+      "actual": {
+        "white_british": 77.31,
+        "white_other": 6.72,
+        "asian": 5.71,
+        "black": 3.49,
+        "mixed": 3.47,
+        "other": 3.3
+      },
+      "error": {
+        "white_british": 0.5,
+        "white_other": -1.69,
+        "asian": -0.1,
+        "black": 0.94,
+        "mixed": 0.29,
+        "other": 0.06
+      }
+    },
+    {
+      "code": "E08000013",
+      "areaName": "St Helens",
+      "predicted": {
+        "white_british": 95.1,
+        "white_other": 1.75,
+        "asian": 1.5,
+        "black": 0.21,
+        "mixed": 1.21,
+        "other": 0.23
+      },
+      "actual": {
+        "white_british": 93.62,
+        "white_other": 2.92,
+        "asian": 1.4,
+        "black": 0.42,
+        "mixed": 1.07,
+        "other": 0.57
+      },
+      "error": {
+        "white_british": 1.48,
+        "white_other": -1.17,
+        "asian": 0.1,
+        "black": -0.21,
+        "mixed": 0.14,
+        "other": -0.34
+      }
+    },
+    {
+      "code": "E08000014",
+      "areaName": "Sefton",
+      "predicted": {
+        "white_british": 92.3,
+        "white_other": 3.41,
+        "asian": 1.41,
+        "black": 0.46,
+        "mixed": 1.95,
+        "other": 0.47
+      },
+      "actual": {
+        "white_british": 91.81,
+        "white_other": 4.01,
+        "asian": 1.54,
+        "black": 0.54,
+        "mixed": 1.45,
+        "other": 0.65
+      },
+      "error": {
+        "white_british": 0.49,
+        "white_other": -0.6,
+        "asian": -0.13,
+        "black": -0.08,
+        "mixed": 0.5,
+        "other": -0.18
+      }
+    },
+    {
+      "code": "E08000015",
+      "areaName": "Wirral",
+      "predicted": {
+        "white_british": 92.99,
+        "white_other": 2.23,
+        "asian": 2.35,
+        "black": 0.3,
+        "mixed": 1.85,
+        "other": 0.28
+      },
+      "actual": {
+        "white_british": 92.43,
+        "white_other": 2.73,
+        "asian": 2.28,
+        "black": 0.44,
+        "mixed": 1.54,
+        "other": 0.59
+      },
+      "error": {
+        "white_british": 0.56,
+        "white_other": -0.5,
+        "asian": 0.07,
+        "black": -0.14,
+        "mixed": 0.31,
+        "other": -0.31
+      }
+    },
+    {
+      "code": "E08000016",
+      "areaName": "Barnsley",
+      "predicted": {
+        "white_british": 94.04,
+        "white_other": 2.55,
+        "asian": 1,
+        "black": 0.9,
+        "mixed": 1.21,
+        "other": 0.29
+      },
+      "actual": {
+        "white_british": 92.6,
+        "white_other": 4.27,
+        "asian": 0.94,
+        "black": 0.7,
+        "mixed": 0.94,
+        "other": 0.55
+      },
+      "error": {
+        "white_british": 1.44,
+        "white_other": -1.72,
+        "asian": 0.06,
+        "black": 0.2,
+        "mixed": 0.27,
+        "other": -0.26
+      }
+    },
+    {
+      "code": "E08000017",
+      "areaName": "Doncaster",
+      "predicted": {
+        "white_british": 87.09,
+        "white_other": 5.35,
+        "asian": 3.85,
+        "black": 1.12,
+        "mixed": 1.98,
+        "other": 0.61
+      },
+      "actual": {
+        "white_british": 86.62,
+        "white_other": 6.52,
+        "asian": 2.95,
+        "black": 1.21,
+        "mixed": 1.49,
+        "other": 1.21
+      },
+      "error": {
+        "white_british": 0.47,
+        "white_other": -1.17,
+        "asian": 0.9,
+        "black": -0.09,
+        "mixed": 0.49,
+        "other": -0.6
+      }
+    },
+    {
+      "code": "E08000018",
+      "areaName": "Rotherham",
+      "predicted": {
+        "white_british": 87,
+        "white_other": 2.4,
+        "asian": 6.29,
+        "black": 1.43,
+        "mixed": 1.93,
+        "other": 0.94
+      },
+      "actual": {
+        "white_british": 88.25,
+        "white_other": 2.77,
+        "asian": 5.34,
+        "black": 1.13,
+        "mixed": 1.46,
+        "other": 1.06
+      },
+      "error": {
+        "white_british": -1.25,
+        "white_other": -0.37,
+        "asian": 0.95,
+        "black": 0.3,
+        "mixed": 0.47,
+        "other": -0.12
+      }
+    },
+    {
+      "code": "E08000019",
+      "areaName": "Sheffield",
+      "predicted": {
+        "white_british": 72.1,
+        "white_other": 3.38,
+        "asian": 10.53,
+        "black": 5.78,
+        "mixed": 3.96,
+        "other": 4.25
+      },
+      "actual": {
+        "white_british": 74.51,
+        "white_other": 4.59,
+        "asian": 9.62,
+        "black": 4.59,
+        "mixed": 3.54,
+        "other": 3.15
+      },
+      "error": {
+        "white_british": -2.41,
+        "white_other": -1.21,
+        "asian": 0.91,
+        "black": 1.19,
+        "mixed": 0.42,
+        "other": 1.1
+      }
+    },
+    {
+      "code": "E08000021",
+      "areaName": "Newcastle upon Tyne",
+      "predicted": {
+        "white_british": 73.31,
+        "white_other": 4.24,
+        "asian": 13.83,
+        "black": 3.32,
+        "mixed": 2.56,
+        "other": 2.74
+      },
+      "actual": {
+        "white_british": 74.49,
+        "white_other": 5.48,
+        "asian": 11.37,
+        "black": 3.3,
+        "mixed": 2.3,
+        "other": 3.06
+      },
+      "error": {
+        "white_british": -1.18,
+        "white_other": -1.24,
+        "asian": 2.46,
+        "black": 0.02,
+        "mixed": 0.26,
+        "other": -0.32
+      }
+    },
+    {
+      "code": "E08000022",
+      "areaName": "North Tyneside",
+      "predicted": {
+        "white_british": 93.02,
+        "white_other": 1.85,
+        "asian": 2.66,
+        "black": 0.57,
+        "mixed": 1.59,
+        "other": 0.32
+      },
+      "actual": {
+        "white_british": 92.49,
+        "white_other": 2.35,
+        "asian": 2.58,
+        "black": 0.62,
+        "mixed": 1.39,
+        "other": 0.58
+      },
+      "error": {
+        "white_british": 0.53,
+        "white_other": -0.5,
+        "asian": 0.08,
+        "black": -0.05,
+        "mixed": 0.2,
+        "other": -0.26
+      }
+    },
+    {
+      "code": "E08000023",
+      "areaName": "South Tyneside",
+      "predicted": {
+        "white_british": 92.31,
+        "white_other": 1.06,
+        "asian": 3.55,
+        "black": 0.51,
+        "mixed": 1.43,
+        "other": 1.15
+      },
+      "actual": {
+        "white_british": 93,
+        "white_other": 1.39,
+        "asian": 2.92,
+        "black": 0.53,
+        "mixed": 1.34,
+        "other": 0.81
+      },
+      "error": {
+        "white_british": -0.69,
+        "white_other": -0.33,
+        "asian": 0.63,
+        "black": -0.02,
+        "mixed": 0.09,
+        "other": 0.34
+      }
+    },
+    {
+      "code": "E08000024",
+      "areaName": "Sunderland",
+      "predicted": {
+        "white_british": 92.02,
+        "white_other": 1.34,
+        "asian": 4.17,
+        "black": 0.8,
+        "mixed": 1.15,
+        "other": 0.52
+      },
+      "actual": {
+        "white_british": 92.89,
+        "white_other": 1.72,
+        "asian": 2.99,
+        "black": 0.97,
+        "mixed": 0.91,
+        "other": 0.52
+      },
+      "error": {
+        "white_british": -0.87,
+        "white_other": -0.38,
+        "asian": 1.18,
+        "black": -0.17,
+        "mixed": 0.24,
+        "other": 0
+      }
+    },
+    {
+      "code": "E08000025",
+      "areaName": "Birmingham",
+      "predicted": {
+        "white_british": 40.58,
+        "white_other": 4.76,
+        "asian": 32.45,
+        "black": 11.88,
+        "mixed": 6.73,
+        "other": 3.6
+      },
+      "actual": {
+        "white_british": 42.9,
+        "white_other": 5.71,
+        "asian": 31.04,
+        "black": 10.98,
+        "mixed": 4.82,
+        "other": 4.54
+      },
+      "error": {
+        "white_british": -2.32,
+        "white_other": -0.95,
+        "asian": 1.41,
+        "black": 0.9,
+        "mixed": 1.91,
+        "other": -0.94
+      }
+    },
+    {
+      "code": "E08000026",
+      "areaName": "Coventry",
+      "predicted": {
+        "white_british": 54.76,
+        "white_other": 8.48,
+        "asian": 19.99,
+        "black": 9.79,
+        "mixed": 4.2,
+        "other": 2.77
+      },
+      "actual": {
+        "white_british": 55.28,
+        "white_other": 10.24,
+        "asian": 18.51,
+        "black": 8.9,
+        "mixed": 3.39,
+        "other": 3.68
+      },
+      "error": {
+        "white_british": -0.52,
+        "white_other": -1.76,
+        "asian": 1.48,
+        "black": 0.89,
+        "mixed": 0.81,
+        "other": -0.91
+      }
+    },
+    {
+      "code": "E08000027",
+      "areaName": "Dudley",
+      "predicted": {
+        "white_british": 82.82,
+        "white_other": 1.75,
+        "asian": 8.75,
+        "black": 2.02,
+        "mixed": 3.44,
+        "other": 1.23
+      },
+      "actual": {
+        "white_british": 82.4,
+        "white_other": 2.49,
+        "asian": 8.36,
+        "black": 2.52,
+        "mixed": 2.84,
+        "other": 1.39
+      },
+      "error": {
+        "white_british": 0.42,
+        "white_other": -0.74,
+        "asian": 0.39,
+        "black": -0.5,
+        "mixed": 0.6,
+        "other": -0.16
+      }
+    },
+    {
+      "code": "E08000028",
+      "areaName": "Sandwell",
+      "predicted": {
+        "white_british": 53.6,
+        "white_other": 5.98,
+        "asian": 24.5,
+        "black": 7.84,
+        "mixed": 5.43,
+        "other": 2.65
+      },
+      "actual": {
+        "white_british": 52.06,
+        "white_other": 5.18,
+        "asian": 25.75,
+        "black": 8.71,
+        "mixed": 4.29,
+        "other": 4.01
+      },
+      "error": {
+        "white_british": 1.54,
+        "white_other": 0.8,
+        "asian": -1.25,
+        "black": -0.87,
+        "mixed": 1.14,
+        "other": -1.36
+      }
+    },
+    {
+      "code": "E08000029",
+      "areaName": "Solihull",
+      "predicted": {
+        "white_british": 79.44,
+        "white_other": 3.35,
+        "asian": 10.26,
+        "black": 2.08,
+        "mixed": 3.89,
+        "other": 0.98
+      },
+      "actual": {
+        "white_british": 77.86,
+        "white_other": 4.29,
+        "asian": 11.02,
+        "black": 1.83,
+        "mixed": 3.48,
+        "other": 1.51
+      },
+      "error": {
+        "white_british": 1.58,
+        "white_other": -0.94,
+        "asian": -0.76,
+        "black": 0.25,
+        "mixed": 0.41,
+        "other": -0.53
+      }
+    },
+    {
+      "code": "E08000030",
+      "areaName": "Walsall",
+      "predicted": {
+        "white_british": 67.4,
+        "white_other": 2.52,
+        "asian": 20.61,
+        "black": 3.25,
+        "mixed": 4.84,
+        "other": 1.38
+      },
+      "actual": {
+        "white_british": 67.41,
+        "white_other": 3.94,
+        "asian": 18.72,
+        "black": 4.59,
+        "mixed": 3.28,
+        "other": 2.06
+      },
+      "error": {
+        "white_british": -0.01,
+        "white_other": -1.42,
+        "asian": 1.89,
+        "black": -1.34,
+        "mixed": 1.56,
+        "other": -0.68
+      }
+    },
+    {
+      "code": "E08000031",
+      "areaName": "Wolverhampton",
+      "predicted": {
+        "white_british": 53.02,
+        "white_other": 4.58,
+        "asian": 20.94,
+        "black": 9.13,
+        "mixed": 9.09,
+        "other": 3.24
+      },
+      "actual": {
+        "white_british": 54.7,
+        "white_other": 5.85,
+        "asian": 21.19,
+        "black": 9.34,
+        "mixed": 5.33,
+        "other": 3.57
+      },
+      "error": {
+        "white_british": -1.68,
+        "white_other": -1.27,
+        "asian": -0.25,
+        "black": -0.21,
+        "mixed": 3.76,
+        "other": -0.33
+      }
+    },
+    {
+      "code": "E08000032",
+      "areaName": "Bradford",
+      "predicted": {
+        "white_british": 51.02,
+        "white_other": 4.66,
+        "asian": 35.48,
+        "black": 2.34,
+        "mixed": 3.98,
+        "other": 2.53
+      },
+      "actual": {
+        "white_british": 56.71,
+        "white_other": 4.41,
+        "asian": 32.15,
+        "black": 2.01,
+        "mixed": 2.75,
+        "other": 1.97
+      },
+      "error": {
+        "white_british": -5.69,
+        "white_other": 0.25,
+        "asian": 3.33,
+        "black": 0.33,
+        "mixed": 1.23,
+        "other": 0.56
+      }
+    },
+    {
+      "code": "E08000033",
+      "areaName": "Calderdale",
+      "predicted": {
+        "white_british": 81.7,
+        "white_other": 3.58,
+        "asian": 11.45,
+        "black": 0.6,
+        "mixed": 2.29,
+        "other": 0.38
+      },
+      "actual": {
+        "white_british": 82.77,
+        "white_other": 3.3,
+        "asian": 10.52,
+        "black": 0.7,
+        "mixed": 1.94,
+        "other": 0.77
+      },
+      "error": {
+        "white_british": -1.07,
+        "white_other": 0.28,
+        "asian": 0.93,
+        "black": -0.1,
+        "mixed": 0.35,
+        "other": -0.39
+      }
+    },
+    {
+      "code": "E08000034",
+      "areaName": "Kirklees",
+      "predicted": {
+        "white_british": 68.19,
+        "white_other": 2.96,
+        "asian": 21.6,
+        "black": 2.27,
+        "mixed": 3.87,
+        "other": 1.11
+      },
+      "actual": {
+        "white_british": 70.53,
+        "white_other": 3.09,
+        "asian": 19.43,
+        "black": 2.3,
+        "mixed": 3.14,
+        "other": 1.5
+      },
+      "error": {
+        "white_british": -2.34,
+        "white_other": -0.13,
+        "asian": 2.17,
+        "black": -0.03,
+        "mixed": 0.73,
+        "other": -0.39
+      }
+    },
+    {
+      "code": "E08000035",
+      "areaName": "Leeds",
+      "predicted": {
+        "white_british": 72.22,
+        "white_other": 4.97,
+        "asian": 10.73,
+        "black": 5.61,
+        "mixed": 4.61,
+        "other": 1.85
+      },
+      "actual": {
+        "white_british": 73.37,
+        "white_other": 5.67,
+        "asian": 9.67,
+        "black": 5.59,
+        "mixed": 3.37,
+        "other": 2.33
+      },
+      "error": {
+        "white_british": -1.15,
+        "white_other": -0.7,
+        "asian": 1.06,
+        "black": 0.02,
+        "mixed": 1.24,
+        "other": -0.48
+      }
+    },
+    {
+      "code": "E08000036",
+      "areaName": "Wakefield",
+      "predicted": {
+        "white_british": 88.48,
+        "white_other": 4.18,
+        "asian": 3.89,
+        "black": 1.28,
+        "mixed": 1.67,
+        "other": 0.49
+      },
+      "actual": {
+        "white_british": 88.19,
+        "white_other": 4.84,
+        "asian": 3.57,
+        "black": 1.28,
+        "mixed": 1.4,
+        "other": 0.72
+      },
+      "error": {
+        "white_british": 0.29,
+        "white_other": -0.66,
+        "asian": 0.32,
+        "black": 0,
+        "mixed": 0.27,
+        "other": -0.23
+      }
+    },
+    {
+      "code": "E08000037",
+      "areaName": "Gateshead",
+      "predicted": {
+        "white_british": 91.11,
+        "white_other": 3.04,
+        "asian": 2.7,
+        "black": 0.9,
+        "mixed": 1.31,
+        "other": 0.94
+      },
+      "actual": {
+        "white_british": 90.3,
+        "white_other": 3.24,
+        "asian": 2.51,
+        "black": 1.6,
+        "mixed": 0.75,
+        "other": 1.59
+      },
+      "error": {
+        "white_british": 0.81,
+        "white_other": -0.2,
+        "asian": 0.19,
+        "black": -0.7,
+        "mixed": 0.56,
+        "other": -0.65
+      }
+    },
+    {
+      "code": "E09000001",
+      "areaName": "City of London",
+      "predicted": {
+        "white_british": 47.5,
+        "white_other": 22.55,
+        "asian": 16.83,
+        "black": 4.18,
+        "mixed": 5.86,
+        "other": 3.09
+      },
+      "actual": {
+        "white_british": 42.51,
+        "white_other": 26.86,
+        "asian": 16.83,
+        "black": 3.89,
+        "mixed": 4.29,
+        "other": 5.62
+      },
+      "error": {
+        "white_british": 4.99,
+        "white_other": -4.31,
+        "asian": 0,
+        "black": 0.29,
+        "mixed": 1.57,
+        "other": -2.53
+      }
+    },
+    {
+      "code": "E09000002",
+      "areaName": "Barking and Dagenham",
+      "predicted": {
+        "white_british": 26.61,
+        "white_other": 11.42,
+        "asian": 21.66,
+        "black": 30.58,
+        "mixed": 7.3,
+        "other": 2.43
+      },
+      "actual": {
+        "white_british": 30.85,
+        "white_other": 14.04,
+        "asian": 25.86,
+        "black": 21.38,
+        "mixed": 4.26,
+        "other": 3.61
+      },
+      "error": {
+        "white_british": -4.24,
+        "white_other": -2.62,
+        "asian": -4.2,
+        "black": 9.2,
+        "mixed": 3.04,
+        "other": -1.18
+      }
+    },
+    {
+      "code": "E09000003",
+      "areaName": "Barnet",
+      "predicted": {
+        "white_british": 33.77,
+        "white_other": 20.49,
+        "asian": 21.45,
+        "black": 9.69,
+        "mixed": 7.45,
+        "other": 7.14
+      },
+      "actual": {
+        "white_british": 36.16,
+        "white_other": 21.57,
+        "asian": 19.25,
+        "black": 7.88,
+        "mixed": 5.37,
+        "other": 9.78
+      },
+      "error": {
+        "white_british": -2.39,
+        "white_other": -1.08,
+        "asian": 2.2,
+        "black": 1.81,
+        "mixed": 2.08,
+        "other": -2.64
+      }
+    },
+    {
+      "code": "E09000004",
+      "areaName": "Bexley",
+      "predicted": {
+        "white_british": 65.96,
+        "white_other": 5.48,
+        "asian": 8.82,
+        "black": 14.52,
+        "mixed": 4.02,
+        "other": 1.2
+      },
+      "actual": {
+        "white_british": 64.45,
+        "white_other": 7.43,
+        "asian": 9.92,
+        "black": 12.21,
+        "mixed": 3.53,
+        "other": 2.46
+      },
+      "error": {
+        "white_british": 1.51,
+        "white_other": -1.95,
+        "asian": -1.1,
+        "black": 2.31,
+        "mixed": 0.49,
+        "other": -1.26
+      }
+    },
+    {
+      "code": "E09000005",
+      "areaName": "Brent",
+      "predicted": {
+        "white_british": 10.89,
+        "white_other": 17.51,
+        "asian": 36.92,
+        "black": 18.92,
+        "mixed": 6.81,
+        "other": 8.95
+      },
+      "actual": {
+        "white_british": 15.18,
+        "white_other": 19.45,
+        "asian": 32.82,
+        "black": 17.5,
+        "mixed": 5.07,
+        "other": 9.96
+      },
+      "error": {
+        "white_british": -4.29,
+        "white_other": -1.94,
+        "asian": 4.1,
+        "black": 1.42,
+        "mixed": 1.74,
+        "other": -1.01
+      }
+    },
+    {
+      "code": "E09000006",
+      "areaName": "Bromley",
+      "predicted": {
+        "white_british": 67.69,
+        "white_other": 7.88,
+        "asian": 6.99,
+        "black": 9.78,
+        "mixed": 6.23,
+        "other": 1.43
+      },
+      "actual": {
+        "white_british": 66.52,
+        "white_other": 9.95,
+        "asian": 8.27,
+        "black": 7.62,
+        "mixed": 5.37,
+        "other": 2.27
+      },
+      "error": {
+        "white_british": 1.17,
+        "white_other": -2.07,
+        "asian": -1.28,
+        "black": 2.16,
+        "mixed": 0.86,
+        "other": -0.84
+      }
+    },
+    {
+      "code": "E09000007",
+      "areaName": "Camden",
+      "predicted": {
+        "white_british": 36.7,
+        "white_other": 20.93,
+        "asian": 18.79,
+        "black": 9.62,
+        "mixed": 8.81,
+        "other": 5.15
+      },
+      "actual": {
+        "white_british": 35.39,
+        "white_other": 24.13,
+        "asian": 18.1,
+        "black": 9,
+        "mixed": 6.62,
+        "other": 6.75
+      },
+      "error": {
+        "white_british": 1.31,
+        "white_other": -3.2,
+        "asian": 0.69,
+        "black": 0.62,
+        "mixed": 2.19,
+        "other": -1.6
+      }
+    },
+    {
+      "code": "E09000008",
+      "areaName": "Croydon",
+      "predicted": {
+        "white_british": 32.34,
+        "white_other": 8.02,
+        "asian": 19.49,
+        "black": 26.83,
+        "mixed": 10.78,
+        "other": 2.54
+      },
+      "actual": {
+        "white_british": 37.43,
+        "white_other": 10.94,
+        "asian": 17.53,
+        "black": 22.63,
+        "mixed": 7.61,
+        "other": 3.86
+      },
+      "error": {
+        "white_british": -5.09,
+        "white_other": -2.92,
+        "asian": 1.96,
+        "black": 4.2,
+        "mixed": 3.17,
+        "other": -1.32
+      }
+    },
+    {
+      "code": "E09000009",
+      "areaName": "Ealing",
+      "predicted": {
+        "white_british": 19.88,
+        "white_other": 19.16,
+        "asian": 32.56,
+        "black": 13.26,
+        "mixed": 6.09,
+        "other": 9.05
+      },
+      "actual": {
+        "white_british": 24.32,
+        "white_other": 18.85,
+        "asian": 30.3,
+        "black": 10.75,
+        "mixed": 5.22,
+        "other": 10.56
+      },
+      "error": {
+        "white_british": -4.44,
+        "white_other": 0.31,
+        "asian": 2.26,
+        "black": 2.51,
+        "mixed": 0.87,
+        "other": -1.51
+      }
+    },
+    {
+      "code": "E09000010",
+      "areaName": "Enfield",
+      "predicted": {
+        "white_british": 24.51,
+        "white_other": 22.94,
+        "asian": 12.93,
+        "black": 23.18,
+        "mixed": 8.64,
+        "other": 7.79
+      },
+      "actual": {
+        "white_british": 31.25,
+        "white_other": 20.84,
+        "asian": 11.5,
+        "black": 18.34,
+        "mixed": 5.92,
+        "other": 12.14
+      },
+      "error": {
+        "white_british": -6.74,
+        "white_other": 2.1,
+        "asian": 1.43,
+        "black": 4.84,
+        "mixed": 2.72,
+        "other": -4.35
+      }
+    },
+    {
+      "code": "E09000011",
+      "areaName": "Greenwich",
+      "predicted": {
+        "white_british": 37.49,
+        "white_other": 11.66,
+        "asian": 14.03,
+        "black": 26.55,
+        "mixed": 7.7,
+        "other": 2.57
+      },
+      "actual": {
+        "white_british": 41.4,
+        "white_other": 14.3,
+        "asian": 13.15,
+        "black": 20.96,
+        "mixed": 5.98,
+        "other": 4.2
+      },
+      "error": {
+        "white_british": -3.91,
+        "white_other": -2.64,
+        "asian": 0.88,
+        "black": 5.59,
+        "mixed": 1.72,
+        "other": -1.63
+      }
+    },
+    {
+      "code": "E09000012",
+      "areaName": "Hackney",
+      "predicted": {
+        "white_british": 27.6,
+        "white_other": 18.56,
+        "asian": 11.98,
+        "black": 23.99,
+        "mixed": 9.09,
+        "other": 8.78
+      },
+      "actual": {
+        "white_british": 33.93,
+        "white_other": 19.21,
+        "asian": 10.37,
+        "black": 21.08,
+        "mixed": 6.75,
+        "other": 8.65
+      },
+      "error": {
+        "white_british": -6.33,
+        "white_other": -0.65,
+        "asian": 1.61,
+        "black": 2.91,
+        "mixed": 2.34,
+        "other": 0.13
+      }
+    },
+    {
+      "code": "E09000013",
+      "areaName": "Hammersmith and Fulham",
+      "predicted": {
+        "white_british": 33.3,
+        "white_other": 21.58,
+        "asian": 12.63,
+        "black": 14.8,
+        "mixed": 8.37,
+        "other": 9.32
+      },
+      "actual": {
+        "white_british": 38.27,
+        "white_other": 24.88,
+        "asian": 10.55,
+        "black": 12.25,
+        "mixed": 6.72,
+        "other": 7.32
+      },
+      "error": {
+        "white_british": -4.97,
+        "white_other": -3.3,
+        "asian": 2.08,
+        "black": 2.55,
+        "mixed": 1.65,
+        "other": 2
+      }
+    },
+    {
+      "code": "E09000014",
+      "areaName": "Haringey",
+      "predicted": {
+        "white_british": 25.63,
+        "white_other": 27.8,
+        "asian": 10.99,
+        "black": 19.12,
+        "mixed": 9.42,
+        "other": 7.05
+      },
+      "actual": {
+        "white_british": 31.89,
+        "white_other": 25.08,
+        "asian": 8.75,
+        "black": 17.58,
+        "mixed": 7.03,
+        "other": 9.67
+      },
+      "error": {
+        "white_british": -6.26,
+        "white_other": 2.72,
+        "asian": 2.24,
+        "black": 1.54,
+        "mixed": 2.39,
+        "other": -2.62
+      }
+    },
+    {
+      "code": "E09000015",
+      "areaName": "Harrow",
+      "predicted": {
+        "white_british": 17.55,
+        "white_other": 11.89,
+        "asian": 50,
+        "black": 10.12,
+        "mixed": 5.96,
+        "other": 4.48
+      },
+      "actual": {
+        "white_british": 20.51,
+        "white_other": 15.95,
+        "asian": 45.24,
+        "black": 7.33,
+        "mixed": 3.76,
+        "other": 7.21
+      },
+      "error": {
+        "white_british": -2.96,
+        "white_other": -4.06,
+        "asian": 4.76,
+        "black": 2.79,
+        "mixed": 2.2,
+        "other": -2.73
+      }
+    },
+    {
+      "code": "E09000016",
+      "areaName": "Havering",
+      "predicted": {
+        "white_british": 74.44,
+        "white_other": 5.37,
+        "asian": 7.16,
+        "black": 8.2,
+        "mixed": 3.88,
+        "other": 0.94
+      },
+      "actual": {
+        "white_british": 66.5,
+        "white_other": 8.81,
+        "asian": 10.74,
+        "black": 8.23,
+        "mixed": 3.72,
+        "other": 2.01
+      },
+      "error": {
+        "white_british": 7.94,
+        "white_other": -3.44,
+        "asian": -3.58,
+        "black": -0.03,
+        "mixed": 0.16,
+        "other": -1.07
+      }
+    },
+    {
+      "code": "E09000017",
+      "areaName": "Hillingdon",
+      "predicted": {
+        "white_british": 35.27,
+        "white_other": 8.99,
+        "asian": 33.7,
+        "black": 11.15,
+        "mixed": 6.24,
+        "other": 4.66
+      },
+      "actual": {
+        "white_british": 37.06,
+        "white_other": 11.11,
+        "asian": 33.32,
+        "black": 7.83,
+        "mixed": 4.37,
+        "other": 6.3
+      },
+      "error": {
+        "white_british": -1.79,
+        "white_other": -2.12,
+        "asian": 0.38,
+        "black": 3.32,
+        "mixed": 1.87,
+        "other": -1.64
+      }
+    },
+    {
+      "code": "E09000018",
+      "areaName": "Hounslow",
+      "predicted": {
+        "white_british": 25.51,
+        "white_other": 15.01,
+        "asian": 39.28,
+        "black": 9.26,
+        "mixed": 5.91,
+        "other": 5.02
+      },
+      "actual": {
+        "white_british": 28.44,
+        "white_other": 15.67,
+        "asian": 36.72,
+        "black": 7.22,
+        "mixed": 4.69,
+        "other": 7.27
+      },
+      "error": {
+        "white_british": -2.93,
+        "white_other": -0.66,
+        "asian": 2.56,
+        "black": 2.04,
+        "mixed": 1.22,
+        "other": -2.25
+      }
+    },
+    {
+      "code": "E09000019",
+      "areaName": "Islington",
+      "predicted": {
+        "white_british": 38.7,
+        "white_other": 18.73,
+        "asian": 11.16,
+        "black": 16.12,
+        "mixed": 10.07,
+        "other": 5.21
+      },
+      "actual": {
+        "white_british": 39.75,
+        "white_other": 22.47,
+        "asian": 9.93,
+        "black": 13.28,
+        "mixed": 7.48,
+        "other": 7.09
+      },
+      "error": {
+        "white_british": -1.05,
+        "white_other": -3.74,
+        "asian": 1.23,
+        "black": 2.84,
+        "mixed": 2.59,
+        "other": -1.88
+      }
+    },
+    {
+      "code": "E09000020",
+      "areaName": "Kensington and Chelsea",
+      "predicted": {
+        "white_british": 30.28,
+        "white_other": 29.14,
+        "asian": 13.17,
+        "black": 7.44,
+        "mixed": 8.66,
+        "other": 11.32
+      },
+      "actual": {
+        "white_british": 32.69,
+        "white_other": 31.06,
+        "asian": 11.88,
+        "black": 7.87,
+        "mixed": 6.64,
+        "other": 9.86
+      },
+      "error": {
+        "white_british": -2.41,
+        "white_other": -1.92,
+        "asian": 1.29,
+        "black": -0.43,
+        "mixed": 2.02,
+        "other": 1.46
+      }
+    },
+    {
+      "code": "E09000021",
+      "areaName": "Kingston upon Thames",
+      "predicted": {
+        "white_british": 51.04,
+        "white_other": 12.8,
+        "asian": 22.68,
+        "black": 3.33,
+        "mixed": 6.64,
+        "other": 3.5
+      },
+      "actual": {
+        "white_british": 53.73,
+        "white_other": 14.61,
+        "asian": 17.81,
+        "black": 2.82,
+        "mixed": 5.34,
+        "other": 5.69
+      },
+      "error": {
+        "white_british": -2.69,
+        "white_other": -1.81,
+        "asian": 4.87,
+        "black": 0.51,
+        "mixed": 1.3,
+        "other": -2.19
+      }
+    },
+    {
+      "code": "E09000022",
+      "areaName": "Lambeth",
+      "predicted": {
+        "white_british": 27.5,
+        "white_other": 19.28,
+        "asian": 8.21,
+        "black": 29.47,
+        "mixed": 11.72,
+        "other": 3.83
+      },
+      "actual": {
+        "white_british": 37.58,
+        "white_other": 17.44,
+        "asian": 7.25,
+        "black": 23.97,
+        "mixed": 8.07,
+        "other": 5.68
+      },
+      "error": {
+        "white_british": -10.08,
+        "white_other": 1.84,
+        "asian": 0.96,
+        "black": 5.5,
+        "mixed": 3.65,
+        "other": -1.85
+      }
+    },
+    {
+      "code": "E09000023",
+      "areaName": "Lewisham",
+      "predicted": {
+        "white_british": 28.58,
+        "white_other": 12.44,
+        "asian": 12.27,
+        "black": 30.9,
+        "mixed": 12.11,
+        "other": 3.7
+      },
+      "actual": {
+        "white_british": 37.18,
+        "white_other": 14.32,
+        "asian": 8.96,
+        "black": 26.77,
+        "mixed": 8.06,
+        "other": 4.71
+      },
+      "error": {
+        "white_british": -8.6,
+        "white_other": -1.88,
+        "asian": 3.31,
+        "black": 4.13,
+        "mixed": 4.05,
+        "other": -1.01
+      }
+    },
+    {
+      "code": "E09000024",
+      "areaName": "Merton",
+      "predicted": {
+        "white_british": 35.36,
+        "white_other": 17.18,
+        "asian": 24.51,
+        "black": 13.41,
+        "mixed": 7.1,
+        "other": 2.44
+      },
+      "actual": {
+        "white_british": 41.21,
+        "white_other": 19.02,
+        "asian": 18.6,
+        "black": 10.64,
+        "mixed": 5.93,
+        "other": 4.6
+      },
+      "error": {
+        "white_british": -5.85,
+        "white_other": -1.84,
+        "asian": 5.91,
+        "black": 2.77,
+        "mixed": 1.17,
+        "other": -2.16
+      }
+    },
+    {
+      "code": "E09000025",
+      "areaName": "Newham",
+      "predicted": {
+        "white_british": 7.98,
+        "white_other": 15.5,
+        "asian": 47.37,
+        "black": 18.64,
+        "mixed": 6.14,
+        "other": 4.38
+      },
+      "actual": {
+        "white_british": 14.76,
+        "white_other": 15.99,
+        "asian": 42.21,
+        "black": 17.46,
+        "mixed": 4.68,
+        "other": 4.89
+      },
+      "error": {
+        "white_british": -6.78,
+        "white_other": -0.49,
+        "asian": 5.16,
+        "black": 1.18,
+        "mixed": 1.46,
+        "other": -0.51
+      }
+    },
+    {
+      "code": "E09000026",
+      "areaName": "Redbridge",
+      "predicted": {
+        "white_british": 18.58,
+        "white_other": 8.63,
+        "asian": 52.4,
+        "black": 9.92,
+        "mixed": 6.44,
+        "other": 4.03
+      },
+      "actual": {
+        "white_british": 23.15,
+        "white_other": 11.64,
+        "asian": 47.32,
+        "black": 8.42,
+        "mixed": 4.11,
+        "other": 5.36
+      },
+      "error": {
+        "white_british": -4.57,
+        "white_other": -3.01,
+        "asian": 5.08,
+        "black": 1.5,
+        "mixed": 2.33,
+        "other": -1.33
+      }
+    },
+    {
+      "code": "E09000027",
+      "areaName": "Richmond upon Thames",
+      "predicted": {
+        "white_british": 65.08,
+        "white_other": 14.74,
+        "asian": 9.59,
+        "black": 2.11,
+        "mixed": 6.22,
+        "other": 2.27
+      },
+      "actual": {
+        "white_british": 63.04,
+        "white_other": 17.42,
+        "asian": 8.95,
+        "black": 1.9,
+        "mixed": 5.44,
+        "other": 3.25
+      },
+      "error": {
+        "white_british": 2.04,
+        "white_other": -2.68,
+        "asian": 0.64,
+        "black": 0.21,
+        "mixed": 0.78,
+        "other": -0.98
+      }
+    },
+    {
+      "code": "E09000028",
+      "areaName": "Southwark",
+      "predicted": {
+        "white_british": 29.52,
+        "white_other": 14.04,
+        "asian": 11.26,
+        "black": 30.82,
+        "mixed": 9.45,
+        "other": 4.91
+      },
+      "actual": {
+        "white_british": 35.52,
+        "white_other": 15.92,
+        "asian": 9.92,
+        "black": 25.12,
+        "mixed": 7.2,
+        "other": 6.32
+      },
+      "error": {
+        "white_british": -6,
+        "white_other": -1.88,
+        "asian": 1.34,
+        "black": 5.7,
+        "mixed": 2.25,
+        "other": -1.41
+      }
+    },
+    {
+      "code": "E09000029",
+      "areaName": "Sutton",
+      "predicted": {
+        "white_british": 58.7,
+        "white_other": 8.9,
+        "asian": 17.09,
+        "black": 7.08,
+        "mixed": 6.36,
+        "other": 1.87
+      },
+      "actual": {
+        "white_british": 57.26,
+        "white_other": 11.04,
+        "asian": 17.54,
+        "black": 5.95,
+        "mixed": 4.84,
+        "other": 3.38
+      },
+      "error": {
+        "white_british": 1.44,
+        "white_other": -2.14,
+        "asian": -0.45,
+        "black": 1.13,
+        "mixed": 1.52,
+        "other": -1.51
+      }
+    },
+    {
+      "code": "E09000030",
+      "areaName": "Tower Hamlets",
+      "predicted": {
+        "white_british": 21.76,
+        "white_other": 13.77,
+        "asian": 45.52,
+        "black": 9.52,
+        "mixed": 6.17,
+        "other": 3.26
+      },
+      "actual": {
+        "white_british": 22.94,
+        "white_other": 16.46,
+        "asian": 44.42,
+        "black": 7.32,
+        "mixed": 4.97,
+        "other": 3.89
+      },
+      "error": {
+        "white_british": -1.18,
+        "white_other": -2.69,
+        "asian": 1.1,
+        "black": 2.2,
+        "mixed": 1.2,
+        "other": -0.63
+      }
+    },
+    {
+      "code": "E09000031",
+      "areaName": "Waltham Forest",
+      "predicted": {
+        "white_british": 22.01,
+        "white_other": 19.66,
+        "asian": 25.07,
+        "black": 19.22,
+        "mixed": 7.91,
+        "other": 6.13
+      },
+      "actual": {
+        "white_british": 34.04,
+        "white_other": 18.76,
+        "asian": 19.95,
+        "black": 14.96,
+        "mixed": 6.46,
+        "other": 5.82
+      },
+      "error": {
+        "white_british": -12.03,
+        "white_other": 0.9,
+        "asian": 5.12,
+        "black": 4.26,
+        "mixed": 1.45,
+        "other": 0.31
+      }
+    },
+    {
+      "code": "E09000032",
+      "areaName": "Wandsworth",
+      "predicted": {
+        "white_british": 42.32,
+        "white_other": 17.66,
+        "asian": 14.94,
+        "black": 14.12,
+        "mixed": 7.88,
+        "other": 3.09
+      },
+      "actual": {
+        "white_british": 47.96,
+        "white_other": 19.86,
+        "asian": 11.7,
+        "black": 10.09,
+        "mixed": 6.29,
+        "other": 4.11
+      },
+      "error": {
+        "white_british": -5.64,
+        "white_other": -2.2,
+        "asian": 3.24,
+        "black": 4.03,
+        "mixed": 1.59,
+        "other": -1.02
+      }
+    },
+    {
+      "code": "E09000033",
+      "areaName": "Westminster",
+      "predicted": {
+        "white_british": 26.03,
+        "white_other": 23.31,
+        "asian": 16.87,
+        "black": 8.88,
+        "mixed": 7.11,
+        "other": 17.8
+      },
+      "actual": {
+        "white_british": 27.99,
+        "white_other": 27.21,
+        "asian": 16.77,
+        "black": 8.05,
+        "mixed": 6.52,
+        "other": 13.45
+      },
+      "error": {
+        "white_british": -1.96,
+        "white_other": -3.9,
+        "asian": 0.1,
+        "black": 0.83,
+        "mixed": 0.59,
+        "other": 4.35
+      }
+    }
+  ]
+}

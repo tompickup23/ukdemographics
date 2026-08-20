@@ -145,7 +145,12 @@ for (const [code, area] of Object.entries(existing.areas)) {
 }
 
 // Update metadata
-existing.modelVersion = "6.3-spatially-smoothed";
+// modelVersion and methodology are owned by run_hp_single_year.mjs, which is
+// the model. This script is a consumer of the model output, so it must not
+// stamp its own version: ten scripts used to write this field and whichever
+// ran last won, which is how the published file came to report a version
+// three releases behind the projections it actually contained.
+
 existing.lastUpdated = new Date().toISOString().slice(0, 10);
 
 writeFileSync(SITE_OUTPUT, JSON.stringify(existing, null, 2), "utf8");

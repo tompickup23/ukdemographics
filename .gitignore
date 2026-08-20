@@ -20,6 +20,8 @@ data/raw/regional_sources/*.xlsx
 data/raw/regional_sources/*.html
 data/raw/hotel_entities/*.json
 data/raw/census_ethnicity/
+data/raw/census_2001_ethnicity_age/
+data/raw/census_2011_ethnicity_age/
 data/raw/crime/
 data/raw/supplementary/
 data/raw/newethpop/
@@ -56,3 +58,4 @@ data/raw/ho_visas_extra/
 !.env.sample
 **/.env
 **/.env.*
+.stochastic-run.lock

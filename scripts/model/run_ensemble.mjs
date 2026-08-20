@@ -165,8 +165,13 @@ for (const [code, area] of Object.entries(existing.areas)) {
 }
 
 // Update metadata
-existing.methodology = "3-model ensemble: (1) Hamilton-Perry single-year CCR with 20 ethnic groups (Census-direct 2021 base, DfE calibration), (2) Cohort-component v2 with ethnic fertility/mortality/migration (9 scenarios, central selected), (3) Linear extrapolation (Census 2011→2021 trend). Simple average following Wilson et al. (2022). SNPP 2022-based envelope constraint. Model spread provides empirical uncertainty.";
-existing.modelVersion = "6.1-ensemble";
+
+// modelVersion and methodology are owned by run_hp_single_year.mjs, which is
+// the model. This script is a consumer of the model output, so it must not
+// stamp its own version: ten scripts used to write this field and whichever
+// ran last won, which is how the published file came to report a version
+// three releases behind the projections it actually contained.
+
 existing.lastUpdated = new Date().toISOString().slice(0, 10);
 existing.source = "Census 2011 KS201/DC2101 + Census 2021 custom dataset (direct) + ONS SNPP 2022-based Z1";
 

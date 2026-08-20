@@ -45,6 +45,12 @@ import healthDemand from "../../data/live/health-demand.json";
 import languageProjections from "../../data/live/language-projections.json";
 import fiscalResilience from "../../data/live/fiscal-resilience.json";
 import scenarioSummaries from "../../data/live/scenario-summaries.json";
+import { consistentBandSeries } from "../../lib/projection-consistency";
+import {
+  plausibleThrough,
+  isTruncated,
+  publishableValue,
+} from "../../lib/projection-plausibility";
 
 const TOTAL_PUBLIC_AREAS = getPublicPlaceAreas().length;
 
@@ -253,10 +259,36 @@ const areaScenarios = (scenarioSummaries as any).areas?.[area.areaCode];
 const centralScenario = (scenarioSummaries as any).centralScenario as string | undefined;
 
 const headlineStat = projData?.headlineStat;
+
+// The stored trend string carries a model-version tag that is wrong on both
+// counts for 52 of the 320 areas: it says "v2" when the published model is v7.0,
+// and "bias-corrected" when the backcast over-predicts the White British share in
+// 268 of 269 areas. Three different tags are in the data across the 320 areas, so
+// the provenance is inconsistent as well as inaccurate. Strip the parenthetical
+// and expand the "WBI" abbreviation; accurate provenance is the chart source line
+// and /methodology/, in one place, stated once.
+const heroTrendLabel = (headlineStat?.trend ?? "")
+  .replace(/\s*\([^)]*\)\s*$/, "")
+  .replace(/\bWBI\b/g, "White British")
+  .trim();
 const population = projData?.current?.total_population ?? area.population ?? 0;
 const wbi2021 = projData?.current?.groups?.white_british ?? area.wbiPct2021;
-const wbi2041 = projData?.projections?.["2041"]?.white_british ?? area.wbiPct2041;
-const wbi2051 = projData?.projections?.["2051"]?.white_british;
+// Withhold projection years where the model diverged rather than projected. See
+// src/lib/projection-plausibility.ts. 51 of 320 areas lose part of their horizon;
+// 269 are unaffected. No figure changes, incoherent years are simply not shown.
+const projHorizon = plausibleThrough(projData as any);
+const projTruncated = isTruncated(projData as any);
+
+const wbi2041 = publishableValue(
+  projData as any,
+  2041,
+  projData?.projections?.["2041"]?.white_british ?? area.wbiPct2041
+);
+const wbi2051 = publishableValue(
+  projData as any,
+  2051,
+  projData?.projections?.["2051"]?.white_british
+);
 
 // Chart data builders
 const ethnicTimeline = getEthnicCompositionTimeline(area.areaCode);
@@ -279,25 +311,46 @@ const GROUP_LABELS: Record<string, string> = {
   other: "Other",
 };
 
-const ethChartLines = ethnicTimeline
+// Observed years (2011, 2021) always stand. Projected years past the area's
+// horizon are dropped, so a diverged trajectory is never drawn.
+const publishableTimeline = (ethnicTimeline ?? []).filter(
+  (t: any) => !t.isProjection || (projHorizon !== null && Number(t.year) <= projHorizon)
+);
+
+const ethChartLines = publishableTimeline.length > 0
   ? (Object.keys(GROUP_LABELS) as Array<keyof typeof GROUP_LABELS>)
-      .filter((g) => Math.max(...ethnicTimeline.map((t: any) => t.groups[g] ?? 0)) > 3)
+      .filter((g) => Math.max(...publishableTimeline.map((t: any) => t.groups[g] ?? 0)) > 3)
       .map((g) => ({
         label: GROUP_LABELS[g],
         color: GROUP_COLORS[g],
-        points: ethnicTimeline.map((t: any) => ({ year: Number(t.year), value: t.groups[g] ?? 0 })),
+        points: publishableTimeline.map((t: any) => ({ year: Number(t.year), value: t.groups[g] ?? 0 })),
       }))
   : [];
 
-const ethConfidenceBand = stochasticData
+// The stochastic percentiles come from a separate Monte Carlo run
+// (run_stochastic_hp.mjs) to the deterministic projection drawn on the chart
+// (run_hp_single_year.mjs). When the two runs are out of step the band does not
+// contain the line it is supposed to describe: true for 71% of area-years here,
+// and Torridge drew a 2051 band of 88.2 to 91.4 around a line of 70.1.
+//
+// consistentBandSeries drops only the years that disagree, so a year whose band
+// is coherent keeps it. Shared verbatim with the sister site, which publishes
+// the same model run. Run `node scripts/validate-projections.mjs` for the count.
+const ethConfidenceBandRaw = stochasticData
   ? [2031, 2041, 2051]
-      .filter((y) => (stochasticData as any)[y])
+      .filter((y) => (stochasticData as any)[y]?.wbi)
       .map((y) => ({
         year: y,
         low: (stochasticData as any)[y].wbi.p10,
         high: (stochasticData as any)[y].wbi.p90,
       }))
-  : undefined;
+  : [];
+const ethConfidenceBandPoints = consistentBandSeries(
+  ethConfidenceBandRaw.filter((b) => projHorizon !== null && b.year <= projHorizon),
+  (year) => projData?.projections?.[String(year)]?.white_british ?? null
+);
+const ethConfidenceBand =
+  ethConfidenceBandPoints.length > 0 ? ethConfidenceBandPoints : undefined;
 
 const relChartLines = religionData
   ? (() => {
@@ -308,7 +361,10 @@ const relChartLines = religionData
         { key: "Hindu", color: "#a78bfa", label: "Hindu" },
         { key: "Sikh", color: "#10b981", label: "Sikh" },
       ];
-      const years = [2021, 2031, 2041, 2051].filter((y) => (religionData as any)[y]);
+      // Derived from the same projection, so it inherits the same horizon.
+      const years = [2021, 2031, 2041, 2051].filter(
+        (y) => (religionData as any)[y] && (y === 2021 || (projHorizon !== null && y <= projHorizon))
+      );
       return groups
         .filter((g) => years.some((y) => ((religionData as any)[y]?.[g.key] ?? 0) > 3))
         .map((g) => ({
@@ -321,7 +377,10 @@ const relChartLines = religionData
 
 const natChartLines = nativityData
   ? (() => {
-      const years = [2021, 2031, 2041, 2051].filter((y) => (nativityData as any)[y]);
+      // Derived from the same projection, so it inherits the same horizon.
+      const years = [2021, 2031, 2041, 2051].filter(
+        (y) => (nativityData as any)[y] && (y === 2021 || (projHorizon !== null && y <= projHorizon))
+      );
       return [
         {
           label: "UK-born",
@@ -341,7 +400,13 @@ const canonicalUrl = buildAbsoluteUrl(`/places/${slugifyAreaName(area.areaName)}
 const popText = population != null ? population.toLocaleString() : "n/a";
 const wbi2021Text = wbi2021 != null ? `${wbi2021.toFixed(1)}%` : "n/a";
 const wbi2051Text = wbi2051 != null ? `${wbi2051.toFixed(1)}%` : "n/a";
-const pageDescription = `${area.areaName} demographic profile: population ${popText}, White British ${wbi2021Text} (2021) to ${wbi2051Text} (2051 projected). Ethnic composition, religion, nativity, shift-share analysis.`;
+// Truncated areas advertise the horizon they can actually show.
+const projClause = wbi2051 != null
+  ? ` to ${wbi2051Text} (2051 projected)`
+  : projHorizon != null
+    ? `, projected to ${projHorizon}`
+    : "";
+const pageDescription = `${area.areaName} demographic profile: population ${popText}, White British ${wbi2021Text} (2021)${projClause}. Ethnic composition, religion, nativity, shift-share analysis.`;
 
 // Search intent: people type "<place> population", not "<place> demographic
 // profile". Leading with the figure follows the pattern that already works on
@@ -372,7 +437,6 @@ function fmtInt(n: number | undefined | null): string {
   structuredData={structuredData}
 >
   <Breadcrumbs items={[
-    { label: "Home", href: "/" },
     { label: "Places", href: "/places/" },
     { label: area.areaName }
   ]} />
@@ -398,18 +462,21 @@ function fmtInt(n: number | undefined | null): string {
       <ShareButton
         url={canonicalUrl}
         title={`${area.areaName} demographic profile, UK Demographics`}
-        text={`${area.areaName}: White British ${fmtPct(wbi2021)} (2021) to ${fmtPct(wbi2051)} (2051). See the full profile.`}
+        text={wbi2051 != null
+          ? `${area.areaName}: White British ${fmtPct(wbi2021)} (2021) to ${fmtPct(wbi2051)} (2051). See the full profile.`
+          : `${area.areaName}: White British ${fmtPct(wbi2021)} at the 2021 Census. See the full profile.`}
         compact
       />
     </div>
   </div>
 
-  {headlineStat && (
+  {headlineStat && wbi2051 != null && (
     <div class="stat-card-row place-hero-row">
       <StatCard
         value={headlineStat.value}
-        label={headlineStat.trend ?? ""}
+        label={heroTrendLabel}
         accent="var(--accent)"
+        note="Projected"
       />
     </div>
   )}
@@ -424,21 +491,32 @@ function fmtInt(n: number | undefined | null): string {
       value={fmtPct(wbi2021)}
       label="White British (2021)"
       accent="var(--accent)"
+      note="Census"
     />
+    {/* One entity, one colour. These three cards are the same measure at three
+        dates, so escalating the hue (indigo to cyan to coral) encoded alarm
+        rather than data, and coral reads as "bad" on a site whose register is
+        neutral. The projection is marked as projected instead, in words. */}
+    {wbi2041 != null && (
     <StatCard
       value={fmtPct(wbi2041)}
-      label="White British (2041 projected)"
-      accent="var(--accent-3)"
+      label="White British (2041)"
+      accent="var(--accent)"
+      note="Projected"
       trend={wbi2021 != null && wbi2041 != null ? `${(wbi2041 - wbi2021).toFixed(1)}pp` : null}
-      trendDirection={wbi2021 != null && wbi2041 != null ? (wbi2041 < wbi2021 ? "down" : "up") : "flat"}
+      trendDirection="neutral"
     />
+    )}
+    {wbi2051 != null && (
     <StatCard
       value={fmtPct(wbi2051)}
-      label="White British (2051 projected)"
-      accent="var(--coral)"
+      label="White British (2051)"
+      accent="var(--accent)"
+      note="Projected"
       trend={wbi2021 != null && wbi2051 != null ? `${(wbi2051 - wbi2021).toFixed(1)}pp` : null}
-      trendDirection={wbi2021 != null && wbi2051 != null ? (wbi2051 < wbi2021 ? "down" : "up") : "flat"}
+      trendDirection="neutral"
     />
+    )}
   </section>
 
   <!-- Ethnic composition, trajectory chart + timeline -->
@@ -446,9 +524,20 @@ function fmtInt(n: number | undefined | null): string {
     <section class="section" id="ethnic-composition">
       <h2>Ethnic composition trajectory</h2>
       <p class="section-desc">
-        Census 2011 and 2021 observed, Hamilton-Perry projections to 2061.
-        {ethConfidenceBand ? " Shaded band shows 80% confidence interval for White British share." : ""}
+        Solid to 2021 is Census. Dashed after that is the model, and it carries a
+        known bias toward overstating the White British share.
+        {ethConfidenceBand ? " The shaded band is the 80% interval for White British share." : ""}
       </p>
+      {projTruncated && (
+        <p class="section-note projection-withheld">
+          This area is shown to {projHorizon ?? "2021"} rather than 2061. Past that
+          point the model puts a residual Census category above a quarter of the
+          population and several times its 2021 share, which is unconstrained
+          compounding rather than a forecast. Those years are withheld here until
+          the model is reconciled. See <a href="/methodology/#limitations">the
+          limitations</a>.
+        </p>
+      )}
       <div class="chart-holder">
         <ProjectionChart
           title={`Ethnic composition, ${area.areaName}`}
@@ -457,15 +546,17 @@ function fmtInt(n: number | undefined | null): string {
           nowYear={2021}
           yLabel="%"
           height={260}
+          source="Census 2011 and Census 2021 (ONS) observed; 2031 onward projected by the Hamilton-Perry model. See /methodology/ for the known limitations."
+          takeaway={`Line chart of ethnic group shares in ${area.areaName}. Census 2011 and 2021 observed, then projected to ${projHorizon ?? 2021}. White British is ${fmtPct(wbi2021)} at the 2021 Census${wbi2051 != null ? `, projected ${fmtPct(wbi2051)} for 2051` : ""}.`}
         />
       </div>
-      {ethnicTimeline && ethnicTimeline.length > 0 && (
+      {publishableTimeline.length > 0 && (
         <div class="chart-holder" style="margin-top: 1.25rem;">
-          <EthnicityTimeline timeline={ethnicTimeline as any} areaName={area.areaName} />
+          <EthnicityTimeline timeline={publishableTimeline as any} areaName={area.areaName} />
         </div>
       )}
 
-      {modelSpread && typeof modelSpread.hamiltonPerry === 'number' && typeof modelSpread.cohortComponent === 'number' && (
+      {modelSpread && wbi2051 != null && typeof modelSpread.hamiltonPerry === 'number' && typeof modelSpread.cohortComponent === 'number' && (
         <div class="model-compare">
           <div class="model-compare-head">
             <h3>Two-model comparison: White British, 2051</h3>
@@ -547,6 +638,7 @@ function fmtInt(n: number | undefined | null): string {
             lines={relChartLines}
             nowYear={2021}
             yLabel="%"
+            source="Census 2021 (ONS) observed; later years projected from the Hamilton-Perry ethnic projection."
           />
         </div>
       ) : (
@@ -559,7 +651,7 @@ function fmtInt(n: number | undefined | null): string {
           ))}
         </div>
       )}
-      {projData?.muslimPct2051 != null && (
+      {projData?.muslimPct2051 != null && wbi2051 != null && (
         <p class="section-note">Muslim population projected: {projData.muslimPct2051.toFixed(1)}% by 2051</p>
       )}
     </section>
@@ -577,6 +669,7 @@ function fmtInt(n: number | undefined | null): string {
             lines={natChartLines}
             nowYear={2021}
             yLabel="%"
+            source="Census 2021 country of birth (ONS) observed; later years projected from the Hamilton-Perry ethnic projection."
           />
         </div>
       ) : (
@@ -589,7 +682,7 @@ function fmtInt(n: number | undefined | null): string {
             <span class="data-label">Foreign-born (2021)</span>
             <span class="data-value">{fmtPct(projData?.foreignBornPct2021)}</span>
           </div>
-          {projData?.foreignBornPct2051 != null && (
+          {projData?.foreignBornPct2051 != null && wbi2051 != null && (
             <div class="data-item">
               <span class="data-label">Foreign-born (2051 projected)</span>
               <span class="data-value">{fmtPct(projData.foreignBornPct2051)}</span>

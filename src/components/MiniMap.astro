@@ -92,12 +92,68 @@ function normName(s: string): string {
     .trim();
 }
 
+/**
+ * Force the ring winding d3-geo expects: exterior clockwise in lon/lat, holes
+ * counter-clockwise.
+ *
+ * d3-geo does spherical geometry, where a ring wound the wrong way is not "the
+ * same polygon drawn backwards", it is the COMPLEMENT: everything on the globe
+ * except the shape. Every feature in these files is wound the opposite way to
+ * what d3 wants, so geoArea(Torridge) returned 12.566 steradians, which is 4*pi,
+ * the entire sphere, and geoBounds returned [-180, -90, 180, 90].
+ *
+ * Downstream, that made the focal bbox the whole world, so fitExtent squeezed
+ * the globe into 260x170, every boundary collapsed to a sub-pixel speck, all 360
+ * other features "intersected" the focal bbox, and each one painted the clipped
+ * sphere as a full-canvas rectangle. The visible result was a solid
+ * accent-coloured square where the map should be, on every place page and every
+ * constituency page.
+ *
+ * Rewinding at load time fixes it for every consumer of the cache at once.
+ * Verified after the fix: geoArea(Torridge) = 0.000024 sr, geoBounds =
+ * [[-4.546, 50.6465], [-3.8996, 51.0645]].
+ */
+function ringIsClockwise(ring: number[][]): boolean {
+  // Planar shoelace. A negative signed area is clockwise in lon/lat, where y
+  // (latitude) increases northward. These are small extents, so the planar test
+  // is a sound proxy for the spherical winding d3 cares about.
+  let area = 0;
+  for (let i = 0, n = ring.length; i < n; i++) {
+    const [x1, y1] = ring[i];
+    const [x2, y2] = ring[(i + 1) % n];
+    area += x1 * y2 - x2 * y1;
+  }
+  return area < 0;
+}
+
+function rewindRings(rings: number[][][]): number[][][] {
+  return rings.map((ring, i) => {
+    // Exterior ring (index 0) clockwise, holes counter-clockwise.
+    const wantClockwise = i === 0;
+    return ringIsClockwise(ring) === wantClockwise ? ring : [...ring].reverse();
+  });
+}
+
+function rewindGeometry(geometry: any): any {
+  if (!geometry) return geometry;
+  if (geometry.type === "Polygon") {
+    return { ...geometry, coordinates: rewindRings(geometry.coordinates) };
+  }
+  if (geometry.type === "MultiPolygon") {
+    return { ...geometry, coordinates: geometry.coordinates.map(rewindRings) };
+  }
+  return geometry;
+}
+
 function loadCache(kind: keyof typeof REGISTRY): GeoCache | null {
   if (_cache.has(kind)) return _cache.get(kind)!;
   const reg = REGISTRY[kind];
   const p = resolve(process.cwd(), reg.file);
   if (!existsSync(p)) return null;
-  const data = JSON.parse(readFileSync(p, "utf8")) as { features: any[] };
+  const raw = JSON.parse(readFileSync(p, "utf8")) as { features: any[] };
+  const data = {
+    features: raw.features.map((f) => ({ ...f, geometry: rewindGeometry(f.geometry) })),
+  };
   const byCode = new Map<string, any>();
   const byName = new Map<string, any>();
   for (const f of data.features) {
@@ -171,12 +227,16 @@ if (hasFocal) {
           properties: {},
           geometry: {
             type: "Polygon",
+            // Wound clockwise, for the same reason the source rings are rewound
+            // above. Counter-clockwise here makes d3 read this rectangle as
+            // "the whole globe except this box", so fitExtent scaled the world
+            // into the thumbnail and every boundary collapsed to a speck.
             coordinates: [
               [
                 [focalBbox[0], focalBbox[1]],
-                [focalBbox[2], focalBbox[1]],
-                [focalBbox[2], focalBbox[3]],
                 [focalBbox[0], focalBbox[3]],
+                [focalBbox[2], focalBbox[3]],
+                [focalBbox[2], focalBbox[1]],
                 [focalBbox[0], focalBbox[1]],
               ],
             ],
