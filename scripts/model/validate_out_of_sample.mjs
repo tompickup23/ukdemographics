@@ -354,8 +354,12 @@ const out = {
   design:
     "Cohort change ratios fitted on Census 2001 to Census 2011, projected one decade to 2021, " +
     "scored against Census 2021. The fitting window never touches the target, so this is a real " +
-    "forecast error rather than the circular backcast. Six broad groups, the only classification " +
-    "stable across all three censuses.",
+    "forecast error rather than the circular backcast. " +
+    (GROUPING === "detailed"
+      ? "Ratios are fitted at the 16 groups common to all three censuses and scored on the six " +
+        "broad groups, the only classification stable across all three."
+      : "Ratios are fitted and scored on six broad groups, the only classification stable " +
+        "across all three censuses."),
   areasScored: results.length,
   summary,
   areas: results
