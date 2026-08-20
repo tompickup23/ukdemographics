@@ -68,10 +68,14 @@ const raceBarSegments = Object.entries(pcon.ge2024.shares)
 const winnerShareText = pcon.ge2024.winnerSharePct > 0
   ? `${pcon.ge2024.winnerSharePct.toFixed(1)}%`
   : "n/a";
+
+// Search intent: people look for "<constituency> population" and
+// "<constituency> MP", not "constituency profile".
+const pageTitle = `${pcon.name}. Population, demographics and MP`;
 ---
 
 <BaseLayout
-  title={`${pcon.name}, UK constituency profile`}
+  title={pageTitle}
   description={`${pcon.name} (UK Parliament constituency ${pcon.code}). 2024 General Election result, MP, PIP claimants and the constituent local authorities.`}
 >
   <a class="back-link" href="/constituencies/">&larr; All constituencies</a>
