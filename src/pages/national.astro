@@ -1,0 +1,237 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DataFreshness from "../components/DataFreshness.astro";
+import StatCard from "../components/StatCard.astro";
+import RaceBar from "../components/RaceBar.astro";
+import { getSignificantDemographicShifts } from "../lib/ethnic-projections";
+import rawProjections from "../data/live/ethnic-projections.json";
+import { getPublicPlaceAreas, slugifyAreaName } from "../lib/site";
+import ninoHistorical from "../data/live/nino-historical.json";
+import birthsHistory from "../data/live/births-history-national.json";
+
+const projData = rawProjections as any;
+const areas = getPublicPlaceAreas();
+const shifts2051 = getSignificantDemographicShifts(2051);
+const shifts2061 = getSignificantDemographicShifts(2061);
+
+const allAreaCodes = Object.keys(projData.areas);
+const muslimMajority = allAreaCodes.filter((c) => projData.areas[c]?.muslimPct2051 > 50).length;
+
+const fastestDecline = [...areas]
+  .filter((a) => a.wbiPct2021 != null && a.wbiPct2041 != null)
+  .sort((a, b) => (a.wbiPct2041! - a.wbiPct2021!) - (b.wbiPct2041! - b.wbiPct2021!))
+  .slice(0, 20);
+
+// --- NINo national arc 2002-2025 ---
+const nh = ninoHistorical as any;
+const ninoYears: number[] = nh.years ?? [];
+const ninoTotals: number[] = nh.national?.totalByYear ?? [];
+const ninoPeak = ninoTotals.reduce((p, v, i) => (v > p.v ? { v, i } : p), { v: -Infinity, i: -1 });
+const ninoTrough = ninoTotals.reduce((p, v, i) => (v < p.v && v > 0 ? { v, i } : p), { v: Infinity, i: -1 });
+const ninoLatestIdx = ninoTotals.length - 1;
+const ninoLatest = ninoTotals[ninoLatestIdx];
+const ninoFirst = ninoTotals[0];
+const ninoTotalCumulative = ninoTotals.reduce((s, v) => s + (v ?? 0), 0);
+
+// --- Births by mother's country of birth ---
+const bh = birthsHistory as any;
+const bhYears: number[] = bh.years ?? [];
+const bhTotal: number[] = bh.totalBirths ?? [];
+const bhNonUk: number[] = bh.nonUkBornMother ?? [];
+const bhNonUkPct: number[] = bh.nonUkBornMotherPct ?? [];
+const bhLatestIdx = bhYears.length - 1;
+const bhLatestPct = bhNonUkPct[bhLatestIdx];
+const bhFirstPct = bhNonUkPct[0];
+
+// --- Inline chart helpers ---
+const chartW = 720;
+const chartH = 220;
+const pad = { top: 18, right: 16, bottom: 28, left: 50 };
+const innerW = chartW - pad.left - pad.right;
+const innerH = chartH - pad.top - pad.bottom;
+
+function ninoX(i: number) {
+  return pad.left + (i / Math.max(ninoYears.length - 1, 1)) * innerW;
+}
+const ninoMax = Math.max(...ninoTotals, 1);
+function ninoY(v: number) {
+  return pad.top + innerH - (v / ninoMax) * innerH;
+}
+const ninoAreaPath = (() => {
+  const top = ninoTotals.map((v, i) => `${i === 0 ? "M" : "L"}${ninoX(i)},${ninoY(v)}`).join(" ");
+  return `${top} L${ninoX(ninoTotals.length - 1)},${pad.top + innerH} L${ninoX(0)},${pad.top + innerH} Z`;
+})();
+const ninoLinePath = ninoTotals
+  .map((v, i) => `${i === 0 ? "M" : "L"}${ninoX(i)},${ninoY(v)}`)
+  .join(" ");
+
+function bhX(i: number) {
+  return pad.left + (i / Math.max(bhYears.length - 1, 1)) * innerW;
+}
+const bhPctMax = Math.max(...bhNonUkPct.map((v) => v ?? 0), 1);
+function bhY(v: number) {
+  return pad.top + innerH - (v / bhPctMax) * innerH;
+}
+const bhPctPath = bhNonUkPct
+  .map((v, i) => `${i === 0 ? "M" : "L"}${bhX(i)},${bhY(v ?? 0)}`)
+  .join(" ");
+
+function fmtCompact(n: number) {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(2)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(0)}k`;
+  return String(n);
+}
+---
+
+<BaseLayout
+  title="National demographic outlook"
+  description={`${shifts2051.length} of ${areas.length} local authorities projected White British under 50% by 2051. Hamilton-Perry model, Census-verified.`}
+>
+  <h1>National demographic outlook</h1>
+  <p class="desc">England-wide projections from Census 2021 to 2061. Anchored to two national time series: 24 years of National Insurance number (NINo) registrations from overseas, and 17 years of births by mother's country of birth.</p>
+
+  <DataFreshness updated={projData.lastUpdated ?? "2026-04-14"} source="Census 2021, ONS SNPP, DWP NINo, ONS births by parents' COB" sourceUrl="https://www.ons.gov.uk/census" />
+
+  <section class="stat-card-row">
+    <StatCard
+      value={areas.length.toString()}
+      label="Local authorities modelled"
+      sparkline={ninoTotals.length > 1 ? ninoTotals : null}
+      sparklineColor="var(--accent)"
+    />
+    <StatCard
+      value={shifts2051.length.toString()}
+      label="WBI under 50% by 2051"
+      accent="var(--coral)"
+    />
+    <StatCard
+      value={shifts2061.length.toString()}
+      label="WBI under 50% by 2061"
+      accent="var(--accent-3)"
+    />
+    <StatCard
+      value={muslimMajority.toString()}
+      label="Muslim majority by 2051"
+      accent="var(--accent)"
+    />
+  </section>
+
+  {bhYears.length > 1 && bhLatestPct != null && bhFirstPct != null && (
+    <section class="bh-headline">
+      <RaceBar
+        title={`Births to non-UK-born mothers, ${bhYears[bhLatestIdx]} share`}
+        segments={[
+          {
+            label: "UK-born mother",
+            pct: Math.max(0, 1 - (bhLatestPct ?? 0) / 100),
+            colour: "var(--accent)",
+            captionLabel: `was ${(100 - (bhFirstPct ?? 0)).toFixed(1)}% in ${bhYears[0]}`,
+          },
+          {
+            label: "Non-UK-born",
+            pct: (bhLatestPct ?? 0) / 100,
+            colour: "var(--coral)",
+            captionLabel: `was ${bhFirstPct.toFixed(1)}% in ${bhYears[0]}`,
+          },
+        ]}
+        height={48}
+        ariaLabel="Share of births to UK-born vs non-UK-born mothers"
+      />
+    </section>
+  )}
+
+  <section class="chart-section">
+    <h2>NINo registrations from overseas: 24-year arc</h2>
+    <p class="section-desc">Adult arrivals from overseas registering for a National Insurance number, England + Wales + Scotland, calendar years 2002-2025. {fmtCompact(ninoTotalCumulative)} adults over the 24-year period.</p>
+    <svg viewBox={`0 0 ${chartW} ${chartH}`} class="chart" role="img" aria-label="NINo registrations by year 2002-2025">
+      <path d={ninoAreaPath} fill="var(--accent-glow)" />
+      <path d={ninoLinePath} fill="none" stroke="var(--accent)" stroke-width="2" />
+      {/* peak + latest markers */}
+      {ninoPeak.i >= 0 && (
+        <>
+          <circle cx={ninoX(ninoPeak.i)} cy={ninoY(ninoPeak.v)} r="4" fill="var(--coral)" />
+          <text x={ninoX(ninoPeak.i)} y={ninoY(ninoPeak.v) - 8} text-anchor="middle" class="chart-anno coral">Peak {ninoYears[ninoPeak.i]}: {fmtCompact(ninoPeak.v)}</text>
+        </>
+      )}
+      {ninoLatestIdx >= 0 && (
+        <>
+          <circle cx={ninoX(ninoLatestIdx)} cy={ninoY(ninoLatest)} r="4" fill="var(--accent)" />
+          <text x={ninoX(ninoLatestIdx) - 6} y={ninoY(ninoLatest) - 8} text-anchor="end" class="chart-anno">{ninoYears[ninoLatestIdx]}: {fmtCompact(ninoLatest)}</text>
+        </>
+      )}
+      {/* x-axis */}
+      <line x1={pad.left} y1={pad.top + innerH} x2={pad.left + innerW} y2={pad.top + innerH} stroke="var(--border-strong)" stroke-width="1" />
+      <text x={pad.left} y={chartH - 8} class="chart-tick">{ninoYears[0]}</text>
+      <text x={pad.left + innerW} y={chartH - 8} text-anchor="end" class="chart-tick">{ninoYears[ninoYears.length - 1]}</text>
+      {/* y-axis label */}
+      <text x={pad.left - 8} y={pad.top + 4} text-anchor="end" class="chart-tick">{fmtCompact(ninoMax)}</text>
+      <text x={pad.left - 8} y={pad.top + innerH} text-anchor="end" class="chart-tick">0</text>
+    </svg>
+    <p class="section-note">Source: DWP Stat-Xplore, National Insurance number registrations from overseas. Counts are first-time registrations and so are a flow, not a stock. The 2020 trough reflects the pandemic-era visa freeze; the 2021 to 2022 surge is overwhelmingly post-Brexit non-EU work and student route arrivals.</p>
+  </section>
+
+  <section class="chart-section">
+    <h2>Births to non-UK-born mothers, 2008 to 2024</h2>
+    <p class="section-desc">{bhFirstPct?.toFixed(1)}% of England + Wales births in {bhYears[0]} were to mothers born outside the UK. That share is <strong>{bhLatestPct?.toFixed(1)}%</strong> in {bhYears[bhLatestIdx]}.</p>
+    <svg viewBox={`0 0 ${chartW} ${chartH}`} class="chart" role="img" aria-label="Births to non-UK-born mothers, percentage of total, 2008-2024">
+      <path d={bhPctPath} fill="none" stroke="var(--coral)" stroke-width="2.5" />
+      {bhNonUkPct.map((v, i) =>
+        v != null && (i === 0 || i === bhLatestIdx || v === Math.max(...bhNonUkPct)) ? (
+          <>
+            <circle cx={bhX(i)} cy={bhY(v)} r="3.5" fill="var(--coral)" />
+            <text x={bhX(i)} y={bhY(v) - 8} text-anchor={i === 0 ? "start" : "middle"} class="chart-anno coral">{v.toFixed(1)}%</text>
+          </>
+        ) : null
+      )}
+      <line x1={pad.left} y1={pad.top + innerH} x2={pad.left + innerW} y2={pad.top + innerH} stroke="var(--border-strong)" stroke-width="1" />
+      <text x={pad.left} y={chartH - 8} class="chart-tick">{bhYears[0]}</text>
+      <text x={pad.left + innerW} y={chartH - 8} text-anchor="end" class="chart-tick">{bhYears[bhLatestIdx]}</text>
+      <text x={pad.left - 8} y={pad.top + 4} text-anchor="end" class="chart-tick">{bhPctMax.toFixed(0)}%</text>
+      <text x={pad.left - 8} y={pad.top + innerH} text-anchor="end" class="chart-tick">0%</text>
+    </svg>
+    <p class="section-note">Source: ONS Births by parents' country of birth, Table 1, England and Wales 2024 release. National figure only; place-page level uses Table 6a (per-LA 2024).</p>
+  </section>
+
+  <section class="table-section">
+    <h2>Fastest WBI decline: 2021 → 2041</h2>
+    <div class="area-table">
+      <div class="area-table-header"><span>#</span><span>Area</span><span>2021</span><span>2041</span><span>Change</span></div>
+      {fastestDecline.map((a, i) => (
+        <a href={`/places/${slugifyAreaName(a.areaName)}/`} class="area-row">
+          <span class="rank">{i + 1}</span>
+          <span class="name">{a.areaName}</span>
+          <span class="val">{a.wbiPct2021?.toFixed(1)}%</span>
+          <span class="val proj">{a.wbiPct2041?.toFixed(1)}%</span>
+          <span class="val change">{((a.wbiPct2041 ?? 0) - (a.wbiPct2021 ?? 0)).toFixed(1)}pp</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
+  .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 720px; }
+  .section-desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1rem; max-width: 720px; }
+  .section-note { font-size: 0.82rem; color: var(--muted); margin-top: 0.5rem; max-width: 720px; }
+  .bh-headline { margin: 1.5rem 0 2rem; }
+
+  .chart-section { margin-top: 2.5rem; }
+  .chart-section h2 { font-family: "Sora", sans-serif; font-size: 1.15rem; font-weight: 800; margin: 0 0 0.5rem; }
+  .chart { width: 100%; max-width: 720px; height: auto; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; }
+  .chart-anno { font-family: "Sora", sans-serif; font-size: 11px; font-weight: 700; fill: var(--ink); }
+  .chart-anno.coral { fill: var(--coral); }
+  .chart-tick { font-family: "Sora", sans-serif; font-size: 10.5px; fill: var(--muted); }
+
+  .table-section { margin-top: 2.5rem; }
+  .table-section h2 { font-family: "Sora", sans-serif; font-size: 1.15rem; font-weight: 800; margin: 0 0 0.75rem; }
+  .area-table { max-width: 700px; }
+  .area-table-header { display: grid; grid-template-columns: 32px 1fr 70px 70px 70px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
+  .area-row { display: grid; grid-template-columns: 32px 1fr 70px 70px 70px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
+  .area-row:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+  .rank { font-size: 0.82rem; color: var(--muted); font-weight: 700; }
+  .name { font-weight: 600; font-size: 0.88rem; }
+  .val { font-family: "Sora", sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+  .val.proj { color: var(--coral); }
+  .val.change { color: var(--muted); }
+</style>

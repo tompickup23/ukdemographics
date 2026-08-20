@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/council_meeting.schema.json",
+  "title": "Council Meeting",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "meeting_id",
+    "body_id",
+    "committee_name",
+    "meeting_date",
+    "status"
+  ],
+  "properties": {
+    "meeting_id": { "type": "string" },
+    "body_id": { "type": "string" },
+    "committee_id": { "type": ["string", "null"] },
+    "committee_name": { "type": "string" },
+    "meeting_date": { "type": "string", "format": "date" },
+    "meeting_time": { "type": ["string", "null"] },
+    "meeting_type": { "type": ["string", "null"] },
+    "venue": { "type": ["string", "null"] },
+    "status": { "type": "string" },
+    "cancelled": { "type": ["boolean", "null"] },
+    "agenda_items": { "type": ["array", "null"], "items": { "type": "string" } },
+    "documents": { "type": ["array", "null"], "items": { "type": "string" } },
+    "summary": { "type": ["string", "null"] },
+    "public_relevance": { "type": ["string", "null"] },
+    "doge_relevance": { "type": ["string", "null"] },
+    "minutes_url": { "type": ["string", "null"], "format": "uri" }
+  }
+}

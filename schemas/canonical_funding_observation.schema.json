@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/canonical_funding_observation.schema.json",
+  "title": "Canonical Funding Observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "funding_scheme_id",
+    "source_id",
+    "area_code_original",
+    "area_name_original",
+    "period_end",
+    "amount_gbp",
+    "amount_type",
+    "status",
+    "source_url"
+  ],
+  "properties": {
+    "funding_observation_id": {
+      "type": "string"
+    },
+    "funding_scheme_id": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "area_code_original": {
+      "type": "string"
+    },
+    "area_code_current": {
+      "type": ["string", "null"]
+    },
+    "area_name_original": {
+      "type": "string"
+    },
+    "period_start": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "release_date": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "amount_gbp": {
+      "type": "number"
+    },
+    "amount_type": {
+      "type": "string",
+      "enum": ["actual", "estimated", "tariff", "allocation"]
+    },
+    "estimate_method": {
+      "type": ["string", "null"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["official", "derived_estimate", "archive_derived", "manual_curated"]
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "archive_source_url": {
+      "type": ["string", "null"],
+      "format": "uri"
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  }
+}

@@ -1,0 +1,2585 @@
+{
+  "source": "nino-dashboard.json + crime-dashboard.json + health-demand.json",
+  "methodology": "Pearson correlation across local authorities with all three datasets. Level-on-level uses NINo registrations per 1,000 population (rolling year, latest 4 quarters) against police-recorded total crime rate per 1,000 (year ending March 2024). Change-on-change uses NINo YoY% (latest rolling year vs prior 4 quarters) against crime YoY%.",
+  "lastUpdated": "2026-04-28",
+  "caveat": "ECOLOGICAL FALLACY WARNING: A correlation between area-level NINo flow and area-level crime does NOT mean overseas arrivals cause crime. Both variables are jointly affected by deprivation, age structure, urbanisation, and labour-market characteristics. Demographic flow data cannot identify offender attributes. This analysis cannot and must not be used to draw conclusions about individual or group behaviour.",
+  "pairsAnalysed": 286,
+  "correlationCoefficient_levelOnLevel": 0.529,
+  "correlationCoefficient_changeOnChange": 0.048,
+  "pairs": [
+    {
+      "areaCode": "E09000025",
+      "areaName": "Newham",
+      "ninoFlowPer1k": 56.66,
+      "ninoYoyPct": 18.4,
+      "totalCrimeRate": 109.98,
+      "crimeYoyPct": 7.81,
+      "population": 351030
+    },
+    {
+      "areaCode": "E09000030",
+      "areaName": "Tower Hamlets",
+      "ninoFlowPer1k": 34.83,
+      "ninoYoyPct": -7.5,
+      "totalCrimeRate": 114.16,
+      "crimeYoyPct": 5.59,
+      "population": 310306
+    },
+    {
+      "areaCode": "E09000026",
+      "areaName": "Redbridge",
+      "ninoFlowPer1k": 32.52,
+      "ninoYoyPct": 3.3,
+      "totalCrimeRate": 78.83,
+      "crimeYoyPct": 0.48,
+      "population": 310261
+    },
+    {
+      "areaCode": "E09000033",
+      "areaName": "Westminster",
+      "ninoFlowPer1k": 32.45,
+      "ninoYoyPct": -12.2,
+      "totalCrimeRate": 446.41,
+      "crimeYoyPct": 12.31,
+      "population": 204236
+    },
+    {
+      "areaCode": "E09000007",
+      "areaName": "Camden",
+      "ninoFlowPer1k": 29.81,
+      "ninoYoyPct": -8.0,
+      "totalCrimeRate": 188.03,
+      "crimeYoyPct": 11.87,
+      "population": 210136
+    },
+    {
+      "areaCode": "E09000018",
+      "areaName": "Hounslow",
+      "ninoFlowPer1k": 29.53,
+      "ninoYoyPct": -0.0,
+      "totalCrimeRate": 96.68,
+      "crimeYoyPct": 10.78,
+      "population": 288181
+    },
+    {
+      "areaCode": "E09000002",
+      "areaName": "Barking and Dagenham",
+      "ninoFlowPer1k": 28.87,
+      "ninoYoyPct": 1.4,
+      "totalCrimeRate": 99.32,
+      "crimeYoyPct": 0.96,
+      "population": 218871
+    },
+    {
+      "areaCode": "E08000026",
+      "areaName": "Coventry",
+      "ninoFlowPer1k": 28.01,
+      "ninoYoyPct": 4.1,
+      "totalCrimeRate": 105.34,
+      "crimeYoyPct": -9.93,
+      "population": 345321
+    },
+    {
+      "areaCode": "E06000032",
+      "areaName": "Luton",
+      "ninoFlowPer1k": 27.42,
+      "ninoYoyPct": -4.3,
+      "totalCrimeRate": 83.73,
+      "crimeYoyPct": -3.48,
+      "population": 225261
+    },
+    {
+      "areaCode": "E07000008",
+      "areaName": "Cambridge",
+      "ninoFlowPer1k": 26.79,
+      "ninoYoyPct": -9.0,
+      "totalCrimeRate": 103.25,
+      "crimeYoyPct": 6.18,
+      "population": 145674
+    },
+    {
+      "areaCode": "E09000017",
+      "areaName": "Hillingdon",
+      "ninoFlowPer1k": 26.77,
+      "ninoYoyPct": 0.0,
+      "totalCrimeRate": 83.53,
+      "crimeYoyPct": 6.73,
+      "population": 305907
+    },
+    {
+      "areaCode": "E09000009",
+      "areaName": "Ealing",
+      "ninoFlowPer1k": 26.62,
+      "ninoYoyPct": -3.2,
+      "totalCrimeRate": 88.56,
+      "crimeYoyPct": 6.25,
+      "population": 367116
+    },
+    {
+      "areaCode": "E09000020",
+      "areaName": "Kensington and Chelsea",
+      "ninoFlowPer1k": 25.67,
+      "ninoYoyPct": -8.6,
+      "totalCrimeRate": 164.5,
+      "crimeYoyPct": 12.73,
+      "population": 143373
+    },
+    {
+      "areaCode": "E07000178",
+      "areaName": "Oxford",
+      "ninoFlowPer1k": 25.26,
+      "ninoYoyPct": -11.0,
+      "totalCrimeRate": 99.37,
+      "crimeYoyPct": -2.32,
+      "population": 162040
+    },
+    {
+      "areaCode": "E09000005",
+      "areaName": "Brent",
+      "ninoFlowPer1k": 25.12,
+      "ninoYoyPct": -9.6,
+      "totalCrimeRate": 93.33,
+      "crimeYoyPct": 3.64,
+      "population": 339821
+    },
+    {
+      "areaCode": "E08000003",
+      "areaName": "Manchester",
+      "ninoFlowPer1k": 24.99,
+      "ninoYoyPct": -5.9,
+      "totalCrimeRate": 165.92,
+      "crimeYoyPct": -7.68,
+      "population": 551938
+    },
+    {
+      "areaCode": "E09000019",
+      "areaName": "Islington",
+      "ninoFlowPer1k": 24.78,
+      "ninoYoyPct": -14.2,
+      "totalCrimeRate": 130.16,
+      "crimeYoyPct": 1.18,
+      "population": 216590
+    },
+    {
+      "areaCode": "E09000011",
+      "areaName": "Greenwich",
+      "ninoFlowPer1k": 22.7,
+      "ninoYoyPct": 2.1,
+      "totalCrimeRate": 99.67,
+      "crimeYoyPct": 2.02,
+      "population": 289065
+    },
+    {
+      "areaCode": "E06000016",
+      "areaName": "Leicester",
+      "ninoFlowPer1k": 21.39,
+      "ninoYoyPct": -1.6,
+      "totalCrimeRate": 122.47,
+      "crimeYoyPct": -8.05,
+      "population": 368571
+    },
+    {
+      "areaCode": "E09000013",
+      "areaName": "Hammersmith and Fulham",
+      "ninoFlowPer1k": 21.06,
+      "ninoYoyPct": -12.1,
+      "totalCrimeRate": 125.27,
+      "crimeYoyPct": 7.7,
+      "population": 183156
+    },
+    {
+      "areaCode": "E07000241",
+      "areaName": "Welwyn Hatfield",
+      "ninoFlowPer1k": 21.0,
+      "ninoYoyPct": -1.1,
+      "totalCrimeRate": 71.65,
+      "crimeYoyPct": 0.03,
+      "population": 119835
+    },
+    {
+      "areaCode": "E07000123",
+      "areaName": "Preston",
+      "ninoFlowPer1k": 20.07,
+      "ninoYoyPct": 14.6,
+      "totalCrimeRate": 104.97,
+      "crimeYoyPct": -8.75,
+      "population": 147834
+    },
+    {
+      "areaCode": "E09000028",
+      "areaName": "Southwark",
+      "ninoFlowPer1k": 19.38,
+      "ninoYoyPct": -15.2,
+      "totalCrimeRate": 123.87,
+      "crimeYoyPct": 7.01,
+      "population": 307640
+    },
+    {
+      "areaCode": "E09000015",
+      "areaName": "Harrow",
+      "ninoFlowPer1k": 19.2,
+      "ninoYoyPct": -4.6,
+      "totalCrimeRate": 63.2,
+      "crimeYoyPct": 1.56,
+      "population": 261205
+    },
+    {
+      "areaCode": "E06000039",
+      "areaName": "Slough",
+      "ninoFlowPer1k": 18.49,
+      "ninoYoyPct": -17.1,
+      "totalCrimeRate": 99.92,
+      "crimeYoyPct": -2.71,
+      "population": 158500
+    },
+    {
+      "areaCode": "E08000025",
+      "areaName": "Birmingham",
+      "ninoFlowPer1k": 17.67,
+      "ninoYoyPct": -7.4,
+      "totalCrimeRate": 121.18,
+      "crimeYoyPct": -10.49,
+      "population": 1144922
+    },
+    {
+      "areaCode": "E06000018",
+      "areaName": "Nottingham",
+      "ninoFlowPer1k": 17.33,
+      "ninoYoyPct": -14.0,
+      "totalCrimeRate": 121.54,
+      "crimeYoyPct": -3.43,
+      "population": 323635
+    },
+    {
+      "areaCode": "E09000012",
+      "areaName": "Hackney",
+      "ninoFlowPer1k": 17.31,
+      "ninoYoyPct": -10.2,
+      "totalCrimeRate": 125.05,
+      "crimeYoyPct": 2.33,
+      "population": 259147
+    },
+    {
+      "areaCode": "E06000038",
+      "areaName": "Reading",
+      "ninoFlowPer1k": 17.21,
+      "ninoYoyPct": -19.3,
+      "totalCrimeRate": 102.32,
+      "crimeYoyPct": -7.34,
+      "population": 174223
+    },
+    {
+      "areaCode": "E06000002",
+      "areaName": "Middlesbrough",
+      "ninoFlowPer1k": 17.0,
+      "ninoYoyPct": -3.7,
+      "totalCrimeRate": 167.56,
+      "crimeYoyPct": -10.15,
+      "population": 143922
+    },
+    {
+      "areaCode": "E09000032",
+      "areaName": "Wandsworth",
+      "ninoFlowPer1k": 16.35,
+      "ninoYoyPct": -12.2,
+      "totalCrimeRate": 82.72,
+      "crimeYoyPct": 9.91,
+      "population": 327506
+    },
+    {
+      "areaCode": "E09000022",
+      "areaName": "Lambeth",
+      "ninoFlowPer1k": 16.29,
+      "ninoYoyPct": -8.3,
+      "totalCrimeRate": 116.11,
+      "crimeYoyPct": 6.63,
+      "population": 317650
+    },
+    {
+      "areaCode": "E09000031",
+      "areaName": "Waltham Forest",
+      "ninoFlowPer1k": 15.74,
+      "ninoYoyPct": -8.2,
+      "totalCrimeRate": 85.02,
+      "crimeYoyPct": 2.8,
+      "population": 278428
+    },
+    {
+      "areaCode": "E08000031",
+      "areaName": "Wolverhampton",
+      "ninoFlowPer1k": 15.51,
+      "ninoYoyPct": 19.3,
+      "totalCrimeRate": 113.06,
+      "crimeYoyPct": -10.94,
+      "population": 263726
+    },
+    {
+      "areaCode": "E08000012",
+      "areaName": "Liverpool",
+      "ninoFlowPer1k": 15.03,
+      "ninoYoyPct": 0.9,
+      "totalCrimeRate": 132.04,
+      "crimeYoyPct": -11.14,
+      "population": 486088
+    },
+    {
+      "areaCode": "E08000028",
+      "areaName": "Sandwell",
+      "ninoFlowPer1k": 14.95,
+      "ninoYoyPct": 7.9,
+      "totalCrimeRate": 105.29,
+      "crimeYoyPct": -5.73,
+      "population": 341832
+    },
+    {
+      "areaCode": "E08000021",
+      "areaName": "Newcastle upon Tyne",
+      "ninoFlowPer1k": 14.9,
+      "ninoYoyPct": 4.7,
+      "totalCrimeRate": 122.09,
+      "crimeYoyPct": 2.04,
+      "population": 300127
+    },
+    {
+      "areaCode": "E08000006",
+      "areaName": "Salford",
+      "ninoFlowPer1k": 14.63,
+      "ninoYoyPct": -11.8,
+      "totalCrimeRate": 116.69,
+      "crimeYoyPct": -8.67,
+      "population": 269922
+    },
+    {
+      "areaCode": "E07000226",
+      "areaName": "Crawley",
+      "ninoFlowPer1k": 14.54,
+      "ninoYoyPct": 40.7,
+      "totalCrimeRate": 122.46,
+      "crimeYoyPct": 12.48,
+      "population": 118492
+    },
+    {
+      "areaCode": "E09000003",
+      "areaName": "Barnet",
+      "ninoFlowPer1k": 13.74,
+      "ninoYoyPct": -10.8,
+      "totalCrimeRate": 74.52,
+      "crimeYoyPct": 2.36,
+      "population": 389344
+    },
+    {
+      "areaCode": "E06000045",
+      "areaName": "Southampton",
+      "ninoFlowPer1k": 13.67,
+      "ninoYoyPct": -12.3,
+      "totalCrimeRate": 128.83,
+      "crimeYoyPct": -8.18,
+      "population": 248920
+    },
+    {
+      "areaCode": "E07000148",
+      "areaName": "Norwich",
+      "ninoFlowPer1k": 13.26,
+      "ninoYoyPct": 20.1,
+      "totalCrimeRate": 114.8,
+      "crimeYoyPct": -7.89,
+      "population": 143924
+    },
+    {
+      "areaCode": "E09000021",
+      "areaName": "Kingston upon Thames",
+      "ninoFlowPer1k": 13.1,
+      "ninoYoyPct": -19.8,
+      "totalCrimeRate": 74.36,
+      "crimeYoyPct": 0.15,
+      "population": 168065
+    },
+    {
+      "areaCode": "E09000014",
+      "areaName": "Haringey",
+      "ninoFlowPer1k": 13.03,
+      "ninoYoyPct": -17.8,
+      "totalCrimeRate": 113.19,
+      "crimeYoyPct": -0.31,
+      "population": 264238
+    },
+    {
+      "areaCode": "E06000044",
+      "areaName": "Portsmouth",
+      "ninoFlowPer1k": 12.54,
+      "ninoYoyPct": -3.5,
+      "totalCrimeRate": 120.67,
+      "crimeYoyPct": -7.49,
+      "population": 208001
+    },
+    {
+      "areaCode": "E06000023",
+      "areaName": "Bristol, City of",
+      "ninoFlowPer1k": 12.5,
+      "ninoYoyPct": -4.2,
+      "totalCrimeRate": 120.71,
+      "crimeYoyPct": 6.53,
+      "population": 472467
+    },
+    {
+      "areaCode": "E07000092",
+      "areaName": "Rushmoor",
+      "ninoFlowPer1k": 12.32,
+      "ninoYoyPct": -18.9,
+      "totalCrimeRate": 62.98,
+      "crimeYoyPct": null,
+      "population": 99759
+    },
+    {
+      "areaCode": "E09000024",
+      "areaName": "Merton",
+      "ninoFlowPer1k": 12.2,
+      "ninoYoyPct": -13.7,
+      "totalCrimeRate": 65.13,
+      "crimeYoyPct": 0.35,
+      "population": 215187
+    },
+    {
+      "areaCode": "E07000136",
+      "areaName": "Boston",
+      "ninoFlowPer1k": 12.14,
+      "ninoYoyPct": -36.7,
+      "totalCrimeRate": 82.61,
+      "crimeYoyPct": -1.02,
+      "population": 70505
+    },
+    {
+      "areaCode": "E07000209",
+      "areaName": "Guildford",
+      "ninoFlowPer1k": 11.95,
+      "ninoYoyPct": -15.7,
+      "totalCrimeRate": 75.33,
+      "crimeYoyPct": 8.57,
+      "population": 143647
+    },
+    {
+      "areaCode": "E09000008",
+      "areaName": "Croydon",
+      "ninoFlowPer1k": 11.86,
+      "ninoYoyPct": -17.0,
+      "totalCrimeRate": 89.69,
+      "crimeYoyPct": 2.77,
+      "population": 390724
+    },
+    {
+      "areaCode": "E07000041",
+      "areaName": "Exeter",
+      "ninoFlowPer1k": 11.75,
+      "ninoYoyPct": -15.6,
+      "totalCrimeRate": 81.38,
+      "crimeYoyPct": 4.86,
+      "population": 130707
+    },
+    {
+      "areaCode": "E06000015",
+      "areaName": "Derby",
+      "ninoFlowPer1k": 11.63,
+      "ninoYoyPct": 12.3,
+      "totalCrimeRate": 113.45,
+      "crimeYoyPct": -0.6,
+      "population": 261364
+    },
+    {
+      "areaCode": "E09000023",
+      "areaName": "Lewisham",
+      "ninoFlowPer1k": 11.54,
+      "ninoYoyPct": -8.9,
+      "totalCrimeRate": 100.31,
+      "crimeYoyPct": 4.81,
+      "population": 300553
+    },
+    {
+      "areaCode": "E08000035",
+      "areaName": "Leeds",
+      "ninoFlowPer1k": 11.34,
+      "ninoYoyPct": -5.7,
+      "totalCrimeRate": 128.98,
+      "crimeYoyPct": -7.37,
+      "population": 811953
+    },
+    {
+      "areaCode": "E07000103",
+      "areaName": "Watford",
+      "ninoFlowPer1k": 11.14,
+      "ninoYoyPct": -17.4,
+      "totalCrimeRate": 80.25,
+      "crimeYoyPct": -3.99,
+      "population": 102245
+    },
+    {
+      "areaCode": "E07000106",
+      "areaName": "Canterbury",
+      "ninoFlowPer1k": 11.03,
+      "ninoYoyPct": -14.7,
+      "totalCrimeRate": 92.96,
+      "crimeYoyPct": -0.75,
+      "population": 157429
+    },
+    {
+      "areaCode": "E07000110",
+      "areaName": "Maidstone",
+      "ninoFlowPer1k": 10.85,
+      "ninoYoyPct": -29.6,
+      "totalCrimeRate": 84.55,
+      "crimeYoyPct": -1.37,
+      "population": 175781
+    },
+    {
+      "areaCode": "E09000004",
+      "areaName": "Bexley",
+      "ninoFlowPer1k": 10.63,
+      "ninoYoyPct": 4.4,
+      "totalCrimeRate": 68.05,
+      "crimeYoyPct": 4.49,
+      "population": 246475
+    },
+    {
+      "areaCode": "E08000001",
+      "areaName": "Bolton",
+      "ninoFlowPer1k": 10.18,
+      "ninoYoyPct": 3.6,
+      "totalCrimeRate": 110.79,
+      "crimeYoyPct": -8.44,
+      "population": 295960
+    },
+    {
+      "areaCode": "E07000138",
+      "areaName": "Lincoln",
+      "ninoFlowPer1k": 9.96,
+      "ninoYoyPct": -16.1,
+      "totalCrimeRate": 131.93,
+      "crimeYoyPct": -6.61,
+      "population": 103814
+    },
+    {
+      "areaCode": "E07000081",
+      "areaName": "Gloucester",
+      "ninoFlowPer1k": 9.79,
+      "ninoYoyPct": 40.9,
+      "totalCrimeRate": 120.95,
+      "crimeYoyPct": -9.51,
+      "population": 132414
+    },
+    {
+      "areaCode": "E06000010",
+      "areaName": "Kingston upon Hull, City of",
+      "ninoFlowPer1k": 9.77,
+      "ninoYoyPct": 22.7,
+      "totalCrimeRate": 131.33,
+      "crimeYoyPct": 0.1,
+      "population": 267013
+    },
+    {
+      "areaCode": "E08000024",
+      "areaName": "Sunderland",
+      "ninoFlowPer1k": 9.49,
+      "ninoYoyPct": 35.0,
+      "totalCrimeRate": 105.55,
+      "crimeYoyPct": 1.0,
+      "population": 274173
+    },
+    {
+      "areaCode": "E06000019",
+      "areaName": "Herefordshire, County of",
+      "ninoFlowPer1k": 9.0,
+      "ninoYoyPct": -7.2,
+      "totalCrimeRate": 57.85,
+      "crimeYoyPct": -10.08,
+      "population": 187032
+    },
+    {
+      "areaCode": "E07000071",
+      "areaName": "Colchester",
+      "ninoFlowPer1k": 8.93,
+      "ninoYoyPct": -24.0,
+      "totalCrimeRate": 85.95,
+      "crimeYoyPct": -9.28,
+      "population": 192716
+    },
+    {
+      "areaCode": "E06000031",
+      "areaName": "Peterborough",
+      "ninoFlowPer1k": 8.84,
+      "ninoYoyPct": -12.0,
+      "totalCrimeRate": 105.16,
+      "crimeYoyPct": -7.33,
+      "population": 215670
+    },
+    {
+      "areaCode": "E06000043",
+      "areaName": "Brighton and Hove",
+      "ninoFlowPer1k": 8.79,
+      "ninoYoyPct": -15.8,
+      "totalCrimeRate": 104.29,
+      "crimeYoyPct": 2.54,
+      "population": 277103
+    },
+    {
+      "areaCode": "E09000010",
+      "areaName": "Enfield",
+      "ninoFlowPer1k": 8.54,
+      "ninoYoyPct": -19.3,
+      "totalCrimeRate": 89.63,
+      "crimeYoyPct": -3.6,
+      "population": 329985
+    },
+    {
+      "areaCode": "E06000021",
+      "areaName": "Stoke-on-Trent",
+      "ninoFlowPer1k": 8.34,
+      "ninoYoyPct": -0.4,
+      "totalCrimeRate": 117.68,
+      "crimeYoyPct": -9.6,
+      "population": 258369
+    },
+    {
+      "areaCode": "E09000016",
+      "areaName": "Havering",
+      "ninoFlowPer1k": 7.92,
+      "ninoYoyPct": -13.3,
+      "totalCrimeRate": 80.39,
+      "crimeYoyPct": 5.94,
+      "population": 262052
+    },
+    {
+      "areaCode": "E06000042",
+      "areaName": "Milton Keynes",
+      "ninoFlowPer1k": 7.88,
+      "ninoYoyPct": -22.3,
+      "totalCrimeRate": 89.99,
+      "crimeYoyPct": -6.32,
+      "population": 287060
+    },
+    {
+      "areaCode": "E08000032",
+      "areaName": "Bradford",
+      "ninoFlowPer1k": 7.82,
+      "ninoYoyPct": -22.2,
+      "totalCrimeRate": 127.78,
+      "crimeYoyPct": -7.76,
+      "population": 546412
+    },
+    {
+      "areaCode": "E06000014",
+      "areaName": "York",
+      "ninoFlowPer1k": 7.81,
+      "ninoYoyPct": -6.1,
+      "totalCrimeRate": 72.16,
+      "crimeYoyPct": 0.96,
+      "population": 202821
+    },
+    {
+      "areaCode": "E08000004",
+      "areaName": "Oldham",
+      "ninoFlowPer1k": 7.72,
+      "ninoYoyPct": -15.6,
+      "totalCrimeRate": 116.95,
+      "crimeYoyPct": -5.31,
+      "population": 242087
+    },
+    {
+      "areaCode": "E07000237",
+      "areaName": "Worcester",
+      "ninoFlowPer1k": 7.63,
+      "ninoYoyPct": -12.2,
+      "totalCrimeRate": 67.7,
+      "crimeYoyPct": null,
+      "population": 103869
+    },
+    {
+      "areaCode": "E06000035",
+      "areaName": "Medway",
+      "ninoFlowPer1k": 7.2,
+      "ninoYoyPct": -14.3,
+      "totalCrimeRate": 99.93,
+      "crimeYoyPct": -8.91,
+      "population": 279773
+    },
+    {
+      "areaCode": "E08000030",
+      "areaName": "Walsall",
+      "ninoFlowPer1k": 6.87,
+      "ninoYoyPct": -6.3,
+      "totalCrimeRate": 100.71,
+      "crimeYoyPct": -12.07,
+      "population": 284126
+    },
+    {
+      "areaCode": "E09000029",
+      "areaName": "Sutton",
+      "ninoFlowPer1k": 6.73,
+      "ninoYoyPct": -20.7,
+      "totalCrimeRate": 62.75,
+      "crimeYoyPct": -2.47,
+      "population": 209636
+    },
+    {
+      "areaCode": "E06000025",
+      "areaName": "South Gloucestershire",
+      "ninoFlowPer1k": 6.6,
+      "ninoYoyPct": -12.6,
+      "totalCrimeRate": 64.46,
+      "crimeYoyPct": 4.25,
+      "population": 290424
+    },
+    {
+      "areaCode": "E07000212",
+      "areaName": "Runnymede",
+      "ninoFlowPer1k": 6.53,
+      "ninoYoyPct": -25.4,
+      "totalCrimeRate": 70.04,
+      "crimeYoyPct": -6.72,
+      "population": 88079
+    },
+    {
+      "areaCode": "E06000008",
+      "areaName": "Blackburn with Darwen",
+      "ninoFlowPer1k": 6.52,
+      "ninoYoyPct": -14.2,
+      "totalCrimeRate": 88.98,
+      "crimeYoyPct": -2.57,
+      "population": 154741
+    },
+    {
+      "areaCode": "E07000238",
+      "areaName": "Wychavon",
+      "ninoFlowPer1k": 6.52,
+      "ninoYoyPct": -12.2,
+      "totalCrimeRate": 67.7,
+      "crimeYoyPct": null,
+      "population": 132495
+    },
+    {
+      "areaCode": "E08000005",
+      "areaName": "Rochdale",
+      "ninoFlowPer1k": 6.51,
+      "ninoYoyPct": -3.6,
+      "totalCrimeRate": 114.18,
+      "crimeYoyPct": -15.53,
+      "population": 223771
+    },
+    {
+      "areaCode": "E09000027",
+      "areaName": "Richmond upon Thames",
+      "ninoFlowPer1k": 6.5,
+      "ninoYoyPct": -14.3,
+      "totalCrimeRate": 61.07,
+      "crimeYoyPct": 1.39,
+      "population": 195277
+    },
+    {
+      "areaCode": "E07000222",
+      "areaName": "Warwick",
+      "ninoFlowPer1k": 6.48,
+      "ninoYoyPct": -1.8,
+      "totalCrimeRate": 58.45,
+      "crimeYoyPct": null,
+      "population": 148454
+    },
+    {
+      "areaCode": "E07000109",
+      "areaName": "Gravesham",
+      "ninoFlowPer1k": 6.4,
+      "ninoYoyPct": -11.1,
+      "totalCrimeRate": 99.03,
+      "crimeYoyPct": null,
+      "population": 106902
+    },
+    {
+      "areaCode": "E06000022",
+      "areaName": "Bath and North East Somerset",
+      "ninoFlowPer1k": 6.38,
+      "ninoYoyPct": -19.7,
+      "totalCrimeRate": 69.78,
+      "crimeYoyPct": 11.06,
+      "population": 193409
+    },
+    {
+      "areaCode": "E07000121",
+      "areaName": "Lancaster",
+      "ninoFlowPer1k": 6.21,
+      "ninoYoyPct": -19.9,
+      "totalCrimeRate": 74.16,
+      "crimeYoyPct": 0.37,
+      "population": 142939
+    },
+    {
+      "areaCode": "E06000041",
+      "areaName": "Wokingham",
+      "ninoFlowPer1k": 6.15,
+      "ninoYoyPct": -16.5,
+      "totalCrimeRate": 46.04,
+      "crimeYoyPct": 2.81,
+      "population": 177502
+    },
+    {
+      "areaCode": "E06000030",
+      "areaName": "Swindon",
+      "ninoFlowPer1k": 6.14,
+      "ninoYoyPct": -19.3,
+      "totalCrimeRate": 70.14,
+      "crimeYoyPct": -4.75,
+      "population": 233411
+    },
+    {
+      "areaCode": "E07000012",
+      "areaName": "South Cambridgeshire",
+      "ninoFlowPer1k": 6.12,
+      "ninoYoyPct": -21.5,
+      "totalCrimeRate": 44.91,
+      "crimeYoyPct": -2.26,
+      "population": 162117
+    },
+    {
+      "areaCode": "E07000213",
+      "areaName": "Spelthorne",
+      "ninoFlowPer1k": 6.07,
+      "ninoYoyPct": -24.9,
+      "totalCrimeRate": 81.93,
+      "crimeYoyPct": 1.19,
+      "population": 102960
+    },
+    {
+      "areaCode": "E07000107",
+      "areaName": "Dartford",
+      "ninoFlowPer1k": 6.06,
+      "ninoYoyPct": -21.3,
+      "totalCrimeRate": 99.03,
+      "crimeYoyPct": null,
+      "population": 116754
+    },
+    {
+      "areaCode": "E07000217",
+      "areaName": "Woking",
+      "ninoFlowPer1k": 6.06,
+      "ninoYoyPct": -33.9,
+      "totalCrimeRate": 65.17,
+      "crimeYoyPct": 4.72,
+      "population": 103943
+    },
+    {
+      "areaCode": "E08000009",
+      "areaName": "Trafford",
+      "ninoFlowPer1k": 5.79,
+      "ninoYoyPct": -9.0,
+      "totalCrimeRate": 78.01,
+      "crimeYoyPct": -10.82,
+      "population": 235053
+    },
+    {
+      "areaCode": "E08000034",
+      "areaName": "Kirklees",
+      "ninoFlowPer1k": 5.58,
+      "ninoYoyPct": -16.1,
+      "totalCrimeRate": 100.55,
+      "crimeYoyPct": -8.28,
+      "population": 433213
+    },
+    {
+      "areaCode": "E07000009",
+      "areaName": "East Cambridgeshire",
+      "ninoFlowPer1k": 5.54,
+      "ninoYoyPct": -21.0,
+      "totalCrimeRate": 44.03,
+      "crimeYoyPct": -10.77,
+      "population": 87763
+    },
+    {
+      "areaCode": "E06000034",
+      "areaName": "Thurrock",
+      "ninoFlowPer1k": 5.47,
+      "ninoYoyPct": -17.1,
+      "totalCrimeRate": 90.59,
+      "crimeYoyPct": -5.18,
+      "population": 175993
+    },
+    {
+      "areaCode": "E07000130",
+      "areaName": "Charnwood",
+      "ninoFlowPer1k": 5.47,
+      "ninoYoyPct": -31.5,
+      "totalCrimeRate": 74.49,
+      "crimeYoyPct": -7.05,
+      "population": 183970
+    },
+    {
+      "areaCode": "E08000008",
+      "areaName": "Tameside",
+      "ninoFlowPer1k": 5.46,
+      "ninoYoyPct": -0.9,
+      "totalCrimeRate": 106.26,
+      "crimeYoyPct": -11.31,
+      "population": 231070
+    },
+    {
+      "areaCode": "E07000078",
+      "areaName": "Cheltenham",
+      "ninoFlowPer1k": 5.44,
+      "ninoYoyPct": 9.9,
+      "totalCrimeRate": 97.35,
+      "crimeYoyPct": -4.14,
+      "population": 118836
+    },
+    {
+      "areaCode": "E07000122",
+      "areaName": "Pendle",
+      "ninoFlowPer1k": 5.4,
+      "ninoYoyPct": -26.2,
+      "totalCrimeRate": 67.11,
+      "crimeYoyPct": -3.69,
+      "population": 95758
+    },
+    {
+      "areaCode": "E06000058",
+      "areaName": "Bournemouth, Christchurch and Poole",
+      "ninoFlowPer1k": 5.34,
+      "ninoYoyPct": -19.3,
+      "totalCrimeRate": 72.59,
+      "crimeYoyPct": -4.02,
+      "population": 400195
+    },
+    {
+      "areaCode": "E07000243",
+      "areaName": "Stevenage",
+      "ninoFlowPer1k": 5.34,
+      "ninoYoyPct": -6.3,
+      "totalCrimeRate": 76.06,
+      "crimeYoyPct": -11.97,
+      "population": 89498
+    },
+    {
+      "areaCode": "E07000117",
+      "areaName": "Burnley",
+      "ninoFlowPer1k": 5.26,
+      "ninoYoyPct": -29.7,
+      "totalCrimeRate": 107.37,
+      "crimeYoyPct": -3.67,
+      "population": 94651
+    },
+    {
+      "areaCode": "E07000105",
+      "areaName": "Ashford",
+      "ninoFlowPer1k": 5.24,
+      "ninoYoyPct": -27.0,
+      "totalCrimeRate": 79.07,
+      "crimeYoyPct": -3.36,
+      "population": 132747
+    },
+    {
+      "areaCode": "E06000040",
+      "areaName": "Windsor and Maidenhead",
+      "ninoFlowPer1k": 5.18,
+      "ninoYoyPct": -18.6,
+      "totalCrimeRate": 61.59,
+      "crimeYoyPct": -6.14,
+      "population": 153497
+    },
+    {
+      "areaCode": "E06000055",
+      "areaName": "Bedford",
+      "ninoFlowPer1k": 5.07,
+      "ninoYoyPct": -26.6,
+      "totalCrimeRate": 74.94,
+      "crimeYoyPct": 0.7,
+      "population": 185224
+    },
+    {
+      "areaCode": "E07000197",
+      "areaName": "Stafford",
+      "ninoFlowPer1k": 4.99,
+      "ninoYoyPct": -23.4,
+      "totalCrimeRate": 64.21,
+      "crimeYoyPct": -4.66,
+      "population": 136870
+    },
+    {
+      "areaCode": "E07000202",
+      "areaName": "Ipswich",
+      "ninoFlowPer1k": 4.98,
+      "ninoYoyPct": -6.6,
+      "totalCrimeRate": 92.5,
+      "crimeYoyPct": -16.08,
+      "population": 139643
+    },
+    {
+      "areaCode": "E06000036",
+      "areaName": "Bracknell Forest",
+      "ninoFlowPer1k": 4.94,
+      "ninoYoyPct": -18.0,
+      "totalCrimeRate": 61.75,
+      "crimeYoyPct": 4.8,
+      "population": 124605
+    },
+    {
+      "areaCode": "E06000007",
+      "areaName": "Warrington",
+      "ninoFlowPer1k": 4.89,
+      "ninoYoyPct": -11.1,
+      "totalCrimeRate": 73.18,
+      "crimeYoyPct": -10.81,
+      "population": 210973
+    },
+    {
+      "areaCode": "E08000002",
+      "areaName": "Bury",
+      "ninoFlowPer1k": 4.86,
+      "ninoYoyPct": -18.2,
+      "totalCrimeRate": 103.42,
+      "crimeYoyPct": -4.03,
+      "population": 193851
+    },
+    {
+      "areaCode": "E07000070",
+      "areaName": "Chelmsford",
+      "ninoFlowPer1k": 4.77,
+      "ninoYoyPct": -19.5,
+      "totalCrimeRate": 85.49,
+      "crimeYoyPct": 0.33,
+      "population": 181523
+    },
+    {
+      "areaCode": "E07000072",
+      "areaName": "Epping Forest",
+      "ninoFlowPer1k": 4.7,
+      "ninoYoyPct": -3.3,
+      "totalCrimeRate": 72.8,
+      "crimeYoyPct": -5.02,
+      "population": 134980
+    },
+    {
+      "areaCode": "E06000020",
+      "areaName": "Telford and Wrekin",
+      "ninoFlowPer1k": 4.69,
+      "ninoYoyPct": -1.8,
+      "totalCrimeRate": 82.78,
+      "crimeYoyPct": -10.08,
+      "population": 185543
+    },
+    {
+      "areaCode": "E07000225",
+      "areaName": "Chichester",
+      "ninoFlowPer1k": 4.59,
+      "ninoYoyPct": -0.7,
+      "totalCrimeRate": 64.48,
+      "crimeYoyPct": -0.49,
+      "population": 124071
+    },
+    {
+      "areaCode": "E06000050",
+      "areaName": "Cheshire West and Chester",
+      "ninoFlowPer1k": 4.54,
+      "ninoYoyPct": -3.7,
+      "totalCrimeRate": 69.58,
+      "crimeYoyPct": -8.44,
+      "population": 357149
+    },
+    {
+      "areaCode": "E07000135",
+      "areaName": "Oadby and Wigston",
+      "ninoFlowPer1k": 4.47,
+      "ninoYoyPct": -7.5,
+      "totalCrimeRate": 66.11,
+      "crimeYoyPct": -3.04,
+      "population": 57747
+    },
+    {
+      "areaCode": "E06000060",
+      "areaName": "Buckinghamshire",
+      "ninoFlowPer1k": 4.39,
+      "ninoYoyPct": -23.8,
+      "totalCrimeRate": 64.11,
+      "crimeYoyPct": -1.85,
+      "population": 553078
+    },
+    {
+      "areaCode": "E07000073",
+      "areaName": "Harlow",
+      "ninoFlowPer1k": 4.31,
+      "ninoYoyPct": -33.6,
+      "totalCrimeRate": 112.71,
+      "crimeYoyPct": -3.98,
+      "population": 93330
+    },
+    {
+      "areaCode": "E07000127",
+      "areaName": "West Lancashire",
+      "ninoFlowPer1k": 4.27,
+      "ninoYoyPct": -14.9,
+      "totalCrimeRate": 48.71,
+      "crimeYoyPct": 3.75,
+      "population": 117429
+    },
+    {
+      "areaCode": "E09000006",
+      "areaName": "Bromley",
+      "ninoFlowPer1k": 4.24,
+      "ninoYoyPct": -16.1,
+      "totalCrimeRate": 72.89,
+      "crimeYoyPct": 5.08,
+      "population": 329991
+    },
+    {
+      "areaCode": "E07000177",
+      "areaName": "Cherwell",
+      "ninoFlowPer1k": 4.19,
+      "ninoYoyPct": -18.0,
+      "totalCrimeRate": 69.71,
+      "crimeYoyPct": -5.38,
+      "population": 161015
+    },
+    {
+      "areaCode": "E07000172",
+      "areaName": "Broxtowe",
+      "ninoFlowPer1k": 4.17,
+      "ninoYoyPct": -21.5,
+      "totalCrimeRate": 52.11,
+      "crimeYoyPct": null,
+      "population": 110940
+    },
+    {
+      "areaCode": "E06000026",
+      "areaName": "Plymouth",
+      "ninoFlowPer1k": 4.15,
+      "ninoYoyPct": -22.6,
+      "totalCrimeRate": 87.51,
+      "crimeYoyPct": 4.23,
+      "population": 264695
+    },
+    {
+      "areaCode": "E07000208",
+      "areaName": "Epsom and Ewell",
+      "ninoFlowPer1k": 4.13,
+      "ninoYoyPct": -36.4,
+      "totalCrimeRate": 63.2,
+      "crimeYoyPct": -2.23,
+      "population": 80937
+    },
+    {
+      "areaCode": "E07000240",
+      "areaName": "St Albans",
+      "ninoFlowPer1k": 4.12,
+      "ninoYoyPct": -13.2,
+      "totalCrimeRate": 54.72,
+      "crimeYoyPct": -5.15,
+      "population": 148169
+    },
+    {
+      "areaCode": "E08000017",
+      "areaName": "Doncaster",
+      "ninoFlowPer1k": 4.11,
+      "ninoYoyPct": 0.6,
+      "totalCrimeRate": 131.45,
+      "crimeYoyPct": -4.95,
+      "population": 308104
+    },
+    {
+      "areaCode": "E08000010",
+      "areaName": "Wigan",
+      "ninoFlowPer1k": 4.08,
+      "ninoYoyPct": -2.0,
+      "totalCrimeRate": 104.48,
+      "crimeYoyPct": -5.69,
+      "population": 329330
+    },
+    {
+      "areaCode": "E07000219",
+      "areaName": "Nuneaton and Bedworth",
+      "ninoFlowPer1k": 4.05,
+      "ninoYoyPct": -12.1,
+      "totalCrimeRate": 82.93,
+      "crimeYoyPct": -1.42,
+      "population": 134198
+    },
+    {
+      "areaCode": "E08000037",
+      "areaName": "Gateshead",
+      "ninoFlowPer1k": 4.04,
+      "ninoYoyPct": 15.1,
+      "totalCrimeRate": 96.43,
+      "crimeYoyPct": -1.54,
+      "population": 196149
+    },
+    {
+      "areaCode": "E08000007",
+      "areaName": "Stockport",
+      "ninoFlowPer1k": 4.03,
+      "ninoYoyPct": -0.3,
+      "totalCrimeRate": 85.82,
+      "crimeYoyPct": -7.62,
+      "population": 294770
+    },
+    {
+      "areaCode": "E07000113",
+      "areaName": "Swale",
+      "ninoFlowPer1k": 3.97,
+      "ninoYoyPct": -6.5,
+      "totalCrimeRate": 95.16,
+      "crimeYoyPct": -0.51,
+      "population": 151677
+    },
+    {
+      "areaCode": "E07000098",
+      "areaName": "Hertsmere",
+      "ninoFlowPer1k": 3.93,
+      "ninoYoyPct": -27.3,
+      "totalCrimeRate": 69.9,
+      "crimeYoyPct": 0.61,
+      "population": 107827
+    },
+    {
+      "areaCode": "E06000033",
+      "areaName": "Southend-on-Sea",
+      "ninoFlowPer1k": 3.91,
+      "ninoYoyPct": -26.0,
+      "totalCrimeRate": 101.95,
+      "crimeYoyPct": -9.56,
+      "population": 180685
+    },
+    {
+      "areaCode": "E07000180",
+      "areaName": "Vale of White Horse",
+      "ninoFlowPer1k": 3.89,
+      "ninoYoyPct": -28.8,
+      "totalCrimeRate": 47.27,
+      "crimeYoyPct": -1.15,
+      "population": 138913
+    },
+    {
+      "areaCode": "E08000029",
+      "areaName": "Solihull",
+      "ninoFlowPer1k": 3.88,
+      "ninoYoyPct": -18.1,
+      "totalCrimeRate": 82.84,
+      "crimeYoyPct": -11.7,
+      "population": 216240
+    },
+    {
+      "areaCode": "E07000120",
+      "areaName": "Hyndburn",
+      "ninoFlowPer1k": 3.84,
+      "ninoYoyPct": -26.3,
+      "totalCrimeRate": 97.64,
+      "crimeYoyPct": -0.48,
+      "population": 82237
+    },
+    {
+      "areaCode": "E07000096",
+      "areaName": "Dacorum",
+      "ninoFlowPer1k": 3.8,
+      "ninoYoyPct": -16.0,
+      "totalCrimeRate": 62.67,
+      "crimeYoyPct": 2.61,
+      "population": 155081
+    },
+    {
+      "areaCode": "E07000220",
+      "areaName": "Rugby",
+      "ninoFlowPer1k": 3.78,
+      "ninoYoyPct": 0.7,
+      "totalCrimeRate": 59.68,
+      "crimeYoyPct": -4.39,
+      "population": 114363
+    },
+    {
+      "areaCode": "E07000084",
+      "areaName": "Basingstoke and Deane",
+      "ninoFlowPer1k": 3.74,
+      "ninoYoyPct": -28.1,
+      "totalCrimeRate": 62.98,
+      "crimeYoyPct": null,
+      "population": 185154
+    },
+    {
+      "areaCode": "E07000066",
+      "areaName": "Basildon",
+      "ninoFlowPer1k": 3.71,
+      "ninoYoyPct": -12.6,
+      "totalCrimeRate": 97.98,
+      "crimeYoyPct": -6.79,
+      "population": 187567
+    },
+    {
+      "areaCode": "E06000056",
+      "areaName": "Central Bedfordshire",
+      "ninoFlowPer1k": 3.68,
+      "ninoYoyPct": -19.2,
+      "totalCrimeRate": 52.51,
+      "crimeYoyPct": -0.43,
+      "population": 294251
+    },
+    {
+      "areaCode": "E08000027",
+      "areaName": "Dudley",
+      "ninoFlowPer1k": 3.68,
+      "ninoYoyPct": -6.7,
+      "totalCrimeRate": 81.19,
+      "crimeYoyPct": -9.57,
+      "population": 323488
+    },
+    {
+      "areaCode": "E08000023",
+      "areaName": "South Tyneside",
+      "ninoFlowPer1k": 3.67,
+      "ninoYoyPct": 25.5,
+      "totalCrimeRate": 105.69,
+      "crimeYoyPct": 5.82,
+      "population": 147777
+    },
+    {
+      "areaCode": "E07000211",
+      "areaName": "Reigate and Banstead",
+      "ninoFlowPer1k": 3.64,
+      "ninoYoyPct": -18.9,
+      "totalCrimeRate": 61.44,
+      "crimeYoyPct": 6.88,
+      "population": 150846
+    },
+    {
+      "areaCode": "E07000116",
+      "areaName": "Tunbridge Wells",
+      "ninoFlowPer1k": 3.56,
+      "ninoYoyPct": -14.2,
+      "totalCrimeRate": 67.97,
+      "crimeYoyPct": 1.56,
+      "population": 115314
+    },
+    {
+      "areaCode": "E07000228",
+      "areaName": "Mid Sussex",
+      "ninoFlowPer1k": 3.53,
+      "ninoYoyPct": 14.9,
+      "totalCrimeRate": 52.64,
+      "crimeYoyPct": 18.22,
+      "population": 152566
+    },
+    {
+      "areaCode": "E07000126",
+      "areaName": "South Ribble",
+      "ninoFlowPer1k": 3.51,
+      "ninoYoyPct": 120.3,
+      "totalCrimeRate": 60.16,
+      "crimeYoyPct": -2.88,
+      "population": 111035
+    },
+    {
+      "areaCode": "E07000108",
+      "areaName": "Dover",
+      "ninoFlowPer1k": 3.49,
+      "ninoYoyPct": 5.2,
+      "totalCrimeRate": 87.94,
+      "crimeYoyPct": -4.88,
+      "population": 116411
+    },
+    {
+      "areaCode": "E07000095",
+      "areaName": "Broxbourne",
+      "ninoFlowPer1k": 3.35,
+      "ninoYoyPct": -11.7,
+      "totalCrimeRate": 68.29,
+      "crimeYoyPct": 4.33,
+      "population": 99007
+    },
+    {
+      "areaCode": "E06000009",
+      "areaName": "Blackpool",
+      "ninoFlowPer1k": 3.33,
+      "ninoYoyPct": 15.2,
+      "totalCrimeRate": 158.04,
+      "crimeYoyPct": -2.51,
+      "population": 141039
+    },
+    {
+      "areaCode": "E07000224",
+      "areaName": "Arun",
+      "ninoFlowPer1k": 3.33,
+      "ninoYoyPct": -27.3,
+      "totalCrimeRate": 69.38,
+      "crimeYoyPct": -0.2,
+      "population": 164887
+    },
+    {
+      "areaCode": "E07000174",
+      "areaName": "Mansfield",
+      "ninoFlowPer1k": 3.32,
+      "ninoYoyPct": 9.6,
+      "totalCrimeRate": 107.45,
+      "crimeYoyPct": 0.98,
+      "population": 110482
+    },
+    {
+      "areaCode": "E07000207",
+      "areaName": "Elmbridge",
+      "ninoFlowPer1k": 3.2,
+      "ninoYoyPct": -26.2,
+      "totalCrimeRate": 55.15,
+      "crimeYoyPct": -3.41,
+      "population": 138755
+    },
+    {
+      "areaCode": "E06000004",
+      "areaName": "Stockton-on-Tees",
+      "ninoFlowPer1k": 3.18,
+      "ninoYoyPct": -8.2,
+      "totalCrimeRate": 112.7,
+      "crimeYoyPct": -8.95,
+      "population": 196593
+    },
+    {
+      "areaCode": "E08000036",
+      "areaName": "Wakefield",
+      "ninoFlowPer1k": 3.14,
+      "ninoYoyPct": -0.1,
+      "totalCrimeRate": 123.26,
+      "crimeYoyPct": -9.53,
+      "population": 353370
+    },
+    {
+      "areaCode": "E07000214",
+      "areaName": "Surrey Heath",
+      "ninoFlowPer1k": 3.13,
+      "ninoYoyPct": -32.6,
+      "totalCrimeRate": 54.79,
+      "crimeYoyPct": -0.95,
+      "population": 90456
+    },
+    {
+      "areaCode": "E07000245",
+      "areaName": "West Suffolk",
+      "ninoFlowPer1k": 3.07,
+      "ninoYoyPct": -19.7,
+      "totalCrimeRate": 48.63,
+      "crimeYoyPct": -12.13,
+      "population": 179948
+    },
+    {
+      "areaCode": "E07000094",
+      "areaName": "Winchester",
+      "ninoFlowPer1k": 3.05,
+      "ninoYoyPct": -19.0,
+      "totalCrimeRate": 57.22,
+      "crimeYoyPct": -17.54,
+      "population": 127444
+    },
+    {
+      "areaCode": "E07000115",
+      "areaName": "Tonbridge and Malling",
+      "ninoFlowPer1k": 3.0,
+      "ninoYoyPct": 8.2,
+      "totalCrimeRate": 65.58,
+      "crimeYoyPct": -3.94,
+      "population": 132201
+    },
+    {
+      "areaCode": "E07000193",
+      "areaName": "East Staffordshire",
+      "ninoFlowPer1k": 2.99,
+      "ninoYoyPct": -32.9,
+      "totalCrimeRate": 69.74,
+      "crimeYoyPct": -6.58,
+      "population": 124021
+    },
+    {
+      "areaCode": "E07000215",
+      "areaName": "Tandridge",
+      "ninoFlowPer1k": 2.95,
+      "ninoYoyPct": 28.2,
+      "totalCrimeRate": 53.18,
+      "crimeYoyPct": -3.14,
+      "population": 87877
+    },
+    {
+      "areaCode": "E06000066",
+      "areaName": "Somerset",
+      "ninoFlowPer1k": 2.94,
+      "ninoYoyPct": -5.1,
+      "totalCrimeRate": 72.56,
+      "crimeYoyPct": 3.51,
+      "population": 571547
+    },
+    {
+      "areaCode": "E07000112",
+      "areaName": "Shepway",
+      "ninoFlowPer1k": 2.94,
+      "ninoYoyPct": -14.1,
+      "totalCrimeRate": 79.24,
+      "crimeYoyPct": -11.97,
+      "population": 109759
+    },
+    {
+      "areaCode": "E06000049",
+      "areaName": "Cheshire East",
+      "ninoFlowPer1k": 2.87,
+      "ninoYoyPct": -3.6,
+      "totalCrimeRate": 62.52,
+      "crimeYoyPct": -8.3,
+      "population": 398772
+    },
+    {
+      "areaCode": "E08000015",
+      "areaName": "Wirral",
+      "ninoFlowPer1k": 2.87,
+      "ninoYoyPct": -0.2,
+      "totalCrimeRate": 75.71,
+      "crimeYoyPct": -20.76,
+      "population": 320199
+    },
+    {
+      "areaCode": "E06000047",
+      "areaName": "County Durham",
+      "ninoFlowPer1k": 2.86,
+      "ninoYoyPct": -4.8,
+      "totalCrimeRate": 98.4,
+      "crimeYoyPct": -0.11,
+      "population": 522067
+    },
+    {
+      "areaCode": "E06000006",
+      "areaName": "Halton",
+      "ninoFlowPer1k": 2.85,
+      "ninoYoyPct": -0.3,
+      "totalCrimeRate": 96.24,
+      "crimeYoyPct": -9.34,
+      "population": 128478
+    },
+    {
+      "areaCode": "E07000146",
+      "areaName": "King's Lynn and West Norfolk",
+      "ninoFlowPer1k": 2.81,
+      "ninoYoyPct": -11.8,
+      "totalCrimeRate": 60.24,
+      "crimeYoyPct": -13.02,
+      "population": 154326
+    },
+    {
+      "areaCode": "E07000171",
+      "areaName": "Bassetlaw",
+      "ninoFlowPer1k": 2.81,
+      "ninoYoyPct": 1.2,
+      "totalCrimeRate": 80.68,
+      "crimeYoyPct": -11.35,
+      "population": 117803
+    },
+    {
+      "areaCode": "E07000061",
+      "areaName": "Eastbourne",
+      "ninoFlowPer1k": 2.78,
+      "ninoYoyPct": -31.3,
+      "totalCrimeRate": 109.8,
+      "crimeYoyPct": 15.23,
+      "population": 101680
+    },
+    {
+      "areaCode": "E07000195",
+      "areaName": "Newcastle-under-Lyme",
+      "ninoFlowPer1k": 2.75,
+      "ninoYoyPct": -8.1,
+      "totalCrimeRate": 66.14,
+      "crimeYoyPct": -17.46,
+      "population": 123299
+    },
+    {
+      "areaCode": "E07000102",
+      "areaName": "Three Rivers",
+      "ninoFlowPer1k": 2.66,
+      "ninoYoyPct": -14.4,
+      "totalCrimeRate": 50.08,
+      "crimeYoyPct": 6.36,
+      "population": 93772
+    },
+    {
+      "areaCode": "E08000013",
+      "areaName": "St Helens",
+      "ninoFlowPer1k": 2.64,
+      "ninoYoyPct": 10.0,
+      "totalCrimeRate": 97.89,
+      "crimeYoyPct": -13.83,
+      "population": 183248
+    },
+    {
+      "areaCode": "E07000216",
+      "areaName": "Waverley",
+      "ninoFlowPer1k": 2.63,
+      "ninoYoyPct": -29.1,
+      "totalCrimeRate": 44.25,
+      "crimeYoyPct": -1.44,
+      "population": 128226
+    },
+    {
+      "areaCode": "E07000176",
+      "areaName": "Rushcliffe",
+      "ninoFlowPer1k": 2.52,
+      "ninoYoyPct": -29.9,
+      "totalCrimeRate": 52.11,
+      "crimeYoyPct": null,
+      "population": 119077
+    },
+    {
+      "areaCode": "E07000011",
+      "areaName": "Huntingdonshire",
+      "ninoFlowPer1k": 2.44,
+      "ninoYoyPct": -11.4,
+      "totalCrimeRate": 56.32,
+      "crimeYoyPct": -4.05,
+      "population": 180832
+    },
+    {
+      "areaCode": "E07000199",
+      "areaName": "Tamworth",
+      "ninoFlowPer1k": 2.44,
+      "ninoYoyPct": 67.0,
+      "totalCrimeRate": 72.67,
+      "crimeYoyPct": -8.42,
+      "population": 78642
+    },
+    {
+      "areaCode": "E06000013",
+      "areaName": "North Lincolnshire",
+      "ninoFlowPer1k": 2.4,
+      "ninoYoyPct": -7.5,
+      "totalCrimeRate": 84.29,
+      "crimeYoyPct": 6.59,
+      "population": 169684
+    },
+    {
+      "areaCode": "E07000010",
+      "areaName": "Fenland",
+      "ninoFlowPer1k": 2.39,
+      "ninoYoyPct": -28.2,
+      "totalCrimeRate": 75.03,
+      "crimeYoyPct": -8.02,
+      "population": 102461
+    },
+    {
+      "areaCode": "E06000024",
+      "areaName": "North Somerset",
+      "ninoFlowPer1k": 2.32,
+      "ninoYoyPct": -33.3,
+      "totalCrimeRate": 73.69,
+      "crimeYoyPct": 6.95,
+      "population": 216729
+    },
+    {
+      "areaCode": "E06000005",
+      "areaName": "Darlington",
+      "ninoFlowPer1k": 2.31,
+      "ninoYoyPct": -22.4,
+      "totalCrimeRate": 109.72,
+      "crimeYoyPct": 3.22,
+      "population": 107796
+    },
+    {
+      "areaCode": "E06000037",
+      "areaName": "West Berkshire",
+      "ninoFlowPer1k": 2.31,
+      "ninoYoyPct": -17.1,
+      "totalCrimeRate": 57.33,
+      "crimeYoyPct": -4.96,
+      "population": 161447
+    },
+    {
+      "areaCode": "E07000236",
+      "areaName": "Redditch",
+      "ninoFlowPer1k": 2.29,
+      "ninoYoyPct": -18.1,
+      "totalCrimeRate": 68.56,
+      "crimeYoyPct": null,
+      "population": 87034
+    },
+    {
+      "areaCode": "E08000018",
+      "areaName": "Rotherham",
+      "ninoFlowPer1k": 2.29,
+      "ninoYoyPct": -20.3,
+      "totalCrimeRate": 96.36,
+      "crimeYoyPct": -4.15,
+      "population": 265806
+    },
+    {
+      "areaCode": "E07000145",
+      "areaName": "Great Yarmouth",
+      "ninoFlowPer1k": 2.28,
+      "ninoYoyPct": -4.2,
+      "totalCrimeRate": 93.39,
+      "crimeYoyPct": -16.51,
+      "population": 99750
+    },
+    {
+      "areaCode": "E07000143",
+      "areaName": "Breckland",
+      "ninoFlowPer1k": 2.27,
+      "ninoYoyPct": -12.8,
+      "totalCrimeRate": 54.23,
+      "crimeYoyPct": -9.79,
+      "population": 141477
+    },
+    {
+      "areaCode": "E07000114",
+      "areaName": "Thanet",
+      "ninoFlowPer1k": 2.26,
+      "ninoYoyPct": -25.0,
+      "totalCrimeRate": 108.17,
+      "crimeYoyPct": -10.11,
+      "population": 140587
+    },
+    {
+      "areaCode": "E06000012",
+      "areaName": "North East Lincolnshire",
+      "ninoFlowPer1k": 2.22,
+      "ninoYoyPct": 0.0,
+      "totalCrimeRate": 120.52,
+      "crimeYoyPct": 4.83,
+      "population": 156967
+    },
+    {
+      "areaCode": "E07000181",
+      "areaName": "West Oxfordshire",
+      "ninoFlowPer1k": 2.21,
+      "ninoYoyPct": -27.8,
+      "totalCrimeRate": 47.11,
+      "crimeYoyPct": -5.42,
+      "population": 114236
+    },
+    {
+      "areaCode": "E08000014",
+      "areaName": "Sefton",
+      "ninoFlowPer1k": 2.19,
+      "ninoYoyPct": -13.3,
+      "totalCrimeRate": 80.75,
+      "crimeYoyPct": -15.44,
+      "population": 279233
+    },
+    {
+      "areaCode": "E07000140",
+      "areaName": "South Holland",
+      "ninoFlowPer1k": 2.18,
+      "ninoYoyPct": -29.4,
+      "totalCrimeRate": 54.4,
+      "crimeYoyPct": -13.1,
+      "population": 95122
+    },
+    {
+      "areaCode": "E08000033",
+      "areaName": "Calderdale",
+      "ninoFlowPer1k": 2.18,
+      "ninoYoyPct": -24.7,
+      "totalCrimeRate": 118.38,
+      "crimeYoyPct": -7.96,
+      "population": 206631
+    },
+    {
+      "areaCode": "E07000149",
+      "areaName": "South Norfolk",
+      "ninoFlowPer1k": 2.17,
+      "ninoYoyPct": -32.9,
+      "totalCrimeRate": 42.63,
+      "crimeYoyPct": -8.15,
+      "population": 141948
+    },
+    {
+      "areaCode": "E08000011",
+      "areaName": "Knowsley",
+      "ninoFlowPer1k": 2.13,
+      "ninoYoyPct": -16.9,
+      "totalCrimeRate": 91.04,
+      "crimeYoyPct": -14.05,
+      "population": 154518
+    },
+    {
+      "areaCode": "E08000022",
+      "areaName": "North Tyneside",
+      "ninoFlowPer1k": 2.06,
+      "ninoYoyPct": 6.9,
+      "totalCrimeRate": 84.52,
+      "crimeYoyPct": -1.01,
+      "population": 208968
+    },
+    {
+      "areaCode": "E07000034",
+      "areaName": "Chesterfield",
+      "ninoFlowPer1k": 2.0,
+      "ninoYoyPct": -5.0,
+      "totalCrimeRate": 104.04,
+      "crimeYoyPct": 11.34,
+      "population": 103568
+    },
+    {
+      "areaCode": "E07000173",
+      "areaName": "Gedling",
+      "ninoFlowPer1k": 2.0,
+      "ninoYoyPct": -18.1,
+      "totalCrimeRate": 52.11,
+      "crimeYoyPct": null,
+      "population": 117264
+    },
+    {
+      "areaCode": "E07000221",
+      "areaName": "Stratford-on-Avon",
+      "ninoFlowPer1k": 1.99,
+      "ninoYoyPct": -27.0,
+      "totalCrimeRate": 58.45,
+      "crimeYoyPct": null,
+      "population": 134724
+    },
+    {
+      "areaCode": "E07000229",
+      "areaName": "Worthing",
+      "ninoFlowPer1k": 1.98,
+      "ninoYoyPct": -43.2,
+      "totalCrimeRate": 92.61,
+      "crimeYoyPct": 2.2,
+      "population": 111338
+    },
+    {
+      "areaCode": "E06000054",
+      "areaName": "Wiltshire",
+      "ninoFlowPer1k": 1.95,
+      "ninoYoyPct": -31.8,
+      "totalCrimeRate": 46.53,
+      "crimeYoyPct": -10.4,
+      "population": 510333
+    },
+    {
+      "areaCode": "E07000179",
+      "areaName": "South Oxfordshire",
+      "ninoFlowPer1k": 1.95,
+      "ninoYoyPct": -25.6,
+      "totalCrimeRate": 44.26,
+      "crimeYoyPct": -2.03,
+      "population": 149088
+    },
+    {
+      "areaCode": "E06000065",
+      "areaName": "North Yorkshire",
+      "ninoFlowPer1k": 1.91,
+      "ninoYoyPct": -14.2,
+      "totalCrimeRate": 52.34,
+      "crimeYoyPct": -5.65,
+      "population": 615490
+    },
+    {
+      "areaCode": "E06000052",
+      "areaName": "Cornwall",
+      "ninoFlowPer1k": 1.9,
+      "ninoYoyPct": -25.8,
+      "totalCrimeRate": 54.65,
+      "crimeYoyPct": 4.92,
+      "population": 570305
+    },
+    {
+      "areaCode": "E07000134",
+      "areaName": "North West Leicestershire",
+      "ninoFlowPer1k": 1.81,
+      "ninoYoyPct": -7.3,
+      "totalCrimeRate": 73.62,
+      "crimeYoyPct": -7.96,
+      "population": 104707
+    },
+    {
+      "areaCode": "E07000083",
+      "areaName": "Tewkesbury",
+      "ninoFlowPer1k": 1.75,
+      "ninoYoyPct": -0.6,
+      "totalCrimeRate": 57.45,
+      "crimeYoyPct": 0.0,
+      "population": 94882
+    },
+    {
+      "areaCode": "E07000089",
+      "areaName": "Hart",
+      "ninoFlowPer1k": 1.72,
+      "ninoYoyPct": -29.0,
+      "totalCrimeRate": 62.98,
+      "crimeYoyPct": null,
+      "population": 99404
+    },
+    {
+      "areaCode": "E07000068",
+      "areaName": "Brentwood",
+      "ninoFlowPer1k": 1.71,
+      "ninoYoyPct": -26.7,
+      "totalCrimeRate": 72.3,
+      "crimeYoyPct": -2.66,
+      "population": 77048
+    },
+    {
+      "areaCode": "E07000111",
+      "areaName": "Sevenoaks",
+      "ninoFlowPer1k": 1.66,
+      "ninoYoyPct": -25.9,
+      "totalCrimeRate": 62.25,
+      "crimeYoyPct": -5.49,
+      "population": 120515
+    },
+    {
+      "areaCode": "E07000086",
+      "areaName": "Eastleigh",
+      "ninoFlowPer1k": 1.64,
+      "ninoYoyPct": -8.6,
+      "totalCrimeRate": 60.43,
+      "crimeYoyPct": -9.04,
+      "population": 136444
+    },
+    {
+      "areaCode": "E07000170",
+      "areaName": "Ashfield",
+      "ninoFlowPer1k": 1.64,
+      "ninoYoyPct": -23.9,
+      "totalCrimeRate": 85.53,
+      "crimeYoyPct": -1.06,
+      "population": 126299
+    },
+    {
+      "areaCode": "E07000093",
+      "areaName": "Test Valley",
+      "ninoFlowPer1k": 1.6,
+      "ninoYoyPct": -33.2,
+      "totalCrimeRate": 58.88,
+      "crimeYoyPct": -9.91,
+      "population": 130491
+    },
+    {
+      "areaCode": "E07000040",
+      "areaName": "East Devon",
+      "ninoFlowPer1k": 1.57,
+      "ninoYoyPct": 3.9,
+      "totalCrimeRate": 41.71,
+      "crimeYoyPct": null,
+      "population": 150823
+    },
+    {
+      "areaCode": "E07000196",
+      "areaName": "South Staffordshire",
+      "ninoFlowPer1k": 1.57,
+      "ninoYoyPct": -32.9,
+      "totalCrimeRate": 50.11,
+      "crimeYoyPct": -11.94,
+      "population": 110475
+    },
+    {
+      "areaCode": "E07000076",
+      "areaName": "Tendring",
+      "ninoFlowPer1k": 1.56,
+      "ninoYoyPct": 2.2,
+      "totalCrimeRate": 81.98,
+      "crimeYoyPct": -9.0,
+      "population": 148293
+    },
+    {
+      "areaCode": "E07000077",
+      "areaName": "Uttlesford",
+      "ninoFlowPer1k": 1.55,
+      "ninoYoyPct": -47.6,
+      "totalCrimeRate": 58.13,
+      "crimeYoyPct": -0.07,
+      "population": 91344
+    },
+    {
+      "areaCode": "E07000242",
+      "areaName": "East Hertfordshire",
+      "ninoFlowPer1k": 1.52,
+      "ninoYoyPct": -24.5,
+      "totalCrimeRate": 46.83,
+      "crimeYoyPct": -5.17,
+      "population": 150159
+    },
+    {
+      "areaCode": "E07000079",
+      "areaName": "Cotswold",
+      "ninoFlowPer1k": 1.5,
+      "ninoYoyPct": -25.3,
+      "totalCrimeRate": 53.5,
+      "crimeYoyPct": -3.63,
+      "population": 90830
+    },
+    {
+      "areaCode": "E07000194",
+      "areaName": "Lichfield",
+      "ninoFlowPer1k": 1.5,
+      "ninoYoyPct": -44.3,
+      "totalCrimeRate": 53.97,
+      "crimeYoyPct": -13.62,
+      "population": 106436
+    },
+    {
+      "areaCode": "E06000051",
+      "areaName": "Shropshire",
+      "ninoFlowPer1k": 1.48,
+      "ninoYoyPct": -49.4,
+      "totalCrimeRate": 55.18,
+      "crimeYoyPct": -4.73,
+      "population": 323607
+    },
+    {
+      "areaCode": "E07000062",
+      "areaName": "Hastings",
+      "ninoFlowPer1k": 1.48,
+      "ninoYoyPct": -36.0,
+      "totalCrimeRate": 105.55,
+      "crimeYoyPct": -3.95,
+      "population": 90995
+    },
+    {
+      "areaCode": "E07000125",
+      "areaName": "Rossendale",
+      "ninoFlowPer1k": 1.48,
+      "ninoYoyPct": -1.9,
+      "totalCrimeRate": 65.13,
+      "crimeYoyPct": 2.89,
+      "population": 70868
+    },
+    {
+      "areaCode": "E07000227",
+      "areaName": "Horsham",
+      "ninoFlowPer1k": 1.48,
+      "ninoYoyPct": -8.4,
+      "totalCrimeRate": 52.47,
+      "crimeYoyPct": 9.95,
+      "population": 146776
+    },
+    {
+      "areaCode": "E07000099",
+      "areaName": "North Hertfordshire",
+      "ninoFlowPer1k": 1.46,
+      "ninoYoyPct": -44.1,
+      "totalCrimeRate": 45.71,
+      "crimeYoyPct": -4.78,
+      "population": 133210
+    },
+    {
+      "areaCode": "E06000001",
+      "areaName": "Hartlepool",
+      "ninoFlowPer1k": 1.44,
+      "ninoYoyPct": -28.1,
+      "totalCrimeRate": 143.46,
+      "crimeYoyPct": -3.37,
+      "population": 92338
+    },
+    {
+      "areaCode": "E06000011",
+      "areaName": "East Riding of Yorkshire",
+      "ninoFlowPer1k": 1.43,
+      "ninoYoyPct": -0.8,
+      "totalCrimeRate": 56.27,
+      "crimeYoyPct": 10.45,
+      "population": 342215
+    },
+    {
+      "areaCode": "E07000244",
+      "areaName": "East Suffolk",
+      "ninoFlowPer1k": 1.4,
+      "ninoYoyPct": -3.1,
+      "totalCrimeRate": 73.6,
+      "crimeYoyPct": -11.24,
+      "population": 246060
+    },
+    {
+      "areaCode": "E07000091",
+      "areaName": "New Forest",
+      "ninoFlowPer1k": 1.38,
+      "ninoYoyPct": -25.5,
+      "totalCrimeRate": 60.78,
+      "crimeYoyPct": -11.66,
+      "population": 175782
+    },
+    {
+      "areaCode": "E07000235",
+      "areaName": "Malvern Hills",
+      "ninoFlowPer1k": 1.37,
+      "ninoYoyPct": -26.4,
+      "totalCrimeRate": 67.7,
+      "crimeYoyPct": null,
+      "population": 79487
+    },
+    {
+      "areaCode": "E06000027",
+      "areaName": "Torbay",
+      "ninoFlowPer1k": 1.36,
+      "ninoYoyPct": -15.2,
+      "totalCrimeRate": 84.18,
+      "crimeYoyPct": 5.77,
+      "population": 139324
+    },
+    {
+      "areaCode": "E06000046",
+      "areaName": "Isle of Wight",
+      "ninoFlowPer1k": 1.31,
+      "ninoYoyPct": -43.2,
+      "totalCrimeRate": 77.48,
+      "crimeYoyPct": -3.66,
+      "population": 140459
+    },
+    {
+      "areaCode": "E07000118",
+      "areaName": "Chorley",
+      "ninoFlowPer1k": 1.31,
+      "ninoYoyPct": 69.2,
+      "totalCrimeRate": 62.31,
+      "crimeYoyPct": -1.16,
+      "population": 117733
+    },
+    {
+      "areaCode": "E07000129",
+      "areaName": "Blaby",
+      "ninoFlowPer1k": 1.31,
+      "ninoYoyPct": -11.8,
+      "totalCrimeRate": 65.89,
+      "crimeYoyPct": -2.69,
+      "population": 102924
+    },
+    {
+      "areaCode": "E07000141",
+      "areaName": "South Kesteven",
+      "ninoFlowPer1k": 1.29,
+      "ninoYoyPct": -46.1,
+      "totalCrimeRate": 55.55,
+      "crimeYoyPct": -9.19,
+      "population": 143405
+    },
+    {
+      "areaCode": "E07000036",
+      "areaName": "Erewash",
+      "ninoFlowPer1k": 1.27,
+      "ninoYoyPct": -16.4,
+      "totalCrimeRate": 84.07,
+      "crimeYoyPct": 4.33,
+      "population": 112908
+    },
+    {
+      "areaCode": "E07000067",
+      "areaName": "Braintree",
+      "ninoFlowPer1k": 1.26,
+      "ninoYoyPct": -10.9,
+      "totalCrimeRate": 63.98,
+      "crimeYoyPct": -5.67,
+      "population": 155265
+    },
+    {
+      "areaCode": "E07000128",
+      "areaName": "Wyre",
+      "ninoFlowPer1k": 1.26,
+      "ninoYoyPct": 11.9,
+      "totalCrimeRate": 63.0,
+      "crimeYoyPct": 1.62,
+      "population": 111946
+    },
+    {
+      "areaCode": "E07000087",
+      "areaName": "Fareham",
+      "ninoFlowPer1k": 1.16,
+      "ninoYoyPct": 23.1,
+      "totalCrimeRate": 51.04,
+      "crimeYoyPct": -9.29,
+      "population": 114512
+    },
+    {
+      "areaCode": "E06000057",
+      "areaName": "Northumberland",
+      "ninoFlowPer1k": 1.13,
+      "ninoYoyPct": -17.0,
+      "totalCrimeRate": 76.76,
+      "crimeYoyPct": 1.47,
+      "population": 320566
+    },
+    {
+      "areaCode": "E07000042",
+      "areaName": "Mid Devon",
+      "ninoFlowPer1k": 1.1,
+      "ninoYoyPct": -8.1,
+      "totalCrimeRate": 41.71,
+      "crimeYoyPct": null,
+      "population": 82853
+    },
+    {
+      "areaCode": "E07000080",
+      "areaName": "Forest of Dean",
+      "ninoFlowPer1k": 1.1,
+      "ninoYoyPct": -79.7,
+      "totalCrimeRate": 59.77,
+      "crimeYoyPct": -7.84,
+      "population": 87004
+    },
+    {
+      "areaCode": "E07000210",
+      "areaName": "Mole Valley",
+      "ninoFlowPer1k": 1.08,
+      "ninoYoyPct": -27.7,
+      "totalCrimeRate": 57.12,
+      "crimeYoyPct": 8.11,
+      "population": 87387
+    },
+    {
+      "areaCode": "E06000059",
+      "areaName": "Dorset",
+      "ninoFlowPer1k": 1.07,
+      "ninoYoyPct": -53.6,
+      "totalCrimeRate": 54.6,
+      "crimeYoyPct": -3.08,
+      "population": 379580
+    },
+    {
+      "areaCode": "E07000064",
+      "areaName": "Rother",
+      "ninoFlowPer1k": 1.05,
+      "ninoYoyPct": -28.5,
+      "totalCrimeRate": 64.57,
+      "crimeYoyPct": 9.49,
+      "population": 93114
+    },
+    {
+      "areaCode": "E07000139",
+      "areaName": "North Kesteven",
+      "ninoFlowPer1k": 1.04,
+      "ninoYoyPct": -7.5,
+      "totalCrimeRate": 41.8,
+      "crimeYoyPct": -5.1,
+      "population": 118072
+    },
+    {
+      "areaCode": "E07000039",
+      "areaName": "South Derbyshire",
+      "ninoFlowPer1k": 1.03,
+      "ninoYoyPct": -19.7,
+      "totalCrimeRate": 59.08,
+      "crimeYoyPct": 4.09,
+      "population": 107206
+    },
+    {
+      "areaCode": "E07000223",
+      "areaName": "Adur",
+      "ninoFlowPer1k": 1.02,
+      "ninoYoyPct": 20.0,
+      "totalCrimeRate": 74.84,
+      "crimeYoyPct": 9.23,
+      "population": 64543
+    },
+    {
+      "areaCode": "E06000003",
+      "areaName": "Redcar and Cleveland",
+      "ninoFlowPer1k": 0.98,
+      "ninoYoyPct": 20.7,
+      "totalCrimeRate": 115.23,
+      "crimeYoyPct": -11.17,
+      "population": 136530
+    },
+    {
+      "areaCode": "E07000043",
+      "areaName": "North Devon",
+      "ninoFlowPer1k": 0.94,
+      "ninoYoyPct": -39.2,
+      "totalCrimeRate": 50.36,
+      "crimeYoyPct": null,
+      "population": 98612
+    },
+    {
+      "areaCode": "E07000063",
+      "areaName": "Lewes",
+      "ninoFlowPer1k": 0.91,
+      "ninoYoyPct": -46.2,
+      "totalCrimeRate": 57.48,
+      "crimeYoyPct": -2.4,
+      "population": 99909
+    },
+    {
+      "areaCode": "E07000239",
+      "areaName": "Wyre Forest",
+      "ninoFlowPer1k": 0.9,
+      "ninoYoyPct": -9.9,
+      "totalCrimeRate": 68.56,
+      "crimeYoyPct": null,
+      "population": 101609
+    },
+    {
+      "areaCode": "E07000085",
+      "areaName": "East Hampshire",
+      "ninoFlowPer1k": 0.89,
+      "ninoYoyPct": -43.4,
+      "totalCrimeRate": 48.82,
+      "crimeYoyPct": -6.97,
+      "population": 125742
+    },
+    {
+      "areaCode": "E07000074",
+      "areaName": "Maldon",
+      "ninoFlowPer1k": 0.88,
+      "ninoYoyPct": 87.1,
+      "totalCrimeRate": 49.66,
+      "crimeYoyPct": -7.24,
+      "population": 66211
+    },
+    {
+      "areaCode": "E07000175",
+      "areaName": "Newark and Sherwood",
+      "ninoFlowPer1k": 0.84,
+      "ninoYoyPct": -25.4,
+      "totalCrimeRate": 69.06,
+      "crimeYoyPct": 0.12,
+      "population": 122959
+    },
+    {
+      "areaCode": "E07000147",
+      "areaName": "North Norfolk",
+      "ninoFlowPer1k": 0.81,
+      "ninoYoyPct": -62.8,
+      "totalCrimeRate": 44.15,
+      "crimeYoyPct": -15.27,
+      "population": 102978
+    },
+    {
+      "areaCode": "E07000119",
+      "areaName": "Fylde",
+      "ninoFlowPer1k": 0.8,
+      "ninoYoyPct": -58.3,
+      "totalCrimeRate": 54.57,
+      "crimeYoyPct": 8.11,
+      "population": 81375
+    },
+    {
+      "areaCode": "E07000142",
+      "areaName": "West Lindsey",
+      "ninoFlowPer1k": 0.78,
+      "ninoYoyPct": -15.9,
+      "totalCrimeRate": 67.85,
+      "crimeYoyPct": 0.2,
+      "population": 95153
+    },
+    {
+      "areaCode": "E07000033",
+      "areaName": "Bolsover",
+      "ninoFlowPer1k": 0.77,
+      "ninoYoyPct": -27.9,
+      "totalCrimeRate": 76.0,
+      "crimeYoyPct": -1.02,
+      "population": 80270
+    },
+    {
+      "areaCode": "E07000144",
+      "areaName": "Broadland",
+      "ninoFlowPer1k": 0.76,
+      "ninoYoyPct": -38.3,
+      "totalCrimeRate": 38.2,
+      "crimeYoyPct": -13.35,
+      "population": 131723
+    },
+    {
+      "areaCode": "E07000088",
+      "areaName": "Gosport",
+      "ninoFlowPer1k": 0.71,
+      "ninoYoyPct": -34.8,
+      "totalCrimeRate": 81.49,
+      "crimeYoyPct": -10.61,
+      "population": 81949
+    },
+    {
+      "areaCode": "E07000132",
+      "areaName": "Hinckley and Bosworth",
+      "ninoFlowPer1k": 0.71,
+      "ninoYoyPct": -39.1,
+      "totalCrimeRate": 65.33,
+      "crimeYoyPct": -6.38,
+      "population": 113641
+    },
+    {
+      "areaCode": "E07000032",
+      "areaName": "Amber Valley",
+      "ninoFlowPer1k": 0.67,
+      "ninoYoyPct": 9.0,
+      "totalCrimeRate": 70.15,
+      "crimeYoyPct": -1.37,
+      "population": 126204
+    },
+    {
+      "areaCode": "E07000065",
+      "areaName": "Wealden",
+      "ninoFlowPer1k": 0.66,
+      "ninoYoyPct": -68.3,
+      "totalCrimeRate": 40.97,
+      "crimeYoyPct": 0.18,
+      "population": 160152
+    },
+    {
+      "areaCode": "E07000131",
+      "areaName": "Harborough",
+      "ninoFlowPer1k": 0.65,
+      "ninoYoyPct": -13.7,
+      "totalCrimeRate": 47.51,
+      "crimeYoyPct": -8.77,
+      "population": 97623
+    },
+    {
+      "areaCode": "E07000090",
+      "areaName": "Havant",
+      "ninoFlowPer1k": 0.64,
+      "ninoYoyPct": -36.5,
+      "totalCrimeRate": 80.6,
+      "crimeYoyPct": -7.39,
+      "population": 124210
+    },
+    {
+      "areaCode": "E07000137",
+      "areaName": "East Lindsey",
+      "ninoFlowPer1k": 0.59,
+      "ninoYoyPct": -25.0,
+      "totalCrimeRate": 74.07,
+      "crimeYoyPct": -7.67,
+      "population": 142295
+    },
+    {
+      "areaCode": "E06000017",
+      "areaName": "Rutland",
+      "ninoFlowPer1k": 0.56,
+      "ninoYoyPct": -23.3,
+      "totalCrimeRate": 41.43,
+      "crimeYoyPct": -8.28,
+      "population": 41050
+    },
+    {
+      "areaCode": "E07000234",
+      "areaName": "Bromsgrove",
+      "ninoFlowPer1k": 0.56,
+      "ninoYoyPct": -26.3,
+      "totalCrimeRate": 68.56,
+      "crimeYoyPct": null,
+      "population": 99183
+    },
+    {
+      "areaCode": "E07000046",
+      "areaName": "Torridge",
+      "ninoFlowPer1k": 0.53,
+      "ninoYoyPct": -14.3,
+      "totalCrimeRate": 50.36,
+      "crimeYoyPct": null,
+      "population": 68114
+    },
+    {
+      "areaCode": "E07000045",
+      "areaName": "Teignbridge",
+      "ninoFlowPer1k": 0.5,
+      "ninoYoyPct": -23.9,
+      "totalCrimeRate": 41.48,
+      "crimeYoyPct": null,
+      "population": 134802
+    },
+    {
+      "areaCode": "E07000069",
+      "areaName": "Castle Point",
+      "ninoFlowPer1k": 0.49,
+      "ninoYoyPct": -51.1,
+      "totalCrimeRate": 59.78,
+      "crimeYoyPct": -9.19,
+      "population": 89582
+    },
+    {
+      "areaCode": "E07000082",
+      "areaName": "Stroud",
+      "ninoFlowPer1k": 0.48,
+      "ninoYoyPct": -55.4,
+      "totalCrimeRate": 59.86,
+      "crimeYoyPct": -3.66,
+      "population": 121104
+    },
+    {
+      "areaCode": "E07000192",
+      "areaName": "Cannock Chase",
+      "ninoFlowPer1k": 0.45,
+      "ninoYoyPct": -34.8,
+      "totalCrimeRate": 68.67,
+      "crimeYoyPct": -17.01,
+      "population": 100523
+    },
+    {
+      "areaCode": "E07000038",
+      "areaName": "North East Derbyshire",
+      "ninoFlowPer1k": 0.42,
+      "ninoYoyPct": 87.0,
+      "totalCrimeRate": 55.69,
+      "crimeYoyPct": 1.94,
+      "population": 102003
+    },
+    {
+      "areaCode": "E07000035",
+      "areaName": "Derbyshire Dales",
+      "ninoFlowPer1k": 0.34,
+      "ninoYoyPct": -46.7,
+      "totalCrimeRate": 50.27,
+      "crimeYoyPct": 9.74,
+      "population": 71535
+    },
+    {
+      "areaCode": "E07000133",
+      "areaName": "Melton",
+      "ninoFlowPer1k": 0.33,
+      "ninoYoyPct": -22.7,
+      "totalCrimeRate": 62.92,
+      "crimeYoyPct": -12.38,
+      "population": 51752
+    },
+    {
+      "areaCode": "E07000198",
+      "areaName": "Staffordshire Moorlands",
+      "ninoFlowPer1k": 0.33,
+      "ninoYoyPct": 3.2,
+      "totalCrimeRate": 51.45,
+      "crimeYoyPct": -14.12,
+      "population": 95844
+    },
+    {
+      "areaCode": "E07000047",
+      "areaName": "West Devon",
+      "ninoFlowPer1k": 0.3,
+      "ninoYoyPct": -67.9,
+      "totalCrimeRate": 41.48,
+      "crimeYoyPct": null,
+      "population": 57094
+    },
+    {
+      "areaCode": "E07000075",
+      "areaName": "Rochford",
+      "ninoFlowPer1k": 0.28,
+      "ninoYoyPct": -25.0,
+      "totalCrimeRate": 50.83,
+      "crimeYoyPct": -7.9,
+      "population": 85662
+    },
+    {
+      "areaCode": "E07000037",
+      "areaName": "High Peak",
+      "ninoFlowPer1k": 0.22,
+      "ninoYoyPct": -66.7,
+      "totalCrimeRate": 63.97,
+      "crimeYoyPct": -2.28,
+      "population": 90935
+    },
+    {
+      "areaCode": "E07000124",
+      "areaName": "Ribble Valley",
+      "ninoFlowPer1k": 0.19,
+      "ninoYoyPct": -42.9,
+      "totalCrimeRate": 38.47,
+      "crimeYoyPct": -0.33,
+      "population": 61565
+    },
+    {
+      "areaCode": "E07000044",
+      "areaName": "South Hams",
+      "ninoFlowPer1k": 0.18,
+      "ninoYoyPct": -78.9,
+      "totalCrimeRate": 41.48,
+      "crimeYoyPct": null,
+      "population": 88628
+    },
+    {
+      "areaCode": "E07000218",
+      "areaName": "North Warwickshire",
+      "ninoFlowPer1k": 0.15,
+      "ninoYoyPct": -23.1,
+      "totalCrimeRate": 67.33,
+      "crimeYoyPct": -7.56,
+      "population": 65036
+    }
+  ]
+}

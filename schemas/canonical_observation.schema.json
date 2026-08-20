@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/canonical_observation.schema.json",
+  "title": "Canonical Observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "metric_id",
+    "source_id",
+    "area_code_original",
+    "area_name_original",
+    "period_end",
+    "period_type",
+    "value",
+    "unit",
+    "status",
+    "source_url"
+  ],
+  "properties": {
+    "observation_id": {
+      "type": "string"
+    },
+    "metric_id": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "area_code_original": {
+      "type": "string"
+    },
+    "area_code_current": {
+      "type": ["string", "null"]
+    },
+    "area_name_original": {
+      "type": "string"
+    },
+    "area_type": {
+      "type": ["string", "null"]
+    },
+    "country_code": {
+      "type": ["string", "null"]
+    },
+    "region_code": {
+      "type": ["string", "null"]
+    },
+    "period_start": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "period_type": {
+      "type": "string",
+      "enum": ["month", "quarter", "year", "rolling_year", "other"]
+    },
+    "release_date": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "value": {
+      "type": "number"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["official", "derived_estimate", "archive_derived", "manual_curated"]
+    },
+    "series_status": {
+      "type": ["string", "null"]
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "archive_source_url": {
+      "type": ["string", "null"],
+      "format": "uri"
+    },
+    "file_hash": {
+      "type": ["string", "null"]
+    },
+    "methodology_url": {
+      "type": ["string", "null"],
+      "format": "uri"
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  }
+}

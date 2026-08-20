@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asylumstats.co.uk/schemas/council_councillor_profile.schema.json",
+  "title": "Council Councillor Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "councillor_id",
+    "body_id",
+    "name",
+    "ward",
+    "party"
+  ],
+  "properties": {
+    "councillor_id": { "type": "string" },
+    "body_id": { "type": "string" },
+    "name": { "type": "string" },
+    "display_name": { "type": ["string", "null"] },
+    "moderngov_uid": { "type": ["string", "null"] },
+    "ward": { "type": "string" },
+    "party": { "type": "string" },
+    "party_color": { "type": ["string", "null"] },
+    "email": { "type": ["string", "null"] },
+    "phone": { "type": ["string", "null"] },
+    "roles": { "type": ["array", "null"], "items": { "type": "string" } },
+    "group_role": { "type": ["string", "null"] },
+    "group_name": { "type": ["string", "null"] },
+    "term_start": { "type": ["string", "null"], "format": "date" },
+    "term_end": { "type": ["string", "null"], "format": "date" }
+  }
+}

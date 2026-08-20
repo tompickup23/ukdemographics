@@ -1,0 +1,5517 @@
+{
+  "source": "UKHSA, Tuberculosis in England 2025 report (data through end-2024). Supplementary Table 8 (per-LA 3-year-average rates) and Supplementary Table 14 (time series of notifications by country of birth in the non-UK-born population).",
+  "lastUpdated": "2026-04-28",
+  "englandAverageRatePer100k_2024": 9.5,
+  "totalNotifications2024": 5480,
+  "totalNotifications2023": 4850,
+  "totalChange2024Pct": 13.0,
+  "caveat": "TB notifications are not arrivals data, they reflect a multi-year mix of cumulative country-of-birth composition. Roughly 75% of UK TB cases are in non-UK-born people. The per-LA data is a 3-year average (2022-2024) which smooths small-district volatility. Country-of-birth detail is national only, there is no published per-LA \u00d7 COB crosstab for TB notifications.",
+  "topLaByRate": [
+    {
+      "code": "E06000016",
+      "name": "Leicester",
+      "ratePer100k": 42.1,
+      "notifications3yrAvg": 160.7,
+      "vsEnglandAvgPct": 343.2
+    },
+    {
+      "code": "E09000025",
+      "name": "Newham",
+      "ratePer100k": 41.4,
+      "notifications3yrAvg": 151.7,
+      "vsEnglandAvgPct": 335.8
+    },
+    {
+      "code": "E09000005",
+      "name": "Brent",
+      "ratePer100k": 39.1,
+      "notifications3yrAvg": 136.0,
+      "vsEnglandAvgPct": 311.6
+    },
+    {
+      "code": "E09000015",
+      "name": "Harrow",
+      "ratePer100k": 35.0,
+      "notifications3yrAvg": 93.3,
+      "vsEnglandAvgPct": 268.4
+    },
+    {
+      "code": "E09000009",
+      "name": "Ealing",
+      "ratePer100k": 33.6,
+      "notifications3yrAvg": 127.3,
+      "vsEnglandAvgPct": 253.7
+    },
+    {
+      "code": "E06000039",
+      "name": "Slough",
+      "ratePer100k": 32.8,
+      "notifications3yrAvg": 53.7,
+      "vsEnglandAvgPct": 245.3
+    },
+    {
+      "code": "E09000018",
+      "name": "Hounslow",
+      "ratePer100k": 31.5,
+      "notifications3yrAvg": 92.7,
+      "vsEnglandAvgPct": 231.6
+    },
+    {
+      "code": "E09000026",
+      "name": "Redbridge",
+      "ratePer100k": 29.9,
+      "notifications3yrAvg": 94.7,
+      "vsEnglandAvgPct": 214.7
+    },
+    {
+      "code": "E08000003",
+      "name": "Manchester",
+      "ratePer100k": 25.3,
+      "notifications3yrAvg": 147.0,
+      "vsEnglandAvgPct": 166.3
+    },
+    {
+      "code": "E09000017",
+      "name": "Hillingdon",
+      "ratePer100k": 24.4,
+      "notifications3yrAvg": 78.3,
+      "vsEnglandAvgPct": 156.8
+    },
+    {
+      "code": "E06000032",
+      "name": "Luton",
+      "ratePer100k": 22.6,
+      "notifications3yrAvg": 52.7,
+      "vsEnglandAvgPct": 137.9
+    },
+    {
+      "code": "E08000031",
+      "name": "Wolverhampton",
+      "ratePer100k": 22.3,
+      "notifications3yrAvg": 61.3,
+      "vsEnglandAvgPct": 134.7
+    },
+    {
+      "code": "E09000002",
+      "name": "Barking and Dagenham",
+      "ratePer100k": 21.2,
+      "notifications3yrAvg": 48.0,
+      "vsEnglandAvgPct": 123.2
+    },
+    {
+      "code": "E09000030",
+      "name": "Tower Hamlets",
+      "ratePer100k": 20.2,
+      "notifications3yrAvg": 66.3,
+      "vsEnglandAvgPct": 112.6
+    },
+    {
+      "code": "E09000008",
+      "name": "Croydon",
+      "ratePer100k": 19.9,
+      "notifications3yrAvg": 80.0,
+      "vsEnglandAvgPct": 109.5
+    }
+  ],
+  "topCountriesOfBirth_latestYear": [
+    {
+      "country": "India",
+      "year": 2024,
+      "notifications": 1495,
+      "pctOfNonUkBorn": 33.3
+    },
+    {
+      "country": "Other",
+      "year": 2024,
+      "notifications": 827,
+      "pctOfNonUkBorn": 18.4
+    },
+    {
+      "country": "Pakistan",
+      "year": 2024,
+      "notifications": 618,
+      "pctOfNonUkBorn": 13.7
+    },
+    {
+      "country": "Nigeria",
+      "year": 2024,
+      "notifications": 208,
+      "pctOfNonUkBorn": 4.6
+    },
+    {
+      "country": "Romania",
+      "year": 2024,
+      "notifications": 173,
+      "pctOfNonUkBorn": 3.8
+    },
+    {
+      "country": "Eritrea",
+      "year": 2024,
+      "notifications": 166,
+      "pctOfNonUkBorn": 3.7
+    },
+    {
+      "country": "Bangladesh",
+      "year": 2024,
+      "notifications": 155,
+      "pctOfNonUkBorn": 3.4
+    },
+    {
+      "country": "Philippines",
+      "year": 2024,
+      "notifications": 126,
+      "pctOfNonUkBorn": 2.8
+    },
+    {
+      "country": "Somalia",
+      "year": 2024,
+      "notifications": 107,
+      "pctOfNonUkBorn": 2.4
+    },
+    {
+      "country": "Afghanistan",
+      "year": 2024,
+      "notifications": 106,
+      "pctOfNonUkBorn": 2.4
+    },
+    {
+      "country": "Nepal",
+      "year": 2024,
+      "notifications": 101,
+      "pctOfNonUkBorn": 2.2
+    },
+    {
+      "country": "Sudan",
+      "year": 2024,
+      "notifications": 98,
+      "pctOfNonUkBorn": 2.2
+    },
+    {
+      "country": "Zimbabwe",
+      "year": 2024,
+      "notifications": 85,
+      "pctOfNonUkBorn": 1.9
+    },
+    {
+      "country": "Poland",
+      "year": 2024,
+      "notifications": 65,
+      "pctOfNonUkBorn": 1.4
+    },
+    {
+      "country": "Kenya",
+      "year": 2024,
+      "notifications": 60,
+      "pctOfNonUkBorn": 1.3
+    }
+  ],
+  "areas": {
+    "E09000002": {
+      "areaName": "Barking and Dagenham",
+      "ukhsaRegion": "London",
+      "parentUtla": "Barking and Dagenham",
+      "population3yrAvg": 226480.0,
+      "notifications3yrAvg": 48.0,
+      "ratePer100k": 21.2,
+      "lowerCI": 17.9,
+      "upperCI": 25.0,
+      "vsEnglandAvgPct": 123.2
+    },
+    "E09000003": {
+      "areaName": "Barnet",
+      "ukhsaRegion": "London",
+      "parentUtla": "Barnet",
+      "population3yrAvg": 397870.7,
+      "notifications3yrAvg": 53.3,
+      "ratePer100k": 13.4,
+      "lowerCI": 11.4,
+      "upperCI": 15.7,
+      "vsEnglandAvgPct": 41.1
+    },
+    "E09000004": {
+      "areaName": "Bexley",
+      "ukhsaRegion": "London",
+      "parentUtla": "Bexley",
+      "population3yrAvg": 252144.3,
+      "notifications3yrAvg": 28.7,
+      "ratePer100k": 11.4,
+      "lowerCI": 9.1,
+      "upperCI": 14.0,
+      "vsEnglandAvgPct": 20.0
+    },
+    "E09000005": {
+      "areaName": "Brent",
+      "ukhsaRegion": "London",
+      "parentUtla": "Brent",
+      "population3yrAvg": 347744.0,
+      "notifications3yrAvg": 136.0,
+      "ratePer100k": 39.1,
+      "lowerCI": 35.4,
+      "upperCI": 43.1,
+      "vsEnglandAvgPct": 311.6
+    },
+    "E09000006": {
+      "areaName": "Bromley",
+      "ukhsaRegion": "London",
+      "parentUtla": "Bromley",
+      "population3yrAvg": 332577.0,
+      "notifications3yrAvg": 19.7,
+      "ratePer100k": 5.9,
+      "lowerCI": 4.5,
+      "upperCI": 7.6,
+      "vsEnglandAvgPct": -37.9
+    },
+    "E09000007": {
+      "areaName": "Camden",
+      "ukhsaRegion": "London",
+      "parentUtla": "Camden",
+      "population3yrAvg": 217176.7,
+      "notifications3yrAvg": 31.0,
+      "ratePer100k": 14.3,
+      "lowerCI": 11.5,
+      "upperCI": 17.5,
+      "vsEnglandAvgPct": 50.5
+    },
+    "E09000008": {
+      "areaName": "Croydon",
+      "ukhsaRegion": "London",
+      "parentUtla": "Croydon",
+      "population3yrAvg": 401702.0,
+      "notifications3yrAvg": 80.0,
+      "ratePer100k": 19.9,
+      "lowerCI": 17.5,
+      "upperCI": 22.6,
+      "vsEnglandAvgPct": 109.5
+    },
+    "E09000009": {
+      "areaName": "Ealing",
+      "ukhsaRegion": "London",
+      "parentUtla": "Ealing",
+      "population3yrAvg": 378501.0,
+      "notifications3yrAvg": 127.3,
+      "ratePer100k": 33.6,
+      "lowerCI": 30.4,
+      "upperCI": 37.2,
+      "vsEnglandAvgPct": 253.7
+    },
+    "E09000010": {
+      "areaName": "Enfield",
+      "ukhsaRegion": "London",
+      "parentUtla": "Enfield",
+      "population3yrAvg": 327438.3,
+      "notifications3yrAvg": 48.7,
+      "ratePer100k": 14.9,
+      "lowerCI": 12.5,
+      "upperCI": 17.5,
+      "vsEnglandAvgPct": 56.8
+    },
+    "E09000011": {
+      "areaName": "Greenwich",
+      "ukhsaRegion": "London",
+      "parentUtla": "Greenwich",
+      "population3yrAvg": 296109.7,
+      "notifications3yrAvg": 51.3,
+      "ratePer100k": 17.3,
+      "lowerCI": 14.7,
+      "upperCI": 20.3,
+      "vsEnglandAvgPct": 82.1
+    },
+    "E09000013": {
+      "areaName": "Hammersmith and Fulham",
+      "ukhsaRegion": "London",
+      "parentUtla": "Hammersmith and Fulham",
+      "population3yrAvg": 187329.3,
+      "notifications3yrAvg": 29.0,
+      "ratePer100k": 15.5,
+      "lowerCI": 12.4,
+      "upperCI": 19.1,
+      "vsEnglandAvgPct": 63.2
+    },
+    "E09000014": {
+      "areaName": "Haringey",
+      "ukhsaRegion": "London",
+      "parentUtla": "Haringey",
+      "population3yrAvg": 263096.7,
+      "notifications3yrAvg": 41.7,
+      "ratePer100k": 15.8,
+      "lowerCI": 13.2,
+      "upperCI": 18.9,
+      "vsEnglandAvgPct": 66.3
+    },
+    "E09000015": {
+      "areaName": "Harrow",
+      "ukhsaRegion": "London",
+      "parentUtla": "Harrow",
+      "population3yrAvg": 266471.0,
+      "notifications3yrAvg": 93.3,
+      "ratePer100k": 35.0,
+      "lowerCI": 31.0,
+      "upperCI": 39.4,
+      "vsEnglandAvgPct": 268.4
+    },
+    "E09000016": {
+      "areaName": "Havering",
+      "ukhsaRegion": "London",
+      "parentUtla": "Havering",
+      "population3yrAvg": 270455.0,
+      "notifications3yrAvg": 22.0,
+      "ratePer100k": 8.1,
+      "lowerCI": 6.3,
+      "upperCI": 10.3,
+      "vsEnglandAvgPct": -14.7
+    },
+    "E09000017": {
+      "areaName": "Hillingdon",
+      "ukhsaRegion": "London",
+      "parentUtla": "Hillingdon",
+      "population3yrAvg": 321108.0,
+      "notifications3yrAvg": 78.3,
+      "ratePer100k": 24.4,
+      "lowerCI": 21.4,
+      "upperCI": 27.7,
+      "vsEnglandAvgPct": 156.8
+    },
+    "E09000018": {
+      "areaName": "Hounslow",
+      "ukhsaRegion": "London",
+      "parentUtla": "Hounslow",
+      "population3yrAvg": 294613.7,
+      "notifications3yrAvg": 92.7,
+      "ratePer100k": 31.5,
+      "lowerCI": 27.9,
+      "upperCI": 35.4,
+      "vsEnglandAvgPct": 231.6
+    },
+    "E09000019": {
+      "areaName": "Islington",
+      "ukhsaRegion": "London",
+      "parentUtla": "Islington",
+      "population3yrAvg": 221708.7,
+      "notifications3yrAvg": 28.7,
+      "ratePer100k": 12.9,
+      "lowerCI": 10.3,
+      "upperCI": 16.0,
+      "vsEnglandAvgPct": 35.8
+    },
+    "E09000020": {
+      "areaName": "Kensington and Chelsea",
+      "ukhsaRegion": "London",
+      "parentUtla": "Kensington and Chelsea",
+      "population3yrAvg": 145784.3,
+      "notifications3yrAvg": 15.0,
+      "ratePer100k": 10.3,
+      "lowerCI": 7.5,
+      "upperCI": 13.8,
+      "vsEnglandAvgPct": 8.4
+    },
+    "E09000021": {
+      "areaName": "Kingston upon Thames",
+      "ukhsaRegion": "London",
+      "parentUtla": "Kingston upon Thames",
+      "population3yrAvg": 170849.3,
+      "notifications3yrAvg": 14.0,
+      "ratePer100k": 8.2,
+      "lowerCI": 5.9,
+      "upperCI": 11.1,
+      "vsEnglandAvgPct": -13.7
+    },
+    "E09000022": {
+      "areaName": "Lambeth",
+      "ukhsaRegion": "London",
+      "parentUtla": "Lambeth",
+      "population3yrAvg": 317771.7,
+      "notifications3yrAvg": 47.0,
+      "ratePer100k": 14.8,
+      "lowerCI": 12.5,
+      "upperCI": 17.4,
+      "vsEnglandAvgPct": 55.8
+    },
+    "E09000023": {
+      "areaName": "Lewisham",
+      "ukhsaRegion": "London",
+      "parentUtla": "Lewisham",
+      "population3yrAvg": 300214.7,
+      "notifications3yrAvg": 37.0,
+      "ratePer100k": 12.3,
+      "lowerCI": 10.1,
+      "upperCI": 14.8,
+      "vsEnglandAvgPct": 29.5
+    },
+    "E09000024": {
+      "areaName": "Merton",
+      "ukhsaRegion": "London",
+      "parentUtla": "Merton",
+      "population3yrAvg": 216926.3,
+      "notifications3yrAvg": 29.3,
+      "ratePer100k": 13.5,
+      "lowerCI": 10.8,
+      "upperCI": 16.7,
+      "vsEnglandAvgPct": 42.1
+    },
+    "E09000025": {
+      "areaName": "Newham",
+      "ukhsaRegion": "London",
+      "parentUtla": "Newham",
+      "population3yrAvg": 366681.3,
+      "notifications3yrAvg": 151.7,
+      "ratePer100k": 41.4,
+      "lowerCI": 37.6,
+      "upperCI": 45.3,
+      "vsEnglandAvgPct": 335.8
+    },
+    "E09000026": {
+      "areaName": "Redbridge",
+      "ukhsaRegion": "London",
+      "parentUtla": "Redbridge",
+      "population3yrAvg": 316472.0,
+      "notifications3yrAvg": 94.7,
+      "ratePer100k": 29.9,
+      "lowerCI": 26.5,
+      "upperCI": 33.6,
+      "vsEnglandAvgPct": 214.7
+    },
+    "E09000027": {
+      "areaName": "Richmond upon Thames",
+      "ukhsaRegion": "London",
+      "parentUtla": "Richmond upon Thames",
+      "population3yrAvg": 196011.3,
+      "notifications3yrAvg": 9.0,
+      "ratePer100k": 4.6,
+      "lowerCI": 3.0,
+      "upperCI": 6.7,
+      "vsEnglandAvgPct": -51.6
+    },
+    "E09000028": {
+      "areaName": "Southwark",
+      "ukhsaRegion": "London",
+      "parentUtla": "Southwark",
+      "population3yrAvg": 312532.7,
+      "notifications3yrAvg": 47.3,
+      "ratePer100k": 15.1,
+      "lowerCI": 12.8,
+      "upperCI": 17.9,
+      "vsEnglandAvgPct": 58.9
+    },
+    "E09000029": {
+      "areaName": "Sutton",
+      "ukhsaRegion": "London",
+      "parentUtla": "Sutton",
+      "population3yrAvg": 212410.0,
+      "notifications3yrAvg": 20.7,
+      "ratePer100k": 9.7,
+      "lowerCI": 7.5,
+      "upperCI": 12.5,
+      "vsEnglandAvgPct": 2.1
+    },
+    "E09000030": {
+      "areaName": "Tower Hamlets",
+      "ukhsaRegion": "London",
+      "parentUtla": "Tower Hamlets",
+      "population3yrAvg": 328636.7,
+      "notifications3yrAvg": 66.3,
+      "ratePer100k": 20.2,
+      "lowerCI": 17.5,
+      "upperCI": 23.2,
+      "vsEnglandAvgPct": 112.6
+    },
+    "E09000031": {
+      "areaName": "Waltham Forest",
+      "ukhsaRegion": "London",
+      "parentUtla": "Waltham Forest",
+      "population3yrAvg": 278030.0,
+      "notifications3yrAvg": 52.3,
+      "ratePer100k": 18.8,
+      "lowerCI": 16.0,
+      "upperCI": 22.0,
+      "vsEnglandAvgPct": 97.9
+    },
+    "E09000032": {
+      "areaName": "Wandsworth",
+      "ukhsaRegion": "London",
+      "parentUtla": "Wandsworth",
+      "population3yrAvg": 333987.0,
+      "notifications3yrAvg": 37.3,
+      "ratePer100k": 11.2,
+      "lowerCI": 9.2,
+      "upperCI": 13.5,
+      "vsEnglandAvgPct": 17.9
+    },
+    "E09000033": {
+      "areaName": "Westminster",
+      "ukhsaRegion": "London",
+      "parentUtla": "Westminster",
+      "population3yrAvg": 209998.0,
+      "notifications3yrAvg": 30.3,
+      "ratePer100k": 14.4,
+      "lowerCI": 11.6,
+      "upperCI": 17.7,
+      "vsEnglandAvgPct": 51.6
+    },
+    "E08000025": {
+      "areaName": "Birmingham",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Birmingham",
+      "population3yrAvg": 1169149.7,
+      "notifications3yrAvg": 209.7,
+      "ratePer100k": 17.9,
+      "lowerCI": 16.6,
+      "upperCI": 19.4,
+      "vsEnglandAvgPct": 88.4
+    },
+    "E08000026": {
+      "areaName": "Coventry",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Coventry",
+      "population3yrAvg": 359901.0,
+      "notifications3yrAvg": 71.7,
+      "ratePer100k": 19.9,
+      "lowerCI": 17.3,
+      "upperCI": 22.8,
+      "vsEnglandAvgPct": 109.5
+    },
+    "E08000027": {
+      "areaName": "Dudley",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Dudley",
+      "population3yrAvg": 328582.3,
+      "notifications3yrAvg": 19.3,
+      "ratePer100k": 5.9,
+      "lowerCI": 4.5,
+      "upperCI": 7.6,
+      "vsEnglandAvgPct": -37.9
+    },
+    "E08000028": {
+      "areaName": "Sandwell",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Sandwell",
+      "population3yrAvg": 349797.0,
+      "notifications3yrAvg": 62.7,
+      "ratePer100k": 17.9,
+      "lowerCI": 15.4,
+      "upperCI": 20.7,
+      "vsEnglandAvgPct": 88.4
+    },
+    "E06000051": {
+      "areaName": "Shropshire",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Shropshire",
+      "population3yrAvg": 329788.3,
+      "notifications3yrAvg": 6.0,
+      "ratePer100k": 1.8,
+      "lowerCI": 1.1,
+      "upperCI": 2.9,
+      "vsEnglandAvgPct": -81.1
+    },
+    "E08000029": {
+      "areaName": "Solihull",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Solihull",
+      "population3yrAvg": 219636.3,
+      "notifications3yrAvg": 9.7,
+      "ratePer100k": 4.4,
+      "lowerCI": 2.9,
+      "upperCI": 6.3,
+      "vsEnglandAvgPct": -53.7
+    },
+    "E07000192": {
+      "areaName": "Cannock Chase",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Staffordshire",
+      "population3yrAvg": 102805.3,
+      "notifications3yrAvg": 1.7,
+      "ratePer100k": 1.6,
+      "lowerCI": 0.5,
+      "upperCI": 3.8,
+      "vsEnglandAvgPct": -83.2
+    },
+    "E07000193": {
+      "areaName": "East Staffordshire",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Staffordshire",
+      "population3yrAvg": 127795.7,
+      "notifications3yrAvg": 8.0,
+      "ratePer100k": 6.3,
+      "lowerCI": 4.0,
+      "upperCI": 9.3,
+      "vsEnglandAvgPct": -33.7
+    },
+    "E07000194": {
+      "areaName": "Lichfield",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Staffordshire",
+      "population3yrAvg": 110143.0,
+      "notifications3yrAvg": 1.3,
+      "ratePer100k": 1.2,
+      "lowerCI": 0.3,
+      "upperCI": 3.1,
+      "vsEnglandAvgPct": -87.4
+    },
+    "E07000195": {
+      "areaName": "Newcastle-under-Lyme",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Staffordshire",
+      "population3yrAvg": 126479.0,
+      "notifications3yrAvg": 8.3,
+      "ratePer100k": 6.6,
+      "lowerCI": 4.3,
+      "upperCI": 9.7,
+      "vsEnglandAvgPct": -30.5
+    },
+    "E07000196": {
+      "areaName": "South Staffordshire",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Staffordshire",
+      "population3yrAvg": 113158.7,
+      "notifications3yrAvg": 2.7,
+      "ratePer100k": 2.4,
+      "lowerCI": 1.0,
+      "upperCI": 4.6,
+      "vsEnglandAvgPct": -74.7
+    },
+    "E07000197": {
+      "areaName": "Stafford",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Staffordshire",
+      "population3yrAvg": 140126.3,
+      "notifications3yrAvg": 9.0,
+      "ratePer100k": 6.4,
+      "lowerCI": 4.2,
+      "upperCI": 9.3,
+      "vsEnglandAvgPct": -32.6
+    },
+    "E07000198": {
+      "areaName": "Staffordshire Moorlands",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Staffordshire",
+      "population3yrAvg": 96212.0,
+      "notifications3yrAvg": 3.3,
+      "ratePer100k": 3.5,
+      "lowerCI": 1.7,
+      "upperCI": 6.4,
+      "vsEnglandAvgPct": -63.2
+    },
+    "E07000199": {
+      "areaName": "Tamworth",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Staffordshire",
+      "population3yrAvg": 80455.7,
+      "notifications3yrAvg": 3.0,
+      "ratePer100k": 3.7,
+      "lowerCI": 1.7,
+      "upperCI": 7.1,
+      "vsEnglandAvgPct": -61.1
+    },
+    "E06000021": {
+      "areaName": "Stoke-on-Trent",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Stoke-on-Trent",
+      "population3yrAvg": 265623.7,
+      "notifications3yrAvg": 32.0,
+      "ratePer100k": 12.0,
+      "lowerCI": 9.8,
+      "upperCI": 14.7,
+      "vsEnglandAvgPct": 26.3
+    },
+    "E06000020": {
+      "areaName": "Telford and Wrekin",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Telford and Wrekin",
+      "population3yrAvg": 192456.3,
+      "notifications3yrAvg": 11.3,
+      "ratePer100k": 5.9,
+      "lowerCI": 4.1,
+      "upperCI": 8.2,
+      "vsEnglandAvgPct": -37.9
+    },
+    "E08000030": {
+      "areaName": "Walsall",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Walsall",
+      "population3yrAvg": 291239.7,
+      "notifications3yrAvg": 37.7,
+      "ratePer100k": 12.9,
+      "lowerCI": 10.7,
+      "upperCI": 15.5,
+      "vsEnglandAvgPct": 35.8
+    },
+    "E07000218": {
+      "areaName": "North Warwickshire",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Warwickshire",
+      "population3yrAvg": 66502.7,
+      "notifications3yrAvg": 1.7,
+      "ratePer100k": 2.5,
+      "lowerCI": 0.8,
+      "upperCI": 5.8,
+      "vsEnglandAvgPct": -73.7
+    },
+    "E07000219": {
+      "areaName": "Nuneaton and Bedworth",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Warwickshire",
+      "population3yrAvg": 138605.7,
+      "notifications3yrAvg": 9.0,
+      "ratePer100k": 6.5,
+      "lowerCI": 4.3,
+      "upperCI": 9.4,
+      "vsEnglandAvgPct": -31.6
+    },
+    "E07000220": {
+      "areaName": "Rugby",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Warwickshire",
+      "population3yrAvg": 119468.0,
+      "notifications3yrAvg": 5.3,
+      "ratePer100k": 4.5,
+      "lowerCI": 2.6,
+      "upperCI": 7.2,
+      "vsEnglandAvgPct": -52.6
+    },
+    "E07000221": {
+      "areaName": "Stratford-on-Avon",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Warwickshire",
+      "population3yrAvg": 142653.7,
+      "notifications3yrAvg": 3.3,
+      "ratePer100k": 2.3,
+      "lowerCI": 1.1,
+      "upperCI": 4.3,
+      "vsEnglandAvgPct": -75.8
+    },
+    "E07000222": {
+      "areaName": "Warwick",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Warwickshire",
+      "population3yrAvg": 153200.0,
+      "notifications3yrAvg": 5.7,
+      "ratePer100k": 3.7,
+      "lowerCI": 2.2,
+      "upperCI": 5.9,
+      "vsEnglandAvgPct": -61.1
+    },
+    "E08000031": {
+      "areaName": "Wolverhampton",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Wolverhampton",
+      "population3yrAvg": 275296.0,
+      "notifications3yrAvg": 61.3,
+      "ratePer100k": 22.3,
+      "lowerCI": 19.2,
+      "upperCI": 25.7,
+      "vsEnglandAvgPct": 134.7
+    },
+    "E07000234": {
+      "areaName": "Bromsgrove",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Worcestershire",
+      "population3yrAvg": 100974.0,
+      "notifications3yrAvg": 2.7,
+      "ratePer100k": 2.6,
+      "lowerCI": 1.1,
+      "upperCI": 5.2,
+      "vsEnglandAvgPct": -72.6
+    },
+    "E07000235": {
+      "areaName": "Malvern Hills",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Worcestershire",
+      "population3yrAvg": 82094.3,
+      "notifications3yrAvg": 1.7,
+      "ratePer100k": 2.0,
+      "lowerCI": 0.7,
+      "upperCI": 4.7,
+      "vsEnglandAvgPct": -78.9
+    },
+    "E07000236": {
+      "areaName": "Redditch",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Worcestershire",
+      "population3yrAvg": 87515.3,
+      "notifications3yrAvg": 5.3,
+      "ratePer100k": 6.1,
+      "lowerCI": 3.5,
+      "upperCI": 9.9,
+      "vsEnglandAvgPct": -35.8
+    },
+    "E07000237": {
+      "areaName": "Worcester",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Worcestershire",
+      "population3yrAvg": 105417.3,
+      "notifications3yrAvg": 6.3,
+      "ratePer100k": 6.0,
+      "lowerCI": 3.6,
+      "upperCI": 9.4,
+      "vsEnglandAvgPct": -36.8
+    },
+    "E07000238": {
+      "areaName": "Wychavon",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Worcestershire",
+      "population3yrAvg": 136391.0,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 0.7,
+      "lowerCI": 0.2,
+      "upperCI": 2.1,
+      "vsEnglandAvgPct": -92.6
+    },
+    "E07000239": {
+      "areaName": "Wyre Forest",
+      "ukhsaRegion": "West Midlands",
+      "parentUtla": "Worcestershire",
+      "population3yrAvg": 103133.0,
+      "notifications3yrAvg": 4.0,
+      "ratePer100k": 3.9,
+      "lowerCI": 2.0,
+      "upperCI": 6.8,
+      "vsEnglandAvgPct": -58.9
+    },
+    "E06000008": {
+      "areaName": "Blackburn with Darwen",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Blackburn with Darwen",
+      "population3yrAvg": 159332.3,
+      "notifications3yrAvg": 27.0,
+      "ratePer100k": 16.9,
+      "lowerCI": 13.5,
+      "upperCI": 21.1,
+      "vsEnglandAvgPct": 77.9
+    },
+    "E06000009": {
+      "areaName": "Blackpool",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Blackpool",
+      "population3yrAvg": 142980.3,
+      "notifications3yrAvg": 11.7,
+      "ratePer100k": 8.2,
+      "lowerCI": 5.7,
+      "upperCI": 11.3,
+      "vsEnglandAvgPct": -13.7
+    },
+    "E08000001": {
+      "areaName": "Bolton",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Bolton",
+      "population3yrAvg": 305205.7,
+      "notifications3yrAvg": 51.7,
+      "ratePer100k": 16.9,
+      "lowerCI": 14.4,
+      "upperCI": 19.8,
+      "vsEnglandAvgPct": 77.9
+    },
+    "E08000002": {
+      "areaName": "Bury",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Bury",
+      "population3yrAvg": 196895.3,
+      "notifications3yrAvg": 13.0,
+      "ratePer100k": 6.6,
+      "lowerCI": 4.7,
+      "upperCI": 9.0,
+      "vsEnglandAvgPct": -30.5
+    },
+    "E06000049": {
+      "areaName": "Cheshire East",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Cheshire East",
+      "population3yrAvg": 414405.7,
+      "notifications3yrAvg": 12.7,
+      "ratePer100k": 3.1,
+      "lowerCI": 2.2,
+      "upperCI": 4.2,
+      "vsEnglandAvgPct": -67.4
+    },
+    "E06000050": {
+      "areaName": "Cheshire West and Chester",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Cheshire West and Chester",
+      "population3yrAvg": 366797.7,
+      "notifications3yrAvg": 11.3,
+      "ratePer100k": 3.1,
+      "lowerCI": 2.1,
+      "upperCI": 4.3,
+      "vsEnglandAvgPct": -67.4
+    },
+    "E06000063": {
+      "areaName": "Cumberland",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Cumberland",
+      "population3yrAvg": 278003.3,
+      "notifications3yrAvg": 3.7,
+      "ratePer100k": 1.3,
+      "lowerCI": 0.7,
+      "upperCI": 2.4,
+      "vsEnglandAvgPct": -86.3
+    },
+    "E06000006": {
+      "areaName": "Halton",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Halton",
+      "population3yrAvg": 130458.7,
+      "notifications3yrAvg": 3.7,
+      "ratePer100k": 2.8,
+      "lowerCI": 1.4,
+      "upperCI": 5.0,
+      "vsEnglandAvgPct": -70.5
+    },
+    "E08000011": {
+      "areaName": "Knowsley",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Knowsley",
+      "population3yrAvg": 159821.3,
+      "notifications3yrAvg": 4.7,
+      "ratePer100k": 2.9,
+      "lowerCI": 1.6,
+      "upperCI": 4.9,
+      "vsEnglandAvgPct": -69.5
+    },
+    "E07000117": {
+      "areaName": "Burnley",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 97517.3,
+      "notifications3yrAvg": 14.3,
+      "ratePer100k": 14.7,
+      "lowerCI": 10.6,
+      "upperCI": 19.8,
+      "vsEnglandAvgPct": 54.7
+    },
+    "E07000118": {
+      "areaName": "Chorley",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 119779.7,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 0.8,
+      "lowerCI": 0.2,
+      "upperCI": 2.4,
+      "vsEnglandAvgPct": -91.6
+    },
+    "E07000119": {
+      "areaName": "Fylde",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 84235.7,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 1.2,
+      "lowerCI": 0.2,
+      "upperCI": 3.5,
+      "vsEnglandAvgPct": -87.4
+    },
+    "E07000120": {
+      "areaName": "Hyndburn",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 84734.3,
+      "notifications3yrAvg": 4.7,
+      "ratePer100k": 5.5,
+      "lowerCI": 3.0,
+      "upperCI": 9.2,
+      "vsEnglandAvgPct": -42.1
+    },
+    "E07000121": {
+      "areaName": "Lancaster",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 144809.3,
+      "notifications3yrAvg": 3.0,
+      "ratePer100k": 2.1,
+      "lowerCI": 0.9,
+      "upperCI": 3.9,
+      "vsEnglandAvgPct": -77.9
+    },
+    "E07000122": {
+      "areaName": "Pendle",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 98055.7,
+      "notifications3yrAvg": 13.7,
+      "ratePer100k": 13.9,
+      "lowerCI": 10.0,
+      "upperCI": 18.9,
+      "vsEnglandAvgPct": 46.3
+    },
+    "E07000123": {
+      "areaName": "Preston",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 157910.3,
+      "notifications3yrAvg": 23.0,
+      "ratePer100k": 14.6,
+      "lowerCI": 11.3,
+      "upperCI": 18.4,
+      "vsEnglandAvgPct": 53.7
+    },
+    "E07000124": {
+      "areaName": "Ribble Valley",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 64588.3,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 1.5,
+      "lowerCI": 0.3,
+      "upperCI": 4.5,
+      "vsEnglandAvgPct": -84.2
+    },
+    "E07000125": {
+      "areaName": "Rossendale",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 72090.3,
+      "notifications3yrAvg": 1.3,
+      "ratePer100k": 1.8,
+      "lowerCI": 0.5,
+      "upperCI": 4.7,
+      "vsEnglandAvgPct": -81.1
+    },
+    "E07000126": {
+      "areaName": "South Ribble",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 114140.3,
+      "notifications3yrAvg": 3.7,
+      "ratePer100k": 3.2,
+      "lowerCI": 1.6,
+      "upperCI": 5.7,
+      "vsEnglandAvgPct": -66.3
+    },
+    "E07000127": {
+      "areaName": "West Lancashire",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 120517.7,
+      "notifications3yrAvg": 1.3,
+      "ratePer100k": 1.1,
+      "lowerCI": 0.3,
+      "upperCI": 2.8,
+      "vsEnglandAvgPct": -88.4
+    },
+    "E07000128": {
+      "areaName": "Wyre",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Lancashire",
+      "population3yrAvg": 116849.7,
+      "notifications3yrAvg": 1.3,
+      "ratePer100k": 1.1,
+      "lowerCI": 0.3,
+      "upperCI": 2.9,
+      "vsEnglandAvgPct": -88.4
+    },
+    "E08000012": {
+      "areaName": "Liverpool",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Liverpool",
+      "population3yrAvg": 501956.7,
+      "notifications3yrAvg": 45.0,
+      "ratePer100k": 9.0,
+      "lowerCI": 7.5,
+      "upperCI": 10.6,
+      "vsEnglandAvgPct": -5.3
+    },
+    "E08000003": {
+      "areaName": "Manchester",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Manchester",
+      "population3yrAvg": 580025.0,
+      "notifications3yrAvg": 147.0,
+      "ratePer100k": 25.3,
+      "lowerCI": 23.0,
+      "upperCI": 27.8,
+      "vsEnglandAvgPct": 166.3
+    },
+    "E08000004": {
+      "areaName": "Oldham",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Oldham",
+      "population3yrAvg": 248138.0,
+      "notifications3yrAvg": 37.0,
+      "ratePer100k": 14.9,
+      "lowerCI": 12.3,
+      "upperCI": 18.0,
+      "vsEnglandAvgPct": 56.8
+    },
+    "E08000005": {
+      "areaName": "Rochdale",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Rochdale",
+      "population3yrAvg": 231497.7,
+      "notifications3yrAvg": 22.7,
+      "ratePer100k": 9.8,
+      "lowerCI": 7.6,
+      "upperCI": 12.4,
+      "vsEnglandAvgPct": 3.2
+    },
+    "E08000006": {
+      "areaName": "Salford",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Salford",
+      "population3yrAvg": 287190.0,
+      "notifications3yrAvg": 32.3,
+      "ratePer100k": 11.3,
+      "lowerCI": 9.1,
+      "upperCI": 13.7,
+      "vsEnglandAvgPct": 18.9
+    },
+    "E08000014": {
+      "areaName": "Sefton",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Sefton",
+      "population3yrAvg": 283749.3,
+      "notifications3yrAvg": 5.7,
+      "ratePer100k": 2.0,
+      "lowerCI": 1.2,
+      "upperCI": 3.2,
+      "vsEnglandAvgPct": -78.9
+    },
+    "E08000007": {
+      "areaName": "Stockport",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Stockport",
+      "population3yrAvg": 300547.0,
+      "notifications3yrAvg": 10.7,
+      "ratePer100k": 3.5,
+      "lowerCI": 2.4,
+      "upperCI": 5.0,
+      "vsEnglandAvgPct": -63.2
+    },
+    "E08000008": {
+      "areaName": "Tameside",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Tameside",
+      "population3yrAvg": 236367.7,
+      "notifications3yrAvg": 22.0,
+      "ratePer100k": 9.3,
+      "lowerCI": 7.2,
+      "upperCI": 11.8,
+      "vsEnglandAvgPct": -2.1
+    },
+    "E08000009": {
+      "areaName": "Trafford",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Trafford",
+      "population3yrAvg": 239052.3,
+      "notifications3yrAvg": 19.7,
+      "ratePer100k": 8.2,
+      "lowerCI": 6.3,
+      "upperCI": 10.6,
+      "vsEnglandAvgPct": -13.7
+    },
+    "E06000007": {
+      "areaName": "Warrington",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Warrington",
+      "population3yrAvg": 213581.7,
+      "notifications3yrAvg": 8.7,
+      "ratePer100k": 4.1,
+      "lowerCI": 2.7,
+      "upperCI": 5.9,
+      "vsEnglandAvgPct": -56.8
+    },
+    "E06000064": {
+      "areaName": "Westmorland and Furness",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Westmorland and Furness",
+      "population3yrAvg": 228854.3,
+      "notifications3yrAvg": 2.0,
+      "ratePer100k": 0.9,
+      "lowerCI": 0.3,
+      "upperCI": 1.9,
+      "vsEnglandAvgPct": -90.5
+    },
+    "E08000010": {
+      "areaName": "Wigan",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Wigan",
+      "population3yrAvg": 339935.0,
+      "notifications3yrAvg": 8.0,
+      "ratePer100k": 2.4,
+      "lowerCI": 1.5,
+      "upperCI": 3.5,
+      "vsEnglandAvgPct": -74.7
+    },
+    "E08000015": {
+      "areaName": "Wirral",
+      "ukhsaRegion": "North West",
+      "parentUtla": "Wirral",
+      "population3yrAvg": 325710.0,
+      "notifications3yrAvg": 5.3,
+      "ratePer100k": 1.6,
+      "lowerCI": 0.9,
+      "upperCI": 2.7,
+      "vsEnglandAvgPct": -83.2
+    },
+    "E06000036": {
+      "areaName": "Bracknell Forest",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Bracknell Forest",
+      "population3yrAvg": 129021.7,
+      "notifications3yrAvg": 7.3,
+      "ratePer100k": 5.7,
+      "lowerCI": 3.6,
+      "upperCI": 8.6,
+      "vsEnglandAvgPct": -40.0
+    },
+    "E06000043": {
+      "areaName": "Brighton and Hove",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Brighton and Hove",
+      "population3yrAvg": 281001.7,
+      "notifications3yrAvg": 12.0,
+      "ratePer100k": 4.3,
+      "lowerCI": 3.0,
+      "upperCI": 5.9,
+      "vsEnglandAvgPct": -54.7
+    },
+    "E06000060": {
+      "areaName": "Buckinghamshire",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Buckinghamshire",
+      "population3yrAvg": 569934.0,
+      "notifications3yrAvg": 37.3,
+      "ratePer100k": 6.6,
+      "lowerCI": 5.4,
+      "upperCI": 7.9,
+      "vsEnglandAvgPct": -30.5
+    },
+    "E07000061": {
+      "areaName": "Eastbourne",
+      "ukhsaRegion": "South East",
+      "parentUtla": "East Sussex",
+      "population3yrAvg": 103475.0,
+      "notifications3yrAvg": 6.7,
+      "ratePer100k": 6.4,
+      "lowerCI": 3.9,
+      "upperCI": 10.0,
+      "vsEnglandAvgPct": -32.6
+    },
+    "E07000062": {
+      "areaName": "Hastings",
+      "ukhsaRegion": "South East",
+      "parentUtla": "East Sussex",
+      "population3yrAvg": 91058.0,
+      "notifications3yrAvg": 4.3,
+      "ratePer100k": 4.8,
+      "lowerCI": 2.5,
+      "upperCI": 8.1,
+      "vsEnglandAvgPct": -49.5
+    },
+    "E07000063": {
+      "areaName": "Lewes",
+      "ukhsaRegion": "South East",
+      "parentUtla": "East Sussex",
+      "population3yrAvg": 101553.7,
+      "notifications3yrAvg": 2.0,
+      "ratePer100k": 2.0,
+      "lowerCI": 0.7,
+      "upperCI": 4.3,
+      "vsEnglandAvgPct": -78.9
+    },
+    "E07000064": {
+      "areaName": "Rother",
+      "ukhsaRegion": "South East",
+      "parentUtla": "East Sussex",
+      "population3yrAvg": 95181.7,
+      "notifications3yrAvg": 1.7,
+      "ratePer100k": 1.8,
+      "lowerCI": 0.6,
+      "upperCI": 4.1,
+      "vsEnglandAvgPct": -81.1
+    },
+    "E07000065": {
+      "areaName": "Wealden",
+      "ukhsaRegion": "South East",
+      "parentUtla": "East Sussex",
+      "population3yrAvg": 164953.3,
+      "notifications3yrAvg": 2.7,
+      "ratePer100k": 1.6,
+      "lowerCI": 0.7,
+      "upperCI": 3.2,
+      "vsEnglandAvgPct": -83.2
+    },
+    "E07000084": {
+      "areaName": "Basingstoke and Deane",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 190735.0,
+      "notifications3yrAvg": 8.7,
+      "ratePer100k": 4.5,
+      "lowerCI": 3.0,
+      "upperCI": 6.7,
+      "vsEnglandAvgPct": -52.6
+    },
+    "E07000085": {
+      "areaName": "East Hampshire",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 128769.0,
+      "notifications3yrAvg": 2.0,
+      "ratePer100k": 1.6,
+      "lowerCI": 0.6,
+      "upperCI": 3.4,
+      "vsEnglandAvgPct": -83.2
+    },
+    "E07000086": {
+      "areaName": "Eastleigh",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 141018.0,
+      "notifications3yrAvg": 5.0,
+      "ratePer100k": 3.5,
+      "lowerCI": 2.0,
+      "upperCI": 5.8,
+      "vsEnglandAvgPct": -63.2
+    },
+    "E07000087": {
+      "areaName": "Fareham",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 114943.3,
+      "notifications3yrAvg": 2.3,
+      "ratePer100k": 2.0,
+      "lowerCI": 0.8,
+      "upperCI": 4.2,
+      "vsEnglandAvgPct": -78.9
+    },
+    "E07000088": {
+      "areaName": "Gosport",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 82684.3,
+      "notifications3yrAvg": 0.7,
+      "ratePer100k": 0.8,
+      "lowerCI": 0.1,
+      "upperCI": 2.9,
+      "vsEnglandAvgPct": -91.6
+    },
+    "E07000089": {
+      "areaName": "Hart",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 102147.3,
+      "notifications3yrAvg": 1.7,
+      "ratePer100k": 1.6,
+      "lowerCI": 0.5,
+      "upperCI": 3.8,
+      "vsEnglandAvgPct": -83.2
+    },
+    "E07000090": {
+      "areaName": "Havant",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 125941.7,
+      "notifications3yrAvg": 0.7,
+      "ratePer100k": 0.5,
+      "lowerCI": 0.1,
+      "upperCI": 1.9,
+      "vsEnglandAvgPct": -94.7
+    },
+    "E07000091": {
+      "areaName": "New Forest",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 175925.7,
+      "notifications3yrAvg": 3.0,
+      "ratePer100k": 1.7,
+      "lowerCI": 0.8,
+      "upperCI": 3.2,
+      "vsEnglandAvgPct": -82.1
+    },
+    "E07000092": {
+      "areaName": "Rushmoor",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 103413.0,
+      "notifications3yrAvg": 14.0,
+      "ratePer100k": 13.5,
+      "lowerCI": 9.8,
+      "upperCI": 18.3,
+      "vsEnglandAvgPct": 42.1
+    },
+    "E07000093": {
+      "areaName": "Test Valley",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 134161.7,
+      "notifications3yrAvg": 2.7,
+      "ratePer100k": 2.0,
+      "lowerCI": 0.9,
+      "upperCI": 3.9,
+      "vsEnglandAvgPct": -78.9
+    },
+    "E07000094": {
+      "areaName": "Winchester",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Hampshire",
+      "population3yrAvg": 133164.0,
+      "notifications3yrAvg": 4.0,
+      "ratePer100k": 3.0,
+      "lowerCI": 1.6,
+      "upperCI": 5.2,
+      "vsEnglandAvgPct": -68.4
+    },
+    "E06000046": {
+      "areaName": "Isle of Wight",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Isle of Wight",
+      "population3yrAvg": 141232.3,
+      "notifications3yrAvg": 0.3,
+      "ratePer100k": 0.2,
+      "lowerCI": 0.0,
+      "upperCI": 1.3,
+      "vsEnglandAvgPct": -97.9
+    },
+    "E07000105": {
+      "areaName": "Ashford",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 138588.0,
+      "notifications3yrAvg": 10.0,
+      "ratePer100k": 7.2,
+      "lowerCI": 4.9,
+      "upperCI": 10.3,
+      "vsEnglandAvgPct": -24.2
+    },
+    "E07000106": {
+      "areaName": "Canterbury",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 160549.7,
+      "notifications3yrAvg": 8.0,
+      "ratePer100k": 5.0,
+      "lowerCI": 3.2,
+      "upperCI": 7.4,
+      "vsEnglandAvgPct": -47.4
+    },
+    "E07000107": {
+      "areaName": "Dartford",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 122006.3,
+      "notifications3yrAvg": 9.3,
+      "ratePer100k": 7.6,
+      "lowerCI": 5.1,
+      "upperCI": 11.1,
+      "vsEnglandAvgPct": -20.0
+    },
+    "E07000108": {
+      "areaName": "Dover",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 118664.7,
+      "notifications3yrAvg": 6.7,
+      "ratePer100k": 5.6,
+      "lowerCI": 3.4,
+      "upperCI": 8.7,
+      "vsEnglandAvgPct": -41.1
+    },
+    "E07000109": {
+      "areaName": "Gravesham",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 108909.0,
+      "notifications3yrAvg": 16.3,
+      "ratePer100k": 15.0,
+      "lowerCI": 11.1,
+      "upperCI": 19.8,
+      "vsEnglandAvgPct": 57.9
+    },
+    "E07000110": {
+      "areaName": "Maidstone",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 184064.0,
+      "notifications3yrAvg": 10.0,
+      "ratePer100k": 5.4,
+      "lowerCI": 3.7,
+      "upperCI": 7.8,
+      "vsEnglandAvgPct": -43.2
+    },
+    "E07000111": {
+      "areaName": "Sevenoaks",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 121905.3,
+      "notifications3yrAvg": 1.7,
+      "ratePer100k": 1.4,
+      "lowerCI": 0.4,
+      "upperCI": 3.2,
+      "vsEnglandAvgPct": -85.3
+    },
+    "E07000113": {
+      "areaName": "Swale",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 156355.7,
+      "notifications3yrAvg": 4.7,
+      "ratePer100k": 3.0,
+      "lowerCI": 1.6,
+      "upperCI": 5.0,
+      "vsEnglandAvgPct": -68.4
+    },
+    "E07000114": {
+      "areaName": "Thanet",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 141479.7,
+      "notifications3yrAvg": 6.0,
+      "ratePer100k": 4.2,
+      "lowerCI": 2.5,
+      "upperCI": 6.7,
+      "vsEnglandAvgPct": -55.8
+    },
+    "E07000115": {
+      "areaName": "Tonbridge and Malling",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 135313.3,
+      "notifications3yrAvg": 1.3,
+      "ratePer100k": 1.0,
+      "lowerCI": 0.3,
+      "upperCI": 2.5,
+      "vsEnglandAvgPct": -89.5
+    },
+    "E07000116": {
+      "areaName": "Tunbridge Wells",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Kent",
+      "population3yrAvg": 117899.3,
+      "notifications3yrAvg": 4.7,
+      "ratePer100k": 4.0,
+      "lowerCI": 2.2,
+      "upperCI": 6.6,
+      "vsEnglandAvgPct": -57.9
+    },
+    "E06000035": {
+      "areaName": "Medway",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Medway",
+      "population3yrAvg": 287802.7,
+      "notifications3yrAvg": 20.0,
+      "ratePer100k": 6.9,
+      "lowerCI": 5.3,
+      "upperCI": 8.9,
+      "vsEnglandAvgPct": -27.4
+    },
+    "E07000177": {
+      "areaName": "Cherwell",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Oxfordshire",
+      "population3yrAvg": 167420.7,
+      "notifications3yrAvg": 14.0,
+      "ratePer100k": 8.4,
+      "lowerCI": 6.0,
+      "upperCI": 11.3,
+      "vsEnglandAvgPct": -11.6
+    },
+    "E07000178": {
+      "areaName": "Oxford",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Oxfordshire",
+      "population3yrAvg": 164858.3,
+      "notifications3yrAvg": 25.3,
+      "ratePer100k": 15.4,
+      "lowerCI": 12.1,
+      "upperCI": 19.2,
+      "vsEnglandAvgPct": 62.1
+    },
+    "E07000179": {
+      "areaName": "South Oxfordshire",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Oxfordshire",
+      "population3yrAvg": 154100.7,
+      "notifications3yrAvg": 7.3,
+      "ratePer100k": 4.8,
+      "lowerCI": 3.0,
+      "upperCI": 7.2,
+      "vsEnglandAvgPct": -49.5
+    },
+    "E07000180": {
+      "areaName": "Vale of White Horse",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Oxfordshire",
+      "population3yrAvg": 145881.0,
+      "notifications3yrAvg": 5.0,
+      "ratePer100k": 3.4,
+      "lowerCI": 1.9,
+      "upperCI": 5.7,
+      "vsEnglandAvgPct": -64.2
+    },
+    "E07000181": {
+      "areaName": "West Oxfordshire",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Oxfordshire",
+      "population3yrAvg": 119076.7,
+      "notifications3yrAvg": 2.7,
+      "ratePer100k": 2.2,
+      "lowerCI": 1.0,
+      "upperCI": 4.4,
+      "vsEnglandAvgPct": -76.8
+    },
+    "E06000044": {
+      "areaName": "Portsmouth",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Portsmouth",
+      "population3yrAvg": 212632.0,
+      "notifications3yrAvg": 17.3,
+      "ratePer100k": 8.2,
+      "lowerCI": 6.1,
+      "upperCI": 10.7,
+      "vsEnglandAvgPct": -13.7
+    },
+    "E06000038": {
+      "areaName": "Reading",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Reading",
+      "population3yrAvg": 179649.3,
+      "notifications3yrAvg": 35.3,
+      "ratePer100k": 19.7,
+      "lowerCI": 16.1,
+      "upperCI": 23.8,
+      "vsEnglandAvgPct": 107.4
+    },
+    "E06000039": {
+      "areaName": "Slough",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Slough",
+      "population3yrAvg": 163677.0,
+      "notifications3yrAvg": 53.7,
+      "ratePer100k": 32.8,
+      "lowerCI": 27.9,
+      "upperCI": 38.3,
+      "vsEnglandAvgPct": 245.3
+    },
+    "E06000045": {
+      "areaName": "Southampton",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Southampton",
+      "population3yrAvg": 256329.7,
+      "notifications3yrAvg": 26.7,
+      "ratePer100k": 10.4,
+      "lowerCI": 8.2,
+      "upperCI": 12.9,
+      "vsEnglandAvgPct": 9.5
+    },
+    "E07000207": {
+      "areaName": "Elmbridge",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 141184.3,
+      "notifications3yrAvg": 6.0,
+      "ratePer100k": 4.2,
+      "lowerCI": 2.5,
+      "upperCI": 6.7,
+      "vsEnglandAvgPct": -55.8
+    },
+    "E07000208": {
+      "areaName": "Epsom and Ewell",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 82429.3,
+      "notifications3yrAvg": 4.0,
+      "ratePer100k": 4.9,
+      "lowerCI": 2.5,
+      "upperCI": 8.5,
+      "vsEnglandAvgPct": -48.4
+    },
+    "E07000209": {
+      "areaName": "Guildford",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 148895.0,
+      "notifications3yrAvg": 7.0,
+      "ratePer100k": 4.7,
+      "lowerCI": 2.9,
+      "upperCI": 7.2,
+      "vsEnglandAvgPct": -50.5
+    },
+    "E07000210": {
+      "areaName": "Mole Valley",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 88389.7,
+      "notifications3yrAvg": 3.0,
+      "ratePer100k": 3.4,
+      "lowerCI": 1.6,
+      "upperCI": 6.4,
+      "vsEnglandAvgPct": -64.2
+    },
+    "E07000211": {
+      "areaName": "Reigate and Banstead",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 156539.7,
+      "notifications3yrAvg": 9.3,
+      "ratePer100k": 6.0,
+      "lowerCI": 4.0,
+      "upperCI": 8.6,
+      "vsEnglandAvgPct": -36.8
+    },
+    "E07000212": {
+      "areaName": "Runnymede",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 90777.3,
+      "notifications3yrAvg": 3.0,
+      "ratePer100k": 3.3,
+      "lowerCI": 1.5,
+      "upperCI": 6.3,
+      "vsEnglandAvgPct": -65.3
+    },
+    "E07000213": {
+      "areaName": "Spelthorne",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 105236.3,
+      "notifications3yrAvg": 10.3,
+      "ratePer100k": 9.8,
+      "lowerCI": 6.7,
+      "upperCI": 13.9,
+      "vsEnglandAvgPct": 3.2
+    },
+    "E07000214": {
+      "areaName": "Surrey Heath",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 93060.7,
+      "notifications3yrAvg": 4.7,
+      "ratePer100k": 5.0,
+      "lowerCI": 2.7,
+      "upperCI": 8.4,
+      "vsEnglandAvgPct": -47.4
+    },
+    "E07000215": {
+      "areaName": "Tandridge",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 89879.0,
+      "notifications3yrAvg": 1.7,
+      "ratePer100k": 1.9,
+      "lowerCI": 0.6,
+      "upperCI": 4.3,
+      "vsEnglandAvgPct": -80.0
+    },
+    "E07000216": {
+      "areaName": "Waverley",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 132453.3,
+      "notifications3yrAvg": 3.7,
+      "ratePer100k": 2.8,
+      "lowerCI": 1.4,
+      "upperCI": 5.0,
+      "vsEnglandAvgPct": -70.5
+    },
+    "E07000217": {
+      "areaName": "Woking",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Surrey",
+      "population3yrAvg": 105054.7,
+      "notifications3yrAvg": 6.0,
+      "ratePer100k": 5.7,
+      "lowerCI": 3.4,
+      "upperCI": 9.0,
+      "vsEnglandAvgPct": -40.0
+    },
+    "E06000037": {
+      "areaName": "West Berkshire",
+      "ukhsaRegion": "South East",
+      "parentUtla": "West Berkshire",
+      "population3yrAvg": 163928.3,
+      "notifications3yrAvg": 4.7,
+      "ratePer100k": 2.8,
+      "lowerCI": 1.6,
+      "upperCI": 4.8,
+      "vsEnglandAvgPct": -70.5
+    },
+    "E07000223": {
+      "areaName": "Adur",
+      "ukhsaRegion": "South East",
+      "parentUtla": "West Sussex",
+      "population3yrAvg": 64779.0,
+      "notifications3yrAvg": 1.3,
+      "ratePer100k": 2.1,
+      "lowerCI": 0.6,
+      "upperCI": 5.3,
+      "vsEnglandAvgPct": -77.9
+    },
+    "E07000224": {
+      "areaName": "Arun",
+      "ukhsaRegion": "South East",
+      "parentUtla": "West Sussex",
+      "population3yrAvg": 168151.3,
+      "notifications3yrAvg": 3.0,
+      "ratePer100k": 1.8,
+      "lowerCI": 0.8,
+      "upperCI": 3.4,
+      "vsEnglandAvgPct": -81.1
+    },
+    "E07000225": {
+      "areaName": "Chichester",
+      "ukhsaRegion": "South East",
+      "parentUtla": "West Sussex",
+      "population3yrAvg": 127550.3,
+      "notifications3yrAvg": 2.0,
+      "ratePer100k": 1.6,
+      "lowerCI": 0.6,
+      "upperCI": 3.4,
+      "vsEnglandAvgPct": -83.2
+    },
+    "E07000226": {
+      "areaName": "Crawley",
+      "ukhsaRegion": "South East",
+      "parentUtla": "West Sussex",
+      "population3yrAvg": 122207.3,
+      "notifications3yrAvg": 23.0,
+      "ratePer100k": 18.8,
+      "lowerCI": 14.6,
+      "upperCI": 23.8,
+      "vsEnglandAvgPct": 97.9
+    },
+    "E07000227": {
+      "areaName": "Horsham",
+      "ukhsaRegion": "South East",
+      "parentUtla": "West Sussex",
+      "population3yrAvg": 150015.3,
+      "notifications3yrAvg": 2.7,
+      "ratePer100k": 1.8,
+      "lowerCI": 0.8,
+      "upperCI": 3.5,
+      "vsEnglandAvgPct": -81.1
+    },
+    "E07000228": {
+      "areaName": "Mid Sussex",
+      "ukhsaRegion": "South East",
+      "parentUtla": "West Sussex",
+      "population3yrAvg": 158441.3,
+      "notifications3yrAvg": 5.7,
+      "ratePer100k": 3.6,
+      "lowerCI": 2.1,
+      "upperCI": 5.7,
+      "vsEnglandAvgPct": -62.1
+    },
+    "E07000229": {
+      "areaName": "Worthing",
+      "ukhsaRegion": "South East",
+      "parentUtla": "West Sussex",
+      "population3yrAvg": 112944.7,
+      "notifications3yrAvg": 2.7,
+      "ratePer100k": 2.4,
+      "lowerCI": 1.0,
+      "upperCI": 4.7,
+      "vsEnglandAvgPct": -74.7
+    },
+    "E06000040": {
+      "areaName": "Windsor and Maidenhead",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Windsor and Maidenhead",
+      "population3yrAvg": 157062.0,
+      "notifications3yrAvg": 9.3,
+      "ratePer100k": 5.9,
+      "lowerCI": 3.9,
+      "upperCI": 8.6,
+      "vsEnglandAvgPct": -37.9
+    },
+    "E06000041": {
+      "areaName": "Wokingham",
+      "ukhsaRegion": "South East",
+      "parentUtla": "Wokingham",
+      "population3yrAvg": 184359.7,
+      "notifications3yrAvg": 11.0,
+      "ratePer100k": 6.0,
+      "lowerCI": 4.1,
+      "upperCI": 8.4,
+      "vsEnglandAvgPct": -36.8
+    },
+    "E06000055": {
+      "areaName": "Bedford",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Bedford",
+      "population3yrAvg": 191391.7,
+      "notifications3yrAvg": 12.7,
+      "ratePer100k": 6.6,
+      "lowerCI": 4.7,
+      "upperCI": 9.1,
+      "vsEnglandAvgPct": -30.5
+    },
+    "E07000008": {
+      "areaName": "Cambridge",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Cambridgeshire",
+      "population3yrAvg": 148707.3,
+      "notifications3yrAvg": 21.3,
+      "ratePer100k": 14.3,
+      "lowerCI": 11.0,
+      "upperCI": 18.3,
+      "vsEnglandAvgPct": 50.5
+    },
+    "E07000009": {
+      "areaName": "East Cambridgeshire",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Cambridgeshire",
+      "population3yrAvg": 91189.0,
+      "notifications3yrAvg": 1.7,
+      "ratePer100k": 1.8,
+      "lowerCI": 0.6,
+      "upperCI": 4.3,
+      "vsEnglandAvgPct": -81.1
+    },
+    "E07000010": {
+      "areaName": "Fenland",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Cambridgeshire",
+      "population3yrAvg": 103871.7,
+      "notifications3yrAvg": 5.0,
+      "ratePer100k": 4.8,
+      "lowerCI": 2.7,
+      "upperCI": 7.9,
+      "vsEnglandAvgPct": -49.5
+    },
+    "E07000011": {
+      "areaName": "Huntingdonshire",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Cambridgeshire",
+      "population3yrAvg": 187283.0,
+      "notifications3yrAvg": 6.7,
+      "ratePer100k": 3.6,
+      "lowerCI": 2.2,
+      "upperCI": 5.5,
+      "vsEnglandAvgPct": -62.1
+    },
+    "E07000012": {
+      "areaName": "South Cambridgeshire",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Cambridgeshire",
+      "population3yrAvg": 169199.7,
+      "notifications3yrAvg": 12.3,
+      "ratePer100k": 7.3,
+      "lowerCI": 5.1,
+      "upperCI": 10.0,
+      "vsEnglandAvgPct": -23.2
+    },
+    "E06000056": {
+      "areaName": "Central Bedfordshire",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Central Bedfordshire",
+      "population3yrAvg": 309029.3,
+      "notifications3yrAvg": 8.7,
+      "ratePer100k": 2.8,
+      "lowerCI": 1.8,
+      "upperCI": 4.1,
+      "vsEnglandAvgPct": -70.5
+    },
+    "E07000066": {
+      "areaName": "Basildon",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 191181.7,
+      "notifications3yrAvg": 6.0,
+      "ratePer100k": 3.1,
+      "lowerCI": 1.9,
+      "upperCI": 5.0,
+      "vsEnglandAvgPct": -67.4
+    },
+    "E07000067": {
+      "areaName": "Braintree",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 160818.0,
+      "notifications3yrAvg": 3.7,
+      "ratePer100k": 2.3,
+      "lowerCI": 1.1,
+      "upperCI": 4.1,
+      "vsEnglandAvgPct": -75.8
+    },
+    "E07000068": {
+      "areaName": "Brentwood",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 78341.0,
+      "notifications3yrAvg": 3.3,
+      "ratePer100k": 4.3,
+      "lowerCI": 2.0,
+      "upperCI": 7.8,
+      "vsEnglandAvgPct": -54.7
+    },
+    "E07000069": {
+      "areaName": "Castle Point",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 90166.7,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 1.1,
+      "lowerCI": 0.2,
+      "upperCI": 3.2,
+      "vsEnglandAvgPct": -88.4
+    },
+    "E07000070": {
+      "areaName": "Chelmsford",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 186111.3,
+      "notifications3yrAvg": 8.0,
+      "ratePer100k": 4.3,
+      "lowerCI": 2.8,
+      "upperCI": 6.4,
+      "vsEnglandAvgPct": -54.7
+    },
+    "E07000071": {
+      "areaName": "Colchester",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 197731.3,
+      "notifications3yrAvg": 8.3,
+      "ratePer100k": 4.2,
+      "lowerCI": 2.7,
+      "upperCI": 6.2,
+      "vsEnglandAvgPct": -55.8
+    },
+    "E07000072": {
+      "areaName": "Epping Forest",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 136172.0,
+      "notifications3yrAvg": 6.3,
+      "ratePer100k": 4.7,
+      "lowerCI": 2.8,
+      "upperCI": 7.3,
+      "vsEnglandAvgPct": -50.5
+    },
+    "E07000073": {
+      "areaName": "Harlow",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 96370.3,
+      "notifications3yrAvg": 10.3,
+      "ratePer100k": 10.7,
+      "lowerCI": 7.3,
+      "upperCI": 15.2,
+      "vsEnglandAvgPct": 12.6
+    },
+    "E07000074": {
+      "areaName": "Maldon",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 68385.0,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 1.5,
+      "lowerCI": 0.3,
+      "upperCI": 4.3,
+      "vsEnglandAvgPct": -84.2
+    },
+    "E07000075": {
+      "areaName": "Rochford",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 88549.0,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 1.1,
+      "lowerCI": 0.2,
+      "upperCI": 3.3,
+      "vsEnglandAvgPct": -88.4
+    },
+    "E07000076": {
+      "areaName": "Tendring",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 154203.3,
+      "notifications3yrAvg": 4.0,
+      "ratePer100k": 2.6,
+      "lowerCI": 1.3,
+      "upperCI": 4.5,
+      "vsEnglandAvgPct": -72.6
+    },
+    "E07000077": {
+      "areaName": "Uttlesford",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Essex",
+      "population3yrAvg": 93888.7,
+      "notifications3yrAvg": 1.3,
+      "ratePer100k": 1.4,
+      "lowerCI": 0.4,
+      "upperCI": 3.6,
+      "vsEnglandAvgPct": -85.3
+    },
+    "E07000095": {
+      "areaName": "Broxbourne",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Hertfordshire",
+      "population3yrAvg": 100533.0,
+      "notifications3yrAvg": 4.3,
+      "ratePer100k": 4.3,
+      "lowerCI": 2.3,
+      "upperCI": 7.4,
+      "vsEnglandAvgPct": -54.7
+    },
+    "E07000096": {
+      "areaName": "Dacorum",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Hertfordshire",
+      "population3yrAvg": 158824.3,
+      "notifications3yrAvg": 12.7,
+      "ratePer100k": 8.0,
+      "lowerCI": 5.6,
+      "upperCI": 10.9,
+      "vsEnglandAvgPct": -15.8
+    },
+    "E07000098": {
+      "areaName": "Hertsmere",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Hertfordshire",
+      "population3yrAvg": 109335.0,
+      "notifications3yrAvg": 6.3,
+      "ratePer100k": 5.8,
+      "lowerCI": 3.5,
+      "upperCI": 9.0,
+      "vsEnglandAvgPct": -38.9
+    },
+    "E07000099": {
+      "areaName": "North Hertfordshire",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Hertfordshire",
+      "population3yrAvg": 135736.0,
+      "notifications3yrAvg": 4.7,
+      "ratePer100k": 3.4,
+      "lowerCI": 1.9,
+      "upperCI": 5.8,
+      "vsEnglandAvgPct": -64.2
+    },
+    "E07000102": {
+      "areaName": "Three Rivers",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Hertfordshire",
+      "population3yrAvg": 95043.7,
+      "notifications3yrAvg": 6.0,
+      "ratePer100k": 6.3,
+      "lowerCI": 3.7,
+      "upperCI": 10.0,
+      "vsEnglandAvgPct": -33.7
+    },
+    "E07000103": {
+      "areaName": "Watford",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Hertfordshire",
+      "population3yrAvg": 105156.7,
+      "notifications3yrAvg": 15.7,
+      "ratePer100k": 14.9,
+      "lowerCI": 10.9,
+      "upperCI": 19.8,
+      "vsEnglandAvgPct": 56.8
+    },
+    "E07000240": {
+      "areaName": "St Albans",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Hertfordshire",
+      "population3yrAvg": 149813.0,
+      "notifications3yrAvg": 2.3,
+      "ratePer100k": 1.6,
+      "lowerCI": 0.6,
+      "upperCI": 3.2,
+      "vsEnglandAvgPct": -83.2
+    },
+    "E07000241": {
+      "areaName": "Welwyn Hatfield",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Hertfordshire",
+      "population3yrAvg": 121598.3,
+      "notifications3yrAvg": 12.7,
+      "ratePer100k": 10.4,
+      "lowerCI": 7.4,
+      "upperCI": 14.3,
+      "vsEnglandAvgPct": 9.5
+    },
+    "E07000242": {
+      "areaName": "East Hertfordshire",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Hertfordshire",
+      "population3yrAvg": 154200.0,
+      "notifications3yrAvg": 3.0,
+      "ratePer100k": 1.9,
+      "lowerCI": 0.9,
+      "upperCI": 3.7,
+      "vsEnglandAvgPct": -80.0
+    },
+    "E07000243": {
+      "areaName": "Stevenage",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Hertfordshire",
+      "population3yrAvg": 90660.0,
+      "notifications3yrAvg": 5.7,
+      "ratePer100k": 6.3,
+      "lowerCI": 3.6,
+      "upperCI": 10.0,
+      "vsEnglandAvgPct": -33.7
+    },
+    "E06000032": {
+      "areaName": "Luton",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Luton",
+      "population3yrAvg": 233425.3,
+      "notifications3yrAvg": 52.7,
+      "ratePer100k": 22.6,
+      "lowerCI": 19.2,
+      "upperCI": 26.4,
+      "vsEnglandAvgPct": 137.9
+    },
+    "E06000042": {
+      "areaName": "Milton Keynes",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Milton Keynes",
+      "population3yrAvg": 299547.0,
+      "notifications3yrAvg": 25.0,
+      "ratePer100k": 8.3,
+      "lowerCI": 6.6,
+      "upperCI": 10.5,
+      "vsEnglandAvgPct": -12.6
+    },
+    "E07000143": {
+      "areaName": "Breckland",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Norfolk",
+      "population3yrAvg": 144992.0,
+      "notifications3yrAvg": 2.3,
+      "ratePer100k": 1.6,
+      "lowerCI": 0.6,
+      "upperCI": 3.3,
+      "vsEnglandAvgPct": -83.2
+    },
+    "E07000144": {
+      "areaName": "Broadland",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Norfolk",
+      "population3yrAvg": 135997.7,
+      "notifications3yrAvg": 2.7,
+      "ratePer100k": 2.0,
+      "lowerCI": 0.8,
+      "upperCI": 3.9,
+      "vsEnglandAvgPct": -78.9
+    },
+    "E07000145": {
+      "areaName": "Great Yarmouth",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Norfolk",
+      "population3yrAvg": 100178.7,
+      "notifications3yrAvg": 13.0,
+      "ratePer100k": 13.0,
+      "lowerCI": 9.2,
+      "upperCI": 17.7,
+      "vsEnglandAvgPct": 36.8
+    },
+    "E07000146": {
+      "areaName": "King's Lynn and West Norfolk",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Norfolk",
+      "population3yrAvg": 156024.0,
+      "notifications3yrAvg": 6.3,
+      "ratePer100k": 4.1,
+      "lowerCI": 2.4,
+      "upperCI": 6.3,
+      "vsEnglandAvgPct": -56.8
+    },
+    "E07000147": {
+      "areaName": "North Norfolk",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Norfolk",
+      "population3yrAvg": 103225.0,
+      "notifications3yrAvg": 0.7,
+      "ratePer100k": 0.6,
+      "lowerCI": 0.1,
+      "upperCI": 2.3,
+      "vsEnglandAvgPct": -93.7
+    },
+    "E07000148": {
+      "areaName": "Norwich",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Norfolk",
+      "population3yrAvg": 146180.7,
+      "notifications3yrAvg": 10.3,
+      "ratePer100k": 7.1,
+      "lowerCI": 4.8,
+      "upperCI": 10.0,
+      "vsEnglandAvgPct": -25.3
+    },
+    "E07000149": {
+      "areaName": "South Norfolk",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Norfolk",
+      "population3yrAvg": 146578.0,
+      "notifications3yrAvg": 4.3,
+      "ratePer100k": 3.0,
+      "lowerCI": 1.6,
+      "upperCI": 5.1,
+      "vsEnglandAvgPct": -68.4
+    },
+    "E06000031": {
+      "areaName": "Peterborough",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Peterborough",
+      "population3yrAvg": 220985.0,
+      "notifications3yrAvg": 39.7,
+      "ratePer100k": 17.9,
+      "lowerCI": 14.9,
+      "upperCI": 21.5,
+      "vsEnglandAvgPct": 88.4
+    },
+    "E06000033": {
+      "areaName": "Southend-on-Sea",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Southend-on-Sea",
+      "population3yrAvg": 182945.7,
+      "notifications3yrAvg": 13.0,
+      "ratePer100k": 7.1,
+      "lowerCI": 5.1,
+      "upperCI": 9.7,
+      "vsEnglandAvgPct": -25.3
+    },
+    "E07000200": {
+      "areaName": "Babergh",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Suffolk",
+      "population3yrAvg": 95711.3,
+      "notifications3yrAvg": 3.0,
+      "ratePer100k": 3.1,
+      "lowerCI": 1.4,
+      "upperCI": 6.0,
+      "vsEnglandAvgPct": -67.4
+    },
+    "E07000202": {
+      "areaName": "Ipswich",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Suffolk",
+      "population3yrAvg": 139700.7,
+      "notifications3yrAvg": 9.0,
+      "ratePer100k": 6.4,
+      "lowerCI": 4.2,
+      "upperCI": 9.4,
+      "vsEnglandAvgPct": -32.6
+    },
+    "E07000203": {
+      "areaName": "Mid Suffolk",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Suffolk",
+      "population3yrAvg": 108214.7,
+      "notifications3yrAvg": 2.0,
+      "ratePer100k": 1.8,
+      "lowerCI": 0.7,
+      "upperCI": 4.0,
+      "vsEnglandAvgPct": -81.1
+    },
+    "E07000244": {
+      "areaName": "East Suffolk",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Suffolk",
+      "population3yrAvg": 248427.0,
+      "notifications3yrAvg": 11.7,
+      "ratePer100k": 4.7,
+      "lowerCI": 3.3,
+      "upperCI": 6.5,
+      "vsEnglandAvgPct": -50.5
+    },
+    "E07000245": {
+      "areaName": "West Suffolk",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Suffolk",
+      "population3yrAvg": 185631.3,
+      "notifications3yrAvg": 5.7,
+      "ratePer100k": 3.1,
+      "lowerCI": 1.8,
+      "upperCI": 4.9,
+      "vsEnglandAvgPct": -67.4
+    },
+    "E06000034": {
+      "areaName": "Thurrock",
+      "ukhsaRegion": "East of England",
+      "parentUtla": "Thurrock",
+      "population3yrAvg": 179015.7,
+      "notifications3yrAvg": 11.7,
+      "ratePer100k": 6.5,
+      "lowerCI": 4.5,
+      "upperCI": 9.1,
+      "vsEnglandAvgPct": -31.6
+    },
+    "E06000015": {
+      "areaName": "Derby",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Derby",
+      "population3yrAvg": 269457.7,
+      "notifications3yrAvg": 32.0,
+      "ratePer100k": 11.9,
+      "lowerCI": 9.6,
+      "upperCI": 14.5,
+      "vsEnglandAvgPct": 25.3
+    },
+    "E07000032": {
+      "areaName": "Amber Valley",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Derbyshire",
+      "population3yrAvg": 128630.0,
+      "notifications3yrAvg": 1.7,
+      "ratePer100k": 1.3,
+      "lowerCI": 0.4,
+      "upperCI": 3.0,
+      "vsEnglandAvgPct": -86.3
+    },
+    "E07000033": {
+      "areaName": "Bolsover",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Derbyshire",
+      "population3yrAvg": 82678.0,
+      "notifications3yrAvg": 4.0,
+      "ratePer100k": 4.8,
+      "lowerCI": 2.5,
+      "upperCI": 8.5,
+      "vsEnglandAvgPct": -49.5
+    },
+    "E07000034": {
+      "areaName": "Chesterfield",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Derbyshire",
+      "population3yrAvg": 105181.7,
+      "notifications3yrAvg": 3.7,
+      "ratePer100k": 3.5,
+      "lowerCI": 1.7,
+      "upperCI": 6.2,
+      "vsEnglandAvgPct": -63.2
+    },
+    "E07000036": {
+      "areaName": "Erewash",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Derbyshire",
+      "population3yrAvg": 113802.0,
+      "notifications3yrAvg": 4.3,
+      "ratePer100k": 3.8,
+      "lowerCI": 2.0,
+      "upperCI": 6.5,
+      "vsEnglandAvgPct": -60.0
+    },
+    "E07000037": {
+      "areaName": "High Peak",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Derbyshire",
+      "population3yrAvg": 91622.0,
+      "notifications3yrAvg": 2.3,
+      "ratePer100k": 2.5,
+      "lowerCI": 1.0,
+      "upperCI": 5.2,
+      "vsEnglandAvgPct": -73.7
+    },
+    "E07000038": {
+      "areaName": "North East Derbyshire",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Derbyshire",
+      "population3yrAvg": 105110.7,
+      "notifications3yrAvg": 3.3,
+      "ratePer100k": 3.2,
+      "lowerCI": 1.5,
+      "upperCI": 5.8,
+      "vsEnglandAvgPct": -66.3
+    },
+    "E07000039": {
+      "areaName": "South Derbyshire",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Derbyshire",
+      "population3yrAvg": 114380.3,
+      "notifications3yrAvg": 2.7,
+      "ratePer100k": 2.3,
+      "lowerCI": 1.0,
+      "upperCI": 4.6,
+      "vsEnglandAvgPct": -75.8
+    },
+    "E06000016": {
+      "areaName": "Leicester",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Leicester",
+      "population3yrAvg": 381376.7,
+      "notifications3yrAvg": 160.7,
+      "ratePer100k": 42.1,
+      "lowerCI": 38.5,
+      "upperCI": 46.1,
+      "vsEnglandAvgPct": 343.2
+    },
+    "E07000129": {
+      "areaName": "Blaby",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Leicestershire",
+      "population3yrAvg": 105988.3,
+      "notifications3yrAvg": 6.3,
+      "ratePer100k": 6.0,
+      "lowerCI": 3.6,
+      "upperCI": 9.3,
+      "vsEnglandAvgPct": -36.8
+    },
+    "E07000130": {
+      "areaName": "Charnwood",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Leicestershire",
+      "population3yrAvg": 186912.7,
+      "notifications3yrAvg": 13.0,
+      "ratePer100k": 7.0,
+      "lowerCI": 4.9,
+      "upperCI": 9.5,
+      "vsEnglandAvgPct": -26.3
+    },
+    "E07000131": {
+      "areaName": "Harborough",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Leicestershire",
+      "population3yrAvg": 102763.0,
+      "notifications3yrAvg": 3.7,
+      "ratePer100k": 3.6,
+      "lowerCI": 1.8,
+      "upperCI": 6.4,
+      "vsEnglandAvgPct": -62.1
+    },
+    "E07000132": {
+      "areaName": "Hinckley and Bosworth",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Leicestershire",
+      "population3yrAvg": 115441.0,
+      "notifications3yrAvg": 2.0,
+      "ratePer100k": 1.7,
+      "lowerCI": 0.6,
+      "upperCI": 3.8,
+      "vsEnglandAvgPct": -82.1
+    },
+    "E07000133": {
+      "areaName": "Melton",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Leicestershire",
+      "population3yrAvg": 53264.7,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 1.9,
+      "lowerCI": 0.4,
+      "upperCI": 5.5,
+      "vsEnglandAvgPct": -80.0
+    },
+    "E07000134": {
+      "areaName": "North West Leicestershire",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Leicestershire",
+      "population3yrAvg": 109941.0,
+      "notifications3yrAvg": 3.3,
+      "ratePer100k": 3.0,
+      "lowerCI": 1.5,
+      "upperCI": 5.6,
+      "vsEnglandAvgPct": -68.4
+    },
+    "E07000135": {
+      "areaName": "Oadby and Wigston",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Leicestershire",
+      "population3yrAvg": 60020.7,
+      "notifications3yrAvg": 5.0,
+      "ratePer100k": 8.3,
+      "lowerCI": 4.7,
+      "upperCI": 13.7,
+      "vsEnglandAvgPct": -12.6
+    },
+    "E07000136": {
+      "areaName": "Boston",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Lincolnshire",
+      "population3yrAvg": 70982.3,
+      "notifications3yrAvg": 10.7,
+      "ratePer100k": 15.0,
+      "lowerCI": 10.3,
+      "upperCI": 21.2,
+      "vsEnglandAvgPct": 57.9
+    },
+    "E07000137": {
+      "areaName": "East Lindsey",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Lincolnshire",
+      "population3yrAvg": 144793.7,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 0.7,
+      "lowerCI": 0.1,
+      "upperCI": 2.0,
+      "vsEnglandAvgPct": -92.6
+    },
+    "E07000138": {
+      "areaName": "Lincoln",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Lincolnshire",
+      "population3yrAvg": 104087.3,
+      "notifications3yrAvg": 5.3,
+      "ratePer100k": 5.1,
+      "lowerCI": 2.9,
+      "upperCI": 8.3,
+      "vsEnglandAvgPct": -46.3
+    },
+    "E07000139": {
+      "areaName": "North Kesteven",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Lincolnshire",
+      "population3yrAvg": 121127.3,
+      "notifications3yrAvg": 2.7,
+      "ratePer100k": 2.2,
+      "lowerCI": 1.0,
+      "upperCI": 4.3,
+      "vsEnglandAvgPct": -76.8
+    },
+    "E07000140": {
+      "areaName": "South Holland",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Lincolnshire",
+      "population3yrAvg": 98224.3,
+      "notifications3yrAvg": 5.3,
+      "ratePer100k": 5.4,
+      "lowerCI": 3.1,
+      "upperCI": 8.8,
+      "vsEnglandAvgPct": -43.2
+    },
+    "E07000141": {
+      "areaName": "South Kesteven",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Lincolnshire",
+      "population3yrAvg": 145862.3,
+      "notifications3yrAvg": 3.3,
+      "ratePer100k": 2.3,
+      "lowerCI": 1.1,
+      "upperCI": 4.2,
+      "vsEnglandAvgPct": -75.8
+    },
+    "E07000142": {
+      "areaName": "West Lindsey",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Lincolnshire",
+      "population3yrAvg": 98097.3,
+      "notifications3yrAvg": 3.3,
+      "ratePer100k": 3.4,
+      "lowerCI": 1.6,
+      "upperCI": 6.2,
+      "vsEnglandAvgPct": -64.2
+    },
+    "E06000061": {
+      "areaName": "North Northamptonshire",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "North Northamptonshire",
+      "population3yrAvg": 368442.3,
+      "notifications3yrAvg": 21.7,
+      "ratePer100k": 5.9,
+      "lowerCI": 4.5,
+      "upperCI": 7.5,
+      "vsEnglandAvgPct": -37.9
+    },
+    "E06000018": {
+      "areaName": "Nottingham",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Nottingham",
+      "population3yrAvg": 328278.3,
+      "notifications3yrAvg": 41.7,
+      "ratePer100k": 12.7,
+      "lowerCI": 10.6,
+      "upperCI": 15.1,
+      "vsEnglandAvgPct": 33.7
+    },
+    "E07000170": {
+      "areaName": "Ashfield",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Nottinghamshire",
+      "population3yrAvg": 128382.3,
+      "notifications3yrAvg": 2.3,
+      "ratePer100k": 1.8,
+      "lowerCI": 0.7,
+      "upperCI": 3.7,
+      "vsEnglandAvgPct": -81.1
+    },
+    "E07000171": {
+      "areaName": "Bassetlaw",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Nottinghamshire",
+      "population3yrAvg": 122521.7,
+      "notifications3yrAvg": 4.0,
+      "ratePer100k": 3.3,
+      "lowerCI": 1.7,
+      "upperCI": 5.7,
+      "vsEnglandAvgPct": -65.3
+    },
+    "E07000172": {
+      "areaName": "Broxtowe",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Nottinghamshire",
+      "population3yrAvg": 113542.3,
+      "notifications3yrAvg": 3.3,
+      "ratePer100k": 2.9,
+      "lowerCI": 1.4,
+      "upperCI": 5.4,
+      "vsEnglandAvgPct": -69.5
+    },
+    "E07000173": {
+      "areaName": "Gedling",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Nottinghamshire",
+      "population3yrAvg": 118989.0,
+      "notifications3yrAvg": 2.3,
+      "ratePer100k": 2.0,
+      "lowerCI": 0.8,
+      "upperCI": 4.0,
+      "vsEnglandAvgPct": -78.9
+    },
+    "E07000174": {
+      "areaName": "Mansfield",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Nottinghamshire",
+      "population3yrAvg": 112166.3,
+      "notifications3yrAvg": 5.7,
+      "ratePer100k": 5.1,
+      "lowerCI": 2.9,
+      "upperCI": 8.1,
+      "vsEnglandAvgPct": -46.3
+    },
+    "E07000175": {
+      "areaName": "Newark and Sherwood",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Nottinghamshire",
+      "population3yrAvg": 126433.3,
+      "notifications3yrAvg": 4.3,
+      "ratePer100k": 3.4,
+      "lowerCI": 1.8,
+      "upperCI": 5.9,
+      "vsEnglandAvgPct": -64.2
+    },
+    "E07000176": {
+      "areaName": "Rushcliffe",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Nottinghamshire",
+      "population3yrAvg": 124337.3,
+      "notifications3yrAvg": 5.3,
+      "ratePer100k": 4.3,
+      "lowerCI": 2.5,
+      "upperCI": 7.0,
+      "vsEnglandAvgPct": -54.7
+    },
+    "E06000017": {
+      "areaName": "Rutland",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "Rutland",
+      "population3yrAvg": 41138.3,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 2.4,
+      "lowerCI": 0.5,
+      "upperCI": 7.1,
+      "vsEnglandAvgPct": -74.7
+    },
+    "E06000062": {
+      "areaName": "West Northamptonshire",
+      "ukhsaRegion": "East Midlands",
+      "parentUtla": "West Northamptonshire",
+      "population3yrAvg": 435426.7,
+      "notifications3yrAvg": 27.7,
+      "ratePer100k": 6.4,
+      "lowerCI": 5.1,
+      "upperCI": 7.9,
+      "vsEnglandAvgPct": -32.6
+    },
+    "E08000016": {
+      "areaName": "Barnsley",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "Barnsley",
+      "population3yrAvg": 249217.0,
+      "notifications3yrAvg": 8.3,
+      "ratePer100k": 3.3,
+      "lowerCI": 2.2,
+      "upperCI": 4.9,
+      "vsEnglandAvgPct": -65.3
+    },
+    "E08000032": {
+      "areaName": "Bradford",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "Bradford",
+      "population3yrAvg": 558066.0,
+      "notifications3yrAvg": 80.3,
+      "ratePer100k": 14.4,
+      "lowerCI": 12.6,
+      "upperCI": 16.3,
+      "vsEnglandAvgPct": 51.6
+    },
+    "E08000033": {
+      "areaName": "Calderdale",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "Calderdale",
+      "population3yrAvg": 209386.3,
+      "notifications3yrAvg": 10.7,
+      "ratePer100k": 5.1,
+      "lowerCI": 3.5,
+      "upperCI": 7.2,
+      "vsEnglandAvgPct": -46.3
+    },
+    "E08000017": {
+      "areaName": "Doncaster",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "Doncaster",
+      "population3yrAvg": 315529.3,
+      "notifications3yrAvg": 22.3,
+      "ratePer100k": 7.1,
+      "lowerCI": 5.5,
+      "upperCI": 9.0,
+      "vsEnglandAvgPct": -25.3
+    },
+    "E06000011": {
+      "areaName": "East Riding of Yorkshire",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "East Riding of Yorkshire",
+      "population3yrAvg": 351240.3,
+      "notifications3yrAvg": 8.3,
+      "ratePer100k": 2.4,
+      "lowerCI": 1.5,
+      "upperCI": 3.5,
+      "vsEnglandAvgPct": -74.7
+    },
+    "E08000034": {
+      "areaName": "Kirklees",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "Kirklees",
+      "population3yrAvg": 443359.3,
+      "notifications3yrAvg": 39.3,
+      "ratePer100k": 8.9,
+      "lowerCI": 7.3,
+      "upperCI": 10.6,
+      "vsEnglandAvgPct": -6.3
+    },
+    "E08000035": {
+      "areaName": "Leeds",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "Leeds",
+      "population3yrAvg": 832999.7,
+      "notifications3yrAvg": 69.0,
+      "ratePer100k": 8.3,
+      "lowerCI": 7.2,
+      "upperCI": 9.5,
+      "vsEnglandAvgPct": -12.6
+    },
+    "E06000012": {
+      "areaName": "North East Lincolnshire",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "North East Lincolnshire",
+      "population3yrAvg": 158805.3,
+      "notifications3yrAvg": 3.3,
+      "ratePer100k": 2.1,
+      "lowerCI": 1.0,
+      "upperCI": 3.9,
+      "vsEnglandAvgPct": -77.9
+    },
+    "E06000013": {
+      "areaName": "North Lincolnshire",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "North Lincolnshire",
+      "population3yrAvg": 170646.0,
+      "notifications3yrAvg": 3.7,
+      "ratePer100k": 2.1,
+      "lowerCI": 1.1,
+      "upperCI": 3.8,
+      "vsEnglandAvgPct": -77.9
+    },
+    "E06000065": {
+      "areaName": "North Yorkshire",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "North Yorkshire",
+      "population3yrAvg": 629390.3,
+      "notifications3yrAvg": 18.0,
+      "ratePer100k": 2.9,
+      "lowerCI": 2.1,
+      "upperCI": 3.7,
+      "vsEnglandAvgPct": -69.5
+    },
+    "E08000018": {
+      "areaName": "Rotherham",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "Rotherham",
+      "population3yrAvg": 272650.0,
+      "notifications3yrAvg": 9.3,
+      "ratePer100k": 3.4,
+      "lowerCI": 2.3,
+      "upperCI": 4.9,
+      "vsEnglandAvgPct": -64.2
+    },
+    "E08000019": {
+      "areaName": "Sheffield",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "Sheffield",
+      "population3yrAvg": 574688.7,
+      "notifications3yrAvg": 50.7,
+      "ratePer100k": 8.8,
+      "lowerCI": 7.5,
+      "upperCI": 10.3,
+      "vsEnglandAvgPct": -7.4
+    },
+    "E08000036": {
+      "areaName": "Wakefield",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "Wakefield",
+      "population3yrAvg": 362868.3,
+      "notifications3yrAvg": 9.3,
+      "ratePer100k": 2.6,
+      "lowerCI": 1.7,
+      "upperCI": 3.7,
+      "vsEnglandAvgPct": -72.6
+    },
+    "E06000014": {
+      "areaName": "York",
+      "ukhsaRegion": "Yorkshire and Humber",
+      "parentUtla": "York",
+      "population3yrAvg": 206931.7,
+      "notifications3yrAvg": 6.3,
+      "ratePer100k": 3.1,
+      "lowerCI": 1.8,
+      "upperCI": 4.8,
+      "vsEnglandAvgPct": -67.4
+    },
+    "E06000022": {
+      "areaName": "Bath and North East Somerset",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Bath and North East Somerset",
+      "population3yrAvg": 197919.7,
+      "notifications3yrAvg": 7.3,
+      "ratePer100k": 3.7,
+      "lowerCI": 2.3,
+      "upperCI": 5.6,
+      "vsEnglandAvgPct": -61.1
+    },
+    "E06000058": {
+      "areaName": "Bournemouth, Christchurch and Poole",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Bournemouth, Christchurch and Poole",
+      "population3yrAvg": 406125.7,
+      "notifications3yrAvg": 14.3,
+      "ratePer100k": 3.5,
+      "lowerCI": 2.6,
+      "upperCI": 4.8,
+      "vsEnglandAvgPct": -63.2
+    },
+    "E07000040": {
+      "areaName": "East Devon",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Devon",
+      "population3yrAvg": 156308.0,
+      "notifications3yrAvg": 0.3,
+      "ratePer100k": 0.2,
+      "lowerCI": 0.0,
+      "upperCI": 1.2,
+      "vsEnglandAvgPct": -97.9
+    },
+    "E07000041": {
+      "areaName": "Exeter",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Devon",
+      "population3yrAvg": 136188.3,
+      "notifications3yrAvg": 5.7,
+      "ratePer100k": 4.2,
+      "lowerCI": 2.4,
+      "upperCI": 6.7,
+      "vsEnglandAvgPct": -55.8
+    },
+    "E07000042": {
+      "areaName": "Mid Devon",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Devon",
+      "population3yrAvg": 84366.3,
+      "notifications3yrAvg": 0.3,
+      "ratePer100k": 0.4,
+      "lowerCI": 0.0,
+      "upperCI": 2.2,
+      "vsEnglandAvgPct": -95.8
+    },
+    "E07000043": {
+      "areaName": "North Devon",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Devon",
+      "population3yrAvg": 100798.3,
+      "notifications3yrAvg": 1.0,
+      "ratePer100k": 1.0,
+      "lowerCI": 0.2,
+      "upperCI": 2.9,
+      "vsEnglandAvgPct": -89.5
+    },
+    "E07000044": {
+      "areaName": "South Hams",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Devon",
+      "population3yrAvg": 90960.0,
+      "notifications3yrAvg": 2.3,
+      "ratePer100k": 2.6,
+      "lowerCI": 1.0,
+      "upperCI": 5.3,
+      "vsEnglandAvgPct": -72.6
+    },
+    "E07000045": {
+      "areaName": "Teignbridge",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Devon",
+      "population3yrAvg": 137299.0,
+      "notifications3yrAvg": 3.7,
+      "ratePer100k": 2.7,
+      "lowerCI": 1.3,
+      "upperCI": 4.8,
+      "vsEnglandAvgPct": -71.6
+    },
+    "E07000046": {
+      "areaName": "Torridge",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Devon",
+      "population3yrAvg": 69276.0,
+      "notifications3yrAvg": 1.3,
+      "ratePer100k": 1.9,
+      "lowerCI": 0.5,
+      "upperCI": 4.9,
+      "vsEnglandAvgPct": -80.0
+    },
+    "E07000047": {
+      "areaName": "West Devon",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Devon",
+      "population3yrAvg": 58687.0,
+      "notifications3yrAvg": 0.7,
+      "ratePer100k": 1.1,
+      "lowerCI": 0.1,
+      "upperCI": 4.1,
+      "vsEnglandAvgPct": -88.4
+    },
+    "E06000059": {
+      "areaName": "Dorset",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Dorset",
+      "population3yrAvg": 386535.7,
+      "notifications3yrAvg": 6.0,
+      "ratePer100k": 1.6,
+      "lowerCI": 0.9,
+      "upperCI": 2.5,
+      "vsEnglandAvgPct": -83.2
+    },
+    "E07000078": {
+      "areaName": "Cheltenham",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Gloucestershire",
+      "population3yrAvg": 120738.3,
+      "notifications3yrAvg": 5.0,
+      "ratePer100k": 4.1,
+      "lowerCI": 2.3,
+      "upperCI": 6.8,
+      "vsEnglandAvgPct": -56.8
+    },
+    "E07000079": {
+      "areaName": "Cotswold",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Gloucestershire",
+      "population3yrAvg": 91513.3,
+      "notifications3yrAvg": 2.3,
+      "ratePer100k": 2.5,
+      "lowerCI": 1.0,
+      "upperCI": 5.3,
+      "vsEnglandAvgPct": -73.7
+    },
+    "E07000080": {
+      "areaName": "Forest of Dean",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Gloucestershire",
+      "population3yrAvg": 88911.3,
+      "notifications3yrAvg": 1.7,
+      "ratePer100k": 1.9,
+      "lowerCI": 0.6,
+      "upperCI": 4.4,
+      "vsEnglandAvgPct": -80.0
+    },
+    "E07000081": {
+      "areaName": "Gloucester",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Gloucestershire",
+      "population3yrAvg": 136196.7,
+      "notifications3yrAvg": 9.0,
+      "ratePer100k": 6.6,
+      "lowerCI": 4.4,
+      "upperCI": 9.6,
+      "vsEnglandAvgPct": -30.5
+    },
+    "E07000082": {
+      "areaName": "Stroud",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Gloucestershire",
+      "population3yrAvg": 124472.7,
+      "notifications3yrAvg": 3.3,
+      "ratePer100k": 2.7,
+      "lowerCI": 1.3,
+      "upperCI": 4.9,
+      "vsEnglandAvgPct": -71.6
+    },
+    "E07000083": {
+      "areaName": "Tewkesbury",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Gloucestershire",
+      "population3yrAvg": 99515.0,
+      "notifications3yrAvg": 1.3,
+      "ratePer100k": 1.3,
+      "lowerCI": 0.4,
+      "upperCI": 3.4,
+      "vsEnglandAvgPct": -86.3
+    },
+    "E06000024": {
+      "areaName": "North Somerset",
+      "ukhsaRegion": "South West",
+      "parentUtla": "North Somerset",
+      "population3yrAvg": 221856.3,
+      "notifications3yrAvg": 7.0,
+      "ratePer100k": 3.2,
+      "lowerCI": 2.0,
+      "upperCI": 4.8,
+      "vsEnglandAvgPct": -66.3
+    },
+    "E06000026": {
+      "areaName": "Plymouth",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Plymouth",
+      "population3yrAvg": 270059.7,
+      "notifications3yrAvg": 14.7,
+      "ratePer100k": 5.4,
+      "lowerCI": 3.9,
+      "upperCI": 7.3,
+      "vsEnglandAvgPct": -43.2
+    },
+    "E06000066": {
+      "areaName": "Somerset",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Somerset",
+      "population3yrAvg": 582879.7,
+      "notifications3yrAvg": 13.3,
+      "ratePer100k": 2.3,
+      "lowerCI": 1.6,
+      "upperCI": 3.1,
+      "vsEnglandAvgPct": -75.8
+    },
+    "E06000025": {
+      "areaName": "South Gloucestershire",
+      "ukhsaRegion": "South West",
+      "parentUtla": "South Gloucestershire",
+      "population3yrAvg": 300719.3,
+      "notifications3yrAvg": 14.0,
+      "ratePer100k": 4.7,
+      "lowerCI": 3.4,
+      "upperCI": 6.3,
+      "vsEnglandAvgPct": -50.5
+    },
+    "E06000030": {
+      "areaName": "Swindon",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Swindon",
+      "population3yrAvg": 240046.3,
+      "notifications3yrAvg": 22.7,
+      "ratePer100k": 9.4,
+      "lowerCI": 7.3,
+      "upperCI": 12.0,
+      "vsEnglandAvgPct": -1.1
+    },
+    "E06000027": {
+      "areaName": "Torbay",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Torbay",
+      "population3yrAvg": 139768.3,
+      "notifications3yrAvg": 6.3,
+      "ratePer100k": 4.5,
+      "lowerCI": 2.7,
+      "upperCI": 7.1,
+      "vsEnglandAvgPct": -52.6
+    },
+    "E06000054": {
+      "areaName": "Wiltshire",
+      "ukhsaRegion": "South West",
+      "parentUtla": "Wiltshire",
+      "population3yrAvg": 519888.0,
+      "notifications3yrAvg": 11.0,
+      "ratePer100k": 2.1,
+      "lowerCI": 1.5,
+      "upperCI": 3.0,
+      "vsEnglandAvgPct": -77.9
+    },
+    "E06000047": {
+      "areaName": "County Durham",
+      "ukhsaRegion": "North East",
+      "parentUtla": "County Durham",
+      "population3yrAvg": 533254.3,
+      "notifications3yrAvg": 3.7,
+      "ratePer100k": 0.7,
+      "lowerCI": 0.3,
+      "upperCI": 1.2,
+      "vsEnglandAvgPct": -92.6
+    },
+    "E06000005": {
+      "areaName": "Darlington",
+      "ukhsaRegion": "North East",
+      "parentUtla": "Darlington",
+      "population3yrAvg": 110958.3,
+      "notifications3yrAvg": 2.0,
+      "ratePer100k": 1.8,
+      "lowerCI": 0.7,
+      "upperCI": 3.9,
+      "vsEnglandAvgPct": -81.1
+    },
+    "E08000037": {
+      "areaName": "Gateshead",
+      "ukhsaRegion": "North East",
+      "parentUtla": "Gateshead",
+      "population3yrAvg": 200652.0,
+      "notifications3yrAvg": 6.3,
+      "ratePer100k": 3.2,
+      "lowerCI": 1.9,
+      "upperCI": 4.9,
+      "vsEnglandAvgPct": -66.3
+    },
+    "E06000001": {
+      "areaName": "Hartlepool",
+      "ukhsaRegion": "North East",
+      "parentUtla": "Hartlepool",
+      "population3yrAvg": 96094.3,
+      "notifications3yrAvg": 3.0,
+      "ratePer100k": 3.1,
+      "lowerCI": 1.4,
+      "upperCI": 5.9,
+      "vsEnglandAvgPct": -67.4
+    },
+    "E06000002": {
+      "areaName": "Middlesbrough",
+      "ukhsaRegion": "North East",
+      "parentUtla": "Middlesbrough",
+      "population3yrAvg": 153046.3,
+      "notifications3yrAvg": 15.0,
+      "ratePer100k": 9.8,
+      "lowerCI": 7.1,
+      "upperCI": 13.1,
+      "vsEnglandAvgPct": 3.2
+    },
+    "E08000021": {
+      "areaName": "Newcastle upon Tyne",
+      "ukhsaRegion": "North East",
+      "parentUtla": "Newcastle upon Tyne",
+      "population3yrAvg": 313004.3,
+      "notifications3yrAvg": 32.0,
+      "ratePer100k": 10.2,
+      "lowerCI": 8.3,
+      "upperCI": 12.5,
+      "vsEnglandAvgPct": 7.4
+    },
+    "E08000022": {
+      "areaName": "North Tyneside",
+      "ukhsaRegion": "North East",
+      "parentUtla": "North Tyneside",
+      "population3yrAvg": 212834.0,
+      "notifications3yrAvg": 6.7,
+      "ratePer100k": 3.1,
+      "lowerCI": 1.9,
+      "upperCI": 4.8,
+      "vsEnglandAvgPct": -67.4
+    },
+    "E06000057": {
+      "areaName": "Northumberland",
+      "ukhsaRegion": "North East",
+      "parentUtla": "Northumberland",
+      "population3yrAvg": 327970.7,
+      "notifications3yrAvg": 5.0,
+      "ratePer100k": 1.5,
+      "lowerCI": 0.9,
+      "upperCI": 2.5,
+      "vsEnglandAvgPct": -84.2
+    },
+    "E06000003": {
+      "areaName": "Redcar and Cleveland",
+      "ukhsaRegion": "North East",
+      "parentUtla": "Redcar and Cleveland",
+      "population3yrAvg": 138192.0,
+      "notifications3yrAvg": 2.3,
+      "ratePer100k": 1.7,
+      "lowerCI": 0.7,
+      "upperCI": 3.5,
+      "vsEnglandAvgPct": -82.1
+    },
+    "E08000023": {
+      "areaName": "South Tyneside",
+      "ukhsaRegion": "North East",
+      "parentUtla": "South Tyneside",
+      "population3yrAvg": 150168.0,
+      "notifications3yrAvg": 5.0,
+      "ratePer100k": 3.3,
+      "lowerCI": 1.9,
+      "upperCI": 5.5,
+      "vsEnglandAvgPct": -65.3
+    },
+    "E06000004": {
+      "areaName": "Stockton-on-Tees",
+      "ukhsaRegion": "North East",
+      "parentUtla": "Stockton-on-Tees",
+      "population3yrAvg": 203773.7,
+      "notifications3yrAvg": 11.3,
+      "ratePer100k": 5.6,
+      "lowerCI": 3.9,
+      "upperCI": 7.8,
+      "vsEnglandAvgPct": -41.1
+    },
+    "E08000024": {
+      "areaName": "Sunderland",
+      "ukhsaRegion": "North East",
+      "parentUtla": "Sunderland",
+      "population3yrAvg": 283408.3,
+      "notifications3yrAvg": 10.3,
+      "ratePer100k": 3.6,
+      "lowerCI": 2.5,
+      "upperCI": 5.2,
+      "vsEnglandAvgPct": -62.1
+    }
+  },
+  "countryOfBirthTimeSeries": {
+    "India": [
+      {
+        "year": 2000,
+        "notifications": 722,
+        "pctOfNonUkBorn": 17.1
+      },
+      {
+        "year": 2001,
+        "notifications": 669,
+        "pctOfNonUkBorn": 15.6
+      },
+      {
+        "year": 2002,
+        "notifications": 781,
+        "pctOfNonUkBorn": 16.2
+      },
+      {
+        "year": 2003,
+        "notifications": 789,
+        "pctOfNonUkBorn": 16.0
+      },
+      {
+        "year": 2004,
+        "notifications": 904,
+        "pctOfNonUkBorn": 17.6
+      },
+      {
+        "year": 2005,
+        "notifications": 1101,
+        "pctOfNonUkBorn": 18.8
+      },
+      {
+        "year": 2006,
+        "notifications": 1112,
+        "pctOfNonUkBorn": 18.7
+      },
+      {
+        "year": 2007,
+        "notifications": 1187,
+        "pctOfNonUkBorn": 20.5
+      },
+      {
+        "year": 2008,
+        "notifications": 1328,
+        "pctOfNonUkBorn": 22.3
+      },
+      {
+        "year": 2009,
+        "notifications": 1530,
+        "pctOfNonUkBorn": 24.7
+      },
+      {
+        "year": 2010,
+        "notifications": 1553,
+        "pctOfNonUkBorn": 26.5
+      },
+      {
+        "year": 2011,
+        "notifications": 1787,
+        "pctOfNonUkBorn": 28.3
+      },
+      {
+        "year": 2012,
+        "notifications": 1764,
+        "pctOfNonUkBorn": 29.0
+      },
+      {
+        "year": 2013,
+        "notifications": 1549,
+        "pctOfNonUkBorn": 28.6
+      },
+      {
+        "year": 2014,
+        "notifications": 1292,
+        "pctOfNonUkBorn": 27.4
+      },
+      {
+        "year": 2015,
+        "notifications": 1068,
+        "pctOfNonUkBorn": 25.4
+      },
+      {
+        "year": 2016,
+        "notifications": 1000,
+        "pctOfNonUkBorn": 24.0
+      },
+      {
+        "year": 2017,
+        "notifications": 889,
+        "pctOfNonUkBorn": 24.4
+      },
+      {
+        "year": 2018,
+        "notifications": 802,
+        "pctOfNonUkBorn": 24.1
+      },
+      {
+        "year": 2019,
+        "notifications": 806,
+        "pctOfNonUkBorn": 23.2
+      },
+      {
+        "year": 2020,
+        "notifications": 810,
+        "pctOfNonUkBorn": 26.7
+      },
+      {
+        "year": 2021,
+        "notifications": 958,
+        "pctOfNonUkBorn": 28.2
+      },
+      {
+        "year": 2022,
+        "notifications": 972,
+        "pctOfNonUkBorn": 28.1
+      },
+      {
+        "year": 2023,
+        "notifications": 1098,
+        "pctOfNonUkBorn": 28.4
+      },
+      {
+        "year": 2024,
+        "notifications": 1495,
+        "pctOfNonUkBorn": 33.3
+      }
+    ],
+    "Pakistan": [
+      {
+        "year": 2000,
+        "notifications": 676,
+        "pctOfNonUkBorn": 16.0
+      },
+      {
+        "year": 2001,
+        "notifications": 715,
+        "pctOfNonUkBorn": 16.7
+      },
+      {
+        "year": 2002,
+        "notifications": 774,
+        "pctOfNonUkBorn": 16.1
+      },
+      {
+        "year": 2003,
+        "notifications": 729,
+        "pctOfNonUkBorn": 14.8
+      },
+      {
+        "year": 2004,
+        "notifications": 700,
+        "pctOfNonUkBorn": 13.6
+      },
+      {
+        "year": 2005,
+        "notifications": 832,
+        "pctOfNonUkBorn": 14.2
+      },
+      {
+        "year": 2006,
+        "notifications": 837,
+        "pctOfNonUkBorn": 14.1
+      },
+      {
+        "year": 2007,
+        "notifications": 796,
+        "pctOfNonUkBorn": 13.8
+      },
+      {
+        "year": 2008,
+        "notifications": 882,
+        "pctOfNonUkBorn": 14.8
+      },
+      {
+        "year": 2009,
+        "notifications": 921,
+        "pctOfNonUkBorn": 14.8
+      },
+      {
+        "year": 2010,
+        "notifications": 881,
+        "pctOfNonUkBorn": 15.0
+      },
+      {
+        "year": 2011,
+        "notifications": 1061,
+        "pctOfNonUkBorn": 16.8
+      },
+      {
+        "year": 2012,
+        "notifications": 1047,
+        "pctOfNonUkBorn": 17.2
+      },
+      {
+        "year": 2013,
+        "notifications": 1045,
+        "pctOfNonUkBorn": 19.3
+      },
+      {
+        "year": 2014,
+        "notifications": 798,
+        "pctOfNonUkBorn": 16.9
+      },
+      {
+        "year": 2015,
+        "notifications": 641,
+        "pctOfNonUkBorn": 15.2
+      },
+      {
+        "year": 2016,
+        "notifications": 638,
+        "pctOfNonUkBorn": 15.3
+      },
+      {
+        "year": 2017,
+        "notifications": 515,
+        "pctOfNonUkBorn": 14.2
+      },
+      {
+        "year": 2018,
+        "notifications": 457,
+        "pctOfNonUkBorn": 13.7
+      },
+      {
+        "year": 2019,
+        "notifications": 467,
+        "pctOfNonUkBorn": 13.4
+      },
+      {
+        "year": 2020,
+        "notifications": 432,
+        "pctOfNonUkBorn": 14.3
+      },
+      {
+        "year": 2021,
+        "notifications": 479,
+        "pctOfNonUkBorn": 14.1
+      },
+      {
+        "year": 2022,
+        "notifications": 485,
+        "pctOfNonUkBorn": 14.0
+      },
+      {
+        "year": 2023,
+        "notifications": 506,
+        "pctOfNonUkBorn": 13.1
+      },
+      {
+        "year": 2024,
+        "notifications": 618,
+        "pctOfNonUkBorn": 13.7
+      }
+    ],
+    "Romania": [
+      {
+        "year": 2000,
+        "notifications": 5,
+        "pctOfNonUkBorn": 0.1
+      },
+      {
+        "year": 2001,
+        "notifications": 5,
+        "pctOfNonUkBorn": 0.1
+      },
+      {
+        "year": 2002,
+        "notifications": 8,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2003,
+        "notifications": 11,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2004,
+        "notifications": 8,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2005,
+        "notifications": 11,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2006,
+        "notifications": 6,
+        "pctOfNonUkBorn": 0.1
+      },
+      {
+        "year": 2007,
+        "notifications": 15,
+        "pctOfNonUkBorn": 0.3
+      },
+      {
+        "year": 2008,
+        "notifications": 19,
+        "pctOfNonUkBorn": 0.3
+      },
+      {
+        "year": 2009,
+        "notifications": 25,
+        "pctOfNonUkBorn": 0.4
+      },
+      {
+        "year": 2010,
+        "notifications": 44,
+        "pctOfNonUkBorn": 0.8
+      },
+      {
+        "year": 2011,
+        "notifications": 54,
+        "pctOfNonUkBorn": 0.9
+      },
+      {
+        "year": 2012,
+        "notifications": 77,
+        "pctOfNonUkBorn": 1.3
+      },
+      {
+        "year": 2013,
+        "notifications": 69,
+        "pctOfNonUkBorn": 1.3
+      },
+      {
+        "year": 2014,
+        "notifications": 89,
+        "pctOfNonUkBorn": 1.9
+      },
+      {
+        "year": 2015,
+        "notifications": 120,
+        "pctOfNonUkBorn": 2.9
+      },
+      {
+        "year": 2016,
+        "notifications": 175,
+        "pctOfNonUkBorn": 4.2
+      },
+      {
+        "year": 2017,
+        "notifications": 204,
+        "pctOfNonUkBorn": 5.6
+      },
+      {
+        "year": 2018,
+        "notifications": 194,
+        "pctOfNonUkBorn": 5.8
+      },
+      {
+        "year": 2019,
+        "notifications": 219,
+        "pctOfNonUkBorn": 6.3
+      },
+      {
+        "year": 2020,
+        "notifications": 174,
+        "pctOfNonUkBorn": 5.7
+      },
+      {
+        "year": 2021,
+        "notifications": 206,
+        "pctOfNonUkBorn": 6.1
+      },
+      {
+        "year": 2022,
+        "notifications": 207,
+        "pctOfNonUkBorn": 6.0
+      },
+      {
+        "year": 2023,
+        "notifications": 170,
+        "pctOfNonUkBorn": 4.4
+      },
+      {
+        "year": 2024,
+        "notifications": 173,
+        "pctOfNonUkBorn": 3.8
+      }
+    ],
+    "Bangladesh": [
+      {
+        "year": 2000,
+        "notifications": 102,
+        "pctOfNonUkBorn": 2.4
+      },
+      {
+        "year": 2001,
+        "notifications": 109,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2002,
+        "notifications": 159,
+        "pctOfNonUkBorn": 3.3
+      },
+      {
+        "year": 2003,
+        "notifications": 182,
+        "pctOfNonUkBorn": 3.7
+      },
+      {
+        "year": 2004,
+        "notifications": 183,
+        "pctOfNonUkBorn": 3.6
+      },
+      {
+        "year": 2005,
+        "notifications": 191,
+        "pctOfNonUkBorn": 3.3
+      },
+      {
+        "year": 2006,
+        "notifications": 182,
+        "pctOfNonUkBorn": 3.1
+      },
+      {
+        "year": 2007,
+        "notifications": 243,
+        "pctOfNonUkBorn": 4.2
+      },
+      {
+        "year": 2008,
+        "notifications": 240,
+        "pctOfNonUkBorn": 4.0
+      },
+      {
+        "year": 2009,
+        "notifications": 235,
+        "pctOfNonUkBorn": 3.8
+      },
+      {
+        "year": 2010,
+        "notifications": 259,
+        "pctOfNonUkBorn": 4.4
+      },
+      {
+        "year": 2011,
+        "notifications": 285,
+        "pctOfNonUkBorn": 4.5
+      },
+      {
+        "year": 2012,
+        "notifications": 277,
+        "pctOfNonUkBorn": 4.6
+      },
+      {
+        "year": 2013,
+        "notifications": 237,
+        "pctOfNonUkBorn": 4.4
+      },
+      {
+        "year": 2014,
+        "notifications": 208,
+        "pctOfNonUkBorn": 4.4
+      },
+      {
+        "year": 2015,
+        "notifications": 209,
+        "pctOfNonUkBorn": 5.0
+      },
+      {
+        "year": 2016,
+        "notifications": 174,
+        "pctOfNonUkBorn": 4.2
+      },
+      {
+        "year": 2017,
+        "notifications": 139,
+        "pctOfNonUkBorn": 3.8
+      },
+      {
+        "year": 2018,
+        "notifications": 131,
+        "pctOfNonUkBorn": 3.9
+      },
+      {
+        "year": 2019,
+        "notifications": 132,
+        "pctOfNonUkBorn": 3.8
+      },
+      {
+        "year": 2020,
+        "notifications": 94,
+        "pctOfNonUkBorn": 3.1
+      },
+      {
+        "year": 2021,
+        "notifications": 111,
+        "pctOfNonUkBorn": 3.3
+      },
+      {
+        "year": 2022,
+        "notifications": 122,
+        "pctOfNonUkBorn": 3.5
+      },
+      {
+        "year": 2023,
+        "notifications": 143,
+        "pctOfNonUkBorn": 3.7
+      },
+      {
+        "year": 2024,
+        "notifications": 155,
+        "pctOfNonUkBorn": 3.4
+      }
+    ],
+    "Eritrea": [
+      {
+        "year": 2000,
+        "notifications": 26,
+        "pctOfNonUkBorn": 0.6
+      },
+      {
+        "year": 2001,
+        "notifications": 18,
+        "pctOfNonUkBorn": 0.4
+      },
+      {
+        "year": 2002,
+        "notifications": 26,
+        "pctOfNonUkBorn": 0.5
+      },
+      {
+        "year": 2003,
+        "notifications": 43,
+        "pctOfNonUkBorn": 0.9
+      },
+      {
+        "year": 2004,
+        "notifications": 33,
+        "pctOfNonUkBorn": 0.6
+      },
+      {
+        "year": 2005,
+        "notifications": 43,
+        "pctOfNonUkBorn": 0.7
+      },
+      {
+        "year": 2006,
+        "notifications": 64,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2007,
+        "notifications": 66,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2008,
+        "notifications": 86,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2009,
+        "notifications": 93,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2010,
+        "notifications": 81,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2011,
+        "notifications": 98,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2012,
+        "notifications": 78,
+        "pctOfNonUkBorn": 1.3
+      },
+      {
+        "year": 2013,
+        "notifications": 58,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2014,
+        "notifications": 85,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2015,
+        "notifications": 90,
+        "pctOfNonUkBorn": 2.1
+      },
+      {
+        "year": 2016,
+        "notifications": 102,
+        "pctOfNonUkBorn": 2.4
+      },
+      {
+        "year": 2017,
+        "notifications": 99,
+        "pctOfNonUkBorn": 2.7
+      },
+      {
+        "year": 2018,
+        "notifications": 98,
+        "pctOfNonUkBorn": 2.9
+      },
+      {
+        "year": 2019,
+        "notifications": 149,
+        "pctOfNonUkBorn": 4.3
+      },
+      {
+        "year": 2020,
+        "notifications": 97,
+        "pctOfNonUkBorn": 3.2
+      },
+      {
+        "year": 2021,
+        "notifications": 132,
+        "pctOfNonUkBorn": 3.9
+      },
+      {
+        "year": 2022,
+        "notifications": 119,
+        "pctOfNonUkBorn": 3.4
+      },
+      {
+        "year": 2023,
+        "notifications": 136,
+        "pctOfNonUkBorn": 3.5
+      },
+      {
+        "year": 2024,
+        "notifications": 166,
+        "pctOfNonUkBorn": 3.7
+      }
+    ],
+    "Nigeria": [
+      {
+        "year": 2000,
+        "notifications": 47,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2001,
+        "notifications": 47,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2002,
+        "notifications": 89,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2003,
+        "notifications": 116,
+        "pctOfNonUkBorn": 2.4
+      },
+      {
+        "year": 2004,
+        "notifications": 136,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2005,
+        "notifications": 153,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2006,
+        "notifications": 154,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2007,
+        "notifications": 150,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2008,
+        "notifications": 165,
+        "pctOfNonUkBorn": 2.8
+      },
+      {
+        "year": 2009,
+        "notifications": 174,
+        "pctOfNonUkBorn": 2.8
+      },
+      {
+        "year": 2010,
+        "notifications": 169,
+        "pctOfNonUkBorn": 2.9
+      },
+      {
+        "year": 2011,
+        "notifications": 190,
+        "pctOfNonUkBorn": 3.0
+      },
+      {
+        "year": 2012,
+        "notifications": 174,
+        "pctOfNonUkBorn": 2.9
+      },
+      {
+        "year": 2013,
+        "notifications": 156,
+        "pctOfNonUkBorn": 2.9
+      },
+      {
+        "year": 2014,
+        "notifications": 117,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2015,
+        "notifications": 120,
+        "pctOfNonUkBorn": 2.9
+      },
+      {
+        "year": 2016,
+        "notifications": 99,
+        "pctOfNonUkBorn": 2.4
+      },
+      {
+        "year": 2017,
+        "notifications": 98,
+        "pctOfNonUkBorn": 2.7
+      },
+      {
+        "year": 2018,
+        "notifications": 87,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2019,
+        "notifications": 89,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2020,
+        "notifications": 77,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2021,
+        "notifications": 82,
+        "pctOfNonUkBorn": 2.4
+      },
+      {
+        "year": 2022,
+        "notifications": 117,
+        "pctOfNonUkBorn": 3.4
+      },
+      {
+        "year": 2023,
+        "notifications": 176,
+        "pctOfNonUkBorn": 4.6
+      },
+      {
+        "year": 2024,
+        "notifications": 208,
+        "pctOfNonUkBorn": 4.6
+      }
+    ],
+    "Somalia": [
+      {
+        "year": 2000,
+        "notifications": 362,
+        "pctOfNonUkBorn": 8.6
+      },
+      {
+        "year": 2001,
+        "notifications": 360,
+        "pctOfNonUkBorn": 8.4
+      },
+      {
+        "year": 2002,
+        "notifications": 426,
+        "pctOfNonUkBorn": 8.8
+      },
+      {
+        "year": 2003,
+        "notifications": 473,
+        "pctOfNonUkBorn": 9.6
+      },
+      {
+        "year": 2004,
+        "notifications": 532,
+        "pctOfNonUkBorn": 10.4
+      },
+      {
+        "year": 2005,
+        "notifications": 581,
+        "pctOfNonUkBorn": 9.9
+      },
+      {
+        "year": 2006,
+        "notifications": 641,
+        "pctOfNonUkBorn": 10.8
+      },
+      {
+        "year": 2007,
+        "notifications": 551,
+        "pctOfNonUkBorn": 9.5
+      },
+      {
+        "year": 2008,
+        "notifications": 532,
+        "pctOfNonUkBorn": 9.0
+      },
+      {
+        "year": 2009,
+        "notifications": 535,
+        "pctOfNonUkBorn": 8.6
+      },
+      {
+        "year": 2010,
+        "notifications": 439,
+        "pctOfNonUkBorn": 7.5
+      },
+      {
+        "year": 2011,
+        "notifications": 415,
+        "pctOfNonUkBorn": 6.6
+      },
+      {
+        "year": 2012,
+        "notifications": 377,
+        "pctOfNonUkBorn": 6.2
+      },
+      {
+        "year": 2013,
+        "notifications": 291,
+        "pctOfNonUkBorn": 5.4
+      },
+      {
+        "year": 2014,
+        "notifications": 233,
+        "pctOfNonUkBorn": 4.9
+      },
+      {
+        "year": 2015,
+        "notifications": 177,
+        "pctOfNonUkBorn": 4.2
+      },
+      {
+        "year": 2016,
+        "notifications": 209,
+        "pctOfNonUkBorn": 5.0
+      },
+      {
+        "year": 2017,
+        "notifications": 129,
+        "pctOfNonUkBorn": 3.5
+      },
+      {
+        "year": 2018,
+        "notifications": 134,
+        "pctOfNonUkBorn": 4.0
+      },
+      {
+        "year": 2019,
+        "notifications": 117,
+        "pctOfNonUkBorn": 3.4
+      },
+      {
+        "year": 2020,
+        "notifications": 118,
+        "pctOfNonUkBorn": 3.9
+      },
+      {
+        "year": 2021,
+        "notifications": 133,
+        "pctOfNonUkBorn": 3.9
+      },
+      {
+        "year": 2022,
+        "notifications": 92,
+        "pctOfNonUkBorn": 2.7
+      },
+      {
+        "year": 2023,
+        "notifications": 112,
+        "pctOfNonUkBorn": 2.9
+      },
+      {
+        "year": 2024,
+        "notifications": 107,
+        "pctOfNonUkBorn": 2.4
+      }
+    ],
+    "Philippines": [
+      {
+        "year": 2000,
+        "notifications": 28,
+        "pctOfNonUkBorn": 0.7
+      },
+      {
+        "year": 2001,
+        "notifications": 35,
+        "pctOfNonUkBorn": 0.8
+      },
+      {
+        "year": 2002,
+        "notifications": 51,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2003,
+        "notifications": 52,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2004,
+        "notifications": 74,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2005,
+        "notifications": 69,
+        "pctOfNonUkBorn": 1.2
+      },
+      {
+        "year": 2006,
+        "notifications": 86,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2007,
+        "notifications": 92,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2008,
+        "notifications": 111,
+        "pctOfNonUkBorn": 1.9
+      },
+      {
+        "year": 2009,
+        "notifications": 114,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2010,
+        "notifications": 131,
+        "pctOfNonUkBorn": 2.2
+      },
+      {
+        "year": 2011,
+        "notifications": 101,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2012,
+        "notifications": 126,
+        "pctOfNonUkBorn": 2.1
+      },
+      {
+        "year": 2013,
+        "notifications": 123,
+        "pctOfNonUkBorn": 2.3
+      },
+      {
+        "year": 2014,
+        "notifications": 113,
+        "pctOfNonUkBorn": 2.4
+      },
+      {
+        "year": 2015,
+        "notifications": 106,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2016,
+        "notifications": 106,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2017,
+        "notifications": 78,
+        "pctOfNonUkBorn": 2.1
+      },
+      {
+        "year": 2018,
+        "notifications": 92,
+        "pctOfNonUkBorn": 2.8
+      },
+      {
+        "year": 2019,
+        "notifications": 100,
+        "pctOfNonUkBorn": 2.9
+      },
+      {
+        "year": 2020,
+        "notifications": 83,
+        "pctOfNonUkBorn": 2.7
+      },
+      {
+        "year": 2021,
+        "notifications": 110,
+        "pctOfNonUkBorn": 3.2
+      },
+      {
+        "year": 2022,
+        "notifications": 91,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2023,
+        "notifications": 102,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2024,
+        "notifications": 126,
+        "pctOfNonUkBorn": 2.8
+      }
+    ],
+    "Afghanistan": [
+      {
+        "year": 2000,
+        "notifications": 43,
+        "pctOfNonUkBorn": 1.0
+      },
+      {
+        "year": 2001,
+        "notifications": 66,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2002,
+        "notifications": 100,
+        "pctOfNonUkBorn": 2.1
+      },
+      {
+        "year": 2003,
+        "notifications": 65,
+        "pctOfNonUkBorn": 1.3
+      },
+      {
+        "year": 2004,
+        "notifications": 78,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2005,
+        "notifications": 83,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2006,
+        "notifications": 73,
+        "pctOfNonUkBorn": 1.2
+      },
+      {
+        "year": 2007,
+        "notifications": 83,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2008,
+        "notifications": 92,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2009,
+        "notifications": 97,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2010,
+        "notifications": 95,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2011,
+        "notifications": 104,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2012,
+        "notifications": 76,
+        "pctOfNonUkBorn": 1.2
+      },
+      {
+        "year": 2013,
+        "notifications": 66,
+        "pctOfNonUkBorn": 1.2
+      },
+      {
+        "year": 2014,
+        "notifications": 95,
+        "pctOfNonUkBorn": 2.0
+      },
+      {
+        "year": 2015,
+        "notifications": 69,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2016,
+        "notifications": 54,
+        "pctOfNonUkBorn": 1.3
+      },
+      {
+        "year": 2017,
+        "notifications": 68,
+        "pctOfNonUkBorn": 1.9
+      },
+      {
+        "year": 2018,
+        "notifications": 48,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2019,
+        "notifications": 66,
+        "pctOfNonUkBorn": 1.9
+      },
+      {
+        "year": 2020,
+        "notifications": 55,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2021,
+        "notifications": 67,
+        "pctOfNonUkBorn": 2.0
+      },
+      {
+        "year": 2022,
+        "notifications": 93,
+        "pctOfNonUkBorn": 2.7
+      },
+      {
+        "year": 2023,
+        "notifications": 139,
+        "pctOfNonUkBorn": 3.6
+      },
+      {
+        "year": 2024,
+        "notifications": 106,
+        "pctOfNonUkBorn": 2.4
+      }
+    ],
+    "Poland": [
+      {
+        "year": 2000,
+        "notifications": 10,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2001,
+        "notifications": 9,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2002,
+        "notifications": 10,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2003,
+        "notifications": 15,
+        "pctOfNonUkBorn": 0.3
+      },
+      {
+        "year": 2004,
+        "notifications": 13,
+        "pctOfNonUkBorn": 0.3
+      },
+      {
+        "year": 2005,
+        "notifications": 12,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2006,
+        "notifications": 30,
+        "pctOfNonUkBorn": 0.5
+      },
+      {
+        "year": 2007,
+        "notifications": 36,
+        "pctOfNonUkBorn": 0.6
+      },
+      {
+        "year": 2008,
+        "notifications": 53,
+        "pctOfNonUkBorn": 0.9
+      },
+      {
+        "year": 2009,
+        "notifications": 43,
+        "pctOfNonUkBorn": 0.7
+      },
+      {
+        "year": 2010,
+        "notifications": 48,
+        "pctOfNonUkBorn": 0.8
+      },
+      {
+        "year": 2011,
+        "notifications": 61,
+        "pctOfNonUkBorn": 1.0
+      },
+      {
+        "year": 2012,
+        "notifications": 60,
+        "pctOfNonUkBorn": 1.0
+      },
+      {
+        "year": 2013,
+        "notifications": 63,
+        "pctOfNonUkBorn": 1.2
+      },
+      {
+        "year": 2014,
+        "notifications": 71,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2015,
+        "notifications": 72,
+        "pctOfNonUkBorn": 1.7
+      },
+      {
+        "year": 2016,
+        "notifications": 70,
+        "pctOfNonUkBorn": 1.7
+      },
+      {
+        "year": 2017,
+        "notifications": 75,
+        "pctOfNonUkBorn": 2.1
+      },
+      {
+        "year": 2018,
+        "notifications": 82,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2019,
+        "notifications": 74,
+        "pctOfNonUkBorn": 2.1
+      },
+      {
+        "year": 2020,
+        "notifications": 51,
+        "pctOfNonUkBorn": 1.7
+      },
+      {
+        "year": 2021,
+        "notifications": 64,
+        "pctOfNonUkBorn": 1.9
+      },
+      {
+        "year": 2022,
+        "notifications": 83,
+        "pctOfNonUkBorn": 2.4
+      },
+      {
+        "year": 2023,
+        "notifications": 56,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2024,
+        "notifications": 65,
+        "pctOfNonUkBorn": 1.4
+      }
+    ],
+    "Nepal": [
+      {
+        "year": 2000,
+        "notifications": 20,
+        "pctOfNonUkBorn": 0.5
+      },
+      {
+        "year": 2001,
+        "notifications": 28,
+        "pctOfNonUkBorn": 0.7
+      },
+      {
+        "year": 2002,
+        "notifications": 33,
+        "pctOfNonUkBorn": 0.7
+      },
+      {
+        "year": 2003,
+        "notifications": 34,
+        "pctOfNonUkBorn": 0.7
+      },
+      {
+        "year": 2004,
+        "notifications": 37,
+        "pctOfNonUkBorn": 0.7
+      },
+      {
+        "year": 2005,
+        "notifications": 36,
+        "pctOfNonUkBorn": 0.6
+      },
+      {
+        "year": 2006,
+        "notifications": 67,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2007,
+        "notifications": 69,
+        "pctOfNonUkBorn": 1.2
+      },
+      {
+        "year": 2008,
+        "notifications": 90,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2009,
+        "notifications": 114,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2010,
+        "notifications": 175,
+        "pctOfNonUkBorn": 3.0
+      },
+      {
+        "year": 2011,
+        "notifications": 214,
+        "pctOfNonUkBorn": 3.4
+      },
+      {
+        "year": 2012,
+        "notifications": 210,
+        "pctOfNonUkBorn": 3.5
+      },
+      {
+        "year": 2013,
+        "notifications": 163,
+        "pctOfNonUkBorn": 3.0
+      },
+      {
+        "year": 2014,
+        "notifications": 167,
+        "pctOfNonUkBorn": 3.5
+      },
+      {
+        "year": 2015,
+        "notifications": 127,
+        "pctOfNonUkBorn": 3.0
+      },
+      {
+        "year": 2016,
+        "notifications": 109,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2017,
+        "notifications": 94,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2018,
+        "notifications": 74,
+        "pctOfNonUkBorn": 2.2
+      },
+      {
+        "year": 2019,
+        "notifications": 86,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2020,
+        "notifications": 89,
+        "pctOfNonUkBorn": 2.9
+      },
+      {
+        "year": 2021,
+        "notifications": 87,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2022,
+        "notifications": 75,
+        "pctOfNonUkBorn": 2.2
+      },
+      {
+        "year": 2023,
+        "notifications": 98,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2024,
+        "notifications": 101,
+        "pctOfNonUkBorn": 2.2
+      }
+    ],
+    "Sudan": [
+      {
+        "year": 2000,
+        "notifications": 7,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2001,
+        "notifications": 10,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2002,
+        "notifications": 10,
+        "pctOfNonUkBorn": 0.2
+      },
+      {
+        "year": 2003,
+        "notifications": 17,
+        "pctOfNonUkBorn": 0.3
+      },
+      {
+        "year": 2004,
+        "notifications": 20,
+        "pctOfNonUkBorn": 0.4
+      },
+      {
+        "year": 2005,
+        "notifications": 23,
+        "pctOfNonUkBorn": 0.4
+      },
+      {
+        "year": 2006,
+        "notifications": 27,
+        "pctOfNonUkBorn": 0.5
+      },
+      {
+        "year": 2007,
+        "notifications": 37,
+        "pctOfNonUkBorn": 0.6
+      },
+      {
+        "year": 2008,
+        "notifications": 34,
+        "pctOfNonUkBorn": 0.6
+      },
+      {
+        "year": 2009,
+        "notifications": 20,
+        "pctOfNonUkBorn": 0.3
+      },
+      {
+        "year": 2010,
+        "notifications": 27,
+        "pctOfNonUkBorn": 0.5
+      },
+      {
+        "year": 2011,
+        "notifications": 24,
+        "pctOfNonUkBorn": 0.4
+      },
+      {
+        "year": 2012,
+        "notifications": 21,
+        "pctOfNonUkBorn": 0.3
+      },
+      {
+        "year": 2013,
+        "notifications": 33,
+        "pctOfNonUkBorn": 0.6
+      },
+      {
+        "year": 2014,
+        "notifications": 21,
+        "pctOfNonUkBorn": 0.4
+      },
+      {
+        "year": 2015,
+        "notifications": 32,
+        "pctOfNonUkBorn": 0.8
+      },
+      {
+        "year": 2016,
+        "notifications": 51,
+        "pctOfNonUkBorn": 1.2
+      },
+      {
+        "year": 2017,
+        "notifications": 64,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2018,
+        "notifications": 58,
+        "pctOfNonUkBorn": 1.7
+      },
+      {
+        "year": 2019,
+        "notifications": 66,
+        "pctOfNonUkBorn": 1.9
+      },
+      {
+        "year": 2020,
+        "notifications": 44,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2021,
+        "notifications": 58,
+        "pctOfNonUkBorn": 1.7
+      },
+      {
+        "year": 2022,
+        "notifications": 66,
+        "pctOfNonUkBorn": 1.9
+      },
+      {
+        "year": 2023,
+        "notifications": 75,
+        "pctOfNonUkBorn": 1.9
+      },
+      {
+        "year": 2024,
+        "notifications": 98,
+        "pctOfNonUkBorn": 2.2
+      }
+    ],
+    "Srilanka": [
+      {
+        "year": 2000,
+        "notifications": 50,
+        "pctOfNonUkBorn": 1.2
+      },
+      {
+        "year": 2001,
+        "notifications": 66,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2002,
+        "notifications": 82,
+        "pctOfNonUkBorn": 1.7
+      },
+      {
+        "year": 2003,
+        "notifications": 66,
+        "pctOfNonUkBorn": 1.3
+      },
+      {
+        "year": 2004,
+        "notifications": 81,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2005,
+        "notifications": 85,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2006,
+        "notifications": 62,
+        "pctOfNonUkBorn": 1.0
+      },
+      {
+        "year": 2007,
+        "notifications": 92,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2008,
+        "notifications": 86,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2009,
+        "notifications": 91,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2010,
+        "notifications": 86,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2011,
+        "notifications": 107,
+        "pctOfNonUkBorn": 1.7
+      },
+      {
+        "year": 2012,
+        "notifications": 97,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2013,
+        "notifications": 96,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2014,
+        "notifications": 76,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2015,
+        "notifications": 59,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2016,
+        "notifications": 83,
+        "pctOfNonUkBorn": 2.0
+      },
+      {
+        "year": 2017,
+        "notifications": 54,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2018,
+        "notifications": 43,
+        "pctOfNonUkBorn": 1.3
+      },
+      {
+        "year": 2019,
+        "notifications": 55,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2020,
+        "notifications": 38,
+        "pctOfNonUkBorn": 1.3
+      },
+      {
+        "year": 2021,
+        "notifications": 46,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2022,
+        "notifications": 53,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2023,
+        "notifications": 54,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2024,
+        "notifications": 58,
+        "pctOfNonUkBorn": 1.3
+      }
+    ],
+    "Ethiopia": [
+      {
+        "year": 2000,
+        "notifications": 29,
+        "pctOfNonUkBorn": 0.7
+      },
+      {
+        "year": 2001,
+        "notifications": 37,
+        "pctOfNonUkBorn": 0.9
+      },
+      {
+        "year": 2002,
+        "notifications": 52,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2003,
+        "notifications": 48,
+        "pctOfNonUkBorn": 1.0
+      },
+      {
+        "year": 2004,
+        "notifications": 55,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2005,
+        "notifications": 44,
+        "pctOfNonUkBorn": 0.8
+      },
+      {
+        "year": 2006,
+        "notifications": 45,
+        "pctOfNonUkBorn": 0.8
+      },
+      {
+        "year": 2007,
+        "notifications": 64,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2008,
+        "notifications": 52,
+        "pctOfNonUkBorn": 0.9
+      },
+      {
+        "year": 2009,
+        "notifications": 54,
+        "pctOfNonUkBorn": 0.9
+      },
+      {
+        "year": 2010,
+        "notifications": 48,
+        "pctOfNonUkBorn": 0.8
+      },
+      {
+        "year": 2011,
+        "notifications": 58,
+        "pctOfNonUkBorn": 0.9
+      },
+      {
+        "year": 2012,
+        "notifications": 54,
+        "pctOfNonUkBorn": 0.9
+      },
+      {
+        "year": 2013,
+        "notifications": 33,
+        "pctOfNonUkBorn": 0.6
+      },
+      {
+        "year": 2014,
+        "notifications": 37,
+        "pctOfNonUkBorn": 0.8
+      },
+      {
+        "year": 2015,
+        "notifications": 37,
+        "pctOfNonUkBorn": 0.9
+      },
+      {
+        "year": 2016,
+        "notifications": 40,
+        "pctOfNonUkBorn": 1.0
+      },
+      {
+        "year": 2017,
+        "notifications": 52,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2018,
+        "notifications": 47,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2019,
+        "notifications": 34,
+        "pctOfNonUkBorn": 1.0
+      },
+      {
+        "year": 2020,
+        "notifications": 33,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2021,
+        "notifications": 30,
+        "pctOfNonUkBorn": 0.9
+      },
+      {
+        "year": 2022,
+        "notifications": 48,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2023,
+        "notifications": 45,
+        "pctOfNonUkBorn": 1.2
+      },
+      {
+        "year": 2024,
+        "notifications": 47,
+        "pctOfNonUkBorn": 1.0
+      }
+    ],
+    "Kenya": [
+      {
+        "year": 2000,
+        "notifications": 92,
+        "pctOfNonUkBorn": 2.2
+      },
+      {
+        "year": 2001,
+        "notifications": 109,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2002,
+        "notifications": 110,
+        "pctOfNonUkBorn": 2.3
+      },
+      {
+        "year": 2003,
+        "notifications": 109,
+        "pctOfNonUkBorn": 2.2
+      },
+      {
+        "year": 2004,
+        "notifications": 130,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2005,
+        "notifications": 134,
+        "pctOfNonUkBorn": 2.3
+      },
+      {
+        "year": 2006,
+        "notifications": 106,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2007,
+        "notifications": 126,
+        "pctOfNonUkBorn": 2.2
+      },
+      {
+        "year": 2008,
+        "notifications": 124,
+        "pctOfNonUkBorn": 2.1
+      },
+      {
+        "year": 2009,
+        "notifications": 111,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2010,
+        "notifications": 96,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2011,
+        "notifications": 116,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2012,
+        "notifications": 95,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2013,
+        "notifications": 85,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2014,
+        "notifications": 80,
+        "pctOfNonUkBorn": 1.7
+      },
+      {
+        "year": 2015,
+        "notifications": 61,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2016,
+        "notifications": 59,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2017,
+        "notifications": 55,
+        "pctOfNonUkBorn": 1.5
+      },
+      {
+        "year": 2018,
+        "notifications": 53,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2019,
+        "notifications": 42,
+        "pctOfNonUkBorn": 1.2
+      },
+      {
+        "year": 2020,
+        "notifications": 50,
+        "pctOfNonUkBorn": 1.7
+      },
+      {
+        "year": 2021,
+        "notifications": 37,
+        "pctOfNonUkBorn": 1.1
+      },
+      {
+        "year": 2022,
+        "notifications": 47,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2023,
+        "notifications": 53,
+        "pctOfNonUkBorn": 1.4
+      },
+      {
+        "year": 2024,
+        "notifications": 60,
+        "pctOfNonUkBorn": 1.3
+      }
+    ],
+    "Zimbabwe": [
+      {
+        "year": 2000,
+        "notifications": 78,
+        "pctOfNonUkBorn": 1.8
+      },
+      {
+        "year": 2001,
+        "notifications": 110,
+        "pctOfNonUkBorn": 2.6
+      },
+      {
+        "year": 2002,
+        "notifications": 240,
+        "pctOfNonUkBorn": 5.0
+      },
+      {
+        "year": 2003,
+        "notifications": 275,
+        "pctOfNonUkBorn": 5.6
+      },
+      {
+        "year": 2004,
+        "notifications": 270,
+        "pctOfNonUkBorn": 5.3
+      },
+      {
+        "year": 2005,
+        "notifications": 269,
+        "pctOfNonUkBorn": 4.6
+      },
+      {
+        "year": 2006,
+        "notifications": 242,
+        "pctOfNonUkBorn": 4.1
+      },
+      {
+        "year": 2007,
+        "notifications": 203,
+        "pctOfNonUkBorn": 3.5
+      },
+      {
+        "year": 2008,
+        "notifications": 201,
+        "pctOfNonUkBorn": 3.4
+      },
+      {
+        "year": 2009,
+        "notifications": 158,
+        "pctOfNonUkBorn": 2.5
+      },
+      {
+        "year": 2010,
+        "notifications": 189,
+        "pctOfNonUkBorn": 3.2
+      },
+      {
+        "year": 2011,
+        "notifications": 152,
+        "pctOfNonUkBorn": 2.4
+      },
+      {
+        "year": 2012,
+        "notifications": 129,
+        "pctOfNonUkBorn": 2.1
+      },
+      {
+        "year": 2013,
+        "notifications": 105,
+        "pctOfNonUkBorn": 1.9
+      },
+      {
+        "year": 2014,
+        "notifications": 107,
+        "pctOfNonUkBorn": 2.3
+      },
+      {
+        "year": 2015,
+        "notifications": 102,
+        "pctOfNonUkBorn": 2.4
+      },
+      {
+        "year": 2016,
+        "notifications": 83,
+        "pctOfNonUkBorn": 2.0
+      },
+      {
+        "year": 2017,
+        "notifications": 71,
+        "pctOfNonUkBorn": 2.0
+      },
+      {
+        "year": 2018,
+        "notifications": 53,
+        "pctOfNonUkBorn": 1.6
+      },
+      {
+        "year": 2019,
+        "notifications": 67,
+        "pctOfNonUkBorn": 1.9
+      },
+      {
+        "year": 2020,
+        "notifications": 52,
+        "pctOfNonUkBorn": 1.7
+      },
+      {
+        "year": 2021,
+        "notifications": 44,
+        "pctOfNonUkBorn": 1.3
+      },
+      {
+        "year": 2022,
+        "notifications": 44,
+        "pctOfNonUkBorn": 1.3
+      },
+      {
+        "year": 2023,
+        "notifications": 108,
+        "pctOfNonUkBorn": 2.8
+      },
+      {
+        "year": 2024,
+        "notifications": 85,
+        "pctOfNonUkBorn": 1.9
+      }
+    ],
+    "Other": [
+      {
+        "year": 2000,
+        "notifications": 1920,
+        "pctOfNonUkBorn": 45.5
+      },
+      {
+        "year": 2001,
+        "notifications": 1889,
+        "pctOfNonUkBorn": 44.1
+      },
+      {
+        "year": 2002,
+        "notifications": 1869,
+        "pctOfNonUkBorn": 38.8
+      },
+      {
+        "year": 2003,
+        "notifications": 1903,
+        "pctOfNonUkBorn": 38.6
+      },
+      {
+        "year": 2004,
+        "notifications": 1882,
+        "pctOfNonUkBorn": 36.6
+      },
+      {
+        "year": 2005,
+        "notifications": 2186,
+        "pctOfNonUkBorn": 37.3
+      },
+      {
+        "year": 2006,
+        "notifications": 2220,
+        "pctOfNonUkBorn": 37.3
+      },
+      {
+        "year": 2007,
+        "notifications": 1968,
+        "pctOfNonUkBorn": 34.1
+      },
+      {
+        "year": 2008,
+        "notifications": 1847,
+        "pctOfNonUkBorn": 31.1
+      },
+      {
+        "year": 2009,
+        "notifications": 1888,
+        "pctOfNonUkBorn": 30.4
+      },
+      {
+        "year": 2010,
+        "notifications": 1541,
+        "pctOfNonUkBorn": 26.3
+      },
+      {
+        "year": 2011,
+        "notifications": 1495,
+        "pctOfNonUkBorn": 23.6
+      },
+      {
+        "year": 2012,
+        "notifications": 1421,
+        "pctOfNonUkBorn": 23.4
+      },
+      {
+        "year": 2013,
+        "notifications": 1253,
+        "pctOfNonUkBorn": 23.1
+      },
+      {
+        "year": 2014,
+        "notifications": 1129,
+        "pctOfNonUkBorn": 23.9
+      },
+      {
+        "year": 2015,
+        "notifications": 1114,
+        "pctOfNonUkBorn": 26.5
+      },
+      {
+        "year": 2016,
+        "notifications": 1115,
+        "pctOfNonUkBorn": 26.8
+      },
+      {
+        "year": 2017,
+        "notifications": 955,
+        "pctOfNonUkBorn": 26.2
+      },
+      {
+        "year": 2018,
+        "notifications": 880,
+        "pctOfNonUkBorn": 26.4
+      },
+      {
+        "year": 2019,
+        "notifications": 912,
+        "pctOfNonUkBorn": 26.2
+      },
+      {
+        "year": 2020,
+        "notifications": 733,
+        "pctOfNonUkBorn": 24.2
+      },
+      {
+        "year": 2021,
+        "notifications": 753,
+        "pctOfNonUkBorn": 22.2
+      },
+      {
+        "year": 2022,
+        "notifications": 739,
+        "pctOfNonUkBorn": 21.4
+      },
+      {
+        "year": 2023,
+        "notifications": 795,
+        "pctOfNonUkBorn": 20.6
+      },
+      {
+        "year": 2024,
+        "notifications": 827,
+        "pctOfNonUkBorn": 18.4
+      }
+    ]
+  }
+}

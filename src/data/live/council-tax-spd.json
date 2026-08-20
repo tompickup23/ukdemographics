@@ -1,0 +1,2816 @@
+{
+  "source": "MHCLG Council Taxbase 2024 (CTB1 LA-level data, snapshot 7 October 2024). Single-person 25% discount is Table 1.08; denominator is Table 1.07 (chargeable dwellings).",
+  "lastUpdated": "2026-04-29",
+  "caveat": "Single-person discount captures households with one adult and is the cleanest proxy for single-person occupancy. The separate 'all-but-one disregarded' (Table 1.09) and 'all residents disregarded' (Table 1.10) categories cover students, severely mentally impaired, and similar cases, surfaced separately. Snapshot is 7 October 2024.",
+  "totalLAs": 296,
+  "topLAsBySpdShare": [
+    {
+      "code": "E06000009",
+      "name": "Blackpool",
+      "spdShare": 43.0,
+      "spdCount": 30600
+    },
+    {
+      "code": "E06000018",
+      "name": "Nottingham",
+      "spdShare": 43.0,
+      "spdCount": 54725
+    },
+    {
+      "code": "E08000023",
+      "name": "South Tyneside",
+      "spdShare": 42.7,
+      "spdCount": 30663
+    },
+    {
+      "code": "E07000148",
+      "name": "Norwich",
+      "spdShare": 42.0,
+      "spdCount": 27917
+    },
+    {
+      "code": "E07000062",
+      "name": "Hastings",
+      "spdShare": 40.8,
+      "spdCount": 17818
+    },
+    {
+      "code": "E06000010",
+      "name": "Kingston upon Hull",
+      "spdShare": 40.8,
+      "spdCount": 49485
+    },
+    {
+      "code": "E06000047",
+      "name": "Durham",
+      "spdShare": 40.4,
+      "spdCount": 99417
+    },
+    {
+      "code": "E06000003",
+      "name": "Redcar and Cleveland",
+      "spdShare": 40.2,
+      "spdCount": 26201
+    },
+    {
+      "code": "E08000012",
+      "name": "Liverpool",
+      "spdShare": 40.0,
+      "spdCount": 89703
+    },
+    {
+      "code": "E08000024",
+      "name": "Sunderland",
+      "spdShare": 40.0,
+      "spdCount": 52223
+    },
+    {
+      "code": "E07000117",
+      "name": "Burnley",
+      "spdShare": 39.8,
+      "spdCount": 16694
+    },
+    {
+      "code": "E07000061",
+      "name": "Eastbourne",
+      "spdShare": 39.7,
+      "spdCount": 19267
+    },
+    {
+      "code": "E07000034",
+      "name": "Chesterfield",
+      "spdShare": 39.6,
+      "spdCount": 19947
+    },
+    {
+      "code": "E08000022",
+      "name": "North Tyneside",
+      "spdShare": 39.6,
+      "spdCount": 39671
+    },
+    {
+      "code": "E08000015",
+      "name": "Wirral",
+      "spdShare": 39.3,
+      "spdCount": 58627
+    }
+  ],
+  "bottomLAsBySpdShare": [
+    {
+      "code": "E09000015",
+      "name": "Harrow",
+      "spdShare": 24.4
+    },
+    {
+      "code": "E09000009",
+      "name": "Ealing",
+      "spdShare": 24.7
+    },
+    {
+      "code": "E09000026",
+      "name": "Redbridge",
+      "spdShare": 24.8
+    },
+    {
+      "code": "E06000039",
+      "name": "Slough",
+      "spdShare": 25.5
+    },
+    {
+      "code": "E06000041",
+      "name": "Wokingham",
+      "spdShare": 26.0
+    },
+    {
+      "code": "E07000214",
+      "name": "Surrey Heath",
+      "spdShare": 26.3
+    },
+    {
+      "code": "E06000053",
+      "name": "Isles of Scilly",
+      "spdShare": 26.4
+    },
+    {
+      "code": "E09000017",
+      "name": "Hillingdon",
+      "spdShare": 26.5
+    },
+    {
+      "code": "E09000024",
+      "name": "Merton",
+      "spdShare": 27.0
+    },
+    {
+      "code": "E09000021",
+      "name": "Kingston upon Thames",
+      "spdShare": 27.2
+    }
+  ],
+  "areas": {
+    "E07000223": {
+      "areaName": "Adur",
+      "totalDwellings": 28940,
+      "chargeableDwellings": 28449,
+      "singlePersonDiscount25": 9883,
+      "singlePersonDiscountPctOfChargeable": 34.7,
+      "disregarded25": 284,
+      "disregardedAll50": 41
+    },
+    "E07000032": {
+      "areaName": "Amber Valley",
+      "totalDwellings": 60918,
+      "chargeableDwellings": 59808,
+      "singlePersonDiscount25": 19237,
+      "singlePersonDiscountPctOfChargeable": 32.2,
+      "disregarded25": 773,
+      "disregardedAll50": 98
+    },
+    "E07000224": {
+      "areaName": "Arun",
+      "totalDwellings": 79342,
+      "chargeableDwellings": 77707,
+      "singlePersonDiscount25": 26416,
+      "singlePersonDiscountPctOfChargeable": 34.0,
+      "disregarded25": 766,
+      "disregardedAll50": 193
+    },
+    "E07000170": {
+      "areaName": "Ashfield",
+      "totalDwellings": 57858,
+      "chargeableDwellings": 57053,
+      "singlePersonDiscount25": 20293,
+      "singlePersonDiscountPctOfChargeable": 35.6,
+      "disregarded25": 571,
+      "disregardedAll50": 111
+    },
+    "E07000105": {
+      "areaName": "Ashford",
+      "totalDwellings": 59245,
+      "chargeableDwellings": 58426,
+      "singlePersonDiscount25": 18082,
+      "singlePersonDiscountPctOfChargeable": 30.9,
+      "disregarded25": 693,
+      "disregardedAll50": 125
+    },
+    "E07000200": {
+      "areaName": "Babergh",
+      "totalDwellings": 44083,
+      "chargeableDwellings": 43254,
+      "singlePersonDiscount25": 13677,
+      "singlePersonDiscountPctOfChargeable": 31.6,
+      "disregarded25": 304,
+      "disregardedAll50": 45
+    },
+    "E09000002": {
+      "areaName": "Barking and Dagenham",
+      "totalDwellings": 81219,
+      "chargeableDwellings": 79619,
+      "singlePersonDiscount25": 22632,
+      "singlePersonDiscountPctOfChargeable": 28.4,
+      "disregarded25": 1153,
+      "disregardedAll50": 53
+    },
+    "E09000003": {
+      "areaName": "Barnet",
+      "totalDwellings": 160214,
+      "chargeableDwellings": 155714,
+      "singlePersonDiscount25": 46055,
+      "singlePersonDiscountPctOfChargeable": 29.6,
+      "disregarded25": 1734,
+      "disregardedAll50": 177
+    },
+    "E08000016": {
+      "areaName": "Barnsley",
+      "totalDwellings": 115406,
+      "chargeableDwellings": 113558,
+      "singlePersonDiscount25": 42232,
+      "singlePersonDiscountPctOfChargeable": 37.2,
+      "disregarded25": 1011,
+      "disregardedAll50": 115
+    },
+    "E07000066": {
+      "areaName": "Basildon",
+      "totalDwellings": 80058,
+      "chargeableDwellings": 78845,
+      "singlePersonDiscount25": 25065,
+      "singlePersonDiscountPctOfChargeable": 31.8,
+      "disregarded25": 756,
+      "disregardedAll50": 72
+    },
+    "E07000084": {
+      "areaName": "Basingstoke and Deane",
+      "totalDwellings": 81399,
+      "chargeableDwellings": 80380,
+      "singlePersonDiscount25": 24683,
+      "singlePersonDiscountPctOfChargeable": 30.7,
+      "disregarded25": 661,
+      "disregardedAll50": 86
+    },
+    "E07000171": {
+      "areaName": "Bassetlaw",
+      "totalDwellings": 57234,
+      "chargeableDwellings": 56279,
+      "singlePersonDiscount25": 18988,
+      "singlePersonDiscountPctOfChargeable": 33.7,
+      "disregarded25": 632,
+      "disregardedAll50": 116
+    },
+    "E06000022": {
+      "areaName": "Bath and North East Somerset",
+      "totalDwellings": 86776,
+      "chargeableDwellings": 81565,
+      "singlePersonDiscount25": 26694,
+      "singlePersonDiscountPctOfChargeable": 32.7,
+      "disregarded25": 814,
+      "disregardedAll50": 103
+    },
+    "E06000055": {
+      "areaName": "Bedford",
+      "totalDwellings": 80510,
+      "chargeableDwellings": 79271,
+      "singlePersonDiscount25": 26227,
+      "singlePersonDiscountPctOfChargeable": 33.1,
+      "disregarded25": 580,
+      "disregardedAll50": 171
+    },
+    "E09000004": {
+      "areaName": "Bexley",
+      "totalDwellings": 101629,
+      "chargeableDwellings": 99823,
+      "singlePersonDiscount25": 30313,
+      "singlePersonDiscountPctOfChargeable": 30.4,
+      "disregarded25": 843,
+      "disregardedAll50": 91
+    },
+    "E08000025": {
+      "areaName": "Birmingham",
+      "totalDwellings": 464955,
+      "chargeableDwellings": 444853,
+      "singlePersonDiscount25": 142824,
+      "singlePersonDiscountPctOfChargeable": 32.1,
+      "disregarded25": 4962,
+      "disregardedAll50": 5088
+    },
+    "E07000129": {
+      "areaName": "Blaby",
+      "totalDwellings": 44744,
+      "chargeableDwellings": 44025,
+      "singlePersonDiscount25": 13824,
+      "singlePersonDiscountPctOfChargeable": 31.4,
+      "disregarded25": 460,
+      "disregardedAll50": 82
+    },
+    "E06000008": {
+      "areaName": "Blackburn with Darwen",
+      "totalDwellings": 63827,
+      "chargeableDwellings": 62661,
+      "singlePersonDiscount25": 21854,
+      "singlePersonDiscountPctOfChargeable": 34.9,
+      "disregarded25": 557,
+      "disregardedAll50": 111
+    },
+    "E06000009": {
+      "areaName": "Blackpool",
+      "totalDwellings": 72629,
+      "chargeableDwellings": 71101,
+      "singlePersonDiscount25": 30600,
+      "singlePersonDiscountPctOfChargeable": 43.0,
+      "disregarded25": 487,
+      "disregardedAll50": 126
+    },
+    "E07000033": {
+      "areaName": "Bolsover",
+      "totalDwellings": 38750,
+      "chargeableDwellings": 38253,
+      "singlePersonDiscount25": 12478,
+      "singlePersonDiscountPctOfChargeable": 32.6,
+      "disregarded25": 354,
+      "disregardedAll50": 115
+    },
+    "E08000001": {
+      "areaName": "Bolton",
+      "totalDwellings": 128487,
+      "chargeableDwellings": 125437,
+      "singlePersonDiscount25": 45069,
+      "singlePersonDiscountPctOfChargeable": 35.9,
+      "disregarded25": 1522,
+      "disregardedAll50": 203
+    },
+    "E07000136": {
+      "areaName": "Boston",
+      "totalDwellings": 31858,
+      "chargeableDwellings": 31378,
+      "singlePersonDiscount25": 9958,
+      "singlePersonDiscountPctOfChargeable": 31.7,
+      "disregarded25": 209,
+      "disregardedAll50": 55
+    },
+    "E06000058": {
+      "areaName": "Bournemouth Christchurch and Poole",
+      "totalDwellings": 190034,
+      "chargeableDwellings": 183415,
+      "singlePersonDiscount25": 65958,
+      "singlePersonDiscountPctOfChargeable": 36.0,
+      "disregarded25": 1823,
+      "disregardedAll50": 404
+    },
+    "E06000036": {
+      "areaName": "Bracknell Forest",
+      "totalDwellings": 54599,
+      "chargeableDwellings": 53522,
+      "singlePersonDiscount25": 17213,
+      "singlePersonDiscountPctOfChargeable": 32.2,
+      "disregarded25": 391,
+      "disregardedAll50": 52
+    },
+    "E08000032": {
+      "areaName": "Bradford",
+      "totalDwellings": 223592,
+      "chargeableDwellings": 219330,
+      "singlePersonDiscount25": 77043,
+      "singlePersonDiscountPctOfChargeable": 35.1,
+      "disregarded25": 1958,
+      "disregardedAll50": 493
+    },
+    "E07000067": {
+      "areaName": "Braintree",
+      "totalDwellings": 70821,
+      "chargeableDwellings": 69525,
+      "singlePersonDiscount25": 21745,
+      "singlePersonDiscountPctOfChargeable": 31.3,
+      "disregarded25": 658,
+      "disregardedAll50": 127
+    },
+    "E07000143": {
+      "areaName": "Breckland",
+      "totalDwellings": 65656,
+      "chargeableDwellings": 64075,
+      "singlePersonDiscount25": 20160,
+      "singlePersonDiscountPctOfChargeable": 31.5,
+      "disregarded25": 530,
+      "disregardedAll50": 134
+    },
+    "E09000005": {
+      "areaName": "Brent",
+      "totalDwellings": 134671,
+      "chargeableDwellings": 130417,
+      "singlePersonDiscount25": 38752,
+      "singlePersonDiscountPctOfChargeable": 29.7,
+      "disregarded25": 1056,
+      "disregardedAll50": 179
+    },
+    "E07000068": {
+      "areaName": "Brentwood",
+      "totalDwellings": 35367,
+      "chargeableDwellings": 34781,
+      "singlePersonDiscount25": 10897,
+      "singlePersonDiscountPctOfChargeable": 31.3,
+      "disregarded25": 283,
+      "disregardedAll50": 51
+    },
+    "E06000043": {
+      "areaName": "Brighton and Hove",
+      "totalDwellings": 135741,
+      "chargeableDwellings": 125941,
+      "singlePersonDiscount25": 45890,
+      "singlePersonDiscountPctOfChargeable": 36.4,
+      "disregarded25": 1841,
+      "disregardedAll50": 463
+    },
+    "E06000023": {
+      "areaName": "Bristol",
+      "totalDwellings": 212105,
+      "chargeableDwellings": 201875,
+      "singlePersonDiscount25": 64806,
+      "singlePersonDiscountPctOfChargeable": 32.1,
+      "disregarded25": 2172,
+      "disregardedAll50": 489
+    },
+    "E07000144": {
+      "areaName": "Broadland",
+      "totalDwellings": 62318,
+      "chargeableDwellings": 61153,
+      "singlePersonDiscount25": 19104,
+      "singlePersonDiscountPctOfChargeable": 31.2,
+      "disregarded25": 596,
+      "disregardedAll50": 113
+    },
+    "E09000006": {
+      "areaName": "Bromley",
+      "totalDwellings": 143434,
+      "chargeableDwellings": 140235,
+      "singlePersonDiscount25": 45334,
+      "singlePersonDiscountPctOfChargeable": 32.3,
+      "disregarded25": 1859,
+      "disregardedAll50": 208
+    },
+    "E07000234": {
+      "areaName": "Bromsgrove",
+      "totalDwellings": 43123,
+      "chargeableDwellings": 42541,
+      "singlePersonDiscount25": 13826,
+      "singlePersonDiscountPctOfChargeable": 32.5,
+      "disregarded25": 427,
+      "disregardedAll50": 68
+    },
+    "E07000095": {
+      "areaName": "Broxbourne",
+      "totalDwellings": 42244,
+      "chargeableDwellings": 41559,
+      "singlePersonDiscount25": 13022,
+      "singlePersonDiscountPctOfChargeable": 31.3,
+      "disregarded25": 529,
+      "disregardedAll50": 30
+    },
+    "E07000172": {
+      "areaName": "Broxtowe",
+      "totalDwellings": 51971,
+      "chargeableDwellings": 50495,
+      "singlePersonDiscount25": 17475,
+      "singlePersonDiscountPctOfChargeable": 34.6,
+      "disregarded25": 589,
+      "disregardedAll50": 101
+    },
+    "E06000060": {
+      "areaName": "Buckinghamshire",
+      "totalDwellings": 237840,
+      "chargeableDwellings": 232935,
+      "singlePersonDiscount25": 66585,
+      "singlePersonDiscountPctOfChargeable": 28.6,
+      "disregarded25": 1546,
+      "disregardedAll50": 246
+    },
+    "E07000117": {
+      "areaName": "Burnley",
+      "totalDwellings": 43003,
+      "chargeableDwellings": 41963,
+      "singlePersonDiscount25": 16694,
+      "singlePersonDiscountPctOfChargeable": 39.8,
+      "disregarded25": 373,
+      "disregardedAll50": 103
+    },
+    "E08000002": {
+      "areaName": "Bury",
+      "totalDwellings": 85264,
+      "chargeableDwellings": 83428,
+      "singlePersonDiscount25": 30472,
+      "singlePersonDiscountPctOfChargeable": 36.5,
+      "disregarded25": 946,
+      "disregardedAll50": 116
+    },
+    "E08000033": {
+      "areaName": "Calderdale",
+      "totalDwellings": 97316,
+      "chargeableDwellings": 95998,
+      "singlePersonDiscount25": 37319,
+      "singlePersonDiscountPctOfChargeable": 38.9,
+      "disregarded25": 816,
+      "disregardedAll50": 321
+    },
+    "E07000008": {
+      "areaName": "Cambridge",
+      "totalDwellings": 60739,
+      "chargeableDwellings": 56125,
+      "singlePersonDiscount25": 18287,
+      "singlePersonDiscountPctOfChargeable": 32.6,
+      "disregarded25": 960,
+      "disregardedAll50": 138
+    },
+    "E09000007": {
+      "areaName": "Camden",
+      "totalDwellings": 113319,
+      "chargeableDwellings": 107139,
+      "singlePersonDiscount25": 40222,
+      "singlePersonDiscountPctOfChargeable": 37.5,
+      "disregarded25": 1794,
+      "disregardedAll50": 133
+    },
+    "E07000192": {
+      "areaName": "Cannock Chase",
+      "totalDwellings": 46061,
+      "chargeableDwellings": 45390,
+      "singlePersonDiscount25": 15162,
+      "singlePersonDiscountPctOfChargeable": 33.4,
+      "disregarded25": 445,
+      "disregardedAll50": 55
+    },
+    "E07000106": {
+      "areaName": "Canterbury",
+      "totalDwellings": 71862,
+      "chargeableDwellings": 67185,
+      "singlePersonDiscount25": 22545,
+      "singlePersonDiscountPctOfChargeable": 33.6,
+      "disregarded25": 1099,
+      "disregardedAll50": 114
+    },
+    "E07000069": {
+      "areaName": "Castle Point",
+      "totalDwellings": 39593,
+      "chargeableDwellings": 38544,
+      "singlePersonDiscount25": 11976,
+      "singlePersonDiscountPctOfChargeable": 31.1,
+      "disregarded25": 456,
+      "disregardedAll50": 66
+    },
+    "E06000056": {
+      "areaName": "Central Bedfordshire",
+      "totalDwellings": 133987,
+      "chargeableDwellings": 131216,
+      "singlePersonDiscount25": 41501,
+      "singlePersonDiscountPctOfChargeable": 31.6,
+      "disregarded25": 1319,
+      "disregardedAll50": 138
+    },
+    "E07000130": {
+      "areaName": "Charnwood",
+      "totalDwellings": 79398,
+      "chargeableDwellings": 75839,
+      "singlePersonDiscount25": 23193,
+      "singlePersonDiscountPctOfChargeable": 30.6,
+      "disregarded25": 1048,
+      "disregardedAll50": 120
+    },
+    "E07000070": {
+      "areaName": "Chelmsford",
+      "totalDwellings": 81521,
+      "chargeableDwellings": 79718,
+      "singlePersonDiscount25": 26578,
+      "singlePersonDiscountPctOfChargeable": 33.3,
+      "disregarded25": 787,
+      "disregardedAll50": 124
+    },
+    "E07000078": {
+      "areaName": "Cheltenham",
+      "totalDwellings": 57469,
+      "chargeableDwellings": 56133,
+      "singlePersonDiscount25": 21202,
+      "singlePersonDiscountPctOfChargeable": 37.8,
+      "disregarded25": 545,
+      "disregardedAll50": 98
+    },
+    "E07000177": {
+      "areaName": "Cherwell",
+      "totalDwellings": 72039,
+      "chargeableDwellings": 70399,
+      "singlePersonDiscount25": 21248,
+      "singlePersonDiscountPctOfChargeable": 30.2,
+      "disregarded25": 556,
+      "disregardedAll50": 126
+    },
+    "E06000049": {
+      "areaName": "Cheshire East",
+      "totalDwellings": 190079,
+      "chargeableDwellings": 186091,
+      "singlePersonDiscount25": 63497,
+      "singlePersonDiscountPctOfChargeable": 34.1,
+      "disregarded25": 2202,
+      "disregardedAll50": 455
+    },
+    "E06000050": {
+      "areaName": "Cheshire West and Chester",
+      "totalDwellings": 166394,
+      "chargeableDwellings": 162417,
+      "singlePersonDiscount25": 56116,
+      "singlePersonDiscountPctOfChargeable": 34.6,
+      "disregarded25": 1372,
+      "disregardedAll50": 345
+    },
+    "E07000034": {
+      "areaName": "Chesterfield",
+      "totalDwellings": 51255,
+      "chargeableDwellings": 50413,
+      "singlePersonDiscount25": 19947,
+      "singlePersonDiscountPctOfChargeable": 39.6,
+      "disregarded25": 404,
+      "disregardedAll50": 84
+    },
+    "E07000225": {
+      "areaName": "Chichester",
+      "totalDwellings": 61358,
+      "chargeableDwellings": 59475,
+      "singlePersonDiscount25": 19696,
+      "singlePersonDiscountPctOfChargeable": 33.1,
+      "disregarded25": 609,
+      "disregardedAll50": 133
+    },
+    "E07000118": {
+      "areaName": "Chorley",
+      "totalDwellings": 53081,
+      "chargeableDwellings": 52077,
+      "singlePersonDiscount25": 18412,
+      "singlePersonDiscountPctOfChargeable": 35.4,
+      "disregarded25": 469,
+      "disregardedAll50": 71
+    },
+    "E09000001": {
+      "areaName": "City of London",
+      "totalDwellings": 8057,
+      "chargeableDwellings": 7523,
+      "singlePersonDiscount25": 2235,
+      "singlePersonDiscountPctOfChargeable": 29.7,
+      "disregarded25": 72,
+      "disregardedAll50": 6
+    },
+    "E07000071": {
+      "areaName": "Colchester",
+      "totalDwellings": 86281,
+      "chargeableDwellings": 82332,
+      "singlePersonDiscount25": 27660,
+      "singlePersonDiscountPctOfChargeable": 33.6,
+      "disregarded25": 804,
+      "disregardedAll50": 232
+    },
+    "E06000052": {
+      "areaName": "Cornwall",
+      "totalDwellings": 286043,
+      "chargeableDwellings": 278260,
+      "singlePersonDiscount25": 92360,
+      "singlePersonDiscountPctOfChargeable": 33.2,
+      "disregarded25": 2405,
+      "disregardedAll50": 549
+    },
+    "E07000079": {
+      "areaName": "Cotswold",
+      "totalDwellings": 46109,
+      "chargeableDwellings": 44950,
+      "singlePersonDiscount25": 13585,
+      "singlePersonDiscountPctOfChargeable": 30.2,
+      "disregarded25": 372,
+      "disregardedAll50": 29
+    },
+    "E08000026": {
+      "areaName": "Coventry",
+      "totalDwellings": 152763,
+      "chargeableDwellings": 142991,
+      "singlePersonDiscount25": 49389,
+      "singlePersonDiscountPctOfChargeable": 34.5,
+      "disregarded25": 1580,
+      "disregardedAll50": 322
+    },
+    "E07000226": {
+      "areaName": "Crawley",
+      "totalDwellings": 47253,
+      "chargeableDwellings": 46720,
+      "singlePersonDiscount25": 14331,
+      "singlePersonDiscountPctOfChargeable": 30.7,
+      "disregarded25": 427,
+      "disregardedAll50": 70
+    },
+    "E09000008": {
+      "areaName": "Croydon",
+      "totalDwellings": 167769,
+      "chargeableDwellings": 165685,
+      "singlePersonDiscount25": 51148,
+      "singlePersonDiscountPctOfChargeable": 30.9,
+      "disregarded25": 1526,
+      "disregardedAll50": 229
+    },
+    "E06000063": {
+      "areaName": "Cumberland",
+      "totalDwellings": 138179,
+      "chargeableDwellings": 135469,
+      "singlePersonDiscount25": 51153,
+      "singlePersonDiscountPctOfChargeable": 37.8,
+      "disregarded25": 1178,
+      "disregardedAll50": 283
+    },
+    "E07000096": {
+      "areaName": "Dacorum",
+      "totalDwellings": 67833,
+      "chargeableDwellings": 67032,
+      "singlePersonDiscount25": 21870,
+      "singlePersonDiscountPctOfChargeable": 32.6,
+      "disregarded25": 507,
+      "disregardedAll50": 105
+    },
+    "E06000005": {
+      "areaName": "Darlington",
+      "totalDwellings": 53652,
+      "chargeableDwellings": 52440,
+      "singlePersonDiscount25": 19757,
+      "singlePersonDiscountPctOfChargeable": 37.7,
+      "disregarded25": 530,
+      "disregardedAll50": 105
+    },
+    "E07000107": {
+      "areaName": "Dartford",
+      "totalDwellings": 50297,
+      "chargeableDwellings": 49653,
+      "singlePersonDiscount25": 15633,
+      "singlePersonDiscountPctOfChargeable": 31.5,
+      "disregarded25": 451,
+      "disregardedAll50": 50
+    },
+    "E06000015": {
+      "areaName": "Derby",
+      "totalDwellings": 114495,
+      "chargeableDwellings": 111338,
+      "singlePersonDiscount25": 39118,
+      "singlePersonDiscountPctOfChargeable": 35.1,
+      "disregarded25": 1271,
+      "disregardedAll50": 475
+    },
+    "E07000035": {
+      "areaName": "Derbyshire Dales",
+      "totalDwellings": 35651,
+      "chargeableDwellings": 34942,
+      "singlePersonDiscount25": 11454,
+      "singlePersonDiscountPctOfChargeable": 32.8,
+      "disregarded25": 317,
+      "disregardedAll50": 109
+    },
+    "E08000017": {
+      "areaName": "Doncaster",
+      "totalDwellings": 144382,
+      "chargeableDwellings": 142024,
+      "singlePersonDiscount25": 48832,
+      "singlePersonDiscountPctOfChargeable": 34.4,
+      "disregarded25": 1538,
+      "disregardedAll50": 548
+    },
+    "E06000059": {
+      "areaName": "Dorset",
+      "totalDwellings": 186917,
+      "chargeableDwellings": 182673,
+      "singlePersonDiscount25": 60003,
+      "singlePersonDiscountPctOfChargeable": 32.8,
+      "disregarded25": 2027,
+      "disregardedAll50": 398
+    },
+    "E07000108": {
+      "areaName": "Dover",
+      "totalDwellings": 55689,
+      "chargeableDwellings": 54479,
+      "singlePersonDiscount25": 19450,
+      "singlePersonDiscountPctOfChargeable": 35.7,
+      "disregarded25": 562,
+      "disregardedAll50": 112
+    },
+    "E08000027": {
+      "areaName": "Dudley",
+      "totalDwellings": 141927,
+      "chargeableDwellings": 139663,
+      "singlePersonDiscount25": 46954,
+      "singlePersonDiscountPctOfChargeable": 33.6,
+      "disregarded25": 1146,
+      "disregardedAll50": 268
+    },
+    "E06000047": {
+      "areaName": "Durham",
+      "totalDwellings": 255046,
+      "chargeableDwellings": 246097,
+      "singlePersonDiscount25": 99417,
+      "singlePersonDiscountPctOfChargeable": 40.4,
+      "disregarded25": 2979,
+      "disregardedAll50": 578
+    },
+    "E09000009": {
+      "areaName": "Ealing",
+      "totalDwellings": 149531,
+      "chargeableDwellings": 144914,
+      "singlePersonDiscount25": 35802,
+      "singlePersonDiscountPctOfChargeable": 24.7,
+      "disregarded25": 1033,
+      "disregardedAll50": 186
+    },
+    "E07000009": {
+      "areaName": "East Cambridgeshire",
+      "totalDwellings": 41131,
+      "chargeableDwellings": 40154,
+      "singlePersonDiscount25": 12030,
+      "singlePersonDiscountPctOfChargeable": 30.0,
+      "disregarded25": 382,
+      "disregardedAll50": 97
+    },
+    "E07000040": {
+      "areaName": "East Devon",
+      "totalDwellings": 74747,
+      "chargeableDwellings": 72988,
+      "singlePersonDiscount25": 23763,
+      "singlePersonDiscountPctOfChargeable": 32.6,
+      "disregarded25": 834,
+      "disregardedAll50": 216
+    },
+    "E07000085": {
+      "areaName": "East Hampshire",
+      "totalDwellings": 56411,
+      "chargeableDwellings": 55325,
+      "singlePersonDiscount25": 16717,
+      "singlePersonDiscountPctOfChargeable": 30.2,
+      "disregarded25": 592,
+      "disregardedAll50": 93
+    },
+    "E07000242": {
+      "areaName": "East Hertfordshire",
+      "totalDwellings": 67566,
+      "chargeableDwellings": 66571,
+      "singlePersonDiscount25": 20892,
+      "singlePersonDiscountPctOfChargeable": 31.4,
+      "disregarded25": 457,
+      "disregardedAll50": 115
+    },
+    "E07000137": {
+      "areaName": "East Lindsey",
+      "totalDwellings": 72585,
+      "chargeableDwellings": 70603,
+      "singlePersonDiscount25": 23617,
+      "singlePersonDiscountPctOfChargeable": 33.5,
+      "disregarded25": 503,
+      "disregardedAll50": 162
+    },
+    "E06000011": {
+      "areaName": "East Riding of Yorkshire",
+      "totalDwellings": 165803,
+      "chargeableDwellings": 163167,
+      "singlePersonDiscount25": 55276,
+      "singlePersonDiscountPctOfChargeable": 33.9,
+      "disregarded25": 1677,
+      "disregardedAll50": 526
+    },
+    "E07000193": {
+      "areaName": "East Staffordshire",
+      "totalDwellings": 56035,
+      "chargeableDwellings": 55146,
+      "singlePersonDiscount25": 18827,
+      "singlePersonDiscountPctOfChargeable": 34.1,
+      "disregarded25": 671,
+      "disregardedAll50": 100
+    },
+    "E07000244": {
+      "areaName": "East Suffolk",
+      "totalDwellings": 122436,
+      "chargeableDwellings": 120151,
+      "singlePersonDiscount25": 40799,
+      "singlePersonDiscountPctOfChargeable": 34.0,
+      "disregarded25": 924,
+      "disregardedAll50": 188
+    },
+    "E07000061": {
+      "areaName": "Eastbourne",
+      "totalDwellings": 49828,
+      "chargeableDwellings": 48517,
+      "singlePersonDiscount25": 19267,
+      "singlePersonDiscountPctOfChargeable": 39.7,
+      "disregarded25": 724,
+      "disregardedAll50": 117
+    },
+    "E07000086": {
+      "areaName": "Eastleigh",
+      "totalDwellings": 61113,
+      "chargeableDwellings": 60318,
+      "singlePersonDiscount25": 18798,
+      "singlePersonDiscountPctOfChargeable": 31.2,
+      "disregarded25": 540,
+      "disregardedAll50": 143
+    },
+    "E07000207": {
+      "areaName": "Elmbridge",
+      "totalDwellings": 59940,
+      "chargeableDwellings": 59073,
+      "singlePersonDiscount25": 17466,
+      "singlePersonDiscountPctOfChargeable": 29.6,
+      "disregarded25": 496,
+      "disregardedAll50": 97
+    },
+    "E09000010": {
+      "areaName": "Enfield",
+      "totalDwellings": 127948,
+      "chargeableDwellings": 125861,
+      "singlePersonDiscount25": 39690,
+      "singlePersonDiscountPctOfChargeable": 31.5,
+      "disregarded25": 2154,
+      "disregardedAll50": 262
+    },
+    "E07000072": {
+      "areaName": "Epping Forest",
+      "totalDwellings": 58404,
+      "chargeableDwellings": 57301,
+      "singlePersonDiscount25": 17431,
+      "singlePersonDiscountPctOfChargeable": 30.4,
+      "disregarded25": 567,
+      "disregardedAll50": 67
+    },
+    "E07000208": {
+      "areaName": "Epsom and Ewell",
+      "totalDwellings": 33272,
+      "chargeableDwellings": 32631,
+      "singlePersonDiscount25": 9220,
+      "singlePersonDiscountPctOfChargeable": 28.3,
+      "disregarded25": 380,
+      "disregardedAll50": 73
+    },
+    "E07000036": {
+      "areaName": "Erewash",
+      "totalDwellings": 53130,
+      "chargeableDwellings": 52174,
+      "singlePersonDiscount25": 18530,
+      "singlePersonDiscountPctOfChargeable": 35.5,
+      "disregarded25": 603,
+      "disregardedAll50": 89
+    },
+    "E07000041": {
+      "areaName": "Exeter",
+      "totalDwellings": 61221,
+      "chargeableDwellings": 53525,
+      "singlePersonDiscount25": 19841,
+      "singlePersonDiscountPctOfChargeable": 37.1,
+      "disregarded25": 664,
+      "disregardedAll50": 192
+    },
+    "E07000087": {
+      "areaName": "Fareham",
+      "totalDwellings": 51067,
+      "chargeableDwellings": 49836,
+      "singlePersonDiscount25": 15062,
+      "singlePersonDiscountPctOfChargeable": 30.2,
+      "disregarded25": 699,
+      "disregardedAll50": 132
+    },
+    "E07000010": {
+      "areaName": "Fenland",
+      "totalDwellings": 47856,
+      "chargeableDwellings": 46946,
+      "singlePersonDiscount25": 15534,
+      "singlePersonDiscountPctOfChargeable": 33.1,
+      "disregarded25": 397,
+      "disregardedAll50": 81
+    },
+    "E07000112": {
+      "areaName": "Folkestone and Hythe",
+      "totalDwellings": 53670,
+      "chargeableDwellings": 52409,
+      "singlePersonDiscount25": 18518,
+      "singlePersonDiscountPctOfChargeable": 35.3,
+      "disregarded25": 579,
+      "disregardedAll50": 116
+    },
+    "E07000080": {
+      "areaName": "Forest of Dean",
+      "totalDwellings": 40886,
+      "chargeableDwellings": 39811,
+      "singlePersonDiscount25": 12443,
+      "singlePersonDiscountPctOfChargeable": 31.3,
+      "disregarded25": 359,
+      "disregardedAll50": 72
+    },
+    "E07000119": {
+      "areaName": "Fylde",
+      "totalDwellings": 41551,
+      "chargeableDwellings": 40503,
+      "singlePersonDiscount25": 15213,
+      "singlePersonDiscountPctOfChargeable": 37.6,
+      "disregarded25": 423,
+      "disregardedAll50": 96
+    },
+    "E08000037": {
+      "areaName": "Gateshead",
+      "totalDwellings": 95376,
+      "chargeableDwellings": 93556,
+      "singlePersonDiscount25": 36073,
+      "singlePersonDiscountPctOfChargeable": 38.6,
+      "disregarded25": 1162,
+      "disregardedAll50": 344
+    },
+    "E07000173": {
+      "areaName": "Gedling",
+      "totalDwellings": 55056,
+      "chargeableDwellings": 53999,
+      "singlePersonDiscount25": 19506,
+      "singlePersonDiscountPctOfChargeable": 36.1,
+      "disregarded25": 490,
+      "disregardedAll50": 95
+    },
+    "E07000081": {
+      "areaName": "Gloucester",
+      "totalDwellings": 59968,
+      "chargeableDwellings": 58324,
+      "singlePersonDiscount25": 21322,
+      "singlePersonDiscountPctOfChargeable": 36.6,
+      "disregarded25": 627,
+      "disregardedAll50": 195
+    },
+    "E07000088": {
+      "areaName": "Gosport",
+      "totalDwellings": 37816,
+      "chargeableDwellings": 36318,
+      "singlePersonDiscount25": 13665,
+      "singlePersonDiscountPctOfChargeable": 37.6,
+      "disregarded25": 344,
+      "disregardedAll50": 50
+    },
+    "E07000109": {
+      "areaName": "Gravesham",
+      "totalDwellings": 44978,
+      "chargeableDwellings": 44339,
+      "singlePersonDiscount25": 13339,
+      "singlePersonDiscountPctOfChargeable": 30.1,
+      "disregarded25": 522,
+      "disregardedAll50": 22
+    },
+    "E07000145": {
+      "areaName": "Great Yarmouth",
+      "totalDwellings": 50157,
+      "chargeableDwellings": 49378,
+      "singlePersonDiscount25": 17430,
+      "singlePersonDiscountPctOfChargeable": 35.3,
+      "disregarded25": 405,
+      "disregardedAll50": 47
+    },
+    "E09000011": {
+      "areaName": "Greenwich",
+      "totalDwellings": 124143,
+      "chargeableDwellings": 121672,
+      "singlePersonDiscount25": 41376,
+      "singlePersonDiscountPctOfChargeable": 34.0,
+      "disregarded25": 952,
+      "disregardedAll50": 127
+    },
+    "E07000209": {
+      "areaName": "Guildford",
+      "totalDwellings": 62447,
+      "chargeableDwellings": 59057,
+      "singlePersonDiscount25": 18189,
+      "singlePersonDiscountPctOfChargeable": 30.8,
+      "disregarded25": 598,
+      "disregardedAll50": 142
+    },
+    "E09000012": {
+      "areaName": "Hackney",
+      "totalDwellings": 120387,
+      "chargeableDwellings": 115684,
+      "singlePersonDiscount25": 42779,
+      "singlePersonDiscountPctOfChargeable": 37.0,
+      "disregarded25": 907,
+      "disregardedAll50": 62
+    },
+    "E06000006": {
+      "areaName": "Halton",
+      "totalDwellings": 59160,
+      "chargeableDwellings": 57937,
+      "singlePersonDiscount25": 20702,
+      "singlePersonDiscountPctOfChargeable": 35.7,
+      "disregarded25": 733,
+      "disregardedAll50": 115
+    },
+    "E09000013": {
+      "areaName": "Hammersmith and Fulham",
+      "totalDwellings": 94867,
+      "chargeableDwellings": 91594,
+      "singlePersonDiscount25": 28855,
+      "singlePersonDiscountPctOfChargeable": 31.5,
+      "disregarded25": 713,
+      "disregardedAll50": 79
+    },
+    "E07000131": {
+      "areaName": "Harborough",
+      "totalDwellings": 44648,
+      "chargeableDwellings": 43851,
+      "singlePersonDiscount25": 13677,
+      "singlePersonDiscountPctOfChargeable": 31.2,
+      "disregarded25": 463,
+      "disregardedAll50": 107
+    },
+    "E09000014": {
+      "areaName": "Haringey",
+      "totalDwellings": 114365,
+      "chargeableDwellings": 112167,
+      "singlePersonDiscount25": 37884,
+      "singlePersonDiscountPctOfChargeable": 33.8,
+      "disregarded25": 949,
+      "disregardedAll50": 122
+    },
+    "E07000073": {
+      "areaName": "Harlow",
+      "totalDwellings": 40485,
+      "chargeableDwellings": 39693,
+      "singlePersonDiscount25": 13786,
+      "singlePersonDiscountPctOfChargeable": 34.7,
+      "disregarded25": 529,
+      "disregardedAll50": 51
+    },
+    "E09000015": {
+      "areaName": "Harrow",
+      "totalDwellings": 96732,
+      "chargeableDwellings": 95008,
+      "singlePersonDiscount25": 23229,
+      "singlePersonDiscountPctOfChargeable": 24.4,
+      "disregarded25": 986,
+      "disregardedAll50": 89
+    },
+    "E07000089": {
+      "areaName": "Hart",
+      "totalDwellings": 42921,
+      "chargeableDwellings": 41737,
+      "singlePersonDiscount25": 12064,
+      "singlePersonDiscountPctOfChargeable": 28.9,
+      "disregarded25": 316,
+      "disregardedAll50": 58
+    },
+    "E06000001": {
+      "areaName": "Hartlepool",
+      "totalDwellings": 45894,
+      "chargeableDwellings": 44805,
+      "singlePersonDiscount25": 16963,
+      "singlePersonDiscountPctOfChargeable": 37.9,
+      "disregarded25": 682,
+      "disregardedAll50": 142
+    },
+    "E07000062": {
+      "areaName": "Hastings",
+      "totalDwellings": 44375,
+      "chargeableDwellings": 43667,
+      "singlePersonDiscount25": 17818,
+      "singlePersonDiscountPctOfChargeable": 40.8,
+      "disregarded25": 329,
+      "disregardedAll50": 88
+    },
+    "E07000090": {
+      "areaName": "Havant",
+      "totalDwellings": 57266,
+      "chargeableDwellings": 56391,
+      "singlePersonDiscount25": 19290,
+      "singlePersonDiscountPctOfChargeable": 34.2,
+      "disregarded25": 442,
+      "disregardedAll50": 85
+    },
+    "E09000016": {
+      "areaName": "Havering",
+      "totalDwellings": 108525,
+      "chargeableDwellings": 107014,
+      "singlePersonDiscount25": 32637,
+      "singlePersonDiscountPctOfChargeable": 30.5,
+      "disregarded25": 776,
+      "disregardedAll50": 112
+    },
+    "E06000019": {
+      "areaName": "Herefordshire",
+      "totalDwellings": 90257,
+      "chargeableDwellings": 87481,
+      "singlePersonDiscount25": 28800,
+      "singlePersonDiscountPctOfChargeable": 32.9,
+      "disregarded25": 831,
+      "disregardedAll50": 202
+    },
+    "E07000098": {
+      "areaName": "Hertsmere",
+      "totalDwellings": 45870,
+      "chargeableDwellings": 44720,
+      "singlePersonDiscount25": 13882,
+      "singlePersonDiscountPctOfChargeable": 31.0,
+      "disregarded25": 511,
+      "disregardedAll50": 90
+    },
+    "E07000037": {
+      "areaName": "High Peak",
+      "totalDwellings": 43771,
+      "chargeableDwellings": 43097,
+      "singlePersonDiscount25": 15503,
+      "singlePersonDiscountPctOfChargeable": 36.0,
+      "disregarded25": 299,
+      "disregardedAll50": 58
+    },
+    "E09000017": {
+      "areaName": "Hillingdon",
+      "totalDwellings": 117986,
+      "chargeableDwellings": 114978,
+      "singlePersonDiscount25": 30484,
+      "singlePersonDiscountPctOfChargeable": 26.5,
+      "disregarded25": 877,
+      "disregardedAll50": 154
+    },
+    "E07000132": {
+      "areaName": "Hinckley and Bosworth",
+      "totalDwellings": 52628,
+      "chargeableDwellings": 51749,
+      "singlePersonDiscount25": 17284,
+      "singlePersonDiscountPctOfChargeable": 33.4,
+      "disregarded25": 585,
+      "disregardedAll50": 107
+    },
+    "E07000227": {
+      "areaName": "Horsham",
+      "totalDwellings": 66667,
+      "chargeableDwellings": 65653,
+      "singlePersonDiscount25": 20069,
+      "singlePersonDiscountPctOfChargeable": 30.6,
+      "disregarded25": 576,
+      "disregardedAll50": 126
+    },
+    "E09000018": {
+      "areaName": "Hounslow",
+      "totalDwellings": 110771,
+      "chargeableDwellings": 108779,
+      "singlePersonDiscount25": 30032,
+      "singlePersonDiscountPctOfChargeable": 27.6,
+      "disregarded25": 1140,
+      "disregardedAll50": 100
+    },
+    "E07000011": {
+      "areaName": "Huntingdonshire",
+      "totalDwellings": 83461,
+      "chargeableDwellings": 81200,
+      "singlePersonDiscount25": 25666,
+      "singlePersonDiscountPctOfChargeable": 31.6,
+      "disregarded25": 711,
+      "disregardedAll50": 206
+    },
+    "E07000120": {
+      "areaName": "Hyndburn",
+      "totalDwellings": 37948,
+      "chargeableDwellings": 36994,
+      "singlePersonDiscount25": 14499,
+      "singlePersonDiscountPctOfChargeable": 39.2,
+      "disregarded25": 523,
+      "disregardedAll50": 91
+    },
+    "E07000202": {
+      "areaName": "Ipswich",
+      "totalDwellings": 62346,
+      "chargeableDwellings": 60954,
+      "singlePersonDiscount25": 21954,
+      "singlePersonDiscountPctOfChargeable": 36.0,
+      "disregarded25": 533,
+      "disregardedAll50": 94
+    },
+    "E06000046": {
+      "areaName": "Isle of Wight",
+      "totalDwellings": 73078,
+      "chargeableDwellings": 71977,
+      "singlePersonDiscount25": 25209,
+      "singlePersonDiscountPctOfChargeable": 35.0,
+      "disregarded25": 585,
+      "disregardedAll50": 164
+    },
+    "E06000053": {
+      "areaName": "Isles of Scilly",
+      "totalDwellings": 1176,
+      "chargeableDwellings": 1162,
+      "singlePersonDiscount25": 307,
+      "singlePersonDiscountPctOfChargeable": 26.4,
+      "disregarded25": 4,
+      "disregardedAll50": 0
+    },
+    "E09000019": {
+      "areaName": "Islington",
+      "totalDwellings": 112407,
+      "chargeableDwellings": 105441,
+      "singlePersonDiscount25": 37368,
+      "singlePersonDiscountPctOfChargeable": 35.4,
+      "disregarded25": 1196,
+      "disregardedAll50": 39
+    },
+    "E09000020": {
+      "areaName": "Kensington and Chelsea",
+      "totalDwellings": 89187,
+      "chargeableDwellings": 85628,
+      "singlePersonDiscount25": 30505,
+      "singlePersonDiscountPctOfChargeable": 35.6,
+      "disregarded25": 623,
+      "disregardedAll50": 72
+    },
+    "E07000146": {
+      "areaName": "King's Lynn and West Norfolk",
+      "totalDwellings": 75804,
+      "chargeableDwellings": 73104,
+      "singlePersonDiscount25": 23000,
+      "singlePersonDiscountPctOfChargeable": 31.5,
+      "disregarded25": 651,
+      "disregardedAll50": 160
+    },
+    "E06000010": {
+      "areaName": "Kingston upon Hull",
+      "totalDwellings": 125007,
+      "chargeableDwellings": 121275,
+      "singlePersonDiscount25": 49485,
+      "singlePersonDiscountPctOfChargeable": 40.8,
+      "disregarded25": 1242,
+      "disregardedAll50": 434
+    },
+    "E09000021": {
+      "areaName": "Kingston upon Thames",
+      "totalDwellings": 70278,
+      "chargeableDwellings": 68468,
+      "singlePersonDiscount25": 18601,
+      "singlePersonDiscountPctOfChargeable": 27.2,
+      "disregarded25": 631,
+      "disregardedAll50": 133
+    },
+    "E08000034": {
+      "areaName": "Kirklees",
+      "totalDwellings": 192994,
+      "chargeableDwellings": 188727,
+      "singlePersonDiscount25": 70714,
+      "singlePersonDiscountPctOfChargeable": 37.5,
+      "disregarded25": 1542,
+      "disregardedAll50": 319
+    },
+    "E08000011": {
+      "areaName": "Knowsley",
+      "totalDwellings": 71484,
+      "chargeableDwellings": 69803,
+      "singlePersonDiscount25": 26291,
+      "singlePersonDiscountPctOfChargeable": 37.7,
+      "disregarded25": 941,
+      "disregardedAll50": 161
+    },
+    "E09000022": {
+      "areaName": "Lambeth",
+      "totalDwellings": 148202,
+      "chargeableDwellings": 144146,
+      "singlePersonDiscount25": 47007,
+      "singlePersonDiscountPctOfChargeable": 32.6,
+      "disregarded25": 1269,
+      "disregardedAll50": 183
+    },
+    "E07000121": {
+      "areaName": "Lancaster",
+      "totalDwellings": 66802,
+      "chargeableDwellings": 63659,
+      "singlePersonDiscount25": 23386,
+      "singlePersonDiscountPctOfChargeable": 36.7,
+      "disregarded25": 935,
+      "disregardedAll50": 136
+    },
+    "E08000035": {
+      "areaName": "Leeds",
+      "totalDwellings": 375552,
+      "chargeableDwellings": 354435,
+      "singlePersonDiscount25": 133776,
+      "singlePersonDiscountPctOfChargeable": 37.7,
+      "disregarded25": 3721,
+      "disregardedAll50": 622
+    },
+    "E06000016": {
+      "areaName": "Leicester",
+      "totalDwellings": 144999,
+      "chargeableDwellings": 132696,
+      "singlePersonDiscount25": 41192,
+      "singlePersonDiscountPctOfChargeable": 31.0,
+      "disregarded25": 1645,
+      "disregardedAll50": 304
+    },
+    "E07000063": {
+      "areaName": "Lewes",
+      "totalDwellings": 47222,
+      "chargeableDwellings": 46310,
+      "singlePersonDiscount25": 16337,
+      "singlePersonDiscountPctOfChargeable": 35.3,
+      "disregarded25": 519,
+      "disregardedAll50": 78
+    },
+    "E09000023": {
+      "areaName": "Lewisham",
+      "totalDwellings": 132903,
+      "chargeableDwellings": 128647,
+      "singlePersonDiscount25": 48440,
+      "singlePersonDiscountPctOfChargeable": 37.7,
+      "disregarded25": 1265,
+      "disregardedAll50": 240
+    },
+    "E07000194": {
+      "areaName": "Lichfield",
+      "totalDwellings": 49121,
+      "chargeableDwellings": 48205,
+      "singlePersonDiscount25": 15974,
+      "singlePersonDiscountPctOfChargeable": 33.1,
+      "disregarded25": 438,
+      "disregardedAll50": 89
+    },
+    "E07000138": {
+      "areaName": "Lincoln",
+      "totalDwellings": 47666,
+      "chargeableDwellings": 44083,
+      "singlePersonDiscount25": 17291,
+      "singlePersonDiscountPctOfChargeable": 39.2,
+      "disregarded25": 372,
+      "disregardedAll50": 92
+    },
+    "E08000012": {
+      "areaName": "Liverpool",
+      "totalDwellings": 241605,
+      "chargeableDwellings": 224182,
+      "singlePersonDiscount25": 89703,
+      "singlePersonDiscountPctOfChargeable": 40.0,
+      "disregarded25": 4853,
+      "disregardedAll50": 370
+    },
+    "E06000032": {
+      "areaName": "Luton",
+      "totalDwellings": 85285,
+      "chargeableDwellings": 83532,
+      "singlePersonDiscount25": 23725,
+      "singlePersonDiscountPctOfChargeable": 28.4,
+      "disregarded25": 1059,
+      "disregardedAll50": 178
+    },
+    "E07000110": {
+      "areaName": "Maidstone",
+      "totalDwellings": 78348,
+      "chargeableDwellings": 76754,
+      "singlePersonDiscount25": 24326,
+      "singlePersonDiscountPctOfChargeable": 31.7,
+      "disregarded25": 789,
+      "disregardedAll50": 111
+    },
+    "E07000074": {
+      "areaName": "Maldon",
+      "totalDwellings": 30392,
+      "chargeableDwellings": 29868,
+      "singlePersonDiscount25": 9078,
+      "singlePersonDiscountPctOfChargeable": 30.4,
+      "disregarded25": 312,
+      "disregardedAll50": 37
+    },
+    "E07000235": {
+      "areaName": "Malvern Hills",
+      "totalDwellings": 38600,
+      "chargeableDwellings": 37822,
+      "singlePersonDiscount25": 12491,
+      "singlePersonDiscountPctOfChargeable": 33.0,
+      "disregarded25": 323,
+      "disregardedAll50": 58
+    },
+    "E08000003": {
+      "areaName": "Manchester",
+      "totalDwellings": 251481,
+      "chargeableDwellings": 237488,
+      "singlePersonDiscount25": 87190,
+      "singlePersonDiscountPctOfChargeable": 36.7,
+      "disregarded25": 3247,
+      "disregardedAll50": 424
+    },
+    "E07000174": {
+      "areaName": "Mansfield",
+      "totalDwellings": 51437,
+      "chargeableDwellings": 50606,
+      "singlePersonDiscount25": 18060,
+      "singlePersonDiscountPctOfChargeable": 35.7,
+      "disregarded25": 610,
+      "disregardedAll50": 57
+    },
+    "E06000035": {
+      "areaName": "Medway",
+      "totalDwellings": 121224,
+      "chargeableDwellings": 118483,
+      "singlePersonDiscount25": 38075,
+      "singlePersonDiscountPctOfChargeable": 32.1,
+      "disregarded25": 1376,
+      "disregardedAll50": 222
+    },
+    "E07000133": {
+      "areaName": "Melton",
+      "totalDwellings": 24938,
+      "chargeableDwellings": 24354,
+      "singlePersonDiscount25": 8171,
+      "singlePersonDiscountPctOfChargeable": 33.6,
+      "disregarded25": 252,
+      "disregardedAll50": 22
+    },
+    "E09000024": {
+      "areaName": "Merton",
+      "totalDwellings": 87693,
+      "chargeableDwellings": 86509,
+      "singlePersonDiscount25": 23361,
+      "singlePersonDiscountPctOfChargeable": 27.0,
+      "disregarded25": 756,
+      "disregardedAll50": 123
+    },
+    "E07000042": {
+      "areaName": "Mid Devon",
+      "totalDwellings": 38466,
+      "chargeableDwellings": 37794,
+      "singlePersonDiscount25": 12024,
+      "singlePersonDiscountPctOfChargeable": 31.8,
+      "disregarded25": 374,
+      "disregardedAll50": 100
+    },
+    "E07000203": {
+      "areaName": "Mid Suffolk",
+      "totalDwellings": 50003,
+      "chargeableDwellings": 48922,
+      "singlePersonDiscount25": 14443,
+      "singlePersonDiscountPctOfChargeable": 29.5,
+      "disregarded25": 305,
+      "disregardedAll50": 53
+    },
+    "E07000228": {
+      "areaName": "Mid Sussex",
+      "totalDwellings": 70037,
+      "chargeableDwellings": 68991,
+      "singlePersonDiscount25": 21517,
+      "singlePersonDiscountPctOfChargeable": 31.2,
+      "disregarded25": 693,
+      "disregardedAll50": 121
+    },
+    "E06000002": {
+      "areaName": "Middlesbrough",
+      "totalDwellings": 66379,
+      "chargeableDwellings": 63190,
+      "singlePersonDiscount25": 24475,
+      "singlePersonDiscountPctOfChargeable": 38.7,
+      "disregarded25": 945,
+      "disregardedAll50": 93
+    },
+    "E06000042": {
+      "areaName": "Milton Keynes",
+      "totalDwellings": 125540,
+      "chargeableDwellings": 123642,
+      "singlePersonDiscount25": 38989,
+      "singlePersonDiscountPctOfChargeable": 31.5,
+      "disregarded25": 1186,
+      "disregardedAll50": 189
+    },
+    "E07000210": {
+      "areaName": "Mole Valley",
+      "totalDwellings": 39566,
+      "chargeableDwellings": 38888,
+      "singlePersonDiscount25": 12276,
+      "singlePersonDiscountPctOfChargeable": 31.6,
+      "disregarded25": 338,
+      "disregardedAll50": 83
+    },
+    "E07000091": {
+      "areaName": "New Forest",
+      "totalDwellings": 83382,
+      "chargeableDwellings": 81625,
+      "singlePersonDiscount25": 26301,
+      "singlePersonDiscountPctOfChargeable": 32.2,
+      "disregarded25": 857,
+      "disregardedAll50": 210
+    },
+    "E07000175": {
+      "areaName": "Newark and Sherwood",
+      "totalDwellings": 58347,
+      "chargeableDwellings": 57159,
+      "singlePersonDiscount25": 19491,
+      "singlePersonDiscountPctOfChargeable": 34.1,
+      "disregarded25": 623,
+      "disregardedAll50": 126
+    },
+    "E08000021": {
+      "areaName": "Newcastle upon Tyne",
+      "totalDwellings": 140444,
+      "chargeableDwellings": 128406,
+      "singlePersonDiscount25": 49677,
+      "singlePersonDiscountPctOfChargeable": 38.7,
+      "disregarded25": 1577,
+      "disregardedAll50": 58
+    },
+    "E07000195": {
+      "areaName": "Newcastle-under-Lyme",
+      "totalDwellings": 58483,
+      "chargeableDwellings": 55755,
+      "singlePersonDiscount25": 19864,
+      "singlePersonDiscountPctOfChargeable": 35.6,
+      "disregarded25": 670,
+      "disregardedAll50": 92
+    },
+    "E09000025": {
+      "areaName": "Newham",
+      "totalDwellings": 131947,
+      "chargeableDwellings": 128917,
+      "singlePersonDiscount25": 36000,
+      "singlePersonDiscountPctOfChargeable": 27.9,
+      "disregarded25": 1384,
+      "disregardedAll50": 78
+    },
+    "E07000043": {
+      "areaName": "North Devon",
+      "totalDwellings": 49109,
+      "chargeableDwellings": 48100,
+      "singlePersonDiscount25": 15855,
+      "singlePersonDiscountPctOfChargeable": 33.0,
+      "disregarded25": 451,
+      "disregardedAll50": 84
+    },
+    "E07000038": {
+      "areaName": "North East Derbyshire",
+      "totalDwellings": 48847,
+      "chargeableDwellings": 48162,
+      "singlePersonDiscount25": 16468,
+      "singlePersonDiscountPctOfChargeable": 34.2,
+      "disregarded25": 478,
+      "disregardedAll50": 60
+    },
+    "E06000012": {
+      "areaName": "North East Lincolnshire",
+      "totalDwellings": 75622,
+      "chargeableDwellings": 74166,
+      "singlePersonDiscount25": 28490,
+      "singlePersonDiscountPctOfChargeable": 38.4,
+      "disregarded25": 665,
+      "disregardedAll50": 139
+    },
+    "E07000099": {
+      "areaName": "North Hertfordshire",
+      "totalDwellings": 59869,
+      "chargeableDwellings": 58943,
+      "singlePersonDiscount25": 18870,
+      "singlePersonDiscountPctOfChargeable": 32.0,
+      "disregarded25": 392,
+      "disregardedAll50": 71
+    },
+    "E07000139": {
+      "areaName": "North Kesteven",
+      "totalDwellings": 54964,
+      "chargeableDwellings": 52947,
+      "singlePersonDiscount25": 17082,
+      "singlePersonDiscountPctOfChargeable": 32.3,
+      "disregarded25": 431,
+      "disregardedAll50": 78
+    },
+    "E06000013": {
+      "areaName": "North Lincolnshire",
+      "totalDwellings": 77906,
+      "chargeableDwellings": 76438,
+      "singlePersonDiscount25": 26926,
+      "singlePersonDiscountPctOfChargeable": 35.2,
+      "disregarded25": 679,
+      "disregardedAll50": 182
+    },
+    "E07000147": {
+      "areaName": "North Norfolk",
+      "totalDwellings": 56598,
+      "chargeableDwellings": 55425,
+      "singlePersonDiscount25": 18008,
+      "singlePersonDiscountPctOfChargeable": 32.5,
+      "disregarded25": 387,
+      "disregardedAll50": 113
+    },
+    "E06000061": {
+      "areaName": "North Northamptonshire",
+      "totalDwellings": 160391,
+      "chargeableDwellings": 157603,
+      "singlePersonDiscount25": 51830,
+      "singlePersonDiscountPctOfChargeable": 32.9,
+      "disregarded25": 1502,
+      "disregardedAll50": 262
+    },
+    "E06000024": {
+      "areaName": "North Somerset",
+      "totalDwellings": 101673,
+      "chargeableDwellings": 99533,
+      "singlePersonDiscount25": 33528,
+      "singlePersonDiscountPctOfChargeable": 33.7,
+      "disregarded25": 1279,
+      "disregardedAll50": 163
+    },
+    "E08000022": {
+      "areaName": "North Tyneside",
+      "totalDwellings": 101851,
+      "chargeableDwellings": 100054,
+      "singlePersonDiscount25": 39671,
+      "singlePersonDiscountPctOfChargeable": 39.6,
+      "disregarded25": 877,
+      "disregardedAll50": 117
+    },
+    "E07000218": {
+      "areaName": "North Warwickshire",
+      "totalDwellings": 29677,
+      "chargeableDwellings": 29125,
+      "singlePersonDiscount25": 9862,
+      "singlePersonDiscountPctOfChargeable": 33.9,
+      "disregarded25": 342,
+      "disregardedAll50": 63
+    },
+    "E07000134": {
+      "areaName": "North West Leicestershire",
+      "totalDwellings": 48854,
+      "chargeableDwellings": 47874,
+      "singlePersonDiscount25": 15229,
+      "singlePersonDiscountPctOfChargeable": 31.8,
+      "disregarded25": 477,
+      "disregardedAll50": 95
+    },
+    "E06000065": {
+      "areaName": "North Yorkshire",
+      "totalDwellings": 305295,
+      "chargeableDwellings": 296069,
+      "singlePersonDiscount25": 98392,
+      "singlePersonDiscountPctOfChargeable": 33.2,
+      "disregarded25": 2756,
+      "disregardedAll50": 783
+    },
+    "E06000057": {
+      "areaName": "Northumberland",
+      "totalDwellings": 161988,
+      "chargeableDwellings": 159292,
+      "singlePersonDiscount25": 59000,
+      "singlePersonDiscountPctOfChargeable": 37.0,
+      "disregarded25": 1260,
+      "disregardedAll50": 488
+    },
+    "E07000148": {
+      "areaName": "Norwich",
+      "totalDwellings": 69167,
+      "chargeableDwellings": 66408,
+      "singlePersonDiscount25": 27917,
+      "singlePersonDiscountPctOfChargeable": 42.0,
+      "disregarded25": 653,
+      "disregardedAll50": 130
+    },
+    "E06000018": {
+      "areaName": "Nottingham",
+      "totalDwellings": 147060,
+      "chargeableDwellings": 127412,
+      "singlePersonDiscount25": 54725,
+      "singlePersonDiscountPctOfChargeable": 43.0,
+      "disregarded25": 1489,
+      "disregardedAll50": 342
+    },
+    "E07000219": {
+      "areaName": "Nuneaton and Bedworth",
+      "totalDwellings": 61246,
+      "chargeableDwellings": 60240,
+      "singlePersonDiscount25": 20940,
+      "singlePersonDiscountPctOfChargeable": 34.8,
+      "disregarded25": 574,
+      "disregardedAll50": 113
+    },
+    "E07000135": {
+      "areaName": "Oadby and Wigston",
+      "totalDwellings": 24455,
+      "chargeableDwellings": 23887,
+      "singlePersonDiscount25": 7683,
+      "singlePersonDiscountPctOfChargeable": 32.2,
+      "disregarded25": 267,
+      "disregardedAll50": 43
+    },
+    "E08000004": {
+      "areaName": "Oldham",
+      "totalDwellings": 98912,
+      "chargeableDwellings": 96505,
+      "singlePersonDiscount25": 34468,
+      "singlePersonDiscountPctOfChargeable": 35.7,
+      "disregarded25": 1446,
+      "disregardedAll50": 179
+    },
+    "E07000178": {
+      "areaName": "Oxford",
+      "totalDwellings": 63390,
+      "chargeableDwellings": 57159,
+      "singlePersonDiscount25": 17247,
+      "singlePersonDiscountPctOfChargeable": 30.2,
+      "disregarded25": 1384,
+      "disregardedAll50": 145
+    },
+    "E07000122": {
+      "areaName": "Pendle",
+      "totalDwellings": 41602,
+      "chargeableDwellings": 40779,
+      "singlePersonDiscount25": 14928,
+      "singlePersonDiscountPctOfChargeable": 36.6,
+      "disregarded25": 383,
+      "disregardedAll50": 79
+    },
+    "E06000031": {
+      "areaName": "Peterborough",
+      "totalDwellings": 90945,
+      "chargeableDwellings": 88642,
+      "singlePersonDiscount25": 29460,
+      "singlePersonDiscountPctOfChargeable": 33.2,
+      "disregarded25": 1045,
+      "disregardedAll50": 142
+    },
+    "E06000026": {
+      "areaName": "Plymouth",
+      "totalDwellings": 123273,
+      "chargeableDwellings": 116676,
+      "singlePersonDiscount25": 43440,
+      "singlePersonDiscountPctOfChargeable": 37.2,
+      "disregarded25": 1187,
+      "disregardedAll50": 289
+    },
+    "E06000044": {
+      "areaName": "Portsmouth",
+      "totalDwellings": 94111,
+      "chargeableDwellings": 89062,
+      "singlePersonDiscount25": 32724,
+      "singlePersonDiscountPctOfChargeable": 36.7,
+      "disregarded25": 1205,
+      "disregardedAll50": 156
+    },
+    "E07000123": {
+      "areaName": "Preston",
+      "totalDwellings": 69951,
+      "chargeableDwellings": 66601,
+      "singlePersonDiscount25": 22937,
+      "singlePersonDiscountPctOfChargeable": 34.4,
+      "disregarded25": 963,
+      "disregardedAll50": 97
+    },
+    "E06000038": {
+      "areaName": "Reading",
+      "totalDwellings": 77105,
+      "chargeableDwellings": 74405,
+      "singlePersonDiscount25": 23820,
+      "singlePersonDiscountPctOfChargeable": 32.0,
+      "disregarded25": 910,
+      "disregardedAll50": 101
+    },
+    "E09000026": {
+      "areaName": "Redbridge",
+      "totalDwellings": 107835,
+      "chargeableDwellings": 106291,
+      "singlePersonDiscount25": 26364,
+      "singlePersonDiscountPctOfChargeable": 24.8,
+      "disregarded25": 897,
+      "disregardedAll50": 130
+    },
+    "E06000003": {
+      "areaName": "Redcar and Cleveland",
+      "totalDwellings": 66546,
+      "chargeableDwellings": 65211,
+      "singlePersonDiscount25": 26201,
+      "singlePersonDiscountPctOfChargeable": 40.2,
+      "disregarded25": 746,
+      "disregardedAll50": 143
+    },
+    "E07000236": {
+      "areaName": "Redditch",
+      "totalDwellings": 37938,
+      "chargeableDwellings": 37513,
+      "singlePersonDiscount25": 13380,
+      "singlePersonDiscountPctOfChargeable": 35.7,
+      "disregarded25": 345,
+      "disregardedAll50": 31
+    },
+    "E07000211": {
+      "areaName": "Reigate and Banstead",
+      "totalDwellings": 64821,
+      "chargeableDwellings": 63690,
+      "singlePersonDiscount25": 19189,
+      "singlePersonDiscountPctOfChargeable": 30.1,
+      "disregarded25": 433,
+      "disregardedAll50": 191
+    },
+    "E07000124": {
+      "areaName": "Ribble Valley",
+      "totalDwellings": 29597,
+      "chargeableDwellings": 29092,
+      "singlePersonDiscount25": 9441,
+      "singlePersonDiscountPctOfChargeable": 32.5,
+      "disregarded25": 282,
+      "disregardedAll50": 62
+    },
+    "E09000027": {
+      "areaName": "Richmond upon Thames",
+      "totalDwellings": 85765,
+      "chargeableDwellings": 84575,
+      "singlePersonDiscount25": 26313,
+      "singlePersonDiscountPctOfChargeable": 31.1,
+      "disregarded25": 617,
+      "disregardedAll50": 119
+    },
+    "E08000005": {
+      "areaName": "Rochdale",
+      "totalDwellings": 97869,
+      "chargeableDwellings": 95789,
+      "singlePersonDiscount25": 35846,
+      "singlePersonDiscountPctOfChargeable": 37.4,
+      "disregarded25": 1157,
+      "disregardedAll50": 162
+    },
+    "E07000075": {
+      "areaName": "Rochford",
+      "totalDwellings": 38232,
+      "chargeableDwellings": 37539,
+      "singlePersonDiscount25": 11081,
+      "singlePersonDiscountPctOfChargeable": 29.5,
+      "disregarded25": 350,
+      "disregardedAll50": 40
+    },
+    "E07000125": {
+      "areaName": "Rossendale",
+      "totalDwellings": 32847,
+      "chargeableDwellings": 32335,
+      "singlePersonDiscount25": 11758,
+      "singlePersonDiscountPctOfChargeable": 36.4,
+      "disregarded25": 296,
+      "disregardedAll50": 36
+    },
+    "E07000064": {
+      "areaName": "Rother",
+      "totalDwellings": 46836,
+      "chargeableDwellings": 45865,
+      "singlePersonDiscount25": 15776,
+      "singlePersonDiscountPctOfChargeable": 34.4,
+      "disregarded25": 653,
+      "disregardedAll50": 151
+    },
+    "E08000018": {
+      "areaName": "Rotherham",
+      "totalDwellings": 121996,
+      "chargeableDwellings": 120154,
+      "singlePersonDiscount25": 41483,
+      "singlePersonDiscountPctOfChargeable": 34.5,
+      "disregarded25": 1324,
+      "disregardedAll50": 283
+    },
+    "E07000220": {
+      "areaName": "Rugby",
+      "totalDwellings": 51552,
+      "chargeableDwellings": 50525,
+      "singlePersonDiscount25": 16972,
+      "singlePersonDiscountPctOfChargeable": 33.6,
+      "disregarded25": 341,
+      "disregardedAll50": 49
+    },
+    "E07000212": {
+      "areaName": "Runnymede",
+      "totalDwellings": 39372,
+      "chargeableDwellings": 36802,
+      "singlePersonDiscount25": 11901,
+      "singlePersonDiscountPctOfChargeable": 32.3,
+      "disregarded25": 359,
+      "disregardedAll50": 74
+    },
+    "E07000176": {
+      "areaName": "Rushcliffe",
+      "totalDwellings": 55058,
+      "chargeableDwellings": 53797,
+      "singlePersonDiscount25": 17100,
+      "singlePersonDiscountPctOfChargeable": 31.8,
+      "disregarded25": 577,
+      "disregardedAll50": 86
+    },
+    "E07000092": {
+      "areaName": "Rushmoor",
+      "totalDwellings": 42626,
+      "chargeableDwellings": 40045,
+      "singlePersonDiscount25": 12879,
+      "singlePersonDiscountPctOfChargeable": 32.2,
+      "disregarded25": 312,
+      "disregardedAll50": 75
+    },
+    "E06000017": {
+      "areaName": "Rutland",
+      "totalDwellings": 18084,
+      "chargeableDwellings": 17164,
+      "singlePersonDiscount25": 5606,
+      "singlePersonDiscountPctOfChargeable": 32.7,
+      "disregarded25": 124,
+      "disregardedAll50": 11
+    },
+    "E08000006": {
+      "areaName": "Salford",
+      "totalDwellings": 135052,
+      "chargeableDwellings": 130012,
+      "singlePersonDiscount25": 48845,
+      "singlePersonDiscountPctOfChargeable": 37.6,
+      "disregarded25": 1918,
+      "disregardedAll50": 193
+    },
+    "E08000028": {
+      "areaName": "Sandwell",
+      "totalDwellings": 136641,
+      "chargeableDwellings": 134550,
+      "singlePersonDiscount25": 46440,
+      "singlePersonDiscountPctOfChargeable": 34.5,
+      "disregarded25": 1158,
+      "disregardedAll50": 153
+    },
+    "E08000014": {
+      "areaName": "Sefton",
+      "totalDwellings": 131139,
+      "chargeableDwellings": 127834,
+      "singlePersonDiscount25": 48781,
+      "singlePersonDiscountPctOfChargeable": 38.2,
+      "disregarded25": 1707,
+      "disregardedAll50": 467
+    },
+    "E07000111": {
+      "areaName": "Sevenoaks",
+      "totalDwellings": 52540,
+      "chargeableDwellings": 51592,
+      "singlePersonDiscount25": 15606,
+      "singlePersonDiscountPctOfChargeable": 30.2,
+      "disregarded25": 424,
+      "disregardedAll50": 87
+    },
+    "E08000019": {
+      "areaName": "Sheffield",
+      "totalDwellings": 261707,
+      "chargeableDwellings": 243567,
+      "singlePersonDiscount25": 91571,
+      "singlePersonDiscountPctOfChargeable": 37.6,
+      "disregarded25": 2535,
+      "disregardedAll50": 732
+    },
+    "E06000051": {
+      "areaName": "Shropshire",
+      "totalDwellings": 151872,
+      "chargeableDwellings": 148237,
+      "singlePersonDiscount25": 50178,
+      "singlePersonDiscountPctOfChargeable": 33.8,
+      "disregarded25": 1299,
+      "disregardedAll50": 351
+    },
+    "E06000039": {
+      "areaName": "Slough",
+      "totalDwellings": 57231,
+      "chargeableDwellings": 56122,
+      "singlePersonDiscount25": 14311,
+      "singlePersonDiscountPctOfChargeable": 25.5,
+      "disregarded25": 620,
+      "disregardedAll50": 38
+    },
+    "E08000029": {
+      "areaName": "Solihull",
+      "totalDwellings": 95825,
+      "chargeableDwellings": 94168,
+      "singlePersonDiscount25": 31261,
+      "singlePersonDiscountPctOfChargeable": 33.2,
+      "disregarded25": 863,
+      "disregardedAll50": 159
+    },
+    "E06000066": {
+      "areaName": "Somerset",
+      "totalDwellings": 271342,
+      "chargeableDwellings": 266082,
+      "singlePersonDiscount25": 90114,
+      "singlePersonDiscountPctOfChargeable": 33.9,
+      "disregarded25": 2416,
+      "disregardedAll50": 602
+    },
+    "E07000012": {
+      "areaName": "South Cambridgeshire",
+      "totalDwellings": 73678,
+      "chargeableDwellings": 72231,
+      "singlePersonDiscount25": 20606,
+      "singlePersonDiscountPctOfChargeable": 28.5,
+      "disregarded25": 745,
+      "disregardedAll50": 235
+    },
+    "E07000039": {
+      "areaName": "South Derbyshire",
+      "totalDwellings": 50678,
+      "chargeableDwellings": 49969,
+      "singlePersonDiscount25": 16335,
+      "singlePersonDiscountPctOfChargeable": 32.7,
+      "disregarded25": 400,
+      "disregardedAll50": 77
+    },
+    "E06000025": {
+      "areaName": "South Gloucestershire",
+      "totalDwellings": 128458,
+      "chargeableDwellings": 125122,
+      "singlePersonDiscount25": 37689,
+      "singlePersonDiscountPctOfChargeable": 30.1,
+      "disregarded25": 1684,
+      "disregardedAll50": 275
+    },
+    "E07000044": {
+      "areaName": "South Hams",
+      "totalDwellings": 47476,
+      "chargeableDwellings": 46541,
+      "singlePersonDiscount25": 14291,
+      "singlePersonDiscountPctOfChargeable": 30.7,
+      "disregarded25": 372,
+      "disregardedAll50": 113
+    },
+    "E07000140": {
+      "areaName": "South Holland",
+      "totalDwellings": 44526,
+      "chargeableDwellings": 43880,
+      "singlePersonDiscount25": 13622,
+      "singlePersonDiscountPctOfChargeable": 31.0,
+      "disregarded25": 283,
+      "disregardedAll50": 61
+    },
+    "E07000141": {
+      "areaName": "South Kesteven",
+      "totalDwellings": 67234,
+      "chargeableDwellings": 66156,
+      "singlePersonDiscount25": 22078,
+      "singlePersonDiscountPctOfChargeable": 33.4,
+      "disregarded25": 781,
+      "disregardedAll50": 123
+    },
+    "E07000149": {
+      "areaName": "South Norfolk",
+      "totalDwellings": 67165,
+      "chargeableDwellings": 65858,
+      "singlePersonDiscount25": 21011,
+      "singlePersonDiscountPctOfChargeable": 31.9,
+      "disregarded25": 679,
+      "disregardedAll50": 142
+    },
+    "E07000179": {
+      "areaName": "South Oxfordshire",
+      "totalDwellings": 66919,
+      "chargeableDwellings": 65329,
+      "singlePersonDiscount25": 19149,
+      "singlePersonDiscountPctOfChargeable": 29.3,
+      "disregarded25": 475,
+      "disregardedAll50": 160
+    },
+    "E07000126": {
+      "areaName": "South Ribble",
+      "totalDwellings": 52221,
+      "chargeableDwellings": 51227,
+      "singlePersonDiscount25": 17998,
+      "singlePersonDiscountPctOfChargeable": 35.1,
+      "disregarded25": 534,
+      "disregardedAll50": 65
+    },
+    "E07000196": {
+      "areaName": "South Staffordshire",
+      "totalDwellings": 49306,
+      "chargeableDwellings": 48335,
+      "singlePersonDiscount25": 15744,
+      "singlePersonDiscountPctOfChargeable": 32.6,
+      "disregarded25": 466,
+      "disregardedAll50": 81
+    },
+    "E08000023": {
+      "areaName": "South Tyneside",
+      "totalDwellings": 72972,
+      "chargeableDwellings": 71738,
+      "singlePersonDiscount25": 30663,
+      "singlePersonDiscountPctOfChargeable": 42.7,
+      "disregarded25": 786,
+      "disregardedAll50": 51
+    },
+    "E06000045": {
+      "areaName": "Southampton",
+      "totalDwellings": 111257,
+      "chargeableDwellings": 104666,
+      "singlePersonDiscount25": 40122,
+      "singlePersonDiscountPctOfChargeable": 38.3,
+      "disregarded25": 1217,
+      "disregardedAll50": 184
+    },
+    "E06000033": {
+      "areaName": "Southend-on-Sea",
+      "totalDwellings": 83239,
+      "chargeableDwellings": 81641,
+      "singlePersonDiscount25": 28740,
+      "singlePersonDiscountPctOfChargeable": 35.2,
+      "disregarded25": 735,
+      "disregardedAll50": 220
+    },
+    "E09000028": {
+      "areaName": "Southwark",
+      "totalDwellings": 150014,
+      "chargeableDwellings": 142423,
+      "singlePersonDiscount25": 49138,
+      "singlePersonDiscountPctOfChargeable": 34.5,
+      "disregarded25": 1396,
+      "disregardedAll50": 173
+    },
+    "E07000213": {
+      "areaName": "Spelthorne",
+      "totalDwellings": 44594,
+      "chargeableDwellings": 43765,
+      "singlePersonDiscount25": 13259,
+      "singlePersonDiscountPctOfChargeable": 30.3,
+      "disregarded25": 401,
+      "disregardedAll50": 47
+    },
+    "E07000240": {
+      "areaName": "St Albans",
+      "totalDwellings": 63254,
+      "chargeableDwellings": 62436,
+      "singlePersonDiscount25": 18236,
+      "singlePersonDiscountPctOfChargeable": 29.2,
+      "disregarded25": 660,
+      "disregardedAll50": 152
+    },
+    "E08000013": {
+      "areaName": "St Helens",
+      "totalDwellings": 85938,
+      "chargeableDwellings": 84063,
+      "singlePersonDiscount25": 30333,
+      "singlePersonDiscountPctOfChargeable": 36.1,
+      "disregarded25": 1030,
+      "disregardedAll50": 236
+    },
+    "E07000197": {
+      "areaName": "Stafford",
+      "totalDwellings": 63934,
+      "chargeableDwellings": 62155,
+      "singlePersonDiscount25": 20398,
+      "singlePersonDiscountPctOfChargeable": 32.8,
+      "disregarded25": 673,
+      "disregardedAll50": 78
+    },
+    "E07000198": {
+      "areaName": "Staffordshire Moorlands",
+      "totalDwellings": 45127,
+      "chargeableDwellings": 44252,
+      "singlePersonDiscount25": 14594,
+      "singlePersonDiscountPctOfChargeable": 33.0,
+      "disregarded25": 488,
+      "disregardedAll50": 62
+    },
+    "E07000243": {
+      "areaName": "Stevenage",
+      "totalDwellings": 38395,
+      "chargeableDwellings": 37829,
+      "singlePersonDiscount25": 13068,
+      "singlePersonDiscountPctOfChargeable": 34.5,
+      "disregarded25": 337,
+      "disregardedAll50": 64
+    },
+    "E08000007": {
+      "areaName": "Stockport",
+      "totalDwellings": 133373,
+      "chargeableDwellings": 130901,
+      "singlePersonDiscount25": 46741,
+      "singlePersonDiscountPctOfChargeable": 35.7,
+      "disregarded25": 1465,
+      "disregardedAll50": 313
+    },
+    "E06000004": {
+      "areaName": "Stockton-on-Tees",
+      "totalDwellings": 90598,
+      "chargeableDwellings": 88459,
+      "singlePersonDiscount25": 33726,
+      "singlePersonDiscountPctOfChargeable": 38.1,
+      "disregarded25": 1423,
+      "disregardedAll50": 161
+    },
+    "E06000021": {
+      "areaName": "Stoke-on-Trent",
+      "totalDwellings": 119628,
+      "chargeableDwellings": 116661,
+      "singlePersonDiscount25": 43364,
+      "singlePersonDiscountPctOfChargeable": 37.2,
+      "disregarded25": 1231,
+      "disregardedAll50": 219
+    },
+    "E07000221": {
+      "areaName": "Stratford-on-Avon",
+      "totalDwellings": 66912,
+      "chargeableDwellings": 65708,
+      "singlePersonDiscount25": 21290,
+      "singlePersonDiscountPctOfChargeable": 32.4,
+      "disregarded25": 555,
+      "disregardedAll50": 110
+    },
+    "E07000082": {
+      "areaName": "Stroud",
+      "totalDwellings": 56756,
+      "chargeableDwellings": 55938,
+      "singlePersonDiscount25": 18025,
+      "singlePersonDiscountPctOfChargeable": 32.2,
+      "disregarded25": 456,
+      "disregardedAll50": 113
+    },
+    "E08000024": {
+      "areaName": "Sunderland",
+      "totalDwellings": 134455,
+      "chargeableDwellings": 130485,
+      "singlePersonDiscount25": 52223,
+      "singlePersonDiscountPctOfChargeable": 40.0,
+      "disregarded25": 1359,
+      "disregardedAll50": 262
+    },
+    "E07000214": {
+      "areaName": "Surrey Heath",
+      "totalDwellings": 38624,
+      "chargeableDwellings": 37789,
+      "singlePersonDiscount25": 9925,
+      "singlePersonDiscountPctOfChargeable": 26.3,
+      "disregarded25": 432,
+      "disregardedAll50": 52
+    },
+    "E09000029": {
+      "areaName": "Sutton",
+      "totalDwellings": 86206,
+      "chargeableDwellings": 85027,
+      "singlePersonDiscount25": 25526,
+      "singlePersonDiscountPctOfChargeable": 30.0,
+      "disregarded25": 968,
+      "disregardedAll50": 141
+    },
+    "E07000113": {
+      "areaName": "Swale",
+      "totalDwellings": 67235,
+      "chargeableDwellings": 66093,
+      "singlePersonDiscount25": 20843,
+      "singlePersonDiscountPctOfChargeable": 31.5,
+      "disregarded25": 742,
+      "disregardedAll50": 74
+    },
+    "E06000030": {
+      "areaName": "Swindon",
+      "totalDwellings": 101924,
+      "chargeableDwellings": 100432,
+      "singlePersonDiscount25": 31495,
+      "singlePersonDiscountPctOfChargeable": 31.4,
+      "disregarded25": 804,
+      "disregardedAll50": 125
+    },
+    "E08000008": {
+      "areaName": "Tameside",
+      "totalDwellings": 105556,
+      "chargeableDwellings": 103248,
+      "singlePersonDiscount25": 39036,
+      "singlePersonDiscountPctOfChargeable": 37.8,
+      "disregarded25": 1226,
+      "disregardedAll50": 177
+    },
+    "E07000199": {
+      "areaName": "Tamworth",
+      "totalDwellings": 34968,
+      "chargeableDwellings": 34412,
+      "singlePersonDiscount25": 11427,
+      "singlePersonDiscountPctOfChargeable": 33.2,
+      "disregarded25": 463,
+      "disregardedAll50": 37
+    },
+    "E07000215": {
+      "areaName": "Tandridge",
+      "totalDwellings": 38137,
+      "chargeableDwellings": 37491,
+      "singlePersonDiscount25": 11706,
+      "singlePersonDiscountPctOfChargeable": 31.2,
+      "disregarded25": 273,
+      "disregardedAll50": 75
+    },
+    "E07000045": {
+      "areaName": "Teignbridge",
+      "totalDwellings": 65355,
+      "chargeableDwellings": 64163,
+      "singlePersonDiscount25": 21826,
+      "singlePersonDiscountPctOfChargeable": 34.0,
+      "disregarded25": 556,
+      "disregardedAll50": 198
+    },
+    "E06000020": {
+      "areaName": "Telford and Wrekin",
+      "totalDwellings": 83883,
+      "chargeableDwellings": 82144,
+      "singlePersonDiscount25": 26594,
+      "singlePersonDiscountPctOfChargeable": 32.4,
+      "disregarded25": 893,
+      "disregardedAll50": 61
+    },
+    "E07000076": {
+      "areaName": "Tendring",
+      "totalDwellings": 75338,
+      "chargeableDwellings": 73767,
+      "singlePersonDiscount25": 26357,
+      "singlePersonDiscountPctOfChargeable": 35.7,
+      "disregarded25": 965,
+      "disregardedAll50": 253
+    },
+    "E07000093": {
+      "areaName": "Test Valley",
+      "totalDwellings": 58740,
+      "chargeableDwellings": 57200,
+      "singlePersonDiscount25": 17662,
+      "singlePersonDiscountPctOfChargeable": 30.9,
+      "disregarded25": 459,
+      "disregardedAll50": 118
+    },
+    "E07000083": {
+      "areaName": "Tewkesbury",
+      "totalDwellings": 45783,
+      "chargeableDwellings": 44504,
+      "singlePersonDiscount25": 14900,
+      "singlePersonDiscountPctOfChargeable": 33.5,
+      "disregarded25": 387,
+      "disregardedAll50": 38
+    },
+    "E07000114": {
+      "areaName": "Thanet",
+      "totalDwellings": 69777,
+      "chargeableDwellings": 68472,
+      "singlePersonDiscount25": 26319,
+      "singlePersonDiscountPctOfChargeable": 38.4,
+      "disregarded25": 630,
+      "disregardedAll50": 124
+    },
+    "E07000102": {
+      "areaName": "Three Rivers",
+      "totalDwellings": 39092,
+      "chargeableDwellings": 38178,
+      "singlePersonDiscount25": 11221,
+      "singlePersonDiscountPctOfChargeable": 29.4,
+      "disregarded25": 290,
+      "disregardedAll50": 44
+    },
+    "E06000034": {
+      "areaName": "Thurrock",
+      "totalDwellings": 70201,
+      "chargeableDwellings": 68907,
+      "singlePersonDiscount25": 19476,
+      "singlePersonDiscountPctOfChargeable": 28.3,
+      "disregarded25": 982,
+      "disregardedAll50": 83
+    },
+    "E07000115": {
+      "areaName": "Tonbridge and Malling",
+      "totalDwellings": 57089,
+      "chargeableDwellings": 56259,
+      "singlePersonDiscount25": 16592,
+      "singlePersonDiscountPctOfChargeable": 29.5,
+      "disregarded25": 502,
+      "disregardedAll50": 59
+    },
+    "E06000027": {
+      "areaName": "Torbay",
+      "totalDwellings": 68736,
+      "chargeableDwellings": 67501,
+      "singlePersonDiscount25": 24160,
+      "singlePersonDiscountPctOfChargeable": 35.8,
+      "disregarded25": 568,
+      "disregardedAll50": 167
+    },
+    "E07000046": {
+      "areaName": "Torridge",
+      "totalDwellings": 34321,
+      "chargeableDwellings": 33628,
+      "singlePersonDiscount25": 10596,
+      "singlePersonDiscountPctOfChargeable": 31.5,
+      "disregarded25": 387,
+      "disregardedAll50": 84
+    },
+    "E09000030": {
+      "areaName": "Tower Hamlets",
+      "totalDwellings": 149166,
+      "chargeableDwellings": 141519,
+      "singlePersonDiscount25": 44971,
+      "singlePersonDiscountPctOfChargeable": 31.8,
+      "disregarded25": 1707,
+      "disregardedAll50": 125
+    },
+    "E08000009": {
+      "areaName": "Trafford",
+      "totalDwellings": 104146,
+      "chargeableDwellings": 102091,
+      "singlePersonDiscount25": 34057,
+      "singlePersonDiscountPctOfChargeable": 33.4,
+      "disregarded25": 810,
+      "disregardedAll50": 167
+    },
+    "E07000116": {
+      "areaName": "Tunbridge Wells",
+      "totalDwellings": 52689,
+      "chargeableDwellings": 51799,
+      "singlePersonDiscount25": 17271,
+      "singlePersonDiscountPctOfChargeable": 33.3,
+      "disregarded25": 427,
+      "disregardedAll50": 121
+    },
+    "E07000077": {
+      "areaName": "Uttlesford",
+      "totalDwellings": 40449,
+      "chargeableDwellings": 39479,
+      "singlePersonDiscount25": 11667,
+      "singlePersonDiscountPctOfChargeable": 29.6,
+      "disregarded25": 296,
+      "disregardedAll50": 69
+    },
+    "E07000180": {
+      "areaName": "Vale of White Horse",
+      "totalDwellings": 64416,
+      "chargeableDwellings": 62231,
+      "singlePersonDiscount25": 18602,
+      "singlePersonDiscountPctOfChargeable": 29.9,
+      "disregarded25": 558,
+      "disregardedAll50": 122
+    },
+    "E08000036": {
+      "areaName": "Wakefield",
+      "totalDwellings": 164934,
+      "chargeableDwellings": 162047,
+      "singlePersonDiscount25": 57728,
+      "singlePersonDiscountPctOfChargeable": 35.6,
+      "disregarded25": 1513,
+      "disregardedAll50": 332
+    },
+    "E08000030": {
+      "areaName": "Walsall",
+      "totalDwellings": 118396,
+      "chargeableDwellings": 115997,
+      "singlePersonDiscount25": 40314,
+      "singlePersonDiscountPctOfChargeable": 34.8,
+      "disregarded25": 1307,
+      "disregardedAll50": 169
+    },
+    "E09000031": {
+      "areaName": "Waltham Forest",
+      "totalDwellings": 110404,
+      "chargeableDwellings": 108647,
+      "singlePersonDiscount25": 31280,
+      "singlePersonDiscountPctOfChargeable": 28.8,
+      "disregarded25": 1202,
+      "disregardedAll50": 193
+    },
+    "E09000032": {
+      "areaName": "Wandsworth",
+      "totalDwellings": 157112,
+      "chargeableDwellings": 154129,
+      "singlePersonDiscount25": 45665,
+      "singlePersonDiscountPctOfChargeable": 29.6,
+      "disregarded25": 785,
+      "disregardedAll50": 147
+    },
+    "E06000007": {
+      "areaName": "Warrington",
+      "totalDwellings": 97237,
+      "chargeableDwellings": 95711,
+      "singlePersonDiscount25": 32699,
+      "singlePersonDiscountPctOfChargeable": 34.2,
+      "disregarded25": 732,
+      "disregardedAll50": 161
+    },
+    "E07000222": {
+      "areaName": "Warwick",
+      "totalDwellings": 69481,
+      "chargeableDwellings": 67143,
+      "singlePersonDiscount25": 23710,
+      "singlePersonDiscountPctOfChargeable": 35.3,
+      "disregarded25": 840,
+      "disregardedAll50": 123
+    },
+    "E07000103": {
+      "areaName": "Watford",
+      "totalDwellings": 43061,
+      "chargeableDwellings": 42367,
+      "singlePersonDiscount25": 12815,
+      "singlePersonDiscountPctOfChargeable": 30.2,
+      "disregarded25": 413,
+      "disregardedAll50": 45
+    },
+    "E07000216": {
+      "areaName": "Waverley",
+      "totalDwellings": 57335,
+      "chargeableDwellings": 56309,
+      "singlePersonDiscount25": 17403,
+      "singlePersonDiscountPctOfChargeable": 30.9,
+      "disregarded25": 524,
+      "disregardedAll50": 147
+    },
+    "E07000065": {
+      "areaName": "Wealden",
+      "totalDwellings": 74592,
+      "chargeableDwellings": 72877,
+      "singlePersonDiscount25": 22880,
+      "singlePersonDiscountPctOfChargeable": 31.4,
+      "disregarded25": 765,
+      "disregardedAll50": 181
+    },
+    "E07000241": {
+      "areaName": "Welwyn Hatfield",
+      "totalDwellings": 50759,
+      "chargeableDwellings": 48991,
+      "singlePersonDiscount25": 15579,
+      "singlePersonDiscountPctOfChargeable": 31.8,
+      "disregarded25": 647,
+      "disregardedAll50": 55
+    },
+    "E06000037": {
+      "areaName": "West Berkshire",
+      "totalDwellings": 71968,
+      "chargeableDwellings": 70592,
+      "singlePersonDiscount25": 20990,
+      "singlePersonDiscountPctOfChargeable": 29.7,
+      "disregarded25": 598,
+      "disregardedAll50": 165
+    },
+    "E07000047": {
+      "areaName": "West Devon",
+      "totalDwellings": 27326,
+      "chargeableDwellings": 26793,
+      "singlePersonDiscount25": 8918,
+      "singlePersonDiscountPctOfChargeable": 33.3,
+      "disregarded25": 274,
+      "disregardedAll50": 81
+    },
+    "E07000127": {
+      "areaName": "West Lancashire",
+      "totalDwellings": 52579,
+      "chargeableDwellings": 50852,
+      "singlePersonDiscount25": 16935,
+      "singlePersonDiscountPctOfChargeable": 33.3,
+      "disregarded25": 461,
+      "disregardedAll50": 80
+    },
+    "E07000142": {
+      "areaName": "West Lindsey",
+      "totalDwellings": 46524,
+      "chargeableDwellings": 45699,
+      "singlePersonDiscount25": 15071,
+      "singlePersonDiscountPctOfChargeable": 33.0,
+      "disregarded25": 455,
+      "disregardedAll50": 60
+    },
+    "E06000062": {
+      "areaName": "West Northamptonshire",
+      "totalDwellings": 185158,
+      "chargeableDwellings": 180689,
+      "singlePersonDiscount25": 58533,
+      "singlePersonDiscountPctOfChargeable": 32.4,
+      "disregarded25": 1854,
+      "disregardedAll50": 227
+    },
+    "E07000181": {
+      "areaName": "West Oxfordshire",
+      "totalDwellings": 53742,
+      "chargeableDwellings": 51587,
+      "singlePersonDiscount25": 15965,
+      "singlePersonDiscountPctOfChargeable": 30.9,
+      "disregarded25": 427,
+      "disregardedAll50": 73
+    },
+    "E07000245": {
+      "areaName": "West Suffolk",
+      "totalDwellings": 84069,
+      "chargeableDwellings": 77622,
+      "singlePersonDiscount25": 25828,
+      "singlePersonDiscountPctOfChargeable": 33.3,
+      "disregarded25": 692,
+      "disregardedAll50": 134
+    },
+    "E09000033": {
+      "areaName": "Westminster",
+      "totalDwellings": 131827,
+      "chargeableDwellings": 127266,
+      "singlePersonDiscount25": 42783,
+      "singlePersonDiscountPctOfChargeable": 33.6,
+      "disregarded25": 912,
+      "disregardedAll50": 59
+    },
+    "E06000064": {
+      "areaName": "Westmorland and Furness",
+      "totalDwellings": 117530,
+      "chargeableDwellings": 115277,
+      "singlePersonDiscount25": 39417,
+      "singlePersonDiscountPctOfChargeable": 34.2,
+      "disregarded25": 1035,
+      "disregardedAll50": 256
+    },
+    "E08000010": {
+      "areaName": "Wigan",
+      "totalDwellings": 153158,
+      "chargeableDwellings": 150288,
+      "singlePersonDiscount25": 51551,
+      "singlePersonDiscountPctOfChargeable": 34.3,
+      "disregarded25": 1244,
+      "disregardedAll50": 66
+    },
+    "E06000054": {
+      "areaName": "Wiltshire",
+      "totalDwellings": 232531,
+      "chargeableDwellings": 221558,
+      "singlePersonDiscount25": 71735,
+      "singlePersonDiscountPctOfChargeable": 32.4,
+      "disregarded25": 2157,
+      "disregardedAll50": 258
+    },
+    "E07000094": {
+      "areaName": "Winchester",
+      "totalDwellings": 58576,
+      "chargeableDwellings": 56176,
+      "singlePersonDiscount25": 17262,
+      "singlePersonDiscountPctOfChargeable": 30.7,
+      "disregarded25": 579,
+      "disregardedAll50": 152
+    },
+    "E06000040": {
+      "areaName": "Windsor and Maidenhead",
+      "totalDwellings": 67391,
+      "chargeableDwellings": 65963,
+      "singlePersonDiscount25": 19990,
+      "singlePersonDiscountPctOfChargeable": 30.3,
+      "disregarded25": 441,
+      "disregardedAll50": 105
+    },
+    "E08000015": {
+      "areaName": "Wirral",
+      "totalDwellings": 151821,
+      "chargeableDwellings": 149171,
+      "singlePersonDiscount25": 58627,
+      "singlePersonDiscountPctOfChargeable": 39.3,
+      "disregarded25": 1403,
+      "disregardedAll50": 435
+    },
+    "E07000217": {
+      "areaName": "Woking",
+      "totalDwellings": 44495,
+      "chargeableDwellings": 43683,
+      "singlePersonDiscount25": 12519,
+      "singlePersonDiscountPctOfChargeable": 28.7,
+      "disregarded25": 483,
+      "disregardedAll50": 142
+    },
+    "E06000041": {
+      "areaName": "Wokingham",
+      "totalDwellings": 74902,
+      "chargeableDwellings": 73513,
+      "singlePersonDiscount25": 19149,
+      "singlePersonDiscountPctOfChargeable": 26.0,
+      "disregarded25": 668,
+      "disregardedAll50": 107
+    },
+    "E08000031": {
+      "areaName": "Wolverhampton",
+      "totalDwellings": 113966,
+      "chargeableDwellings": 110936,
+      "singlePersonDiscount25": 40731,
+      "singlePersonDiscountPctOfChargeable": 36.7,
+      "disregarded25": 1235,
+      "disregardedAll50": 181
+    },
+    "E07000237": {
+      "areaName": "Worcester",
+      "totalDwellings": 47701,
+      "chargeableDwellings": 46277,
+      "singlePersonDiscount25": 16597,
+      "singlePersonDiscountPctOfChargeable": 35.9,
+      "disregarded25": 451,
+      "disregardedAll50": 73
+    },
+    "E07000229": {
+      "areaName": "Worthing",
+      "totalDwellings": 51942,
+      "chargeableDwellings": 50887,
+      "singlePersonDiscount25": 18923,
+      "singlePersonDiscountPctOfChargeable": 37.2,
+      "disregarded25": 527,
+      "disregardedAll50": 138
+    },
+    "E07000238": {
+      "areaName": "Wychavon",
+      "totalDwellings": 62062,
+      "chargeableDwellings": 60886,
+      "singlePersonDiscount25": 19079,
+      "singlePersonDiscountPctOfChargeable": 31.3,
+      "disregarded25": 554,
+      "disregardedAll50": 73
+    },
+    "E07000128": {
+      "areaName": "Wyre",
+      "totalDwellings": 55839,
+      "chargeableDwellings": 54562,
+      "singlePersonDiscount25": 19532,
+      "singlePersonDiscountPctOfChargeable": 35.8,
+      "disregarded25": 633,
+      "disregardedAll50": 125
+    },
+    "E07000239": {
+      "areaName": "Wyre Forest",
+      "totalDwellings": 48856,
+      "chargeableDwellings": 47486,
+      "singlePersonDiscount25": 17222,
+      "singlePersonDiscountPctOfChargeable": 36.3,
+      "disregarded25": 506,
+      "disregardedAll50": 75
+    },
+    "E06000014": {
+      "areaName": "York",
+      "totalDwellings": 93466,
+      "chargeableDwellings": 86324,
+      "singlePersonDiscount25": 28295,
+      "singlePersonDiscountPctOfChargeable": 32.8,
+      "disregarded25": 1380,
+      "disregardedAll50": 141
+    }
+  }
+}
