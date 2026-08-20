@@ -408,6 +408,13 @@ const projClause = wbi2051 != null
     : "";
 const pageDescription = `${area.areaName} demographic profile: population ${popText}, White British ${wbi2021Text} (2021)${projClause}. Ethnic composition, religion, nativity, shift-share analysis.`;
 
+// Search intent: people type "<place> population", not "<place> demographic
+// profile". Leading with the figure follows the pattern that already works on
+// the sister asylum site, where titles carry the number.
+const pageTitle = population != null
+  ? `${area.areaName} population: ${popText}. Ethnicity and projections`
+  : `${area.areaName}. Population, ethnicity and projections`;
+
 const structuredData = buildPlaceStructuredData(area, {
   canonicalUrl,
   description: pageDescription,
@@ -424,7 +431,7 @@ function fmtInt(n: number | undefined | null): string {
 ---
 
 <BaseLayout
-  title={`${area.areaName}, demographic profile`}
+  title={pageTitle}
   description={pageDescription}
   image={`/og/places/${slugifyAreaName(area.areaName)}.png`}
   structuredData={structuredData}

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <!-- UK Demographics — Favicon (population bars at 32px) -->
+  <!-- UK Demographics: Favicon (population bars at 32px) -->
   <rect width="32" height="32" rx="6" fill="#04070d"/>
   <rect x="4" y="18" width="5" height="11" rx="1.5" fill="#4f46e5"/>
   <rect x="11" y="12" width="5" height="17" rx="1.5" fill="#4f46e5" opacity="0.8"/>
