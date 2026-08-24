@@ -5,7 +5,7 @@ category: demographics
 stat_value: "24.1% → 33.9%"
 stat_label: "Non-UK-born mother share, 2008 → 2024"
 verdict: alert
-source_url: "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsbyparentscountryofbirth"
+source_url: "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/parentscountryofbirth"
 source_label: "ONS Births by parents' country of birth, 2024 release"
 summary: "Births to non-UK-born mothers rose from 24.1% of the total in 2008 to 33.9% in 2024: an extra 9.8 percentage points in 16 years. The number of UK-born-mother births fell from 537,914 to 393,084. Six London boroughs (Brent, Harrow, City, Newham, Ealing, Hounslow) are already past 70%."
 ---

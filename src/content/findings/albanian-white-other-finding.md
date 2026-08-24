@@ -5,7 +5,7 @@ category: demographics
 stat_value: "89.7%"
 stat_label: "Albanian → White Other"
 verdict: info
-source_url: "https://www.ons.gov.uk/datasets/TS022/editions/2021/versions/3"
+source_url: "https://www.ons.gov.uk/datasets/TS022/editions/2021/versions/2"
 source_label: "Census 2021 TS022 Detailed Ethnicity"
 summary: "Census 2021 data shows 89.7% of people identifying as Albanian classify themselves as White Other. Albanian asylum seekers (the second-largest claiming nationality with 57,360 decisions) reduce White British percentage but do NOT increase ethnic minority statistics. This distinction matters for accurate demographic analysis."
 ---
