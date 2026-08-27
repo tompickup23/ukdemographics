@@ -42,13 +42,20 @@ Caveats encoded in the output:
 """
 import json
 from collections import defaultdict
+import sys
 from pathlib import Path
 
 import pandas as pd
 
+# Release files carry their period in the filename, so the period is resolved rather
+# than written here. See scripts/lib/newest_release.py: a pinned filename keeps working
+# while reading an older release than the one published.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from newest_release import newest_release, period_phrase  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
-XLSX = ROOT / "data/raw/ho_visas/entry-clearance-visa-outcomes-datasets-mar-2026.xlsx"
-HUM_ODS = ROOT / "data/raw/ho_visas/safe-legal-routes-summary-tables-mar-2026.ods"
+XLSX = newest_release(ROOT / "data/raw/ho_visas", "entry-clearance-visa-outcomes-datasets")
+HUM_ODS = newest_release(ROOT / "data/raw/ho_visas", "safe-legal-routes-summary-tables")
 NINO_CUBE = ROOT / "data/raw/supplementary/nino-statxplore-cube.json"
 OUT = ROOT / "src/data/live/visa-routes.json"
 
@@ -211,7 +218,7 @@ def main():
 
     out = {
         "source": (
-            "Home Office, Immigration system statistics, year ending March 2026 (released 21 May 2026); "
+            f"Home Office, Immigration system statistics, {period_phrase(XLSX)}; "
             "Vis_D02 (Entry clearance visa outcomes by nationality, visa type, and "
             "outcome). Joined with DWP Stat-Xplore NINo registrations rolling year "
             "ending Q4 2025."

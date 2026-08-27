@@ -40,13 +40,20 @@ Caveats encoded in the output:
 """
 import json
 from collections import defaultdict
+import sys
 from pathlib import Path
 
 import pandas as pd
 
+# Release files carry their period in the filename, so the period is resolved rather
+# than written here. See scripts/lib/newest_release.py: a pinned filename keeps working
+# while reading an older release than the one published.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from newest_release import newest_release, period_phrase  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
-ASY_XLSX = Path("/Users/tompickup/asylumstats/data/raw/uk_routes/asylum-claims-datasets-mar-2026.xlsx")
-RET_XLSX = Path("/Users/tompickup/asylumstats/data/raw/uk_routes/returns-datasets-mar-2026.xlsx")
+ASY_XLSX = newest_release(ROOT / "data/raw/uk_routes", "asylum-claims-datasets")
+RET_XLSX = newest_release(ROOT / "data/raw/uk_routes", "returns-datasets")
 GRANT_RATES = ROOT / "src/data/live/asylum-grant-rates.json"
 NINO_CUBE = ROOT / "data/raw/supplementary/nino-statxplore-cube.json"
 OUT = ROOT / "src/data/live/asylum-bridge.json"
@@ -171,7 +178,7 @@ def main():
 
     out = {
         "source": (
-            "Home Office Immigration Statistics, year ending March 2026 (released 21 May 2026): "
+            f"Home Office Immigration Statistics, {period_phrase(ASY_XLSX)}: "
             "Asy_D01 (claims), Ret_D01 (returns), and asylum-grant-rates.json "
             "(lifted from asylumstats, derived from Asy_D02 with appeal uplift "
             "from FT-IAC outcomes). Joined with DWP Stat-Xplore NINo flow "

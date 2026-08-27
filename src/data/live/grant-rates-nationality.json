@@ -1,0 +1,4487 @@
+{
+  "generatedAt": "2026-08-27T12:40:30.335Z",
+  "source": "Home Office Immigration Statistics: Asylum initial decisions (Asy_D02), year ending June 2026 release",
+  "methodology": "Grant rate = (grants of protection + grants of other leave) / (grants + refusals) × 100. Excludes withdrawn cases and administrative outcomes from denominator (substantive decisions only). Recent period = 2020-2025. Minimum 50 substantive decisions for league table inclusion. 'Refugee' and 'Stateless person' status entries excluded as they are not nationalities.",
+  "caveats": [
+    "These are INITIAL decision grant rates only. Many refusals are overturned on appeal — the true grant rate (after appeals) is significantly higher for some nationalities. For example, Iranian initial grant rate ~72% rises to ~85% after successful appeals.",
+    "Grant rate measures what proportion of substantive decisions are positive. It does not account for withdrawn cases or administrative outcomes, which can represent a large share of total decisions for some nationalities.",
+    "Post-2009 data is fully disaggregated by age, sex, applicant type, and UASC status. All rows are summed to produce totals — there are no subtotal rows in the source data.",
+    "Dependant applicants are included alongside main applicants. Dependants generally receive the same outcome as the main applicant."
+  ],
+  "summary": {
+    "nationalitiesInLeagueTable": 109,
+    "highestGrantRate": {
+      "nationality": "Yemen",
+      "rate": 94,
+      "decisions": 5713
+    },
+    "lowestGrantRate": {
+      "nationality": "Lithuania",
+      "rate": 0,
+      "decisions": 65
+    },
+    "genuineRefugeeNationalities": 9,
+    "likelyEconomicMigrationNationalities": 46,
+    "topClaimantAllTime": "Iran",
+    "topClaimantRecentVolume": "Iran",
+    "avgAppealUpliftPp": 15,
+    "nationalitiesWithAppealData": 104
+  },
+  "leagueTable": [
+    {
+      "nationality": "Yemen",
+      "region": "Middle East",
+      "grantRatePct": 94,
+      "grants": 5372,
+      "refusals": 341,
+      "substantiveDecisions": 5713,
+      "totalDecisions": 5956,
+      "withdrawn": 84,
+      "administrativeOutcomes": 159,
+      "trueGrantRatePct": 97.9,
+      "appealUpliftPp": 10.4,
+      "latestGrants": 2278,
+      "latestRefusals": 49,
+      "latestSubstantive": 2327,
+      "pctResolved": 99.8
+    },
+    {
+      "nationality": "Sudan",
+      "region": "Africa North",
+      "grantRatePct": 92.7,
+      "grants": 20518,
+      "refusals": 1627,
+      "substantiveDecisions": 22145,
+      "totalDecisions": 23170,
+      "withdrawn": 436,
+      "administrativeOutcomes": 589,
+      "trueGrantRatePct": 97.7,
+      "appealUpliftPp": 13.6,
+      "latestGrants": 17776,
+      "latestRefusals": 418,
+      "latestSubstantive": 18194,
+      "pctResolved": 99.6
+    },
+    {
+      "nationality": "Eritrea",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 89.8,
+      "grants": 26449,
+      "refusals": 3000,
+      "substantiveDecisions": 29449,
+      "totalDecisions": 30626,
+      "withdrawn": 438,
+      "administrativeOutcomes": 739,
+      "trueGrantRatePct": 96.5,
+      "appealUpliftPp": 12.2,
+      "latestGrants": 21695,
+      "latestRefusals": 795,
+      "latestSubstantive": 22490,
+      "pctResolved": 99.8
+    },
+    {
+      "nationality": "South Sudan",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 87.1,
+      "grants": 1091,
+      "refusals": 162,
+      "substantiveDecisions": 1253,
+      "totalDecisions": 1326,
+      "withdrawn": 38,
+      "administrativeOutcomes": 35,
+      "trueGrantRatePct": 93.3,
+      "appealUpliftPp": 5.7,
+      "latestGrants": 596,
+      "latestRefusals": 43,
+      "latestSubstantive": 639,
+      "pctResolved": 97.8
+    },
+    {
+      "nationality": "Myanmar (Burma)",
+      "region": "Asia South East",
+      "grantRatePct": 86.2,
+      "grants": 1713,
+      "refusals": 274,
+      "substantiveDecisions": 1987,
+      "totalDecisions": 2032,
+      "withdrawn": 31,
+      "administrativeOutcomes": 14,
+      "trueGrantRatePct": 79.3,
+      "appealUpliftPp": 16.8,
+      "latestGrants": 414,
+      "latestRefusals": 108,
+      "latestSubstantive": 522,
+      "pctResolved": 99.6
+    },
+    {
+      "nationality": "Palestine",
+      "region": "Middle East",
+      "grantRatePct": 82.2,
+      "grants": 1607,
+      "refusals": 347,
+      "substantiveDecisions": 1954,
+      "totalDecisions": 2121,
+      "withdrawn": 119,
+      "administrativeOutcomes": 48,
+      "trueGrantRatePct": 81.2,
+      "appealUpliftPp": 23.6,
+      "latestGrants": 652,
+      "latestRefusals": 151,
+      "latestSubstantive": 803,
+      "pctResolved": 99.6
+    },
+    {
+      "nationality": "Libya",
+      "region": "Africa North",
+      "grantRatePct": 80,
+      "grants": 3350,
+      "refusals": 835,
+      "substantiveDecisions": 4185,
+      "totalDecisions": 4662,
+      "withdrawn": 282,
+      "administrativeOutcomes": 195,
+      "trueGrantRatePct": 93.2,
+      "appealUpliftPp": 13.3,
+      "latestGrants": 2500,
+      "latestRefusals": 183,
+      "latestSubstantive": 2683,
+      "pctResolved": 99.2
+    },
+    {
+      "nationality": "Saudi Arabia",
+      "region": "Middle East",
+      "grantRatePct": 79.6,
+      "grants": 647,
+      "refusals": 166,
+      "substantiveDecisions": 813,
+      "totalDecisions": 1113,
+      "withdrawn": 255,
+      "administrativeOutcomes": 45,
+      "trueGrantRatePct": 88.9,
+      "appealUpliftPp": 6.4,
+      "latestGrants": 547,
+      "latestRefusals": 68,
+      "latestSubstantive": 615,
+      "pctResolved": 99.4
+    },
+    {
+      "nationality": "El Salvador",
+      "region": "America Central and South",
+      "grantRatePct": 79.2,
+      "grants": 3039,
+      "refusals": 799,
+      "substantiveDecisions": 3838,
+      "totalDecisions": 4435,
+      "withdrawn": 420,
+      "administrativeOutcomes": 177,
+      "trueGrantRatePct": 90.4,
+      "appealUpliftPp": 17.2,
+      "latestGrants": 1997,
+      "latestRefusals": 211,
+      "latestSubstantive": 2208,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Uganda",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 73.9,
+      "grants": 1278,
+      "refusals": 452,
+      "substantiveDecisions": 1730,
+      "totalDecisions": 1833,
+      "withdrawn": 66,
+      "administrativeOutcomes": 37,
+      "trueGrantRatePct": 81.7,
+      "appealUpliftPp": 12.8,
+      "latestGrants": 1159,
+      "latestRefusals": 259,
+      "latestSubstantive": 1418,
+      "pctResolved": 99.7
+    },
+    {
+      "nationality": "Iran",
+      "region": "Middle East",
+      "grantRatePct": 71.6,
+      "grants": 32771,
+      "refusals": 12973,
+      "substantiveDecisions": 45744,
+      "totalDecisions": 49475,
+      "withdrawn": 1369,
+      "administrativeOutcomes": 2362,
+      "trueGrantRatePct": 86.4,
+      "appealUpliftPp": 19.4,
+      "latestGrants": 35222,
+      "latestRefusals": 5563,
+      "latestSubstantive": 40785,
+      "pctResolved": 99.8
+    },
+    {
+      "nationality": "Syria",
+      "region": "Middle East",
+      "grantRatePct": 71.4,
+      "grants": 13887,
+      "refusals": 5555,
+      "substantiveDecisions": 19442,
+      "totalDecisions": 21532,
+      "withdrawn": 1130,
+      "administrativeOutcomes": 960,
+      "trueGrantRatePct": 93.5,
+      "appealUpliftPp": 3.5,
+      "latestGrants": 14627,
+      "latestRefusals": 1021,
+      "latestSubstantive": 15648,
+      "pctResolved": 98.7
+    },
+    {
+      "nationality": "Afghanistan",
+      "region": "Asia Central",
+      "grantRatePct": 63.6,
+      "grants": 23231,
+      "refusals": 13270,
+      "substantiveDecisions": 36501,
+      "totalDecisions": 40979,
+      "withdrawn": 2619,
+      "administrativeOutcomes": 1859,
+      "trueGrantRatePct": 79.6,
+      "appealUpliftPp": 12.7,
+      "latestGrants": 20483,
+      "latestRefusals": 5245,
+      "latestSubstantive": 25728,
+      "pctResolved": 99.3
+    },
+    {
+      "nationality": "Ethiopia",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 63.3,
+      "grants": 3603,
+      "refusals": 2092,
+      "substantiveDecisions": 5695,
+      "totalDecisions": 5991,
+      "withdrawn": 117,
+      "administrativeOutcomes": 179,
+      "trueGrantRatePct": 80.6,
+      "appealUpliftPp": 21.2,
+      "latestGrants": 3532,
+      "latestRefusals": 850,
+      "latestSubstantive": 4382,
+      "pctResolved": 99.7
+    },
+    {
+      "nationality": "Turkmenistan",
+      "region": "Asia Central",
+      "grantRatePct": 61.1,
+      "grants": 55,
+      "refusals": 35,
+      "substantiveDecisions": 90,
+      "totalDecisions": 115,
+      "withdrawn": 19,
+      "administrativeOutcomes": 6,
+      "trueGrantRatePct": 72.9,
+      "appealUpliftPp": 14.3,
+      "latestGrants": 43,
+      "latestRefusals": 16,
+      "latestSubstantive": 59,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Russia",
+      "region": "Europe Other",
+      "grantRatePct": 60.7,
+      "grants": 1085,
+      "refusals": 703,
+      "substantiveDecisions": 1788,
+      "totalDecisions": 2092,
+      "withdrawn": 223,
+      "administrativeOutcomes": 81,
+      "trueGrantRatePct": 80.2,
+      "appealUpliftPp": 22.2,
+      "latestGrants": 1058,
+      "latestRefusals": 261,
+      "latestSubstantive": 1319,
+      "pctResolved": 99.5
+    },
+    {
+      "nationality": "Belarus",
+      "region": "Europe Other",
+      "grantRatePct": 59.3,
+      "grants": 108,
+      "refusals": 74,
+      "substantiveDecisions": 182,
+      "totalDecisions": 222,
+      "withdrawn": 27,
+      "administrativeOutcomes": 13,
+      "trueGrantRatePct": 73.2,
+      "appealUpliftPp": 17.5,
+      "latestGrants": 104,
+      "latestRefusals": 38,
+      "latestSubstantive": 142,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Cameroon",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 58.6,
+      "grants": 1512,
+      "refusals": 1069,
+      "substantiveDecisions": 2581,
+      "totalDecisions": 2715,
+      "withdrawn": 87,
+      "administrativeOutcomes": 47,
+      "trueGrantRatePct": 74.8,
+      "appealUpliftPp": 20.6,
+      "latestGrants": 1155,
+      "latestRefusals": 390,
+      "latestSubstantive": 1545,
+      "pctResolved": 99.9
+    },
+    {
+      "nationality": "Oman",
+      "region": "Middle East",
+      "grantRatePct": 55.9,
+      "grants": 62,
+      "refusals": 49,
+      "substantiveDecisions": 111,
+      "totalDecisions": 156,
+      "withdrawn": 33,
+      "administrativeOutcomes": 12,
+      "trueGrantRatePct": 73.7,
+      "appealUpliftPp": 12.3,
+      "latestGrants": 42,
+      "latestRefusals": 15,
+      "latestSubstantive": 57,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Malawi",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 52.5,
+      "grants": 85,
+      "refusals": 77,
+      "substantiveDecisions": 162,
+      "totalDecisions": 199,
+      "withdrawn": 20,
+      "administrativeOutcomes": 17,
+      "trueGrantRatePct": 42.1,
+      "appealUpliftPp": 12.9,
+      "latestGrants": 115,
+      "latestRefusals": 158,
+      "latestSubstantive": 273,
+      "pctResolved": 99.7
+    },
+    {
+      "nationality": "Mali",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 52.5,
+      "grants": 73,
+      "refusals": 66,
+      "substantiveDecisions": 139,
+      "totalDecisions": 151,
+      "withdrawn": 7,
+      "administrativeOutcomes": 5,
+      "trueGrantRatePct": 63,
+      "appealUpliftPp": 13.4,
+      "latestGrants": 85,
+      "latestRefusals": 50,
+      "latestSubstantive": 135,
+      "pctResolved": 99.3
+    },
+    {
+      "nationality": "Zambia",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 52,
+      "grants": 53,
+      "refusals": 49,
+      "substantiveDecisions": 102,
+      "totalDecisions": 124,
+      "withdrawn": 13,
+      "administrativeOutcomes": 9,
+      "trueGrantRatePct": 51.2,
+      "appealUpliftPp": 14,
+      "latestGrants": 62,
+      "latestRefusals": 59,
+      "latestSubstantive": 121,
+      "pctResolved": 97.9
+    },
+    {
+      "nationality": "Kuwait",
+      "region": "Middle East",
+      "grantRatePct": 51.9,
+      "grants": 1308,
+      "refusals": 1213,
+      "substantiveDecisions": 2521,
+      "totalDecisions": 3054,
+      "withdrawn": 361,
+      "administrativeOutcomes": 172,
+      "trueGrantRatePct": 82.7,
+      "appealUpliftPp": 12.2,
+      "latestGrants": 634,
+      "latestRefusals": 133,
+      "latestSubstantive": 767,
+      "pctResolved": 99.2
+    },
+    {
+      "nationality": "Sierra Leone",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 51.5,
+      "grants": 566,
+      "refusals": 534,
+      "substantiveDecisions": 1100,
+      "totalDecisions": 1196,
+      "withdrawn": 48,
+      "administrativeOutcomes": 48,
+      "trueGrantRatePct": 59.9,
+      "appealUpliftPp": 14.7,
+      "latestGrants": 408,
+      "latestRefusals": 273,
+      "latestSubstantive": 681,
+      "pctResolved": 99.2
+    },
+    {
+      "nationality": "Venezuela",
+      "region": "America Central and South",
+      "grantRatePct": 51.2,
+      "grants": 63,
+      "refusals": 60,
+      "substantiveDecisions": 123,
+      "totalDecisions": 151,
+      "withdrawn": 20,
+      "administrativeOutcomes": 8,
+      "trueGrantRatePct": 66.7,
+      "appealUpliftPp": 23.4,
+      "latestGrants": 80,
+      "latestRefusals": 40,
+      "latestSubstantive": 120,
+      "pctResolved": 99.3
+    },
+    {
+      "nationality": "Lebanon",
+      "region": "Middle East",
+      "grantRatePct": 49.5,
+      "grants": 299,
+      "refusals": 305,
+      "substantiveDecisions": 604,
+      "totalDecisions": 705,
+      "withdrawn": 63,
+      "administrativeOutcomes": 38,
+      "trueGrantRatePct": 61.2,
+      "appealUpliftPp": 22.9,
+      "latestGrants": 230,
+      "latestRefusals": 146,
+      "latestSubstantive": 376,
+      "pctResolved": 99.5
+    },
+    {
+      "nationality": "Burundi",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 48.1,
+      "grants": 39,
+      "refusals": 42,
+      "substantiveDecisions": 81,
+      "totalDecisions": 91,
+      "withdrawn": 4,
+      "administrativeOutcomes": 6,
+      "trueGrantRatePct": 68.6,
+      "appealUpliftPp": 23.4,
+      "latestGrants": 72,
+      "latestRefusals": 33,
+      "latestSubstantive": 105,
+      "pctResolved": 99.1
+    },
+    {
+      "nationality": "Guyana",
+      "region": "America Central and South",
+      "grantRatePct": 47.7,
+      "grants": 52,
+      "refusals": 57,
+      "substantiveDecisions": 109,
+      "totalDecisions": 127,
+      "withdrawn": 15,
+      "administrativeOutcomes": 3
+    },
+    {
+      "nationality": "Nicaragua",
+      "region": "America Central and South",
+      "grantRatePct": 47.6,
+      "grants": 314,
+      "refusals": 345,
+      "substantiveDecisions": 659,
+      "totalDecisions": 790,
+      "withdrawn": 79,
+      "administrativeOutcomes": 52,
+      "trueGrantRatePct": 70.9,
+      "appealUpliftPp": 17.7,
+      "latestGrants": 202,
+      "latestRefusals": 83,
+      "latestSubstantive": 285,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Cuba",
+      "region": "America Central and South",
+      "grantRatePct": 47.1,
+      "grants": 41,
+      "refusals": 46,
+      "substantiveDecisions": 87,
+      "totalDecisions": 104,
+      "withdrawn": 17,
+      "administrativeOutcomes": 0
+    },
+    {
+      "nationality": "Somalia",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 46.5,
+      "grants": 3463,
+      "refusals": 3990,
+      "substantiveDecisions": 7453,
+      "totalDecisions": 8145,
+      "withdrawn": 404,
+      "administrativeOutcomes": 288,
+      "trueGrantRatePct": 74.4,
+      "appealUpliftPp": 17.6,
+      "latestGrants": 2336,
+      "latestRefusals": 802,
+      "latestSubstantive": 3138,
+      "pctResolved": 99.5
+    },
+    {
+      "nationality": "Burkina Faso",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 46,
+      "grants": 23,
+      "refusals": 27,
+      "substantiveDecisions": 50,
+      "totalDecisions": 56,
+      "withdrawn": 3,
+      "administrativeOutcomes": 3,
+      "trueGrantRatePct": 54.7,
+      "appealUpliftPp": 10.5,
+      "latestGrants": 29,
+      "latestRefusals": 24,
+      "latestSubstantive": 53,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Chad",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 44.6,
+      "grants": 310,
+      "refusals": 385,
+      "substantiveDecisions": 695,
+      "totalDecisions": 776,
+      "withdrawn": 34,
+      "administrativeOutcomes": 47,
+      "trueGrantRatePct": 66.9,
+      "appealUpliftPp": 20.8,
+      "latestGrants": 420,
+      "latestRefusals": 208,
+      "latestSubstantive": 628,
+      "pctResolved": 99
+    },
+    {
+      "nationality": "Guinea",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 44.4,
+      "grants": 190,
+      "refusals": 238,
+      "substantiveDecisions": 428,
+      "totalDecisions": 513,
+      "withdrawn": 49,
+      "administrativeOutcomes": 36,
+      "trueGrantRatePct": 57.5,
+      "appealUpliftPp": 16.6,
+      "latestGrants": 223,
+      "latestRefusals": 165,
+      "latestSubstantive": 388,
+      "pctResolved": 97.7
+    },
+    {
+      "nationality": "Congo (Democratic Republic)",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 43.8,
+      "grants": 342,
+      "refusals": 438,
+      "substantiveDecisions": 780,
+      "totalDecisions": 906,
+      "withdrawn": 61,
+      "administrativeOutcomes": 65,
+      "trueGrantRatePct": 61,
+      "appealUpliftPp": 27.3,
+      "latestGrants": 680,
+      "latestRefusals": 434,
+      "latestSubstantive": 1114,
+      "pctResolved": 99.7
+    },
+    {
+      "nationality": "Tanzania",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 43.8,
+      "grants": 259,
+      "refusals": 333,
+      "substantiveDecisions": 592,
+      "totalDecisions": 636,
+      "withdrawn": 26,
+      "administrativeOutcomes": 18,
+      "trueGrantRatePct": 53.8,
+      "appealUpliftPp": 16.3,
+      "latestGrants": 162,
+      "latestRefusals": 139,
+      "latestSubstantive": 301,
+      "pctResolved": 98.5
+    },
+    {
+      "nationality": "Gambia, The",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 43.3,
+      "grants": 296,
+      "refusals": 388,
+      "substantiveDecisions": 684,
+      "totalDecisions": 804,
+      "withdrawn": 66,
+      "administrativeOutcomes": 54,
+      "trueGrantRatePct": 46.4,
+      "appealUpliftPp": 16.5,
+      "latestGrants": 370,
+      "latestRefusals": 428,
+      "latestSubstantive": 798,
+      "pctResolved": 98.2
+    },
+    {
+      "nationality": "Azerbaijan",
+      "region": "Europe Other",
+      "grantRatePct": 40.8,
+      "grants": 153,
+      "refusals": 222,
+      "substantiveDecisions": 375,
+      "totalDecisions": 446,
+      "withdrawn": 40,
+      "administrativeOutcomes": 31,
+      "trueGrantRatePct": 65.2,
+      "appealUpliftPp": 22.7,
+      "latestGrants": 150,
+      "latestRefusals": 80,
+      "latestSubstantive": 230,
+      "pctResolved": 99.3
+    },
+    {
+      "nationality": "Kenya",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 38.1,
+      "grants": 494,
+      "refusals": 803,
+      "substantiveDecisions": 1297,
+      "totalDecisions": 1449,
+      "withdrawn": 101,
+      "administrativeOutcomes": 51,
+      "trueGrantRatePct": 60.2,
+      "appealUpliftPp": 19.4,
+      "latestGrants": 546,
+      "latestRefusals": 361,
+      "latestSubstantive": 907,
+      "pctResolved": 99.8
+    },
+    {
+      "nationality": "Pakistan",
+      "region": "Asia South",
+      "grantRatePct": 37.7,
+      "grants": 12056,
+      "refusals": 19921,
+      "substantiveDecisions": 31977,
+      "totalDecisions": 36579,
+      "withdrawn": 3535,
+      "administrativeOutcomes": 1067,
+      "trueGrantRatePct": 50,
+      "appealUpliftPp": 14.1,
+      "latestGrants": 7945,
+      "latestRefusals": 7943,
+      "latestSubstantive": 15888,
+      "pctResolved": 99.7
+    },
+    {
+      "nationality": "Iraq",
+      "region": "Middle East",
+      "grantRatePct": 37.4,
+      "grants": 9829,
+      "refusals": 16432,
+      "substantiveDecisions": 26261,
+      "totalDecisions": 30189,
+      "withdrawn": 2109,
+      "administrativeOutcomes": 1819,
+      "trueGrantRatePct": 57.6,
+      "appealUpliftPp": 26.6,
+      "latestGrants": 13881,
+      "latestRefusals": 10230,
+      "latestSubstantive": 24111,
+      "pctResolved": 99.4
+    },
+    {
+      "nationality": "Vietnam",
+      "region": "Asia South East",
+      "grantRatePct": 36.8,
+      "grants": 3374,
+      "refusals": 5803,
+      "substantiveDecisions": 9177,
+      "totalDecisions": 15728,
+      "withdrawn": 5953,
+      "administrativeOutcomes": 598,
+      "trueGrantRatePct": 65.5,
+      "appealUpliftPp": 16.6,
+      "latestGrants": 4437,
+      "latestRefusals": 2334,
+      "latestSubstantive": 6771,
+      "pctResolved": 98.9
+    },
+    {
+      "nationality": "Turkey",
+      "region": "Europe Other",
+      "grantRatePct": 36.6,
+      "grants": 4312,
+      "refusals": 7465,
+      "substantiveDecisions": 11777,
+      "totalDecisions": 13563,
+      "withdrawn": 1193,
+      "administrativeOutcomes": 593,
+      "trueGrantRatePct": 55.3,
+      "appealUpliftPp": 14,
+      "latestGrants": 4202,
+      "latestRefusals": 3397,
+      "latestSubstantive": 7599,
+      "pctResolved": 99.2
+    },
+    {
+      "nationality": "Honduras",
+      "region": "America Central and South",
+      "grantRatePct": 35,
+      "grants": 883,
+      "refusals": 1642,
+      "substantiveDecisions": 2525,
+      "totalDecisions": 3413,
+      "withdrawn": 675,
+      "administrativeOutcomes": 213,
+      "trueGrantRatePct": 58.1,
+      "appealUpliftPp": 18.9,
+      "latestGrants": 695,
+      "latestRefusals": 502,
+      "latestSubstantive": 1197,
+      "pctResolved": 99.6
+    },
+    {
+      "nationality": "Bahrain",
+      "region": "Middle East",
+      "grantRatePct": 35,
+      "grants": 79,
+      "refusals": 147,
+      "substantiveDecisions": 226,
+      "totalDecisions": 332,
+      "withdrawn": 82,
+      "administrativeOutcomes": 24,
+      "trueGrantRatePct": 73.8,
+      "appealUpliftPp": 23.8,
+      "latestGrants": 45,
+      "latestRefusals": 16,
+      "latestSubstantive": 61,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Ivory Coast",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 34.4,
+      "grants": 87,
+      "refusals": 166,
+      "substantiveDecisions": 253,
+      "totalDecisions": 305,
+      "withdrawn": 29,
+      "administrativeOutcomes": 23,
+      "trueGrantRatePct": 47.5,
+      "appealUpliftPp": 17.7,
+      "latestGrants": 152,
+      "latestRefusals": 168,
+      "latestSubstantive": 320,
+      "pctResolved": 99.2
+    },
+    {
+      "nationality": "Zimbabwe",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 34.3,
+      "grants": 339,
+      "refusals": 648,
+      "substantiveDecisions": 987,
+      "totalDecisions": 1228,
+      "withdrawn": 111,
+      "administrativeOutcomes": 130,
+      "trueGrantRatePct": 49.1,
+      "appealUpliftPp": 25.1,
+      "latestGrants": 642,
+      "latestRefusals": 665,
+      "latestSubstantive": 1307,
+      "pctResolved": 99
+    },
+    {
+      "nationality": "Nigeria",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 34.1,
+      "grants": 3790,
+      "refusals": 7317,
+      "substantiveDecisions": 11107,
+      "totalDecisions": 12694,
+      "withdrawn": 1054,
+      "administrativeOutcomes": 533,
+      "trueGrantRatePct": 44.5,
+      "appealUpliftPp": 14,
+      "latestGrants": 2936,
+      "latestRefusals": 3655,
+      "latestSubstantive": 6591,
+      "pctResolved": 99.4
+    },
+    {
+      "nationality": "Hong Kong",
+      "region": "Asia East",
+      "grantRatePct": 33.1,
+      "grants": 60,
+      "refusals": 121,
+      "substantiveDecisions": 181,
+      "totalDecisions": 296,
+      "withdrawn": 103,
+      "administrativeOutcomes": 12,
+      "trueGrantRatePct": 55.3,
+      "appealUpliftPp": 20.3,
+      "latestGrants": 78,
+      "latestRefusals": 63,
+      "latestSubstantive": 141,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Morocco",
+      "region": "Africa North",
+      "grantRatePct": 32,
+      "grants": 396,
+      "refusals": 843,
+      "substantiveDecisions": 1239,
+      "totalDecisions": 1716,
+      "withdrawn": 385,
+      "administrativeOutcomes": 92,
+      "trueGrantRatePct": 43.2,
+      "appealUpliftPp": 15.3,
+      "latestGrants": 355,
+      "latestRefusals": 466,
+      "latestSubstantive": 821,
+      "pctResolved": 98.7
+    },
+    {
+      "nationality": "Tajikistan",
+      "region": "Asia Central",
+      "grantRatePct": 31.9,
+      "grants": 429,
+      "refusals": 916,
+      "substantiveDecisions": 1345,
+      "totalDecisions": 1614,
+      "withdrawn": 237,
+      "administrativeOutcomes": 32,
+      "trueGrantRatePct": 43.1,
+      "appealUpliftPp": 8.7,
+      "latestGrants": 284,
+      "latestRefusals": 375,
+      "latestSubstantive": 659,
+      "pctResolved": 99.9
+    },
+    {
+      "nationality": "Ukraine",
+      "region": "Europe Other",
+      "grantRatePct": 30.5,
+      "grants": 984,
+      "refusals": 2244,
+      "substantiveDecisions": 3228,
+      "totalDecisions": 3938,
+      "withdrawn": 612,
+      "administrativeOutcomes": 98,
+      "trueGrantRatePct": 56.7,
+      "appealUpliftPp": 13.8,
+      "latestGrants": 581,
+      "latestRefusals": 443,
+      "latestSubstantive": 1024,
+      "pctResolved": 99.8
+    },
+    {
+      "nationality": "Jamaica",
+      "region": "America Central and South",
+      "grantRatePct": 30.3,
+      "grants": 98,
+      "refusals": 225,
+      "substantiveDecisions": 323,
+      "totalDecisions": 451,
+      "withdrawn": 85,
+      "administrativeOutcomes": 43,
+      "trueGrantRatePct": 25,
+      "appealUpliftPp": 9,
+      "latestGrants": 212,
+      "latestRefusals": 637,
+      "latestSubstantive": 849,
+      "pctResolved": 96.3
+    },
+    {
+      "nationality": "Togo",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 30.3,
+      "grants": 20,
+      "refusals": 46,
+      "substantiveDecisions": 66,
+      "totalDecisions": 72,
+      "withdrawn": 5,
+      "administrativeOutcomes": 1,
+      "trueGrantRatePct": 47.9,
+      "appealUpliftPp": 24.6,
+      "latestGrants": 35,
+      "latestRefusals": 38,
+      "latestSubstantive": 73,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Sri Lanka",
+      "region": "Asia South",
+      "grantRatePct": 30.1,
+      "grants": 2792,
+      "refusals": 6479,
+      "substantiveDecisions": 9271,
+      "totalDecisions": 10512,
+      "withdrawn": 819,
+      "administrativeOutcomes": 422,
+      "trueGrantRatePct": 60.6,
+      "appealUpliftPp": 33.5,
+      "latestGrants": 3390,
+      "latestRefusals": 2201,
+      "latestSubstantive": 5591,
+      "pctResolved": 99.4
+    },
+    {
+      "nationality": "Angola",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 28.2,
+      "grants": 100,
+      "refusals": 254,
+      "substantiveDecisions": 354,
+      "totalDecisions": 402,
+      "withdrawn": 25,
+      "administrativeOutcomes": 23,
+      "trueGrantRatePct": 47.9,
+      "appealUpliftPp": 19.8,
+      "latestGrants": 140,
+      "latestRefusals": 152,
+      "latestSubstantive": 292,
+      "pctResolved": 99.7
+    },
+    {
+      "nationality": "Egypt",
+      "region": "Africa North",
+      "grantRatePct": 27.9,
+      "grants": 1144,
+      "refusals": 2963,
+      "substantiveDecisions": 4107,
+      "totalDecisions": 5731,
+      "withdrawn": 1298,
+      "administrativeOutcomes": 326,
+      "trueGrantRatePct": 38.1,
+      "appealUpliftPp": 18.4,
+      "latestGrants": 1256,
+      "latestRefusals": 2038,
+      "latestSubstantive": 3294,
+      "pctResolved": 99.2
+    },
+    {
+      "nationality": "Indonesia",
+      "region": "Asia South East",
+      "grantRatePct": 27.6,
+      "grants": 170,
+      "refusals": 445,
+      "substantiveDecisions": 615,
+      "totalDecisions": 782,
+      "withdrawn": 156,
+      "administrativeOutcomes": 11,
+      "trueGrantRatePct": 34.7,
+      "appealUpliftPp": 6.7,
+      "latestGrants": 121,
+      "latestRefusals": 228,
+      "latestSubstantive": 349,
+      "pctResolved": 99.8
+    },
+    {
+      "nationality": "St Vincent and the Grenadines",
+      "region": "America Central and South",
+      "grantRatePct": 26.7,
+      "grants": 87,
+      "refusals": 239,
+      "substantiveDecisions": 326,
+      "totalDecisions": 369,
+      "withdrawn": 29,
+      "administrativeOutcomes": 14,
+      "trueGrantRatePct": 54.5,
+      "appealUpliftPp": 14.9,
+      "latestGrants": 79,
+      "latestRefusals": 66,
+      "latestSubstantive": 145,
+      "pctResolved": 97.7
+    },
+    {
+      "nationality": "Liberia",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 26.3,
+      "grants": 21,
+      "refusals": 59,
+      "substantiveDecisions": 80,
+      "totalDecisions": 89,
+      "withdrawn": 6,
+      "administrativeOutcomes": 3,
+      "trueGrantRatePct": 38,
+      "appealUpliftPp": 12,
+      "latestGrants": 19,
+      "latestRefusals": 31,
+      "latestSubstantive": 50,
+      "pctResolved": 98.2
+    },
+    {
+      "nationality": "Rwanda",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 26.1,
+      "grants": 41,
+      "refusals": 116,
+      "substantiveDecisions": 157,
+      "totalDecisions": 166,
+      "withdrawn": 7,
+      "administrativeOutcomes": 2,
+      "trueGrantRatePct": 58.5,
+      "appealUpliftPp": 34.5,
+      "latestGrants": 86,
+      "latestRefusals": 61,
+      "latestSubstantive": 147,
+      "pctResolved": 98.7
+    },
+    {
+      "nationality": "Senegal",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 25.3,
+      "grants": 74,
+      "refusals": 219,
+      "substantiveDecisions": 293,
+      "totalDecisions": 343,
+      "withdrawn": 27,
+      "administrativeOutcomes": 23,
+      "trueGrantRatePct": 47.7,
+      "appealUpliftPp": 14.9,
+      "latestGrants": 93,
+      "latestRefusals": 102,
+      "latestSubstantive": 195,
+      "pctResolved": 99.6
+    },
+    {
+      "nationality": "Malaysia",
+      "region": "Asia South East",
+      "grantRatePct": 25.2,
+      "grants": 338,
+      "refusals": 1001,
+      "substantiveDecisions": 1339,
+      "totalDecisions": 1653,
+      "withdrawn": 274,
+      "administrativeOutcomes": 40,
+      "trueGrantRatePct": 44.7,
+      "appealUpliftPp": 18.6,
+      "latestGrants": 526,
+      "latestRefusals": 651,
+      "latestSubstantive": 1177,
+      "pctResolved": 99.7
+    },
+    {
+      "nationality": "Grenada",
+      "region": "America Central and South",
+      "grantRatePct": 24.6,
+      "grants": 64,
+      "refusals": 196,
+      "substantiveDecisions": 260,
+      "totalDecisions": 308,
+      "withdrawn": 36,
+      "administrativeOutcomes": 12,
+      "trueGrantRatePct": 49.3,
+      "appealUpliftPp": 16.7,
+      "latestGrants": 66,
+      "latestRefusals": 68,
+      "latestSubstantive": 134,
+      "pctResolved": 99.4
+    },
+    {
+      "nationality": "Ghana",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 24.2,
+      "grants": 392,
+      "refusals": 1228,
+      "substantiveDecisions": 1620,
+      "totalDecisions": 2090,
+      "withdrawn": 391,
+      "administrativeOutcomes": 79,
+      "trueGrantRatePct": 28.7,
+      "appealUpliftPp": 10.6,
+      "latestGrants": 388,
+      "latestRefusals": 966,
+      "latestSubstantive": 1354,
+      "pctResolved": 99.3
+    },
+    {
+      "nationality": "Congo",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 24.1,
+      "grants": 34,
+      "refusals": 107,
+      "substantiveDecisions": 141,
+      "totalDecisions": 157,
+      "withdrawn": 8,
+      "administrativeOutcomes": 8,
+      "trueGrantRatePct": 36,
+      "appealUpliftPp": 17,
+      "latestGrants": 50,
+      "latestRefusals": 89,
+      "latestSubstantive": 139,
+      "pctResolved": 99.3
+    },
+    {
+      "nationality": "Dominica",
+      "region": "America Central and South",
+      "grantRatePct": 24.1,
+      "grants": 21,
+      "refusals": 66,
+      "substantiveDecisions": 87,
+      "totalDecisions": 141,
+      "withdrawn": 45,
+      "administrativeOutcomes": 9,
+      "trueGrantRatePct": 47.1,
+      "appealUpliftPp": 10.9,
+      "latestGrants": 32,
+      "latestRefusals": 36,
+      "latestSubstantive": 68,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Benin",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 24.1,
+      "grants": 20,
+      "refusals": 63,
+      "substantiveDecisions": 83,
+      "totalDecisions": 101,
+      "withdrawn": 13,
+      "administrativeOutcomes": 5,
+      "trueGrantRatePct": 34.5,
+      "appealUpliftPp": 14.5,
+      "latestGrants": 19,
+      "latestRefusals": 36,
+      "latestSubstantive": 55,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Other and unknown",
+      "region": "Other",
+      "grantRatePct": 23.6,
+      "grants": 98,
+      "refusals": 317,
+      "substantiveDecisions": 415,
+      "totalDecisions": 860,
+      "withdrawn": 109,
+      "administrativeOutcomes": 336,
+      "trueGrantRatePct": 92,
+      "appealUpliftPp": 35.8,
+      "latestGrants": 1118,
+      "latestRefusals": 97,
+      "latestSubstantive": 1215,
+      "pctResolved": 21.2
+    },
+    {
+      "nationality": "Tunisia",
+      "region": "Africa North",
+      "grantRatePct": 22.6,
+      "grants": 129,
+      "refusals": 442,
+      "substantiveDecisions": 571,
+      "totalDecisions": 788,
+      "withdrawn": 188,
+      "administrativeOutcomes": 29,
+      "trueGrantRatePct": 32.4,
+      "appealUpliftPp": 10.8,
+      "latestGrants": 130,
+      "latestRefusals": 271,
+      "latestSubstantive": 401,
+      "pctResolved": 99.3
+    },
+    {
+      "nationality": "Jordan",
+      "region": "Middle East",
+      "grantRatePct": 22.5,
+      "grants": 388,
+      "refusals": 1334,
+      "substantiveDecisions": 1722,
+      "totalDecisions": 2090,
+      "withdrawn": 291,
+      "administrativeOutcomes": 77,
+      "trueGrantRatePct": 47.6,
+      "appealUpliftPp": 16.4,
+      "latestGrants": 117,
+      "latestRefusals": 129,
+      "latestSubstantive": 246,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Trinidad and Tobago",
+      "region": "America Central and South",
+      "grantRatePct": 22.3,
+      "grants": 219,
+      "refusals": 761,
+      "substantiveDecisions": 980,
+      "totalDecisions": 1135,
+      "withdrawn": 103,
+      "administrativeOutcomes": 52,
+      "trueGrantRatePct": 44.3,
+      "appealUpliftPp": 15.3,
+      "latestGrants": 192,
+      "latestRefusals": 241,
+      "latestSubstantive": 433,
+      "pctResolved": 98.3
+    },
+    {
+      "nationality": "United States",
+      "region": "America North",
+      "grantRatePct": 21.6,
+      "grants": 82,
+      "refusals": 297,
+      "substantiveDecisions": 379,
+      "totalDecisions": 615,
+      "withdrawn": 187,
+      "administrativeOutcomes": 49,
+      "trueGrantRatePct": 14.2,
+      "appealUpliftPp": 5.6,
+      "latestGrants": 16,
+      "latestRefusals": 97,
+      "latestSubstantive": 113,
+      "pctResolved": 99.7
+    },
+    {
+      "nationality": "Mexico",
+      "region": "America Central and South",
+      "grantRatePct": 21.5,
+      "grants": 55,
+      "refusals": 201,
+      "substantiveDecisions": 256,
+      "totalDecisions": 386,
+      "withdrawn": 101,
+      "administrativeOutcomes": 29,
+      "trueGrantRatePct": 40.5,
+      "appealUpliftPp": 15.3,
+      "latestGrants": 49,
+      "latestRefusals": 72,
+      "latestSubstantive": 121,
+      "pctResolved": 99
+    },
+    {
+      "nationality": "Guatemala",
+      "region": "America Central and South",
+      "grantRatePct": 20.5,
+      "grants": 43,
+      "refusals": 167,
+      "substantiveDecisions": 210,
+      "totalDecisions": 263,
+      "withdrawn": 32,
+      "administrativeOutcomes": 21,
+      "trueGrantRatePct": 43,
+      "appealUpliftPp": 10.5,
+      "latestGrants": 34,
+      "latestRefusals": 45,
+      "latestSubstantive": 79,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Kosovo",
+      "region": "Europe Other",
+      "grantRatePct": 19.4,
+      "grants": 32,
+      "refusals": 133,
+      "substantiveDecisions": 165,
+      "totalDecisions": 262,
+      "withdrawn": 83,
+      "administrativeOutcomes": 14,
+      "trueGrantRatePct": 30,
+      "appealUpliftPp": 11.4,
+      "latestGrants": 45,
+      "latestRefusals": 105,
+      "latestSubstantive": 150,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "Kazakhstan",
+      "region": "Asia Central",
+      "grantRatePct": 18.6,
+      "grants": 202,
+      "refusals": 883,
+      "substantiveDecisions": 1085,
+      "totalDecisions": 1487,
+      "withdrawn": 352,
+      "administrativeOutcomes": 50,
+      "trueGrantRatePct": 33,
+      "appealUpliftPp": 7.3,
+      "latestGrants": 146,
+      "latestRefusals": 296,
+      "latestSubstantive": 442,
+      "pctResolved": 99.7
+    },
+    {
+      "nationality": "Ecuador",
+      "region": "America Central and South",
+      "grantRatePct": 17.8,
+      "grants": 47,
+      "refusals": 217,
+      "substantiveDecisions": 264,
+      "totalDecisions": 296,
+      "withdrawn": 28,
+      "administrativeOutcomes": 4,
+      "trueGrantRatePct": 33.3,
+      "appealUpliftPp": 13.3,
+      "latestGrants": 21,
+      "latestRefusals": 42,
+      "latestSubstantive": 63,
+      "pctResolved": 98.7
+    },
+    {
+      "nationality": "Canada",
+      "region": "America North",
+      "grantRatePct": 17.5,
+      "grants": 10,
+      "refusals": 47,
+      "substantiveDecisions": 57,
+      "totalDecisions": 94,
+      "withdrawn": 24,
+      "administrativeOutcomes": 13
+    },
+    {
+      "nationality": "Algeria",
+      "region": "Africa North",
+      "grantRatePct": 17.4,
+      "grants": 292,
+      "refusals": 1382,
+      "substantiveDecisions": 1674,
+      "totalDecisions": 2644,
+      "withdrawn": 803,
+      "administrativeOutcomes": 167,
+      "trueGrantRatePct": 30.7,
+      "appealUpliftPp": 15.8,
+      "latestGrants": 360,
+      "latestRefusals": 812,
+      "latestSubstantive": 1172,
+      "pctResolved": 98.4
+    },
+    {
+      "nationality": "Albania",
+      "region": "Europe Other",
+      "grantRatePct": 17.1,
+      "grants": 2924,
+      "refusals": 14154,
+      "substantiveDecisions": 17078,
+      "totalDecisions": 39955,
+      "withdrawn": 18968,
+      "administrativeOutcomes": 3909,
+      "trueGrantRatePct": 32.1,
+      "appealUpliftPp": 17,
+      "latestGrants": 4669,
+      "latestRefusals": 9862,
+      "latestSubstantive": 14531,
+      "pctResolved": 99.6
+    },
+    {
+      "nationality": "Bangladesh",
+      "region": "Asia South",
+      "grantRatePct": 16.7,
+      "grants": 3693,
+      "refusals": 18391,
+      "substantiveDecisions": 22084,
+      "totalDecisions": 26808,
+      "withdrawn": 4155,
+      "administrativeOutcomes": 569,
+      "trueGrantRatePct": 28.6,
+      "appealUpliftPp": 11.9,
+      "latestGrants": 3705,
+      "latestRefusals": 9227,
+      "latestSubstantive": 12932,
+      "pctResolved": 99.6
+    },
+    {
+      "nationality": "China",
+      "region": "Asia East",
+      "grantRatePct": 16.3,
+      "grants": 863,
+      "refusals": 4417,
+      "substantiveDecisions": 5280,
+      "totalDecisions": 8946,
+      "withdrawn": 3144,
+      "administrativeOutcomes": 522,
+      "trueGrantRatePct": 23.1,
+      "appealUpliftPp": 10.6,
+      "latestGrants": 973,
+      "latestRefusals": 3233,
+      "latestSubstantive": 4206,
+      "pctResolved": 99.7
+    },
+    {
+      "nationality": "St Lucia",
+      "region": "America Central and South",
+      "grantRatePct": 16,
+      "grants": 56,
+      "refusals": 293,
+      "substantiveDecisions": 349,
+      "totalDecisions": 405,
+      "withdrawn": 49,
+      "administrativeOutcomes": 7,
+      "trueGrantRatePct": 38.2,
+      "appealUpliftPp": 9.9,
+      "latestGrants": 66,
+      "latestRefusals": 107,
+      "latestSubstantive": 173,
+      "pctResolved": 99
+    },
+    {
+      "nationality": "South Africa",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 15.7,
+      "grants": 66,
+      "refusals": 355,
+      "substantiveDecisions": 421,
+      "totalDecisions": 517,
+      "withdrawn": 63,
+      "administrativeOutcomes": 33,
+      "trueGrantRatePct": 26,
+      "appealUpliftPp": 11.1,
+      "latestGrants": 90,
+      "latestRefusals": 256,
+      "latestSubstantive": 346,
+      "pctResolved": 99.1
+    },
+    {
+      "nationality": "Mauritius",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 15.3,
+      "grants": 63,
+      "refusals": 348,
+      "substantiveDecisions": 411,
+      "totalDecisions": 524,
+      "withdrawn": 90,
+      "administrativeOutcomes": 23,
+      "trueGrantRatePct": 24.4,
+      "appealUpliftPp": 12.5,
+      "latestGrants": 76,
+      "latestRefusals": 236,
+      "latestSubstantive": 312,
+      "pctResolved": 98.5
+    },
+    {
+      "nationality": "Uzbekistan",
+      "region": "Asia Central",
+      "grantRatePct": 14.8,
+      "grants": 229,
+      "refusals": 1320,
+      "substantiveDecisions": 1549,
+      "totalDecisions": 2247,
+      "withdrawn": 628,
+      "administrativeOutcomes": 70,
+      "trueGrantRatePct": 17.9,
+      "appealUpliftPp": 4.9,
+      "latestGrants": 145,
+      "latestRefusals": 664,
+      "latestSubstantive": 809,
+      "pctResolved": 99.3
+    },
+    {
+      "nationality": "Namibia",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 14.2,
+      "grants": 334,
+      "refusals": 2013,
+      "substantiveDecisions": 2347,
+      "totalDecisions": 2702,
+      "withdrawn": 177,
+      "administrativeOutcomes": 178,
+      "trueGrantRatePct": 34.1,
+      "appealUpliftPp": 19.8,
+      "latestGrants": 712,
+      "latestRefusals": 1374,
+      "latestSubstantive": 2086,
+      "pctResolved": 99.3
+    },
+    {
+      "nationality": "Mongolia",
+      "region": "Asia East",
+      "grantRatePct": 14.1,
+      "grants": 24,
+      "refusals": 146,
+      "substantiveDecisions": 170,
+      "totalDecisions": 200,
+      "withdrawn": 16,
+      "administrativeOutcomes": 14,
+      "trueGrantRatePct": 32.1,
+      "appealUpliftPp": 14.8,
+      "latestGrants": 26,
+      "latestRefusals": 55,
+      "latestSubstantive": 81,
+      "pctResolved": 99.1
+    },
+    {
+      "nationality": "Kyrgyzstan",
+      "region": "Asia Central",
+      "grantRatePct": 13.9,
+      "grants": 94,
+      "refusals": 581,
+      "substantiveDecisions": 675,
+      "totalDecisions": 925,
+      "withdrawn": 218,
+      "administrativeOutcomes": 32,
+      "trueGrantRatePct": 29.3,
+      "appealUpliftPp": 6.4,
+      "latestGrants": 83,
+      "latestRefusals": 200,
+      "latestSubstantive": 283,
+      "pctResolved": 99
+    },
+    {
+      "nationality": "Israel",
+      "region": "Middle East",
+      "grantRatePct": 12,
+      "grants": 13,
+      "refusals": 95,
+      "substantiveDecisions": 108,
+      "totalDecisions": 168,
+      "withdrawn": 51,
+      "administrativeOutcomes": 9
+    },
+    {
+      "nationality": "Barbados",
+      "region": "America Central and South",
+      "grantRatePct": 10.1,
+      "grants": 7,
+      "refusals": 62,
+      "substantiveDecisions": 69,
+      "totalDecisions": 76,
+      "withdrawn": 4,
+      "administrativeOutcomes": 3
+    },
+    {
+      "nationality": "Bolivia",
+      "region": "America Central and South",
+      "grantRatePct": 9.6,
+      "grants": 25,
+      "refusals": 235,
+      "substantiveDecisions": 260,
+      "totalDecisions": 343,
+      "withdrawn": 70,
+      "administrativeOutcomes": 13,
+      "trueGrantRatePct": 22.1,
+      "appealUpliftPp": 12.2,
+      "latestGrants": 29,
+      "latestRefusals": 102,
+      "latestSubstantive": 131,
+      "pctResolved": 98.9
+    },
+    {
+      "nationality": "Botswana",
+      "region": "Africa Sub-Saharan",
+      "grantRatePct": 8.9,
+      "grants": 103,
+      "refusals": 1060,
+      "substantiveDecisions": 1163,
+      "totalDecisions": 1372,
+      "withdrawn": 150,
+      "administrativeOutcomes": 59,
+      "trueGrantRatePct": 21.7,
+      "appealUpliftPp": 10.1,
+      "latestGrants": 140,
+      "latestRefusals": 505,
+      "latestSubstantive": 645,
+      "pctResolved": 97.8
+    },
+    {
+      "nationality": "Colombia",
+      "region": "America Central and South",
+      "grantRatePct": 8.2,
+      "grants": 226,
+      "refusals": 2534,
+      "substantiveDecisions": 2760,
+      "totalDecisions": 3419,
+      "withdrawn": 512,
+      "administrativeOutcomes": 147,
+      "trueGrantRatePct": 19.9,
+      "appealUpliftPp": 9,
+      "latestGrants": 129,
+      "latestRefusals": 519,
+      "latestSubstantive": 648,
+      "pctResolved": 97.7
+    },
+    {
+      "nationality": "Philippines",
+      "region": "Asia South East",
+      "grantRatePct": 6.3,
+      "grants": 97,
+      "refusals": 1452,
+      "substantiveDecisions": 1549,
+      "totalDecisions": 1930,
+      "withdrawn": 339,
+      "administrativeOutcomes": 42,
+      "trueGrantRatePct": 17.5,
+      "appealUpliftPp": 11.2,
+      "latestGrants": 243,
+      "latestRefusals": 1145,
+      "latestSubstantive": 1388,
+      "pctResolved": 99.8
+    },
+    {
+      "nationality": "Thailand",
+      "region": "Asia South East",
+      "grantRatePct": 5.8,
+      "grants": 39,
+      "refusals": 639,
+      "substantiveDecisions": 678,
+      "totalDecisions": 835,
+      "withdrawn": 146,
+      "administrativeOutcomes": 11,
+      "trueGrantRatePct": 17.2,
+      "appealUpliftPp": 10.6,
+      "latestGrants": 82,
+      "latestRefusals": 395,
+      "latestSubstantive": 477,
+      "pctResolved": 99.5
+    },
+    {
+      "nationality": "Argentina",
+      "region": "America Central and South",
+      "grantRatePct": 5.8,
+      "grants": 4,
+      "refusals": 65,
+      "substantiveDecisions": 69,
+      "totalDecisions": 96,
+      "withdrawn": 18,
+      "administrativeOutcomes": 9
+    },
+    {
+      "nationality": "Peru",
+      "region": "America Central and South",
+      "grantRatePct": 5.7,
+      "grants": 17,
+      "refusals": 281,
+      "substantiveDecisions": 298,
+      "totalDecisions": 399,
+      "withdrawn": 83,
+      "administrativeOutcomes": 18,
+      "trueGrantRatePct": 11.8,
+      "appealUpliftPp": 4,
+      "latestGrants": 6,
+      "latestRefusals": 45,
+      "latestSubstantive": 51,
+      "pctResolved": 100
+    },
+    {
+      "nationality": "St Kitts and Nevis",
+      "region": "America Central and South",
+      "grantRatePct": 5.3,
+      "grants": 4,
+      "refusals": 71,
+      "substantiveDecisions": 75,
+      "totalDecisions": 94,
+      "withdrawn": 14,
+      "administrativeOutcomes": 5
+    },
+    {
+      "nationality": "Georgia",
+      "region": "Europe Other",
+      "grantRatePct": 5,
+      "grants": 113,
+      "refusals": 2125,
+      "substantiveDecisions": 2238,
+      "totalDecisions": 5501,
+      "withdrawn": 2699,
+      "administrativeOutcomes": 564,
+      "trueGrantRatePct": 17.5,
+      "appealUpliftPp": 10.4,
+      "latestGrants": 184,
+      "latestRefusals": 869,
+      "latestSubstantive": 1053,
+      "pctResolved": 99.3
+    },
+    {
+      "nationality": "Romania",
+      "region": "EU 2",
+      "grantRatePct": 3,
+      "grants": 6,
+      "refusals": 197,
+      "substantiveDecisions": 203,
+      "totalDecisions": 322,
+      "withdrawn": 53,
+      "administrativeOutcomes": 66,
+      "trueGrantRatePct": 0.8,
+      "appealUpliftPp": 0,
+      "latestGrants": 1,
+      "latestRefusals": 127,
+      "latestSubstantive": 128,
+      "pctResolved": 98.9
+    },
+    {
+      "nationality": "India",
+      "region": "Asia South",
+      "grantRatePct": 2.6,
+      "grants": 284,
+      "refusals": 10781,
+      "substantiveDecisions": 11065,
+      "totalDecisions": 23583,
+      "withdrawn": 11356,
+      "administrativeOutcomes": 1162,
+      "trueGrantRatePct": 7.6,
+      "appealUpliftPp": 4.4,
+      "latestGrants": 532,
+      "latestRefusals": 6454,
+      "latestSubstantive": 6986,
+      "pctResolved": 99.6
+    },
+    {
+      "nationality": "Nepal",
+      "region": "Asia South",
+      "grantRatePct": 2.6,
+      "grants": 65,
+      "refusals": 2406,
+      "substantiveDecisions": 2471,
+      "totalDecisions": 3702,
+      "withdrawn": 1149,
+      "administrativeOutcomes": 82,
+      "trueGrantRatePct": 6,
+      "appealUpliftPp": 3.1,
+      "latestGrants": 108,
+      "latestRefusals": 1697,
+      "latestSubstantive": 1805,
+      "pctResolved": 99.6
+    },
+    {
+      "nationality": "Brazil",
+      "region": "America Central and South",
+      "grantRatePct": 2,
+      "grants": 81,
+      "refusals": 3962,
+      "substantiveDecisions": 4043,
+      "totalDecisions": 8086,
+      "withdrawn": 3627,
+      "administrativeOutcomes": 416,
+      "trueGrantRatePct": 6.1,
+      "appealUpliftPp": 2.9,
+      "latestGrants": 81,
+      "latestRefusals": 1256,
+      "latestSubstantive": 1337,
+      "pctResolved": 99.4
+    },
+    {
+      "nationality": "East Timor",
+      "region": "Asia South East",
+      "grantRatePct": 1.4,
+      "grants": 3,
+      "refusals": 218,
+      "substantiveDecisions": 221,
+      "totalDecisions": 305,
+      "withdrawn": 63,
+      "administrativeOutcomes": 21
+    },
+    {
+      "nationality": "Poland",
+      "region": "EU 8",
+      "grantRatePct": 0.7,
+      "grants": 2,
+      "refusals": 291,
+      "substantiveDecisions": 293,
+      "totalDecisions": 413,
+      "withdrawn": 66,
+      "administrativeOutcomes": 54,
+      "trueGrantRatePct": 0,
+      "appealUpliftPp": 0,
+      "latestGrants": 0,
+      "latestRefusals": 255,
+      "latestSubstantive": 255,
+      "pctResolved": 98.6
+    },
+    {
+      "nationality": "Hungary",
+      "region": "EU 8",
+      "grantRatePct": 0,
+      "grants": 0,
+      "refusals": 91,
+      "substantiveDecisions": 91,
+      "totalDecisions": 145,
+      "withdrawn": 38,
+      "administrativeOutcomes": 16,
+      "trueGrantRatePct": 0,
+      "appealUpliftPp": 0,
+      "latestGrants": 0,
+      "latestRefusals": 53,
+      "latestSubstantive": 53,
+      "pctResolved": 97.8
+    },
+    {
+      "nationality": "Lithuania",
+      "region": "EU 8",
+      "grantRatePct": 0,
+      "grants": 0,
+      "refusals": 65,
+      "substantiveDecisions": 65,
+      "totalDecisions": 101,
+      "withdrawn": 17,
+      "administrativeOutcomes": 19,
+      "trueGrantRatePct": 1.1,
+      "appealUpliftPp": 1.1,
+      "latestGrants": 1,
+      "latestRefusals": 94,
+      "latestSubstantive": 95,
+      "pctResolved": 100
+    }
+  ],
+  "volumeRanking": [
+    {
+      "nationality": "Iran",
+      "region": "Middle East",
+      "totalDecisions": 113186,
+      "grants": 52698,
+      "refusals": 55122,
+      "grantRatePct": 48.9
+    },
+    {
+      "nationality": "Afghanistan",
+      "region": "Asia Central",
+      "totalDecisions": 103796,
+      "grants": 51409,
+      "refusals": 44928,
+      "grantRatePct": 53.4
+    },
+    {
+      "nationality": "Pakistan",
+      "region": "Asia South",
+      "totalDecisions": 95409,
+      "grants": 19904,
+      "refusals": 65768,
+      "grantRatePct": 23.2
+    },
+    {
+      "nationality": "Iraq",
+      "region": "Middle East",
+      "totalDecisions": 89147,
+      "grants": 29534,
+      "refusals": 54141,
+      "grantRatePct": 35.3
+    },
+    {
+      "nationality": "Eritrea",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 62382,
+      "grants": 44386,
+      "refusals": 16327,
+      "grantRatePct": 73.1
+    },
+    {
+      "nationality": "Albania",
+      "region": "Europe Other",
+      "totalDecisions": 58544,
+      "grants": 6007,
+      "refusals": 26959,
+      "grantRatePct": 18.2
+    },
+    {
+      "nationality": "Somalia",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 53718,
+      "grants": 25303,
+      "refusals": 26877,
+      "grantRatePct": 48.5
+    },
+    {
+      "nationality": "Sri Lanka",
+      "region": "Asia South",
+      "totalDecisions": 48821,
+      "grants": 8570,
+      "refusals": 37624,
+      "grantRatePct": 18.6
+    },
+    {
+      "nationality": "India",
+      "region": "Asia South",
+      "totalDecisions": 48519,
+      "grants": 783,
+      "refusals": 30200,
+      "grantRatePct": 2.5
+    },
+    {
+      "nationality": "Bangladesh",
+      "region": "Asia South",
+      "totalDecisions": 43958,
+      "grants": 5821,
+      "refusals": 31045,
+      "grantRatePct": 15.8
+    },
+    {
+      "nationality": "China",
+      "region": "Asia East",
+      "totalDecisions": 43752,
+      "grants": 3196,
+      "refusals": 33397,
+      "grantRatePct": 8.7
+    },
+    {
+      "nationality": "Sudan",
+      "region": "Africa North",
+      "totalDecisions": 43167,
+      "grants": 31303,
+      "refusals": 10539,
+      "grantRatePct": 74.8
+    },
+    {
+      "nationality": "Zimbabwe",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 42810,
+      "grants": 10894,
+      "refusals": 30949,
+      "grantRatePct": 26
+    },
+    {
+      "nationality": "Turkey",
+      "region": "Europe Other",
+      "totalDecisions": 39473,
+      "grants": 7469,
+      "refusals": 29203,
+      "grantRatePct": 20.4
+    },
+    {
+      "nationality": "Nigeria",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 36933,
+      "grants": 6586,
+      "refusals": 26231,
+      "grantRatePct": 20.1
+    },
+    {
+      "nationality": "Syria",
+      "region": "Middle East",
+      "totalDecisions": 36099,
+      "grants": 24244,
+      "refusals": 9154,
+      "grantRatePct": 72.6
+    },
+    {
+      "nationality": "Vietnam",
+      "region": "Asia South East",
+      "totalDecisions": 25854,
+      "grants": 5626,
+      "refusals": 11564,
+      "grantRatePct": 32.7
+    },
+    {
+      "nationality": "Serbia and Montenegro",
+      "region": "Europe Other",
+      "totalDecisions": 22704,
+      "grants": 4368,
+      "refusals": 16936,
+      "grantRatePct": 20.5
+    },
+    {
+      "nationality": "Congo (Democratic Republic)",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 16927,
+      "grants": 3645,
+      "refusals": 12718,
+      "grantRatePct": 22.3
+    },
+    {
+      "nationality": "Ethiopia",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 13555,
+      "grants": 5936,
+      "refusals": 7175,
+      "grantRatePct": 45.3
+    },
+    {
+      "nationality": "Libya",
+      "region": "Africa North",
+      "totalDecisions": 13122,
+      "grants": 7046,
+      "refusals": 5175,
+      "grantRatePct": 57.7
+    },
+    {
+      "nationality": "Algeria",
+      "region": "Africa North",
+      "totalDecisions": 12743,
+      "grants": 924,
+      "refusals": 9721,
+      "grantRatePct": 8.7
+    },
+    {
+      "nationality": "Egypt",
+      "region": "Africa North",
+      "totalDecisions": 9580,
+      "grants": 1745,
+      "refusals": 5688,
+      "grantRatePct": 23.5
+    },
+    {
+      "nationality": "Brazil",
+      "region": "America Central and South",
+      "totalDecisions": 8886,
+      "grants": 114,
+      "refusals": 4451,
+      "grantRatePct": 2.5
+    },
+    {
+      "nationality": "Palestine",
+      "region": "Middle East",
+      "totalDecisions": 8532,
+      "grants": 2265,
+      "refusals": 5551,
+      "grantRatePct": 29
+    },
+    {
+      "nationality": "Yemen",
+      "region": "Middle East",
+      "totalDecisions": 8507,
+      "grants": 6342,
+      "refusals": 1814,
+      "grantRatePct": 77.8
+    },
+    {
+      "nationality": "Uganda",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 8447,
+      "grants": 3016,
+      "refusals": 5045,
+      "grantRatePct": 37.4
+    },
+    {
+      "nationality": "Sierra Leone",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 8390,
+      "grants": 2940,
+      "refusals": 5052,
+      "grantRatePct": 36.8
+    },
+    {
+      "nationality": "Ukraine",
+      "region": "Europe Other",
+      "totalDecisions": 8131,
+      "grants": 1150,
+      "refusals": 5608,
+      "grantRatePct": 17
+    },
+    {
+      "nationality": "Cameroon",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 7494,
+      "grants": 2423,
+      "refusals": 4776,
+      "grantRatePct": 33.7
+    },
+    {
+      "nationality": "Georgia",
+      "region": "Europe Other",
+      "totalDecisions": 7487,
+      "grants": 245,
+      "refusals": 3776,
+      "grantRatePct": 6.1
+    },
+    {
+      "nationality": "Jamaica",
+      "region": "America Central and South",
+      "totalDecisions": 7405,
+      "grants": 500,
+      "refusals": 6004,
+      "grantRatePct": 7.7
+    },
+    {
+      "nationality": "Romania",
+      "region": "EU 2",
+      "totalDecisions": 7282,
+      "grants": 355,
+      "refusals": 6175,
+      "grantRatePct": 5.4
+    },
+    {
+      "nationality": "Angola",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 7162,
+      "grants": 2593,
+      "refusals": 4305,
+      "grantRatePct": 37.6
+    },
+    {
+      "nationality": "Ghana",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 6936,
+      "grants": 832,
+      "refusals": 4770,
+      "grantRatePct": 14.9
+    },
+    {
+      "nationality": "Nepal",
+      "region": "Asia South",
+      "totalDecisions": 6936,
+      "grants": 168,
+      "refusals": 5304,
+      "grantRatePct": 3.1
+    },
+    {
+      "nationality": "Russia",
+      "region": "Europe Other",
+      "totalDecisions": 6621,
+      "grants": 1964,
+      "refusals": 4083,
+      "grantRatePct": 32.5
+    },
+    {
+      "nationality": "Colombia",
+      "region": "America Central and South",
+      "totalDecisions": 6122,
+      "grants": 507,
+      "refusals": 4739,
+      "grantRatePct": 9.7
+    },
+    {
+      "nationality": "Kenya",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 5438,
+      "grants": 1032,
+      "refusals": 3924,
+      "grantRatePct": 20.8
+    },
+    {
+      "nationality": "El Salvador",
+      "region": "America Central and South",
+      "totalDecisions": 5247,
+      "grants": 3276,
+      "refusals": 1307,
+      "grantRatePct": 71.5
+    },
+    {
+      "nationality": "Gambia, The",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 4991,
+      "grants": 1515,
+      "refusals": 3128,
+      "grantRatePct": 32.6
+    },
+    {
+      "nationality": "Czechia",
+      "region": "EU 8",
+      "totalDecisions": 4918,
+      "grants": 18,
+      "refusals": 4503,
+      "grantRatePct": 0.4
+    },
+    {
+      "nationality": "Kuwait",
+      "region": "Middle East",
+      "totalDecisions": 4871,
+      "grants": 2069,
+      "refusals": 2131,
+      "grantRatePct": 49.3
+    },
+    {
+      "nationality": "Myanmar (Burma)",
+      "region": "Asia South East",
+      "totalDecisions": 4424,
+      "grants": 2717,
+      "refusals": 1600,
+      "grantRatePct": 62.9
+    },
+    {
+      "nationality": "Poland",
+      "region": "EU 8",
+      "totalDecisions": 4424,
+      "grants": 43,
+      "refusals": 3819,
+      "grantRatePct": 1.1
+    },
+    {
+      "nationality": "Burundi",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 3845,
+      "grants": 1583,
+      "refusals": 2204,
+      "grantRatePct": 41.8
+    },
+    {
+      "nationality": "Honduras",
+      "region": "America Central and South",
+      "totalDecisions": 3597,
+      "grants": 923,
+      "refusals": 1750,
+      "grantRatePct": 34.5
+    },
+    {
+      "nationality": "Ivory Coast",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 3436,
+      "grants": 468,
+      "refusals": 2783,
+      "grantRatePct": 14.4
+    },
+    {
+      "nationality": "Namibia",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 3405,
+      "grants": 388,
+      "refusals": 2517,
+      "grantRatePct": 13.4
+    },
+    {
+      "nationality": "South Africa",
+      "region": "Africa Sub-Saharan",
+      "totalDecisions": 3368,
+      "grants": 231,
+      "refusals": 2732,
+      "grantRatePct": 7.8
+    }
+  ],
+  "timeSeries": {
+    "Iran": {
+      "2015": {
+        "total": 3597,
+        "grants": 2003,
+        "refusals": 1491,
+        "grantRatePct": 57.3
+      },
+      "2016": {
+        "total": 4501,
+        "grants": 1709,
+        "refusals": 2678,
+        "grantRatePct": 39
+      },
+      "2017": {
+        "total": 3341,
+        "grants": 1562,
+        "refusals": 1673,
+        "grantRatePct": 48.3
+      },
+      "2018": {
+        "total": 2826,
+        "grants": 1211,
+        "refusals": 1513,
+        "grantRatePct": 44.5
+      },
+      "2019": {
+        "total": 4216,
+        "grants": 2771,
+        "refusals": 1353,
+        "grantRatePct": 67.2
+      },
+      "2020": {
+        "total": 2582,
+        "grants": 1354,
+        "refusals": 1061,
+        "grantRatePct": 56.1
+      },
+      "2021": {
+        "total": 2933,
+        "grants": 2412,
+        "refusals": 288,
+        "grantRatePct": 89.3
+      },
+      "2022": {
+        "total": 3904,
+        "grants": 2695,
+        "refusals": 667,
+        "grantRatePct": 80.2
+      },
+      "2023": {
+        "total": 12871,
+        "grants": 9967,
+        "refusals": 1651,
+        "grantRatePct": 85.8
+      },
+      "2024": {
+        "total": 11785,
+        "grants": 7295,
+        "refusals": 3710,
+        "grantRatePct": 66.3
+      },
+      "2025": {
+        "total": 12200,
+        "grants": 7155,
+        "refusals": 4389,
+        "grantRatePct": 62
+      }
+    },
+    "Afghanistan": {
+      "2015": {
+        "total": 2304,
+        "grants": 787,
+        "refusals": 1372,
+        "grantRatePct": 36.5
+      },
+      "2016": {
+        "total": 2552,
+        "grants": 825,
+        "refusals": 1531,
+        "grantRatePct": 35
+      },
+      "2017": {
+        "total": 2015,
+        "grants": 691,
+        "refusals": 1219,
+        "grantRatePct": 36.2
+      },
+      "2018": {
+        "total": 1923,
+        "grants": 782,
+        "refusals": 1018,
+        "grantRatePct": 43.4
+      },
+      "2019": {
+        "total": 1896,
+        "grants": 1172,
+        "refusals": 623,
+        "grantRatePct": 65.3
+      },
+      "2020": {
+        "total": 1210,
+        "grants": 548,
+        "refusals": 466,
+        "grantRatePct": 54
+      },
+      "2021": {
+        "total": 1288,
+        "grants": 825,
+        "refusals": 190,
+        "grantRatePct": 81.3
+      },
+      "2022": {
+        "total": 2479,
+        "grants": 1979,
+        "refusals": 50,
+        "grantRatePct": 97.5
+      },
+      "2023": {
+        "total": 10564,
+        "grants": 9338,
+        "refusals": 125,
+        "grantRatePct": 98.7
+      },
+      "2024": {
+        "total": 8817,
+        "grants": 4409,
+        "refusals": 3387,
+        "grantRatePct": 56.6
+      },
+      "2025": {
+        "total": 13261,
+        "grants": 4660,
+        "refusals": 7379,
+        "grantRatePct": 38.7
+      }
+    },
+    "Pakistan": {
+      "2015": {
+        "total": 4265,
+        "grants": 768,
+        "refusals": 3078,
+        "grantRatePct": 20
+      },
+      "2016": {
+        "total": 3171,
+        "grants": 439,
+        "refusals": 2309,
+        "grantRatePct": 16
+      },
+      "2017": {
+        "total": 3137,
+        "grants": 383,
+        "refusals": 2307,
+        "grantRatePct": 14.2
+      },
+      "2018": {
+        "total": 2666,
+        "grants": 455,
+        "refusals": 1845,
+        "grantRatePct": 19.8
+      },
+      "2019": {
+        "total": 1580,
+        "grants": 501,
+        "refusals": 834,
+        "grantRatePct": 37.5
+      },
+      "2020": {
+        "total": 1113,
+        "grants": 329,
+        "refusals": 532,
+        "grantRatePct": 38.2
+      },
+      "2021": {
+        "total": 1048,
+        "grants": 493,
+        "refusals": 348,
+        "grantRatePct": 58.6
+      },
+      "2022": {
+        "total": 989,
+        "grants": 473,
+        "refusals": 312,
+        "grantRatePct": 60.3
+      },
+      "2023": {
+        "total": 4273,
+        "grants": 1775,
+        "refusals": 1379,
+        "grantRatePct": 56.3
+      },
+      "2024": {
+        "total": 6473,
+        "grants": 2892,
+        "refusals": 2743,
+        "grantRatePct": 51.3
+      },
+      "2025": {
+        "total": 17645,
+        "grants": 5221,
+        "refusals": 10892,
+        "grantRatePct": 32.4
+      }
+    },
+    "Iraq": {
+      "2015": {
+        "total": 1501,
+        "grants": 308,
+        "refusals": 1092,
+        "grantRatePct": 22
+      },
+      "2016": {
+        "total": 3137,
+        "grants": 373,
+        "refusals": 2585,
+        "grantRatePct": 12.6
+      },
+      "2017": {
+        "total": 2655,
+        "grants": 491,
+        "refusals": 2050,
+        "grantRatePct": 19.3
+      },
+      "2018": {
+        "total": 3003,
+        "grants": 601,
+        "refusals": 2272,
+        "grantRatePct": 20.9
+      },
+      "2019": {
+        "total": 3150,
+        "grants": 882,
+        "refusals": 2134,
+        "grantRatePct": 29.2
+      },
+      "2020": {
+        "total": 2128,
+        "grants": 534,
+        "refusals": 1428,
+        "grantRatePct": 27.2
+      },
+      "2021": {
+        "total": 1654,
+        "grants": 718,
+        "refusals": 759,
+        "grantRatePct": 48.6
+      },
+      "2022": {
+        "total": 1865,
+        "grants": 798,
+        "refusals": 619,
+        "grantRatePct": 56.3
+      },
+      "2023": {
+        "total": 10733,
+        "grants": 4012,
+        "refusals": 5310,
+        "grantRatePct": 43
+      },
+      "2024": {
+        "total": 7361,
+        "grants": 2178,
+        "refusals": 4362,
+        "grantRatePct": 33.3
+      },
+      "2025": {
+        "total": 5072,
+        "grants": 1299,
+        "refusals": 3014,
+        "grantRatePct": 30.1
+      }
+    },
+    "Eritrea": {
+      "2015": {
+        "total": 3349,
+        "grants": 1572,
+        "refusals": 1734,
+        "grantRatePct": 47.5
+      },
+      "2016": {
+        "total": 1910,
+        "grants": 1259,
+        "refusals": 625,
+        "grantRatePct": 66.8
+      },
+      "2017": {
+        "total": 1511,
+        "grants": 1202,
+        "refusals": 291,
+        "grantRatePct": 80.5
+      },
+      "2018": {
+        "total": 1334,
+        "grants": 844,
+        "refusals": 473,
+        "grantRatePct": 64.1
+      },
+      "2019": {
+        "total": 2081,
+        "grants": 1794,
+        "refusals": 274,
+        "grantRatePct": 86.8
+      },
+      "2020": {
+        "total": 1215,
+        "grants": 823,
+        "refusals": 293,
+        "grantRatePct": 73.7
+      },
+      "2021": {
+        "total": 1676,
+        "grants": 1473,
+        "refusals": 62,
+        "grantRatePct": 96
+      },
+      "2022": {
+        "total": 2668,
+        "grants": 2508,
+        "refusals": 46,
+        "grantRatePct": 98.2
+      },
+      "2023": {
+        "total": 6637,
+        "grants": 6297,
+        "refusals": 39,
+        "grantRatePct": 99.4
+      },
+      "2024": {
+        "total": 5336,
+        "grants": 4454,
+        "refusals": 661,
+        "grantRatePct": 87.1
+      },
+      "2025": {
+        "total": 10283,
+        "grants": 8748,
+        "refusals": 1278,
+        "grantRatePct": 87.3
+      }
+    },
+    "Albania": {
+      "2015": {
+        "total": 2312,
+        "grants": 368,
+        "refusals": 1601,
+        "grantRatePct": 18.7
+      },
+      "2016": {
+        "total": 1358,
+        "grants": 238,
+        "refusals": 856,
+        "grantRatePct": 21.8
+      },
+      "2017": {
+        "total": 1079,
+        "grants": 94,
+        "refusals": 757,
+        "grantRatePct": 11
+      },
+      "2018": {
+        "total": 1584,
+        "grants": 83,
+        "refusals": 1172,
+        "grantRatePct": 6.6
+      },
+      "2019": {
+        "total": 2157,
+        "grants": 400,
+        "refusals": 1291,
+        "grantRatePct": 23.7
+      },
+      "2020": {
+        "total": 1597,
+        "grants": 438,
+        "refusals": 568,
+        "grantRatePct": 43.5
+      },
+      "2021": {
+        "total": 1598,
+        "grants": 469,
+        "refusals": 321,
+        "grantRatePct": 59.4
+      },
+      "2022": {
+        "total": 3743,
+        "grants": 699,
+        "refusals": 427,
+        "grantRatePct": 62.1
+      },
+      "2023": {
+        "total": 19173,
+        "grants": 986,
+        "refusals": 6609,
+        "grantRatePct": 13
+      },
+      "2024": {
+        "total": 9129,
+        "grants": 136,
+        "refusals": 3858,
+        "grantRatePct": 3.4
+      },
+      "2025": {
+        "total": 3555,
+        "grants": 123,
+        "refusals": 1764,
+        "grantRatePct": 6.5
+      }
+    },
+    "Somalia": {
+      "2015": {
+        "total": 601,
+        "grants": 238,
+        "refusals": 322,
+        "grantRatePct": 42.5
+      },
+      "2016": {
+        "total": 327,
+        "grants": 123,
+        "refusals": 183,
+        "grantRatePct": 40.2
+      },
+      "2017": {
+        "total": 347,
+        "grants": 162,
+        "refusals": 167,
+        "grantRatePct": 49.2
+      },
+      "2018": {
+        "total": 261,
+        "grants": 128,
+        "refusals": 115,
+        "grantRatePct": 52.7
+      },
+      "2019": {
+        "total": 264,
+        "grants": 168,
+        "refusals": 90,
+        "grantRatePct": 65.1
+      },
+      "2020": {
+        "total": 180,
+        "grants": 113,
+        "refusals": 50,
+        "grantRatePct": 69.3
+      },
+      "2021": {
+        "total": 265,
+        "grants": 206,
+        "refusals": 41,
+        "grantRatePct": 83.4
+      },
+      "2022": {
+        "total": 365,
+        "grants": 264,
+        "refusals": 63,
+        "grantRatePct": 80.7
+      },
+      "2023": {
+        "total": 981,
+        "grants": 529,
+        "refusals": 325,
+        "grantRatePct": 61.9
+      },
+      "2024": {
+        "total": 799,
+        "grants": 351,
+        "refusals": 339,
+        "grantRatePct": 50.9
+      },
+      "2025": {
+        "total": 3606,
+        "grants": 1238,
+        "refusals": 2096,
+        "grantRatePct": 37.1
+      }
+    },
+    "Sri Lanka": {
+      "2015": {
+        "total": 2256,
+        "grants": 226,
+        "refusals": 1939,
+        "grantRatePct": 10.4
+      },
+      "2016": {
+        "total": 1186,
+        "grants": 53,
+        "refusals": 1029,
+        "grantRatePct": 4.9
+      },
+      "2017": {
+        "total": 1024,
+        "grants": 58,
+        "refusals": 884,
+        "grantRatePct": 6.2
+      },
+      "2018": {
+        "total": 845,
+        "grants": 68,
+        "refusals": 699,
+        "grantRatePct": 8.9
+      },
+      "2019": {
+        "total": 416,
+        "grants": 139,
+        "refusals": 221,
+        "grantRatePct": 38.6
+      },
+      "2020": {
+        "total": 285,
+        "grants": 57,
+        "refusals": 196,
+        "grantRatePct": 22.5
+      },
+      "2021": {
+        "total": 298,
+        "grants": 120,
+        "refusals": 128,
+        "grantRatePct": 48.4
+      },
+      "2022": {
+        "total": 352,
+        "grants": 204,
+        "refusals": 91,
+        "grantRatePct": 69.2
+      },
+      "2023": {
+        "total": 1479,
+        "grants": 510,
+        "refusals": 670,
+        "grantRatePct": 43.2
+      },
+      "2024": {
+        "total": 1937,
+        "grants": 527,
+        "refusals": 1154,
+        "grantRatePct": 31.4
+      },
+      "2025": {
+        "total": 4597,
+        "grants": 1096,
+        "refusals": 3028,
+        "grantRatePct": 26.6
+      }
+    },
+    "India": {
+      "2015": {
+        "total": 1358,
+        "grants": 24,
+        "refusals": 960,
+        "grantRatePct": 2.4
+      },
+      "2016": {
+        "total": 1642,
+        "grants": 9,
+        "refusals": 1232,
+        "grantRatePct": 0.7
+      },
+      "2017": {
+        "total": 1773,
+        "grants": 28,
+        "refusals": 1283,
+        "grantRatePct": 2.1
+      },
+      "2018": {
+        "total": 1177,
+        "grants": 33,
+        "refusals": 772,
+        "grantRatePct": 4.1
+      },
+      "2019": {
+        "total": 1541,
+        "grants": 64,
+        "refusals": 786,
+        "grantRatePct": 7.5
+      },
+      "2020": {
+        "total": 891,
+        "grants": 35,
+        "refusals": 521,
+        "grantRatePct": 6.3
+      },
+      "2021": {
+        "total": 706,
+        "grants": 13,
+        "refusals": 261,
+        "grantRatePct": 4.7
+      },
+      "2022": {
+        "total": 1181,
+        "grants": 18,
+        "refusals": 284,
+        "grantRatePct": 6
+      },
+      "2023": {
+        "total": 3554,
+        "grants": 128,
+        "refusals": 1544,
+        "grantRatePct": 7.7
+      },
+      "2024": {
+        "total": 6261,
+        "grants": 51,
+        "refusals": 2415,
+        "grantRatePct": 2.1
+      },
+      "2025": {
+        "total": 7717,
+        "grants": 24,
+        "refusals": 4083,
+        "grantRatePct": 0.6
+      }
+    },
+    "Bangladesh": {
+      "2015": {
+        "total": 1200,
+        "grants": 118,
+        "refusals": 890,
+        "grantRatePct": 11.7
+      },
+      "2016": {
+        "total": 1637,
+        "grants": 81,
+        "refusals": 1327,
+        "grantRatePct": 5.8
+      },
+      "2017": {
+        "total": 1902,
+        "grants": 65,
+        "refusals": 1561,
+        "grantRatePct": 4
+      },
+      "2018": {
+        "total": 1610,
+        "grants": 113,
+        "refusals": 1324,
+        "grantRatePct": 7.9
+      },
+      "2019": {
+        "total": 821,
+        "grants": 133,
+        "refusals": 575,
+        "grantRatePct": 18.8
+      },
+      "2020": {
+        "total": 458,
+        "grants": 72,
+        "refusals": 309,
+        "grantRatePct": 18.9
+      },
+      "2021": {
+        "total": 480,
+        "grants": 127,
+        "refusals": 276,
+        "grantRatePct": 31.5
+      },
+      "2022": {
+        "total": 563,
+        "grants": 163,
+        "refusals": 248,
+        "grantRatePct": 39.7
+      },
+      "2023": {
+        "total": 4567,
+        "grants": 883,
+        "refusals": 2096,
+        "grantRatePct": 29.6
+      },
+      "2024": {
+        "total": 6455,
+        "grants": 959,
+        "refusals": 4392,
+        "grantRatePct": 17.9
+      },
+      "2025": {
+        "total": 10349,
+        "grants": 1174,
+        "refusals": 7852,
+        "grantRatePct": 13
+      }
+    },
+    "China": {
+      "2015": {
+        "total": 1325,
+        "grants": 111,
+        "refusals": 1119,
+        "grantRatePct": 9
+      },
+      "2016": {
+        "total": 825,
+        "grants": 30,
+        "refusals": 582,
+        "grantRatePct": 4.9
+      },
+      "2017": {
+        "total": 941,
+        "grants": 18,
+        "refusals": 524,
+        "grantRatePct": 3.3
+      },
+      "2018": {
+        "total": 1084,
+        "grants": 29,
+        "refusals": 503,
+        "grantRatePct": 5.5
+      },
+      "2019": {
+        "total": 851,
+        "grants": 68,
+        "refusals": 389,
+        "grantRatePct": 14.9
+      },
+      "2020": {
+        "total": 496,
+        "grants": 49,
+        "refusals": 154,
+        "grantRatePct": 24.1
+      },
+      "2021": {
+        "total": 271,
+        "grants": 45,
+        "refusals": 104,
+        "grantRatePct": 30.2
+      },
+      "2022": {
+        "total": 461,
+        "grants": 82,
+        "refusals": 299,
+        "grantRatePct": 21.5
+      },
+      "2023": {
+        "total": 2234,
+        "grants": 264,
+        "refusals": 1088,
+        "grantRatePct": 19.5
+      },
+      "2024": {
+        "total": 1658,
+        "grants": 135,
+        "refusals": 873,
+        "grantRatePct": 13.4
+      },
+      "2025": {
+        "total": 3042,
+        "grants": 235,
+        "refusals": 1487,
+        "grantRatePct": 13.6
+      }
+    },
+    "Sudan": {
+      "2015": {
+        "total": 2854,
+        "grants": 2401,
+        "refusals": 429,
+        "grantRatePct": 84.8
+      },
+      "2016": {
+        "total": 1492,
+        "grants": 1246,
+        "refusals": 235,
+        "grantRatePct": 84.1
+      },
+      "2017": {
+        "total": 1497,
+        "grants": 933,
+        "refusals": 548,
+        "grantRatePct": 63
+      },
+      "2018": {
+        "total": 1422,
+        "grants": 630,
+        "refusals": 778,
+        "grantRatePct": 44.7
+      },
+      "2019": {
+        "total": 1943,
+        "grants": 1640,
+        "refusals": 283,
+        "grantRatePct": 85.3
+      },
+      "2020": {
+        "total": 1420,
+        "grants": 811,
+        "refusals": 536,
+        "grantRatePct": 60.2
+      },
+      "2021": {
+        "total": 1027,
+        "grants": 888,
+        "refusals": 51,
+        "grantRatePct": 94.6
+      },
+      "2022": {
+        "total": 1257,
+        "grants": 955,
+        "refusals": 202,
+        "grantRatePct": 82.5
+      },
+      "2023": {
+        "total": 4698,
+        "grants": 4358,
+        "refusals": 108,
+        "grantRatePct": 97.6
+      },
+      "2024": {
+        "total": 4418,
+        "grants": 4111,
+        "refusals": 59,
+        "grantRatePct": 98.6
+      },
+      "2025": {
+        "total": 7698,
+        "grants": 7045,
+        "refusals": 428,
+        "grantRatePct": 94.3
+      }
+    },
+    "Zimbabwe": {
+      "2015": {
+        "total": 587,
+        "grants": 115,
+        "refusals": 453,
+        "grantRatePct": 20.2
+      },
+      "2016": {
+        "total": 287,
+        "grants": 50,
+        "refusals": 226,
+        "grantRatePct": 18.1
+      },
+      "2017": {
+        "total": 287,
+        "grants": 29,
+        "refusals": 244,
+        "grantRatePct": 10.6
+      },
+      "2018": {
+        "total": 200,
+        "grants": 18,
+        "refusals": 164,
+        "grantRatePct": 9.9
+      },
+      "2019": {
+        "total": 124,
+        "grants": 31,
+        "refusals": 81,
+        "grantRatePct": 27.7
+      },
+      "2020": {
+        "total": 97,
+        "grants": 22,
+        "refusals": 63,
+        "grantRatePct": 25.9
+      },
+      "2021": {
+        "total": 73,
+        "grants": 30,
+        "refusals": 33,
+        "grantRatePct": 47.6
+      },
+      "2022": {
+        "total": 73,
+        "grants": 36,
+        "refusals": 30,
+        "grantRatePct": 54.5
+      },
+      "2023": {
+        "total": 277,
+        "grants": 104,
+        "refusals": 135,
+        "grantRatePct": 43.5
+      },
+      "2024": {
+        "total": 139,
+        "grants": 57,
+        "refusals": 66,
+        "grantRatePct": 46.3
+      },
+      "2025": {
+        "total": 416,
+        "grants": 56,
+        "refusals": 216,
+        "grantRatePct": 20.6
+      }
+    },
+    "Turkey": {
+      "2015": {
+        "total": 319,
+        "grants": 68,
+        "refusals": 229,
+        "grantRatePct": 22.9
+      },
+      "2016": {
+        "total": 242,
+        "grants": 36,
+        "refusals": 186,
+        "grantRatePct": 16.2
+      },
+      "2017": {
+        "total": 256,
+        "grants": 45,
+        "refusals": 189,
+        "grantRatePct": 19.2
+      },
+      "2018": {
+        "total": 769,
+        "grants": 380,
+        "refusals": 350,
+        "grantRatePct": 52.1
+      },
+      "2019": {
+        "total": 916,
+        "grants": 671,
+        "refusals": 199,
+        "grantRatePct": 77.1
+      },
+      "2020": {
+        "total": 431,
+        "grants": 253,
+        "refusals": 130,
+        "grantRatePct": 66.1
+      },
+      "2021": {
+        "total": 608,
+        "grants": 453,
+        "refusals": 108,
+        "grantRatePct": 80.7
+      },
+      "2022": {
+        "total": 623,
+        "grants": 473,
+        "refusals": 69,
+        "grantRatePct": 87.3
+      },
+      "2023": {
+        "total": 2041,
+        "grants": 1582,
+        "refusals": 218,
+        "grantRatePct": 87.9
+      },
+      "2024": {
+        "total": 3193,
+        "grants": 423,
+        "refusals": 2206,
+        "grantRatePct": 16.1
+      },
+      "2025": {
+        "total": 5687,
+        "grants": 981,
+        "refusals": 4033,
+        "grantRatePct": 19.6
+      }
+    },
+    "Nigeria": {
+      "2015": {
+        "total": 1853,
+        "grants": 256,
+        "refusals": 1493,
+        "grantRatePct": 14.6
+      },
+      "2016": {
+        "total": 1373,
+        "grants": 136,
+        "refusals": 1128,
+        "grantRatePct": 10.8
+      },
+      "2017": {
+        "total": 1470,
+        "grants": 154,
+        "refusals": 1173,
+        "grantRatePct": 11.6
+      },
+      "2018": {
+        "total": 1381,
+        "grants": 313,
+        "refusals": 985,
+        "grantRatePct": 24.1
+      },
+      "2019": {
+        "total": 1276,
+        "grants": 432,
+        "refusals": 752,
+        "grantRatePct": 36.5
+      },
+      "2020": {
+        "total": 787,
+        "grants": 258,
+        "refusals": 444,
+        "grantRatePct": 36.8
+      },
+      "2021": {
+        "total": 445,
+        "grants": 180,
+        "refusals": 177,
+        "grantRatePct": 50.4
+      },
+      "2022": {
+        "total": 594,
+        "grants": 268,
+        "refusals": 204,
+        "grantRatePct": 56.8
+      },
+      "2023": {
+        "total": 2666,
+        "grants": 1329,
+        "refusals": 1035,
+        "grantRatePct": 56.2
+      },
+      "2024": {
+        "total": 2078,
+        "grants": 471,
+        "refusals": 1297,
+        "grantRatePct": 26.6
+      },
+      "2025": {
+        "total": 4153,
+        "grants": 849,
+        "refusals": 2765,
+        "grantRatePct": 23.5
+      }
+    }
+  },
+  "annualOverall": {
+    "2015": {
+      "total": 40626,
+      "grants": 13440,
+      "refusals": 24051,
+      "grantRatePct": 35.8
+    },
+    "2016": {
+      "total": 33491,
+      "grants": 9507,
+      "refusals": 20786,
+      "grantRatePct": 31.4
+    },
+    "2017": {
+      "total": 30643,
+      "grants": 8187,
+      "refusals": 19055,
+      "grantRatePct": 30.1
+    },
+    "2018": {
+      "total": 31607,
+      "grants": 9556,
+      "refusals": 18602,
+      "grantRatePct": 33.9
+    },
+    "2019": {
+      "total": 31174,
+      "grants": 14395,
+      "refusals": 13309,
+      "grantRatePct": 52
+    },
+    "2020": {
+      "total": 21099,
+      "grants": 8526,
+      "refusals": 9125,
+      "grantRatePct": 48.3
+    },
+    "2021": {
+      "total": 21371,
+      "grants": 12355,
+      "refusals": 4864,
+      "grantRatePct": 71.8
+    },
+    "2022": {
+      "total": 30123,
+      "grants": 16491,
+      "refusals": 5452,
+      "grantRatePct": 75.2
+    },
+    "2023": {
+      "total": 119698,
+      "grants": 59295,
+      "refusals": 29900,
+      "grantRatePct": 66.5
+    },
+    "2024": {
+      "total": 110082,
+      "grants": 39104,
+      "refusals": 45815,
+      "grantRatePct": 46
+    },
+    "2025": {
+      "total": 157159,
+      "grants": 52100,
+      "refusals": 80344,
+      "grantRatePct": 39.3
+    },
+    "2026": {
+      "total": 53479,
+      "grants": 15306,
+      "refusals": 31120,
+      "grantRatePct": 33
+    }
+  },
+  "outcomeAnalysis": {
+    "source": "Home Office Immigration Statistics: Outcome analysis (Asy_D04), year ending June 2026 release",
+    "claimYears": "2015-2023",
+    "methodology": "True grant rate = (latest grants of protection + other leave) / (latest grants + latest refusals) × 100. 'Latest' outcome includes appeal results and all subsequent decisions. Claim years 2015-2023 used so most cases have settled outcomes.",
+    "nationalitiesWithTrueRate": 104,
+    "trueGrantRates": {
+      "Afghanistan": {
+        "claims": 29456,
+        "initialGrantRatePct": 66.9,
+        "trueGrantRatePct": 79.6,
+        "appealUpliftPp": 12.7,
+        "latestGrants": 20483,
+        "latestRefusals": 5245,
+        "latestSubstantive": 25728,
+        "latestNotYetKnown": 206,
+        "pctResolved": 99.3
+      },
+      "Albania": {
+        "claims": 35220,
+        "initialGrantRatePct": 15.1,
+        "trueGrantRatePct": 32.1,
+        "appealUpliftPp": 17,
+        "latestGrants": 4669,
+        "latestRefusals": 9862,
+        "latestSubstantive": 14531,
+        "latestNotYetKnown": 141,
+        "pctResolved": 99.6
+      },
+      "Algeria": {
+        "claims": 2106,
+        "initialGrantRatePct": 14.9,
+        "trueGrantRatePct": 30.7,
+        "appealUpliftPp": 15.8,
+        "latestGrants": 360,
+        "latestRefusals": 812,
+        "latestSubstantive": 1172,
+        "latestNotYetKnown": 34,
+        "pctResolved": 98.4
+      },
+      "Angola": {
+        "claims": 329,
+        "initialGrantRatePct": 28.1,
+        "trueGrantRatePct": 47.9,
+        "appealUpliftPp": 19.8,
+        "latestGrants": 140,
+        "latestRefusals": 152,
+        "latestSubstantive": 292,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.7
+      },
+      "Armenia": {
+        "claims": 91,
+        "initialGrantRatePct": 30.6,
+        "trueGrantRatePct": 50.7,
+        "appealUpliftPp": 20.1,
+        "latestGrants": 38,
+        "latestRefusals": 37,
+        "latestSubstantive": 75,
+        "latestNotYetKnown": 1,
+        "pctResolved": 98.9
+      },
+      "Azerbaijan": {
+        "claims": 287,
+        "initialGrantRatePct": 42.5,
+        "trueGrantRatePct": 65.2,
+        "appealUpliftPp": 22.7,
+        "latestGrants": 150,
+        "latestRefusals": 80,
+        "latestSubstantive": 230,
+        "latestNotYetKnown": 2,
+        "pctResolved": 99.3
+      },
+      "Bahrain": {
+        "claims": 84,
+        "initialGrantRatePct": 50,
+        "trueGrantRatePct": 73.8,
+        "appealUpliftPp": 23.8,
+        "latestGrants": 45,
+        "latestRefusals": 16,
+        "latestSubstantive": 61,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Bangladesh": {
+        "claims": 16388,
+        "initialGrantRatePct": 16.7,
+        "trueGrantRatePct": 28.6,
+        "appealUpliftPp": 11.9,
+        "latestGrants": 3705,
+        "latestRefusals": 9227,
+        "latestSubstantive": 12932,
+        "latestNotYetKnown": 71,
+        "pctResolved": 99.6
+      },
+      "Belarus": {
+        "claims": 175,
+        "initialGrantRatePct": 55.7,
+        "trueGrantRatePct": 73.2,
+        "appealUpliftPp": 17.5,
+        "latestGrants": 104,
+        "latestRefusals": 38,
+        "latestSubstantive": 142,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Benin": {
+        "claims": 72,
+        "initialGrantRatePct": 20,
+        "trueGrantRatePct": 34.5,
+        "appealUpliftPp": 14.5,
+        "latestGrants": 19,
+        "latestRefusals": 36,
+        "latestSubstantive": 55,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Bolivia": {
+        "claims": 188,
+        "initialGrantRatePct": 9.9,
+        "trueGrantRatePct": 22.1,
+        "appealUpliftPp": 12.2,
+        "latestGrants": 29,
+        "latestRefusals": 102,
+        "latestSubstantive": 131,
+        "latestNotYetKnown": 2,
+        "pctResolved": 98.9
+      },
+      "Botswana": {
+        "claims": 802,
+        "initialGrantRatePct": 11.6,
+        "trueGrantRatePct": 21.7,
+        "appealUpliftPp": 10.1,
+        "latestGrants": 140,
+        "latestRefusals": 505,
+        "latestSubstantive": 645,
+        "latestNotYetKnown": 18,
+        "pctResolved": 97.8
+      },
+      "Brazil": {
+        "claims": 2587,
+        "initialGrantRatePct": 3.2,
+        "trueGrantRatePct": 6.1,
+        "appealUpliftPp": 2.9,
+        "latestGrants": 81,
+        "latestRefusals": 1256,
+        "latestSubstantive": 1337,
+        "latestNotYetKnown": 15,
+        "pctResolved": 99.4
+      },
+      "Burkina Faso": {
+        "claims": 58,
+        "initialGrantRatePct": 44.2,
+        "trueGrantRatePct": 54.7,
+        "appealUpliftPp": 10.5,
+        "latestGrants": 29,
+        "latestRefusals": 24,
+        "latestSubstantive": 53,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Burundi": {
+        "claims": 111,
+        "initialGrantRatePct": 45.2,
+        "trueGrantRatePct": 68.6,
+        "appealUpliftPp": 23.4,
+        "latestGrants": 72,
+        "latestRefusals": 33,
+        "latestSubstantive": 105,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.1
+      },
+      "Cameroon": {
+        "claims": 1649,
+        "initialGrantRatePct": 54.2,
+        "trueGrantRatePct": 74.8,
+        "appealUpliftPp": 20.6,
+        "latestGrants": 1155,
+        "latestRefusals": 390,
+        "latestSubstantive": 1545,
+        "latestNotYetKnown": 2,
+        "pctResolved": 99.9
+      },
+      "Chad": {
+        "claims": 693,
+        "initialGrantRatePct": 46.1,
+        "trueGrantRatePct": 66.9,
+        "appealUpliftPp": 20.8,
+        "latestGrants": 420,
+        "latestRefusals": 208,
+        "latestSubstantive": 628,
+        "latestNotYetKnown": 7,
+        "pctResolved": 99
+      },
+      "China": {
+        "claims": 7716,
+        "initialGrantRatePct": 12.5,
+        "trueGrantRatePct": 23.1,
+        "appealUpliftPp": 10.6,
+        "latestGrants": 973,
+        "latestRefusals": 3233,
+        "latestSubstantive": 4206,
+        "latestNotYetKnown": 20,
+        "pctResolved": 99.7
+      },
+      "Colombia": {
+        "claims": 866,
+        "initialGrantRatePct": 10.9,
+        "trueGrantRatePct": 19.9,
+        "appealUpliftPp": 9,
+        "latestGrants": 129,
+        "latestRefusals": 519,
+        "latestSubstantive": 648,
+        "latestNotYetKnown": 20,
+        "pctResolved": 97.7
+      },
+      "Congo": {
+        "claims": 145,
+        "initialGrantRatePct": 19,
+        "trueGrantRatePct": 36,
+        "appealUpliftPp": 17,
+        "latestGrants": 50,
+        "latestRefusals": 89,
+        "latestSubstantive": 139,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.3
+      },
+      "Congo (Democratic Republic)": {
+        "claims": 1197,
+        "initialGrantRatePct": 33.7,
+        "trueGrantRatePct": 61,
+        "appealUpliftPp": 27.3,
+        "latestGrants": 680,
+        "latestRefusals": 434,
+        "latestSubstantive": 1114,
+        "latestNotYetKnown": 4,
+        "pctResolved": 99.7
+      },
+      "Dominica": {
+        "claims": 101,
+        "initialGrantRatePct": 36.2,
+        "trueGrantRatePct": 47.1,
+        "appealUpliftPp": 10.9,
+        "latestGrants": 32,
+        "latestRefusals": 36,
+        "latestSubstantive": 68,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Ecuador": {
+        "claims": 77,
+        "initialGrantRatePct": 20,
+        "trueGrantRatePct": 33.3,
+        "appealUpliftPp": 13.3,
+        "latestGrants": 21,
+        "latestRefusals": 42,
+        "latestSubstantive": 63,
+        "latestNotYetKnown": 1,
+        "pctResolved": 98.7
+      },
+      "Egypt": {
+        "claims": 4861,
+        "initialGrantRatePct": 19.7,
+        "trueGrantRatePct": 38.1,
+        "appealUpliftPp": 18.4,
+        "latestGrants": 1256,
+        "latestRefusals": 2038,
+        "latestSubstantive": 3294,
+        "latestNotYetKnown": 38,
+        "pctResolved": 99.2
+      },
+      "El Salvador": {
+        "claims": 2618,
+        "initialGrantRatePct": 73.2,
+        "trueGrantRatePct": 90.4,
+        "appealUpliftPp": 17.2,
+        "latestGrants": 1997,
+        "latestRefusals": 211,
+        "latestSubstantive": 2208,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Eritrea": {
+        "claims": 23318,
+        "initialGrantRatePct": 84.3,
+        "trueGrantRatePct": 96.5,
+        "appealUpliftPp": 12.2,
+        "latestGrants": 21695,
+        "latestRefusals": 795,
+        "latestSubstantive": 22490,
+        "latestNotYetKnown": 41,
+        "pctResolved": 99.8
+      },
+      "Ethiopia": {
+        "claims": 4594,
+        "initialGrantRatePct": 59.4,
+        "trueGrantRatePct": 80.6,
+        "appealUpliftPp": 21.2,
+        "latestGrants": 3532,
+        "latestRefusals": 850,
+        "latestSubstantive": 4382,
+        "latestNotYetKnown": 14,
+        "pctResolved": 99.7
+      },
+      "Gambia, The": {
+        "claims": 919,
+        "initialGrantRatePct": 29.9,
+        "trueGrantRatePct": 46.4,
+        "appealUpliftPp": 16.5,
+        "latestGrants": 370,
+        "latestRefusals": 428,
+        "latestSubstantive": 798,
+        "latestNotYetKnown": 17,
+        "pctResolved": 98.2
+      },
+      "Georgia": {
+        "claims": 3174,
+        "initialGrantRatePct": 7.1,
+        "trueGrantRatePct": 17.5,
+        "appealUpliftPp": 10.4,
+        "latestGrants": 184,
+        "latestRefusals": 869,
+        "latestSubstantive": 1053,
+        "latestNotYetKnown": 21,
+        "pctResolved": 99.3
+      },
+      "Ghana": {
+        "claims": 1834,
+        "initialGrantRatePct": 18.1,
+        "trueGrantRatePct": 28.7,
+        "appealUpliftPp": 10.6,
+        "latestGrants": 388,
+        "latestRefusals": 966,
+        "latestSubstantive": 1354,
+        "latestNotYetKnown": 13,
+        "pctResolved": 99.3
+      },
+      "Grenada": {
+        "claims": 164,
+        "initialGrantRatePct": 32.6,
+        "trueGrantRatePct": 49.3,
+        "appealUpliftPp": 16.7,
+        "latestGrants": 66,
+        "latestRefusals": 68,
+        "latestSubstantive": 134,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.4
+      },
+      "Guatemala": {
+        "claims": 103,
+        "initialGrantRatePct": 32.5,
+        "trueGrantRatePct": 43,
+        "appealUpliftPp": 10.5,
+        "latestGrants": 34,
+        "latestRefusals": 45,
+        "latestSubstantive": 79,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Guinea": {
+        "claims": 440,
+        "initialGrantRatePct": 40.9,
+        "trueGrantRatePct": 57.5,
+        "appealUpliftPp": 16.6,
+        "latestGrants": 223,
+        "latestRefusals": 165,
+        "latestSubstantive": 388,
+        "latestNotYetKnown": 10,
+        "pctResolved": 97.7
+      },
+      "Honduras": {
+        "claims": 1928,
+        "initialGrantRatePct": 39.2,
+        "trueGrantRatePct": 58.1,
+        "appealUpliftPp": 18.9,
+        "latestGrants": 695,
+        "latestRefusals": 502,
+        "latestSubstantive": 1197,
+        "latestNotYetKnown": 7,
+        "pctResolved": 99.6
+      },
+      "Hong Kong": {
+        "claims": 243,
+        "initialGrantRatePct": 35,
+        "trueGrantRatePct": 55.3,
+        "appealUpliftPp": 20.3,
+        "latestGrants": 78,
+        "latestRefusals": 63,
+        "latestSubstantive": 141,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Hungary": {
+        "claims": 91,
+        "initialGrantRatePct": 0,
+        "trueGrantRatePct": 0,
+        "appealUpliftPp": 0,
+        "latestGrants": 0,
+        "latestRefusals": 53,
+        "latestSubstantive": 53,
+        "latestNotYetKnown": 2,
+        "pctResolved": 97.8
+      },
+      "India": {
+        "claims": 15538,
+        "initialGrantRatePct": 3.2,
+        "trueGrantRatePct": 7.6,
+        "appealUpliftPp": 4.4,
+        "latestGrants": 532,
+        "latestRefusals": 6454,
+        "latestSubstantive": 6986,
+        "latestNotYetKnown": 55,
+        "pctResolved": 99.6
+      },
+      "Indonesia": {
+        "claims": 460,
+        "initialGrantRatePct": 28,
+        "trueGrantRatePct": 34.7,
+        "appealUpliftPp": 6.7,
+        "latestGrants": 121,
+        "latestRefusals": 228,
+        "latestSubstantive": 349,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.8
+      },
+      "Iran": {
+        "claims": 43659,
+        "initialGrantRatePct": 67,
+        "trueGrantRatePct": 86.4,
+        "appealUpliftPp": 19.4,
+        "latestGrants": 35222,
+        "latestRefusals": 5563,
+        "latestSubstantive": 40785,
+        "latestNotYetKnown": 86,
+        "pctResolved": 99.8
+      },
+      "Iraq": {
+        "claims": 27075,
+        "initialGrantRatePct": 31,
+        "trueGrantRatePct": 57.6,
+        "appealUpliftPp": 26.6,
+        "latestGrants": 13881,
+        "latestRefusals": 10230,
+        "latestSubstantive": 24111,
+        "latestNotYetKnown": 153,
+        "pctResolved": 99.4
+      },
+      "Ivory Coast": {
+        "claims": 358,
+        "initialGrantRatePct": 29.8,
+        "trueGrantRatePct": 47.5,
+        "appealUpliftPp": 17.7,
+        "latestGrants": 152,
+        "latestRefusals": 168,
+        "latestSubstantive": 320,
+        "latestNotYetKnown": 3,
+        "pctResolved": 99.2
+      },
+      "Jamaica": {
+        "claims": 1088,
+        "initialGrantRatePct": 16,
+        "trueGrantRatePct": 25,
+        "appealUpliftPp": 9,
+        "latestGrants": 212,
+        "latestRefusals": 637,
+        "latestSubstantive": 849,
+        "latestNotYetKnown": 40,
+        "pctResolved": 96.3
+      },
+      "Jordan": {
+        "claims": 301,
+        "initialGrantRatePct": 31.2,
+        "trueGrantRatePct": 47.6,
+        "appealUpliftPp": 16.4,
+        "latestGrants": 117,
+        "latestRefusals": 129,
+        "latestSubstantive": 246,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Kazakhstan": {
+        "claims": 637,
+        "initialGrantRatePct": 25.7,
+        "trueGrantRatePct": 33,
+        "appealUpliftPp": 7.3,
+        "latestGrants": 146,
+        "latestRefusals": 296,
+        "latestSubstantive": 442,
+        "latestNotYetKnown": 2,
+        "pctResolved": 99.7
+      },
+      "Kenya": {
+        "claims": 997,
+        "initialGrantRatePct": 40.8,
+        "trueGrantRatePct": 60.2,
+        "appealUpliftPp": 19.4,
+        "latestGrants": 546,
+        "latestRefusals": 361,
+        "latestSubstantive": 907,
+        "latestNotYetKnown": 2,
+        "pctResolved": 99.8
+      },
+      "Kosovo": {
+        "claims": 227,
+        "initialGrantRatePct": 18.6,
+        "trueGrantRatePct": 30,
+        "appealUpliftPp": 11.4,
+        "latestGrants": 45,
+        "latestRefusals": 105,
+        "latestSubstantive": 150,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Kuwait": {
+        "claims": 1005,
+        "initialGrantRatePct": 70.5,
+        "trueGrantRatePct": 82.7,
+        "appealUpliftPp": 12.2,
+        "latestGrants": 634,
+        "latestRefusals": 133,
+        "latestSubstantive": 767,
+        "latestNotYetKnown": 8,
+        "pctResolved": 99.2
+      },
+      "Kyrgyzstan": {
+        "claims": 410,
+        "initialGrantRatePct": 22.9,
+        "trueGrantRatePct": 29.3,
+        "appealUpliftPp": 6.4,
+        "latestGrants": 83,
+        "latestRefusals": 200,
+        "latestSubstantive": 283,
+        "latestNotYetKnown": 4,
+        "pctResolved": 99
+      },
+      "Latvia": {
+        "claims": 79,
+        "initialGrantRatePct": 0,
+        "trueGrantRatePct": 0,
+        "appealUpliftPp": 0,
+        "latestGrants": 0,
+        "latestRefusals": 58,
+        "latestSubstantive": 58,
+        "latestNotYetKnown": 2,
+        "pctResolved": 97.5
+      },
+      "Lebanon": {
+        "claims": 438,
+        "initialGrantRatePct": 38.3,
+        "trueGrantRatePct": 61.2,
+        "appealUpliftPp": 22.9,
+        "latestGrants": 230,
+        "latestRefusals": 146,
+        "latestSubstantive": 376,
+        "latestNotYetKnown": 2,
+        "pctResolved": 99.5
+      },
+      "Liberia": {
+        "claims": 57,
+        "initialGrantRatePct": 26,
+        "trueGrantRatePct": 38,
+        "appealUpliftPp": 12,
+        "latestGrants": 19,
+        "latestRefusals": 31,
+        "latestSubstantive": 50,
+        "latestNotYetKnown": 1,
+        "pctResolved": 98.2
+      },
+      "Libya": {
+        "claims": 3031,
+        "initialGrantRatePct": 79.9,
+        "trueGrantRatePct": 93.2,
+        "appealUpliftPp": 13.3,
+        "latestGrants": 2500,
+        "latestRefusals": 183,
+        "latestSubstantive": 2683,
+        "latestNotYetKnown": 24,
+        "pctResolved": 99.2
+      },
+      "Lithuania": {
+        "claims": 131,
+        "initialGrantRatePct": 0,
+        "trueGrantRatePct": 1.1,
+        "appealUpliftPp": 1.1,
+        "latestGrants": 1,
+        "latestRefusals": 94,
+        "latestSubstantive": 95,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Malawi": {
+        "claims": 300,
+        "initialGrantRatePct": 29.2,
+        "trueGrantRatePct": 42.1,
+        "appealUpliftPp": 12.9,
+        "latestGrants": 115,
+        "latestRefusals": 158,
+        "latestSubstantive": 273,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.7
+      },
+      "Malaysia": {
+        "claims": 1474,
+        "initialGrantRatePct": 26.1,
+        "trueGrantRatePct": 44.7,
+        "appealUpliftPp": 18.6,
+        "latestGrants": 526,
+        "latestRefusals": 651,
+        "latestSubstantive": 1177,
+        "latestNotYetKnown": 4,
+        "pctResolved": 99.7
+      },
+      "Mali": {
+        "claims": 150,
+        "initialGrantRatePct": 49.6,
+        "trueGrantRatePct": 63,
+        "appealUpliftPp": 13.4,
+        "latestGrants": 85,
+        "latestRefusals": 50,
+        "latestSubstantive": 135,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.3
+      },
+      "Mauritius": {
+        "claims": 400,
+        "initialGrantRatePct": 11.9,
+        "trueGrantRatePct": 24.4,
+        "appealUpliftPp": 12.5,
+        "latestGrants": 76,
+        "latestRefusals": 236,
+        "latestSubstantive": 312,
+        "latestNotYetKnown": 6,
+        "pctResolved": 98.5
+      },
+      "Mexico": {
+        "claims": 210,
+        "initialGrantRatePct": 25.2,
+        "trueGrantRatePct": 40.5,
+        "appealUpliftPp": 15.3,
+        "latestGrants": 49,
+        "latestRefusals": 72,
+        "latestSubstantive": 121,
+        "latestNotYetKnown": 2,
+        "pctResolved": 99
+      },
+      "Mongolia": {
+        "claims": 106,
+        "initialGrantRatePct": 17.3,
+        "trueGrantRatePct": 32.1,
+        "appealUpliftPp": 14.8,
+        "latestGrants": 26,
+        "latestRefusals": 55,
+        "latestSubstantive": 81,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.1
+      },
+      "Morocco": {
+        "claims": 1241,
+        "initialGrantRatePct": 27.9,
+        "trueGrantRatePct": 43.2,
+        "appealUpliftPp": 15.3,
+        "latestGrants": 355,
+        "latestRefusals": 466,
+        "latestSubstantive": 821,
+        "latestNotYetKnown": 16,
+        "pctResolved": 98.7
+      },
+      "Myanmar (Burma)": {
+        "claims": 557,
+        "initialGrantRatePct": 62.5,
+        "trueGrantRatePct": 79.3,
+        "appealUpliftPp": 16.8,
+        "latestGrants": 414,
+        "latestRefusals": 108,
+        "latestSubstantive": 522,
+        "latestNotYetKnown": 2,
+        "pctResolved": 99.6
+      },
+      "Namibia": {
+        "claims": 2483,
+        "initialGrantRatePct": 14.3,
+        "trueGrantRatePct": 34.1,
+        "appealUpliftPp": 19.8,
+        "latestGrants": 712,
+        "latestRefusals": 1374,
+        "latestSubstantive": 2086,
+        "latestNotYetKnown": 17,
+        "pctResolved": 99.3
+      },
+      "Nepal": {
+        "claims": 2720,
+        "initialGrantRatePct": 2.9,
+        "trueGrantRatePct": 6,
+        "appealUpliftPp": 3.1,
+        "latestGrants": 108,
+        "latestRefusals": 1697,
+        "latestSubstantive": 1805,
+        "latestNotYetKnown": 10,
+        "pctResolved": 99.6
+      },
+      "Nigeria": {
+        "claims": 7708,
+        "initialGrantRatePct": 30.5,
+        "trueGrantRatePct": 44.5,
+        "appealUpliftPp": 14,
+        "latestGrants": 2936,
+        "latestRefusals": 3655,
+        "latestSubstantive": 6591,
+        "latestNotYetKnown": 47,
+        "pctResolved": 99.4
+      },
+      "Oman": {
+        "claims": 85,
+        "initialGrantRatePct": 61.4,
+        "trueGrantRatePct": 73.7,
+        "appealUpliftPp": 12.3,
+        "latestGrants": 42,
+        "latestRefusals": 15,
+        "latestSubstantive": 57,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Pakistan": {
+        "claims": 19762,
+        "initialGrantRatePct": 35.9,
+        "trueGrantRatePct": 50,
+        "appealUpliftPp": 14.1,
+        "latestGrants": 7945,
+        "latestRefusals": 7943,
+        "latestSubstantive": 15888,
+        "latestNotYetKnown": 67,
+        "pctResolved": 99.7
+      },
+      "Palestine": {
+        "claims": 951,
+        "initialGrantRatePct": 57.6,
+        "trueGrantRatePct": 81.2,
+        "appealUpliftPp": 23.6,
+        "latestGrants": 652,
+        "latestRefusals": 151,
+        "latestSubstantive": 803,
+        "latestNotYetKnown": 4,
+        "pctResolved": 99.6
+      },
+      "Philippines": {
+        "claims": 1736,
+        "initialGrantRatePct": 6.3,
+        "trueGrantRatePct": 17.5,
+        "appealUpliftPp": 11.2,
+        "latestGrants": 243,
+        "latestRefusals": 1145,
+        "latestSubstantive": 1388,
+        "latestNotYetKnown": 4,
+        "pctResolved": 99.8
+      },
+      "Poland": {
+        "claims": 362,
+        "initialGrantRatePct": 0,
+        "trueGrantRatePct": 0,
+        "appealUpliftPp": 0,
+        "latestGrants": 0,
+        "latestRefusals": 255,
+        "latestSubstantive": 255,
+        "latestNotYetKnown": 5,
+        "pctResolved": 98.6
+      },
+      "Romania": {
+        "claims": 186,
+        "initialGrantRatePct": 0.8,
+        "trueGrantRatePct": 0.8,
+        "appealUpliftPp": 0,
+        "latestGrants": 1,
+        "latestRefusals": 127,
+        "latestSubstantive": 128,
+        "latestNotYetKnown": 2,
+        "pctResolved": 98.9
+      },
+      "Russia": {
+        "claims": 1553,
+        "initialGrantRatePct": 58,
+        "trueGrantRatePct": 80.2,
+        "appealUpliftPp": 22.2,
+        "latestGrants": 1058,
+        "latestRefusals": 261,
+        "latestSubstantive": 1319,
+        "latestNotYetKnown": 7,
+        "pctResolved": 99.5
+      },
+      "Rwanda": {
+        "claims": 155,
+        "initialGrantRatePct": 24,
+        "trueGrantRatePct": 58.5,
+        "appealUpliftPp": 34.5,
+        "latestGrants": 86,
+        "latestRefusals": 61,
+        "latestSubstantive": 147,
+        "latestNotYetKnown": 2,
+        "pctResolved": 98.7
+      },
+      "Saudi Arabia": {
+        "claims": 836,
+        "initialGrantRatePct": 82.5,
+        "trueGrantRatePct": 88.9,
+        "appealUpliftPp": 6.4,
+        "latestGrants": 547,
+        "latestRefusals": 68,
+        "latestSubstantive": 615,
+        "latestNotYetKnown": 5,
+        "pctResolved": 99.4
+      },
+      "Senegal": {
+        "claims": 228,
+        "initialGrantRatePct": 32.8,
+        "trueGrantRatePct": 47.7,
+        "appealUpliftPp": 14.9,
+        "latestGrants": 93,
+        "latestRefusals": 102,
+        "latestSubstantive": 195,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.6
+      },
+      "Sierra Leone": {
+        "claims": 745,
+        "initialGrantRatePct": 45.2,
+        "trueGrantRatePct": 59.9,
+        "appealUpliftPp": 14.7,
+        "latestGrants": 408,
+        "latestRefusals": 273,
+        "latestSubstantive": 681,
+        "latestNotYetKnown": 6,
+        "pctResolved": 99.2
+      },
+      "Somalia": {
+        "claims": 3509,
+        "initialGrantRatePct": 56.8,
+        "trueGrantRatePct": 74.4,
+        "appealUpliftPp": 17.6,
+        "latestGrants": 2336,
+        "latestRefusals": 802,
+        "latestSubstantive": 3138,
+        "latestNotYetKnown": 17,
+        "pctResolved": 99.5
+      },
+      "South Africa": {
+        "claims": 430,
+        "initialGrantRatePct": 14.9,
+        "trueGrantRatePct": 26,
+        "appealUpliftPp": 11.1,
+        "latestGrants": 90,
+        "latestRefusals": 256,
+        "latestSubstantive": 346,
+        "latestNotYetKnown": 4,
+        "pctResolved": 99.1
+      },
+      "South Sudan": {
+        "claims": 689,
+        "initialGrantRatePct": 87.6,
+        "trueGrantRatePct": 93.3,
+        "appealUpliftPp": 5.7,
+        "latestGrants": 596,
+        "latestRefusals": 43,
+        "latestSubstantive": 639,
+        "latestNotYetKnown": 15,
+        "pctResolved": 97.8
+      },
+      "Sri Lanka": {
+        "claims": 6371,
+        "initialGrantRatePct": 27.1,
+        "trueGrantRatePct": 60.6,
+        "appealUpliftPp": 33.5,
+        "latestGrants": 3390,
+        "latestRefusals": 2201,
+        "latestSubstantive": 5591,
+        "latestNotYetKnown": 41,
+        "pctResolved": 99.4
+      },
+      "St Lucia": {
+        "claims": 208,
+        "initialGrantRatePct": 28.3,
+        "trueGrantRatePct": 38.2,
+        "appealUpliftPp": 9.9,
+        "latestGrants": 66,
+        "latestRefusals": 107,
+        "latestSubstantive": 173,
+        "latestNotYetKnown": 2,
+        "pctResolved": 99
+      },
+      "St Vincent and the Grenadines": {
+        "claims": 177,
+        "initialGrantRatePct": 39.6,
+        "trueGrantRatePct": 54.5,
+        "appealUpliftPp": 14.9,
+        "latestGrants": 79,
+        "latestRefusals": 66,
+        "latestSubstantive": 145,
+        "latestNotYetKnown": 4,
+        "pctResolved": 97.7
+      },
+      "Stateless": {
+        "claims": 1115,
+        "initialGrantRatePct": 62.4,
+        "trueGrantRatePct": 83.4,
+        "appealUpliftPp": 21,
+        "latestGrants": 751,
+        "latestRefusals": 149,
+        "latestSubstantive": 900,
+        "latestNotYetKnown": 14,
+        "pctResolved": 98.7
+      },
+      "Sudan": {
+        "claims": 18908,
+        "initialGrantRatePct": 84.1,
+        "trueGrantRatePct": 97.7,
+        "appealUpliftPp": 13.6,
+        "latestGrants": 17776,
+        "latestRefusals": 418,
+        "latestSubstantive": 18194,
+        "latestNotYetKnown": 74,
+        "pctResolved": 99.6
+      },
+      "Syria": {
+        "claims": 17065,
+        "initialGrantRatePct": 90,
+        "trueGrantRatePct": 93.5,
+        "appealUpliftPp": 3.5,
+        "latestGrants": 14627,
+        "latestRefusals": 1021,
+        "latestSubstantive": 15648,
+        "latestNotYetKnown": 224,
+        "pctResolved": 98.7
+      },
+      "Tajikistan": {
+        "claims": 837,
+        "initialGrantRatePct": 34.4,
+        "trueGrantRatePct": 43.1,
+        "appealUpliftPp": 8.7,
+        "latestGrants": 284,
+        "latestRefusals": 375,
+        "latestSubstantive": 659,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.9
+      },
+      "Tanzania": {
+        "claims": 335,
+        "initialGrantRatePct": 37.5,
+        "trueGrantRatePct": 53.8,
+        "appealUpliftPp": 16.3,
+        "latestGrants": 162,
+        "latestRefusals": 139,
+        "latestSubstantive": 301,
+        "latestNotYetKnown": 5,
+        "pctResolved": 98.5
+      },
+      "Thailand": {
+        "claims": 608,
+        "initialGrantRatePct": 6.6,
+        "trueGrantRatePct": 17.2,
+        "appealUpliftPp": 10.6,
+        "latestGrants": 82,
+        "latestRefusals": 395,
+        "latestSubstantive": 477,
+        "latestNotYetKnown": 3,
+        "pctResolved": 99.5
+      },
+      "Togo": {
+        "claims": 78,
+        "initialGrantRatePct": 23.3,
+        "trueGrantRatePct": 47.9,
+        "appealUpliftPp": 24.6,
+        "latestGrants": 35,
+        "latestRefusals": 38,
+        "latestSubstantive": 73,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Trinidad and Tobago": {
+        "claims": 528,
+        "initialGrantRatePct": 29,
+        "trueGrantRatePct": 44.3,
+        "appealUpliftPp": 15.3,
+        "latestGrants": 192,
+        "latestRefusals": 241,
+        "latestSubstantive": 433,
+        "latestNotYetKnown": 9,
+        "pctResolved": 98.3
+      },
+      "Tunisia": {
+        "claims": 600,
+        "initialGrantRatePct": 21.6,
+        "trueGrantRatePct": 32.4,
+        "appealUpliftPp": 10.8,
+        "latestGrants": 130,
+        "latestRefusals": 271,
+        "latestSubstantive": 401,
+        "latestNotYetKnown": 4,
+        "pctResolved": 99.3
+      },
+      "Turkey": {
+        "claims": 8544,
+        "initialGrantRatePct": 41.3,
+        "trueGrantRatePct": 55.3,
+        "appealUpliftPp": 14,
+        "latestGrants": 4202,
+        "latestRefusals": 3397,
+        "latestSubstantive": 7599,
+        "latestNotYetKnown": 65,
+        "pctResolved": 99.2
+      },
+      "Turkmenistan": {
+        "claims": 70,
+        "initialGrantRatePct": 58.6,
+        "trueGrantRatePct": 72.9,
+        "appealUpliftPp": 14.3,
+        "latestGrants": 43,
+        "latestRefusals": 16,
+        "latestSubstantive": 59,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Uganda": {
+        "claims": 1504,
+        "initialGrantRatePct": 68.9,
+        "trueGrantRatePct": 81.7,
+        "appealUpliftPp": 12.8,
+        "latestGrants": 1159,
+        "latestRefusals": 259,
+        "latestSubstantive": 1418,
+        "latestNotYetKnown": 5,
+        "pctResolved": 99.7
+      },
+      "Ukraine": {
+        "claims": 1606,
+        "initialGrantRatePct": 42.9,
+        "trueGrantRatePct": 56.7,
+        "appealUpliftPp": 13.8,
+        "latestGrants": 581,
+        "latestRefusals": 443,
+        "latestSubstantive": 1024,
+        "latestNotYetKnown": 3,
+        "pctResolved": 99.8
+      },
+      "United States": {
+        "claims": 306,
+        "initialGrantRatePct": 8.6,
+        "trueGrantRatePct": 14.2,
+        "appealUpliftPp": 5.6,
+        "latestGrants": 16,
+        "latestRefusals": 97,
+        "latestSubstantive": 113,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.7
+      },
+      "Uzbekistan": {
+        "claims": 1284,
+        "initialGrantRatePct": 13,
+        "trueGrantRatePct": 17.9,
+        "appealUpliftPp": 4.9,
+        "latestGrants": 145,
+        "latestRefusals": 664,
+        "latestSubstantive": 809,
+        "latestNotYetKnown": 9,
+        "pctResolved": 99.3
+      },
+      "Venezuela": {
+        "claims": 148,
+        "initialGrantRatePct": 43.3,
+        "trueGrantRatePct": 66.7,
+        "appealUpliftPp": 23.4,
+        "latestGrants": 80,
+        "latestRefusals": 40,
+        "latestSubstantive": 120,
+        "latestNotYetKnown": 1,
+        "pctResolved": 99.3
+      },
+      "Vietnam": {
+        "claims": 10850,
+        "initialGrantRatePct": 48.9,
+        "trueGrantRatePct": 65.5,
+        "appealUpliftPp": 16.6,
+        "latestGrants": 4437,
+        "latestRefusals": 2334,
+        "latestSubstantive": 6771,
+        "latestNotYetKnown": 118,
+        "pctResolved": 98.9
+      },
+      "Yemen": {
+        "claims": 2476,
+        "initialGrantRatePct": 87.5,
+        "trueGrantRatePct": 97.9,
+        "appealUpliftPp": 10.4,
+        "latestGrants": 2278,
+        "latestRefusals": 49,
+        "latestSubstantive": 2327,
+        "latestNotYetKnown": 4,
+        "pctResolved": 99.8
+      },
+      "Zambia": {
+        "claims": 144,
+        "initialGrantRatePct": 37.2,
+        "trueGrantRatePct": 51.2,
+        "appealUpliftPp": 14,
+        "latestGrants": 62,
+        "latestRefusals": 59,
+        "latestSubstantive": 121,
+        "latestNotYetKnown": 3,
+        "pctResolved": 97.9
+      },
+      "Zimbabwe": {
+        "claims": 1459,
+        "initialGrantRatePct": 24,
+        "trueGrantRatePct": 49.1,
+        "appealUpliftPp": 25.1,
+        "latestGrants": 642,
+        "latestRefusals": 665,
+        "latestSubstantive": 1307,
+        "latestNotYetKnown": 15,
+        "pctResolved": 99
+      },
+      "Other and unknown": {
+        "claims": 6293,
+        "initialGrantRatePct": 56.2,
+        "trueGrantRatePct": 92,
+        "appealUpliftPp": 35.8,
+        "latestGrants": 1118,
+        "latestRefusals": 97,
+        "latestSubstantive": 1215,
+        "latestNotYetKnown": 4957,
+        "pctResolved": 21.2
+      },
+      "Peru": {
+        "claims": 70,
+        "initialGrantRatePct": 7.8,
+        "trueGrantRatePct": 11.8,
+        "appealUpliftPp": 4,
+        "latestGrants": 6,
+        "latestRefusals": 45,
+        "latestSubstantive": 51,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      },
+      "Nicaragua": {
+        "claims": 369,
+        "initialGrantRatePct": 53.2,
+        "trueGrantRatePct": 70.9,
+        "appealUpliftPp": 17.7,
+        "latestGrants": 202,
+        "latestRefusals": 83,
+        "latestSubstantive": 285,
+        "latestNotYetKnown": 0,
+        "pctResolved": 100
+      }
+    }
+  }
+}

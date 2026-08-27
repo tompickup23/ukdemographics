@@ -1,13 +1,13 @@
 {
-  "source": "Home Office Immigration Statistics: Citizenship detailed datasets, year ending March 2026 release (21 May 2026). Sheets Cit_D01 (applications) and Cit_D02 (grants).",
+  "source": "Home Office Immigration Statistics: Citizenship detailed datasets, year ending June 2026 release. Sheets Cit_D01 (applications) and Cit_D02 (grants).",
   "lastUpdated": "2026-05-27",
   "release_date": "2026-05-21",
   "caveat": "Citizenship grants are a lagging indicator of migration: most naturalisations are granted to people who arrived in the UK more than five years earlier and have since settled. The volume reflects who arrived a decade ago, NOT current migration policy.",
   "headline": {
-    "latest_year_grants": 65184,
+    "latest_year_grants": 131531,
     "latest_year": 2026,
-    "all_time_total_grants": 3696104,
-    "all_time_total_applications": 4114956
+    "all_time_total_grants": 3762451,
+    "all_time_total_applications": 4184971
   },
   "annual": [
     {
@@ -222,12 +222,12 @@
     },
     {
       "year": 2026,
-      "applications": 91116,
-      "grants": 65184,
-      "grant_rate_pct": 71.5,
+      "applications": 161131,
+      "grants": 131531,
+      "grant_rate_pct": 81.6,
       "by_type": {
-        "Naturalisation": 45528,
-        "Registration": 19656
+        "Naturalisation": 92691,
+        "Registration": 38840
       }
     }
   ],
@@ -316,123 +316,123 @@
   "all_time_top_nationalities": [
     {
       "nationality": "India",
-      "all_time_grants": 428577
+      "all_time_grants": 435614
     },
     {
       "nationality": "Pakistan",
-      "all_time_grants": 321580
+      "all_time_grants": 326554
     },
     {
       "nationality": "Nigeria",
-      "all_time_grants": 176537
+      "all_time_grants": 179773
     },
     {
       "nationality": "South Africa",
-      "all_time_grants": 128156
+      "all_time_grants": 129910
     },
     {
       "nationality": "Philippines",
-      "all_time_grants": 121916
+      "all_time_grants": 123831
     },
     {
       "nationality": "Bangladesh",
-      "all_time_grants": 107938
+      "all_time_grants": 109683
     },
     {
       "nationality": "Poland",
-      "all_time_grants": 94744
+      "all_time_grants": 97307
     },
     {
       "nationality": "Sri Lanka",
-      "all_time_grants": 88070
+      "all_time_grants": 89141
     },
     {
       "nationality": "Somalia",
-      "all_time_grants": 86972
-    },
-    {
-      "nationality": "Zimbabwe",
-      "all_time_grants": 85883
-    },
-    {
-      "nationality": "Turkey",
-      "all_time_grants": 84186
+      "all_time_grants": 87408
     },
     {
       "nationality": "Italy",
-      "all_time_grants": 83676
+      "all_time_grants": 87165
+    },
+    {
+      "nationality": "Zimbabwe",
+      "all_time_grants": 86610
+    },
+    {
+      "nationality": "Turkey",
+      "all_time_grants": 85976
     },
     {
       "nationality": "United States",
-      "all_time_grants": 76746
+      "all_time_grants": 78599
     },
     {
       "nationality": "China",
-      "all_time_grants": 76543
+      "all_time_grants": 77235
     },
     {
       "nationality": "Ghana",
-      "all_time_grants": 75133
+      "all_time_grants": 76411
     },
     {
       "nationality": "Afghanistan",
-      "all_time_grants": 74724
+      "all_time_grants": 75498
     },
     {
       "nationality": "Iran",
-      "all_time_grants": 73449
+      "all_time_grants": 74992
     },
     {
       "nationality": "Romania",
-      "all_time_grants": 72420
+      "all_time_grants": 74725
     },
     {
       "nationality": "Iraq",
-      "all_time_grants": 65047
+      "all_time_grants": 65707
     },
     {
       "nationality": "Jamaica",
-      "all_time_grants": 54147
+      "all_time_grants": 54648
     },
     {
       "nationality": "Australia",
-      "all_time_grants": 52045
+      "all_time_grants": 52781
     },
     {
       "nationality": "Nepal",
-      "all_time_grants": 45858
+      "all_time_grants": 46496
     },
     {
       "nationality": "France",
-      "all_time_grants": 44935
+      "all_time_grants": 46196
     },
     {
       "nationality": "Syria",
-      "all_time_grants": 42899
+      "all_time_grants": 43837
     },
     {
       "nationality": "Bulgaria",
-      "all_time_grants": 40567
+      "all_time_grants": 41490
     },
     {
       "nationality": "Russia",
-      "all_time_grants": 39511
+      "all_time_grants": 40098
     },
     {
       "nationality": "Eritrea",
-      "all_time_grants": 34794
+      "all_time_grants": 35327
     },
     {
       "nationality": "Spain",
-      "all_time_grants": 33347
-    },
-    {
-      "nationality": "Mauritius",
-      "all_time_grants": 30444
+      "all_time_grants": 34511
     },
     {
       "nationality": "Germany",
-      "all_time_grants": 30200
+      "all_time_grants": 31047
+    },
+    {
+      "nationality": "Portugal",
+      "all_time_grants": 30948
     }
   ]
 }

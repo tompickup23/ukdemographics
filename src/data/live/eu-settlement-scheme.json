@@ -1,33 +1,33 @@
 {
-  "source": "Home Office Immigration Statistics: EU Settlement Scheme detailed datasets, year ending March 2026 release (21 May 2026). Sheets Data_EUSS_D02 (outcomes by year) and Data_EUSS_D03 (outcomes by application type).",
+  "source": "Home Office Immigration Statistics: EU Settlement Scheme detailed datasets, year ending June 2026 release. Sheets Data_EUSS_D02 (outcomes by year) and Data_EUSS_D03 (outcomes by application type).",
   "lastUpdated": "2026-05-27",
   "release_date": "2026-05-21",
   "caveat": "The EU Settlement Scheme grants confirmed status to EU and EEA nationals already living in the UK. It does NOT count as 'immigration' in ONS LTIM or Home Office visa-grant headlines. It still affects population denominators. The scheme officially closed for new applications on 30 June 2021 but late applications with valid reasons are still being processed, and existing pre-settled status holders apply for settled status after 5 years.",
   "headline": {
-    "total_concluded_all_time": 8765762,
-    "all_time_settled": 4429184,
-    "all_time_pre_settled": 2893200,
-    "all_time_refused": 834609,
-    "all_time_invalid": 359860,
-    "all_time_withdrawn_or_void": 248909,
+    "total_concluded_all_time": 8837667,
+    "all_time_settled": 4476552,
+    "all_time_pre_settled": 2896344,
+    "all_time_refused": 841239,
+    "all_time_invalid": 370070,
+    "all_time_withdrawn_or_void": 253462,
     "latest_year": 2026,
-    "latest_year_total": 106626,
-    "latest_year_settled": 73520
+    "latest_year_total": 180621,
+    "latest_year_settled": 121378
   },
   "all_time_by_outcome": {
-    "Invalid": 359860,
-    "Pre-Settled": 2893200,
-    "Refused": 834609,
-    "Settled": 4429184,
-    "Withdrawn or Void": 248909
+    "Pre-Settled": 2896344,
+    "Settled": 4476552,
+    "Withdrawn or Void": 253462,
+    "Invalid": 370070,
+    "Refused": 841239
   },
   "annual": [
     {
       "year": 2018,
       "total": 26540,
       "by_outcome": {
-        "Pre-Settled": 7988,
         "Settled": 18541,
+        "Pre-Settled": 7988,
         "Withdrawn or Void": 11
       },
       "settled_grants": 18541,
@@ -38,263 +38,263 @@
     },
     {
       "year": 2019,
-      "total": 2424258,
+      "total": 2424191,
       "by_outcome": {
+        "Pre-Settled": 997325,
+        "Settled": 1416291,
+        "Withdrawn or Void": 7322,
         "Invalid": 3248,
-        "Pre-Settled": 997333,
-        "Refused": 5,
-        "Settled": 1416295,
-        "Withdrawn or Void": 7377
+        "Refused": 5
       },
-      "settled_grants": 1416295,
-      "pre_settled_grants": 997333,
+      "settled_grants": 1416291,
+      "pre_settled_grants": 997325,
       "refused": 5,
       "invalid": 3248,
-      "withdrawn_or_void": 7377
+      "withdrawn_or_void": 7322
     },
     {
       "year": 2020,
-      "total": 2062285,
+      "total": 2062252,
       "by_outcome": {
-        "Invalid": 45942,
-        "Pre-Settled": 943581,
-        "Refused": 34211,
-        "Settled": 998015,
-        "Withdrawn or Void": 40536
+        "Invalid": 45941,
+        "Pre-Settled": 943573,
+        "Refused": 34212,
+        "Settled": 998008,
+        "Withdrawn or Void": 40518
       },
-      "settled_grants": 998015,
-      "pre_settled_grants": 943581,
-      "refused": 34211,
-      "invalid": 45942,
-      "withdrawn_or_void": 40536
+      "settled_grants": 998008,
+      "pre_settled_grants": 943573,
+      "refused": 34212,
+      "invalid": 45941,
+      "withdrawn_or_void": 40518
     },
     {
       "year": 2021,
-      "total": 1544448,
+      "total": 1544016,
       "by_outcome": {
         "Invalid": 55950,
-        "Pre-Settled": 558895,
-        "Refused": 170973,
-        "Settled": 694184,
-        "Withdrawn or Void": 64446
+        "Pre-Settled": 558794,
+        "Refused": 170962,
+        "Settled": 693875,
+        "Withdrawn or Void": 64435
       },
-      "settled_grants": 694184,
-      "pre_settled_grants": 558895,
-      "refused": 170973,
+      "settled_grants": 693875,
+      "pre_settled_grants": 558794,
+      "refused": 170962,
       "invalid": 55950,
-      "withdrawn_or_void": 64446
+      "withdrawn_or_void": 64435
     },
     {
       "year": 2022,
-      "total": 805081,
+      "total": 804831,
       "by_outcome": {
-        "Invalid": 30687,
-        "Pre-Settled": 200994,
-        "Refused": 238482,
-        "Settled": 294450,
-        "Withdrawn or Void": 40468
+        "Invalid": 30683,
+        "Pre-Settled": 200810,
+        "Refused": 238511,
+        "Settled": 294377,
+        "Withdrawn or Void": 40450
       },
-      "settled_grants": 294450,
-      "pre_settled_grants": 200994,
-      "refused": 238482,
-      "invalid": 30687,
-      "withdrawn_or_void": 40468
+      "settled_grants": 294377,
+      "pre_settled_grants": 200810,
+      "refused": 238511,
+      "invalid": 30683,
+      "withdrawn_or_void": 40450
     },
     {
       "year": 2023,
-      "total": 736623,
+      "total": 736094,
       "by_outcome": {
-        "Invalid": 62593,
-        "Pre-Settled": 98592,
-        "Refused": 222345,
-        "Settled": 317911,
-        "Withdrawn or Void": 35182
+        "Invalid": 62566,
+        "Pre-Settled": 98333,
+        "Refused": 222477,
+        "Settled": 317803,
+        "Withdrawn or Void": 34915
       },
-      "settled_grants": 317911,
-      "pre_settled_grants": 98592,
-      "refused": 222345,
-      "invalid": 62593,
-      "withdrawn_or_void": 35182
+      "settled_grants": 317803,
+      "pre_settled_grants": 98333,
+      "refused": 222477,
+      "invalid": 62566,
+      "withdrawn_or_void": 34915
     },
     {
       "year": 2024,
-      "total": 592012,
+      "total": 591140,
       "by_outcome": {
-        "Invalid": 73999,
-        "Pre-Settled": 47692,
-        "Refused": 92033,
-        "Settled": 348291,
-        "Withdrawn or Void": 29997
+        "Invalid": 73977,
+        "Pre-Settled": 47412,
+        "Refused": 91895,
+        "Settled": 348067,
+        "Withdrawn or Void": 29789
       },
-      "settled_grants": 348291,
-      "pre_settled_grants": 47692,
-      "refused": 92033,
-      "invalid": 73999,
-      "withdrawn_or_void": 29997
+      "settled_grants": 348067,
+      "pre_settled_grants": 47412,
+      "refused": 91895,
+      "invalid": 73977,
+      "withdrawn_or_void": 29789
     },
     {
       "year": 2025,
-      "total": 467889,
+      "total": 467982,
       "by_outcome": {
-        "Invalid": 72984,
-        "Pre-Settled": 33942,
-        "Refused": 68017,
-        "Settled": 267977,
-        "Withdrawn or Void": 24969
+        "Invalid": 73112,
+        "Pre-Settled": 33827,
+        "Refused": 67988,
+        "Settled": 268212,
+        "Withdrawn or Void": 24843
       },
-      "settled_grants": 267977,
-      "pre_settled_grants": 33942,
-      "refused": 68017,
-      "invalid": 72984,
-      "withdrawn_or_void": 24969
+      "settled_grants": 268212,
+      "pre_settled_grants": 33827,
+      "refused": 67988,
+      "invalid": 73112,
+      "withdrawn_or_void": 24843
     },
     {
       "year": 2026,
-      "total": 106626,
+      "total": 180621,
       "by_outcome": {
-        "Invalid": 14457,
-        "Pre-Settled": 4183,
-        "Refused": 8543,
-        "Settled": 73520,
-        "Withdrawn or Void": 5923
+        "Invalid": 24593,
+        "Pre-Settled": 8282,
+        "Refused": 15189,
+        "Settled": 121378,
+        "Withdrawn or Void": 11179
       },
-      "settled_grants": 73520,
-      "pre_settled_grants": 4183,
-      "refused": 8543,
-      "invalid": 14457,
-      "withdrawn_or_void": 5923
+      "settled_grants": 121378,
+      "pre_settled_grants": 8282,
+      "refused": 15189,
+      "invalid": 24593,
+      "withdrawn_or_void": 11179
     }
   ],
   "by_application_type": {
     "Joining Family Members": {
-      "Grant Pre-Settled": 201199,
-      "Grant Settled": 53988,
-      "Invalid": 85934,
-      "Refuse": 238513,
-      "Withdrawn or void": 23777
-    },
-    "Late Applicant": {
-      "Grant Pre-Settled": 123983,
-      "Grant Settled": 166655,
-      "Invalid": 125632,
-      "Refuse": 298198,
-      "Withdrawn or void": 44107
-    },
-    "Repeat Applicant": {
-      "Grant Pre-Settled": 44803,
-      "Grant Settled": 1122068,
-      "Invalid": 40529,
-      "Refuse": 67777,
-      "Withdrawn or void": 66478
+      "Withdrawn or void": 24200,
+      "Grant Pre-Settled": 203304,
+      "Grant Settled": 59723,
+      "Refuse": 240784,
+      "Invalid": 90602
     },
     "Derivative Applicant": {
-      "Grant Pre-Settled": 2761,
-      "Refuse": 6468,
-      "Grant Settled": 6128,
-      "Invalid": 837,
+      "Grant Pre-Settled": 2842,
+      "Grant Settled": 7171,
+      "Refuse": 6718,
+      "Invalid": 1064,
       "Withdrawn or void": 306
+    },
+    "Late Applicant": {
+      "Grant Pre-Settled": 124814,
+      "Grant Settled": 171044,
+      "Refuse": 300081,
+      "Invalid": 129034,
+      "Withdrawn or void": 44936
+    },
+    "Repeat Applicant": {
+      "Grant Pre-Settled": 45024,
+      "Grant Settled": 1158561,
+      "Invalid": 42471,
+      "Withdrawn or void": 69936,
+      "Refuse": 69980
     }
   },
   "top_nationalities_recent": [
     {
       "nationality": "Romania",
-      "concluded_2024_2025_combined": 339233
+      "concluded_2024_2025_combined": 358252
     },
     {
       "nationality": "Italy",
-      "concluded_2024_2025_combined": 100268
+      "concluded_2024_2025_combined": 106662
     },
     {
       "nationality": "Bulgaria",
-      "concluded_2024_2025_combined": 81389
+      "concluded_2024_2025_combined": 85421
     },
     {
       "nationality": "Poland",
-      "concluded_2024_2025_combined": 78018
+      "concluded_2024_2025_combined": 82393
     },
     {
       "nationality": "Portugal",
-      "concluded_2024_2025_combined": 76043
+      "concluded_2024_2025_combined": 80688
     },
     {
       "nationality": "Spain",
-      "concluded_2024_2025_combined": 68233
+      "concluded_2024_2025_combined": 73284
     },
     {
       "nationality": "India",
-      "concluded_2024_2025_combined": 44488
+      "concluded_2024_2025_combined": 47225
     },
     {
       "nationality": "Greece",
-      "concluded_2024_2025_combined": 26595
-    },
-    {
-      "nationality": "France",
-      "concluded_2024_2025_combined": 25400
+      "concluded_2024_2025_combined": 28124
     },
     {
       "nationality": "Pakistan",
-      "concluded_2024_2025_combined": 25144
+      "concluded_2024_2025_combined": 27290
+    },
+    {
+      "nationality": "France",
+      "concluded_2024_2025_combined": 27142
     },
     {
       "nationality": "Lithuania",
-      "concluded_2024_2025_combined": 23139
+      "concluded_2024_2025_combined": 24289
     },
     {
       "nationality": "Slovakia",
-      "concluded_2024_2025_combined": 22560
+      "concluded_2024_2025_combined": 24082
     },
     {
       "nationality": "Brazil",
-      "concluded_2024_2025_combined": 22381
-    },
-    {
-      "nationality": "Hungary",
-      "concluded_2024_2025_combined": 18475
+      "concluded_2024_2025_combined": 23725
     },
     {
       "nationality": "Sweden",
-      "concluded_2024_2025_combined": 18132
+      "concluded_2024_2025_combined": 19581
+    },
+    {
+      "nationality": "Hungary",
+      "concluded_2024_2025_combined": 19563
     },
     {
       "nationality": "Germany",
-      "concluded_2024_2025_combined": 16913
+      "concluded_2024_2025_combined": 18259
     },
     {
       "nationality": "Netherlands",
-      "concluded_2024_2025_combined": 15178
+      "concluded_2024_2025_combined": 16261
     },
     {
       "nationality": "Ghana",
-      "concluded_2024_2025_combined": 14361
+      "concluded_2024_2025_combined": 15343
     },
     {
       "nationality": "Latvia",
-      "concluded_2024_2025_combined": 13152
+      "concluded_2024_2025_combined": 13931
     },
     {
       "nationality": "Albania",
-      "concluded_2024_2025_combined": 12071
+      "concluded_2024_2025_combined": 13137
     },
     {
       "nationality": "Czechia",
-      "concluded_2024_2025_combined": 10874
+      "concluded_2024_2025_combined": 11606
     },
     {
       "nationality": "Nigeria",
-      "concluded_2024_2025_combined": 9933
+      "concluded_2024_2025_combined": 10745
     },
     {
       "nationality": "Norway",
-      "concluded_2024_2025_combined": 7365
+      "concluded_2024_2025_combined": 7834
     },
     {
       "nationality": "Bangladesh",
-      "concluded_2024_2025_combined": 6842
+      "concluded_2024_2025_combined": 7807
     },
     {
       "nationality": "Belgium",
-      "concluded_2024_2025_combined": 6580
+      "concluded_2024_2025_combined": 7035
     }
   ]
 }
