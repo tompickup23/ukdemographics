@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-08-27T23:26:31.524Z",
+  "dataset": "dft_evci",
+  "publisher": "Department for Transport",
+  "cadence": "quarterly",
+  "release": "Electric vehicle charging infrastructure statistics: 1 July 2026",
+  "releaseDate": "2026-08-27",
+  "releasePage": "https://www.gov.uk/government/statistics/electric-vehicle-charging-infrastructure-statistics-1-july-2026",
+  "devicesAsAt": "2026-07",
+  "landing": "https://www.gov.uk/government/statistical-data-sets/electric-vehicle-charging-infrastructure-statistics-data-tables-evci",
+  "fetchedFileCount": 8,
+  "files": [
+    {
+      "tableCode": "evci0101",
+      "description": "chargers by region and country, UK",
+      "fileName": "evci0101_2026-07_EV_chargers_by_region_and_country_UK.ods",
+      "sourceUrl": "https://assets.publishing.service.gov.uk/media/6a8ed778df4246cf45e4654d/evci0101_2026-07_EV_chargers_by_region_and_country_UK.ods",
+      "sizeBytes": 27595,
+      "fileSha256": "d857af61933a4f45441703c88467956a7a21f1066569dcb4714a83aa8398a875"
+    },
+    {
+      "tableCode": "evci0102",
+      "description": "chargers by local authority, UK",
+      "fileName": "evci0102_2026-07_EV_chargers_by_local_authority_UK.ods",
+      "sourceUrl": "https://assets.publishing.service.gov.uk/media/6a8ed78af5b35599aec18df8/evci0102_2026-07_EV_chargers_by_local_authority_UK.ods",
+      "sizeBytes": 203711,
+      "fileSha256": "6ebf440a20ccd643ace8b5bc5e9e4f462793f884a49f181125ca58dee3dc9fd0"
+    },
+    {
+      "tableCode": "evci0103",
+      "description": "chargers by parliamentary constituency, UK",
+      "fileName": "evci0103_2026-07_EV_chargers_by_parliamentary_constituency_UK.ods",
+      "sourceUrl": "https://assets.publishing.service.gov.uk/media/6a8ed79c5a0c25165ae46563/evci0103_2026-07_EV_chargers_by_parliamentary_constituency_UK.ods",
+      "sizeBytes": 138291,
+      "fileSha256": "d91f7f88c91f23cdd3dad37f7e9a9135dd37fa1afc207a1cbc10fa277d35c73e"
+    },
+    {
+      "tableCode": "evci0104",
+      "description": "chargers by rural urban classification, England and Wales",
+      "fileName": "evci0104_2026-07_EV_chargers_by_rural_urban_classification_EW.ods",
+      "sourceUrl": "https://assets.publishing.service.gov.uk/media/6a8ed7b2f5b35599aec18df9/evci0104_2026-07_EV_chargers_by_rural_urban_classification_EW.ods",
+      "sizeBytes": 7760,
+      "fileSha256": "acc92484e821ff0b3b6bc14d13cf674ee24685d8d283b8ba8f239488e0640fb3"
+    },
+    {
+      "tableCode": "evci0105",
+      "description": "chargers by combined authority, England",
+      "fileName": "evci0105_2026-07_EV_chargers_by_combined_authority_EN.ods",
+      "sourceUrl": "https://assets.publishing.service.gov.uk/media/6a8ed7c2df4246cf45e4654e/evci0105_2026-07_EV_chargers_by_combined_authority_EN.ods",
+      "sizeBytes": 14243,
+      "fileSha256": "36dc68af9596f07c45fa632814725e17034d0f64831826cbfd2ee11d8140655d"
+    },
+    {
+      "tableCode": "evci0106",
+      "description": "chargers by county council, England",
+      "fileName": "evci0106_2026-07_EV_chargers_by_county_council_EN.ods",
+      "sourceUrl": "https://assets.publishing.service.gov.uk/media/6a8ed7d69a177a1decf97a22/evci0106_2026-07_EV_chargers_by_county_council_EN.ods",
+      "sizeBytes": 16409,
+      "fileSha256": "d0a069fa41098699a65d0abb4f621b1cd2befbfca8ce8e0e04513562e00f6eba"
+    },
+    {
+      "tableCode": "evci0401",
+      "description": "plug-in and battery electric vehicles per public charger",
+      "fileName": "evci0401_2026-07_plug_in_and_battery_electric_vehicles_per_public_EV_charger.ods",
+      "sourceUrl": "https://assets.publishing.service.gov.uk/media/6a8ed820df4246cf45e4654f/evci0401_2026-07_plug_in_and_battery_electric_vehicles_per_public_EV_charger.ods",
+      "sizeBytes": 10533,
+      "fileSha256": "b32f99e8bab637dfa75197eb48926860b3709fdb767ce39b74b9601ed3ec3b54"
+    },
+    {
+      "tableCode": "evci9001",
+      "description": "EV charging devices, UK",
+      "fileName": "evci9001_2026-07_EV_charging_devices_UK.ods",
+      "sourceUrl": "https://assets.publishing.service.gov.uk/media/6a8c0284a8f84a582b84280a/evci9001_2026-07_EV_charging_devices_UK.ods",
+      "sizeBytes": 808173,
+      "fileSha256": "1509303615cfd78478c179624db8df46018d83827bb30491683216d5e25a7177"
+    }
+  ]
+}

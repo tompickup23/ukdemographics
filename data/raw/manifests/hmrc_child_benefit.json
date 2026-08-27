@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-08-27T23:27:05.977Z",
+  "dataset": "hmrc_child_benefit",
+  "publisher": "HM Revenue and Customs",
+  "cadence": "annual",
+  "release": "Child Benefit Statistics: annual release, August 2025",
+  "referenceDate": "2025-08",
+  "releaseDate": "2026-04-23",
+  "lastRevised": "2026-08-25",
+  "releasePage": "https://www.gov.uk/government/statistics/child-benefit-statistics-annual-release-august-2025",
+  "fetchedFileCount": 2,
+  "files": [
+    {
+      "title": "Child Benefit August 2025 Main Tables",
+      "fileName": "Child_Benefit_August_2025_Main_Tables.ods",
+      "sourceUrl": "https://assets.publishing.service.gov.uk/media/6a8d696901bbff0bf8f97903/Child_Benefit_August_2025_Main_Tables.ods",
+      "sizeBytes": 396044,
+      "fileSha256": "c610f9509901f21efc28b76d24fae01c43d281b6867a14f28b6847d0e16cc69d"
+    },
+    {
+      "title": "Child Benefit August 2025 Small area tables",
+      "fileName": "Child_Benefit_August_2025_Small_area_tables.ods",
+      "sourceUrl": "https://assets.publishing.service.gov.uk/media/69e5f64a8c9f882ae5997f49/Child_Benefit_August_2025_Small_area_tables.ods",
+      "sizeBytes": 4068949,
+      "fileSha256": "efbd73cbac919cebe0a6a74efb03177ec5ce6b845fb4cf2c2eed1928707e344b"
+    }
+  ]
+}

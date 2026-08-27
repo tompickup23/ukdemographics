@@ -49,6 +49,8 @@ data/raw/aps_regional_cob/
 data/raw/census_cob_2011/
 data/raw/ons_ltim/
 data/raw/ho_visas_extra/
+data/raw/dft_evci/
+data/raw/hmrc_child_benefit/
 
 # Environment and credential files
 *.env
