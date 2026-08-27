@@ -7,7 +7,9 @@
  * 2. Top claiming nationalities with volumes
  * 3. Time series for major nationalities
  *
- * Source: asylum-claims-datasets-dec-2025.xlsx, sheet Data_Asy_D02
+ * Source: the newest asylum-claims-datasets-*.xlsx on disk, sheet Data_Asy_D02.
+ * Resolved rather than named: this docstring said dec-2025 while the code read
+ * mar-2026, which is what a hand-bumped path looks like a release later.
  * Columns: Year, Quarter, Nationality, Region, Case outcome group,
  *          Case outcome, Age, Sex, Applicant type, UASC, Decisions
  *
@@ -16,8 +18,9 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import xlsx from "xlsx";
+import { newestRelease, periodPhrase } from "../lib/newest-release.mjs";
 
-const SOURCE = path.resolve("data/raw/uk_routes/asylum-claims-datasets-mar-2026.xlsx");
+const SOURCE = newestRelease(path.resolve("data/raw/uk_routes"), "asylum-claims-datasets");
 const OUTPUT = path.resolve("src/data/live/grant-rates-nationality.json");
 
 console.log("Reading Asy_D02 (asylum initial decisions by nationality)...");
@@ -190,7 +193,7 @@ const likelyEconomic = leagueTable.filter(d => d.grantRatePct < 25);
 
 const output = {
   generatedAt: new Date().toISOString(),
-  source: "Home Office Immigration Statistics: Asylum initial decisions (Asy_D02), year ending March 2026 release (21 May 2026)",
+  source: `Home Office Immigration Statistics: Asylum initial decisions (Asy_D02), ${periodPhrase(SOURCE)} release`,
   methodology: "Grant rate = (grants of protection + grants of other leave) / (grants + refusals) × 100. Excludes withdrawn cases and administrative outcomes from denominator (substantive decisions only). Recent period = 2020-2025. Minimum 50 substantive decisions for league table inclusion. 'Refugee' and 'Stateless person' status entries excluded as they are not nationalities.",
   caveats: [
     "These are INITIAL decision grant rates only. Many refusals are overturned on appeal — the true grant rate (after appeals) is significantly higher for some nationalities. For example, Iranian initial grant rate ~72% rises to ~85% after successful appeals.",
@@ -214,7 +217,7 @@ const output = {
 };
 
 // ── ASY_D04: Outcome Analysis — Initial + Appeal (True Grant Rate) ──
-const OUTCOME_SOURCE = path.resolve("data/raw/uk_routes/outcome-analysis-asylum-claims-datasets-mar-2026.xlsx");
+const OUTCOME_SOURCE = newestRelease(path.resolve("data/raw/uk_routes"), "outcome-analysis-asylum-claims-datasets");
 console.log("\n\n=== OUTCOME ANALYSIS (Asy_D04): True Grant Rates ===");
 console.log(`Reading ${OUTCOME_SOURCE}...`);
 
@@ -318,7 +321,7 @@ try {
 
   // Add outcome analysis metadata to output
   output.outcomeAnalysis = {
-    source: "Home Office Immigration Statistics: Outcome analysis (Asy_D04), year ending March 2026 release (21 May 2026)",
+    source: `Home Office Immigration Statistics: Outcome analysis (Asy_D04), ${periodPhrase(OUTCOME_SOURCE)} release`,
     claimYears: "2015-2023",
     methodology: "True grant rate = (latest grants of protection + other leave) / (latest grants + latest refusals) × 100. 'Latest' outcome includes appeal results and all subsequent decisions. Claim years 2015-2023 used so most cases have settled outcomes.",
     nationalitiesWithTrueRate: Object.keys(trueGrantRates).length,

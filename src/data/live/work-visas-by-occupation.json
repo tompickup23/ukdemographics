@@ -1,24 +1,24 @@
 {
-  "source": "Home Office Immigration Statistics: Occupation by SOC2020 visas, year ending March 2026 release (21 May 2026). Sheet Data_Occ_D02 (grants of entry clearance work visas).",
+  "source": "Home Office Immigration Statistics: Occupation by SOC2020 visas, year ending June 2026 release. Sheet Data_Occ_D02 (grants of entry clearance work visas).",
   "lastUpdated": "2026-05-27",
   "release_date": "2026-05-21",
   "caveat": "Work visa grants are issued at the entry-clearance stage; not every grant leads to long-term migration. The Health and Care Worker route's near-collapse (108,000 main applicants in Caring Personal Service roles fell to 1,400 between YE Dec 2023 and YE Mar 2026) is the single biggest driver of the work-visa fall. Skilled Worker visas overall fell 76 percent from their YE Dec 2023 peak. Dependants are included unless filtered by visa type.",
   "headline": {
-    "total_grants_2025": 112757,
-    "total_grants_2024": 154109,
+    "total_grants_2025": 115847,
+    "total_grants_2024": 154237,
     "total_grants_2023": 279501,
-    "yoy_change_2024_2025_pct": -26.8,
+    "yoy_change_2024_2025_pct": -24.9,
     "care_workers_peak_year": 2023,
     "care_workers_peak_count": 108099,
-    "care_workers_2025": 3190
+    "care_workers_2025": 3179
   },
   "annual_total": {
     "2021": 123306,
     "2022": 217822,
     "2023": 279501,
-    "2024": 154109,
-    "2025": 112757,
-    "2026": 28892
+    "2024": 154237,
+    "2025": 115847,
+    "2026": 63566
   },
   "annual_by_subgroup": {
     "2021": {
@@ -75,58 +75,58 @@
       "Secondment Worker (Global Business Mobility)": 10
     },
     "2024": {
-      "Health and Care Worker": 26922,
-      "International Sportsperson": 1941,
+      "Health and Care Worker": 26904,
+      "International Sportsperson": 1940,
       "Minister of Religion (previously Tier 2)": 604,
       "Scale-up Worker": 41,
-      "Senior or Specialist Worker (Global Business Mobility)": 13724,
-      "Skilled Worker": 57700,
-      "Charity Worker (previously Tier 5)": 1704,
-      "Creative Worker": 6673,
-      "Government Authorised Exchange (previously Tier 5)": 6869,
+      "Senior or Specialist Worker (Global Business Mobility)": 13714,
+      "Skilled Worker": 57681,
+      "Charity Worker (previously Tier 5)": 1702,
+      "Creative Worker": 6670,
+      "Government Authorised Exchange (previously Tier 5)": 7070,
       "Graduate Trainee (Global Business Mobility)": 492,
-      "International Agreement (previously Tier 5)": 361,
-      "Religious Worker (previously Tier 5)": 1295,
-      "Seasonal Worker (previously Tier 5)": 35397,
+      "International Agreement (previously Tier 5)": 360,
+      "Religious Worker (previously Tier 5)": 1294,
+      "Seasonal Worker (previously Tier 5)": 35379,
       "Secondment Worker (Global Business Mobility)": 11,
       "Service Supplier (Global Business Mobility)": 153,
       "UK Expansion Worker (Global Business Mobility)": 222
     },
     "2025": {
-      "Health and Care Worker": 13177,
-      "Skilled Worker": 32248,
-      "Government Authorised Exchange (previously Tier 5)": 3662,
-      "Senior or Specialist Worker (Global Business Mobility)": 12436,
-      "Creative Worker": 5976,
-      "International Sportsperson": 2078,
-      "Charity Worker (previously Tier 5)": 1437,
+      "Government Authorised Exchange (previously Tier 5)": 6821,
+      "Health and Care Worker": 13094,
+      "Skilled Worker": 32294,
+      "Creative Worker": 5988,
+      "Senior or Specialist Worker (Global Business Mobility)": 12412,
+      "Charity Worker (previously Tier 5)": 1447,
+      "International Sportsperson": 2080,
       "International Agreement (previously Tier 5)": 218,
-      "Minister of Religion (previously Tier 2)": 553,
       "Graduate Trainee (Global Business Mobility)": 477,
-      "Religious Worker (previously Tier 5)": 1357,
-      "Seasonal Worker (previously Tier 5)": 38676,
-      "Service Supplier (Global Business Mobility)": 175,
+      "Religious Worker (previously Tier 5)": 1351,
+      "Minister of Religion (previously Tier 2)": 555,
+      "Seasonal Worker (previously Tier 5)": 38647,
+      "Service Supplier (Global Business Mobility)": 178,
       "Secondment Worker (Global Business Mobility)": 28,
-      "Scale-up Worker": 97,
-      "UK Expansion Worker (Global Business Mobility)": 162
+      "UK Expansion Worker (Global Business Mobility)": 160,
+      "Scale-up Worker": 97
     },
     "2026": {
-      "Health and Care Worker": 1670,
-      "Skilled Worker": 5794,
-      "Government Authorised Exchange (previously Tier 5)": 1322,
-      "Senior or Specialist Worker (Global Business Mobility)": 3241,
-      "Creative Worker": 1156,
-      "Religious Worker (previously Tier 5)": 367,
-      "International Sportsperson": 844,
-      "Charity Worker (previously Tier 5)": 199,
-      "Graduate Trainee (Global Business Mobility)": 116,
-      "International Agreement (previously Tier 5)": 42,
-      "Minister of Religion (previously Tier 2)": 88,
-      "UK Expansion Worker (Global Business Mobility)": 19,
-      "Seasonal Worker (previously Tier 5)": 13959,
-      "Secondment Worker (Global Business Mobility)": 9,
-      "Scale-up Worker": 16,
-      "Service Supplier (Global Business Mobility)": 50
+      "Health and Care Worker": 2981,
+      "Skilled Worker": 11734,
+      "Government Authorised Exchange (previously Tier 5)": 4161,
+      "Senior or Specialist Worker (Global Business Mobility)": 6797,
+      "Creative Worker": 2600,
+      "Religious Worker (previously Tier 5)": 696,
+      "International Sportsperson": 1585,
+      "Charity Worker (previously Tier 5)": 404,
+      "Graduate Trainee (Global Business Mobility)": 211,
+      "International Agreement (previously Tier 5)": 89,
+      "Minister of Religion (previously Tier 2)": 194,
+      "UK Expansion Worker (Global Business Mobility)": 48,
+      "Seasonal Worker (previously Tier 5)": 31889,
+      "Secondment Worker (Global Business Mobility)": 20,
+      "Scale-up Worker": 46,
+      "Service Supplier (Global Business Mobility)": 111
     }
   },
   "annual_by_industry": {
@@ -202,73 +202,73 @@
       "Administrative and Support Activities": 2
     },
     "2024": {
-      "Accommodation and Food Service Activities": 8089,
-      "Administrative and Support Service Activities": 10875,
-      "Education": 8499,
-      "Financial and Insurance Activities": 8429,
-      "Human Health and Social Work Activities": 28058,
-      "Information and Communications": 11475,
-      "Manufacturing": 7196,
-      "Other Service Activities": 9675,
-      "Professional, Scientific and Technical Activities": 11255,
+      "Accommodation and Food Service Activities": 8092,
+      "Administrative and Support Service Activities": 10967,
+      "Education": 8603,
+      "Financial and Insurance Activities": 8428,
+      "Human Health and Social Work Activities": 28038,
+      "Information and Communications": 11467,
+      "Manufacturing": 7193,
+      "Other Service Activities": 9673,
+      "Professional, Scientific and Technical Activities": 11241,
       "Public Admin and defence; compulsory social security": 517,
       "Water supply; sewerage, waste management and remediation activities": 120,
-      "Wholesale and retail trade; repair of motor vehicles and motorcycles": 4920,
-      "Activities of extraterritorial organisations and bodies": 301,
+      "Wholesale and retail trade; repair of motor vehicles and motorcycles": 4919,
+      "Activities of extraterritorial organisations and bodies": 300,
       "Activities of households as employers; production activities of household for own use": 27,
-      "Agriculture, Forestry and Fishing": 27257,
-      "Arts, Entertainment and Recreation": 8998,
-      "Construction": 3609,
+      "Agriculture, Forestry and Fishing": 27240,
+      "Arts, Entertainment and Recreation": 8995,
+      "Construction": 3610,
       "Transportation and Storage": 2429,
-      "Electricity, gas, steam and air conditioning supply": 1098,
+      "Electricity, gas, steam and air conditioning supply": 1096,
       "Mining and Quarrying": 645,
       "Real Estate Activities": 637
     },
     "2025": {
-      "Human Health and Social Work Activities": 14241,
-      "Wholesale and retail trade; repair of motor vehicles and motorcycles": 1880,
-      "Accommodation and Food Service Activities": 1566,
-      "Agriculture, Forestry and Fishing": 31663,
-      "Professional, Scientific and Technical Activities": 9896,
-      "Financial and Insurance Activities": 8136,
-      "Other Service Activities": 4292,
-      "Education": 4406,
-      "Manufacturing": 4648,
-      "Electricity, gas, steam and air conditioning supply": 919,
-      "Construction": 2235,
-      "Arts, Entertainment and Recreation": 8441,
-      "Information and Communications": 8801,
-      "Mining and Quarrying": 480,
-      "Real Estate Activities": 363,
-      "Administrative and Support Service Activities": 8965,
-      "Public Admin and defence; compulsory social security": 274,
-      "Activities of extraterritorial organisations and bodies": 158,
+      "Education": 6276,
+      "Human Health and Social Work Activities": 14173,
+      "Wholesale and retail trade; repair of motor vehicles and motorcycles": 1876,
+      "Accommodation and Food Service Activities": 1583,
+      "Agriculture, Forestry and Fishing": 31660,
+      "Professional, Scientific and Technical Activities": 9948,
+      "Financial and Insurance Activities": 8157,
+      "Other Service Activities": 4307,
+      "Arts, Entertainment and Recreation": 8463,
+      "Manufacturing": 4636,
+      "Electricity, gas, steam and air conditioning supply": 922,
+      "Construction": 2229,
+      "Information and Communications": 8783,
+      "Mining and Quarrying": 478,
+      "Real Estate Activities": 364,
+      "Administrative and Support Service Activities": 10185,
+      "Public Admin and defence; compulsory social security": 275,
+      "Activities of extraterritorial organisations and bodies": 157,
       "Activities of households as employers; production activities of household for own use": 17,
-      "Transportation and Storage": 1283,
-      "Water supply; sewerage, waste management and remediation activities": 93
+      "Transportation and Storage": 1281,
+      "Water supply; sewerage, waste management and remediation activities": 77
     },
     "2026": {
-      "Human Health and Social Work Activities": 1833,
-      "Wholesale and retail trade; repair of motor vehicles and motorcycles": 283,
-      "Education": 1133,
-      "Financial and Insurance Activities": 1851,
-      "Construction": 447,
-      "Professional, Scientific and Technical Activities": 2250,
-      "Accommodation and Food Service Activities": 110,
-      "Arts, Entertainment and Recreation": 1974,
-      "Information and Communications": 1943,
-      "Mining and Quarrying": 89,
-      "Other Service Activities": 891,
-      "Agriculture, Forestry and Fishing": 11672,
-      "Manufacturing": 860,
-      "Real Estate Activities": 78,
-      "Administrative and Support Service Activities": 2892,
-      "Activities of extraterritorial organisations and bodies": 42,
-      "Activities of households as employers; production activities of household for own use": 3,
-      "Public Admin and defence; compulsory social security": 78,
-      "Transportation and Storage": 248,
-      "Electricity, gas, steam and air conditioning supply": 198,
-      "Water supply; sewerage, waste management and remediation activities": 17
+      "Human Health and Social Work Activities": 3311,
+      "Wholesale and retail trade; repair of motor vehicles and motorcycles": 571,
+      "Education": 2793,
+      "Financial and Insurance Activities": 4097,
+      "Construction": 1091,
+      "Professional, Scientific and Technical Activities": 4813,
+      "Accommodation and Food Service Activities": 209,
+      "Arts, Entertainment and Recreation": 4056,
+      "Information and Communications": 4103,
+      "Mining and Quarrying": 190,
+      "Other Service Activities": 1823,
+      "Agriculture, Forestry and Fishing": 25285,
+      "Manufacturing": 1647,
+      "Real Estate Activities": 130,
+      "Administrative and Support Service Activities": 8244,
+      "Activities of extraterritorial organisations and bodies": 81,
+      "Activities of households as employers; production activities of household for own use": 14,
+      "Public Admin and defence; compulsory social security": 223,
+      "Transportation and Storage": 397,
+      "Electricity, gas, steam and air conditioning supply": 459,
+      "Water supply; sewerage, waste management and remediation activities": 29
     }
   },
   "annual_by_soc_major": {
@@ -306,119 +306,119 @@
       "8 - Process, Plant and Machine Operatives": 453
     },
     "2024": {
-      "3 - Associate Professional Occupations": 19206,
-      "6 - Caring, Leisure and Other Service Occupations": 11322,
-      "2 - Professional Occupations": 60002,
-      "1 - Managers, Directors and Senior Officials": 9494,
-      "5 - Skilled Trades Occupations": 26658,
-      "4 - Administrative and Secretarial Occupations": 2696,
+      "3 - Associate Professional Occupations": 19260,
+      "6 - Caring, Leisure and Other Service Occupations": 11316,
+      "2 - Professional Occupations": 60087,
+      "1 - Managers, Directors and Senior Officials": 9491,
+      "5 - Skilled Trades Occupations": 26650,
+      "4 - Administrative and Secretarial Occupations": 2711,
       "7 - Sales and Customer Service Occupations": 1570,
-      "9 - Elementary Occupations": 22717,
+      "9 - Elementary Occupations": 22708,
       "8 - Process, Plant and Machine Operatives": 444
     },
     "2025": {
-      "2 - Professional Occupations": 43730,
-      "3 - Associate Professional Occupations": 14753,
-      "1 - Managers, Directors and Senior Officials": 6174,
-      "4 - Administrative and Secretarial Occupations": 786,
-      "5 - Skilled Trades Occupations": 18192,
-      "7 - Sales and Customer Service Occupations": 309,
-      "6 - Caring, Leisure and Other Service Occupations": 3753,
-      "9 - Elementary Occupations": 24471,
-      "8 - Process, Plant and Machine Operatives": 589
+      "2 - Professional Occupations": 45957,
+      "3 - Associate Professional Occupations": 15463,
+      "1 - Managers, Directors and Senior Officials": 6213,
+      "4 - Administrative and Secretarial Occupations": 892,
+      "5 - Skilled Trades Occupations": 18224,
+      "7 - Sales and Customer Service Occupations": 314,
+      "6 - Caring, Leisure and Other Service Occupations": 3759,
+      "9 - Elementary Occupations": 24435,
+      "8 - Process, Plant and Machine Operatives": 590
     },
     "2026": {
-      "2 - Professional Occupations": 9663,
-      "3 - Associate Professional Occupations": 3384,
-      "1 - Managers, Directors and Senior Officials": 1388,
-      "5 - Skilled Trades Occupations": 6044,
-      "9 - Elementary Occupations": 8229,
-      "4 - Administrative and Secretarial Occupations": 63,
-      "6 - Caring, Leisure and Other Service Occupations": 94,
-      "7 - Sales and Customer Service Occupations": 10,
-      "8 - Process, Plant and Machine Operatives": 17
+      "2 - Professional Occupations": 20550,
+      "3 - Associate Professional Occupations": 7063,
+      "1 - Managers, Directors and Senior Officials": 2864,
+      "5 - Skilled Trades Occupations": 12042,
+      "9 - Elementary Occupations": 20561,
+      "4 - Administrative and Secretarial Occupations": 178,
+      "6 - Caring, Leisure and Other Service Occupations": 243,
+      "7 - Sales and Customer Service Occupations": 22,
+      "8 - Process, Plant and Machine Operatives": 43
     }
   },
   "top_soc_units_2025": [
     {
       "soc_unit": "9111 - Farm workers",
-      "grants": 23865
+      "grants": 23834
     },
     {
       "soc_unit": "5112 - Horticultural trades",
-      "grants": 14204
+      "grants": 14212
     },
     {
       "soc_unit": "2211 - Generalist medical practitioners",
-      "grants": 5006
+      "grants": 4953
     },
     {
       "soc_unit": "2134 - Programmers and software development professionals",
-      "grants": 4202
+      "grants": 4388
     },
     {
       "soc_unit": "2422 - Finance and investment analysts and advisers",
-      "grants": 3533
+      "grants": 3975
     },
     {
       "soc_unit": "2431 - Management consultants and business analysts",
-      "grants": 3236
+      "grants": 3305
     },
     {
       "soc_unit": "2133 - IT business analysts, architects and systems designers",
-      "grants": 3206
+      "grants": 3196
     },
     {
       "soc_unit": "6135 - Care workers and home carers",
-      "grants": 2522
+      "grants": 2512
     },
     {
       "soc_unit": "3413 - Actors, entertainers and presenters",
-      "grants": 2127
+      "grants": 2135
     },
     {
       "soc_unit": "3415 - Musicians",
-      "grants": 1946
+      "grants": 1957
     },
     {
       "soc_unit": "2463 - Clergy",
-      "grants": 1791
+      "grants": 1785
     },
     {
       "soc_unit": "2212 - Specialist medical practitioners",
-      "grants": 1703
+      "grants": 1702
     },
     {
       "soc_unit": "2119 - Natural and social science professionals n.e.c.",
-      "grants": 1355
+      "grants": 1470
     },
     {
       "soc_unit": "3556 - Sales accounts and business development managers",
-      "grants": 1343
-    },
-    {
-      "soc_unit": "1111 - Chief executives and senior officials",
-      "grants": 1119
-    },
-    {
-      "soc_unit": "2237 - Other registered nursing professionals",
-      "grants": 1097
-    },
-    {
-      "soc_unit": "1131 - Financial managers and directors",
-      "grants": 1097
+      "grants": 1351
     },
     {
       "soc_unit": "2129 - Engineering professionals n.e.c.",
-      "grants": 1091
+      "grants": 1149
     },
     {
-      "soc_unit": "3431 - Sports players",
-      "grants": 1060
+      "soc_unit": "1111 - Chief executives and senior officials",
+      "grants": 1121
+    },
+    {
+      "soc_unit": "1131 - Financial managers and directors",
+      "grants": 1099
+    },
+    {
+      "soc_unit": "2237 - Other registered nursing professionals",
+      "grants": 1098
     },
     {
       "soc_unit": "2122 - Mechanical engineers",
-      "grants": 1025
+      "grants": 1070
+    },
+    {
+      "soc_unit": "3431 - Sports players",
+      "grants": 1064
     },
     {
       "soc_unit": "3432 - Sports coaches, instructors and officials",
@@ -426,19 +426,19 @@
     },
     {
       "soc_unit": "3221 - Youth and community workers",
-      "grants": 883
+      "grants": 898
+    },
+    {
+      "soc_unit": "3554 - Advertising and marketing associate professionals",
+      "grants": 797
     },
     {
       "soc_unit": "2440 - Business and financial project management professionals",
-      "grants": 773
-    },
-    {
-      "soc_unit": "2412 - Solicitors and lawyers",
-      "grants": 758
+      "grants": 790
     },
     {
       "soc_unit": "2162 - Other researchers, unspecified discipline",
-      "grants": 743
+      "grants": 788
     }
   ],
   "top_soc_units_alltime": [
@@ -448,223 +448,223 @@
     },
     {
       "soc_unit": "9111 - Farm workers",
-      "grants": 34274
+      "grants": 46536
     },
     {
       "soc_unit": "5112 - Horticultural trades",
-      "grants": 21738
-    },
-    {
-      "soc_unit": "2211 - Generalist medical practitioners",
-      "grants": 6842
+      "grants": 27367
     },
     {
       "soc_unit": "2134 - Programmers and software development professionals",
-      "grants": 6047
+      "grants": 7391
+    },
+    {
+      "soc_unit": "2211 - Generalist medical practitioners",
+      "grants": 7335
     },
     {
       "soc_unit": "2422 - Finance and investment analysts and advisers",
-      "grants": 4951
+      "grants": 7194
     },
     {
       "soc_unit": "2431 - Management consultants and business analysts",
-      "grants": 4834
+      "grants": 5811
     },
     {
       "soc_unit": "2133 - IT business analysts, architects and systems designers",
-      "grants": 4716
+      "grants": 5591
     },
     {
       "soc_unit": "6135 - Care workers and home carers",
-      "grants": 4193
+      "grants": 4180
     },
     {
       "soc_unit": "3413 - Actors, entertainers and presenters",
-      "grants": 3245
+      "grants": 3810
     },
     {
       "soc_unit": "3415 - Musicians",
-      "grants": 2588
-    },
-    {
-      "soc_unit": "2212 - Specialist medical practitioners",
-      "grants": 2574
+      "grants": 3033
     },
     {
       "soc_unit": "2463 - Clergy",
-      "grants": 2562
+      "grants": 2991
+    },
+    {
+      "soc_unit": "2212 - Specialist medical practitioners",
+      "grants": 2882
     },
     {
       "soc_unit": "2119 - Natural and social science professionals n.e.c.",
-      "grants": 2089
+      "grants": 2489
     },
     {
       "soc_unit": "3556 - Sales accounts and business development managers",
-      "grants": 2000
-    },
-    {
-      "soc_unit": "3432 - Sports coaches, instructors and officials",
-      "grants": 1745
-    },
-    {
-      "soc_unit": "2237 - Other registered nursing professionals",
-      "grants": 1723
-    },
-    {
-      "soc_unit": "1131 - Financial managers and directors",
-      "grants": 1648
+      "grants": 2320
     },
     {
       "soc_unit": "2129 - Engineering professionals n.e.c.",
-      "grants": 1635
+      "grants": 2074
+    },
+    {
+      "soc_unit": "3432 - Sports coaches, instructors and officials",
+      "grants": 1947
+    },
+    {
+      "soc_unit": "1131 - Financial managers and directors",
+      "grants": 1925
     },
     {
       "soc_unit": "1111 - Chief executives and senior officials",
-      "grants": 1616
+      "grants": 1877
+    },
+    {
+      "soc_unit": "2237 - Other registered nursing professionals",
+      "grants": 1868
     },
     {
       "soc_unit": "2122 - Mechanical engineers",
-      "grants": 1509
+      "grants": 1854
     },
     {
       "soc_unit": "3431 - Sports players",
-      "grants": 1364
+      "grants": 1805
     },
     {
       "soc_unit": "2162 - Other researchers, unspecified discipline",
-      "grants": 1197
+      "grants": 1358
+    },
+    {
+      "soc_unit": "3554 - Advertising and marketing associate professionals",
+      "grants": 1335
     },
     {
       "soc_unit": "2440 - Business and financial project management professionals",
-      "grants": 1110
-    },
-    {
-      "soc_unit": "3221 - Youth and community workers",
-      "grants": 1105
+      "grants": 1299
     }
   ],
   "top_nationalities_2025": [
     {
       "nationality": "India",
-      "grants": 15982
+      "grants": 16039
     },
     {
       "nationality": "Kyrgyzstan",
-      "grants": 12646
+      "grants": 12651
     },
     {
       "nationality": "Uzbekistan",
-      "grants": 6330
-    },
-    {
-      "nationality": "Kazakhstan",
-      "grants": 5869
-    },
-    {
-      "nationality": "Tajikistan",
-      "grants": 5707
+      "grants": 6334
     },
     {
       "nationality": "United States",
-      "grants": 5456
+      "grants": 6144
+    },
+    {
+      "nationality": "Kazakhstan",
+      "grants": 5857
+    },
+    {
+      "nationality": "Tajikistan",
+      "grants": 5691
     },
     {
       "nationality": "Pakistan",
-      "grants": 3739
-    },
-    {
-      "nationality": "China",
-      "grants": 3081
-    },
-    {
-      "nationality": "Kenya",
-      "grants": 2972
+      "grants": 3773
     },
     {
       "nationality": "France",
-      "grants": 2924
+      "grants": 3654
     },
     {
-      "nationality": "Nigeria",
-      "grants": 2851
+      "nationality": "China",
+      "grants": 3224
     },
     {
-      "nationality": "Philippines",
-      "grants": 2698
+      "nationality": "Kenya",
+      "grants": 2976
     },
     {
       "nationality": "Germany",
-      "grants": 2569
+      "grants": 2872
+    },
+    {
+      "nationality": "Nigeria",
+      "grants": 2861
+    },
+    {
+      "nationality": "Philippines",
+      "grants": 2686
     },
     {
       "nationality": "Italy",
-      "grants": 2270
+      "grants": 2396
     },
     {
       "nationality": "South Africa",
-      "grants": 2054
-    },
-    {
-      "nationality": "Moldova",
-      "grants": 1966
+      "grants": 2064
     },
     {
       "nationality": "Spain",
-      "grants": 1698
+      "grants": 1978
+    },
+    {
+      "nationality": "Moldova",
+      "grants": 1960
     },
     {
       "nationality": "Turkey",
-      "grants": 1550
+      "grants": 1555
     },
     {
       "nationality": "Japan",
-      "grants": 1481
+      "grants": 1487
     },
     {
       "nationality": "Australia",
-      "grants": 1299
+      "grants": 1319
     }
   ],
   "top_subgroups_2025": [
     {
       "subgroup": "Seasonal Worker (previously Tier 5)",
-      "grants": 38676
+      "grants": 38647
     },
     {
       "subgroup": "Skilled Worker",
-      "grants": 32248
+      "grants": 32294
     },
     {
       "subgroup": "Health and Care Worker",
-      "grants": 13177
+      "grants": 13094
     },
     {
       "subgroup": "Senior or Specialist Worker (Global Business Mobility)",
-      "grants": 12436
-    },
-    {
-      "subgroup": "Creative Worker",
-      "grants": 5976
+      "grants": 12412
     },
     {
       "subgroup": "Government Authorised Exchange (previously Tier 5)",
-      "grants": 3662
+      "grants": 6821
+    },
+    {
+      "subgroup": "Creative Worker",
+      "grants": 5988
     },
     {
       "subgroup": "International Sportsperson",
-      "grants": 2078
+      "grants": 2080
     },
     {
       "subgroup": "Charity Worker (previously Tier 5)",
-      "grants": 1437
+      "grants": 1447
     },
     {
       "subgroup": "Religious Worker (previously Tier 5)",
-      "grants": 1357
+      "grants": 1351
     },
     {
       "subgroup": "Minister of Religion (previously Tier 2)",
-      "grants": 553
+      "grants": 555
     },
     {
       "subgroup": "Graduate Trainee (Global Business Mobility)",
@@ -676,11 +676,11 @@
     },
     {
       "subgroup": "Service Supplier (Global Business Mobility)",
-      "grants": 175
+      "grants": 178
     },
     {
       "subgroup": "UK Expansion Worker (Global Business Mobility)",
-      "grants": 162
+      "grants": 160
     },
     {
       "subgroup": "Scale-up Worker",
@@ -695,9 +695,9 @@
     "2021": 3721,
     "2022": 37394,
     "2023": 108099,
-    "2024": 9653,
-    "2025": 3190,
-    "2026": 11
+    "2024": 9648,
+    "2025": 3179,
+    "2026": 21
   },
   "time_series_top_10_units": {
     "*": {
@@ -712,73 +712,73 @@
       "2021": 0,
       "2022": 0,
       "2023": 0,
-      "2024": 2217,
-      "2025": 23865,
-      "2026": 8192
+      "2024": 2208,
+      "2025": 23834,
+      "2026": 20494
     },
     "5112 - Horticultural trades": {
       "2021": 0,
       "2022": 0,
       "2023": 0,
-      "2024": 1769,
-      "2025": 14204,
-      "2026": 5765
-    },
-    "2211 - Generalist medical practitioners": {
-      "2021": 0,
-      "2022": 0,
-      "2023": 0,
-      "2024": 1113,
-      "2025": 5006,
-      "2026": 723
+      "2024": 1760,
+      "2025": 14212,
+      "2026": 11395
     },
     "2134 - Programmers and software development professionals": {
       "2021": 0,
       "2022": 0,
       "2023": 0,
-      "2024": 955,
-      "2025": 4202,
-      "2026": 890
+      "2024": 960,
+      "2025": 4388,
+      "2026": 2043
+    },
+    "2211 - Generalist medical practitioners": {
+      "2021": 0,
+      "2022": 0,
+      "2023": 0,
+      "2024": 1108,
+      "2025": 4953,
+      "2026": 1274
     },
     "2422 - Finance and investment analysts and advisers": {
       "2021": 0,
       "2022": 0,
       "2023": 0,
-      "2024": 649,
-      "2025": 3533,
-      "2026": 769
+      "2024": 681,
+      "2025": 3975,
+      "2026": 2538
     },
     "2431 - Management consultants and business analysts": {
       "2021": 0,
       "2022": 0,
       "2023": 0,
-      "2024": 741,
-      "2025": 3236,
-      "2026": 857
+      "2024": 746,
+      "2025": 3305,
+      "2026": 1760
     },
     "2133 - IT business analysts, architects and systems designers": {
       "2021": 0,
       "2022": 0,
       "2023": 0,
-      "2024": 771,
-      "2025": 3206,
-      "2026": 739
+      "2024": 767,
+      "2025": 3196,
+      "2026": 1628
     },
     "6135 - Care workers and home carers": {
       "2021": 0,
       "2022": 0,
       "2023": 0,
-      "2024": 1669,
-      "2025": 2522,
-      "2026": 2
+      "2024": 1665,
+      "2025": 2512,
+      "2026": 3
     },
     "3413 - Actors, entertainers and presenters": {
       "2021": 0,
       "2022": 0,
       "2023": 0,
       "2024": 459,
-      "2025": 2127,
-      "2026": 659
+      "2025": 2135,
+      "2026": 1216
     }
   }
 }

@@ -1,115 +1,115 @@
 {
-  "source": "Home Office Immigration Statistics, year ending March 2026 (released 21 May 2026): Asy_D01 (claims), Ret_D01 (returns), and asylum-grant-rates.json (lifted from asylumstats, derived from Asy_D02 with appeal uplift from FT-IAC outcomes). Joined with DWP Stat-Xplore NINo flow rolling year ending Q4 2025.",
+  "source": "Home Office Immigration Statistics, year ending June 2026: Asy_D01 (claims), Ret_D01 (returns), and asylum-grant-rates.json (lifted from asylumstats, derived from Asy_D02 with appeal uplift from FT-IAC outcomes). Joined with DWP Stat-Xplore NINo flow rolling year ending Q4 2025.",
   "lastUpdated": "2026-05-27",
   "caveat": "Each metric comes from a different concept and they cannot be summed or netted. NINo flow is who registered to work or claim. Asylum claims are who applied for protection. Grant rate is on substantive initial decisions (the cohort being decided in the recent period, not the same individuals as 2025 claimants). Returns include enforced removals AND voluntary departures AND port refusals \u2014 three distinct flows surfaced separately. The bridge does not produce a per-individual story; it shows the aggregate composition of each flow per nationality.",
   "nationalTotals": {
-    "asylumClaims2025": 100625,
-    "returns2025": 57679,
+    "asylumClaims2025": 101911,
+    "returns2025": 58069,
     "returns2025_byType": {
-      "Enforced return": 9912,
-      "Refused entry at port and subsequently departed": 18308,
-      "Voluntary return": 29459
+      "Enforced return": 9908,
+      "Refused entry at port and subsequently departed": 18354,
+      "Voluntary return": 29807
     },
     "ninoUk_rollingYearTotal": 569659
   },
   "topClaimNationalities2025": [
     {
       "country": "Pakistan",
-      "claims": 10638
+      "claims": 10822
     },
     {
       "country": "Eritrea",
-      "claims": 8948
+      "claims": 8907
     },
     {
       "country": "Iran",
-      "claims": 7419
+      "claims": 7430
     },
     {
       "country": "Afghanistan",
-      "claims": 6462
+      "claims": 6511
     },
     {
       "country": "Bangladesh",
-      "claims": 6247
+      "claims": 6419
     },
     {
       "country": "Sudan",
-      "claims": 5869
+      "claims": 5874
     },
     {
       "country": "India",
-      "claims": 5751
+      "claims": 5853
     },
     {
       "country": "Somalia",
-      "claims": 4777
+      "claims": 4783
     },
     {
       "country": "Nigeria",
-      "claims": 2904
+      "claims": 2955
     },
     {
       "country": "Vietnam",
-      "claims": 2428
-    },
-    {
-      "country": "Brazil",
-      "claims": 2416
+      "claims": 2503
     },
     {
       "country": "Iraq",
-      "claims": 2370
+      "claims": 2471
+    },
+    {
+      "country": "Brazil",
+      "claims": 2437
     },
     {
       "country": "Sri Lanka",
-      "claims": 2243
+      "claims": 2300
     },
     {
       "country": "Ethiopia",
-      "claims": 2096
+      "claims": 2158
     },
     {
-      "country": "Syria",
-      "claims": 1959
+      "country": "Refugee",
+      "claims": 2088
     }
   ],
   "topReturnNationalities2025": [
     {
       "country": "India",
-      "returns": 10388
+      "returns": 10446
     },
     {
       "country": "Brazil",
-      "returns": 7499
+      "returns": 7540
     },
     {
       "country": "Romania",
-      "returns": 7486
+      "returns": 7516
     },
     {
       "country": "Albania",
-      "returns": 4922
+      "returns": 4975
     },
     {
       "country": "Nigeria",
-      "returns": 1516
-    },
-    {
-      "country": "Bulgaria",
-      "returns": 1440
+      "returns": 1524
     },
     {
       "country": "China",
-      "returns": 1420
+      "returns": 1446
+    },
+    {
+      "country": "Bulgaria",
+      "returns": 1443
     },
     {
       "country": "Pakistan",
-      "returns": 1406
+      "returns": 1428
     },
     {
       "country": "Poland",
-      "returns": 1232
+      "returns": 1240
     },
     {
       "country": "United States",
@@ -117,120 +117,120 @@
     },
     {
       "country": "Colombia",
-      "returns": 747
+      "returns": 749
     },
     {
       "country": "Turkey",
-      "returns": 601
+      "returns": 615
     },
     {
       "country": "France",
-      "returns": 592
+      "returns": 597
     },
     {
       "country": "Iraq",
-      "returns": 572
+      "returns": 575
     },
     {
       "country": "Portugal",
-      "returns": 533
+      "returns": 536
     }
   ],
   "bridge": [
     {
       "country": "India",
       "ninoFlowRollingYear_UK": 129772,
-      "asylumClaims2025": 5751,
+      "asylumClaims2025": 5853,
       "asylumGrantRatePctRecent": 2.7,
       "asylumGrantRateIncludingAppealsPct": 7.6,
       "appealUpliftPp": 4.4,
       "asylumClaimsAllTime_total": 22183,
-      "returns2025_total": 10388,
+      "returns2025_total": 10446,
       "returns2025_byType": {
         "Enforced return": 781,
-        "Refused entry at port and subsequently departed": 591,
-        "Voluntary return": 9016
+        "Refused entry at port and subsequently departed": 593,
+        "Voluntary return": 9072
       }
     },
     {
       "country": "Pakistan",
       "ninoFlowRollingYear_UK": 56201,
-      "asylumClaims2025": 10638,
+      "asylumClaims2025": 10822,
       "asylumGrantRatePctRecent": 39,
       "asylumGrantRateIncludingAppealsPct": 49.8,
       "appealUpliftPp": 14,
       "asylumClaimsAllTime_total": 34540,
-      "returns2025_total": 1406,
+      "returns2025_total": 1428,
       "returns2025_byType": {
         "Enforced return": 136,
-        "Refused entry at port and subsequently departed": 99,
-        "Voluntary return": 1171
+        "Refused entry at port and subsequently departed": 100,
+        "Voluntary return": 1192
       }
     },
     {
       "country": "Nigeria",
       "ninoFlowRollingYear_UK": 45877,
-      "asylumClaims2025": 2904,
+      "asylumClaims2025": 2955,
       "asylumGrantRatePctRecent": 35.2,
       "asylumGrantRateIncludingAppealsPct": 44.3,
       "appealUpliftPp": 13.8,
       "asylumClaimsAllTime_total": 11872,
-      "returns2025_total": 1516,
+      "returns2025_total": 1524,
       "returns2025_byType": {
-        "Enforced return": 100,
-        "Refused entry at port and subsequently departed": 148,
-        "Voluntary return": 1268
+        "Enforced return": 101,
+        "Refused entry at port and subsequently departed": 149,
+        "Voluntary return": 1274
       }
     },
     {
       "country": "China",
       "ninoFlowRollingYear_UK": 27837,
-      "asylumClaims2025": 1471,
+      "asylumClaims2025": 1480,
       "asylumGrantRatePctRecent": 16.5,
       "asylumGrantRateIncludingAppealsPct": 22.9,
       "appealUpliftPp": 10.5,
       "asylumClaimsAllTime_total": 8608,
-      "returns2025_total": 1420,
+      "returns2025_total": 1446,
       "returns2025_byType": {
-        "Enforced return": 162,
-        "Refused entry at port and subsequently departed": 256,
-        "Voluntary return": 1002
+        "Enforced return": 161,
+        "Refused entry at port and subsequently departed": 258,
+        "Voluntary return": 1027
       }
     },
     {
       "country": "Nepal",
       "ninoFlowRollingYear_UK": 25087,
-      "asylumClaims2025": 475,
+      "asylumClaims2025": 478,
       "asylumGrantRatePctRecent": 2.7,
       "asylumGrantRateIncludingAppealsPct": 5.9,
       "appealUpliftPp": 3,
       "asylumClaimsAllTime_total": 3553,
-      "returns2025_total": 364,
+      "returns2025_total": 368,
       "returns2025_byType": {
         "Enforced return": 53,
         "Refused entry at port and subsequently departed": 11,
-        "Voluntary return": 300
+        "Voluntary return": 304
       }
     },
     {
       "country": "Bangladesh",
       "ninoFlowRollingYear_UK": 16145,
-      "asylumClaims2025": 6247,
+      "asylumClaims2025": 6419,
       "asylumGrantRatePctRecent": 17.4,
       "asylumGrantRateIncludingAppealsPct": 28.6,
       "appealUpliftPp": 11.9,
       "asylumClaimsAllTime_total": 25141,
-      "returns2025_total": 369,
+      "returns2025_total": 378,
       "returns2025_byType": {
         "Enforced return": 43,
         "Refused entry at port and subsequently departed": 35,
-        "Voluntary return": 291
+        "Voluntary return": 300
       }
     },
     {
       "country": "United States",
       "ninoFlowRollingYear_UK": 15508,
-      "asylumClaims2025": 156,
+      "asylumClaims2025": 159,
       "asylumGrantRatePctRecent": 23.3,
       "asylumGrantRateIncludingAppealsPct": 13.9,
       "appealUpliftPp": 5.4,
@@ -238,38 +238,38 @@
       "returns2025_total": 789,
       "returns2025_byType": {
         "Enforced return": 91,
-        "Refused entry at port and subsequently departed": 525,
-        "Voluntary return": 173
+        "Refused entry at port and subsequently departed": 522,
+        "Voluntary return": 176
       }
     },
     {
       "country": "Ukraine",
       "ninoFlowRollingYear_UK": 13167,
-      "asylumClaims2025": 1503,
+      "asylumClaims2025": 1521,
       "asylumGrantRatePctRecent": 31.1,
       "asylumGrantRateIncludingAppealsPct": 57.1,
       "appealUpliftPp": 14,
       "asylumClaimsAllTime_total": 3856,
-      "returns2025_total": 339,
+      "returns2025_total": 341,
       "returns2025_byType": {
         "Enforced return": 3,
-        "Refused entry at port and subsequently departed": 164,
-        "Voluntary return": 172
+        "Refused entry at port and subsequently departed": 162,
+        "Voluntary return": 176
       }
     },
     {
       "country": "Iran",
       "ninoFlowRollingYear_UK": 11911,
-      "asylumClaims2025": 7419,
+      "asylumClaims2025": 7430,
       "asylumGrantRatePctRecent": 72,
       "asylumGrantRateIncludingAppealsPct": 85.8,
       "appealUpliftPp": 19.1,
       "asylumClaimsAllTime_total": 48049,
-      "returns2025_total": 375,
+      "returns2025_total": 378,
       "returns2025_byType": {
         "Enforced return": 25,
         "Refused entry at port and subsequently departed": 232,
-        "Voluntary return": 118
+        "Voluntary return": 121
       }
     },
     {
@@ -289,16 +289,16 @@
     {
       "country": "Afghanistan",
       "ninoFlowRollingYear_UK": 10337,
-      "asylumClaims2025": 6462,
+      "asylumClaims2025": 6511,
       "asylumGrantRatePctRecent": 64.2,
       "asylumGrantRateIncludingAppealsPct": 79.1,
       "appealUpliftPp": 12.2,
       "asylumClaimsAllTime_total": 39520,
-      "returns2025_total": 221,
+      "returns2025_total": 224,
       "returns2025_byType": {
         "Enforced return": 64,
         "Refused entry at port and subsequently departed": 82,
-        "Voluntary return": 75
+        "Voluntary return": 78
       }
     },
     {
@@ -309,54 +309,54 @@
       "asylumGrantRateIncludingAppealsPct": null,
       "appealUpliftPp": null,
       "asylumClaimsAllTime_total": null,
-      "returns2025_total": 109,
+      "returns2025_total": 112,
       "returns2025_byType": {
         "Enforced return": 8,
         "Refused entry at port and subsequently departed": 62,
-        "Voluntary return": 39
+        "Voluntary return": 42
       }
     },
     {
       "country": "Eritrea",
       "ninoFlowRollingYear_UK": 9289,
-      "asylumClaims2025": 8948,
+      "asylumClaims2025": 8907,
       "asylumGrantRatePctRecent": 90.4,
       "asylumGrantRateIncludingAppealsPct": 96.3,
       "appealUpliftPp": 12.1,
       "asylumClaimsAllTime_total": 29550,
-      "returns2025_total": 262,
+      "returns2025_total": 261,
       "returns2025_byType": {
         "Enforced return": 58,
-        "Refused entry at port and subsequently departed": 193,
+        "Refused entry at port and subsequently departed": 192,
         "Voluntary return": 11
       }
     },
     {
       "country": "Ghana",
       "ninoFlowRollingYear_UK": 9227,
-      "asylumClaims2025": 529,
+      "asylumClaims2025": 547,
       "asylumGrantRatePctRecent": 24.9,
       "asylumGrantRateIncludingAppealsPct": 28.5,
       "appealUpliftPp": 10.5,
       "asylumClaimsAllTime_total": 1961,
-      "returns2025_total": 447,
+      "returns2025_total": 452,
       "returns2025_byType": {
         "Enforced return": 49,
         "Refused entry at port and subsequently departed": 46,
-        "Voluntary return": 352
+        "Voluntary return": 357
       }
     },
     {
       "country": "Sudan",
       "ninoFlowRollingYear_UK": 8277,
-      "asylumClaims2025": 5869,
+      "asylumClaims2025": 5874,
       "asylumGrantRatePctRecent": 92.9,
       "asylumGrantRateIncludingAppealsPct": 97.6,
       "appealUpliftPp": 13.6,
       "asylumClaimsAllTime_total": 21954,
-      "returns2025_total": 398,
+      "returns2025_total": 390,
       "returns2025_byType": {
-        "Refused entry at port and subsequently departed": 350,
+        "Refused entry at port and subsequently departed": 342,
         "Voluntary return": 27,
         "Enforced return": 21
       }
@@ -364,172 +364,172 @@
     {
       "country": "Sri Lanka",
       "ninoFlowRollingYear_UK": 8244,
-      "asylumClaims2025": 2243,
+      "asylumClaims2025": 2300,
       "asylumGrantRatePctRecent": 31,
       "asylumGrantRateIncludingAppealsPct": 60.1,
       "appealUpliftPp": 33.2,
       "asylumClaimsAllTime_total": 9939,
-      "returns2025_total": 304,
+      "returns2025_total": 306,
       "returns2025_byType": {
         "Enforced return": 12,
         "Refused entry at port and subsequently departed": 26,
-        "Voluntary return": 266
+        "Voluntary return": 268
       }
     },
     {
       "country": "Turkey",
       "ninoFlowRollingYear_UK": 7662,
-      "asylumClaims2025": 1883,
+      "asylumClaims2025": 1888,
       "asylumGrantRatePctRecent": 37.1,
       "asylumGrantRateIncludingAppealsPct": 54.2,
       "appealUpliftPp": 13.2,
       "asylumClaimsAllTime_total": 13142,
-      "returns2025_total": 601,
+      "returns2025_total": 615,
       "returns2025_byType": {
         "Enforced return": 39,
         "Refused entry at port and subsequently departed": 100,
-        "Voluntary return": 462
+        "Voluntary return": 476
       }
     },
     {
       "country": "Philippines",
       "ninoFlowRollingYear_UK": 6903,
-      "asylumClaims2025": 96,
+      "asylumClaims2025": 97,
       "asylumGrantRatePctRecent": 6.3,
       "asylumGrantRateIncludingAppealsPct": 17,
       "appealUpliftPp": 10.7,
       "asylumClaimsAllTime_total": 1907,
-      "returns2025_total": 357,
+      "returns2025_total": 358,
       "returns2025_byType": {
         "Enforced return": 12,
         "Refused entry at port and subsequently departed": 54,
-        "Voluntary return": 291
+        "Voluntary return": 292
       }
     },
     {
       "country": "Romania",
       "ninoFlowRollingYear_UK": 6604,
-      "asylumClaims2025": 68,
+      "asylumClaims2025": 75,
       "asylumGrantRatePctRecent": 2.6,
       "asylumGrantRateIncludingAppealsPct": 0.8,
       "appealUpliftPp": 0,
       "asylumClaimsAllTime_total": 300,
-      "returns2025_total": 7486,
+      "returns2025_total": 7516,
       "returns2025_byType": {
         "Enforced return": 1819,
-        "Refused entry at port and subsequently departed": 5227,
-        "Voluntary return": 440
+        "Refused entry at port and subsequently departed": 5236,
+        "Voluntary return": 461
       }
     },
     {
       "country": "Hong Kong",
       "ninoFlowRollingYear_UK": 5375,
-      "asylumClaims2025": 17,
+      "asylumClaims2025": 16,
       "asylumGrantRatePctRecent": 33,
       "asylumGrantRateIncludingAppealsPct": 53.4,
       "appealUpliftPp": 18,
       "asylumClaimsAllTime_total": 295,
-      "returns2025_total": 48,
+      "returns2025_total": 49,
       "returns2025_byType": {
         "Refused entry at port and subsequently departed": 26,
-        "Voluntary return": 13,
+        "Voluntary return": 14,
         "Enforced return": 9
       }
     },
     {
       "country": "Iraq",
       "ninoFlowRollingYear_UK": 5278,
-      "asylumClaims2025": 2370,
+      "asylumClaims2025": 2471,
       "asylumGrantRatePctRecent": 37.7,
       "asylumGrantRateIncludingAppealsPct": 57,
       "appealUpliftPp": 26.1,
       "asylumClaimsAllTime_total": 29532,
-      "returns2025_total": 572,
+      "returns2025_total": 575,
       "returns2025_byType": {
         "Enforced return": 47,
-        "Refused entry at port and subsequently departed": 208,
-        "Voluntary return": 317
+        "Refused entry at port and subsequently departed": 207,
+        "Voluntary return": 321
       }
     },
     {
       "country": "Canada",
       "ninoFlowRollingYear_UK": 5235,
-      "asylumClaims2025": 16,
+      "asylumClaims2025": 17,
       "asylumGrantRatePctRecent": null,
       "asylumGrantRateIncludingAppealsPct": null,
       "appealUpliftPp": null,
       "asylumClaimsAllTime_total": null,
-      "returns2025_total": 189,
+      "returns2025_total": 190,
       "returns2025_byType": {
         "Enforced return": 56,
-        "Refused entry at port and subsequently departed": 96,
+        "Refused entry at port and subsequently departed": 97,
         "Voluntary return": 37
       }
     },
     {
       "country": "Zimbabwe",
       "ninoFlowRollingYear_UK": 5097,
-      "asylumClaims2025": 252,
+      "asylumClaims2025": 257,
       "asylumGrantRatePctRecent": 35.2,
       "asylumGrantRateIncludingAppealsPct": 48.8,
       "appealUpliftPp": 24.9,
       "asylumClaimsAllTime_total": 1156,
-      "returns2025_total": 191,
+      "returns2025_total": 192,
       "returns2025_byType": {
         "Enforced return": 24,
         "Refused entry at port and subsequently departed": 12,
-        "Voluntary return": 155
+        "Voluntary return": 156
       }
     },
     {
       "country": "France",
       "ninoFlowRollingYear_UK": 5044,
-      "asylumClaims2025": 12,
+      "asylumClaims2025": 10,
       "asylumGrantRatePctRecent": null,
       "asylumGrantRateIncludingAppealsPct": null,
       "appealUpliftPp": null,
       "asylumClaimsAllTime_total": null,
-      "returns2025_total": 592,
+      "returns2025_total": 597,
       "returns2025_byType": {
         "Enforced return": 46,
-        "Refused entry at port and subsequently departed": 531,
-        "Voluntary return": 15
+        "Refused entry at port and subsequently departed": 534,
+        "Voluntary return": 17
       }
     },
     {
       "country": "Kyrgyzstan",
       "ninoFlowRollingYear_UK": 4990,
-      "asylumClaims2025": 213,
+      "asylumClaims2025": 217,
       "asylumGrantRatePctRecent": 14.4,
       "asylumGrantRateIncludingAppealsPct": 29.2,
       "appealUpliftPp": 6.2,
       "asylumClaimsAllTime_total": 868,
-      "returns2025_total": 167,
+      "returns2025_total": 168,
       "returns2025_byType": {
         "Enforced return": 2,
         "Refused entry at port and subsequently departed": 7,
-        "Voluntary return": 158
+        "Voluntary return": 159
       }
     },
     {
       "country": "Italy",
       "ninoFlowRollingYear_UK": 4811,
-      "asylumClaims2025": 24,
+      "asylumClaims2025": 25,
       "asylumGrantRatePctRecent": null,
       "asylumGrantRateIncludingAppealsPct": null,
       "appealUpliftPp": null,
       "asylumClaimsAllTime_total": null,
-      "returns2025_total": 372,
+      "returns2025_total": 375,
       "returns2025_byType": {
         "Enforced return": 93,
         "Refused entry at port and subsequently departed": 231,
-        "Voluntary return": 48
+        "Voluntary return": 51
       }
     },
     {
       "country": "Kenya",
       "ninoFlowRollingYear_UK": 4810,
-      "asylumClaims2025": 287,
+      "asylumClaims2025": 294,
       "asylumGrantRatePctRecent": 39.4,
       "asylumGrantRateIncludingAppealsPct": 60.1,
       "appealUpliftPp": 19.2,
@@ -559,15 +559,15 @@
     {
       "country": "Spain",
       "ninoFlowRollingYear_UK": 3915,
-      "asylumClaims2025": 23,
+      "asylumClaims2025": 20,
       "asylumGrantRatePctRecent": null,
       "asylumGrantRateIncludingAppealsPct": null,
       "appealUpliftPp": null,
       "asylumClaimsAllTime_total": null,
-      "returns2025_total": 420,
+      "returns2025_total": 421,
       "returns2025_byType": {
         "Enforced return": 75,
-        "Refused entry at port and subsequently departed": 291,
+        "Refused entry at port and subsequently departed": 292,
         "Voluntary return": 54
       }
     }

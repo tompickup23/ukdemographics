@@ -24,12 +24,19 @@ release (21 May 2026).
 """
 import json
 from collections import defaultdict
+import sys
 from pathlib import Path
 
 import openpyxl
 
+# Release files carry their period in the filename, so the period is resolved rather
+# than written here. See scripts/lib/newest_release.py: a pinned filename keeps working
+# while reading an older release than the one published.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from newest_release import newest_release, period_phrase  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
-XLSX = ROOT / "data/raw/ho_visas_extra/education-visas-datasets-mar-2026.xlsx"
+XLSX = newest_release(ROOT / "data/raw/ho_visas_extra", "education-visas-datasets")
 OUT = ROOT / "src/data/live/education-visas.json"
 
 
@@ -125,8 +132,8 @@ def main():
     out = {
         "source": (
             "Home Office Immigration Statistics: Education visa applications "
-            "and grants by course level, year ending March 2026 release "
-            "(21 May 2026). Sheets Data_Edu_D01 (applications) and "
+            "and grants by course level, "
+            f"{period_phrase(XLSX)} release. Sheets Data_Edu_D01 (applications) and "
             "Data_Edu_D02 (grants of entry clearance for study)."
         ),
         "lastUpdated": "2026-05-27",
