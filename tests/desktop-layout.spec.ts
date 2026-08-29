@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { disableMotion, stabilizePage, waitForFonts } from "./layout-helpers";
 
 const pages = [
-  { name: "home", path: "/", h1Match: /local authorities|community mapped/i },
+  { name: "home", path: "/", h1Match: /what will your area look like/i },
   { name: "places", path: "/places/", h1Match: /Local authorities|All areas|Places/i },
   { name: "place-burnley", path: "/places/burnley/", h1Match: /Burnley/i },
   { name: "national", path: "/national/", h1Match: /National demographic/i },
