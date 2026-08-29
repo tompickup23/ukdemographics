@@ -16,7 +16,7 @@ const slug = term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, 
   .glossary-term {
     text-decoration: underline;
     text-decoration-style: dotted;
-    text-decoration-color: rgba(6, 182, 212, 0.4);
+    text-decoration-color: color-mix(in srgb, var(--accent-bright) 40%, transparent);
     text-underline-offset: 3px;
     cursor: help;
     position: relative;
@@ -31,7 +31,7 @@ const slug = term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, 
     font-size: 9px;
     font-weight: 700;
     border-radius: 50%;
-    background: rgba(6, 182, 212, 0.15);
+    background: color-mix(in srgb, var(--accent-bright) 15%, transparent);
     color: var(--accent);
     margin-left: 2px;
     vertical-align: super;

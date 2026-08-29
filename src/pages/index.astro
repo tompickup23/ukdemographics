@@ -582,7 +582,7 @@ function findingColor(verdict: string): string {
   .hero-section {
     padding: 4rem 1.5rem 3rem;
     text-align: center;
-    background: linear-gradient(180deg, rgba(79, 70, 229, 0.08) 0%, transparent 60%);
+    background: var(--bg-subtle);
     position: relative;
     overflow: hidden;
   }
@@ -594,7 +594,7 @@ function findingColor(verdict: string): string {
     width: 120%;
     height: 120%;
     transform: translateX(-50%);
-    background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(79, 70, 229, 0.06) 30deg, transparent 60deg);
+    background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, color-mix(in srgb, var(--accent) 6%, transparent) 30deg, transparent 60deg);
     animation: radar-sweep 8s linear infinite;
     pointer-events: none;
   }
@@ -611,7 +611,7 @@ function findingColor(verdict: string): string {
     margin: 0 auto;
   }
   .hero-eyebrow {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -625,7 +625,7 @@ function findingColor(verdict: string): string {
   }
   .hero-stat {
     display: block;
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(3rem, 10vw, 5.5rem);
     font-weight: 800;
     color: var(--accent);
@@ -633,7 +633,7 @@ function findingColor(verdict: string): string {
   }
   .hero-label {
     display: block;
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(1.1rem, 3vw, 1.5rem);
     font-weight: 700;
     color: var(--ink);
@@ -668,7 +668,7 @@ function findingColor(verdict: string): string {
     width: 100%;
     padding: 1rem 1.25rem;
     font-size: 1rem;
-    font-family: "Manrope", sans-serif;
+    font-family: var(--font-sans);
     color: var(--ink);
     background: var(--bg-soft);
     border: 2px solid var(--border-strong);
@@ -702,14 +702,14 @@ function findingColor(verdict: string): string {
     border-bottom: 1px solid var(--border);
     transition: background 120ms;
   }
-  .hero-search :global(.lookup-result:hover) { background: rgba(79, 70, 229, 0.08); }
+  .hero-search :global(.lookup-result:hover) { background: color-mix(in srgb, var(--accent) 8%, transparent); }
   .hero-search :global(.lookup-result strong) { font-size: 0.95rem; }
   .hero-search :global(.lookup-result span) { font-size: 0.82rem; color: var(--muted); }
 
   /* ═══ FINDINGS STRIP ═══ */
   .findings-strip { margin-top: 3rem; }
   .strip-title {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 1.15rem;
     font-weight: 800;
     color: var(--ink);
@@ -738,13 +738,13 @@ function findingColor(verdict: string): string {
     transform: translateY(-2px);
   }
   .fsc-verdict { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
-  .fsc-stat { font-family: "Sora", sans-serif; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .fsc-stat { font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
   .fsc-headline { font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); line-height: 1.4; }
   .fsc-cta { font-size: 0.82rem; color: var(--accent); margin-top: auto; }
 
   /* ═══ SECTIONS ═══ */
   .section-title {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     font-weight: 800;
     color: var(--ink);
@@ -767,25 +767,25 @@ function findingColor(verdict: string): string {
   .demo-traj-segment {
     display: flex; justify-content: space-between; align-items: center;
     height: 36px; padding: 0 0.75rem; border-radius: 6px;
-    background: linear-gradient(90deg, var(--accent), rgba(79, 70, 229, 0.3));
+    background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 30%, transparent));
     transition: width 600ms ease;
   }
-  .demo-traj-current { background: linear-gradient(90deg, var(--accent-3), rgba(6, 182, 212, 0.3)); }
-  .demo-traj-proj { background: linear-gradient(90deg, var(--coral), rgba(239, 68, 68, 0.2)); }
-  .demo-traj-illustrative { opacity: 0.6; border: 1px dashed rgba(239, 68, 68, 0.4); background: linear-gradient(90deg, rgba(239, 68, 68, 0.3), rgba(239, 68, 68, 0.1)); }
-  .demo-traj-year { font-family: "Sora", sans-serif; font-size: 0.82rem; font-weight: 700; color: rgba(0, 0, 0, 0.7); }
-  .demo-traj-pct { font-family: "Sora", sans-serif; font-size: 0.92rem; font-weight: 800; color: rgba(0, 0, 0, 0.8); }
+  .demo-traj-current { background: linear-gradient(90deg, var(--accent-3), color-mix(in srgb, var(--accent-bright) 30%, transparent)); }
+  .demo-traj-proj { background: linear-gradient(90deg, var(--coral), color-mix(in srgb, var(--critical) 20%, transparent)); }
+  .demo-traj-illustrative { opacity: 0.6; border: 1px dashed color-mix(in srgb, var(--critical) 40%, transparent); background: linear-gradient(90deg, color-mix(in srgb, var(--critical) 30%, transparent), color-mix(in srgb, var(--critical) 10%, transparent)); }
+  .demo-traj-year { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; color: rgba(0, 0, 0, 0.7); }
+  .demo-traj-pct { font-family: var(--font-display); font-size: 0.92rem; font-weight: 800; color: rgba(0, 0, 0, 0.8); }
   .demo-traj-note { display: block; font-size: 0.75rem; color: var(--muted); opacity: 0.6; margin-top: 0.5rem; line-height: 1.4; }
   .demo-traj-note a { color: var(--accent); }
   .demo-bar-section { margin-top: 1.5rem; }
-  .demo-bar-title { font-family: "Sora", sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--ink-soft); margin: 0 0 0.75rem; }
+  .demo-bar-title { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; color: var(--ink-soft); margin: 0 0 0.75rem; }
   .demo-bar-visual { display: flex; flex-direction: column; gap: 0.35rem; }
   .demo-bar-row { display: grid; grid-template-columns: 120px 1fr 42px; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--ink); padding: 0.3rem 0; transition: opacity 180ms; }
   .demo-bar-row:hover { opacity: 0.8; }
   .demo-bar-name { font-size: 0.82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .demo-bar-track { display: block; height: 20px; background: rgba(239, 68, 68, 0.15); border-radius: 4px; overflow: hidden; }
-  .demo-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), rgba(79, 70, 229, 0.4)); border-radius: 4px; min-width: 4px; }
-  .demo-bar-pct { font-family: "Sora", sans-serif; font-size: 0.82rem; font-weight: 700; text-align: right; color: var(--muted); }
+  .demo-bar-track { display: block; height: 20px; background: color-mix(in srgb, var(--critical) 15%, transparent); border-radius: 4px; overflow: hidden; }
+  .demo-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, transparent)); border-radius: 4px; min-width: 4px; }
+  .demo-bar-pct { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; text-align: right; color: var(--muted); }
   .demo-bar-note { font-size: 0.78rem; color: var(--muted); margin: 0.6rem 0 0; max-width: 720px; line-height: 1.4; }
   .chip-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
@@ -799,31 +799,31 @@ function findingColor(verdict: string): string {
   }
   .region-card:hover { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-glow); }
   .region-name { font-weight: 700; font-size: 0.92rem; color: var(--ink); }
-  .region-stat { font-family: "Sora", sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+  .region-stat { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--accent); }
   .region-rate { font-size: 0.82rem; color: var(--muted); }
 
   /* ═══ FUTURE AREA ═══ */
   .future-section { margin-top: 3rem; padding: 2.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; }
   .future-inner { max-width: 640px; margin: 0 auto; }
   .future-search { position: relative; max-width: 480px; margin: 1.25rem auto 0; text-align: left; }
-  .future-search input { width: 100%; padding: 0.85rem 1rem; font-size: 1rem; font-family: "Manrope", sans-serif; color: var(--ink); background: var(--bg-soft); border: 2px solid var(--border-strong); border-radius: var(--radius-sm); outline: none; transition: border-color 180ms; }
+  .future-search input { width: 100%; padding: 0.85rem 1rem; font-size: 1rem; font-family: var(--font-sans); color: var(--ink); background: var(--bg-soft); border: 2px solid var(--border-strong); border-radius: var(--radius-sm); outline: none; transition: border-color 180ms; }
   .future-search input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow); }
   .future-results { position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: var(--bg-soft); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); z-index: 50; max-height: 240px; overflow-y: auto; }
   .future-results[hidden] { display: none; }
   .future-result-btn { display: block; width: 100%; padding: 0.65rem 1rem; text-align: left; font-size: 0.92rem; color: var(--ink); background: none; border: none; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 120ms; }
-  .future-result-btn:hover { background: rgba(79, 70, 229, 0.08); }
+  .future-result-btn:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
   .future-preview { margin-top: 1.25rem; }
   .future-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem; text-align: left; }
-  .future-card h3 { font-family: "Sora", sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--ink); margin: 0 0 1rem; }
+  .future-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--ink); margin: 0 0 1rem; }
   .future-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
   .future-stat-label { display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.2rem; }
-  .future-stat-value { font-family: "Sora", sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+  .future-stat-value { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; color: var(--accent); }
 
   /* ═══ CTAs ═══ */
   .cta-link { display: inline-block; margin-top: 1.25rem; font-size: 0.92rem; font-weight: 700; color: var(--accent); text-decoration: none; }
   .cta-link:hover { text-decoration: underline; }
   .cta-section { margin-top: 4rem; padding: 3rem 0 4rem; text-align: center; border-top: 1px solid var(--border); }
-  .cta-inner h2 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0; }
+  .cta-inner h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin: 0; }
   .cta-inner p { color: var(--muted); margin: 0.75rem auto 1.5rem; max-width: 500px; }
   .cta-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
 
@@ -833,7 +833,7 @@ function findingColor(verdict: string): string {
     padding: 2rem 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, rgba(79, 70, 229, 0.05) 0%, transparent 100%);
+    background: var(--bg-subtle);
   }
   .impact-strip-inner {
     display: grid;
@@ -858,7 +858,7 @@ function findingColor(verdict: string): string {
     background: var(--border);
   }
   .impact-number {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(1.6rem, 3.5vw, 2.4rem);
     font-weight: 800;
     color: var(--coral);
@@ -882,7 +882,7 @@ function findingColor(verdict: string): string {
     color: var(--muted);
     opacity: 0.65;
     margin-top: 0.25rem;
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
   }
   .impact-source {
     text-align: center;

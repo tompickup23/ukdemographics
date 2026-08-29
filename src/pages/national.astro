@@ -210,28 +210,28 @@ function fmtCompact(n: number) {
 </BaseLayout>
 
 <style>
-  h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
+  h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
   .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 720px; }
   .section-desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1rem; max-width: 720px; }
   .section-note { font-size: 0.82rem; color: var(--muted); margin-top: 0.5rem; max-width: 720px; }
   .bh-headline { margin: 1.5rem 0 2rem; }
 
   .chart-section { margin-top: 2.5rem; }
-  .chart-section h2 { font-family: "Sora", sans-serif; font-size: 1.15rem; font-weight: 800; margin: 0 0 0.5rem; }
+  .chart-section h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; margin: 0 0 0.5rem; }
   .chart { width: 100%; max-width: 720px; height: auto; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; }
-  .chart-anno { font-family: "Sora", sans-serif; font-size: 11px; font-weight: 700; fill: var(--ink); }
+  .chart-anno { font-family: var(--font-display); font-size: 11px; font-weight: 700; fill: var(--ink); }
   .chart-anno.coral { fill: var(--coral); }
-  .chart-tick { font-family: "Sora", sans-serif; font-size: 10.5px; fill: var(--muted); }
+  .chart-tick { font-family: var(--font-display); font-size: 10.5px; fill: var(--muted); }
 
   .table-section { margin-top: 2.5rem; }
-  .table-section h2 { font-family: "Sora", sans-serif; font-size: 1.15rem; font-weight: 800; margin: 0 0 0.75rem; }
+  .table-section h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; margin: 0 0 0.75rem; }
   .area-table { max-width: 700px; }
   .area-table-header { display: grid; grid-template-columns: 32px 1fr 70px 70px 70px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
   .area-row { display: grid; grid-template-columns: 32px 1fr 70px 70px 70px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
   .area-row:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
   .rank { font-size: 0.82rem; color: var(--muted); font-weight: 700; }
   .name { font-weight: 600; font-size: 0.88rem; }
-  .val { font-family: "Sora", sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+  .val { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; color: var(--accent); }
   .val.proj { color: var(--coral); }
   .val.change { color: var(--muted); }
 </style>

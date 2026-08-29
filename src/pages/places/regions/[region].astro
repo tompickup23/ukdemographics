@@ -49,14 +49,14 @@ const totalPop = regionAreas.reduce((s, a) => s + (a.population ?? 0), 0);
 </BaseLayout>
 
 <style>
-  h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.25rem; }
+  h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin: 0 0 0.25rem; }
   .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
   .area-table { max-width: 700px; }
   .area-table-header { display: grid; grid-template-columns: 1fr 80px 80px 100px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
   .area-row { display: grid; grid-template-columns: 1fr 80px 80px 100px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
-  .area-row:hover { background: rgba(79, 70, 229, 0.06); }
+  .area-row:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
   .area-name { font-weight: 600; font-size: 0.88rem; }
-  .area-wbi { font-family: "Sora", sans-serif; font-weight: 700; color: var(--accent); font-size: 0.88rem; }
-  .area-wbi-proj { font-family: "Sora", sans-serif; font-weight: 700; color: var(--coral); font-size: 0.88rem; }
+  .area-wbi { font-family: var(--font-display); font-weight: 700; color: var(--accent); font-size: 0.88rem; }
+  .area-wbi-proj { font-family: var(--font-display); font-weight: 700; color: var(--coral); font-size: 0.88rem; }
   .area-pop { font-size: 0.82rem; color: var(--muted); }
 </style>

@@ -33,11 +33,11 @@ const groupLabels: Record<string, string> = {
 };
 
 const groupColors: Record<string, string> = {
-  white_british: "#06b6d4",
+  white_british: "var(--accent-bright)",
   white_other: "#8b9cb3",
   asian: "#f59e0b",
   black: "#a78bfa",
-  mixed: "#10b981",
+  mixed: "var(--positive)",
   other: "#6b7280"
 };
 
@@ -108,7 +108,7 @@ const barData = timeline.map(snap => {
     background: var(--panel);
   }
   .eth-timeline-head h3 {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 1rem;
     font-weight: 700;
     margin: 0 0 0.15rem;
@@ -127,7 +127,7 @@ const barData = timeline.map(snap => {
     gap: 0.5rem;
   }
   .eth-year {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 0.82rem;
     font-weight: 700;
     color: var(--ink);
@@ -150,7 +150,7 @@ const barData = timeline.map(snap => {
     height: 32px;
     border-radius: 6px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--bg-subtle);
   }
   .eth-segment {
     display: flex;
@@ -164,7 +164,7 @@ const barData = timeline.map(snap => {
     font-size: 0.7rem;
     font-weight: 700;
     color: rgba(0, 0, 0, 0.7);
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 3px var(--bg);
     pointer-events: none;
   }
   .eth-projected {

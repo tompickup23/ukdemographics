@@ -48,14 +48,16 @@ const embedUrl = chartId ? `/embed/${chartId}/` : undefined;
       canvas.width = (vb.width || 560) * scale;
       canvas.height = (vb.height || 230) * scale;
       const ctx = canvas.getContext("2d")!;
-      ctx.fillStyle = "#04070d";
+      const cs = getComputedStyle(document.documentElement);
+      ctx.fillStyle = cs.getPropertyValue("--bg").trim() || "#ffffff";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       const img = new Image();
       img.onload = () => {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         // Watermark
-        ctx.font = `${12 * scale}px Sora, sans-serif`;
-        ctx.fillStyle = "rgba(255,255,255,0.25)";
+        const uiFont = cs.getPropertyValue("--font-sans").trim() || "sans-serif";
+        ctx.font = `${12 * scale}px ${uiFont}`;
+        ctx.fillStyle = cs.getPropertyValue("--text-faint").trim() || "#616970";
         ctx.textAlign = "right";
         ctx.fillText("ukdemographics.co.uk", canvas.width - 12 * scale, canvas.height - 8 * scale);
         const link = document.createElement("a");
@@ -90,7 +92,7 @@ const embedUrl = chartId ? `/embed/${chartId}/` : undefined;
     gap: 0.5rem;
     margin-top: 0.5rem;
     padding-top: 0.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--border);
   }
   .chart-source {
     font-size: 0.78rem;
