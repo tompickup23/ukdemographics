@@ -100,6 +100,48 @@ const topChangingMaxAbsPp = topChangingAreas.length > 0
   ? Math.max(...topChangingAreas.map((a) => Math.abs(a.changePp)))
   : 1;
 
+// The year an area is projected to fall below a 50% White British share, interpolated
+// between projection decades. A date is a thing a reader can picture; a percentage point
+// change is not. Returns 0 for areas already below half and null for areas the model
+// does not take across the line inside its horizon.
+function crossingYear(a: any): number | null {
+  const pts: Array<[number, number]> = [];
+  const now = a?.current?.groups?.white_british;
+  if (now == null) return null;
+  pts.push([2021, now]);
+  for (const y of [2031, 2041, 2051, 2061]) {
+    const v = a?.projections?.[String(y)]?.white_british;
+    if (v != null) pts.push([y, v]);
+  }
+  if (now < 50) return 0;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [y1, v1] = pts[i];
+    const [y2, v2] = pts[i + 1];
+    if (v1 >= 50 && v2 < 50) return Math.round(y1 + ((v1 - 50) / (v1 - v2)) * (y2 - y1));
+  }
+  return null;
+}
+
+// Only areas with a clear majority today. An area sitting at 52% in 2021 "crosses in
+// 2023" purely because it started next to the line, which is inside the model's own
+// 1.56pp error and is not a projection worth printing. Requiring a 60% base means the
+// year is carried by the trend rather than by the starting position, and it matches the
+// published finding, whose interest is the areas that are comfortably majority now.
+const CROSSING_MIN_BASE_PCT = 60;
+const crossingSoon = publicAreas
+  .map((area) => {
+    const rec = projData.areas[area.areaCode];
+    return { area, year: crossingYear(rec), now: rec?.current?.groups?.white_british ?? null };
+  })
+  .filter((r) => r.year !== null && r.now != null && r.now >= CROSSING_MIN_BASE_PCT)
+  .sort((a, b) => (a.year as number) - (b.year as number))
+  .slice(0, 8);
+
+const crossingAlready = publicAreas.filter((area) => {
+  const rec = projData.areas[area.areaCode];
+  return crossingYear(rec) === 0;
+}).length;
+
 // Get latest findings
 const allFindings = await getCollection("findings");
 const topFindings = allFindings
@@ -134,6 +176,7 @@ function findingColor(verdict: string): string {
   <!-- HERO -->
   <section class="hero-section">
     <div class="hero-inner">
+      <div class="hero-main">
       <div class="hero-eyebrow">Census 2021 projected to 2061 &middot; model v8.0</div>
       <h1 class="hero-headline">What will your area look like in 2051?</h1>
       <p class="hero-subline">
@@ -165,6 +208,37 @@ function findingColor(verdict: string): string {
       <a class="hero-source" href="/methodology/">
         Scored against Census 2021 before publication: 1.56pp average error, +0.05pp bias, 285 areas &rarr;
       </a>
+      </div>
+
+      <aside class="hero-panel">
+        <span class="hero-panel-eyebrow">England and Wales</span>
+        <h2 class="hero-panel-title">White British share of population</h2>
+        <div class="hero-traj">
+          {[
+            { yr: "2011", v: natWb2011, kind: "past", gloss: "four in five" },
+            { yr: "2021", v: natWb2021, kind: "now", gloss: "three in four" },
+            { yr: "2051", v: natWb2051, kind: "proj", gloss: "just over half" },
+            { yr: "2061", v: natWb2061, kind: "proj-pale", gloss: "under two in five" }
+          ].map((r) => (
+            <div class="hero-traj-row">
+              <span class="hero-traj-year">{r.yr}</span>
+              <span class="hero-traj-track">
+                <span class={`hero-traj-fill hero-traj-fill--${r.kind}`} style={`width: ${r.v.toFixed(1)}%`}></span>
+              </span>
+              <span class="hero-traj-pct">{fmtPct1(r.v)}</span>
+              <span class="hero-traj-gloss">{r.gloss}</span>
+            </div>
+          ))}
+        </div>
+        <div class="hero-traj-key">
+          <span><i class="hero-key-sw hero-key-sw--now"></i>Census</span>
+          <span><i class="hero-key-sw hero-key-sw--proj"></i>Projected</span>
+        </div>
+        <p class="hero-panel-note">
+          2061 covers {natAgg.n2061} of {fmtInt(totalAreas)} areas and is shown as illustrative.
+          Population-weighted across every area with a 2021 base.
+        </p>
+      </aside>
     </div>
   </section>
 
@@ -206,7 +280,7 @@ function findingColor(verdict: string): string {
         <span class="impact-context">{muslimMajority2051} projected Muslim majority by 2051.</span>
       </div>
     </div>
-    <p class="impact-source">Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations. The projections carry a known bias toward overstating the White British share, and areas where the model diverged are withheld. <a href="/methodology/">Full methodology &rarr;</a></p>
+    <p class="impact-source">Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations. The model was fitted on Census 2001 to 2011 and scored against Census 2021: mean absolute error 1.56 percentage points per decade, bias +0.05 points across 285 areas. Areas where the model diverged are withheld. <a href="/methodology/">Full methodology &rarr;</a></p>
   </section>
 
   <!-- ═══ DEMOGRAPHIC PROJECTIONS ═══ -->
@@ -219,38 +293,6 @@ function findingColor(verdict: string): string {
         {fmtInt(totalAreas)} local authorities. Census 2011 and 2021 observed data. Hamilton-Perry CCR methodology.
         1,000 Monte Carlo simulations. Every ratio traced to Census observations.
       </p>
-
-      <!-- National trajectory -->
-      <div class="demo-national">
-        <div class="demo-trajectory">
-          <span class="demo-traj-label">White British share (population-weighted, {fmtInt(totalAreas)} local authorities)</span>
-          <div class="demo-traj-bar">
-            <div class="demo-traj-segment" style={`width: ${natWb2011.toFixed(1)}%`}>
-              <span class="demo-traj-year">2011 Census</span>
-              <span class="demo-traj-pct">{fmtPct1(natWb2011)}</span>
-            </div>
-          </div>
-          <div class="demo-traj-bar">
-            <div class="demo-traj-segment demo-traj-current" style={`width: ${natWb2021.toFixed(1)}%`}>
-              <span class="demo-traj-year">2021 Census</span>
-              <span class="demo-traj-pct">{fmtPct1(natWb2021)}</span>
-            </div>
-          </div>
-          <div class="demo-traj-bar">
-            <div class="demo-traj-segment demo-traj-proj" style={`width: ${natWb2051.toFixed(1)}%`}>
-              <span class="demo-traj-year">2051 projected</span>
-              <span class="demo-traj-pct">{fmtPct1(natWb2051)}</span>
-            </div>
-          </div>
-          <div class="demo-traj-bar">
-            <div class="demo-traj-segment demo-traj-proj demo-traj-illustrative" style={`width: ${natWb2061.toFixed(1)}%`}>
-              <span class="demo-traj-year">2061 illustrative ({natAgg.n2061} of {totalAreas})</span>
-              <span class="demo-traj-pct">{fmtPct1(natWb2061)}</span>
-            </div>
-          </div>
-        </div>
-        <span class="demo-traj-note">Census figures observed. 2051 and 2061 projected by Hamilton-Perry CCR model. 2061 is illustrative only and covers {natAgg.n2061} of {totalAreas} areas. <a href="/methodology/">Full methodology</a></span>
-      </div>
 
       <!-- Key stats grid -->
       <div class="stat-card-row" style="margin-top: 1.5rem;">
@@ -276,24 +318,45 @@ function findingColor(verdict: string): string {
         />
       </div>
 
-      <!-- Top areas bar chart: largest projected White British decline 2021 to 2041 -->
-      <div class="demo-bar-section">
-        <h3 class="demo-bar-title">Largest projected White British decline, 2021 to 2041</h3>
-        <div class="demo-bar-visual">
-          {topChangingAreas.map((area) => {
-            const widthPct = (Math.abs(area.changePp) / topChangingMaxAbsPp) * 100;
-            return (
-              <a href={`/places/${slugifyAreaName(area.areaName)}/`} class="demo-bar-row">
-                <span class="demo-bar-name">{area.areaName}</span>
-                <span class="demo-bar-track">
-                  <span class="demo-bar-fill" style={`width: ${widthPct.toFixed(1)}%`}></span>
-                </span>
-                <span class="demo-bar-pct">{area.changePp.toFixed(1)}pp</span>
-              </a>
-            );
-          })}
+      <!-- The years these areas cross 50%. A date is a thing a reader can picture; a
+           percentage point change is not, so the year leads and the change is dropped. -->
+      <div class="cross-section">
+        <h3 class="cross-title">The years these areas cross 50%</h3>
+        <p class="cross-desc">
+          Areas that are comfortably majority White British today, and the year the projection
+          takes each of them below half. Interpolated between projection decades, so the years
+          are approximate. Areas already close to the line are left out: their crossing year is
+          carried by where they started rather than by the trend, and it sits inside the model's
+          own error. {crossingAlready} areas are already below a majority.
+        </p>
+        <div class="cross-table">
+          <div class="cross-head">
+            <span>Area</span>
+            <span>Region</span>
+            <span class="cross-num">Today</span>
+            <span>2021 to 2041</span>
+            <span class="cross-num">Crosses 50%</span>
+          </div>
+          {crossingSoon.map((r) => (
+            <a href={`/places/${slugifyAreaName(r.area.areaName)}/`} class="cross-row">
+              <span class="cross-name">{r.area.areaName}</span>
+              <span class="cross-region">{r.area.regionName}</span>
+              <span class="cross-num cross-today">{fmtPct1(r.now as number)}</span>
+              <span class="cross-axis">
+                <span class="cross-axis-line"></span>
+                <span
+                  class="cross-axis-dot"
+                  style={`left: ${Math.max(0, Math.min(100, (((r.year as number) - 2021) / 20) * 100)).toFixed(1)}%`}
+                ></span>
+              </span>
+              <span class="cross-num cross-year">{r.year}</span>
+            </a>
+          ))}
         </div>
-        <p class="demo-bar-note">Bar length is the size of the projected change. 2021 share to projected 2041 share, by Hamilton-Perry CCR.</p>
+        <p class="cross-note">
+          The marker sits on a 2021 to 2041 axis. Source: Census 2021 (ONS) projected with
+          Hamilton-Perry v8.0, mean absolute error 1.56pp per decade.
+        </p>
       </div>
 
       <div class="chip-row" style="margin-top: 1.5rem;">
@@ -596,11 +659,86 @@ function findingColor(verdict: string): string {
   .hero-inner {
     width: min(1220px, calc(100% - 2rem));
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.9fr);
+    align-items: start;
+    gap: 2.2rem;
+  }
+  .hero-main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
   }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 1.8rem; }
+  }
+
+  /* The national trajectory, promoted out of the section below the fold. It is the one
+     chart that says what the whole site is for, so it sits beside the search rather than
+     three screens down. */
+  .hero-panel {
+    display: block;
+    padding: 1.4rem 1.5rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-soft);
+  }
+  .hero-panel-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .hero-panel-title {
+    margin: 0.4rem 0 0;
+    font-family: var(--font-display);
+    font-size: 1.28rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+  .hero-traj { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.3rem; }
+  .hero-traj-row {
+    display: grid;
+    grid-template-columns: 2.6rem minmax(0, 1fr) 3.2rem;
+    grid-template-areas: "year track pct" ". gloss gloss";
+    align-items: center;
+    gap: 0.2rem 0.7rem;
+  }
+  .hero-traj-year { grid-area: year; font-size: 0.79rem; font-weight: 600; color: var(--text-faint); }
+  .hero-traj-track { grid-area: track; display: block; height: 26px; }
+  .hero-traj-fill { display: block; height: 100%; border-radius: 4px; }
+  .hero-traj-fill--now { background: var(--accent); }
+  .hero-traj-fill--past { background: color-mix(in srgb, var(--accent) 34%, transparent); }
+  .hero-traj-fill--proj {
+    background: repeating-linear-gradient(135deg, var(--accent-bright) 0 7px, transparent 7px 10px);
+    border: 1px solid var(--accent-bright);
+  }
+  .hero-traj-fill--proj-pale {
+    background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--accent) 30%, transparent) 0 7px, transparent 7px 10px);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+  .hero-traj-pct { grid-area: pct; font-family: var(--font-display); font-weight: 600; font-size: 1rem; text-align: right; }
+  .hero-traj-gloss { grid-area: gloss; font-size: 0.75rem; color: var(--text-faint); }
+  .hero-traj-key {
+    display: flex;
+    gap: 1.1rem;
+    margin-top: 1.2rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.79rem;
+    color: var(--text-faint);
+  }
+  .hero-traj-key span { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .hero-key-sw { width: 14px; height: 10px; border-radius: 2px; }
+  .hero-key-sw--now { background: var(--accent); }
+  .hero-key-sw--proj {
+    background: repeating-linear-gradient(135deg, var(--accent-bright) 0 5px, transparent 5px 7px);
+    border: 1px solid var(--accent-bright);
+  }
+  .hero-panel-note { margin: 0.75rem 0 0; font-size: 0.79rem; line-height: 1.6; color: var(--text-faint); }
   .hero-eyebrow {
     font-size: 0.68rem;
     font-weight: 600;
@@ -897,5 +1035,83 @@ function findingColor(verdict: string): string {
     .demo-traj-pct { font-size: 0.82rem; }
     .future-stats { grid-template-columns: 1fr; gap: 0.5rem; }
     .future-stat-value { font-size: 1.15rem; }
+  }
+
+  .cross-section { margin-top: 2rem; }
+  .cross-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+  }
+  .cross-desc { margin: 0.5rem 0 0; max-width: 70ch; color: var(--text-muted); line-height: 1.7; }
+  .cross-table {
+    margin-top: 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    overflow: hidden;
+  }
+  .cross-head,
+  .cross-row {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr 6rem 1.4fr 6rem;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.7rem 1.15rem;
+  }
+  .cross-head {
+    background: var(--bg-subtle);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .cross-row {
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 140ms ease;
+  }
+  .cross-row:hover { background: var(--accent-wash); }
+  .cross-name { font-weight: 600; }
+  .cross-region { color: var(--text-muted); font-size: 0.9rem; }
+  .cross-num { text-align: right; font-family: var(--font-display); font-weight: 600; }
+  .cross-today { font-size: 0.95rem; }
+  .cross-year { font-size: 1.15rem; color: var(--accent); }
+  .cross-axis { position: relative; display: block; height: 22px; }
+  .cross-axis-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10px;
+    height: 2px;
+    background: var(--border);
+  }
+  .cross-axis-dot {
+    position: absolute;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    margin-left: -7px;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+  .cross-note { margin: 0; padding: 0.8rem 1.15rem; font-size: 0.79rem; line-height: 1.6; color: var(--text-faint); }
+  @media (max-width: 760px) {
+    .cross-head { display: none; }
+    .cross-row {
+      grid-template-columns: 1fr auto;
+      grid-template-areas: "name year" "region today" "axis axis";
+      gap: 0.3rem 1rem;
+    }
+    .cross-name { grid-area: name; }
+    .cross-region { grid-area: region; }
+    .cross-today { grid-area: today; text-align: right; }
+    .cross-year { grid-area: year; }
+    .cross-axis { grid-area: axis; }
   }
 </style>

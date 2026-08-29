@@ -579,7 +579,7 @@ textarea {
   align-items: flex-start;
   margin: 1rem auto 0;
   padding: 1rem 1.15rem;
-  border: 1px solid rgba(125, 211, 252, 0.2);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
   border-radius: 22px;
   background:
     var(--bg-subtle),
@@ -763,10 +763,10 @@ main {
   gap: 0.55rem;
   width: fit-content;
   padding: 0.52rem 0.84rem;
-  border: 1px solid rgba(125, 211, 252, 0.18);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
   border-radius: 999px;
-  background: rgba(125, 211, 252, 0.1);
-  color: #c8f1ff;
+  background: var(--accent-wash);
+  color: var(--accent);
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -812,10 +812,9 @@ main {
 }
 
 .hero-actions .chip.accent {
-  color: #041019;
-  border-color: transparent;
-  background: var(--accent);
-  box-shadow: 0 16px 36px rgba(78, 228, 195, 0.18);
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
+  background: var(--accent-wash);
+  color: var(--accent);
 }
 
 .hero-actions .chip:hover,
@@ -907,7 +906,7 @@ main {
 }
 
 .hero-callout.accent {
-  border-color: rgba(125, 211, 252, 0.18);
+  border-color: color-mix(in srgb, var(--accent) 20%, transparent);
   background:
     var(--bg-subtle),
     var(--text-faint);
@@ -1231,7 +1230,7 @@ button.source-pill {
 }
 
 .page-contents.priority {
-  border-color: rgba(255, 139, 97, 0.18);
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
   background:
     var(--bg-subtle),
     rgba(11, 17, 31, 0.92);
@@ -1268,7 +1267,7 @@ button.source-pill {
   color: #041019;
   border-color: transparent;
   background: linear-gradient(135deg, var(--accent-3) 0%, #ffd5c6 100%);
-  box-shadow: 0 12px 26px rgba(255, 139, 97, 0.18);
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
 .page-contents-step {
@@ -1325,7 +1324,7 @@ button.source-pill {
 }
 
 .data-drawer[open] {
-  border-color: rgba(125, 211, 252, 0.2);
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
 .data-drawer-summary {
@@ -1344,7 +1343,7 @@ button.source-pill {
   content: "Open";
   justify-self: start;
   padding: 0.55rem 0.85rem;
-  border: 1px solid rgba(125, 211, 252, 0.18);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
   border-radius: 999px;
   background: rgba(125, 211, 252, 0.08);
   color: var(--ink-soft);
@@ -1648,7 +1647,7 @@ button.source-pill {
 }
 
 .home-map-stage[data-home-map-depth="place"] .home-map-copy {
-  border-color: rgba(125, 211, 252, 0.2);
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
   box-shadow: 0 22px 50px rgba(23, 27, 31, 0.07), 0 0 0 1px rgba(125, 211, 252, 0.08) inset;
 }
 
@@ -2137,7 +2136,7 @@ button.home-scope-crumb:focus-visible {
 }
 
 .home-scope-crumb.is-current {
-  border-color: rgba(125, 211, 252, 0.2);
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
   background: var(--bg-subtle);
   color: var(--ink);
 }
@@ -2208,7 +2207,7 @@ button.home-scope-crumb:focus-visible {
   color: #041019;
   border-color: transparent;
   background: var(--accent);
-  box-shadow: 0 8px 18px rgba(78, 228, 195, 0.12);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--positive) 10%, transparent);
 }
 
 .home-deck-viewport {
@@ -2594,12 +2593,12 @@ button.home-scope-crumb:focus-visible {
 }
 
 .home-map-focus-card[data-scope-kind="place"] {
-  border-color: rgba(125, 211, 252, 0.2);
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
   box-shadow: 0 22px 54px rgba(23, 27, 31, 0.09), 0 0 0 1px var(--border) inset;
 }
 
 .home-map-focus-card[data-scope-kind="region"] {
-  border-color: rgba(78, 228, 195, 0.18);
+  border-color: color-mix(in srgb, var(--positive) 22%, transparent);
 }
 
 [data-home-authority-metric="rate"] .home-map-focus-card,
@@ -2716,7 +2715,7 @@ button.region-map-shortlist-link {
 .region-map-shortlist-link:hover,
 .region-map-shortlist-link:focus-visible,
 .region-map-shortlist-link.is-active {
-  border-color: rgba(125, 211, 252, 0.2);
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
   background:
     var(--bg-subtle),
     var(--text-faint);
@@ -3064,11 +3063,11 @@ button.region-map-shortlist-link {
 }
 
 .evidence-preview .evidence-panel-hotels {
-  border-color: rgba(255, 139, 97, 0.18);
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
 .evidence-preview .evidence-panel-money {
-  border-color: rgba(125, 211, 252, 0.18);
+  border-color: color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
 .evidence-preview .story-card {
@@ -3136,7 +3135,7 @@ button.region-map-shortlist-link {
 
 .viz-card.tone-warm::before,
 .benchmark-card.tone-warm::before {
-  background: radial-gradient(circle, rgba(255, 139, 97, 0.14), transparent 72%);
+  background: radial-gradient(circle, var(--accent-wash), transparent 72%);
 }
 
 .viz-card.tone-teal::before,
@@ -3759,7 +3758,7 @@ button.region-map-shortlist-link {
 }
 
 .region-map-legend-swatch[data-tone="warm"] {
-  background: linear-gradient(90deg, rgba(255, 139, 97, 0.2), rgba(255, 139, 97, 0.82));
+  background: linear-gradient(90deg, color-mix(in srgb, var(--critical) 12%, transparent), rgba(255, 139, 97, 0.82));
 }
 
 .region-map-legend-copy {
@@ -4081,13 +4080,13 @@ button.region-map-shortlist-link {
 }
 
 .feature-card.teal {
-  border-color: rgba(78, 228, 195, 0.18);
+  border-color: color-mix(in srgb, var(--positive) 22%, transparent);
   background:
     var(--bg-subtle);
 }
 
 .feature-card.warm {
-  border-color: rgba(245, 158, 11, 0.18);
+  border-color: color-mix(in srgb, var(--warning) 22%, transparent);
   background:
     var(--bg-subtle);
 }
@@ -4118,7 +4117,7 @@ button.region-map-shortlist-link {
 }
 
 .feature-card.accent::before {
-  background: radial-gradient(circle, rgba(255, 139, 97, 0.14), transparent 72%);
+  background: radial-gradient(circle, var(--accent-wash), transparent 72%);
 }
 
 .feature-card.teal::before {
@@ -4323,7 +4322,7 @@ button.region-map-shortlist-link {
 }
 
 .timeline-card.accent {
-  border-color: rgba(125, 211, 252, 0.18);
+  border-color: color-mix(in srgb, var(--accent) 20%, transparent);
   background:
     var(--bg-subtle);
 }
@@ -4387,27 +4386,27 @@ button.region-map-shortlist-link {
 }
 
 .chip.accent {
-  border-color: rgba(255, 139, 97, 0.18);
-  background: rgba(255, 139, 97, 0.14);
-  color: #ffcaaf;
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
+  background: var(--accent-wash);
+  color: var(--accent);
 }
 
 .chip.teal {
-  border-color: rgba(78, 228, 195, 0.18);
-  background: rgba(78, 228, 195, 0.12);
-  color: #b8fff0;
+  border-color: color-mix(in srgb, var(--positive) 22%, transparent);
+  background: color-mix(in srgb, var(--positive) 10%, transparent);
+  color: var(--positive);
 }
 
 .chip.warm {
-  border-color: rgba(245, 158, 11, 0.18);
-  background: rgba(245, 158, 11, 0.12);
-  color: #fbd38d;
+  border-color: color-mix(in srgb, var(--warning) 22%, transparent);
+  background: color-mix(in srgb, var(--warning) 10%, transparent);
+  color: var(--warning);
 }
 
 .source-pill {
-  border-color: rgba(125, 211, 252, 0.2);
-  background: rgba(125, 211, 252, 0.12);
-  color: #d5f5ff;
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
+  background: var(--accent-wash);
+  color: var(--accent);
 }
 
 .table-card {
@@ -5408,7 +5407,7 @@ tr:last-child td {
   background:
     var(--bg-subtle),
     var(--text-faint);
-  border-color: rgba(78, 228, 195, 0.18);
+  border-color: color-mix(in srgb, var(--positive) 22%, transparent);
 }
 
 .home-map-quick-button[data-scope-kind="subregion"].is-active {
@@ -5542,9 +5541,9 @@ tr:last-child td {
 }
 
 .chip.coral {
-  border-color: rgba(255, 139, 97, 0.3);
-  background: rgba(255, 139, 97, 0.2);
-  color: #ffaa88;
+  border-color: color-mix(in srgb, var(--critical) 22%, transparent);
+  background: color-mix(in srgb, var(--critical) 10%, transparent);
+  color: var(--critical);
 }
 
 .chip.tiny {
@@ -5741,7 +5740,7 @@ tr:last-child td {
 
 /* Defensive: dark text on yellow segment fills (Lib Dem / SNP palettes
    if a caller passes them). Inert until those colours are used. */
-.hero-race-segment[style*="#f59e0b"] .hero-race-label,
+.hero-race-segment[style*="var(--warning)"] .hero-race-label,
 .hero-race-segment[style*="#fdf24e"] .hero-race-label {
   color: #1a1a1a;
   text-shadow: 0 1px 1px var(--bg);

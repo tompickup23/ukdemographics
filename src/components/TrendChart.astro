@@ -57,18 +57,18 @@ const colors =
   tone === "teal"
     ? {
         stroke: "#4EE4C3",
-        fill: "rgba(78, 228, 195, 0.18)",
+        fill: "color-mix(in srgb, var(--positive) 22%, transparent)",
         marker: "#C6FFF4"
       }
     : tone === "warm"
       ? {
           stroke: "#FF8B61",
-          fill: "rgba(255, 139, 97, 0.18)",
+          fill: "color-mix(in srgb, var(--accent) 22%, transparent)",
           marker: "#FFD5C6"
         }
       : {
           stroke: "#7DD3FC",
-          fill: "rgba(125, 211, 252, 0.18)",
+          fill: "color-mix(in srgb, var(--accent) 20%, transparent)",
           marker: "#D9F5FF"
         };
 ---

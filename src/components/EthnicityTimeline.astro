@@ -35,7 +35,7 @@ const groupLabels: Record<string, string> = {
 const groupColors: Record<string, string> = {
   white_british: "var(--accent-bright)",
   white_other: "#8b9cb3",
-  asian: "#f59e0b",
+  asian: "var(--warning)",
   black: "#a78bfa",
   mixed: "var(--positive)",
   other: "#6b7280"
@@ -141,7 +141,7 @@ const barData = timeline.map(snap => {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--accent-3);
-    background: rgba(245, 158, 11, 0.12);
+    background: color-mix(in srgb, var(--warning) 10%, transparent);
     padding: 0.1rem 0.3rem;
     border-radius: 4px;
   }

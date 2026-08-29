@@ -15,7 +15,7 @@ const { total, national, structural, local, areaName } = Astro.props;
 
 const maxAbs = Math.max(Math.abs(national), Math.abs(structural), Math.abs(local), 1);
 const barWidth = (val: number) => Math.abs(val) / maxAbs * 100;
-const barColor = (val: number) => val < 0 ? "var(--accent-bright)" : "#f59e0b";
+const barColor = (val: number) => val < 0 ? "var(--accent-bright)" : "var(--warning)";
 ---
 
 <figure class="viz-card shift-share-chart">
