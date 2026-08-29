@@ -23,6 +23,8 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
+import { canonicalAreaCode } from "../lib/area-codes.mjs";
+
 const PROJECTIONS_PATH = path.resolve("src/data/live/ethnic-projections.json");
 const LOCAL_ROUTE_PATH = path.resolve("src/data/live/local-route-latest.json");
 const NAT_ETH_PATH = path.resolve("data/model/nationality_ethnicity_lookup.json");
@@ -76,7 +78,11 @@ for (const [g, pct] of Object.entries(asylumEthnicMix).sort((a, b) => b[1] - a[1
 // For each LA with asylum seekers, compute the marginal ethnic impact
 let updatedAreas = 0;
 for (const area of localRoute.areas) {
-  const code = area.areaCode;
+  // The Home Office file carries the codes ONS reissued for Barnsley and
+  // Sheffield in 2025; the projections are keyed on the codes the Census 2021
+  // model uses. Without resolving that, the lookup missed and the two largest
+  // South Yorkshire authorities were skipped in silence.
+  const code = canonicalAreaCode(area.areaCode);
   const proj = projections.areas[code];
   if (!proj || !area.supportedAsylum || area.supportedAsylum < 10) continue;
 

@@ -21,6 +21,8 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
+import { canonicalAreaCode } from '../lib/area-codes.mjs';
+
 const DATA_DIR = resolve('src/data/live');
 
 function readJSON(name) {
@@ -48,11 +50,15 @@ if (!ep) { console.error('ERROR: ethnic-projections.json not found'); process.ex
 const areaCodes = Object.keys(ep.areas);
 console.log(`Loaded ${areaCodes.length} areas from ethnic-projections.json\n`);
 
-// Build region lookup from local-route-latest
+// Build region lookup from local-route-latest.
+// Home Office local route data files Barnsley and Sheffield under the codes
+// ONS reissued in 2025, while the area map here is keyed on the codes the
+// Census 2021 model uses. Resolving on the way in is what keeps those two
+// authorities from silently losing their region and their asylum rate.
 const regionLookup = new Map();
 if (localRoute?.areas) {
   for (const a of localRoute.areas) {
-    regionLookup.set(a.areaCode, { regionName: a.regionName, countryName: a.countryName });
+    regionLookup.set(canonicalAreaCode(a.areaCode), { regionName: a.regionName, countryName: a.countryName });
   }
 }
 
@@ -60,7 +66,7 @@ if (localRoute?.areas) {
 const asylumLookup = new Map();
 if (localRoute?.areas) {
   for (const a of localRoute.areas) {
-    asylumLookup.set(a.areaCode, {
+    asylumLookup.set(canonicalAreaCode(a.areaCode), {
       supportedAsylum: a.supportedAsylum ?? 0,
       supportedAsylumRate: a.supportedAsylumRate ?? 0,
     });

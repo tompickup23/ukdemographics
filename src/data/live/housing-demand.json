@@ -12653,14 +12653,6 @@
     "E08000019": {
       "areaName": "Sheffield",
       "dataAvailable": false
-    },
-    "E08000038": {
-      "areaName": "Barnsley",
-      "dataAvailable": false
-    },
-    "E08000039": {
-      "areaName": "Sheffield",
-      "dataAvailable": false
     }
   }
 }

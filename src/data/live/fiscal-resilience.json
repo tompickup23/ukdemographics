@@ -6099,44 +6099,6 @@
         "housingPressure": 0
       },
       "pressureRank": 288
-    },
-    "E08000038": {
-      "areaName": "Barnsley",
-      "population": 244555,
-      "serviceDemandPressureScore": 26,
-      "category": "Low Pressure",
-      "demographicChangeVelocity": 75,
-      "wbiChange2021to2041": -15,
-      "asylumRate": 11,
-      "diversityIndex": 0.2,
-      "diversityLevel": "low diversity",
-      "components": {
-        "ethnicChangeContribution": 20,
-        "asylumConcentration": 6,
-        "schoolPressure": 0,
-        "languagePressure": 0,
-        "housingPressure": 0
-      },
-      "pressureRank": 246
-    },
-    "E08000039": {
-      "areaName": "Sheffield",
-      "population": 556537,
-      "serviceDemandPressureScore": 31,
-      "category": "Low Pressure",
-      "demographicChangeVelocity": 81,
-      "wbiChange2021to2041": -16.2,
-      "asylumRate": 21.7,
-      "diversityIndex": 0.53,
-      "diversityLevel": "diverse",
-      "components": {
-        "ethnicChangeContribution": 20,
-        "asylumConcentration": 11,
-        "schoolPressure": 0,
-        "languagePressure": 0,
-        "housingPressure": 0
-      },
-      "pressureRank": 211
     }
   }
 }

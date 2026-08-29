@@ -23,12 +23,16 @@ const demographicShifts2061 = getSignificantDemographicShifts(2061);
 const areasBelow50by2061 = demographicShifts2061.length;
 
 // Dynamic demographic counts
-// ethnic-projections.json carries two authorities twice, under both their
-// retired and their current ONS codes: Barnsley as E08000016 and E08000038,
-// Sheffield as E08000019 and E08000039, with identical populations. Only the
-// current codes are in the public area registry, so only one page renders for
-// each, but keying off the raw projection object double-counted 801,000 people
-// in every national aggregate on this page. The registry is the canonical set.
+// ethnic-projections.json used to carry two authorities twice, under both the
+// codes ONS reissued in 2025 and the codes the Census 2021 model is built on:
+// Barnsley as E08000016 and E08000038, Sheffield as E08000019 and E08000039.
+// Every aggregate on this page counted their 801,000 people twice, and the
+// filter below was written to stop it. It could never have done so: the
+// registry it filters against is built from this same area map, so it excluded
+// nothing. The duplicates are now folded out of the data itself by
+// scripts/model/canonicalise_area_codes.mjs, and tests/area-codes.test.ts fails
+// if one comes back. The filter is kept because the registry may one day
+// exclude areas for reasons of its own, but it is not what fixed this.
 const publicAreaCodes = new Set(publicAreas.map((a) => a.areaCode));
 const allAreaCodes = Object.keys(projData.areas).filter((c) => publicAreaCodes.has(c));
 const muslimMajority2051 = allAreaCodes.filter(code => {
