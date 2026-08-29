@@ -29,9 +29,9 @@ const relatedFindings = allFindings
   .slice(0, 3);
 
 const verdictColor: Record<string, string> = {
-  alert: "#f59e0b",
-  critical: "#ef4444",
-  resolved: "#10b981",
+  alert: "var(--warning)",
+  critical: "var(--critical)",
+  resolved: "var(--positive)",
   info: "var(--accent)"
 };
 const verdictLabel: Record<string, string> = {
@@ -158,7 +158,7 @@ const verdictLabel: Record<string, string> = {
   }
   .finding-verdict-badge {
     font-size: 0.72rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.25rem 0.75rem;
@@ -170,9 +170,9 @@ const verdictLabel: Record<string, string> = {
   }
 
   .finding-detail-headline {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(1.5rem, 4vw, 2.2rem);
-    font-weight: 800;
+    font-weight: 600;
     line-height: 1.15;
     margin: 0 0 1.5rem;
   }
@@ -188,9 +188,9 @@ const verdictLabel: Record<string, string> = {
     border-radius: var(--radius-sm);
   }
   .fds-value {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 1;
   }
   .fds-label {
@@ -205,7 +205,7 @@ const verdictLabel: Record<string, string> = {
   }
   .finding-detail-body :global(strong) {
     color: var(--ink);
-    font-weight: 700;
+    font-weight: 600;
   }
   .finding-detail-body :global(p) {
     margin: 0 0 1rem;
@@ -223,7 +223,7 @@ const verdictLabel: Record<string, string> = {
   }
   .finding-detail-source {
     font-size: 0.9rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--accent);
     text-decoration: none;
   }
@@ -251,9 +251,9 @@ const verdictLabel: Record<string, string> = {
     border-top: 1px solid var(--border);
   }
   .finding-share-actions h3 {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 0.92rem;
-    font-weight: 700;
+    font-weight: 600;
     margin: 0 0 0.75rem;
     color: var(--ink);
   }
@@ -263,9 +263,9 @@ const verdictLabel: Record<string, string> = {
     border-top: 1px solid var(--border);
   }
   .finding-related h3 {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 0.92rem;
-    font-weight: 700;
+    font-weight: 600;
     margin: 0 0 0.75rem;
     color: var(--ink);
   }
@@ -287,9 +287,9 @@ const verdictLabel: Record<string, string> = {
   }
   .finding-related-card:hover { border-color: var(--accent); }
   .frc-stat {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 1.25rem;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 1;
   }
   .frc-headline {

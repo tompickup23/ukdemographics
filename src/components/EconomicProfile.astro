@@ -134,9 +134,9 @@ const hasDeprivation = data.deprivation;
   }
   .econ-value {
     display: block;
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 1.35rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--ink);
     letter-spacing: -0.02em;
     line-height: 1.2;
@@ -156,12 +156,12 @@ const hasDeprivation = data.deprivation;
     padding: 0.3rem 0;
     font-size: 0.85rem;
     color: var(--ink-soft);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--border);
   }
   .econ-row:last-child { border-bottom: none; }
   .econ-row-value {
-    font-family: "Sora", sans-serif;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: 600;
     color: var(--ink);
   }
   @media (max-width: 640px) {

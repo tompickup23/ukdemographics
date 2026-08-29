@@ -5,7 +5,7 @@ import { disableMotion, stabilizePage } from "./layout-helpers";
 // Each entry: a route, the heading text we expect to find, and an optional
 // stable element id we expect to be rendered on the page.
 const pages = [
-  { name: "home", path: "/", h1Match: /local authorities|community mapped/i },
+  { name: "home", path: "/", h1Match: /what will your area look like/i },
   { name: "places", path: "/places/", h1Match: /Local authorities|All areas|Places/i },
   { name: "place-burnley", path: "/places/burnley/", h1Match: /Burnley/i },
   { name: "national", path: "/national/", h1Match: /National demographic/i },

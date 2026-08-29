@@ -105,7 +105,7 @@ const fmt = (n: number) => n.toLocaleString();
         y1={yLA(t)}
         x2={width - pad.right}
         y2={yLA(t)}
-        stroke="rgba(255,255,255,0.07)"
+        stroke="var(--border)"
         stroke-width="1"
         stroke-dasharray="3 5"
       />
@@ -145,7 +145,7 @@ const fmt = (n: number) => n.toLocaleString();
     <path
       d={natPath}
       fill="none"
-      stroke="rgba(255,255,255,0.30)"
+      stroke="var(--border-strong)"
       stroke-width="1.5"
       stroke-dasharray="3 3"
     />
@@ -185,7 +185,7 @@ const fmt = (n: number) => n.toLocaleString();
       const labelDx = nearRight ? -10 : nearLeft ? 10 : 0;
       return (
         <g>
-          <circle cx={troughX} cy={troughYpt} r="4" fill="#06b6d4" stroke="#0f0f17" stroke-width="2" />
+          <circle cx={troughX} cy={troughYpt} r="4" fill="var(--accent-bright)" stroke="#0f0f17" stroke-width="2" />
           <text x={troughX + labelDx} y={troughYpt + 18} text-anchor={labelAnchor} class="nh-marker-label nh-marker-trough">
             low {troughYear} ({fmt(troughValue!)})
           </text>
@@ -211,16 +211,16 @@ const fmt = (n: number) => n.toLocaleString();
     display: block;
   }
   .nh-tick {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 11px;
-    fill: rgba(255,255,255,0.55);
+    fill: var(--text-muted);
     font-variant-numeric: tabular-nums;
   }
   .nh-tick-national {
-    fill: rgba(255,255,255,0.42);
+    fill: var(--text-faint);
   }
   .nh-axis-label {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 11px;
     font-weight: 600;
     fill: #7c3aed;
@@ -228,16 +228,16 @@ const fmt = (n: number) => n.toLocaleString();
     text-transform: uppercase;
   }
   .nh-axis-label-national {
-    fill: rgba(255,255,255,0.55);
+    fill: var(--text-muted);
   }
   .nh-marker-label {
-    font-family: "Sora", sans-serif;
+    font-family: var(--font-display);
     font-size: 11px;
     font-weight: 600;
     fill: #fbbf24;
     font-variant-numeric: tabular-nums;
   }
   .nh-marker-trough {
-    fill: #06b6d4;
+    fill: var(--accent-bright);
   }
 </style>

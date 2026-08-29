@@ -186,7 +186,7 @@ const structuredData = [
       }
       .footer-sisters-eyebrow {
         font-size: 0.72rem;
-        font-weight: 700;
+        font-weight: 600;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--muted);
@@ -220,7 +220,7 @@ const structuredData = [
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        font-weight: 800;
+        font-weight: 600;
         font-size: 0.78rem;
         letter-spacing: 0.04em;
         color: #ffffff;
@@ -232,7 +232,7 @@ const structuredData = [
         min-width: 0;
       }
       .footer-sister-name {
-        font-weight: 700;
+        font-weight: 600;
         font-size: 0.92rem;
         color: var(--ink);
         line-height: 1.2;
@@ -256,11 +256,11 @@ const structuredData = [
         border-color: rgba(56, 189, 248, 0.55);
       }
       .footer-sister-card--as .footer-sister-tile {
-        background: #06b6d4;
-        box-shadow: 0 6px 14px rgba(6, 182, 212, 0.32);
+        background: var(--accent-bright);
+        box-shadow: 0 6px 14px color-mix(in srgb, var(--accent-bright) 32%, transparent);
       }
       .footer-sister-card--as:hover {
-        border-color: rgba(6, 182, 212, 0.55);
+        border-color: color-mix(in srgb, var(--accent-bright) 55%, transparent);
       }
       @media (max-width: 640px) {
         .footer-sisters-grid {

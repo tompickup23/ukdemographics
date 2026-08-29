@@ -155,18 +155,18 @@ const years = ["2031", "2041", "2051", "2061"].filter(y => centralData?.[y]);
         svg.innerHTML = `
           ${[0, 25, 50, 75, 100].filter(t => t >= minY && t <= maxY).map(t => `
             <line x1="${pad.left}" y1="${sy(t).toFixed(1)}" x2="${W - pad.right}" y2="${sy(t).toFixed(1)}"
-                  stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 6" />
+                  stroke="var(--border)" stroke-dasharray="4 6" />
             <text x="${pad.left - 6}" y="${(sy(t) + 4).toFixed(1)}" text-anchor="end"
-                  style="font-size:10px;fill:rgba(255,255,255,0.4);font-family:Sora,sans-serif">${t}</text>
+                  style="font-size:10px;fill:var(--text-faint);font-family:var(--font-sans)">${t}</text>
           `).join('')}
-          ${centralPath ? `<path d="${centralPath}" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4 4" />` : ''}
-          <path d="${linePath}" fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-linejoin="round" />
-          <circle cx="${sx(endYr).toFixed(1)}" cy="${sy(endVal).toFixed(1)}" r="4" fill="#06b6d4" />
+          ${centralPath ? `<path d="${centralPath}" fill="none" stroke="var(--border-strong)" stroke-width="1.5" stroke-dasharray="4 4" />` : ''}
+          <path d="${linePath}" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" />
+          <circle cx="${sx(endYr).toFixed(1)}" cy="${sy(endVal).toFixed(1)}" r="4" fill="var(--accent)" />
           <text x="${(sx(endYr) + 8).toFixed(1)}" y="${(sy(endVal) + 4).toFixed(1)}"
-                style="font-size:12px;fill:#06b6d4;font-weight:600;font-family:Sora,sans-serif">${endVal.toFixed(1)}%</text>
+                style="font-size:12px;fill:var(--accent);font-weight:600;font-family:var(--font-display)">${endVal.toFixed(1)}%</text>
           ${years.map(yr => `
             <text x="${sx(yr).toFixed(1)}" y="${H - 6}" text-anchor="middle"
-                  style="font-size:10px;fill:rgba(255,255,255,0.5);font-family:Sora,sans-serif">${yr}</text>
+                  style="font-size:10px;fill:var(--text-faint);font-family:var(--font-sans)">${yr}</text>
           `).join('')}
         `;
 
@@ -260,9 +260,9 @@ const years = ["2031", "2041", "2051", "2061"].filter(y => centralData?.[y]);
   .sg-cell {
     position: relative;
     padding: 0.5rem 0.3rem;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid var(--border);
     border-radius: 6px;
-    background: rgba(255,255,255,0.02);
+    background: var(--bg-subtle);
     cursor: pointer;
     text-align: center;
     transition: all 0.15s;
@@ -271,24 +271,24 @@ const years = ["2031", "2041", "2051", "2061"].filter(y => centralData?.[y]);
   }
 
   .sg-cell:hover {
-    background: rgba(6, 182, 212, 0.08);
-    border-color: rgba(6, 182, 212, 0.3);
+    background: color-mix(in srgb, var(--accent-bright) 8%, transparent);
+    border-color: color-mix(in srgb, var(--accent-bright) 30%, transparent);
   }
 
   .sg-cell-active, .sg-cell-active:hover {
-    background: rgba(6, 182, 212, 0.15);
-    border-color: #06b6d4;
-    box-shadow: 0 0 8px rgba(6, 182, 212, 0.2);
+    background: color-mix(in srgb, var(--accent-bright) 15%, transparent);
+    border-color: var(--accent-bright);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--accent-bright) 20%, transparent);
   }
 
   .sg-cell-central {
-    border-color: rgba(245, 158, 11, 0.3);
+    border-color: color-mix(in srgb, var(--warning) 30%, transparent);
   }
 
   .sg-cell-value {
     display: block;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     font-variant-numeric: tabular-nums;
   }
 

@@ -35,11 +35,11 @@ const regionStats = regions.map((region) => {
 </BaseLayout>
 
 <style>
-  h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
+  h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.5rem; }
   .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
   .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; }
   .region-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.25rem; }
-  .region-name { font-weight: 700; font-size: 1rem; color: var(--ink); }
-  .region-stat { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+  .region-name { font-weight: 600; font-size: 1rem; color: var(--ink); }
+  .region-stat { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; color: var(--accent); }
   .region-detail { font-size: 0.82rem; color: var(--muted); }
 </style>

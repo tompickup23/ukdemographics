@@ -41,7 +41,7 @@ const {
 
 const width = 560;
 const height = chartHeight;
-const pad = { top: 14, right: 16, bottom: 34, left: 42 };
+const pad = { top: 14, right: 116, bottom: 34, left: 42 };
 const uw = width - pad.left - pad.right;
 const uh = height - pad.top - pad.bottom;
 
@@ -116,7 +116,7 @@ const labelYears = [minYear, nowYear, ...([2031, 2041, 2051].filter(yr => yr <= 
     {ticks.map(tick => (
       <>
         <line x1={pad.left} y1={y(tick)} x2={width - pad.right} y2={y(tick)}
-              stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 6" />
+              stroke="var(--border)" stroke-width="1" stroke-dasharray="4 6" />
         <text x={pad.left - 6} y={y(tick) + 4} text-anchor="end" class="proj-tick">{Math.round(tick)}</text>
       </>
     ))}
@@ -131,15 +131,15 @@ const labelYears = [minYear, nowYear, ...([2031, 2041, 2051].filter(yr => yr <= 
 
     <!-- Now line -->
     <line x1={x(nowYear)} y1={pad.top} x2={x(nowYear)} y2={pad.top + uh}
-          stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="3 4" />
+          stroke="var(--border-strong)" stroke-width="1" stroke-dasharray="3 4" />
     <text x={x(nowYear)} y={pad.top - 3} text-anchor="middle" class="proj-now-label">Census 2021</text>
 
     <!-- 2051 boundary (if 2061 data exists) -->
     {maxYear > 2051 && (
       <>
         <line x1={x(2051)} y1={pad.top} x2={x(2051)} y2={pad.top + uh}
-              stroke="rgba(245,158,11,0.2)" stroke-width="1" stroke-dasharray="2 4" />
-        <text x={x(2051)} y={pad.top + uh + 20} text-anchor="middle" class="proj-now-label" fill="rgba(245,158,11,0.5)">Illustrative</text>
+              stroke="color-mix(in srgb, var(--warning) 22%, transparent)" stroke-width="1" stroke-dasharray="2 4" />
+        <text x={x(2051)} y={pad.top + uh + 20} text-anchor="middle" class="proj-now-label" fill="var(--warning)">Illustrative</text>
       </>
     )}
 
@@ -228,11 +228,11 @@ const labelYears = [minYear, nowYear, ...([2031, 2041, 2051].filter(yr => yr <= 
 
 <style>
   .projection-chart svg { width: 100%; height: auto; display: block; }
-  .proj-tick { font-size: 11px; fill: rgba(255,255,255,0.45); font-family: "Sora", sans-serif; }
-  .proj-axis-label { font-size: 10px; fill: rgba(255,255,255,0.35); font-family: "Sora", sans-serif; }
-  .proj-now-label { font-size: 10px; fill: rgba(255,255,255,0.45); font-family: "Sora", sans-serif; }
-  .proj-line-label { font-size: 10px; font-family: "Sora", sans-serif; font-weight: 600; }
-  .proj-year-label { font-size: 11px; fill: rgba(255,255,255,0.55); font-family: "Sora", sans-serif; }
+  .proj-tick { font-size: 11px; fill: var(--text-faint); font-family: var(--font-display); }
+  .proj-axis-label { font-size: 10px; fill: var(--text-faint); font-family: var(--font-display); }
+  .proj-now-label { font-size: 10px; fill: var(--text-faint); font-family: var(--font-display); }
+  .proj-line-label { font-size: 10px; font-family: var(--font-display); font-weight: 600; }
+  .proj-year-label { font-size: 11px; fill: var(--text-muted); font-family: var(--font-display); }
   .proj-legend { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
   .proj-legend-item { display: flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; color: var(--muted); }
   .proj-legend-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
@@ -261,7 +261,7 @@ const labelYears = [minYear, nowYear, ...([2031, 2041, 2051].filter(yr => yr <= 
   .proj-table table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
   .proj-table th, .proj-table td {
     padding: 0.28rem 0.5rem; text-align: right;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid var(--border);
   }
   .proj-table thead th, .proj-table tbody th { text-align: left; font-weight: 600; }
   .proj-table thead th:not(:first-child) { text-align: right; }

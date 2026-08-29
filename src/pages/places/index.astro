@@ -43,19 +43,19 @@ const sortedAreas = [...areas].sort((a, b) => (a.wbiPct2021 ?? 100) - (b.wbiPct2
 </script>
 
 <style>
-  .page-title { font-family: "Sora", sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
+  .page-title { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.5rem; }
   .page-desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
   .area-search-wrapper { margin-bottom: 1rem; max-width: 400px; }
-  .area-search-wrapper input { width: 100%; padding: 0.75rem 1rem; font-size: 0.95rem; font-family: "Manrope", sans-serif; color: var(--ink); background: var(--bg-soft); border: 2px solid var(--border-strong); border-radius: var(--radius-sm); outline: none; }
+  .area-search-wrapper input { width: 100%; padding: 0.75rem 1rem; font-size: 0.95rem; font-family: var(--font-sans); color: var(--ink); background: var(--bg-soft); border: 2px solid var(--border-strong); border-radius: var(--radius-sm); outline: none; }
   .area-search-wrapper input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow); }
   .area-table { max-width: 900px; }
-  .area-table-header { display: grid; grid-template-columns: 1fr 120px 80px 80px 100px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
+  .area-table-header { display: grid; grid-template-columns: 1fr 120px 80px 80px 100px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
   .area-row { display: grid; grid-template-columns: 1fr 120px 80px 80px 100px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
-  .area-row:hover { background: rgba(79, 70, 229, 0.06); }
+  .area-row:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
   .area-name { font-weight: 600; font-size: 0.88rem; }
   .area-region { font-size: 0.82rem; color: var(--muted); }
-  .area-wbi { font-family: "Sora", sans-serif; font-weight: 700; color: var(--accent); font-size: 0.88rem; }
-  .area-wbi-proj { font-family: "Sora", sans-serif; font-weight: 700; color: var(--coral); font-size: 0.88rem; }
+  .area-wbi { font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 0.88rem; }
+  .area-wbi-proj { font-family: var(--font-display); font-weight: 600; color: var(--coral); font-size: 0.88rem; }
   .area-pop { font-size: 0.82rem; color: var(--muted); }
   @media (max-width: 640px) { .area-table-header, .area-row { grid-template-columns: 1fr 70px 70px; } .area-region, .area-pop { display: none; } }
 </style>

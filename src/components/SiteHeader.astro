@@ -50,17 +50,18 @@ function isActiveGroup(group: NavGroup): boolean {
 }
 ---
 
+<div class="site-header-bar">
 <header class="site-header shell">
   <a class="brand" href="/">
     <span class="brand-mark">
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28" aria-hidden="true">
-        <rect x="3" y="18" width="5" height="11" rx="1.5" fill="#4f46e5"/>
-        <rect x="10" y="12" width="5" height="17" rx="1.5" fill="#4f46e5" opacity="0.8"/>
-        <rect x="17" y="7" width="5" height="22" rx="1.5" fill="#4f46e5" opacity="0.6"/>
-        <rect x="24" y="3" width="5" height="26" rx="1.5" fill="#4f46e5" opacity="0.4"/>
+        <rect x="3" y="18" width="5" height="11" rx="1.5" fill="var(--accent)"/>
+        <rect x="10" y="12" width="5" height="17" rx="1.5" fill="var(--accent)" opacity="0.8"/>
+        <rect x="17" y="7" width="5" height="22" rx="1.5" fill="var(--accent)" opacity="0.6"/>
+        <rect x="24" y="3" width="5" height="26" rx="1.5" fill="var(--accent)" opacity="0.4"/>
         <path d="M5.5 17 L12.5 11 L19.5 6 L26.5 2" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round" fill="none"/>
         <circle cx="5.5" cy="17" r="1.5" fill="#818cf8"/>
-        <circle cx="26.5" cy="2" r="1.5" fill="#10b981"/>
+        <circle cx="26.5" cy="2" r="1.5" fill="var(--positive)"/>
       </svg>
     </span>
     <span class="brand-copy">
@@ -114,6 +115,7 @@ function isActiveGroup(group: NavGroup): boolean {
     </button>
   </div>
 </header>
+</div>
 
 <div class="mobile-drawer" data-mobile-drawer hidden>
   <div class="mobile-drawer-backdrop" data-mobile-drawer-close></div>
@@ -326,7 +328,7 @@ function isActiveGroup(group: NavGroup): boolean {
   .mega-item-label {
     display: block;
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--ink);
     line-height: 1.2;
   }
@@ -395,7 +397,7 @@ function isActiveGroup(group: NavGroup): boolean {
   }
   .mobile-drawer-title {
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
@@ -421,7 +423,7 @@ function isActiveGroup(group: NavGroup): boolean {
   .mobile-drawer-home {
     padding: 0.85rem 0.25rem;
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--ink);
     text-decoration: none;
     border-bottom: 1px solid var(--border);
@@ -435,7 +437,7 @@ function isActiveGroup(group: NavGroup): boolean {
     align-items: center;
     padding: 0.85rem 0.25rem;
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--ink);
     cursor: pointer;
     list-style: none;
