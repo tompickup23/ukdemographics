@@ -1,297 +1,166 @@
 ---
 /**
- * Dual sister-site teaser. Promotes asylumstats.co.uk + ukelections.co.uk
- * from UK Demographics.
+ * Sister site cards for ukelections.co.uk and asylumstats.co.uk.
  *
- * Two parallel cards, each with eyebrow / headline / 3 key stats / CTA.
- * Stacks on mobile.
+ * This component used to carry three hardcoded statistics per site, maintained by
+ * hand and last touched when they were written. By August 2026 half of them were
+ * wrong: "£5.77M per day" is a retired asylum accommodation figure (the NAO number
+ * is £4.9bn over ten years), "£155+ per taxpayer per year" was a mangling of
+ * £155.38 per second, and "82.7% backtest accuracy" did not match UK Elections'
+ * own published record, which moves nightly and cannot be mirrored by hand.
  *
- * Update the per-site stats here when the headline numbers change on
- * either sister site.
+ * A cross link does not need a statistic. It needs to say what the other site does
+ * and get out of the way, and it must never quote a number this repo cannot check.
+ * If these cards ever carry figures again, they read them from a shared feed rather
+ * than from constants in this file.
+ *
+ * Each card takes the sister site's own accent as a top rule, which is the estate
+ * brand system's identity device: the accent triple is the only thing that varies
+ * between the five sites.
  */
 
-// asylumstats.co.uk: fiscal lens on asylum accommodation
-const AS_DAILY_COST_GBP = 5_770_000;
-const AS_PER_TAXPAYER_MIN_GBP = 155;
-const AS_TEN_YEAR_GBP = 15_300_000_000;
+type Sister = {
+  domain: string;
+  name: string;
+  accent: string;
+  blurb: string;
+  mark: "ballot" | "columns";
+};
 
-// ukelections.co.uk: election forecasting + per-constituency outlook
-const UKE_COUNCILS = 156;
-const UKE_PCONS = 650;
-const UKE_BACKTEST_ACC = "82.7%";
-
-function fmtGbp(n: number) {
-  if (n >= 1_000_000_000) return `£${(n / 1_000_000_000).toFixed(1)}B`;
-  if (n >= 1_000_000) return `£${(n / 1_000_000).toFixed(2)}M`;
-  return `£${n.toLocaleString("en-GB")}`;
-}
+const SISTERS: Sister[] = [
+  {
+    domain: "ukelections.co.uk",
+    name: "UK Elections",
+    accent: "#6b5334",
+    blurb:
+      "Council by-elections and Westminster seats: results as they are declared, a forecast for each contest, and the record of how those forecasts actually did.",
+    mark: "ballot"
+  },
+  {
+    domain: "asylumstats.co.uk",
+    name: "Asylum Stats",
+    accent: "#2f5773",
+    blurb:
+      "Home Office asylum statistics by local authority: who is supported where, on what basis, and how each area compares with the rest of the country.",
+    mark: "columns"
+  }
+];
 ---
 
 <section class="sister-teaser shell" aria-labelledby="sister-teaser-title">
   <div class="st-head">
     <span class="st-eyebrow">Sister sites</span>
-    <h2 class="st-title" id="sister-teaser-title">
-      One model, three views: demographics, elections, fiscal cost
-    </h2>
+    <h2 class="st-title" id="sister-teaser-title">The same official data, read three ways</h2>
     <p class="st-desc">
-      UK Demographics tracks the population change. Two sister sites read
-      the same government data through different lenses. Follow all three
-      for the full picture.
+      UK Demographics projects the population. Two sister sites take the same government
+      releases and ask different questions of them.
     </p>
   </div>
 
   <div class="st-pair">
-    <!-- ukelections.co.uk -->
-    <article class="st-card st-card--uke">
-      <header class="st-card-head">
-        <span class="st-card-tag">ukelections.co.uk</span>
-        <h3 class="st-card-title">Forecast every council and constituency</h3>
-        <p class="st-card-desc">
-          Hamilton-Perry-anchored election model trained on demographic
-          composition. Per-ward and per-constituency outlook for England,
-          Wales, Scotland and Northern Ireland.
-        </p>
-      </header>
-      <ul class="st-card-stats">
-        <li>
-          <span class="st-card-stat-value">{UKE_COUNCILS}</span>
-          <span class="st-card-stat-label">councils with forecasts</span>
-        </li>
-        <li>
-          <span class="st-card-stat-value">{UKE_PCONS}</span>
-          <span class="st-card-stat-label">Westminster constituencies</span>
-        </li>
-        <li>
-          <span class="st-card-stat-value">{UKE_BACKTEST_ACC}</span>
-          <span class="st-card-stat-label">backtest accuracy</span>
-        </li>
-      </ul>
-      <a
-        href="https://ukelections.co.uk"
-        class="st-card-cta"
-        target="_blank"
-        rel="noopener"
-      >
-        Open ukelections.co.uk &rarr;
+    {SISTERS.map((s) => (
+      <a class="st-card" href={`https://${s.domain}`} target="_blank" rel="noopener" style={`--st-accent: ${s.accent}`}>
+        <span class="st-mark" aria-hidden="true">
+          {s.mark === "ballot" ? (
+            <svg width="30" height="30" viewBox="0 0 64 64">
+              <rect x="8" y="6" width="48" height="52" rx="3" fill="var(--st-accent)" opacity="0.24" />
+              <path d="M22 22 L42 42 M42 22 L22 42" stroke="var(--st-accent)" stroke-width="7" stroke-linecap="square" fill="none" />
+            </svg>
+          ) : (
+            <svg width="30" height="30" viewBox="0 0 64 64">
+              <rect x="10" y="26" width="18" height="34" fill="var(--st-accent)" />
+              <rect x="36" y="6" width="18" height="54" fill="var(--st-accent)" opacity="0.45" />
+            </svg>
+          )}
+        </span>
+        <span class="st-name">{s.name}</span>
+        <span class="st-domain">{s.domain}</span>
+        <span class="st-blurb">{s.blurb}</span>
+        <span class="st-cta">Open <span aria-hidden="true">&rarr;</span></span>
       </a>
-    </article>
-
-    <!-- asylumstats.co.uk -->
-    <article class="st-card st-card--as">
-      <header class="st-card-head">
-        <span class="st-card-tag">asylumstats.co.uk</span>
-        <h3 class="st-card-title">Where the money goes</h3>
-        <p class="st-card-desc">
-          The fiscal bill for asylum accommodation. Home Office contracts,
-          per-taxpayer cost, true-cost breakdown across hotels, dispersed
-          accommodation, processing and local authority grants.
-        </p>
-      </header>
-      <ul class="st-card-stats">
-        <li>
-          <span class="st-card-stat-value">{fmtGbp(AS_DAILY_COST_GBP)}</span>
-          <span class="st-card-stat-label">per day, accommodation</span>
-        </li>
-        <li>
-          <span class="st-card-stat-value">£{AS_PER_TAXPAYER_MIN_GBP}+</span>
-          <span class="st-card-stat-label">per taxpayer per year</span>
-        </li>
-        <li>
-          <span class="st-card-stat-value">{fmtGbp(AS_TEN_YEAR_GBP)}</span>
-          <span class="st-card-stat-label">NAO 10-year forecast</span>
-        </li>
-      </ul>
-      <a
-        href="https://asylumstats.co.uk"
-        class="st-card-cta"
-        target="_blank"
-        rel="noopener"
-      >
-        Open asylumstats.co.uk &rarr;
-      </a>
-    </article>
+    ))}
   </div>
 </section>
 
 <style>
   .sister-teaser {
     margin-top: var(--space-2xl);
-    padding: var(--space-xl) 0;
+    padding: var(--space-xl) 0 var(--space-2xl);
     border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--accent-2) 4%, transparent) 0%,
-      color-mix(in srgb, var(--accent-3) 3%, transparent) 100%
-    );
   }
 
-  .st-head { max-width: 760px; margin-bottom: var(--space-lg); }
+  .st-head { max-width: 62ch; margin-bottom: var(--space-lg); }
   .st-eyebrow {
-    display: inline-block;
-    padding: 0.3rem 0.65rem;
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--ink-soft);
-    background: var(--panel-soft);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    margin-bottom: 0.6rem;
+    color: var(--text-faint);
   }
   .st-title {
+    margin: 0.35rem 0 0;
     font-family: var(--font-display);
-    font-size: var(--text-h2);
-    font-weight: 800;
-    color: var(--ink);
-    margin: 0 0 0.5rem;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
   }
-  .st-desc {
-    color: var(--muted);
-    font-size: var(--text-body);
-    line-height: 1.55;
-    margin: 0;
-  }
+  .st-desc { margin: 0.6rem 0 0; color: var(--text-muted); line-height: 1.7; }
 
   .st-pair {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
   }
 
   .st-card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    padding: var(--space-lg);
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-soft);
-    transition: transform 180ms, box-shadow 180ms, border-color 180ms;
-  }
-  .st-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-  }
-  .st-card--uke {
-    border-left: 4px solid var(--accent-2);
-  }
-  .st-card--uke:hover {
-    border-color: color-mix(in srgb, var(--accent-2) 35%, var(--border));
-    border-left-color: var(--accent-2);
-  }
-  .st-card--as {
-    border-left: 4px solid var(--accent-3);
-  }
-  .st-card--as:hover {
-    border-color: color-mix(in srgb, var(--accent-3) 35%, var(--border));
-    border-left-color: var(--accent-3);
-  }
-
-  .st-card-head {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  .st-card-tag {
-    align-self: flex-start;
-    font-family: var(--font-display);
-    font-size: var(--text-eyebrow);
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.55rem;
-    border-radius: 999px;
-    color: var(--ink);
-    background: var(--panel-soft);
-    border: 1px solid var(--border);
-  }
-  .st-card--uke .st-card-tag { color: var(--accent-2); border-color: color-mix(in srgb, var(--accent-2) 35%, transparent); }
-  .st-card--as  .st-card-tag { color: var(--accent-3); border-color: color-mix(in srgb, var(--accent-3) 35%, transparent); }
-
-  .st-card-title {
-    font-family: var(--font-display);
-    font-size: var(--text-h3);
-    font-weight: 800;
-    color: var(--ink);
-    margin: 0;
-    line-height: 1.25;
-  }
-  .st-card-desc {
-    color: var(--muted);
-    font-size: var(--text-small);
-    line-height: 1.55;
-    margin: 0;
-  }
-
-  .st-card-stats {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xs);
-  }
-  .st-card-stats li {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    padding: 0.6rem 0.7rem;
-    background: var(--panel-soft);
+    gap: 0.55rem;
+    padding: 1.4rem 1.5rem 1.5rem;
     border: 1px solid var(--border);
-    border-radius: 10px;
-  }
-  .st-card-stat-value {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    font-variant-numeric: tabular-nums;
-    line-height: 1.05;
-  }
-  .st-card--uke .st-card-stat-value { color: var(--accent-2); }
-  .st-card--as  .st-card-stat-value { color: var(--accent-3); }
-  .st-card-stat-label {
-    font-size: 0.72rem;
-    color: var(--muted);
-    line-height: 1.3;
-  }
-
-  .st-card-cta {
-    align-self: flex-start;
-    padding: 0.7rem 1.1rem;
-    font-size: var(--text-small);
-    font-weight: 700;
-    color: var(--ink);
-    background: var(--panel-soft);
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    border-top: 3px solid var(--st-accent);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-soft);
     text-decoration: none;
-    transition: background 180ms, color 180ms, border-color 180ms, transform 180ms;
+    color: inherit;
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
   }
-  .st-card--uke .st-card-cta:hover {
-    background: var(--accent-2);
-    color: var(--bg);
-    border-color: var(--accent-2);
-  }
-  .st-card--as .st-card-cta:hover {
-    background: var(--accent-3);
-    color: var(--bg);
-    border-color: var(--accent-3);
+  .st-card:hover,
+  .st-card:focus-visible {
+    border-color: var(--border-strong);
+    border-top-color: var(--st-accent);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
   }
 
-  @media (max-width: 760px) {
-    .st-pair { grid-template-columns: 1fr; }
-    .st-card-stats { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
-    .st-card-stat-value { font-size: 1.05rem; }
+  .st-mark { display: block; margin-bottom: 0.2rem; }
+  .st-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
   }
-  @media (max-width: 420px) {
-    .st-card-stats { grid-template-columns: 1fr 1fr; }
+  .st-domain {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-faint);
+  }
+  .st-blurb {
+    margin-top: 0.35rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .st-cta {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--st-accent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .st-card { transition: none; }
+    .st-card:hover, .st-card:focus-visible { transform: none; }
   }
 </style>
