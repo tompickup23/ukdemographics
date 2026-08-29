@@ -3820,14 +3820,6 @@
       "nonEnglishGrowthPp": null,
       "projectedNonEnglishIncrease": 18.7,
       "interpreterImplication": null
-    },
-    "E08000038": {
-      "areaName": "Barnsley",
-      "dataAvailable": false
-    },
-    "E08000039": {
-      "areaName": "Sheffield",
-      "dataAvailable": false
     }
   }
 }

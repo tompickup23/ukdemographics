@@ -32,6 +32,12 @@
  * White Other in 2021 to 45.3% by 2061, which is a factor of ten; Boston goes
  * 20.1% to 62.9%. Those were being published while Enfield's "Other" was caught.
  *
+ * The Barnsley figure above came from a duplicate record filed under a second
+ * ONS code, which carried a superseded model run and was removed on 29 August
+ * 2026. Barnsley's live record projects White Other from 4.3% to 13.6% by 2061
+ * and no longer truncates. The reasoning stands; the example no longer resolves
+ * against the data. See src/lib/area-codes.ts.
+ *
  * White British is excluded because it is the base group and starts near the top
  * in most areas, so the multiple test is meaningless for it, and it is falling
  * rather than compounding upward everywhere the model runs.

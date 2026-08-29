@@ -13,16 +13,22 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
+import { canonicalAreaCode } from "../lib/area-codes.mjs";
+
 const SITE_OUTPUT = path.resolve("src/data/live/ethnic-projections.json");
 const REGION_GROUPS = path.resolve("data/model/region_groups.json");
 
 const existing = JSON.parse(readFileSync(SITE_OUTPUT, "utf8"));
 const regionGroups = JSON.parse(readFileSync(REGION_GROUPS, "utf8"));
 
-// Build area → region mapping
+// Build area → region mapping.
+// region_groups.json files Barnsley and Sheffield under the codes ONS reissued
+// in 2025. The area map is keyed on the codes the Census 2021 model uses, so
+// without resolving that the two fell out of every regional average and were
+// left with no smoothed projection at all.
 const areaToRegion = {};
 for (const [region, codes] of Object.entries(regionGroups)) {
-  for (const code of codes) areaToRegion[code] = region;
+  for (const code of codes) areaToRegion[canonicalAreaCode(code)] = region;
 }
 
 // ============================================================
@@ -36,7 +42,7 @@ for (const [region, codes] of Object.entries(regionGroups)) {
   let count = 0;
 
   for (const code of codes) {
-    const area = existing.areas[code];
+    const area = existing.areas[canonicalAreaCode(code)];
     if (!area?.projections) continue;
 
     for (const [year, groups] of Object.entries(area.projections)) {

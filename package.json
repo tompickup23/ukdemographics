@@ -21,7 +21,9 @@
     "validate:projections": "node scripts/validate-projections.mjs",
     "validate:oos": "node scripts/model/validate_out_of_sample.mjs",
     "fetch:census2001": "node scripts/fetch/fetch-census-2001-ethnicity-age.mjs",
-    "reconcile:derived": "node scripts/model/reconcile_derived.mjs"
+    "reconcile:derived": "node scripts/model/reconcile_derived.mjs",
+    "canonicalise:codes": "node scripts/model/canonicalise_area_codes.mjs",
+    "canonicalise:codes:check": "node scripts/model/canonicalise_area_codes.mjs --check"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.2.8",

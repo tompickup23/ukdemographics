@@ -1,0 +1,12 @@
+{
+  "source": "ONS Open Geography Portal, Code History Database",
+  "sourceUrl": "https://www.ons.gov.uk/explore-local-statistics/areas/E08000038-barnsley",
+  "lastReviewed": "2026-08-29",
+  "description": "Maps an ONS area code that appears in an input dataset onto the code this site keys its area records by. An authority can hold more than one valid ONS code at once because a boundary change reissues the code while historic outputs keep publishing under the old one, and a matcher keyed on the code alone then silently splits one authority into two.",
+  "canonicalChoice": "The canonical code is the one the projection model and the Census-derived layers use, not the newest code ONS has issued. Census 2021, DfE School Census, DWP NINo, police, ASC, SEND and the LAD24 boundary file all key Barnsley on E08000016 and Sheffield on E08000019, and the Hamilton-Perry model is built on the Census 2021 base, so those are the codes an area record is filed under here. Reversing this map means re-keying every one of those layers, so it is a data decision and not a rename.",
+  "note": "The Barnsley and Sheffield (Boundary Change) Order 2024 reissued both codes with effect from 1 April 2025: Barnsley E08000016 becomes E08000038 and Sheffield E08000019 becomes E08000039. ONS publishes the new codes on its Explore Local Statistics area pages, while the December 2024 LAD boundary file and the Census 2021 outputs this model is built on still carry the old ones. Home Office local route data, the constituency crosswalk and the model's region groupings arrive under the new codes, which is why they need resolving on the way in rather than correcting at source.",
+  "aliases": {
+    "E08000038": "E08000016",
+    "E08000039": "E08000019"
+  }
+}
