@@ -38,8 +38,13 @@ const sortedWinners = Object.entries(winnerCounts).sort(([, a], [, b]) => b - a)
   title="UK constituencies"
   description={`Per-constituency demographic and political profile for ${all.length} of the 650 UK parliamentary constituencies: 2024 General Election results, MP, PIP claimants, and the local authorities that make up each seat.`}
 >
-  <h1>UK constituencies</h1>
-  <p class="desc">{all.length} of 650 constituencies, joined to demographic and welfare data. 2024 General Election results, sitting MP, PIP claimants, and the local authorities that make up each seat.</p>
+  <span class="page-eyebrow">{all.length} of 650 seats</span>
+  <h1>Find your seat and what sits underneath it</h1>
+  <p class="desc">
+    Every constituency joined to the councils it covers, so the 2024 result, the sitting
+    MP and the demographic rollup are on one page. Nineteen Northern Ireland seats have no
+    PIP figures because DWP publishes none, and those pages say so rather than estimating.
+  </p>
 
   <section class="stats-grid">
     {sortedWinners.slice(0, 4).map(([party, n]) => (

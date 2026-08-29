@@ -5908,3 +5908,34 @@ tr:last-child td {
   .hero-race-party { font-size: 0.65rem; }
   .hero-race-pct   { font-size: 0.9rem;  }
 }
+
+/* Page head, shared. Four index pages had four different h1 sizes, none of them the
+   scale the display face was chosen for. */
+.page-eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.page-eyebrow + h1 {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.6vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.page-eyebrow + h1 + .desc,
+.page-eyebrow + h1 + .findings-intro {
+  margin: 0.85rem 0 1.6rem;
+  max-width: 62ch;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
