@@ -271,7 +271,7 @@ textarea {
   border-radius: 999px;
   background: var(--accent);
   color: #041019;
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: none;
   transform: translateY(-150%);
 }
@@ -336,14 +336,14 @@ textarea {
 .brand-copy > span {
   font-family: var(--font-display);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
 .brand-copy small {
   color: var(--muted);
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -370,7 +370,7 @@ textarea {
   background: var(--bg-subtle);
   color: var(--ink-soft);
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -420,7 +420,7 @@ textarea {
   background: var(--bg-subtle);
   color: var(--muted);
   font-size: 0.76rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -478,7 +478,7 @@ textarea {
   margin: 0.28rem 0 0;
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2vw, 1.75rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.05em;
 }
 
@@ -509,7 +509,7 @@ textarea {
 .site-search-empty strong {
   font-family: var(--font-display);
   font-size: 1.02rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -592,7 +592,7 @@ textarea {
   color: var(--ink);
   font-family: var(--font-display);
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -768,7 +768,7 @@ main {
   background: var(--accent-wash);
   color: var(--accent);
   font-size: 0.76rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -779,7 +779,7 @@ main {
   max-width: 12ch;
   font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 5.8rem);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.07em;
   line-height: 0.92;
 }
@@ -861,7 +861,7 @@ main {
   margin-top: 0.35rem;
   font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -887,7 +887,7 @@ main {
   margin-top: 0.38rem;
   font-family: var(--font-display);
   font-size: clamp(1.9rem, 4vw, 2.7rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 0.96;
   letter-spacing: -0.06em;
 }
@@ -901,7 +901,7 @@ main {
   margin: 0.32rem 0 0.35rem;
   font-family: var(--font-display);
   font-size: 1.18rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -994,7 +994,7 @@ main {
   margin-top: 0.48rem;
   font-family: var(--font-display);
   font-size: clamp(1.95rem, 3vw, 2.7rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.06em;
 }
@@ -1053,7 +1053,7 @@ main {
   margin: 0.35rem 0 0;
   font-family: var(--font-display);
   font-size: clamp(1.35rem, 2.5vw, 2rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 1.02;
 }
@@ -1153,7 +1153,7 @@ main {
   margin: 0.45rem 0 0.55rem;
   font-family: var(--font-display);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -1253,7 +1253,7 @@ button.source-pill {
   background: var(--bg-subtle);
   color: var(--ink-soft);
   font-size: 0.88rem;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -1273,7 +1273,7 @@ button.source-pill {
 .page-contents-step {
   color: var(--muted);
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -1308,7 +1308,7 @@ button.source-pill {
   color: rgba(217, 245, 255, 0.32);
   font-family: var(--font-display);
   font-size: 1.45rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.08em;
   line-height: 1;
 }
@@ -1348,7 +1348,7 @@ button.source-pill {
   background: rgba(125, 211, 252, 0.08);
   color: var(--ink-soft);
   font-size: 0.8rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -1669,7 +1669,7 @@ button.source-pill {
   max-width: 5.3ch;
   font-family: var(--font-display);
   font-size: clamp(1.95rem, 3vw, 3rem);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.08em;
   line-height: 0.9;
 }
@@ -1716,7 +1716,7 @@ button.source-pill {
   margin: 0.28rem 0 0;
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2vw, 1.8rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 1;
 }
@@ -1744,7 +1744,7 @@ button.source-pill {
   margin: 0.32rem 0 0.14rem;
   font-family: var(--font-display);
   font-size: clamp(1.45rem, 2.1vw, 1.95rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.06em;
   line-height: 0.95;
 }
@@ -1783,7 +1783,7 @@ button.source-pill {
 .home-visual-head strong {
   font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -1871,7 +1871,7 @@ button.source-pill {
   background: var(--bg-subtle);
   color: var(--ink-soft);
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .home-bar-copy strong,
@@ -1879,7 +1879,7 @@ button.source-pill {
 .home-next-card strong {
   font-family: var(--font-display);
   font-size: 0.98rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -2001,7 +2001,7 @@ button.source-pill {
   margin-top: 0.2rem;
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 2.5vw, 2.4rem);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.06em;
   line-height: 0.95;
 }
@@ -2032,7 +2032,7 @@ button.source-pill {
 .home-mini-stat strong {
   font-family: var(--font-display);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -2045,7 +2045,7 @@ button.source-pill {
 .home-visual-hero-value {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 2.6vw, 2.6rem);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.07em;
   line-height: 0.92;
 }
@@ -2121,7 +2121,7 @@ button.source-pill {
   background: var(--bg-subtle);
   color: var(--ink-soft);
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
 }
 
@@ -2144,7 +2144,7 @@ button.home-scope-crumb:focus-visible {
 .home-scope-separator {
   color: var(--muted);
   font-size: 0.8rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .home-scope-kind-chip {
@@ -2561,7 +2561,7 @@ button.home-scope-crumb:focus-visible {
 .home-map-focus-card strong {
   font-family: var(--font-display);
   font-size: 1.02rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -2663,7 +2663,7 @@ button.home-scope-crumb:focus-visible {
 .region-map-shortlist-link strong {
   font-family: var(--font-display);
   font-size: 0.96rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 1.02;
 }
@@ -2751,7 +2751,7 @@ button.region-map-shortlist-link {
 .home-map-signal-card strong {
   font-family: var(--font-display);
   font-size: clamp(1.05rem, 1.6vw, 1.35rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 0.98;
 }
@@ -2785,7 +2785,7 @@ button.region-map-shortlist-link {
 .home-map-quick-head strong {
   font-family: var(--font-display);
   font-size: 0.96rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 1.1;
 }
@@ -2832,7 +2832,7 @@ button.region-map-shortlist-link {
 .home-map-quick-button strong {
   font-family: var(--font-display);
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -3002,7 +3002,7 @@ button.region-map-shortlist-link {
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(2.15rem, 4vw, 3.8rem);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.07em;
   line-height: 0.92;
 }
@@ -3035,7 +3035,7 @@ button.region-map-shortlist-link {
 .map-front-stat strong {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2vw, 1.7rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 0.98;
 }
@@ -3050,7 +3050,7 @@ button.region-map-shortlist-link {
   right: 1rem;
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.08em;
   line-height: 1;
   color: rgba(217, 245, 255, 0.34);
@@ -3104,7 +3104,7 @@ button.region-map-shortlist-link {
   margin-top: 0.32rem;
   font-family: var(--font-display);
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -3159,7 +3159,7 @@ button.region-map-shortlist-link {
 .benchmark-copy strong {
   font-family: var(--font-display);
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.05em;
 }
 
@@ -3232,7 +3232,7 @@ button.region-map-shortlist-link {
 .pathway-mix-row strong {
   font-family: var(--font-display);
   font-size: 0.96rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -3241,7 +3241,7 @@ button.region-map-shortlist-link {
   align-items: center;
   gap: 0.55rem;
   color: var(--ink-soft);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .pathway-mix-swatch {
@@ -3268,7 +3268,7 @@ button.region-map-shortlist-link {
 .trend-label,
 .benchmark-label {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -3279,20 +3279,20 @@ button.region-map-shortlist-link {
 
 .trend-annotation {
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 600;
   fill: var(--ink-soft);
 }
 
 .trend-event-label {
   font-size: 8px;
-  font-weight: 700;
+  font-weight: 600;
   font-family: var(--font-display);
   letter-spacing: 0.02em;
 }
 
 .region-map-label {
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   fill: var(--text-muted);
@@ -3324,7 +3324,7 @@ button.region-map-shortlist-link {
 .region-map-value {
   font-family: var(--font-display);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
   fill: var(--ink);
   paint-order: stroke fill;
@@ -3739,7 +3739,7 @@ button.region-map-shortlist-link {
   padding: 0.95rem 1rem;
   border-radius: 18px;
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(245, 247, 251, 0.9);
@@ -3769,7 +3769,7 @@ button.region-map-shortlist-link {
 .region-map-legend-copy strong {
   font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.03em;
 }
 
@@ -3815,7 +3815,7 @@ button.region-map-shortlist-link {
   margin: 0;
   font-family: var(--font-display);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -3837,7 +3837,7 @@ button.region-map-shortlist-link {
   margin-top: 0.25rem;
   font-family: var(--font-display);
   font-size: 1.08rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -3848,7 +3848,7 @@ button.region-map-shortlist-link {
 
 .region-map-summary-label {
   color: var(--ink-soft);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -3886,7 +3886,7 @@ button.region-map-shortlist-link {
 .region-map-summary-link strong {
   font-family: var(--font-display);
   font-size: 0.98rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -3960,7 +3960,7 @@ button.region-map-shortlist-link {
   margin: 0.4rem 0 0.35rem;
   font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -4023,7 +4023,7 @@ button.region-map-shortlist-link {
   margin: 0;
   font-family: var(--font-display);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -4052,7 +4052,7 @@ button.region-map-shortlist-link {
   margin-top: 0.35rem;
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 2.15rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.06em;
 }
@@ -4068,7 +4068,7 @@ button.region-map-shortlist-link {
   margin: 0.4rem 0 0.55rem;
   font-family: var(--font-display);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -4165,7 +4165,7 @@ button.region-map-shortlist-link {
   border-radius: 999px;
   font-family: var(--font-display);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--text);
   background: var(--bg-subtle);
@@ -4299,7 +4299,7 @@ button.region-map-shortlist-link {
   padding-top: 0.3rem;
   color: var(--muted);
   font-size: 0.82rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -4317,7 +4317,7 @@ button.region-map-shortlist-link {
   margin: 0.45rem 0 0.55rem;
   font-family: var(--font-display);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -4331,7 +4331,7 @@ button.region-map-shortlist-link {
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 2.6vw, 2.7rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 1.02;
 }
@@ -4356,7 +4356,7 @@ button.region-map-shortlist-link {
   margin: 0 0 0.62rem;
   font-family: var(--font-display);
   font-size: 1.08rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -4381,7 +4381,7 @@ button.region-map-shortlist-link {
   background: var(--panel-soft);
   color: var(--ink-soft);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -4456,7 +4456,7 @@ td {
 th {
   color: var(--muted);
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   background: var(--bg-subtle);
@@ -4465,7 +4465,7 @@ th {
 tbody th[scope="row"] {
   color: var(--ink-soft);
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0;
   text-transform: none;
   background: transparent;
@@ -4538,11 +4538,11 @@ tr:last-child td {
   border-radius: var(--radius-sm);
 }
 .as-cross-inner { display: flex; flex-direction: column; gap: 0.5rem; }
-.as-cross-label { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-bright); }
+.as-cross-label { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-bright); }
 .as-cross-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
 .as-cross-btn {
   display: inline-block; margin-top: 0.25rem; padding: 0.5rem 1rem;
-  font-size: 0.85rem; font-weight: 700; color: var(--text);
+  font-size: 0.85rem; font-weight: 600; color: var(--text);
   background: var(--accent-bright); border-radius: 8px; text-decoration: none;
   transition: background 180ms;
   width: fit-content;
@@ -5372,7 +5372,7 @@ tr:last-child td {
 .home-authority-group-text {
   fill: var(--ink);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   paint-order: stroke fill;
@@ -5590,7 +5590,7 @@ tr:last-child td {
 .mobile-drawer-title {
   font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink);
 }
 .mobile-drawer-close {
@@ -5616,7 +5616,7 @@ tr:last-child td {
   padding: 0.65rem 0.85rem;
   border-radius: 10px;
   font-size: 0.92rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--ink-soft);
   text-decoration: none;
   transition: background 180ms, color 180ms;
@@ -5652,14 +5652,14 @@ tr:last-child td {
 .clock-number {
   font-size: clamp(3.5rem, 9vw, 6.5rem);
   line-height: 0.85;
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: -0.04em;
   color: var(--ink);
 }
 
 .clock-label {
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -5672,7 +5672,7 @@ tr:last-child td {
 
 .hero-race-title {
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -5723,7 +5723,7 @@ tr:last-child td {
 
 .hero-race-party {
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1;
@@ -5732,7 +5732,7 @@ tr:last-child td {
 
 .hero-race-pct {
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   line-height: 1.1;
   white-space: nowrap;
@@ -5771,7 +5771,7 @@ tr:last-child td {
 }
 
 .hero-race-legend-party {
-  font-weight: 800;
+  font-weight: 600;
   color: var(--ink);
 }
 
@@ -5783,7 +5783,7 @@ tr:last-child td {
 
 .hero-race-legend-cand {
   color: var(--ink-soft);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .hero-race-legend-cand::before {
@@ -5817,7 +5817,7 @@ tr:last-child td {
   grid-column: 1 / 2;
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 3vw, 2.4rem);
-  font-weight: 900;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -5832,7 +5832,7 @@ tr:last-child td {
   border-radius: 999px;
   background: var(--panel-soft);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
   color: var(--ink-soft);

@@ -41,7 +41,7 @@ const {
 
 const width = 560;
 const height = chartHeight;
-const pad = { top: 14, right: 16, bottom: 34, left: 42 };
+const pad = { top: 14, right: 116, bottom: 34, left: 42 };
 const uw = width - pad.left - pad.right;
 const uh = height - pad.top - pad.bottom;
 
@@ -138,8 +138,8 @@ const labelYears = [minYear, nowYear, ...([2031, 2041, 2051].filter(yr => yr <= 
     {maxYear > 2051 && (
       <>
         <line x1={x(2051)} y1={pad.top} x2={x(2051)} y2={pad.top + uh}
-              stroke="rgba(245,158,11,0.2)" stroke-width="1" stroke-dasharray="2 4" />
-        <text x={x(2051)} y={pad.top + uh + 20} text-anchor="middle" class="proj-now-label" fill="rgba(245,158,11,0.5)">Illustrative</text>
+              stroke="color-mix(in srgb, var(--warning) 22%, transparent)" stroke-width="1" stroke-dasharray="2 4" />
+        <text x={x(2051)} y={pad.top + uh + 20} text-anchor="middle" class="proj-now-label" fill="var(--warning)">Illustrative</text>
       </>
     )}
 

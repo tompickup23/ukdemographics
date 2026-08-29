@@ -69,20 +69,20 @@ const sortedWinners = Object.entries(winnerCounts).sort(([, a], [, b]) => b - a)
 </BaseLayout>
 
 <style>
-  h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
+  h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.5rem; }
   .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 800px; }
   .muted { color: var(--muted); font-weight: 400; font-size: 0.9rem; }
   .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; margin-bottom: 2rem; }
   .stat-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.2rem; }
-  .stat-value { font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; color: var(--ink); }
+  .stat-value { font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; color: var(--ink); }
   .stat-label { font-size: 0.82rem; color: var(--muted); }
   .country-block { margin-top: 2.5rem; }
-  .country-block h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; margin: 0 0 0.75rem; }
+  .country-block h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin: 0 0 0.75rem; }
   .pcon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.5rem; }
   .pcon-card { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.7rem 0.85rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--ink); transition: background 120ms; }
   .pcon-card:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
   .pcon-name { font-weight: 600; font-size: 0.9rem; }
   .pcon-meta { display: flex; justify-content: space-between; font-size: 0.78rem; font-family: var(--font-display); }
-  .pcon-winner { font-weight: 700; }
+  .pcon-winner { font-weight: 600; }
   .pcon-margin { color: var(--muted); }
 </style>

@@ -196,9 +196,9 @@ function fmtFull(v: number | null | undefined): string {
 </BaseLayout>
 
 <style>
-  h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; }
+  h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.5rem; }
   .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 760px; line-height: 1.5; }
-  .section-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; margin: 2rem 0 0.75rem; }
+  .section-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; }
 
   .ci-band { background: color-mix(in srgb, var(--accent) 8%, transparent); border-left: 3px solid var(--accent); padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-size: 0.9rem; max-width: 760px; margin: 0.5rem 0 1rem; line-height: 1.5; }
 
@@ -207,30 +207,30 @@ function fmtFull(v: number | null | undefined): string {
   .ts-period { font-size: 0.82rem; color: var(--muted); font-weight: 600; font-family: var(--font-display); }
   .ts-bar-wrap { height: 18px; background: color-mix(in srgb, var(--border-strong) 30%, transparent); border-radius: 3px; overflow: hidden; }
   .ts-bar { height: 100%; transition: width 200ms; }
-  .ts-value { font-size: 0.85rem; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; font-family: var(--font-display); }
+  .ts-value { font-size: 0.85rem; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; font-family: var(--font-display); }
   .ts-note { font-size: 0.82rem; color: var(--muted); margin: 0.75rem 0 0; max-width: 760px; line-height: 1.5; }
 
   .reason-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.6rem; max-width: 900px; margin: 0.5rem 0 1rem; }
   .reason-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.85rem; display: flex; flex-direction: column; gap: 0.2rem; }
-  .reason-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
-  .reason-value { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; }
+  .reason-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .reason-value { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; }
   .reason-detail { font-size: 0.78rem; color: var(--muted); }
 
   .rev-table { max-width: 900px; }
-  .rev-header { display: grid; grid-template-columns: 90px 90px 1fr 110px 110px 110px; padding: 0.45rem 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
+  .rev-header { display: grid; grid-template-columns: 90px 90px 1fr 110px 110px 110px; padding: 0.45rem 0.75rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
   .rev-row { display: grid; grid-template-columns: 90px 90px 1fr 110px 110px 110px; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
   .rev-stage { font-size: 0.82rem; color: var(--muted); }
   .rev-num { font-variant-numeric: tabular-nums; text-align: right; }
-  .rev-net { font-weight: 700; color: var(--ink); }
+  .rev-net { font-weight: 600; color: var(--ink); }
 
   .tri-table { max-width: 800px; }
-  .tri-header { display: grid; grid-template-columns: 90px 1fr 1fr 1fr; padding: 0.45rem 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
+  .tri-header { display: grid; grid-template-columns: 90px 1fr 1fr 1fr; padding: 0.45rem 0.75rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
   .tri-row { display: grid; grid-template-columns: 90px 1fr 1fr 1fr; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
   .tri-num { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; }
 
   .notcounted-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.75rem; max-width: 900px; margin: 0.5rem 0 1rem; }
   .notcounted-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; display: flex; flex-direction: column; gap: 0.4rem; }
-  .nc-label { font-weight: 800; font-size: 0.9rem; color: var(--ink); font-family: var(--font-display); }
+  .nc-label { font-weight: 600; font-size: 0.9rem; color: var(--ink); font-family: var(--font-display); }
   .notcounted-card p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.5; }
 
   .meth-text { font-size: 0.88rem; color: var(--muted); max-width: 760px; margin: 0 0 0.75rem; line-height: 1.55; }

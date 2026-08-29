@@ -835,7 +835,7 @@ function findingColor(verdict: string): string {
   .strip-title {
     font-family: var(--font-display);
     font-size: 1.15rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--ink);
     margin: 0 0 1rem;
     letter-spacing: -0.02em;
@@ -861,8 +861,8 @@ function findingColor(verdict: string): string {
     box-shadow: 0 0 0 2px var(--accent-glow);
     transform: translateY(-2px);
   }
-  .fsc-verdict { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
-  .fsc-stat { font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .fsc-verdict { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+  .fsc-stat { font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
   .fsc-headline { font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); line-height: 1.4; }
   .fsc-cta { font-size: 0.82rem; color: var(--accent); margin-top: auto; }
 
@@ -870,7 +870,7 @@ function findingColor(verdict: string): string {
   .section-title {
     font-family: var(--font-display);
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-    font-weight: 800;
+    font-weight: 600;
     color: var(--ink);
     margin: 0 0 0.25rem;
     letter-spacing: -0.02em;
@@ -886,7 +886,7 @@ function findingColor(verdict: string): string {
   .demo-section { margin-top: 3rem; padding: 2.5rem 0; border-top: 1px solid var(--border); }
   .demo-inner { max-width: 900px; }
   .demo-national { margin-top: 1.5rem; padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--panel); }
-  .demo-traj-label { display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.75rem; }
+  .demo-traj-label { display: block; font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.75rem; }
   .demo-traj-bar { margin-bottom: 0.5rem; }
   .demo-traj-segment {
     display: flex; justify-content: space-between; align-items: center;
@@ -897,19 +897,19 @@ function findingColor(verdict: string): string {
   .demo-traj-current { background: linear-gradient(90deg, var(--accent-3), color-mix(in srgb, var(--accent-bright) 30%, transparent)); }
   .demo-traj-proj { background: linear-gradient(90deg, var(--coral), color-mix(in srgb, var(--critical) 20%, transparent)); }
   .demo-traj-illustrative { opacity: 0.6; border: 1px dashed color-mix(in srgb, var(--critical) 40%, transparent); background: linear-gradient(90deg, color-mix(in srgb, var(--critical) 30%, transparent), color-mix(in srgb, var(--critical) 10%, transparent)); }
-  .demo-traj-year { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; color: rgba(0, 0, 0, 0.7); }
-  .demo-traj-pct { font-family: var(--font-display); font-size: 0.92rem; font-weight: 800; color: rgba(0, 0, 0, 0.8); }
+  .demo-traj-year { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; color: rgba(0, 0, 0, 0.7); }
+  .demo-traj-pct { font-family: var(--font-display); font-size: 0.92rem; font-weight: 600; color: rgba(0, 0, 0, 0.8); }
   .demo-traj-note { display: block; font-size: 0.75rem; color: var(--muted); opacity: 0.6; margin-top: 0.5rem; line-height: 1.4; }
   .demo-traj-note a { color: var(--accent); }
   .demo-bar-section { margin-top: 1.5rem; }
-  .demo-bar-title { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; color: var(--ink-soft); margin: 0 0 0.75rem; }
+  .demo-bar-title { font-family: var(--font-display); font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); margin: 0 0 0.75rem; }
   .demo-bar-visual { display: flex; flex-direction: column; gap: 0.35rem; }
   .demo-bar-row { display: grid; grid-template-columns: 120px 1fr 42px; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--ink); padding: 0.3rem 0; transition: opacity 180ms; }
   .demo-bar-row:hover { opacity: 0.8; }
   .demo-bar-name { font-size: 0.82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .demo-bar-track { display: block; height: 20px; background: color-mix(in srgb, var(--critical) 15%, transparent); border-radius: 4px; overflow: hidden; }
   .demo-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, transparent)); border-radius: 4px; min-width: 4px; }
-  .demo-bar-pct { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; text-align: right; color: var(--muted); }
+  .demo-bar-pct { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; text-align: right; color: var(--muted); }
   .demo-bar-note { font-size: 0.78rem; color: var(--muted); margin: 0.6rem 0 0; max-width: 720px; line-height: 1.4; }
   .chip-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
@@ -922,8 +922,8 @@ function findingColor(verdict: string): string {
     transition: border-color 180ms, box-shadow 180ms;
   }
   .region-card:hover { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-glow); }
-  .region-name { font-weight: 700; font-size: 0.92rem; color: var(--ink); }
-  .region-stat { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+  .region-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); }
+  .region-stat { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--accent); }
   .region-rate { font-size: 0.82rem; color: var(--muted); }
 
   /* ═══ FUTURE AREA ═══ */
@@ -938,16 +938,16 @@ function findingColor(verdict: string): string {
   .future-result-btn:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
   .future-preview { margin-top: 1.25rem; }
   .future-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem; text-align: left; }
-  .future-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--ink); margin: 0 0 1rem; }
+  .future-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--ink); margin: 0 0 1rem; }
   .future-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
   .future-stat-label { display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.2rem; }
-  .future-stat-value { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+  .future-stat-value { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--accent); }
 
   /* ═══ CTAs ═══ */
-  .cta-link { display: inline-block; margin-top: 1.25rem; font-size: 0.92rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .cta-link { display: inline-block; margin-top: 1.25rem; font-size: 0.92rem; font-weight: 600; color: var(--accent); text-decoration: none; }
   .cta-link:hover { text-decoration: underline; }
   .cta-section { margin-top: 4rem; padding: 3rem 0 4rem; text-align: center; border-top: 1px solid var(--border); }
-  .cta-inner h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin: 0; }
+  .cta-inner h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0; }
   .cta-inner p { color: var(--muted); margin: 0.75rem auto 1.5rem; max-width: 500px; }
   .cta-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
 
@@ -984,7 +984,7 @@ function findingColor(verdict: string): string {
   .impact-number {
     font-family: var(--font-display);
     font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    font-weight: 800;
+    font-weight: 600;
     color: var(--coral);
     letter-spacing: -0.03em;
     line-height: 1;
@@ -992,7 +992,7 @@ function findingColor(verdict: string): string {
   .impact-item:not(.impact-item--hero) .impact-number { color: var(--accent); }
   .impact-label {
     font-size: 0.9rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--ink);
     margin-top: 0.3rem;
   }

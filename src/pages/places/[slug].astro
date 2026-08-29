@@ -428,6 +428,69 @@ function fmtPct(n: number | undefined | null): string {
 function fmtInt(n: number | undefined | null): string {
   return n != null ? n.toLocaleString("en-GB") : "n/a";
 }
+// Twenty three sections stacked with no way to navigate them is a scroll marathon.
+// Grouping them into seven themes turns the page into something a reader can steer,
+// and the rail below hides any entry whose section did not render for this area.
+const SECTION_GROUPS: Array<{ title: string; items: Array<{ id: string; label: string }> }> = [
+  { title: "Composition", items: [
+    { id: "ethnic-composition", label: "Ethnic trajectory" },
+    { id: "shift-share", label: "What is driving change" },
+    { id: "diversity", label: "Diversity index" },
+    { id: "religion", label: "Religion" },
+    { id: "nativity", label: "Country of birth" },
+    { id: "english", label: "English proficiency" } ] },
+  { title: "Arrivals", items: [
+    { id: "nino", label: "New arrivals" },
+    { id: "nino-history", label: "Last 24 years" },
+    { id: "nino-demographic", label: "Who is arriving" },
+    { id: "visa-routes", label: "Why people come" },
+    { id: "cob-change", label: "2011 to 2021 change" } ] },
+  { title: "Work and money", items: [
+    { id: "econ-passport", label: "Work by passport group" },
+    { id: "regional-labour", label: "Regional labour market" },
+    { id: "economy", label: "Economic profile" } ] },
+  { title: "Housing", items: [
+    { id: "housing", label: "Tenure and stress" } ] },
+  { title: "Services", items: [
+    { id: "pressure", label: "Demand pressure" },
+    { id: "crime", label: "Crime" },
+    { id: "asc", label: "Adult social care" },
+    { id: "health-ethnic", label: "Health by group" },
+    { id: "send", label: "SEND" },
+    { id: "pip", label: "PIP" },
+    { id: "nhs-funding", label: "NHS funding context" } ] },
+  { title: "Schools", items: [
+    { id: "schools-eal", label: "First language" },
+    { id: "schools", label: "School demographics" } ] },
+  { title: "Politics", items: [
+    { id: "constituencies", label: "Westminster seats" } ] }
+];
+
+// The year this area is projected to fall below a 50% White British share. A date is a
+// thing a reader can picture; a percentage point change is not.
+//
+// Suppressed where the area starts within about two of the model's mean absolute errors
+// of the line (1.56pp per decade, so 53%). Below that the crossing year is carried by
+// the starting position rather than by the trend, and quoting a year would claim
+// precision the model does not have. Blackburn at 56.9% clears it; Sandwell at 52.1%
+// does not, and keeps the share based headline instead.
+const wbi2031 = publishableValue(projData as any, 2031, projData?.projections?.["2031"]?.white_british);
+const wbi2061 = publishableValue(projData as any, 2061, projData?.projections?.["2061"]?.white_british);
+const crossingSeries: Array<[number, number]> = [];
+if (wbi2021 != null) crossingSeries.push([2021, wbi2021]);
+for (const pair of [[2031, wbi2031], [2041, wbi2041], [2051, wbi2051], [2061, wbi2061]] as Array<[number, number | null]>) {
+  if (pair[1] != null) crossingSeries.push([pair[0], pair[1]]);
+}
+let crossingYear: number | null = null;
+for (let ci = 0; ci < crossingSeries.length - 1; ci++) {
+  const [y1, v1] = crossingSeries[ci];
+  const [y2, v2] = crossingSeries[ci + 1];
+  if (v1 >= 50 && v2 < 50) { crossingYear = Math.round(y1 + ((v1 - 50) / (v1 - v2)) * (y2 - y1)); break; }
+}
+const CROSSING_MIN_BASE_PCT = 53;
+const showCrossing = crossingYear != null && wbi2021 != null && wbi2021 >= CROSSING_MIN_BASE_PCT;
+const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
+
 ---
 
 <BaseLayout
@@ -444,7 +507,16 @@ function fmtInt(n: number | undefined | null): string {
   <div class="place-header">
     <div class="place-identity">
       <h1>{area.areaName}</h1>
-      <span class="place-region">{area.regionName} &middot; {area.countryName}</span>
+      <span class="place-region">{area.regionName} &middot; {area.countryName} &middot; {area.areaCode}</span>
+      <p class="place-summary">
+        {fmtInt(population)} people at the 2021 Census.
+        {showCrossing
+          ? ` The White British majority here is projected to end around ${crossingYear}.`
+          : wbi2021 != null && wbi2021 < 50
+            ? " Already below a White British majority at the 2021 Census."
+            : ""}
+        {" "}Twenty three datasets for this area, every figure sourced.
+      </p>
     </div>
     <div class="place-header-aside">
       <MiniMap
@@ -452,8 +524,8 @@ function fmtInt(n: number | undefined | null): string {
         focalName={area.areaName}
         focalKind="lad"
         focalColour="var(--accent)"
-        contextColour="#243049"
-        contextStroke="#4a5b7e"
+        contextColour="var(--bg-subtle)"
+        contextStroke="var(--border-strong)"
         width={260}
         height={170}
         padding={1.6}
@@ -470,7 +542,25 @@ function fmtInt(n: number | undefined | null): string {
     </div>
   </div>
 
-  {headlineStat && wbi2051 != null && (
+  {showCrossing && (
+    <div class="place-crossing">
+      <div class="place-crossing-main">
+        <span class="place-crossing-eyebrow">Projected</span>
+        <span class="place-crossing-label">Falls below half around</span>
+        <span class="place-crossing-year">{crossingYear}</span>
+      </div>
+      <p class="place-crossing-body">
+        {wbiHeadcount != null && (
+          <><strong>{fmtInt(wbiHeadcount)}</strong> of {area.areaName}&rsquo;s {fmtInt(population)} residents
+          identified as White British at the 2021 Census. </>
+        )}
+        The projection takes that share from {fmtPct(wbi2021)} to {fmtPct(wbi2051)} by 2051.
+        Interpolated between projection decades, so the year is approximate.
+      </p>
+    </div>
+  )}
+
+  {!showCrossing && headlineStat && wbi2051 != null && (
     <div class="stat-card-row place-hero-row">
       <StatCard
         value={headlineStat.value}
@@ -518,6 +608,21 @@ function fmtInt(n: number | undefined | null): string {
     />
     )}
   </section>
+
+  <div class="place-body">
+    <aside class="place-rail" aria-label="Sections on this page">
+      <span class="place-rail-head">On this page</span>
+      {SECTION_GROUPS.map((g) => (
+        <div class="place-rail-group" data-group>
+          <span class="place-rail-title">{g.title}</span>
+          {g.items.map((it) => (
+            <a href={`#${it.id}`} class="place-rail-link" data-target={it.id}>{it.label}</a>
+          ))}
+        </div>
+      ))}
+    </aside>
+
+    <div class="place-sections">
 
   <!-- Ethnic composition, trajectory chart + timeline -->
   {ethnicProjection && ethChartLines.length > 0 && (
@@ -1459,6 +1564,9 @@ function fmtInt(n: number | undefined | null): string {
     </section>
   )}
 
+    </div>
+  </div>
+
   <!-- Asylum Stats cross-link -->
   <div class="as-cross-link">
     <div class="as-cross-inner">
@@ -1481,7 +1589,18 @@ function fmtInt(n: number | undefined | null): string {
 
 <style>
   .place-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
-  .place-identity h1 { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin: 0; color: var(--ink); }
+  .place-identity { max-width: 46ch; }
+  .place-identity h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    margin: 0;
+    color: var(--text);
+    text-wrap: balance;
+  }
+  .place-summary { margin: 0.85rem 0 0; color: var(--text-muted); font-size: 1.02rem; line-height: 1.7; }
   .place-region { font-size: 0.88rem; color: var(--muted); }
   .place-header-aside { display: flex; flex-direction: column; align-items: flex-end; gap: 0.65rem; flex: 0 0 auto; }
   .place-header-aside :global(.mini-map) {
@@ -1505,7 +1624,7 @@ function fmtInt(n: number | undefined | null): string {
 
 
   .section { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-  .section h2 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--ink); margin: 0 0 0.5rem; }
+  .section h2 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--ink); margin: 0 0 0.5rem; }
   .section-desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1rem; max-width: 700px; }
   .section-note { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; }
   /* Banner shown when a district's data is the parent county's (e.g. ASC, SEND). */
@@ -1529,23 +1648,23 @@ function fmtInt(n: number | undefined | null): string {
 
   .shift-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
   .shift-item { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; text-align: center; }
-  .shift-value { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+  .shift-value { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--accent); }
   .shift-label { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
 
   .diversity-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; }
-  .diversity-level { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--accent); text-transform: capitalize; }
+  .diversity-level { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--accent); text-transform: capitalize; }
   .diversity-detail { font-size: 0.82rem; color: var(--muted); }
 
   .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.5rem; }
   .data-item { display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
   .data-label { font-size: 0.85rem; color: var(--ink-soft); text-transform: capitalize; }
-  .data-value { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+  .data-value { font-family: var(--font-display); font-size: 0.88rem; font-weight: 600; color: var(--accent); }
 
   /* Sub-heading inside a merged section (e.g. Housing → Composition / Tenure projection). */
   .subhead {
     font-family: var(--font-display);
     font-size: 0.82rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -1557,8 +1676,8 @@ function fmtInt(n: number | undefined | null): string {
     background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm);
     padding: 1.25rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem;
   }
-  .pressure-score { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--ink); }
-  .pressure-category { font-size: 0.92rem; font-weight: 700; color: var(--ink-soft); }
+  .pressure-score { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; color: var(--ink); }
+  .pressure-category { font-size: 0.92rem; font-weight: 600; color: var(--ink-soft); }
   .pressure-rank { font-size: 0.82rem; color: var(--muted); }
 
   .model-compare {
@@ -1569,14 +1688,14 @@ function fmtInt(n: number | undefined | null): string {
     border-radius: var(--radius-sm);
   }
   .model-compare-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
-  .model-compare-head h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin: 0; color: var(--ink); }
-  .model-spread-badge { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; color: var(--coral); background: rgba(255, 99, 99, 0.08); padding: 0.25rem 0.6rem; border-radius: 999px; border: 1px solid rgba(255, 99, 99, 0.25); }
+  .model-compare-head h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin: 0; color: var(--ink); }
+  .model-spread-badge { font-family: var(--font-display); font-size: 0.78rem; font-weight: 600; color: var(--coral); background: rgba(255, 99, 99, 0.08); padding: 0.25rem 0.6rem; border-radius: 999px; border: 1px solid rgba(255, 99, 99, 0.25); }
   .model-compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; }
   .model-card { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.9rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-subtle); }
   .model-card-primary { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
   .model-card-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; display: flex; gap: 0.4rem; align-items: center; }
   .model-card-tag { font-size: 0.65rem; background: var(--accent); color: #fff; padding: 0.05rem 0.4rem; border-radius: 999px; letter-spacing: 0.04em; }
-  .model-card-value { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--ink); }
+  .model-card-value { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--ink); }
   .model-card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
   .model-compare-note { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-top: 0.9rem; max-width: 700px; }
   .model-compare-note a { color: var(--accent); }
@@ -1607,7 +1726,7 @@ function fmtInt(n: number | undefined | null): string {
     font-size: 0.88rem;
   }
   .nino-nat-name { color: var(--ink); }
-  .nino-nat-count { font-family: var(--font-display); font-weight: 700; color: var(--accent); text-align: right; font-variant-numeric: tabular-nums; }
+  .nino-nat-count { font-family: var(--font-display); font-weight: 600; color: var(--accent); text-align: right; font-variant-numeric: tabular-nums; }
   .nino-nat-share { font-family: var(--font-display); color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
   @media (max-width: 540px) {
     .nino-nat-head, .nino-nat-row { grid-template-columns: 1fr 90px 60px; padding-inline: 0.6rem; }
@@ -1653,7 +1772,7 @@ function fmtInt(n: number | undefined | null): string {
   }
   .vr-country {
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.05rem;
     color: var(--ink);
   }
@@ -1701,7 +1820,7 @@ function fmtInt(n: number | undefined | null): string {
   }
   .vr-summary {
     color: var(--ink);
-    font-weight: 500;
+    font-weight: 600;
   }
   .vr-uk { font-variant-numeric: tabular-nums; }
   .vr-no-data {
@@ -1848,7 +1967,7 @@ function fmtInt(n: number | undefined | null): string {
   .nhs-details summary::before {
     content: "▸ ";
     color: var(--accent);
-    font-weight: 800;
+    font-weight: 600;
     margin-right: 0.3rem;
   }
   .nhs-details[open] summary::before { content: "▾ "; }
@@ -1911,7 +2030,7 @@ function fmtInt(n: number | undefined | null): string {
   }
   .cc-change {
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 600;
   }
   .cc-change.pos { color: var(--accent-3); }
   .cc-change.neg { color: var(--accent-2); }
@@ -2044,4 +2163,161 @@ function fmtInt(n: number | undefined | null): string {
     .metric-value { font-size: 1.2rem; }
     .shift-stats { grid-template-columns: repeat(2, 1fr); }
   }
+
+  /* Two column body: a sticky rail beside the sections. Twenty three sections stacked
+     with no navigation is a scroll marathon, and the PageContents component that exists
+     in this repo was never wired to this page. */
+  .place-body {
+    display: grid;
+    grid-template-columns: 232px minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .place-sections { min-width: 0; }
+  .place-rail {
+    position: sticky;
+    top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+  }
+  .place-rail-head {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .place-rail-group { display: flex; flex-direction: column; gap: 0.1rem; }
+  .place-rail-title {
+    margin-bottom: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .place-rail-link {
+    display: block;
+    padding: 0.3rem 0 0.3rem 0.8rem;
+    border-left: 2px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.86rem;
+    text-decoration: none;
+    transition: color 140ms ease, border-color 140ms ease;
+  }
+  .place-rail-link:hover { color: var(--accent); }
+  .place-rail-link[aria-current="true"] {
+    border-left-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  @media (max-width: 1000px) {
+    .place-body { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .place-rail {
+      position: static;
+      max-height: none;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding-bottom: 0.4rem;
+    }
+    .place-rail-head { width: 100%; }
+    .place-rail-group { flex-direction: row; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+    .place-rail-title { margin: 0 0.2rem 0 0; }
+    .place-rail-link {
+      padding: 0.4rem 0.7rem;
+      border-left: 0;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.8rem;
+    }
+    .place-rail-link[aria-current="true"] { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+  }
+
+  /* The headline is a date, not a percentage point change. */
+  .place-crossing {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1.6rem;
+    align-items: center;
+    margin: 1.4rem 0 0;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid var(--accent-bright);
+    border-radius: var(--radius);
+    background: var(--accent-wash);
+  }
+  .place-crossing-main { display: flex; flex-direction: column; gap: 0.1rem; }
+  .place-crossing-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .place-crossing-label {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .place-crossing-year {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    color: var(--accent);
+  }
+  .place-crossing-body {
+    margin: 0;
+    max-width: 64ch;
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+  .place-crossing-body strong { color: var(--text); }
+  @media (max-width: 720px) {
+    .place-crossing { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; }
+  }
 </style>
+
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>(".place-rail-link"));
+  for (const link of links) {
+    const id = link.dataset.target;
+    if (!id || !document.getElementById(id)) link.remove();
+  }
+  for (const group of Array.from(document.querySelectorAll<HTMLElement>("[data-group]"))) {
+    if (!group.querySelector(".place-rail-link")) group.remove();
+  }
+
+  const live = Array.from(document.querySelectorAll<HTMLAnchorElement>(".place-rail-link"));
+  const byId = new Map(live.map((l) => [l.dataset.target as string, l]));
+  const targets = live
+    .map((l) => document.getElementById(l.dataset.target as string))
+    .filter((el): el is HTMLElement => el !== null);
+
+  if (targets.length && "IntersectionObserver" in window) {
+    let current: HTMLAnchorElement | null = null;
+    const seen = new Set<string>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) seen.add(e.target.id);
+          else seen.delete(e.target.id);
+        }
+        const first = targets.find((t) => seen.has(t.id));
+        const next = first ? byId.get(first.id) ?? null : null;
+        if (next === current) return;
+        if (current) current.removeAttribute("aria-current");
+        if (next) next.setAttribute("aria-current", "true");
+        current = next;
+      },
+      { rootMargin: "-88px 0px -70% 0px", threshold: 0 }
+    );
+    for (const t of targets) observer.observe(t);
+  }
+</script>
