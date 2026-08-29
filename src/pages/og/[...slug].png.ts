@@ -27,18 +27,37 @@ const BUILD_OG = process.env.BUILD_OG === "1";
 const OG_WIDTH = 1200;
 const OG_HEIGHT = 630;
 
-// Brand colors, UK Demographics (indigo) on the shared dark surface.
+// The estate ground, shared by every social and Open Graph surface on all five sites.
+// The accent here is the BRIGHT value of the ukdemographics triple, not the deep one:
+// deep is for links and rules on white, bright is the mark and the URL on the ground,
+// and #4338ca does not clear 4.5:1 against #0f1317 while #7b74f2 does at 4.99.
+// The three verdict colours are the same lightened set Asylum Stats validated, all
+// above 7:1 on the ground.
 const COLORS = {
-  bg: "#04070d",
-  surface: "#0b1220",
-  accent: "#4f46e5",       // brand indigo
-  accentLight: "#818cf8",
-  text: "#f5f7fb",
-  muted: "#91a7c4",
-  alert: "#f59e0b",
-  critical: "#ef4444",
-  resolved: "#10b981"
+  bg: "#0f1317",
+  surface: "#0f1317",
+  accent: "#7b74f2",
+  accentLight: "#a9a4f7",
+  text: "#f4f6f7",
+  muted: "#98a3ac",
+  alert: "#e8b661",
+  critical: "#e8897c",
+  resolved: "#7fc9a8"
 };
+
+// The mark, as a data URI because Satori takes SVG through an img rather than as
+// elements. The population pyramid from the site header and the favicon, on the same
+// 64 unit grid. It replaced rising bars with a trend line, which collided with the food
+// hygiene steps at thumbnail size and whose opacity ramp made the tallest bar faintest.
+const MARK_SVG =
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">' +
+  '<rect x="20" y="8" width="10" height="9" fill="#7b74f2"/><rect x="34" y="8" width="12" height="9" fill="#574fa8"/>' +
+  '<rect x="16" y="19" width="14" height="9" fill="#7b74f2"/><rect x="34" y="19" width="16" height="9" fill="#574fa8"/>' +
+  '<rect x="12" y="30" width="18" height="9" fill="#7b74f2"/><rect x="34" y="30" width="20" height="9" fill="#574fa8"/>' +
+  '<rect x="8" y="41" width="22" height="9" fill="#7b74f2"/><rect x="34" y="41" width="24" height="9" fill="#574fa8"/>' +
+  '<rect x="4" y="52" width="26" height="9" fill="#7b74f2"/><rect x="34" y="52" width="28" height="9" fill="#574fa8"/>' +
+  '</svg>';
+const MARK_URI = `data:image/svg+xml;base64,${Buffer.from(MARK_SVG).toString("base64")}`;
 
 const verdictColor: Record<string, string> = {
   alert: COLORS.alert,
@@ -47,18 +66,22 @@ const verdictColor: Record<string, string> = {
   info: COLORS.accent
 };
 
-let manropeBold: ArrayBuffer | null = null;
-let soraBold: ArrayBuffer | null = null;
+// Source Serif 4 for display, Source Sans 3 for everything else, matching the site and
+// the other estate cards. woff rather than woff2: Satori reads ttf, otf and woff, and
+// silently falls back on woff2, which would render these cards in a font nobody chose.
+let displaySemiBold: ArrayBuffer | null = null;
+let sansRegular: ArrayBuffer | null = null;
+let sansSemiBold: ArrayBuffer | null = null;
 
-function loadFont(name: string): ArrayBuffer {
-  const fontFile = name === "Manrope" ? "Manrope-Bold.ttf" : "Sora-ExtraBold.ttf";
+function loadFont(fontFile: string): ArrayBuffer {
   const fontPath = join(process.cwd(), "src", "assets", "fonts", fontFile);
   return readFileSync(fontPath).buffer as ArrayBuffer;
 }
 
 function ensureFonts() {
-  if (!manropeBold) manropeBold = loadFont("Manrope");
-  if (!soraBold) soraBold = loadFont("Sora");
+  if (!displaySemiBold) displaySemiBold = loadFont("SourceSerif4-SemiBold.woff");
+  if (!sansRegular) sansRegular = loadFont("SourceSans3-Regular.woff");
+  if (!sansSemiBold) sansSemiBold = loadFont("SourceSans3-SemiBold.woff");
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -83,7 +106,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
       title: area.areaName,
       stat: area.wbiPct2021 != null ? `${area.wbiPct2021.toFixed(1)}%` : "n/a",
       statLabel: `White British 2021 · Population ${(area.population ?? 0).toLocaleString()}`,
-      verdict: (area.wbiPct2021 ?? 100) < 50 ? "critical" : (area.wbiPct2021 ?? 100) < 70 ? "alert" : "info"
+      // Always the brand accent. This previously graded the colour by the area's White
+      // British share: under 50 rendered in the critical red, under 70 in the alert
+      // amber. That is an editorial judgement encoded as colour, on 320 cards that are
+      // exactly what people see when a page is shared, and it says a lower share is a
+      // warning. The place page itself already made this correction for its stat cards
+      // ("escalating the hue encoded alarm rather than data"); the card had not.
+      // A verdict is something an editor assigns to a finding, not something a census
+      // share earns automatically.
+      verdict: "info"
     }
   }));
 
@@ -125,8 +156,8 @@ export const GET: APIRoute = async ({ props }) => {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "60px 70px",
-          background: `linear-gradient(135deg, ${COLORS.bg} 0%, ${COLORS.surface} 100%)`,
-          fontFamily: "Manrope"
+          background: COLORS.bg,
+          fontFamily: "Source Sans 3"
         },
         children: [
           // Brand row, shared standard across UKD / UKE / AS.
@@ -140,23 +171,8 @@ export const GET: APIRoute = async ({ props }) => {
               },
               children: [
                 {
-                  type: "div",
-                  props: {
-                    style: {
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "10px",
-                      background: COLORS.accent,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: COLORS.bg,
-                      fontFamily: "Sora",
-                      fontWeight: 800,
-                      fontSize: "16px"
-                    },
-                    children: "UKD"
-                  }
+                  type: "img",
+                  props: { src: MARK_URI, width: 40, height: 40 }
                 },
                 {
                   type: "div",
@@ -170,8 +186,8 @@ export const GET: APIRoute = async ({ props }) => {
                         type: "span",
                         props: {
                           style: {
-                            fontFamily: "Sora",
-                            fontWeight: 700,
+                            fontFamily: "Source Serif 4",
+                            fontWeight: 600,
                             fontSize: "16px",
                             color: COLORS.text
                           },
@@ -195,7 +211,7 @@ export const GET: APIRoute = async ({ props }) => {
               ]
             }
           },
-          // Hero block, stat (Sora 96, brand colour) + label + title.
+          // Hero block, stat (Source Serif 4 at 96, the bright accent) + label + title.
           {
             type: "div",
             props: {
@@ -211,9 +227,9 @@ export const GET: APIRoute = async ({ props }) => {
                   type: "div",
                   props: {
                     style: {
-                      fontFamily: "Sora",
+                      fontFamily: "Source Serif 4",
                       fontSize: "96px",
-                      fontWeight: 800,
+                      fontWeight: 600,
                       color: statColor,
                       lineHeight: 1,
                       letterSpacing: "-0.03em"
@@ -237,9 +253,9 @@ export const GET: APIRoute = async ({ props }) => {
                   type: "div",
                   props: {
                     style: {
-                      fontFamily: "Sora",
+                      fontFamily: "Source Serif 4",
                       fontSize: "36px",
-                      fontWeight: 800,
+                      fontWeight: 600,
                       color: COLORS.text,
                       lineHeight: 1.15,
                       maxWidth: "900px"
@@ -293,8 +309,9 @@ export const GET: APIRoute = async ({ props }) => {
       width: OG_WIDTH,
       height: OG_HEIGHT,
       fonts: [
-        { name: "Manrope", data: manropeBold!, weight: 700, style: "normal" },
-        { name: "Sora", data: soraBold!, weight: 800, style: "normal" }
+        { name: "Source Sans 3", data: sansRegular!, weight: 400, style: "normal" },
+        { name: "Source Sans 3", data: sansSemiBold!, weight: 600, style: "normal" },
+        { name: "Source Serif 4", data: displaySemiBold!, weight: 600, style: "normal" }
       ]
     }
   );
