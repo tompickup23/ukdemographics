@@ -24,6 +24,7 @@ import { getPconByCode, type PconEntry } from "./pcon-data";
 import { getPublicPlaceAreas, type DemographicAreaSummary } from "./site";
 import rawProjections from "../data/live/ethnic-projections.json";
 import { publishableValue } from "./projection-plausibility";
+import { canonicalAreaCode } from "./area-codes";
 
 const projData = rawProjections as {
   areas: Record<string, {
@@ -73,9 +74,14 @@ export function getPconDemographics(pconCodeOrEntry: string | PconEntry): PconDe
   let coverageCount = 0;
 
   for (const la of pcon.constituentLas) {
-    const area = _publicAreaByCode.get(la.ladCode);
+    // The constituency crosswalk carries the codes ONS reissued for Barnsley
+    // and Sheffield in 2025; area records are filed under the codes the Census
+    // 2021 model uses. Nine constituencies lose their largest constituent
+    // authority if this is not resolved, and the rollup says nothing about it.
+    const ladCode = canonicalAreaCode(la.ladCode);
+    const area = _publicAreaByCode.get(ladCode);
     if (!area) continue;
-    const proj = projData.areas[la.ladCode];
+    const proj = projData.areas[ladCode];
     const pop = area.population ?? proj?.current?.total_population ?? 0;
     if (!pop) continue;
     const weight = la.postcodeShare * pop;

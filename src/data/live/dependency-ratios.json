@@ -1912,18 +1912,6 @@
       "population": 556537,
       "avgEmploymentRate": 0,
       "note": "Full age-structure dependency ratios require ONS SNPP single-year-of-age data. This provides employment rate as a proxy."
-    },
-    "E08000038": {
-      "areaName": "Barnsley",
-      "population": 244555,
-      "avgEmploymentRate": 0,
-      "note": "Full age-structure dependency ratios require ONS SNPP single-year-of-age data. This provides employment rate as a proxy."
-    },
-    "E08000039": {
-      "areaName": "Sheffield",
-      "population": 556537,
-      "avgEmploymentRate": 0,
-      "note": "Full age-structure dependency ratios require ONS SNPP single-year-of-age data. This provides employment rate as a proxy."
     }
   }
 }

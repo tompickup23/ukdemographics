@@ -2,11 +2,12 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { getAllPcons } from "./pcon-data";
+import { canonicalAreaCode } from "./area-codes";
 
 export const SITE_NAME = "UK Demographics";
 export const SITE_URL = "https://ukdemographics.co.uk";
 export const DEFAULT_DESCRIPTION =
-  "Population data for every community. Ethnic projections, school demand, housing pressure, and demographic change across 320 local authorities. Every figure sourced from ONS, Census, and DfE data.";
+  "Population data for every community. Ethnic projections, school demand, housing pressure, and demographic change across 318 local authorities. Every figure sourced from ONS, Census, and DfE data.";
 export const DEFAULT_SOCIAL_IMAGE_PATH = "/og-card.svg";
 
 export type StructuredDataNode = Record<string, unknown>;
@@ -97,8 +98,12 @@ export function getPublicPlaceAreas(): DemographicAreaSummary[] {
   const routePath = path.resolve("src/data/live/local-route-latest.json");
   if (fs.existsSync(routePath)) {
     const routeData = JSON.parse(fs.readFileSync(routePath, "utf8"));
+    // Home Office local route data files Barnsley and Sheffield under the codes
+    // ONS reissued in 2025, while the projections are keyed on the codes the
+    // Census 2021 model uses. Resolving here is what stops those two showing a
+    // region of "Unknown" and dropping out of the regional summary.
     for (const routeArea of routeData.areas ?? []) {
-      regionLookup.set(routeArea.areaCode, {
+      regionLookup.set(canonicalAreaCode(routeArea.areaCode), {
         regionName: routeArea.regionName ?? "Unknown",
         countryName: routeArea.countryName ?? "England",
       });
