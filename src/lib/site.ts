@@ -334,3 +334,44 @@ export function buildReleaseCollectionStructuredData(
     }
   ];
 }
+
+// AI DOGE sister-site link (council spending). Joined on ONS/GSS area
+// code, never on name, against a snapshot of clawd's
+// council_crosswalk.json joined with aidoge-site's published
+// summaries/index.json: every principal council with an ONS code and an
+// aidoge.co.uk page, whether or not it has a published spending total yet.
+// Regenerate per the "Sister links" section of
+// clawd's .claude/plans/aidoge_public_v2_assessment_2026-09-02.md.
+export interface AidogeLink {
+  url: string;
+  name: string;
+  hasSpendingData: boolean;
+}
+
+let _aidogeCodeToCouncil: Record<string, { id: string; name: string; latest_fy: string | null }> | null = null;
+
+function loadAidogeCouncilMap() {
+  if (!_aidogeCodeToCouncil) {
+    const dataPath = path.resolve(process.cwd(), "src/data/live/aidoge-council-map.json");
+    const raw = JSON.parse(fs.readFileSync(dataPath, "utf8"));
+    _aidogeCodeToCouncil = raw.councils;
+  }
+  return _aidogeCodeToCouncil!;
+}
+
+/**
+ * Resolves a place's ONS area code to its AI DOGE council-spending page.
+ * Returns null where the join table has no entry (22 of this site's 318
+ * areas: Welsh and Scottish areas, and any English one not yet in aidoge's
+ * crosswalk) rather than guessing from the area name.
+ */
+export function getAidogeLink(areaCode: string): AidogeLink | null {
+  const codeToCouncil = loadAidogeCouncilMap();
+  const council = codeToCouncil[canonicalAreaCode(areaCode)] ?? codeToCouncil[areaCode];
+  if (!council) return null;
+  return {
+    url: `https://aidoge.co.uk/councils/${council.id}/`,
+    name: council.name,
+    hasSpendingData: !!council.latest_fy,
+  };
+}
