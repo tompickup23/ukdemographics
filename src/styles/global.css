@@ -4549,6 +4549,28 @@ tr:last-child td {
 }
 .as-cross-btn:hover { background: #0891b2; }
 
+/* AI DOGE cross-link banner on place pages, same shape, this site's own
+   accent so it reads as a distinct sister rather than a copy of the
+   Asylum Stats card above it. */
+.dg-cross-link {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, transparent) 0%, color-mix(in srgb, var(--accent) 3%, transparent) 100%);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  border-radius: var(--radius-sm);
+}
+.dg-cross-inner { display: flex; flex-direction: column; gap: 0.5rem; }
+.dg-cross-label { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.dg-cross-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
+.dg-cross-btn {
+  display: inline-block; margin-top: 0.25rem; padding: 0.5rem 1rem;
+  font-size: 0.85rem; font-weight: 600; color: var(--bg);
+  background: var(--accent); border-radius: 8px; text-decoration: none;
+  transition: opacity 180ms;
+  width: fit-content;
+}
+.dg-cross-btn:hover { opacity: 0.85; }
+
 .footer-legal {
   font-size: 0.78rem;
   opacity: 0.5;
