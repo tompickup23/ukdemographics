@@ -2460,7 +2460,7 @@
       "note": "Health demand score is a proxy computed from economic activity and qualification levels. Direct NHS cost data by ethnicity at LA level is not publicly available."
     },
     "E07000112": {
-      "areaName": "Shepway",
+      "areaName": "Folkestone and Hythe",
       "dataAvailable": true,
       "population": 109759,
       "healthDemandScore": 33,

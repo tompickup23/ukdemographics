@@ -18,5 +18,15 @@ export default defineConfig({
     // summary and the threshold in the model all said 2027.
     "/findings/blackburn-minority-wb-2028/":
       "/findings/blackburn-minority-wb-2027/",
+
+    // Shepway District Council was renamed Folkestone and Hythe on 1 April
+    // 2018. E07000112 is unchanged, but ethnic-projections.json still carried
+    // the pre-2018 name, so the place slug (derived from areaName) built as
+    // /places/shepway/ eight years after the rename. Old URL preserved here:
+    // GitHub Pages serves no server-side redirects, so Astro emits a
+    // meta-refresh page with a canonical tag at the old path, which is what
+    // search engines treat as a permanent move on a static host.
+    "/places/shepway/":
+      "/places/folkestone-and-hythe/",
   },
 });
