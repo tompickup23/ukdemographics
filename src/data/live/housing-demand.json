@@ -1,8 +1,8 @@
 {
   "source": "Census 2021 tenure by ethnicity × Hamilton-Perry ethnic projections",
   "methodology": "Current Census tenure patterns per ethnic group applied to projected ethnic composition to estimate future tenure demand",
-  "lastUpdated": "2026-04-28",
-  "totalAreas": 320,
+  "lastUpdated": "2026-09-07",
+  "totalAreas": 318,
   "areasWithData": 316,
   "caveat": "Assumes tenure patterns by ethnicity remain constant. Actual tenure will be affected by housing policy, affordability, and economic conditions.",
   "areas": {
@@ -16,11 +16,11 @@
         "privateRentPct": 14.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 21.7,
-        "socialRentPct": 13,
-        "privateRentPct": 15.1
+        "ownershipPct": 20.9,
+        "socialRentPct": 11.8,
+        "privateRentPct": 13.1
       },
-      "socialRentChangePp": -1.2,
+      "socialRentChangePp": -2.3,
       "foreignBornGrowthPp": 36.1,
       "housingImplication": "The foreign-born share is projected to rise by 36.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -56,11 +56,11 @@
         "privateRentPct": 24.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 33.5,
-        "socialRentPct": 22.6,
-        "privateRentPct": 27.8
+        "ownershipPct": 36.5,
+        "socialRentPct": 22.9,
+        "privateRentPct": 25.9
       },
-      "socialRentChangePp": -1.5,
+      "socialRentChangePp": -1.2,
       "foreignBornGrowthPp": 29.9,
       "housingImplication": "The foreign-born share is projected to rise by 29.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -96,11 +96,11 @@
         "privateRentPct": 17.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 26.3,
-        "socialRentPct": 7.7,
-        "privateRentPct": 20.5
+        "ownershipPct": 23.3,
+        "socialRentPct": 6.9,
+        "privateRentPct": 16.8
       },
-      "socialRentChangePp": -1.5,
+      "socialRentChangePp": -2.3,
       "foreignBornGrowthPp": 35.8,
       "housingImplication": "The foreign-born share is projected to rise by 35.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -136,11 +136,11 @@
         "privateRentPct": 23
       },
       "projectedTenure2041": {
-        "ownershipPct": 17.2,
-        "socialRentPct": 15.5,
-        "privateRentPct": 21.1
+        "ownershipPct": 16.1,
+        "socialRentPct": 14.5,
+        "privateRentPct": 19
       },
-      "socialRentChangePp": -4.3,
+      "socialRentChangePp": -5.2,
       "foreignBornGrowthPp": 36.5,
       "housingImplication": "The foreign-born share is projected to rise by 36.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -176,11 +176,11 @@
         "privateRentPct": 19.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 38.1,
-        "socialRentPct": 16,
-        "privateRentPct": 20.5
+        "ownershipPct": 40.1,
+        "socialRentPct": 15.9,
+        "privateRentPct": 19
       },
-      "socialRentChangePp": -1.4,
+      "socialRentChangePp": -1.6,
       "foreignBornGrowthPp": 30.7,
       "housingImplication": "The foreign-born share is projected to rise by 30.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -216,11 +216,11 @@
         "privateRentPct": 19.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 24.9,
-        "socialRentPct": 11.7,
-        "privateRentPct": 23.7
+        "ownershipPct": 22.1,
+        "socialRentPct": 10.4,
+        "privateRentPct": 20.3
       },
-      "socialRentChangePp": 0.6,
+      "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 32.4,
       "housingImplication": "The foreign-born share is projected to rise by 32.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -256,11 +256,11 @@
         "privateRentPct": 19.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 31.9,
-        "socialRentPct": 11.5,
-        "privateRentPct": 23.1
+        "ownershipPct": 32.1,
+        "socialRentPct": 11.1,
+        "privateRentPct": 20
       },
-      "socialRentChangePp": -1,
+      "socialRentChangePp": -1.4,
       "foreignBornGrowthPp": 36.3,
       "housingImplication": "The foreign-born share is projected to rise by 36.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -296,11 +296,11 @@
         "privateRentPct": 22.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 26.1,
-        "socialRentPct": 16.4,
-        "privateRentPct": 25.5
+        "ownershipPct": 25.6,
+        "socialRentPct": 16.1,
+        "privateRentPct": 22.6
       },
-      "socialRentChangePp": -3,
+      "socialRentChangePp": -3.3,
       "foreignBornGrowthPp": 35.5,
       "housingImplication": "The foreign-born share is projected to rise by 35.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -336,11 +336,11 @@
         "privateRentPct": 13.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 24.8,
-        "socialRentPct": 12.8,
-        "privateRentPct": 13.6
+        "ownershipPct": 24.2,
+        "socialRentPct": 13.3,
+        "privateRentPct": 12.6
       },
-      "socialRentChangePp": -4.7,
+      "socialRentChangePp": -4.2,
       "foreignBornGrowthPp": 35.2,
       "housingImplication": "The foreign-born share is projected to rise by 35.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -376,11 +376,11 @@
         "privateRentPct": 16.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 15.3,
-        "socialRentPct": 9.2,
-        "privateRentPct": 17.8
+        "ownershipPct": 14.1,
+        "socialRentPct": 8.5,
+        "privateRentPct": 15
       },
-      "socialRentChangePp": -2.1,
+      "socialRentChangePp": -2.7,
       "foreignBornGrowthPp": 35.3,
       "housingImplication": "The foreign-born share is projected to rise by 35.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -416,11 +416,11 @@
         "privateRentPct": 17.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 29,
-        "socialRentPct": 10.2,
-        "privateRentPct": 21.1
+        "ownershipPct": 27,
+        "socialRentPct": 9.4,
+        "privateRentPct": 18.1
       },
-      "socialRentChangePp": -0.4,
+      "socialRentChangePp": -1.1,
       "foreignBornGrowthPp": 36.3,
       "housingImplication": "The foreign-born share is projected to rise by 36.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -496,11 +496,11 @@
         "privateRentPct": 26.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 36.7,
-        "socialRentPct": 10,
-        "privateRentPct": 31.6
+        "ownershipPct": 35,
+        "socialRentPct": 9.5,
+        "privateRentPct": 29.1
       },
-      "socialRentChangePp": 0.5,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 34.7,
       "housingImplication": "The foreign-born share is projected to rise by 34.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -536,11 +536,11 @@
         "privateRentPct": 16
       },
       "projectedTenure2041": {
-        "ownershipPct": 31.3,
-        "socialRentPct": 8.8,
-        "privateRentPct": 15.8
+        "ownershipPct": 30.7,
+        "socialRentPct": 8.6,
+        "privateRentPct": 15.1
       },
-      "socialRentChangePp": -1.1,
+      "socialRentChangePp": -1.3,
       "foreignBornGrowthPp": 32.8,
       "housingImplication": "The foreign-born share is projected to rise by 32.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -576,11 +576,11 @@
         "privateRentPct": 14.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 26.3,
-        "socialRentPct": 14.2,
-        "privateRentPct": 15
+        "ownershipPct": 28.5,
+        "socialRentPct": 15.6,
+        "privateRentPct": 14.9
       },
-      "socialRentChangePp": -3.9,
+      "socialRentChangePp": -2.5,
       "foreignBornGrowthPp": 35,
       "housingImplication": "The foreign-born share is projected to rise by 35pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -616,11 +616,11 @@
         "privateRentPct": 18.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 38.1,
-        "socialRentPct": 18.1,
-        "privateRentPct": 22.6
+        "ownershipPct": 40.2,
+        "socialRentPct": 17.8,
+        "privateRentPct": 19.4
       },
-      "socialRentChangePp": -1.5,
+      "socialRentChangePp": -1.8,
       "foreignBornGrowthPp": 28,
       "housingImplication": "The foreign-born share is projected to rise by 28pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -656,11 +656,11 @@
         "privateRentPct": 23.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 25.4,
-        "socialRentPct": 10.4,
-        "privateRentPct": 26.8
+        "ownershipPct": 24.5,
+        "socialRentPct": 10.2,
+        "privateRentPct": 25.1
       },
-      "socialRentChangePp": 0.7,
+      "socialRentChangePp": 0.4,
       "foreignBornGrowthPp": 31.9,
       "housingImplication": "The foreign-born share is projected to rise by 31.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -696,11 +696,11 @@
         "privateRentPct": 18.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 37.9,
+        "ownershipPct": 38.4,
         "socialRentPct": 14,
-        "privateRentPct": 20.9
+        "privateRentPct": 19.5
       },
-      "socialRentChangePp": -1.4,
+      "socialRentChangePp": -1.3,
       "foreignBornGrowthPp": 33.4,
       "housingImplication": "The foreign-born share is projected to rise by 33.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -736,11 +736,11 @@
         "privateRentPct": 15.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 60.3,
-        "socialRentPct": 16,
-        "privateRentPct": 17
+        "ownershipPct": 61.3,
+        "socialRentPct": 16.3,
+        "privateRentPct": 16.9
       },
-      "socialRentChangePp": -0.5,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 17.3,
       "housingImplication": "The foreign-born share is projected to rise by 17.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -776,11 +776,11 @@
         "privateRentPct": 19.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 12.1,
-        "socialRentPct": 10.1,
-        "privateRentPct": 23.1
+        "ownershipPct": 11.2,
+        "socialRentPct": 9.6,
+        "privateRentPct": 20.7
       },
-      "socialRentChangePp": 0.6,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 30.6,
       "housingImplication": "The foreign-born share is projected to rise by 30.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -816,11 +816,11 @@
         "privateRentPct": 20.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 33,
-        "socialRentPct": 22,
-        "privateRentPct": 22.3
+        "ownershipPct": 34.3,
+        "socialRentPct": 21.2,
+        "privateRentPct": 20.9
       },
-      "socialRentChangePp": -1.3,
+      "socialRentChangePp": -2.1,
       "foreignBornGrowthPp": 32,
       "housingImplication": "The foreign-born share is projected to rise by 32pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -856,11 +856,11 @@
         "privateRentPct": 23.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 42,
-        "socialRentPct": 15.8,
-        "privateRentPct": 27.7
+        "ownershipPct": 42.4,
+        "socialRentPct": 15.7,
+        "privateRentPct": 25.1
       },
-      "socialRentChangePp": -0.6,
+      "socialRentChangePp": -0.8,
       "foreignBornGrowthPp": 33,
       "housingImplication": "The foreign-born share is projected to rise by 33pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -896,11 +896,11 @@
         "privateRentPct": 14.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 27.3,
-        "socialRentPct": 10.8,
-        "privateRentPct": 11.4
+        "ownershipPct": 30.7,
+        "socialRentPct": 11.4,
+        "privateRentPct": 11.8
       },
-      "socialRentChangePp": -4.5,
+      "socialRentChangePp": -3.9,
       "foreignBornGrowthPp": 31.6,
       "housingImplication": "The foreign-born share is projected to rise by 31.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -936,11 +936,11 @@
         "privateRentPct": 22.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 18.9,
-        "socialRentPct": 12,
-        "privateRentPct": 29
+        "ownershipPct": 17.6,
+        "socialRentPct": 11.3,
+        "privateRentPct": 25.8
       },
-      "socialRentChangePp": 1.8,
+      "socialRentChangePp": 1,
       "foreignBornGrowthPp": 29.4,
       "housingImplication": "The foreign-born share is projected to rise by 29.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -976,11 +976,11 @@
         "privateRentPct": 13.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 58.5,
-        "socialRentPct": 11.4,
+        "ownershipPct": 60,
+        "socialRentPct": 11.6,
         "privateRentPct": 13.7
       },
-      "socialRentChangePp": -0.8,
+      "socialRentChangePp": -0.6,
       "foreignBornGrowthPp": 36.1,
       "housingImplication": "The foreign-born share is projected to rise by 36.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1016,11 +1016,11 @@
         "privateRentPct": 16.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 58.6,
-        "socialRentPct": 14.5,
-        "privateRentPct": 15.8
+        "ownershipPct": 58.7,
+        "socialRentPct": 14.7,
+        "privateRentPct": 16.3
       },
-      "socialRentChangePp": -0.9,
+      "socialRentChangePp": -0.6,
       "foreignBornGrowthPp": 28.5,
       "housingImplication": "The foreign-born share is projected to rise by 28.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1056,11 +1056,11 @@
         "privateRentPct": 14.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.5,
-        "socialRentPct": 24.4,
-        "privateRentPct": 14.5
+        "ownershipPct": 53.8,
+        "socialRentPct": 24.5,
+        "privateRentPct": 14.6
       },
-      "socialRentChangePp": -1.2,
+      "socialRentChangePp": -1,
       "foreignBornGrowthPp": 14.8,
       "housingImplication": "The foreign-born share is projected to rise by 14.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), below the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1096,11 +1096,11 @@
         "privateRentPct": 13.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 27.3,
-        "socialRentPct": 11,
-        "privateRentPct": 10.2
+        "ownershipPct": 30.8,
+        "socialRentPct": 12.8,
+        "privateRentPct": 11.7
       },
-      "socialRentChangePp": -4.6,
+      "socialRentChangePp": -2.8,
       "foreignBornGrowthPp": 31.4,
       "housingImplication": "The foreign-born share is projected to rise by 31.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1136,11 +1136,11 @@
         "privateRentPct": 18.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.3,
-        "socialRentPct": 14.8,
+        "ownershipPct": 62,
+        "socialRentPct": 14.9,
         "privateRentPct": 18.7
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 15.6,
       "housingImplication": "The foreign-born share is projected to rise by 15.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1176,11 +1176,11 @@
         "privateRentPct": 23.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 38.9,
-        "socialRentPct": 24.6,
-        "privateRentPct": 28
+        "ownershipPct": 41.2,
+        "socialRentPct": 24.9,
+        "privateRentPct": 26
       },
-      "socialRentChangePp": -1.2,
+      "socialRentChangePp": -0.8,
       "foreignBornGrowthPp": 28,
       "housingImplication": "The foreign-born share is projected to rise by 28pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1216,11 +1216,11 @@
         "privateRentPct": 13.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 26.6,
-        "socialRentPct": 9.7,
-        "privateRentPct": 11.2
+        "ownershipPct": 25.7,
+        "socialRentPct": 9.4,
+        "privateRentPct": 11.1
       },
-      "socialRentChangePp": -2.5,
+      "socialRentChangePp": -2.8,
       "foreignBornGrowthPp": 32.5,
       "housingImplication": "The foreign-born share is projected to rise by 32.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1256,11 +1256,11 @@
         "privateRentPct": 26.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 40.1,
-        "socialRentPct": 14.9,
-        "privateRentPct": 29.5
+        "ownershipPct": 41.7,
+        "socialRentPct": 15.2,
+        "privateRentPct": 28.1
       },
-      "socialRentChangePp": -1.2,
+      "socialRentChangePp": -0.9,
       "foreignBornGrowthPp": 31.7,
       "housingImplication": "The foreign-born share is projected to rise by 31.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1296,11 +1296,11 @@
         "privateRentPct": 25.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 28.4,
-        "socialRentPct": 9.6,
-        "privateRentPct": 28.4
+        "ownershipPct": 30.1,
+        "socialRentPct": 10.6,
+        "privateRentPct": 26.6
       },
-      "socialRentChangePp": -2.5,
+      "socialRentChangePp": -1.5,
       "foreignBornGrowthPp": 36.5,
       "housingImplication": "The foreign-born share is projected to rise by 36.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1336,11 +1336,11 @@
         "privateRentPct": 15.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 42.4,
-        "socialRentPct": 12.5,
-        "privateRentPct": 16.7
+        "ownershipPct": 42.5,
+        "socialRentPct": 11.6,
+        "privateRentPct": 15.5
       },
-      "socialRentChangePp": 0.6,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 27.4,
       "housingImplication": "The foreign-born share is projected to rise by 27.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1376,11 +1376,11 @@
         "privateRentPct": 14.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 34.2,
-        "socialRentPct": 13.3,
-        "privateRentPct": 12.2
+        "ownershipPct": 36.8,
+        "socialRentPct": 14.5,
+        "privateRentPct": 13.3
       },
-      "socialRentChangePp": -3.2,
+      "socialRentChangePp": -2.1,
       "foreignBornGrowthPp": 30.4,
       "housingImplication": "The foreign-born share is projected to rise by 30.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1416,11 +1416,11 @@
         "privateRentPct": 13
       },
       "projectedTenure2041": {
-        "ownershipPct": 49.9,
-        "socialRentPct": 15.8,
-        "privateRentPct": 13.4
+        "ownershipPct": 51.7,
+        "socialRentPct": 16.4,
+        "privateRentPct": 13.2
       },
-      "socialRentChangePp": -1.4,
+      "socialRentChangePp": -0.8,
       "foreignBornGrowthPp": 20.5,
       "housingImplication": "The foreign-born share is projected to rise by 20.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1456,9 +1456,9 @@
         "privateRentPct": 14.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 54.1,
+        "ownershipPct": 55.9,
         "socialRentPct": 20.2,
-        "privateRentPct": 16.7
+        "privateRentPct": 15.6
       },
       "socialRentChangePp": -0.4,
       "foreignBornGrowthPp": 21.6,
@@ -1496,11 +1496,11 @@
         "privateRentPct": 17.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 23.1,
-        "socialRentPct": 7.1,
-        "privateRentPct": 23.9
+        "ownershipPct": 19,
+        "socialRentPct": 6.6,
+        "privateRentPct": 17.5
       },
-      "socialRentChangePp": -1.4,
+      "socialRentChangePp": -1.9,
       "foreignBornGrowthPp": 35.9,
       "housingImplication": "The foreign-born share is projected to rise by 35.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1536,11 +1536,11 @@
         "privateRentPct": 19.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 44.7,
-        "socialRentPct": 14,
-        "privateRentPct": 19.4
+        "ownershipPct": 49.6,
+        "socialRentPct": 15.3,
+        "privateRentPct": 20.1
       },
-      "socialRentChangePp": -2.5,
+      "socialRentChangePp": -1.2,
       "foreignBornGrowthPp": 39.3,
       "housingImplication": "The foreign-born share is projected to rise by 39.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1576,11 +1576,11 @@
         "privateRentPct": 24.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 28.8,
-        "socialRentPct": 18,
-        "privateRentPct": 24.2
+        "ownershipPct": 35.2,
+        "socialRentPct": 20.2,
+        "privateRentPct": 24.6
       },
-      "socialRentChangePp": -4.4,
+      "socialRentChangePp": -2.2,
       "foreignBornGrowthPp": 33.1,
       "housingImplication": "The foreign-born share is projected to rise by 33.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1656,11 +1656,11 @@
         "privateRentPct": 19
       },
       "projectedTenure2041": {
-        "ownershipPct": 39.4,
-        "socialRentPct": 17.5,
-        "privateRentPct": 18.6
+        "ownershipPct": 40.3,
+        "socialRentPct": 18.3,
+        "privateRentPct": 20.1
       },
-      "socialRentChangePp": -2.7,
+      "socialRentChangePp": -2,
       "foreignBornGrowthPp": 40.5,
       "housingImplication": "The foreign-born share is projected to rise by 40.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1696,9 +1696,9 @@
         "privateRentPct": 14.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 65.6,
+        "ownershipPct": 65.2,
         "socialRentPct": 15.6,
-        "privateRentPct": 15.2
+        "privateRentPct": 15.3
       },
       "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 31.1,
@@ -1776,11 +1776,11 @@
         "privateRentPct": 13.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 34,
-        "socialRentPct": 14.6,
-        "privateRentPct": 14.7
+        "ownershipPct": 35.9,
+        "socialRentPct": 15.7,
+        "privateRentPct": 13.2
       },
-      "socialRentChangePp": -3.8,
+      "socialRentChangePp": -2.7,
       "foreignBornGrowthPp": 29.7,
       "housingImplication": "The foreign-born share is projected to rise by 29.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1816,11 +1816,11 @@
         "privateRentPct": 15.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.1,
-        "socialRentPct": 18.8,
-        "privateRentPct": 16.9
+        "ownershipPct": 62.3,
+        "socialRentPct": 19.1,
+        "privateRentPct": 16
       },
-      "socialRentChangePp": -0.5,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 24.7,
       "housingImplication": "The foreign-born share is projected to rise by 24.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1856,11 +1856,11 @@
         "privateRentPct": 15.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 64.7,
-        "socialRentPct": 13.8,
-        "privateRentPct": 16.6
+        "ownershipPct": 65.6,
+        "socialRentPct": 14,
+        "privateRentPct": 16.4
       },
-      "socialRentChangePp": -0.4,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 19.5,
       "housingImplication": "The foreign-born share is projected to rise by 19.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1896,11 +1896,11 @@
         "privateRentPct": 19.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.5,
-        "socialRentPct": 15.6,
-        "privateRentPct": 24.6
+        "ownershipPct": 55.3,
+        "socialRentPct": 15.8,
+        "privateRentPct": 22.5
       },
-      "socialRentChangePp": -0.7,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 24.6,
       "housingImplication": "The foreign-born share is projected to rise by 24.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -1976,11 +1976,11 @@
         "privateRentPct": 12.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.9,
-        "socialRentPct": 28,
-        "privateRentPct": 12.9
+        "ownershipPct": 53.2,
+        "socialRentPct": 27.8,
+        "privateRentPct": 13.1
       },
-      "socialRentChangePp": -0.5,
+      "socialRentChangePp": -0.8,
       "foreignBornGrowthPp": 22.7,
       "housingImplication": "The foreign-born share is projected to rise by 22.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2016,9 +2016,9 @@
         "privateRentPct": 18.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.3,
+        "ownershipPct": 52.2,
         "socialRentPct": 12.4,
-        "privateRentPct": 17.8
+        "privateRentPct": 17.9
       },
       "socialRentChangePp": -0.6,
       "foreignBornGrowthPp": 21.6,
@@ -2057,10 +2057,10 @@
       },
       "projectedTenure2041": {
         "ownershipPct": 58.8,
-        "socialRentPct": 23.6,
-        "privateRentPct": 16
+        "socialRentPct": 23.7,
+        "privateRentPct": 15.5
       },
-      "socialRentChangePp": -0.4,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 23.8,
       "housingImplication": "The foreign-born share is projected to rise by 23.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2136,11 +2136,11 @@
         "privateRentPct": 23.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 17.5,
-        "socialRentPct": 31.7,
-        "privateRentPct": 24.7
+        "ownershipPct": 16.3,
+        "socialRentPct": 29.7,
+        "privateRentPct": 23.4
       },
-      "socialRentChangePp": 4.8,
+      "socialRentChangePp": 2.8,
       "foreignBornGrowthPp": 35.6,
       "housingImplication": "The foreign-born share is projected to rise by 35.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2176,11 +2176,11 @@
         "privateRentPct": 31
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.7,
-        "socialRentPct": 10.1,
-        "privateRentPct": 31.9
+        "ownershipPct": 53.5,
+        "socialRentPct": 9.9,
+        "privateRentPct": 31.6
       },
-      "socialRentChangePp": 0.1,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 32.8,
       "housingImplication": "The foreign-born share is projected to rise by 32.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2218,7 +2218,7 @@
       "projectedTenure2041": {
         "ownershipPct": 60.5,
         "socialRentPct": 19.3,
-        "privateRentPct": 17.5
+        "privateRentPct": 17.6
       },
       "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 13.1,
@@ -2256,11 +2256,11 @@
         "privateRentPct": 17.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 51.7,
-        "socialRentPct": 10.7,
-        "privateRentPct": 21.6
+        "ownershipPct": 54.3,
+        "socialRentPct": 11.3,
+        "privateRentPct": 19.2
       },
-      "socialRentChangePp": -1.1,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 32.6,
       "housingImplication": "The foreign-born share is projected to rise by 32.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2296,11 +2296,11 @@
         "privateRentPct": 17.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 37.7,
-        "socialRentPct": 9.1,
-        "privateRentPct": 15.3
+        "ownershipPct": 44.5,
+        "socialRentPct": 11,
+        "privateRentPct": 16.6
       },
-      "socialRentChangePp": -4.2,
+      "socialRentChangePp": -2.3,
       "foreignBornGrowthPp": 33.9,
       "housingImplication": "The foreign-born share is projected to rise by 33.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2376,11 +2376,11 @@
         "privateRentPct": 21.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 18.7,
-        "socialRentPct": 27.2,
-        "privateRentPct": 24.8
+        "ownershipPct": 17.7,
+        "socialRentPct": 24.8,
+        "privateRentPct": 22.5
       },
-      "socialRentChangePp": 2.8,
+      "socialRentChangePp": 0.5,
       "foreignBornGrowthPp": 35.4,
       "housingImplication": "The foreign-born share is projected to rise by 35.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2456,11 +2456,11 @@
         "privateRentPct": 22.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.8,
-        "socialRentPct": 17.2,
-        "privateRentPct": 23.2
+        "ownershipPct": 54.2,
+        "socialRentPct": 17.5,
+        "privateRentPct": 23.3
       },
-      "socialRentChangePp": -0.6,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 22.7,
       "housingImplication": "The foreign-born share is projected to rise by 22.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2496,11 +2496,11 @@
         "privateRentPct": 16.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 20.4,
-        "socialRentPct": 4.7,
-        "privateRentPct": 18.3
+        "ownershipPct": 17.9,
+        "socialRentPct": 4.4,
+        "privateRentPct": 15.5
       },
-      "socialRentChangePp": -0.4,
+      "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 34.6,
       "housingImplication": "The foreign-born share is projected to rise by 34.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2536,11 +2536,11 @@
         "privateRentPct": 21.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 34.7,
-        "socialRentPct": 14.5,
-        "privateRentPct": 25.2
+        "ownershipPct": 36.7,
+        "socialRentPct": 14.3,
+        "privateRentPct": 23.7
       },
-      "socialRentChangePp": -0.8,
+      "socialRentChangePp": -1,
       "foreignBornGrowthPp": 36.4,
       "housingImplication": "The foreign-born share is projected to rise by 36.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2576,11 +2576,11 @@
         "privateRentPct": 15.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 42.7,
-        "socialRentPct": 15.2,
-        "privateRentPct": 13.2
+        "ownershipPct": 46.6,
+        "socialRentPct": 16.9,
+        "privateRentPct": 14.7
       },
-      "socialRentChangePp": -3.6,
+      "socialRentChangePp": -1.9,
       "foreignBornGrowthPp": 24.5,
       "housingImplication": "The foreign-born share is projected to rise by 24.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2616,11 +2616,11 @@
         "privateRentPct": 21.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 9.9,
-        "socialRentPct": 13.1,
-        "privateRentPct": 20
+        "ownershipPct": 8.3,
+        "socialRentPct": 10.3,
+        "privateRentPct": 16.5
       },
-      "socialRentChangePp": -1.4,
+      "socialRentChangePp": -4.2,
       "foreignBornGrowthPp": 33.5,
       "housingImplication": "The foreign-born share is projected to rise by 33.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2736,11 +2736,11 @@
         "privateRentPct": 15.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 66.7,
-        "socialRentPct": 11.1,
-        "privateRentPct": 17
+        "ownershipPct": 67.8,
+        "socialRentPct": 11.2,
+        "privateRentPct": 16.8
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 21.3,
       "housingImplication": "The foreign-born share is projected to rise by 21.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2776,11 +2776,11 @@
         "privateRentPct": 13.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 54.4,
-        "socialRentPct": 17.2,
-        "privateRentPct": 16.2
+        "ownershipPct": 54.9,
+        "socialRentPct": 17.8,
+        "privateRentPct": 15.2
       },
-      "socialRentChangePp": -2,
+      "socialRentChangePp": -1.3,
       "foreignBornGrowthPp": 42.9,
       "housingImplication": "The foreign-born share is projected to rise by 42.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2816,11 +2816,11 @@
         "privateRentPct": 21.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 40.6,
-        "socialRentPct": 12.5,
-        "privateRentPct": 22.2
+        "ownershipPct": 41.3,
+        "socialRentPct": 11.8,
+        "privateRentPct": 20.2
       },
-      "socialRentChangePp": -0.8,
+      "socialRentChangePp": -1.5,
       "foreignBornGrowthPp": 41.2,
       "housingImplication": "The foreign-born share is projected to rise by 41.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2856,11 +2856,11 @@
         "privateRentPct": 14.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 61.4,
+        "ownershipPct": 62.4,
         "socialRentPct": 14.7,
-        "privateRentPct": 17.9
+        "privateRentPct": 16.4
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 22.9,
       "housingImplication": "The foreign-born share is projected to rise by 22.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2896,11 +2896,11 @@
         "privateRentPct": 14.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 68.6,
+        "ownershipPct": 68.4,
         "socialRentPct": 10.2,
-        "privateRentPct": 15.5
+        "privateRentPct": 15.4
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 26.6,
       "housingImplication": "The foreign-born share is projected to rise by 26.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2936,11 +2936,11 @@
         "privateRentPct": 17.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 31.8,
-        "socialRentPct": 6.8,
-        "privateRentPct": 15.2
+        "ownershipPct": 31.3,
+        "socialRentPct": 6.5,
+        "privateRentPct": 14.6
       },
-      "socialRentChangePp": -1.9,
+      "socialRentChangePp": -2.2,
       "foreignBornGrowthPp": 45.5,
       "housingImplication": "The foreign-born share is projected to rise by 45.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -2976,9 +2976,9 @@
         "privateRentPct": 14.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 55.9,
+        "ownershipPct": 55.3,
         "socialRentPct": 18.7,
-        "privateRentPct": 15.5
+        "privateRentPct": 15.6
       },
       "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 18.6,
@@ -3016,9 +3016,9 @@
         "privateRentPct": 14.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 60.8,
+        "ownershipPct": 60.2,
         "socialRentPct": 19.6,
-        "privateRentPct": 15.3
+        "privateRentPct": 15.2
       },
       "socialRentChangePp": -0.4,
       "foreignBornGrowthPp": 15.8,
@@ -3056,11 +3056,11 @@
         "privateRentPct": 17.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 52.9,
-        "socialRentPct": 11.7,
-        "privateRentPct": 19.8
+        "ownershipPct": 53.8,
+        "socialRentPct": 11.9,
+        "privateRentPct": 18.7
       },
-      "socialRentChangePp": -0.9,
+      "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 31.1,
       "housingImplication": "The foreign-born share is projected to rise by 31.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3096,11 +3096,11 @@
         "privateRentPct": 18.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 63.6,
-        "socialRentPct": 13.9,
-        "privateRentPct": 19.8
+        "ownershipPct": 63.8,
+        "socialRentPct": 14,
+        "privateRentPct": 19.2
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 17.8,
       "housingImplication": "The foreign-born share is projected to rise by 17.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3136,9 +3136,9 @@
         "privateRentPct": 18.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 33.7,
+        "ownershipPct": 34.5,
         "socialRentPct": 12.9,
-        "privateRentPct": 18
+        "privateRentPct": 17.8
       },
       "socialRentChangePp": -1.7,
       "foreignBornGrowthPp": 33.2,
@@ -3176,11 +3176,11 @@
         "privateRentPct": 23.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 20.8,
-        "socialRentPct": 25.6,
-        "privateRentPct": 27.4
+        "ownershipPct": 19.4,
+        "socialRentPct": 22.3,
+        "privateRentPct": 24.4
       },
-      "socialRentChangePp": 3.2,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 35.8,
       "housingImplication": "The foreign-born share is projected to rise by 35.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3216,9 +3216,9 @@
         "privateRentPct": 19.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 45.7,
-        "socialRentPct": 10.5,
-        "privateRentPct": 17.7
+        "ownershipPct": 44.6,
+        "socialRentPct": 10.4,
+        "privateRentPct": 17.8
       },
       "socialRentChangePp": -1.1,
       "foreignBornGrowthPp": 35,
@@ -3256,11 +3256,11 @@
         "privateRentPct": 14
       },
       "projectedTenure2041": {
-        "ownershipPct": 68.5,
-        "socialRentPct": 14.7,
-        "privateRentPct": 15.4
+        "ownershipPct": 69.1,
+        "socialRentPct": 14.4,
+        "privateRentPct": 14.8
       },
-      "socialRentChangePp": 0.5,
+      "socialRentChangePp": 0.2,
       "foreignBornGrowthPp": 27.6,
       "housingImplication": "The foreign-born share is projected to rise by 27.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3296,11 +3296,11 @@
         "privateRentPct": 13.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 46.4,
-        "socialRentPct": 11.4,
-        "privateRentPct": 13.6
+        "ownershipPct": 47.8,
+        "socialRentPct": 11.8,
+        "privateRentPct": 13
       },
-      "socialRentChangePp": -1.5,
+      "socialRentChangePp": -1.1,
       "foreignBornGrowthPp": 29.8,
       "housingImplication": "The foreign-born share is projected to rise by 29.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3336,11 +3336,11 @@
         "privateRentPct": 17.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 56.7,
-        "socialRentPct": 22.9,
+        "ownershipPct": 55.8,
+        "socialRentPct": 22.8,
         "privateRentPct": 17.6
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 20.8,
       "housingImplication": "The foreign-born share is projected to rise by 20.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3376,9 +3376,9 @@
         "privateRentPct": 15.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 48.6,
-        "socialRentPct": 11.8,
-        "privateRentPct": 15.1
+        "ownershipPct": 49.4,
+        "socialRentPct": 11.9,
+        "privateRentPct": 15
       },
       "socialRentChangePp": -1.3,
       "foreignBornGrowthPp": 40.3,
@@ -3416,11 +3416,11 @@
         "privateRentPct": 17.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 37.6,
-        "socialRentPct": 16.3,
-        "privateRentPct": 20.5
+        "ownershipPct": 38.1,
+        "socialRentPct": 17,
+        "privateRentPct": 18.8
       },
-      "socialRentChangePp": -2,
+      "socialRentChangePp": -1.3,
       "foreignBornGrowthPp": 36.1,
       "housingImplication": "The foreign-born share is projected to rise by 36.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3456,11 +3456,11 @@
         "privateRentPct": 23
       },
       "projectedTenure2041": {
-        "ownershipPct": 35.7,
-        "socialRentPct": 13.7,
-        "privateRentPct": 27.5
+        "ownershipPct": 33.1,
+        "socialRentPct": 12,
+        "privateRentPct": 24.8
       },
-      "socialRentChangePp": 2.1,
+      "socialRentChangePp": 0.4,
       "foreignBornGrowthPp": 35.4,
       "housingImplication": "The foreign-born share is projected to rise by 35.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3496,11 +3496,11 @@
         "privateRentPct": 19.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 51.2,
-        "socialRentPct": 11.9,
-        "privateRentPct": 21.3
+        "ownershipPct": 51.7,
+        "socialRentPct": 12.3,
+        "privateRentPct": 21.1
       },
-      "socialRentChangePp": -0.7,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 29.4,
       "housingImplication": "The foreign-born share is projected to rise by 29.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3536,11 +3536,11 @@
         "privateRentPct": 17.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 36.3,
-        "socialRentPct": 10.8,
-        "privateRentPct": 18.8
+        "ownershipPct": 37.5,
+        "socialRentPct": 11.4,
+        "privateRentPct": 17.1
       },
-      "socialRentChangePp": -3.2,
+      "socialRentChangePp": -2.5,
       "foreignBornGrowthPp": 35.9,
       "housingImplication": "The foreign-born share is projected to rise by 35.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3576,11 +3576,11 @@
         "privateRentPct": 16.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 19.3,
-        "socialRentPct": 8.1,
-        "privateRentPct": 18.4
+        "ownershipPct": 16.5,
+        "socialRentPct": 7.6,
+        "privateRentPct": 16.1
       },
-      "socialRentChangePp": -0.6,
+      "socialRentChangePp": -1.1,
       "foreignBornGrowthPp": 34.4,
       "housingImplication": "The foreign-born share is projected to rise by 34.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3616,7 +3616,7 @@
         "privateRentPct": 12.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 73.6,
+        "ownershipPct": 73,
         "socialRentPct": 10.3,
         "privateRentPct": 12.9
       },
@@ -3656,11 +3656,11 @@
         "privateRentPct": 18.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 49.1,
-        "socialRentPct": 9.2,
-        "privateRentPct": 18.6
+        "ownershipPct": 49.7,
+        "socialRentPct": 9.4,
+        "privateRentPct": 18.7
       },
-      "socialRentChangePp": -1.4,
+      "socialRentChangePp": -1.2,
       "foreignBornGrowthPp": 47.2,
       "housingImplication": "The foreign-born share is projected to rise by 47.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3696,11 +3696,11 @@
         "privateRentPct": 14.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.2,
-        "socialRentPct": 10.5,
-        "privateRentPct": 14.5
+        "ownershipPct": 58.6,
+        "socialRentPct": 11.6,
+        "privateRentPct": 15.3
       },
-      "socialRentChangePp": -1.9,
+      "socialRentChangePp": -0.8,
       "foreignBornGrowthPp": 26.6,
       "housingImplication": "The foreign-born share is projected to rise by 26.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3776,11 +3776,11 @@
         "privateRentPct": 30
       },
       "projectedTenure2041": {
-        "ownershipPct": 22.3,
-        "socialRentPct": 22.3,
-        "privateRentPct": 30.6
+        "ownershipPct": 21,
+        "socialRentPct": 21.8,
+        "privateRentPct": 29.4
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": -0.6,
       "foreignBornGrowthPp": 33.9,
       "housingImplication": "The foreign-born share is projected to rise by 33.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3816,7 +3816,7 @@
         "privateRentPct": 18.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 73,
+        "ownershipPct": 72.7,
         "socialRentPct": 7.6,
         "privateRentPct": 18.3
       },
@@ -3856,11 +3856,11 @@
         "privateRentPct": 15
       },
       "projectedTenure2041": {
-        "ownershipPct": 56.3,
-        "socialRentPct": 11.1,
-        "privateRentPct": 17.5
+        "ownershipPct": 56,
+        "socialRentPct": 11.4,
+        "privateRentPct": 16.5
       },
-      "socialRentChangePp": -1.6,
+      "socialRentChangePp": -1.3,
       "foreignBornGrowthPp": 45.6,
       "housingImplication": "The foreign-born share is projected to rise by 45.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3896,11 +3896,11 @@
         "privateRentPct": 18.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 27.3,
-        "socialRentPct": 6.3,
-        "privateRentPct": 31.8
+        "ownershipPct": 21.8,
+        "socialRentPct": 4.9,
+        "privateRentPct": 23.4
       },
-      "socialRentChangePp": 1.6,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 31.8,
       "housingImplication": "The foreign-born share is projected to rise by 31.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -3936,11 +3936,11 @@
         "privateRentPct": 25.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 35.9,
-        "socialRentPct": 25.7,
-        "privateRentPct": 28.8
+        "ownershipPct": 35.5,
+        "socialRentPct": 25.9,
+        "privateRentPct": 27.8
       },
-      "socialRentChangePp": -1.9,
+      "socialRentChangePp": -1.8,
       "foreignBornGrowthPp": 32.1,
       "housingImplication": "The foreign-born share is projected to rise by 32.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4016,11 +4016,11 @@
         "privateRentPct": 26.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 34.3,
-        "socialRentPct": 16,
-        "privateRentPct": 32.1
+        "ownershipPct": 35.3,
+        "socialRentPct": 16.3,
+        "privateRentPct": 29
       },
-      "socialRentChangePp": -2.7,
+      "socialRentChangePp": -2.3,
       "foreignBornGrowthPp": 35.5,
       "housingImplication": "The foreign-born share is projected to rise by 35.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4056,11 +4056,11 @@
         "privateRentPct": 14.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 56,
-        "socialRentPct": 9.1,
-        "privateRentPct": 14.3
+        "ownershipPct": 59.3,
+        "socialRentPct": 9.7,
+        "privateRentPct": 14.9
       },
-      "socialRentChangePp": -1.3,
+      "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 31.2,
       "housingImplication": "The foreign-born share is projected to rise by 31.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4096,11 +4096,11 @@
         "privateRentPct": 13.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 51.1,
-        "socialRentPct": 16.2,
-        "privateRentPct": 14.4
+        "ownershipPct": 53.1,
+        "socialRentPct": 17.7,
+        "privateRentPct": 13.7
       },
-      "socialRentChangePp": -3.1,
+      "socialRentChangePp": -1.7,
       "foreignBornGrowthPp": 26.5,
       "housingImplication": "The foreign-born share is projected to rise by 26.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4176,11 +4176,11 @@
         "privateRentPct": 14.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 57.6,
-        "socialRentPct": 24,
-        "privateRentPct": 15.6
+        "ownershipPct": 57.3,
+        "socialRentPct": 24.1,
+        "privateRentPct": 14.6
       },
-      "socialRentChangePp": -0.6,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 25.1,
       "housingImplication": "The foreign-born share is projected to rise by 25.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4216,11 +4216,11 @@
         "privateRentPct": 20.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 50.2,
-        "socialRentPct": 10.6,
-        "privateRentPct": 20.3
+        "ownershipPct": 54.3,
+        "socialRentPct": 11.5,
+        "privateRentPct": 21.1
       },
-      "socialRentChangePp": -1.5,
+      "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 43.1,
       "housingImplication": "The foreign-born share is projected to rise by 43.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4256,11 +4256,11 @@
         "privateRentPct": 22.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 37.7,
-        "socialRentPct": 10.1,
-        "privateRentPct": 28
+        "ownershipPct": 35.7,
+        "socialRentPct": 9.3,
+        "privateRentPct": 24.4
       },
-      "socialRentChangePp": 0.6,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 35.3,
       "housingImplication": "The foreign-born share is projected to rise by 35.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4297,10 +4297,10 @@
       },
       "projectedTenure2041": {
         "ownershipPct": 15.1,
-        "socialRentPct": 9,
-        "privateRentPct": 14.6
+        "socialRentPct": 9.8,
+        "privateRentPct": 14
       },
-      "socialRentChangePp": -6.3,
+      "socialRentChangePp": -5.6,
       "foreignBornGrowthPp": 35.2,
       "housingImplication": "The foreign-born share is projected to rise by 35.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4336,11 +4336,11 @@
         "privateRentPct": 15.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 56,
-        "socialRentPct": 11.5,
-        "privateRentPct": 18.9
+        "ownershipPct": 56.9,
+        "socialRentPct": 11.9,
+        "privateRentPct": 16.7
       },
-      "socialRentChangePp": -1.4,
+      "socialRentChangePp": -1.1,
       "foreignBornGrowthPp": 39.5,
       "housingImplication": "The foreign-born share is projected to rise by 39.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4376,11 +4376,11 @@
         "privateRentPct": 11.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 51.7,
-        "socialRentPct": 11,
-        "privateRentPct": 11
+        "ownershipPct": 54.3,
+        "socialRentPct": 11.8,
+        "privateRentPct": 11.3
       },
-      "socialRentChangePp": -1.5,
+      "socialRentChangePp": -0.8,
       "foreignBornGrowthPp": 24.4,
       "housingImplication": "The foreign-born share is projected to rise by 24.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4416,11 +4416,11 @@
         "privateRentPct": 22.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 59.8,
-        "socialRentPct": 13.1,
-        "privateRentPct": 24.5
+        "ownershipPct": 60.2,
+        "socialRentPct": 13,
+        "privateRentPct": 23.5
       },
-      "socialRentChangePp": 0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 29.4,
       "housingImplication": "The foreign-born share is projected to rise by 29.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4456,11 +4456,11 @@
         "privateRentPct": 27.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 29.8,
-        "socialRentPct": 14.6,
-        "privateRentPct": 32.1
+        "ownershipPct": 29.2,
+        "socialRentPct": 14,
+        "privateRentPct": 29.2
       },
-      "socialRentChangePp": -1.7,
+      "socialRentChangePp": -2.3,
       "foreignBornGrowthPp": 36.3,
       "housingImplication": "The foreign-born share is projected to rise by 36.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4496,11 +4496,11 @@
         "privateRentPct": 19.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 61.5,
-        "socialRentPct": 13.2,
-        "privateRentPct": 21.5
+        "ownershipPct": 60.7,
+        "socialRentPct": 13.1,
+        "privateRentPct": 21.3
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 25.1,
       "housingImplication": "The foreign-born share is projected to rise by 25.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4536,9 +4536,9 @@
         "privateRentPct": 15.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 64.1,
-        "socialRentPct": 18.8,
-        "privateRentPct": 15.9
+        "ownershipPct": 63.6,
+        "socialRentPct": 18.9,
+        "privateRentPct": 16.1
       },
       "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 16.5,
@@ -4576,11 +4576,11 @@
         "privateRentPct": 33.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 21.8,
-        "socialRentPct": 21.8,
-        "privateRentPct": 32.7
+        "ownershipPct": 21.6,
+        "socialRentPct": 22,
+        "privateRentPct": 32.4
       },
-      "socialRentChangePp": 0.3,
+      "socialRentChangePp": 0.5,
       "foreignBornGrowthPp": 30.5,
       "housingImplication": "The foreign-born share is projected to rise by 30.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4616,11 +4616,11 @@
         "privateRentPct": 19.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 26.7,
-        "socialRentPct": 18.6,
-        "privateRentPct": 22.9
+        "ownershipPct": 25.5,
+        "socialRentPct": 17.8,
+        "privateRentPct": 20.9
       },
-      "socialRentChangePp": 0.7,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 36.3,
       "housingImplication": "The foreign-born share is projected to rise by 36.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4656,11 +4656,11 @@
         "privateRentPct": 18.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 46.7,
-        "socialRentPct": 9.7,
-        "privateRentPct": 17.2
+        "ownershipPct": 50.9,
+        "socialRentPct": 10.6,
+        "privateRentPct": 18.2
       },
-      "socialRentChangePp": -2.3,
+      "socialRentChangePp": -1.4,
       "foreignBornGrowthPp": 28.8,
       "housingImplication": "The foreign-born share is projected to rise by 28.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4696,11 +4696,11 @@
         "privateRentPct": 24.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 50.9,
-        "socialRentPct": 9.7,
-        "privateRentPct": 24.2
+        "ownershipPct": 52,
+        "socialRentPct": 9.9,
+        "privateRentPct": 24.8
       },
-      "socialRentChangePp": -0.9,
+      "socialRentChangePp": -0.6,
       "foreignBornGrowthPp": 27.3,
       "housingImplication": "The foreign-born share is projected to rise by 27.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4736,11 +4736,11 @@
         "privateRentPct": 21.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 63.5,
-        "socialRentPct": 10,
-        "privateRentPct": 22
+        "ownershipPct": 62.2,
+        "socialRentPct": 9.9,
+        "privateRentPct": 22.3
       },
-      "socialRentChangePp": 0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 36.2,
       "housingImplication": "The foreign-born share is projected to rise by 36.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4776,11 +4776,11 @@
         "privateRentPct": 16.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.8,
-        "socialRentPct": 13.6,
+        "ownershipPct": 61.9,
+        "socialRentPct": 13.4,
         "privateRentPct": 16
       },
-      "socialRentChangePp": -0.3,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 24.6,
       "housingImplication": "The foreign-born share is projected to rise by 24.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4816,11 +4816,11 @@
         "privateRentPct": 15.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.8,
-        "socialRentPct": 9.4,
-        "privateRentPct": 15.9
+        "ownershipPct": 54.3,
+        "socialRentPct": 9.6,
+        "privateRentPct": 15.6
       },
-      "socialRentChangePp": -0.7,
+      "socialRentChangePp": -0.6,
       "foreignBornGrowthPp": 28,
       "housingImplication": "The foreign-born share is projected to rise by 28pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4896,11 +4896,11 @@
         "privateRentPct": 27.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 19.5,
-        "socialRentPct": 22.6,
-        "privateRentPct": 28.9
+        "ownershipPct": 18.5,
+        "socialRentPct": 21.7,
+        "privateRentPct": 26.9
       },
-      "socialRentChangePp": -1,
+      "socialRentChangePp": -1.9,
       "foreignBornGrowthPp": 34,
       "housingImplication": "The foreign-born share is projected to rise by 34pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4936,11 +4936,11 @@
         "privateRentPct": 13.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 70.1,
-        "socialRentPct": 13.2,
+        "ownershipPct": 69.6,
+        "socialRentPct": 13.1,
         "privateRentPct": 14.1
       },
-      "socialRentChangePp": 0.2,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 24.4,
       "housingImplication": "The foreign-born share is projected to rise by 24.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -4976,11 +4976,11 @@
         "privateRentPct": 21.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 59.3,
-        "socialRentPct": 11.2,
+        "ownershipPct": 58.6,
+        "socialRentPct": 11.1,
         "privateRentPct": 22.8
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 27.8,
       "housingImplication": "The foreign-born share is projected to rise by 27.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5016,11 +5016,11 @@
         "privateRentPct": 20.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 58.4,
-        "socialRentPct": 15.9,
-        "privateRentPct": 21.3
+        "ownershipPct": 57.7,
+        "socialRentPct": 15.6,
+        "privateRentPct": 21
       },
-      "socialRentChangePp": 0.1,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 32.6,
       "housingImplication": "The foreign-born share is projected to rise by 32.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5057,10 +5057,10 @@
       },
       "projectedTenure2041": {
         "ownershipPct": 72.2,
-        "socialRentPct": 10.1,
-        "privateRentPct": 16.5
+        "socialRentPct": 10.2,
+        "privateRentPct": 16.2
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 28.3,
       "housingImplication": "The foreign-born share is projected to rise by 28.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5096,11 +5096,11 @@
         "privateRentPct": 16.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 45.2,
-        "socialRentPct": 13.5,
-        "privateRentPct": 17.9
+        "ownershipPct": 46,
+        "socialRentPct": 13.8,
+        "privateRentPct": 17.3
       },
-      "socialRentChangePp": -0.3,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 34.4,
       "housingImplication": "The foreign-born share is projected to rise by 34.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5136,11 +5136,11 @@
         "privateRentPct": 12.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 50.5,
-        "socialRentPct": 5.2,
-        "privateRentPct": 12.4
+        "ownershipPct": 56.1,
+        "socialRentPct": 5.8,
+        "privateRentPct": 12.9
       },
-      "socialRentChangePp": -1.3,
+      "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 46.2,
       "housingImplication": "The foreign-born share is projected to rise by 46.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5176,9 +5176,9 @@
         "privateRentPct": 18
       },
       "projectedTenure2041": {
-        "ownershipPct": 65.8,
+        "ownershipPct": 65.7,
         "socialRentPct": 12.2,
-        "privateRentPct": 19.2
+        "privateRentPct": 19
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 22.3,
@@ -5216,11 +5216,11 @@
         "privateRentPct": 14.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 63.9,
-        "socialRentPct": 17.1,
-        "privateRentPct": 16.9
+        "ownershipPct": 64.2,
+        "socialRentPct": 17.4,
+        "privateRentPct": 15.9
       },
-      "socialRentChangePp": -0.5,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 30,
       "housingImplication": "The foreign-born share is projected to rise by 30pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5256,11 +5256,11 @@
         "privateRentPct": 17.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 61.4,
-        "socialRentPct": 13.7,
-        "privateRentPct": 17.6
+        "ownershipPct": 63.2,
+        "socialRentPct": 14,
+        "privateRentPct": 17.7
       },
-      "socialRentChangePp": -0.4,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 23.8,
       "housingImplication": "The foreign-born share is projected to rise by 23.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5296,11 +5296,11 @@
         "privateRentPct": 13.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 63.5,
-        "socialRentPct": 11.8,
-        "privateRentPct": 14.6
+        "ownershipPct": 65.5,
+        "socialRentPct": 12.3,
+        "privateRentPct": 13.9
       },
-      "socialRentChangePp": -0.8,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 25.5,
       "housingImplication": "The foreign-born share is projected to rise by 25.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5376,9 +5376,9 @@
         "privateRentPct": 19.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 70.2,
-        "socialRentPct": 8.1,
-        "privateRentPct": 20.1
+        "ownershipPct": 69.9,
+        "socialRentPct": 8,
+        "privateRentPct": 20.2
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 24.8,
@@ -5456,11 +5456,11 @@
         "privateRentPct": 16.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 65,
-        "socialRentPct": 15,
-        "privateRentPct": 18
+        "ownershipPct": 65.4,
+        "socialRentPct": 14.8,
+        "privateRentPct": 17.4
       },
-      "socialRentChangePp": 0.3,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 29.8,
       "housingImplication": "The foreign-born share is projected to rise by 29.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5496,11 +5496,11 @@
         "privateRentPct": 21.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 32.2,
-        "socialRentPct": 15.2,
-        "privateRentPct": 25.1
+        "ownershipPct": 31.1,
+        "socialRentPct": 14.6,
+        "privateRentPct": 23.7
       },
-      "socialRentChangePp": 1.9,
+      "socialRentChangePp": 1.4,
       "foreignBornGrowthPp": 35.8,
       "housingImplication": "The foreign-born share is projected to rise by 35.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5536,11 +5536,11 @@
         "privateRentPct": 29.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 26.2,
-        "socialRentPct": 21.7,
-        "privateRentPct": 33.3
+        "ownershipPct": 25.8,
+        "socialRentPct": 19.7,
+        "privateRentPct": 31.3
       },
-      "socialRentChangePp": 4,
+      "socialRentChangePp": 2,
       "foreignBornGrowthPp": 33.9,
       "housingImplication": "The foreign-born share is projected to rise by 33.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5576,11 +5576,11 @@
         "privateRentPct": 18
       },
       "projectedTenure2041": {
-        "ownershipPct": 64,
+        "ownershipPct": 63.8,
         "socialRentPct": 14.6,
-        "privateRentPct": 19
+        "privateRentPct": 18.7
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 37.1,
       "housingImplication": "The foreign-born share is projected to rise by 37.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5616,11 +5616,11 @@
         "privateRentPct": 13.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 35.1,
-        "socialRentPct": 6.7,
-        "privateRentPct": 14.1
+        "ownershipPct": 42.6,
+        "socialRentPct": 8.6,
+        "privateRentPct": 14.2
       },
-      "socialRentChangePp": -4.3,
+      "socialRentChangePp": -2.4,
       "foreignBornGrowthPp": 33.3,
       "housingImplication": "The foreign-born share is projected to rise by 33.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5656,11 +5656,11 @@
         "privateRentPct": 15.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 47.8,
-        "socialRentPct": 10.4,
-        "privateRentPct": 17.2
+        "ownershipPct": 49.8,
+        "socialRentPct": 10.7,
+        "privateRentPct": 16.5
       },
-      "socialRentChangePp": -0.9,
+      "socialRentChangePp": -0.6,
       "foreignBornGrowthPp": 33.8,
       "housingImplication": "The foreign-born share is projected to rise by 33.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5696,11 +5696,11 @@
         "privateRentPct": 16
       },
       "projectedTenure2041": {
-        "ownershipPct": 39,
-        "socialRentPct": 9.3,
-        "privateRentPct": 19.6
+        "ownershipPct": 41.4,
+        "socialRentPct": 10.7,
+        "privateRentPct": 17.3
       },
-      "socialRentChangePp": -4.7,
+      "socialRentChangePp": -3.4,
       "foreignBornGrowthPp": 34.2,
       "housingImplication": "The foreign-born share is projected to rise by 34.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5737,10 +5737,10 @@
       },
       "projectedTenure2041": {
         "ownershipPct": 61.3,
-        "socialRentPct": 9.8,
-        "privateRentPct": 17.3
+        "socialRentPct": 9.9,
+        "privateRentPct": 17.7
       },
-      "socialRentChangePp": -0.5,
+      "socialRentChangePp": -0.4,
       "foreignBornGrowthPp": 37.5,
       "housingImplication": "The foreign-born share is projected to rise by 37.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5776,11 +5776,11 @@
         "privateRentPct": 14
       },
       "projectedTenure2041": {
-        "ownershipPct": 56.5,
-        "socialRentPct": 11.2,
-        "privateRentPct": 16
+        "ownershipPct": 58.1,
+        "socialRentPct": 11.8,
+        "privateRentPct": 15.2
       },
-      "socialRentChangePp": -2,
+      "socialRentChangePp": -1.3,
       "foreignBornGrowthPp": 28.8,
       "housingImplication": "The foreign-born share is projected to rise by 28.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5816,11 +5816,11 @@
         "privateRentPct": 19.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 56.7,
-        "socialRentPct": 15,
-        "privateRentPct": 24.5
+        "ownershipPct": 57.8,
+        "socialRentPct": 15.1,
+        "privateRentPct": 21.9
       },
-      "socialRentChangePp": -0.8,
+      "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 38.4,
       "housingImplication": "The foreign-born share is projected to rise by 38.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5856,11 +5856,11 @@
         "privateRentPct": 16.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.6,
-        "socialRentPct": 11,
-        "privateRentPct": 15.5
+        "ownershipPct": 57.4,
+        "socialRentPct": 11.8,
+        "privateRentPct": 17.1
       },
-      "socialRentChangePp": -1.7,
+      "socialRentChangePp": -0.9,
       "foreignBornGrowthPp": 41.9,
       "housingImplication": "The foreign-born share is projected to rise by 41.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5896,11 +5896,11 @@
         "privateRentPct": 22.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 57.1,
-        "socialRentPct": 11.5,
-        "privateRentPct": 24.5
+        "ownershipPct": 56.9,
+        "socialRentPct": 11.6,
+        "privateRentPct": 24.3
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 29.5,
       "housingImplication": "The foreign-born share is projected to rise by 29.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5936,11 +5936,11 @@
         "privateRentPct": 14
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.7,
-        "socialRentPct": 16.2,
-        "privateRentPct": 15
+        "ownershipPct": 61.8,
+        "socialRentPct": 16,
+        "privateRentPct": 14.7
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": -0.4,
       "foreignBornGrowthPp": 18.4,
       "housingImplication": "The foreign-born share is projected to rise by 18.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -5976,9 +5976,9 @@
         "privateRentPct": 14.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 59.4,
+        "ownershipPct": 58.5,
         "socialRentPct": 17.4,
-        "privateRentPct": 15.2
+        "privateRentPct": 15
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 39.5,
@@ -6016,11 +6016,11 @@
         "privateRentPct": 18.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 43.6,
-        "socialRentPct": 11.1,
+        "ownershipPct": 44.5,
+        "socialRentPct": 11.6,
         "privateRentPct": 19.2
       },
-      "socialRentChangePp": -2.2,
+      "socialRentChangePp": -1.7,
       "foreignBornGrowthPp": 47.7,
       "housingImplication": "The foreign-born share is projected to rise by 47.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6096,9 +6096,9 @@
         "privateRentPct": 13.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.3,
+        "ownershipPct": 69.5,
         "socialRentPct": 13.1,
-        "privateRentPct": 15
+        "privateRentPct": 14.6
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 34,
@@ -6136,9 +6136,9 @@
         "privateRentPct": 17
       },
       "projectedTenure2041": {
-        "ownershipPct": 63.1,
+        "ownershipPct": 63,
         "socialRentPct": 14.3,
-        "privateRentPct": 19.1
+        "privateRentPct": 17.9
       },
       "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 26.9,
@@ -6176,9 +6176,9 @@
         "privateRentPct": 20.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 51.9,
+        "ownershipPct": 52,
         "socialRentPct": 14.3,
-        "privateRentPct": 24.3
+        "privateRentPct": 22
       },
       "socialRentChangePp": -0.9,
       "foreignBornGrowthPp": 41.2,
@@ -6216,11 +6216,11 @@
         "privateRentPct": 18.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.8,
-        "socialRentPct": 10.9,
-        "privateRentPct": 23.4
+        "ownershipPct": 56.3,
+        "socialRentPct": 11.5,
+        "privateRentPct": 21.4
       },
-      "socialRentChangePp": -1.4,
+      "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 45.5,
       "housingImplication": "The foreign-born share is projected to rise by 45.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6256,9 +6256,9 @@
         "privateRentPct": 16.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 67.4,
+        "ownershipPct": 67.2,
         "socialRentPct": 12.3,
-        "privateRentPct": 17.7
+        "privateRentPct": 17.4
       },
       "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 25.4,
@@ -6296,11 +6296,11 @@
         "privateRentPct": 18.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 26.3,
-        "socialRentPct": 17.9,
-        "privateRentPct": 22.8
+        "ownershipPct": 24.3,
+        "socialRentPct": 17,
+        "privateRentPct": 19.2
       },
-      "socialRentChangePp": -1.6,
+      "socialRentChangePp": -2.5,
       "foreignBornGrowthPp": 36.1,
       "housingImplication": "The foreign-born share is projected to rise by 36.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6336,11 +6336,11 @@
         "privateRentPct": 15.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 61.5,
-        "socialRentPct": 9.7,
-        "privateRentPct": 18
+        "ownershipPct": 64.5,
+        "socialRentPct": 10.1,
+        "privateRentPct": 16.8
       },
-      "socialRentChangePp": -0.6,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 24.7,
       "housingImplication": "The foreign-born share is projected to rise by 24.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6376,11 +6376,11 @@
         "privateRentPct": 18.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 49.2,
-        "socialRentPct": 11.8,
-        "privateRentPct": 23.8
+        "ownershipPct": 50.8,
+        "socialRentPct": 11.6,
+        "privateRentPct": 20.3
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 42.5,
       "housingImplication": "The foreign-born share is projected to rise by 42.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6416,11 +6416,11 @@
         "privateRentPct": 16.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 40.4,
-        "socialRentPct": 11.4,
-        "privateRentPct": 16.4
+        "ownershipPct": 43.6,
+        "socialRentPct": 12.5,
+        "privateRentPct": 17.6
       },
-      "socialRentChangePp": -2.8,
+      "socialRentChangePp": -1.8,
       "foreignBornGrowthPp": 46.4,
       "housingImplication": "The foreign-born share is projected to rise by 46.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6456,11 +6456,11 @@
         "privateRentPct": 17.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.9,
+        "ownershipPct": 63.8,
         "socialRentPct": 16.1,
-        "privateRentPct": 19.6
+        "privateRentPct": 18.5
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 27.1,
       "housingImplication": "The foreign-born share is projected to rise by 27.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6537,10 +6537,10 @@
       },
       "projectedTenure2041": {
         "ownershipPct": 65.8,
-        "socialRentPct": 12.9,
-        "privateRentPct": 19
+        "socialRentPct": 13.1,
+        "privateRentPct": 18.5
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 38.1,
       "housingImplication": "The foreign-born share is projected to rise by 38.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6576,11 +6576,11 @@
         "privateRentPct": 25.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 58.5,
-        "socialRentPct": 11.5,
-        "privateRentPct": 25.9
+        "ownershipPct": 57.3,
+        "socialRentPct": 11.4,
+        "privateRentPct": 26.7
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 36.6,
       "housingImplication": "The foreign-born share is projected to rise by 36.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6616,11 +6616,11 @@
         "privateRentPct": 21.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 46.9,
-        "socialRentPct": 19.8,
-        "privateRentPct": 30.3
+        "ownershipPct": 48.3,
+        "socialRentPct": 19.2,
+        "privateRentPct": 28.3
       },
-      "socialRentChangePp": 0.7,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 47.6,
       "housingImplication": "The foreign-born share is projected to rise by 47.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6656,9 +6656,9 @@
         "privateRentPct": 10.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 79,
+        "ownershipPct": 78.4,
         "socialRentPct": 8,
-        "privateRentPct": 10.8
+        "privateRentPct": 10.9
       },
       "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 21.2,
@@ -6696,11 +6696,11 @@
         "privateRentPct": 22.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 40.6,
-        "socialRentPct": 17.8,
-        "privateRentPct": 25.7
+        "ownershipPct": 42.6,
+        "socialRentPct": 18.8,
+        "privateRentPct": 25.6
       },
-      "socialRentChangePp": -1.3,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 45.6,
       "housingImplication": "The foreign-born share is projected to rise by 45.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6736,11 +6736,11 @@
         "privateRentPct": 13.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 66.9,
-        "socialRentPct": 15.6,
-        "privateRentPct": 16.1
+        "ownershipPct": 68.4,
+        "socialRentPct": 15.5,
+        "privateRentPct": 14.5
       },
-      "socialRentChangePp": 0.2,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 33.3,
       "housingImplication": "The foreign-born share is projected to rise by 33.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6776,9 +6776,9 @@
         "privateRentPct": 20.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 67.4,
+        "ownershipPct": 67.2,
         "socialRentPct": 11.2,
-        "privateRentPct": 20.4
+        "privateRentPct": 20.5
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 21.5,
@@ -6816,11 +6816,11 @@
         "privateRentPct": 12.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 43.5,
-        "socialRentPct": 9.2,
-        "privateRentPct": 13.6
+        "ownershipPct": 43.3,
+        "socialRentPct": 9.6,
+        "privateRentPct": 12.3
       },
-      "socialRentChangePp": -2.3,
+      "socialRentChangePp": -1.9,
       "foreignBornGrowthPp": 34.2,
       "housingImplication": "The foreign-born share is projected to rise by 34.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6856,11 +6856,11 @@
         "privateRentPct": 31.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 43.5,
-        "socialRentPct": 13.8,
-        "privateRentPct": 34.9
+        "ownershipPct": 45.2,
+        "socialRentPct": 13.6,
+        "privateRentPct": 33.1
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 33.4,
       "housingImplication": "The foreign-born share is projected to rise by 33.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6896,11 +6896,11 @@
         "privateRentPct": 13.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.6,
-        "socialRentPct": 13.6,
-        "privateRentPct": 14.9
+        "ownershipPct": 70,
+        "socialRentPct": 13.4,
+        "privateRentPct": 14.1
       },
-      "socialRentChangePp": 0.2,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 28.1,
       "housingImplication": "The foreign-born share is projected to rise by 28.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -6976,11 +6976,11 @@
         "privateRentPct": 15.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.9,
-        "socialRentPct": 12.8,
-        "privateRentPct": 16.7
+        "ownershipPct": 62.8,
+        "socialRentPct": 13,
+        "privateRentPct": 16.4
       },
-      "socialRentChangePp": -0.7,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 29.1,
       "housingImplication": "The foreign-born share is projected to rise by 29.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7016,9 +7016,9 @@
         "privateRentPct": 14.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 70.1,
+        "ownershipPct": 69.5,
         "socialRentPct": 11,
-        "privateRentPct": 15.2
+        "privateRentPct": 14.7
       },
       "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 24.4,
@@ -7056,11 +7056,11 @@
         "privateRentPct": 16.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 46.1,
-        "socialRentPct": 8.5,
-        "privateRentPct": 17
+        "ownershipPct": 49.5,
+        "socialRentPct": 9.4,
+        "privateRentPct": 17.1
       },
-      "socialRentChangePp": -2.3,
+      "socialRentChangePp": -1.4,
       "foreignBornGrowthPp": 34.1,
       "housingImplication": "The foreign-born share is projected to rise by 34.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7096,11 +7096,11 @@
         "privateRentPct": 14.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 60,
-        "socialRentPct": 7.8,
-        "privateRentPct": 14.6
+        "ownershipPct": 61.4,
+        "socialRentPct": 8.1,
+        "privateRentPct": 14.9
       },
-      "socialRentChangePp": -0.7,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 45.1,
       "housingImplication": "The foreign-born share is projected to rise by 45.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7136,7 +7136,7 @@
         "privateRentPct": 14.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 71,
+        "ownershipPct": 70.7,
         "socialRentPct": 12.7,
         "privateRentPct": 15
       },
@@ -7176,11 +7176,11 @@
         "privateRentPct": 18.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 68.3,
-        "socialRentPct": 8.9,
-        "privateRentPct": 20.6
+        "ownershipPct": 68.6,
+        "socialRentPct": 9,
+        "privateRentPct": 19.8
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 21.4,
       "housingImplication": "The foreign-born share is projected to rise by 21.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7216,11 +7216,11 @@
         "privateRentPct": 10.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 70.4,
-        "socialRentPct": 13.3,
-        "privateRentPct": 10.2
+        "ownershipPct": 70.6,
+        "socialRentPct": 13.4,
+        "privateRentPct": 10.4
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 18.1,
       "housingImplication": "The foreign-born share is projected to rise by 18.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7256,11 +7256,11 @@
         "privateRentPct": 17
       },
       "projectedTenure2041": {
-        "ownershipPct": 61.2,
-        "socialRentPct": 14.5,
-        "privateRentPct": 19.2
+        "ownershipPct": 60.8,
+        "socialRentPct": 14.4,
+        "privateRentPct": 18.8
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 36,
       "housingImplication": "The foreign-born share is projected to rise by 36pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7296,11 +7296,11 @@
         "privateRentPct": 16
       },
       "projectedTenure2041": {
-        "ownershipPct": 60.5,
-        "socialRentPct": 20.2,
+        "ownershipPct": 59.9,
+        "socialRentPct": 20.1,
         "privateRentPct": 16.3
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 24.3,
       "housingImplication": "The foreign-born share is projected to rise by 24.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7336,11 +7336,11 @@
         "privateRentPct": 17.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 63.1,
-        "socialRentPct": 11.2,
-        "privateRentPct": 23.9
+        "ownershipPct": 64.5,
+        "socialRentPct": 11.4,
+        "privateRentPct": 21.8
       },
-      "socialRentChangePp": -0.6,
+      "socialRentChangePp": -0.4,
       "foreignBornGrowthPp": 43.2,
       "housingImplication": "The foreign-born share is projected to rise by 43.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7416,9 +7416,9 @@
         "privateRentPct": 19.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 70.5,
+        "ownershipPct": 70,
         "socialRentPct": 8.3,
-        "privateRentPct": 19.3
+        "privateRentPct": 19.5
       },
       "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 27.6,
@@ -7456,11 +7456,11 @@
         "privateRentPct": 16.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 65.7,
-        "socialRentPct": 14,
-        "privateRentPct": 18.6
+        "ownershipPct": 66.6,
+        "socialRentPct": 13.8,
+        "privateRentPct": 17.5
       },
-      "socialRentChangePp": 0.3,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 31.2,
       "housingImplication": "The foreign-born share is projected to rise by 31.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7496,11 +7496,11 @@
         "privateRentPct": 23.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 42.7,
-        "socialRentPct": 9.2,
-        "privateRentPct": 27.8
+        "ownershipPct": 42.9,
+        "socialRentPct": 8.6,
+        "privateRentPct": 25.4
       },
-      "socialRentChangePp": 0.4,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 36.5,
       "housingImplication": "The foreign-born share is projected to rise by 36.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7536,11 +7536,11 @@
         "privateRentPct": 29.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 31.3,
-        "socialRentPct": 15.4,
-        "privateRentPct": 32.5
+        "ownershipPct": 29,
+        "socialRentPct": 14.2,
+        "privateRentPct": 30
       },
-      "socialRentChangePp": 0.6,
+      "socialRentChangePp": -0.6,
       "foreignBornGrowthPp": 36,
       "housingImplication": "The foreign-born share is projected to rise by 36pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7576,11 +7576,11 @@
         "privateRentPct": 17.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.5,
-        "socialRentPct": 14.4,
-        "privateRentPct": 18.1
+        "ownershipPct": 62.7,
+        "socialRentPct": 14.5,
+        "privateRentPct": 18.3
       },
-      "socialRentChangePp": -0.4,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 38.6,
       "housingImplication": "The foreign-born share is projected to rise by 38.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7616,11 +7616,11 @@
         "privateRentPct": 18.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 64.3,
-        "socialRentPct": 13.4,
-        "privateRentPct": 19.1
+        "ownershipPct": 63.4,
+        "socialRentPct": 13.3,
+        "privateRentPct": 19.5
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 34.1,
       "housingImplication": "The foreign-born share is projected to rise by 34.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7656,11 +7656,11 @@
         "privateRentPct": 14.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 42.8,
-        "socialRentPct": 20.9,
-        "privateRentPct": 18.5
+        "ownershipPct": 43.4,
+        "socialRentPct": 22.2,
+        "privateRentPct": 16
       },
-      "socialRentChangePp": -4.5,
+      "socialRentChangePp": -3.2,
       "foreignBornGrowthPp": 45.9,
       "housingImplication": "The foreign-born share is projected to rise by 45.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7696,11 +7696,11 @@
         "privateRentPct": 14.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 70.1,
-        "socialRentPct": 9.9,
-        "privateRentPct": 15.6
+        "ownershipPct": 70.6,
+        "socialRentPct": 10,
+        "privateRentPct": 14.9
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 28.4,
       "housingImplication": "The foreign-born share is projected to rise by 28.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7776,11 +7776,11 @@
         "privateRentPct": 15.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 66.1,
-        "socialRentPct": 9.1,
+        "ownershipPct": 65.7,
+        "socialRentPct": 9.2,
         "privateRentPct": 16.1
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 32.1,
       "housingImplication": "The foreign-born share is projected to rise by 32.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7816,11 +7816,11 @@
         "privateRentPct": 18
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.2,
-        "socialRentPct": 12.2,
-        "privateRentPct": 18.4
+        "ownershipPct": 63.1,
+        "socialRentPct": 12.4,
+        "privateRentPct": 18.5
       },
-      "socialRentChangePp": -0.6,
+      "socialRentChangePp": -0.4,
       "foreignBornGrowthPp": 33,
       "housingImplication": "The foreign-born share is projected to rise by 33pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -7896,9 +7896,9 @@
         "privateRentPct": 14.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.9,
+        "ownershipPct": 69.6,
         "socialRentPct": 12.7,
-        "privateRentPct": 14.9
+        "privateRentPct": 14.8
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 34.6,
@@ -7936,7 +7936,7 @@
         "privateRentPct": 27.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 53.2,
+        "ownershipPct": 52.4,
         "socialRentPct": 13.2,
         "privateRentPct": 28.7
       },
@@ -8016,11 +8016,11 @@
         "privateRentPct": 26.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.4,
+        "ownershipPct": 62.6,
         "socialRentPct": 8.1,
-        "privateRentPct": 27.2
+        "privateRentPct": 26.9
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 30.9,
       "housingImplication": "The foreign-born share is projected to rise by 30.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8056,7 +8056,7 @@
         "privateRentPct": 10.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.9,
+        "ownershipPct": 69.6,
         "socialRentPct": 18.6,
         "privateRentPct": 10.3
       },
@@ -8096,9 +8096,9 @@
         "privateRentPct": 17
       },
       "projectedTenure2041": {
-        "ownershipPct": 71.7,
+        "ownershipPct": 71.4,
         "socialRentPct": 9.3,
-        "privateRentPct": 17.6
+        "privateRentPct": 17.5
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 14.5,
@@ -8176,11 +8176,11 @@
         "privateRentPct": 14.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.4,
+        "ownershipPct": 69,
         "socialRentPct": 13.5,
-        "privateRentPct": 15.2
+        "privateRentPct": 15.4
       },
-      "socialRentChangePp": 0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 22.2,
       "housingImplication": "The foreign-born share is projected to rise by 22.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8256,11 +8256,11 @@
         "privateRentPct": 25.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 18.3,
-        "socialRentPct": 33.4,
-        "privateRentPct": 25.4
+        "ownershipPct": 17.3,
+        "socialRentPct": 30,
+        "privateRentPct": 23.5
       },
-      "socialRentChangePp": 3.1,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 35.5,
       "housingImplication": "The foreign-born share is projected to rise by 35.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8296,11 +8296,11 @@
         "privateRentPct": 15.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 49.7,
-        "socialRentPct": 11.8,
-        "privateRentPct": 18.9
+        "ownershipPct": 48.9,
+        "socialRentPct": 12.4,
+        "privateRentPct": 17.6
       },
-      "socialRentChangePp": -2.7,
+      "socialRentChangePp": -2.1,
       "foreignBornGrowthPp": 35,
       "housingImplication": "The foreign-born share is projected to rise by 35pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8336,9 +8336,9 @@
         "privateRentPct": 15.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 67,
+        "ownershipPct": 66.4,
         "socialRentPct": 14,
-        "privateRentPct": 16.3
+        "privateRentPct": 16.4
       },
       "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 24.5,
@@ -8416,11 +8416,11 @@
         "privateRentPct": 16.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 56.9,
-        "socialRentPct": 11.6,
-        "privateRentPct": 18.5
+        "ownershipPct": 59.5,
+        "socialRentPct": 12,
+        "privateRentPct": 18
       },
-      "socialRentChangePp": -0.9,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 42.5,
       "housingImplication": "The foreign-born share is projected to rise by 42.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8496,9 +8496,9 @@
         "privateRentPct": 17.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.6,
+        "ownershipPct": 69.3,
         "socialRentPct": 10.7,
-        "privateRentPct": 18
+        "privateRentPct": 18.2
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 24.4,
@@ -8538,7 +8538,7 @@
       "projectedTenure2041": {
         "ownershipPct": 71.6,
         "socialRentPct": 9.5,
-        "privateRentPct": 18.1
+        "privateRentPct": 18
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 25.2,
@@ -8616,11 +8616,11 @@
         "privateRentPct": 25.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 54.9,
-        "socialRentPct": 11.9,
-        "privateRentPct": 27.5
+        "ownershipPct": 54.1,
+        "socialRentPct": 12,
+        "privateRentPct": 27.6
       },
-      "socialRentChangePp": -0.5,
+      "socialRentChangePp": -0.4,
       "foreignBornGrowthPp": 43.7,
       "housingImplication": "The foreign-born share is projected to rise by 43.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8656,11 +8656,11 @@
         "privateRentPct": 14
       },
       "projectedTenure2041": {
-        "ownershipPct": 68.2,
-        "socialRentPct": 8.1,
-        "privateRentPct": 14.3
+        "ownershipPct": 67.9,
+        "socialRentPct": 8.2,
+        "privateRentPct": 14.4
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 33.7,
       "housingImplication": "The foreign-born share is projected to rise by 33.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8696,11 +8696,11 @@
         "privateRentPct": 16.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 61.7,
-        "socialRentPct": 12.6,
-        "privateRentPct": 17.5
+        "ownershipPct": 61.9,
+        "socialRentPct": 12.7,
+        "privateRentPct": 17.6
       },
-      "socialRentChangePp": -0.7,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 40.3,
       "housingImplication": "The foreign-born share is projected to rise by 40.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8736,11 +8736,11 @@
         "privateRentPct": 12.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 40.1,
-        "socialRentPct": 4.8,
-        "privateRentPct": 11.5
+        "ownershipPct": 41.5,
+        "socialRentPct": 5,
+        "privateRentPct": 12.2
       },
-      "socialRentChangePp": -0.9,
+      "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 46.4,
       "housingImplication": "The foreign-born share is projected to rise by 46.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8776,11 +8776,11 @@
         "privateRentPct": 11.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 65.1,
-        "socialRentPct": 7,
-        "privateRentPct": 12.8
+        "ownershipPct": 66.1,
+        "socialRentPct": 7.1,
+        "privateRentPct": 12.4
       },
-      "socialRentChangePp": -0.5,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 36.4,
       "housingImplication": "The foreign-born share is projected to rise by 36.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8856,11 +8856,11 @@
         "privateRentPct": 34.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 16.5,
-        "socialRentPct": 20.9,
-        "privateRentPct": 33.8
+        "ownershipPct": 16,
+        "socialRentPct": 21.3,
+        "privateRentPct": 33
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": 0.4,
       "foreignBornGrowthPp": 29.7,
       "housingImplication": "The foreign-born share is projected to rise by 29.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -8896,9 +8896,9 @@
         "privateRentPct": 15.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 65.8,
+        "ownershipPct": 65.6,
         "socialRentPct": 16,
-        "privateRentPct": 16.4
+        "privateRentPct": 16.3
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 19.3,
@@ -8936,9 +8936,9 @@
         "privateRentPct": 21.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.6,
-        "socialRentPct": 10.3,
-        "privateRentPct": 22.1
+        "ownershipPct": 62,
+        "socialRentPct": 10.4,
+        "privateRentPct": 22.5
       },
       "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 24.6,
@@ -9016,9 +9016,9 @@
         "privateRentPct": 15.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 66,
+        "ownershipPct": 65.3,
         "socialRentPct": 13.2,
-        "privateRentPct": 15.7
+        "privateRentPct": 15.6
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 19.7,
@@ -9056,9 +9056,9 @@
         "privateRentPct": 12.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 76.4,
+        "ownershipPct": 75.7,
         "socialRentPct": 8,
-        "privateRentPct": 12.8
+        "privateRentPct": 12.7
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 30,
@@ -9136,11 +9136,11 @@
         "privateRentPct": 16.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 39.7,
-        "socialRentPct": 8.7,
-        "privateRentPct": 18
+        "ownershipPct": 40.2,
+        "socialRentPct": 8.9,
+        "privateRentPct": 16.3
       },
-      "socialRentChangePp": -2.1,
+      "socialRentChangePp": -1.9,
       "foreignBornGrowthPp": 36.2,
       "housingImplication": "The foreign-born share is projected to rise by 36.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -9216,7 +9216,7 @@
         "privateRentPct": 17.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 67,
+        "ownershipPct": 66.9,
         "socialRentPct": 12.9,
         "privateRentPct": 18
       },
@@ -9256,11 +9256,11 @@
         "privateRentPct": 13.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 77.3,
-        "socialRentPct": 5.3,
-        "privateRentPct": 14
+        "ownershipPct": 76.2,
+        "socialRentPct": 5.2,
+        "privateRentPct": 14.1
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 23.9,
       "housingImplication": "The foreign-born share is projected to rise by 23.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -9296,9 +9296,9 @@
         "privateRentPct": 16.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 63.9,
+        "ownershipPct": 63.4,
         "socialRentPct": 8.9,
-        "privateRentPct": 17.5
+        "privateRentPct": 17.6
       },
       "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 34.4,
@@ -9336,11 +9336,11 @@
         "privateRentPct": 18.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 64.8,
-        "socialRentPct": 14.1,
-        "privateRentPct": 19.7
+        "ownershipPct": 64.4,
+        "socialRentPct": 14.2,
+        "privateRentPct": 19.8
       },
-      "socialRentChangePp": 0.1,
+      "socialRentChangePp": 0.2,
       "foreignBornGrowthPp": 38.4,
       "housingImplication": "The foreign-born share is projected to rise by 38.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -9376,11 +9376,11 @@
         "privateRentPct": 15.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.4,
-        "socialRentPct": 10,
+        "ownershipPct": 62.6,
+        "socialRentPct": 10.1,
         "privateRentPct": 15.7
       },
-      "socialRentChangePp": -0.6,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 25.7,
       "housingImplication": "The foreign-born share is projected to rise by 25.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -9416,9 +9416,9 @@
         "privateRentPct": 13.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 73.5,
+        "ownershipPct": 73.3,
         "socialRentPct": 11.3,
-        "privateRentPct": 14.1
+        "privateRentPct": 14.2
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 26.7,
@@ -9456,11 +9456,11 @@
         "privateRentPct": 15.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 66.9,
-        "socialRentPct": 11.2,
-        "privateRentPct": 17.1
+        "ownershipPct": 66.8,
+        "socialRentPct": 11.3,
+        "privateRentPct": 16.8
       },
-      "socialRentChangePp": -0.3,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 27.6,
       "housingImplication": "The foreign-born share is projected to rise by 27.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -9496,11 +9496,11 @@
         "privateRentPct": 18.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 61.8,
+        "ownershipPct": 61,
         "socialRentPct": 15.6,
-        "privateRentPct": 18.8
+        "privateRentPct": 19.1
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 31.2,
       "housingImplication": "The foreign-born share is projected to rise by 31.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -9536,11 +9536,11 @@
         "privateRentPct": 14.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 54.7,
-        "socialRentPct": 15,
-        "privateRentPct": 15
+        "ownershipPct": 57,
+        "socialRentPct": 15.7,
+        "privateRentPct": 15.2
       },
-      "socialRentChangePp": -1.5,
+      "socialRentChangePp": -0.8,
       "foreignBornGrowthPp": 29.9,
       "housingImplication": "The foreign-born share is projected to rise by 29.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -9616,11 +9616,11 @@
         "privateRentPct": 24.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 52.3,
-        "socialRentPct": 14.9,
-        "privateRentPct": 26.8
+        "ownershipPct": 51.1,
+        "socialRentPct": 14.7,
+        "privateRentPct": 26.5
       },
-      "socialRentChangePp": -0.7,
+      "socialRentChangePp": -0.9,
       "foreignBornGrowthPp": 30,
       "housingImplication": "The foreign-born share is projected to rise by 30pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -9656,9 +9656,9 @@
         "privateRentPct": 18.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 64.4,
-        "socialRentPct": 13.6,
-        "privateRentPct": 20.3
+        "ownershipPct": 64.1,
+        "socialRentPct": 13.5,
+        "privateRentPct": 20.2
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 21.7,
@@ -9696,11 +9696,11 @@
         "privateRentPct": 12.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.3,
-        "socialRentPct": 10.2,
+        "ownershipPct": 68.1,
+        "socialRentPct": 10.1,
         "privateRentPct": 13.3
       },
-      "socialRentChangePp": -0.2,
+      "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 38.8,
       "housingImplication": "The foreign-born share is projected to rise by 38.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -9736,9 +9736,9 @@
         "privateRentPct": 19.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 65.9,
+        "ownershipPct": 66.1,
         "socialRentPct": 12.7,
-        "privateRentPct": 20.3
+        "privateRentPct": 20.2
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 15.2,
@@ -9816,9 +9816,9 @@
         "privateRentPct": 12.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 66.6,
+        "ownershipPct": 66.1,
         "socialRentPct": 18,
-        "privateRentPct": 12.8
+        "privateRentPct": 12.7
       },
       "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 29.1,
@@ -9856,9 +9856,9 @@
         "privateRentPct": 16.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 63.4,
-        "socialRentPct": 12.1,
-        "privateRentPct": 17.4
+        "ownershipPct": 63.6,
+        "socialRentPct": 12.2,
+        "privateRentPct": 17.5
       },
       "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 40.7,
@@ -9896,9 +9896,9 @@
         "privateRentPct": 14.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.8,
-        "socialRentPct": 9.3,
-        "privateRentPct": 14.6
+        "ownershipPct": 70.2,
+        "socialRentPct": 9.4,
+        "privateRentPct": 14.5
       },
       "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 27.8,
@@ -9976,11 +9976,11 @@
         "privateRentPct": 15.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 32,
-        "socialRentPct": 6.4,
-        "privateRentPct": 11.1
+        "ownershipPct": 42.1,
+        "socialRentPct": 8.4,
+        "privateRentPct": 13.7
       },
-      "socialRentChangePp": -4.5,
+      "socialRentChangePp": -2.4,
       "foreignBornGrowthPp": 33.4,
       "housingImplication": "The foreign-born share is projected to rise by 33.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10016,7 +10016,7 @@
         "privateRentPct": 16
       },
       "projectedTenure2041": {
-        "ownershipPct": 71.2,
+        "ownershipPct": 71.1,
         "socialRentPct": 11.8,
         "privateRentPct": 16.2
       },
@@ -10056,11 +10056,11 @@
         "privateRentPct": 21.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 62.2,
-        "socialRentPct": 9,
-        "privateRentPct": 22.7
+        "ownershipPct": 62,
+        "socialRentPct": 9.1,
+        "privateRentPct": 22.2
       },
-      "socialRentChangePp": -0.3,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 26.9,
       "housingImplication": "The foreign-born share is projected to rise by 26.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10096,11 +10096,11 @@
         "privateRentPct": 23.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 49.3,
-        "socialRentPct": 11.2,
-        "privateRentPct": 25.5
+        "ownershipPct": 50,
+        "socialRentPct": 10.9,
+        "privateRentPct": 24.7
       },
-      "socialRentChangePp": 0.3,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 36.4,
       "housingImplication": "The foreign-born share is projected to rise by 36.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10136,11 +10136,11 @@
         "privateRentPct": 21.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 27.2,
-        "socialRentPct": 7.7,
-        "privateRentPct": 24.2
+        "ownershipPct": 28.3,
+        "socialRentPct": 8.3,
+        "privateRentPct": 22.5
       },
-      "socialRentChangePp": -2.7,
+      "socialRentChangePp": -2.1,
       "foreignBornGrowthPp": 36.4,
       "housingImplication": "The foreign-born share is projected to rise by 36.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10216,11 +10216,11 @@
         "privateRentPct": 13.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 71.4,
-        "socialRentPct": 11.4,
-        "privateRentPct": 14.4
+        "ownershipPct": 70.9,
+        "socialRentPct": 11.3,
+        "privateRentPct": 14
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 30.7,
       "housingImplication": "The foreign-born share is projected to rise by 30.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10256,11 +10256,11 @@
         "privateRentPct": 27.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 30.7,
-        "socialRentPct": 16,
-        "privateRentPct": 30.6
+        "ownershipPct": 31.4,
+        "socialRentPct": 16.3,
+        "privateRentPct": 29.8
       },
-      "socialRentChangePp": -2.3,
+      "socialRentChangePp": -2,
       "foreignBornGrowthPp": 35.9,
       "housingImplication": "The foreign-born share is projected to rise by 35.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10336,11 +10336,11 @@
         "privateRentPct": 21.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 57.3,
-        "socialRentPct": 15.4,
+        "ownershipPct": 56.3,
+        "socialRentPct": 15.2,
         "privateRentPct": 23.6
       },
-      "socialRentChangePp": -0.3,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 36.6,
       "housingImplication": "The foreign-born share is projected to rise by 36.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10378,7 +10378,7 @@
       "projectedTenure2041": {
         "ownershipPct": 65.2,
         "socialRentPct": 13.4,
-        "privateRentPct": 15.2
+        "privateRentPct": 14.7
       },
       "socialRentChangePp": -0.3,
       "foreignBornGrowthPp": 38.9,
@@ -10416,9 +10416,9 @@
         "privateRentPct": 18.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 60.8,
+        "ownershipPct": 61,
         "socialRentPct": 13.8,
-        "privateRentPct": 21.2
+        "privateRentPct": 20.4
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 26.7,
@@ -10456,11 +10456,11 @@
         "privateRentPct": 14.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 56.9,
-        "socialRentPct": 12.9,
-        "privateRentPct": 15.6
+        "ownershipPct": 58.1,
+        "socialRentPct": 13.3,
+        "privateRentPct": 15.5
       },
-      "socialRentChangePp": -1.3,
+      "socialRentChangePp": -0.9,
       "foreignBornGrowthPp": 45.3,
       "housingImplication": "The foreign-born share is projected to rise by 45.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10536,9 +10536,9 @@
         "privateRentPct": 12.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 75.8,
+        "ownershipPct": 75.5,
         "socialRentPct": 9.7,
-        "privateRentPct": 12.7
+        "privateRentPct": 12.6
       },
       "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 26.7,
@@ -10576,11 +10576,11 @@
         "privateRentPct": 18.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 63.6,
-        "socialRentPct": 13.9,
-        "privateRentPct": 19.8
+        "ownershipPct": 62.9,
+        "socialRentPct": 13.8,
+        "privateRentPct": 19.9
       },
-      "socialRentChangePp": 0.5,
+      "socialRentChangePp": 0.4,
       "foreignBornGrowthPp": 37.7,
       "housingImplication": "The foreign-born share is projected to rise by 37.7pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10616,9 +10616,9 @@
         "privateRentPct": 16
       },
       "projectedTenure2041": {
-        "ownershipPct": 72.4,
-        "socialRentPct": 9.9,
-        "privateRentPct": 16.3
+        "ownershipPct": 72.1,
+        "socialRentPct": 9.8,
+        "privateRentPct": 16.4
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 17.1,
@@ -10658,7 +10658,7 @@
       "projectedTenure2041": {
         "ownershipPct": 71.8,
         "socialRentPct": 12.2,
-        "privateRentPct": 13.7
+        "privateRentPct": 13.4
       },
       "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 36.3,
@@ -10696,11 +10696,11 @@
         "privateRentPct": 14.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 57.5,
-        "socialRentPct": 7.2,
-        "privateRentPct": 15.9
+        "ownershipPct": 58.4,
+        "socialRentPct": 7.5,
+        "privateRentPct": 16.2
       },
-      "socialRentChangePp": -0.4,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 47.2,
       "housingImplication": "The foreign-born share is projected to rise by 47.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10776,11 +10776,11 @@
         "privateRentPct": 13.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 72.1,
+        "ownershipPct": 71.8,
         "socialRentPct": 12.3,
         "privateRentPct": 14.2
       },
-      "socialRentChangePp": 0.1,
+      "socialRentChangePp": 0.2,
       "foreignBornGrowthPp": 29.4,
       "housingImplication": "The foreign-born share is projected to rise by 29.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -10816,7 +10816,7 @@
         "privateRentPct": 14.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 70.2,
+        "ownershipPct": 69.9,
         "socialRentPct": 13.1,
         "privateRentPct": 15.2
       },
@@ -10858,7 +10858,7 @@
       "projectedTenure2041": {
         "ownershipPct": 73.7,
         "socialRentPct": 10.2,
-        "privateRentPct": 10.3
+        "privateRentPct": 10.5
       },
       "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 24.1,
@@ -10896,9 +10896,9 @@
         "privateRentPct": 13.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 72,
+        "ownershipPct": 71.8,
         "socialRentPct": 12.9,
-        "privateRentPct": 14
+        "privateRentPct": 14.1
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 25,
@@ -10976,11 +10976,11 @@
         "privateRentPct": 13.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 56.3,
+        "ownershipPct": 56.2,
         "socialRentPct": 18.4,
-        "privateRentPct": 16.8
+        "privateRentPct": 15
       },
-      "socialRentChangePp": -0.6,
+      "socialRentChangePp": -0.5,
       "foreignBornGrowthPp": 39.4,
       "housingImplication": "The foreign-born share is projected to rise by 39.4pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11016,11 +11016,11 @@
         "privateRentPct": 12.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 67.7,
-        "socialRentPct": 14.5,
+        "ownershipPct": 67.3,
+        "socialRentPct": 14.4,
         "privateRentPct": 12.7
       },
-      "socialRentChangePp": -0.3,
+      "socialRentChangePp": -0.4,
       "foreignBornGrowthPp": 35,
       "housingImplication": "The foreign-born share is projected to rise by 35pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11096,11 +11096,11 @@
         "privateRentPct": 14.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.4,
+        "ownershipPct": 68.4,
         "socialRentPct": 11.7,
         "privateRentPct": 15.2
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 41.2,
       "housingImplication": "The foreign-born share is projected to rise by 41.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11176,9 +11176,9 @@
         "privateRentPct": 13.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 67.4,
-        "socialRentPct": 12.3,
-        "privateRentPct": 14.4
+        "ownershipPct": 67.2,
+        "socialRentPct": 12.2,
+        "privateRentPct": 14.1
       },
       "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 35.9,
@@ -11216,7 +11216,7 @@
         "privateRentPct": 16.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.4,
+        "ownershipPct": 68.8,
         "socialRentPct": 10.5,
         "privateRentPct": 17.3
       },
@@ -11296,11 +11296,11 @@
         "privateRentPct": 13.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 67.8,
-        "socialRentPct": 12,
-        "privateRentPct": 14
+        "ownershipPct": 67.2,
+        "socialRentPct": 11.9,
+        "privateRentPct": 14.2
       },
-      "socialRentChangePp": -0.5,
+      "socialRentChangePp": -0.6,
       "foreignBornGrowthPp": 38.8,
       "housingImplication": "The foreign-born share is projected to rise by 38.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11336,11 +11336,11 @@
         "privateRentPct": 11.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 45.7,
-        "socialRentPct": 9.3,
-        "privateRentPct": 11.2
+        "ownershipPct": 49.2,
+        "socialRentPct": 10.1,
+        "privateRentPct": 11.8
       },
-      "socialRentChangePp": -2.8,
+      "socialRentChangePp": -2,
       "foreignBornGrowthPp": 46.2,
       "housingImplication": "The foreign-born share is projected to rise by 46.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11376,11 +11376,11 @@
         "privateRentPct": 16.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 66.2,
+        "ownershipPct": 65.7,
         "socialRentPct": 13.6,
-        "privateRentPct": 17.4
+        "privateRentPct": 17.6
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 39.9,
       "housingImplication": "The foreign-born share is projected to rise by 39.9pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11418,9 +11418,9 @@
       "projectedTenure2041": {
         "ownershipPct": 70.4,
         "socialRentPct": 12.8,
-        "privateRentPct": 12.9
+        "privateRentPct": 13
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 24,
       "housingImplication": "The foreign-born share is projected to rise by 24pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11456,11 +11456,11 @@
         "privateRentPct": 26.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 44.9,
-        "socialRentPct": 19.4,
-        "privateRentPct": 30.4
+        "ownershipPct": 44.5,
+        "socialRentPct": 19,
+        "privateRentPct": 29.2
       },
-      "socialRentChangePp": -0.7,
+      "socialRentChangePp": -1,
       "foreignBornGrowthPp": 30,
       "housingImplication": "The foreign-born share is projected to rise by 30pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11496,11 +11496,11 @@
         "privateRentPct": 18.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 68.8,
+        "ownershipPct": 69,
         "socialRentPct": 9.1,
-        "privateRentPct": 20.1
+        "privateRentPct": 19.4
       },
-      "socialRentChangePp": -0.1,
+      "socialRentChangePp": 0,
       "foreignBornGrowthPp": 25,
       "housingImplication": "The foreign-born share is projected to rise by 25pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11536,11 +11536,11 @@
         "privateRentPct": 20.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 61.6,
-        "socialRentPct": 13.1,
-        "privateRentPct": 23.1
+        "ownershipPct": 62,
+        "socialRentPct": 13,
+        "privateRentPct": 22.6
       },
-      "socialRentChangePp": 0.6,
+      "socialRentChangePp": 0.5,
       "foreignBornGrowthPp": 40.8,
       "housingImplication": "The foreign-born share is projected to rise by 40.8pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11576,11 +11576,11 @@
         "privateRentPct": 18.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 56.8,
-        "socialRentPct": 10.8,
-        "privateRentPct": 20.7
+        "ownershipPct": 57.9,
+        "socialRentPct": 11,
+        "privateRentPct": 20.6
       },
-      "socialRentChangePp": -0.8,
+      "socialRentChangePp": -0.6,
       "foreignBornGrowthPp": 46.3,
       "housingImplication": "The foreign-born share is projected to rise by 46.3pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11616,9 +11616,9 @@
         "privateRentPct": 11.7
       },
       "projectedTenure2041": {
-        "ownershipPct": 75.7,
+        "ownershipPct": 75.4,
         "socialRentPct": 11.1,
-        "privateRentPct": 11.9
+        "privateRentPct": 12.1
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 13.3,
@@ -11656,9 +11656,9 @@
         "privateRentPct": 14.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 72.6,
+        "ownershipPct": 72.3,
         "socialRentPct": 10.6,
-        "privateRentPct": 14.8
+        "privateRentPct": 14.9
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 18.6,
@@ -11696,11 +11696,11 @@
         "privateRentPct": 20.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 66.8,
+        "ownershipPct": 66.4,
         "socialRentPct": 10.9,
-        "privateRentPct": 20.7
+        "privateRentPct": 20.8
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 26.2,
       "housingImplication": "The foreign-born share is projected to rise by 26.2pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11736,9 +11736,9 @@
         "privateRentPct": 14.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.4,
+        "ownershipPct": 68.6,
         "socialRentPct": 11.8,
-        "privateRentPct": 15.4
+        "privateRentPct": 15.5
       },
       "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 33.3,
@@ -11776,11 +11776,11 @@
         "privateRentPct": 12.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 64.6,
-        "socialRentPct": 7.6,
-        "privateRentPct": 12.2
+        "ownershipPct": 69,
+        "socialRentPct": 8.2,
+        "privateRentPct": 12.9
       },
-      "socialRentChangePp": -0.7,
+      "socialRentChangePp": -0.1,
       "foreignBornGrowthPp": 31,
       "housingImplication": "The foreign-born share is projected to rise by 31pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11816,9 +11816,9 @@
         "privateRentPct": 13.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 70.1,
+        "ownershipPct": 69.4,
         "socialRentPct": 11,
-        "privateRentPct": 14.9
+        "privateRentPct": 14.8
       },
       "socialRentChangePp": -0.2,
       "foreignBornGrowthPp": 40.6,
@@ -11856,9 +11856,9 @@
         "privateRentPct": 16.1
       },
       "projectedTenure2041": {
-        "ownershipPct": 71.5,
+        "ownershipPct": 71.2,
         "socialRentPct": 10,
-        "privateRentPct": 16.4
+        "privateRentPct": 16.5
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 32,
@@ -11896,11 +11896,11 @@
         "privateRentPct": 13.5
       },
       "projectedTenure2041": {
-        "ownershipPct": 60,
-        "socialRentPct": 12.6,
-        "privateRentPct": 15.4
+        "ownershipPct": 61.2,
+        "socialRentPct": 13.1,
+        "privateRentPct": 14.9
       },
-      "socialRentChangePp": -1,
+      "socialRentChangePp": -0.4,
       "foreignBornGrowthPp": 31,
       "housingImplication": "The foreign-born share is projected to rise by 31pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -11936,11 +11936,11 @@
         "privateRentPct": 13.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 76.3,
+        "ownershipPct": 75.8,
         "socialRentPct": 8.3,
-        "privateRentPct": 13.6
+        "privateRentPct": 13.8
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 20,
       "housingImplication": "The foreign-born share is projected to rise by 20pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -12016,9 +12016,9 @@
         "privateRentPct": 18.8
       },
       "projectedTenure2041": {
-        "ownershipPct": 49.8,
+        "ownershipPct": 49.1,
         "socialRentPct": 8.6,
-        "privateRentPct": 20.3
+        "privateRentPct": 19.9
       },
       "socialRentChangePp": -1,
       "foreignBornGrowthPp": 35.4,
@@ -12136,9 +12136,9 @@
         "privateRentPct": 17.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 65.4,
+        "ownershipPct": 65.1,
         "socialRentPct": 15.1,
-        "privateRentPct": 17.7
+        "privateRentPct": 17.6
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 22.1,
@@ -12256,9 +12256,9 @@
         "privateRentPct": 13.3
       },
       "projectedTenure2041": {
-        "ownershipPct": 72.4,
+        "ownershipPct": 72,
         "socialRentPct": 8.4,
-        "privateRentPct": 13.8
+        "privateRentPct": 13.9
       },
       "socialRentChangePp": 0,
       "foreignBornGrowthPp": 39.8,
@@ -12296,7 +12296,7 @@
         "privateRentPct": 20.4
       },
       "projectedTenure2041": {
-        "ownershipPct": 67,
+        "ownershipPct": 66.8,
         "socialRentPct": 10.6,
         "privateRentPct": 20.7
       },
@@ -12376,7 +12376,7 @@
         "privateRentPct": 13.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 70.4,
+        "ownershipPct": 70.1,
         "socialRentPct": 14.4,
         "privateRentPct": 13.6
       },
@@ -12496,11 +12496,11 @@
         "privateRentPct": 17.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 68.7,
+        "ownershipPct": 68.5,
         "socialRentPct": 13,
-        "privateRentPct": 17.7
+        "privateRentPct": 17.8
       },
-      "socialRentChangePp": 0,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 13.5,
       "housingImplication": "The foreign-born share is projected to rise by 13.5pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), below the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -12536,11 +12536,11 @@
         "privateRentPct": 17.9
       },
       "projectedTenure2041": {
-        "ownershipPct": 52.8,
-        "socialRentPct": 10.1,
-        "privateRentPct": 17.6
+        "ownershipPct": 54.6,
+        "socialRentPct": 10.4,
+        "privateRentPct": 18.6
       },
-      "socialRentChangePp": -1.3,
+      "socialRentChangePp": -0.9,
       "foreignBornGrowthPp": 46.6,
       "housingImplication": "The foreign-born share is projected to rise by 46.6pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -12576,11 +12576,11 @@
         "privateRentPct": 14.2
       },
       "projectedTenure2041": {
-        "ownershipPct": 69.9,
-        "socialRentPct": 12.7,
-        "privateRentPct": 14.9
+        "ownershipPct": 69.4,
+        "socialRentPct": 12.6,
+        "privateRentPct": 14.7
       },
-      "socialRentChangePp": 0.2,
+      "socialRentChangePp": 0.1,
       "foreignBornGrowthPp": 21,
       "housingImplication": "The foreign-born share is projected to rise by 21pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {
@@ -12616,11 +12616,11 @@
         "privateRentPct": 18.6
       },
       "projectedTenure2041": {
-        "ownershipPct": 59.3,
-        "socialRentPct": 13,
-        "privateRentPct": 19.7
+        "ownershipPct": 58.9,
+        "socialRentPct": 13.1,
+        "privateRentPct": 19.8
       },
-      "socialRentChangePp": -0.8,
+      "socialRentChangePp": -0.7,
       "foreignBornGrowthPp": 42.1,
       "housingImplication": "The foreign-born share is projected to rise by 42.1pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), above the 15pp line this site uses to flag housing demand.",
       "tenureByGroup": {

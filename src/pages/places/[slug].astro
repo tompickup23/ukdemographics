@@ -831,23 +831,12 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           </p>
         </>
       )}
-      {language?.dataAvailable && language.projectedNonEnglishIncrease > 0 && (
-        <>
-          <h3 class="subhead">Projection</h3>
-          <div class="data-grid">
-            <div class="data-item">
-              <span class="data-label">Projected non-English growth</span>
-              <span class="data-value" style="color: var(--accent-3);">+{language.projectedNonEnglishIncrease}pp</span>
-            </div>
-          </div>
-          {language.interpreterImplication && (
-            <p class="data-flag">
-              <span class="data-flag-label">Data flag</span>
-              <span class="data-flag-text">{language.interpreterImplication}</span>
-              <span class="data-flag-note">A threshold on one Census variable, not a service-planning assessment.</span>
-            </p>
-          )}
-        </>
+      {language?.dataAvailable && language.interpreterImplication && (
+        <p class="data-flag">
+          <span class="data-flag-label">Data flag</span>
+          <span class="data-flag-text">{language.interpreterImplication}</span>
+          <span class="data-flag-note">A threshold on one Census variable, not a service-planning assessment. This site publishes no projection of language: it models ethnic group, and ethnic composition change is not a measure of language change.</span>
+        </p>
       )}
     </section>
   )}
