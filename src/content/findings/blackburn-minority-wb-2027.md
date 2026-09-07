@@ -1,6 +1,8 @@
 ---
 headline: "Blackburn projected minority White British by 2027. Three more Lancashire towns follow by 2050."
 date: "2026-04-14"
+updated: "2026-08-13"
+model_version: "v8.0"
 category: demographics
 stat_value: "2027"
 stat_label: "Blackburn WBI <50% year"

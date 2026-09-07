@@ -2,7 +2,7 @@
 headline: "Birmingham: 43% White British today, projected under 15% by 2051"
 date: "2026-04-14"
 category: demographics
-stat_value: "43% → 11%"
+stat_value: "43% → 15%"
 stat_label: "WBI 2021→2051"
 verdict: alert
 source_url: "https://www.ons.gov.uk/census"

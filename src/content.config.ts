@@ -6,6 +6,14 @@ const findings = defineCollection({
   schema: z.object({
     headline: z.string(),
     date: z.string(),
+    // The revision date of the article itself, not of the data snapshot behind it.
+    // 86-areas-minority-wbi-2051.md carried this from 13 August 2026 and Astro
+    // stripped it silently, because an undeclared key is dropped rather than
+    // rejected: the correction notice was in the body and nowhere in the metadata.
+    updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "updated must be an ISO date, YYYY-MM-DD").optional(),
+    // Which build of the projection model the figures in this piece were checked
+    // against, e.g. "v8.0". Only set it once the numbers have been re-verified.
+    model_version: z.string().optional(),
     category: z.enum(["demographics", "projections", "fertility", "schools", "housing", "health", "migration", "validation", "crime", "social-care", "send"]),
     stat_value: z.string(),
     stat_label: z.string(),
