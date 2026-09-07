@@ -11,65 +11,166 @@ const ranked = Object.entries(fr.areas)
 
 const high = ranked.filter(a => a.category === 'High Pressure');
 const moderate = ranked.filter(a => a.category === 'Moderate Pressure');
+
+// The stored category values are the generator's own field values and stay
+// unchanged in the JSON. Display uses "exposure" so the page does not assert
+// that demographic change causes service pressure.
+const CATEGORY_LABEL: Record<string, string> = {
+  'High Pressure': 'High exposure',
+  'Moderate Pressure': 'Moderate exposure',
+  'Low Pressure': 'Low exposure',
+  'Stable': 'Stable',
+};
+const categoryLabel = (c: string) => CATEGORY_LABEL[c] ?? c;
+
+// Components exactly as scripts/model/generate_national_dashboards.mjs computes them.
+const COMPONENTS = [
+  {
+    key: 'ethnicChangeContribution',
+    name: 'White British share change',
+    input: 'Absolute change in White British share, 2021 to 2041',
+    source: 'Census 2021 custom ONS dataset (single year of age by ethnic group by sex), projected by the Hamilton-Perry method',
+    multiplier: '1.5',
+  },
+  {
+    key: 'asylumConcentration',
+    name: 'Asylum support rate',
+    input: 'Supported asylum population per 10,000 residents, quarter ending 31 December 2025',
+    source: 'Home Office Immigration Statistics, asylum support by local authority',
+    multiplier: '0.5',
+  },
+  {
+    key: 'schoolPressure',
+    name: 'EAL demand growth',
+    input: 'Minority pupil share minus minority resident share, in percentage points',
+    source: 'DfE School Census 2024/25 pupil ethnicity by local authority, against the Census 2021 resident share',
+    multiplier: '1.0',
+  },
+  {
+    key: 'languagePressure',
+    name: 'Non-English growth',
+    input: 'Projected growth in the population whose main language is not English, in percentage points',
+    source: 'ONS Census 2021 TS029 Proficiency in English via NOMIS (NM_2048_1)',
+    multiplier: '1.0',
+  },
+  {
+    key: 'housingPressure',
+    name: 'Foreign-born growth',
+    input: 'Change in foreign-born share, 2021 to 2051',
+    source: 'ONS Census 2021 TS004 and Census 2011 KS204 country of birth via NOMIS, projected by the Hamilton-Perry method',
+    multiplier: '0.5',
+  },
+];
+
+// Counted from fiscal-resilience.json at build time, never written by hand.
+// A component whose input is missing is set to 0 by the generator, so a zero
+// here is either a genuine zero or an absent input. The file does not separate them.
+const zeroCounts: Record<string, number> = Object.fromEntries(
+  COMPONENTS.map(c => [c.key, ranked.filter(a => !a.components?.[c.key]).length])
+);
+const totalAreas = ranked.length;
+
+const CUTOFFS = [
+  { label: 'High exposure', rule: 'Score 70 or above' },
+  { label: 'Moderate exposure', rule: 'Score 45 to 69' },
+  { label: 'Low exposure', rule: 'Score 25 to 44' },
+  { label: 'Stable', rule: 'Score below 25' },
+];
 ---
 
 <BaseLayout
-  title="Service demand pressure index"
-  description={`Service demand pressure scoring for ${ranked.length} local authorities. ${high.length} areas rated high pressure from demographic change.`}
+  title="Demographic change and service exposure index"
+  description={`Demographic change and service exposure scoring for ${totalAreas} local authorities, with the full formula and its limits. ${high.length} areas score in the high exposure band.`}
 >
-  <h1>Service demand pressure index</h1>
-  <p class="desc">Composite score (0-100) from five components: ethnic change rate, asylum concentration, school diversity, language demand, and housing pressure. Higher scores indicate greater service-demand pressure from demographic change.</p>
+  <h1>Demographic change and service exposure index</h1>
+  <p class="desc">A composite score from 0 to 100 built from five capped components: White British share change, asylum support rate, EAL demand growth, non-English growth, and foreign-born growth. It measures exposure to demographic change. It does not measure service cost, service capacity, or observed demand.</p>
 
   <div class="stat-card-row">
-    <StatCard value={high.length.toString()} label="High pressure" accent="var(--coral)" />
-    <StatCard value={moderate.length.toString()} label="Moderate pressure" accent="var(--accent-3)" />
-    <StatCard value={(ranked.length - high.length - moderate.length).toString()} label="Low / Stable" accent="var(--accent-2)" />
+    <StatCard value={high.length.toString()} label="High exposure" accent="var(--coral)" />
+    <StatCard value={moderate.length.toString()} label="Moderate exposure" accent="var(--accent-3)" />
+    <StatCard value={(totalAreas - high.length - moderate.length).toString()} label="Low / Stable" accent="var(--accent-2)" />
   </div>
 
-  <h2 class="section-title">Top 30 areas by service demand pressure</h2>
+  <h2 class="section-title">Top 30 areas by exposure score</h2>
   <div class="area-table">
-    <div class="area-table-header"><span>#</span><span>Area</span><span>Score</span><span>Category</span><span>White British change</span></div>
+    <div class="area-table-header"><span>#</span><span>Area</span><span>Score</span><span>Band</span><span>White British change</span></div>
     {ranked.slice(0, 30).map((a, i) => (
       <a href={`/places/${slugifyAreaName(a.areaName)}/`} class="area-row">
         <span class="rank">{i + 1}</span>
         <span class="name">{a.areaName}</span>
         <span class="score" style={`color: ${a.serviceDemandPressureScore >= 70 ? 'var(--coral)' : a.serviceDemandPressureScore >= 45 ? 'var(--accent-3)' : 'var(--accent)'}`}>{a.serviceDemandPressureScore}</span>
-        <span class="category">{a.category}</span>
+        <span class="category">{categoryLabel(a.category)}</span>
         <span class="change" style={`color: ${a.wbiChange2021to2041 < -10 ? 'var(--coral)' : 'var(--muted)'}`}>{a.wbiChange2021to2041 > 0 ? '+' : ''}{a.wbiChange2021to2041}pp</span>
       </a>
     ))}
   </div>
 
-  <h2 class="section-title" style="margin-top: 2.5rem;">Score components</h2>
-  <p class="desc">Each component contributes up to 20 points to the total score.</p>
-  <div class="component-grid">
-    <div class="component-card">
-      <span class="component-name">Ethnic change rate</span>
-      <span class="component-desc">Speed of White British share change 2021 to 2041</span>
-    </div>
-    <div class="component-card">
-      <span class="component-name">Asylum concentration</span>
-      <span class="component-desc">Asylum support rate per 10,000 population</span>
-    </div>
-    <div class="component-card">
-      <span class="component-name">School diversity pressure</span>
-      <span class="component-desc">Projected English as Additional Language (EAL) demand growth from DfE data</span>
-    </div>
-    <div class="component-card">
-      <span class="component-name">Language demand</span>
-      <span class="component-desc">Projected non-English speaking population growth</span>
-    </div>
-    <div class="component-card">
-      <span class="component-name">Housing pressure</span>
-      <span class="component-desc">Foreign-born population growth driving housing demand</span>
-    </div>
+  <h2 class="section-title" style="margin-top: 2.5rem;">How the score is built</h2>
+  <p class="desc">Each component is the input value multiplied by a fixed weight, then capped at 20 points. The five capped values are summed, the total is capped at 100, and the result is rounded to a whole number. There is no normalisation and no weighting derived from data. The multipliers and the caps were chosen when the score was written.</p>
+
+  <div class="table-scroll">
+    <table class="method-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Input</th>
+          <th>Source dataset</th>
+          <th class="num">Multiplier</th>
+          <th class="num">Cap</th>
+          <th class="num">Areas scoring 0</th>
+        </tr>
+      </thead>
+      <tbody>
+        {COMPONENTS.map(c => (
+          <tr>
+            <th scope="row">{c.name}</th>
+            <td>{c.input}</td>
+            <td>{c.source}</td>
+            <td class="num">{c.multiplier}</td>
+            <td class="num">20</td>
+            <td class="num">{zeroCounts[c.key]} of {totalAreas}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   </div>
+
+  <h3 class="subhead">Band cutoffs</h3>
+  <div class="table-scroll">
+    <table class="method-table">
+      <thead>
+        <tr><th>Band</th><th>Rule</th></tr>
+      </thead>
+      <tbody>
+        {CUTOFFS.map(c => (
+          <tr>
+            <th scope="row">{c.label}</th>
+            <td>{c.rule}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="desc">The band names shown here are display labels. The <code>category</code> values inside <code>fiscal-resilience.json</code> are unchanged, so anyone reading the data file directly sees the generator's own wording against the same cutoffs.</p>
+
+  <h3 class="subhead">What the score does not do</h3>
+  <ul class="caveat-list">
+    <li><strong>A missing component scores zero, not unknown.</strong> Where an input is absent the generator substitutes 0 and the total is still published as if the component had been measured. An area with no school data therefore scores lower than a comparable area with school data, rather than being marked incomplete. The counts in the table above are areas scoring zero on each component, which is a missing input and a genuine zero combined: the published file does not distinguish them.</li>
+    <li><strong>The non-English growth component contributes nothing.</strong> It scores zero for all {totalAreas} areas, because the field it reads is not produced by the upstream script. The score is in practice built from four components with a working maximum of 80, not five with a maximum of 100.</li>
+    <li><strong>The index has not been validated against observed service demand.</strong> No comparison has been made against NHS interpreter spend, school place pressure, waiting lists, adult social care caseloads, or any other measure of what services actually deliver. The score has never been tested against an outcome.</li>
+    <li><strong>It measures exposure, not cost or capacity.</strong> A high score means the area is projected to see fast demographic change on these five measures. It does not follow that services there cost more, are under more strain, or are failing. Demographic change is not shown here to cause service pressure, and this page does not claim that it does.</li>
+    <li><strong>The components use different time horizons.</strong> White British share change runs 2021 to 2041, foreign-born change runs 2021 to 2051, and the asylum and school inputs are single observed snapshots. They are summed as though they were comparable.</li>
+    <li><strong>Direction is discarded.</strong> The White British share component uses the absolute change, so an area where the share rises scores the same as one where it falls by the same amount.</li>
+  </ul>
+
+  <p class="desc source-line">Scoring is computed in <code>scripts/model/generate_national_dashboards.mjs</code> and published to <code>src/data/live/fiscal-resilience.json</code>. Underlying datasets are listed on <a href="/sources/">sources</a>.</p>
 </BaseLayout>
 
 <style>
   h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.5rem; }
   .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 700px; }
   .section-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin: 0 0 0.75rem; }
+  .subhead { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin: 2rem 0 0.75rem; }
   .area-table { max-width: 800px; }
   .area-table-header { display: grid; grid-template-columns: 32px 1fr 60px 120px 80px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
   .area-row { display: grid; grid-template-columns: 32px 1fr 60px 120px 80px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
@@ -79,9 +180,19 @@ const moderate = ranked.filter(a => a.category === 'Moderate Pressure');
   .score { font-family: var(--font-display); font-size: 1rem; font-weight: 600; }
   .category { font-size: 0.78rem; color: var(--muted); }
   .change { font-family: var(--font-display); font-size: 0.85rem; font-weight: 600; }
-  .component-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; }
-  .component-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; }
-  .component-name { display: block; font-weight: 600; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.25rem; }
-  .component-desc { font-size: 0.82rem; color: var(--muted); }
+  .table-scroll { overflow-x: auto; margin-bottom: 1rem; }
+  .method-table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 0.82rem; }
+  .method-table th, .method-table td { text-align: left; padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .method-table thead th { font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+  .method-table tbody th { font-weight: 600; color: var(--ink); }
+  .method-table td { color: var(--muted); }
+  .method-table .num { text-align: right; font-family: var(--font-display); white-space: nowrap; }
+  .desc code, .method-table code { font-size: 0.78rem; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.05rem 0.3rem; }
+  .caveat-list { max-width: 760px; margin: 0 0 1.5rem; padding-left: 1.1rem; color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+  .caveat-list li { margin-bottom: 0.6rem; }
+  .caveat-list strong { color: var(--ink); }
+  .source-line { font-size: 0.82rem; }
+  .source-line code { font-size: 0.78rem; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.05rem 0.3rem; }
+  .source-line a { color: var(--accent); }
   @media (max-width: 640px) { .area-table-header, .area-row { grid-template-columns: 28px 1fr 50px 80px; } .category { display: none; } }
 </style>

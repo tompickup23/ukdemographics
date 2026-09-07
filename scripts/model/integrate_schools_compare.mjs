@@ -114,26 +114,33 @@ for (const [code, area] of Object.entries(existing.areas)) {
     ? (100 - area.englishProficiency.mainLanguageEnglishPct)
     : 0;
 
+  // Each implication states what the measured value is and where it sits against
+  // the threshold this site uses to flag the metric. None of them is a
+  // service-planning conclusion: one threshold on one variable cannot support that.
+  const eal1dp = Math.round(ealDemandGrowth * 10) / 10;
+  const fb1dp = Math.round(popGrowthPct * 10) / 10;
+  const ne1dp = Math.round(nonEnglishPct * 10) / 10;
+
   area.impactProjections = {
     schoolDiversity: {
       currentMinorityPupilsPct: Math.round((100 - schoolWBI) * 10) / 10,
       projectedMinorityPupils2041Pct: Math.round((100 - (wb2041 * 0.9)) * 10) / 10, // Schools diversify faster
-      ealDemandGrowthPp: Math.round(ealDemandGrowth * 10) / 10,
-      implication: ealDemandGrowth > 10
-        ? "Significant additional EAL (English as Additional Language) support likely needed."
-        : "EAL demand growth is moderate."
+      ealDemandGrowthPp: eal1dp,
+      implication: area.schoolEthnicity
+        ? `The minority pupil share exceeds the minority resident share by ${eal1dp}pp (DfE School Census 2024/25 against Census 2021), ${ealDemandGrowth > 10 ? "above" : "below"} the 10pp line this site uses to flag EAL demand.`
+        : "No DfE School Census data for this area, so the gap between the minority pupil share and the minority resident share is not measured here."
     },
     housingDemand: {
-      foreignBornGrowthPp: Math.round(popGrowthPct * 10) / 10,
-      implication: popGrowthPct > 15
-        ? "High foreign-born population growth will drive additional housing demand, particularly in the private rented sector."
-        : "Housing demand growth from demographic change is moderate."
+      foreignBornGrowthPp: fb1dp,
+      implication: area.nativity?.[2051]
+        ? `The foreign-born share is projected to ${popGrowthPct < 0 ? "fall" : "rise"} by ${Math.abs(fb1dp)}pp between 2021 and 2051 (Census 2021 TS004 country of birth, projected by the Hamilton-Perry method), ${popGrowthPct > 15 ? "above" : "below"} the 15pp line this site uses to flag housing demand.`
+        : "No country-of-birth projection for this area, so the change in the foreign-born share is not measured here."
     },
     interpreterDemand: {
-      currentNonEnglishPct: Math.round(nonEnglishPct * 10) / 10,
-      implication: nonEnglishPct > 15
-        ? "NHS and council services will need increased interpreter/translation provision."
-        : "Interpreter demand is manageable at current levels."
+      currentNonEnglishPct: ne1dp,
+      implication: area.englishProficiency
+        ? `${ne1dp}% of residents aged 3 and over have a main language other than English (Census 2021, TS029), ${nonEnglishPct > 15 ? "above" : "below"} the 15% line this site uses to flag language demand.`
+        : "No Census 2021 TS029 English proficiency data for this area, so the share whose main language is not English is not measured here."
     }
   };
 }
