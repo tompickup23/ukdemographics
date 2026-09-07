@@ -14,7 +14,7 @@ summary: "Blackburn with Darwen: 56.9% White British in Census 2021. Projected b
 
 Census 2021: Blackburn with Darwen, 56.9% White British. Down from 66.6% in 2011. Nearly 10 percentage points gone in one decade.
 
-The Hamilton-Perry model projects (v8.0, scored out of sample against Census 2021: mean absolute error 1.56pp per decade, bias +0.05pp across 285 areas):
+The Hamilton-Perry model projects (v8.0, scored out of sample against Census 2021: mean absolute error 1.56pp on that one-decade forecast, bias +0.05pp across 285 areas):
 
 | Year | Blackburn WBI |
 |------|--------------|

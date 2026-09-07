@@ -30,7 +30,7 @@ summary: "86 English local authorities are projected to have a White British pop
 projections extrapolating Census 2011-to-2021 cohort change ratios forward,
 constrained by ONS population projections. On the out-of-sample test the model is
 close to unbiased, with a mean error of +0.05 percentage points on the White
-British share and a mean absolute error of 1.56pp per decade. Read the numbers
+British share and a mean absolute error of 1.56pp on that one-decade forecast. Read the numbers
 with that error attached rather than as point estimates.
 
 Of the 86, **59 have a White British majority today.** They cross the threshold
