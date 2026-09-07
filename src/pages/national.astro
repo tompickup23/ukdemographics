@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import DataFreshness from "../components/DataFreshness.astro";
 import StatCard from "../components/StatCard.astro";
 import RaceBar from "../components/RaceBar.astro";
-import { getSignificantDemographicShifts } from "../lib/ethnic-projections";
+import { getAreasBelowWhiteBritishMajority } from "../lib/ethnic-projections";
 import rawProjections from "../data/live/ethnic-projections.json";
 import { getPublicPlaceAreas, slugifyAreaName } from "../lib/site";
 import ninoHistorical from "../data/live/nino-historical.json";
@@ -11,11 +11,18 @@ import birthsHistory from "../data/live/births-history-national.json";
 
 const projData = rawProjections as any;
 const areas = getPublicPlaceAreas();
-const shifts2051 = getSignificantDemographicShifts(2051);
-const shifts2061 = getSignificantDemographicShifts(2061);
+// Areas below 50% in the year, not areas that cross 50% during it. The crossing
+// count leaves out every area that was already below 50% at the 2021 Census,
+// which is 33 of them and includes Birmingham, Leicester, Luton and Slough.
+const shifts2051 = getAreasBelowWhiteBritishMajority(2051);
+const shifts2061 = getAreasBelowWhiteBritishMajority(2061);
 
-const allAreaCodes = Object.keys(projData.areas);
-const muslimMajority = allAreaCodes.filter((c) => projData.areas[c]?.muslimPct2051 > 50).length;
+// Count over the same registry every other figure on this page uses. This read
+// Object.keys(projData.areas) directly, so it aggregated over a different universe
+// from the homepage's identically-labelled card. The two agree at 5 today and
+// nothing in the code kept them agreeing.
+const publicAreaCodes = new Set(areas.map((a) => a.areaCode));
+const muslimMajority = [...publicAreaCodes].filter((c) => projData.areas[c]?.muslimPct2051 > 50).length;
 
 const fastestDecline = [...areas]
   .filter((a) => a.wbiPct2021 != null && a.wbiPct2041 != null)
@@ -85,7 +92,7 @@ function fmtCompact(n: number) {
 
 <BaseLayout
   title="National demographic outlook"
-  description={`${shifts2051.length} of ${areas.length} local authorities projected White British under 50% by 2051. Hamilton-Perry model, Census-verified.`}
+  description={`${shifts2051.count} of ${shifts2051.covered} local authorities projected White British under 50% by 2051. Hamilton-Perry model, out-of-sample tested against Census 2021.`}
 >
   <h1>National demographic outlook</h1>
   <p class="desc">England-wide projections from Census 2021 to 2061. Anchored to two national time series: 24 years of National Insurance number (NINo) registrations from overseas, and 17 years of births by mother's country of birth.</p>
@@ -100,13 +107,13 @@ function fmtCompact(n: number) {
       sparklineColor="var(--accent)"
     />
     <StatCard
-      value={shifts2051.length.toString()}
+      value={shifts2051.count.toString()}
       label="WBI under 50% by 2051"
       accent="var(--coral)"
     />
     <StatCard
-      value={shifts2061.length.toString()}
-      label="WBI under 50% by 2061"
+      value={shifts2061.count.toString()}
+      label={`WBI under 50% by 2061, of ${shifts2061.covered} projected`}
       accent="var(--accent-3)"
     />
     <StatCard

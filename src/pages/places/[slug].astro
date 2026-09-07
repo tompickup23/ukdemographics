@@ -470,7 +470,7 @@ const SECTION_GROUPS: Array<{ title: string; items: Array<{ id: string; label: s
 // thing a reader can picture; a percentage point change is not.
 //
 // Suppressed where the area starts within about two of the model's mean absolute errors
-// of the line (1.56pp per decade, so 53%). Below that the crossing year is carried by
+// of the line (1.56pp on the one-decade test, so 53%). Below that the crossing year is carried by
 // the starting position rather than by the trend, and quoting a year would claim
 // precision the model does not have. Blackburn at 56.9% clears it; Sandwell at 52.1%
 // does not, and keeps the share based headline instead.
@@ -631,7 +631,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Solid to 2021 is Census. Dashed after that is the model, which was scored
         against Census 2021 before publication: a mean absolute error of 1.56 percentage
-        points per decade and a bias of +0.05 points, close to unbiased.
+        points on that one-decade forecast and a bias of +0.05 points, close to unbiased.
         {ethConfidenceBand ? " The shaded band is the 80% interval for White British share." : ""}
       </p>
       {projTruncated && (
