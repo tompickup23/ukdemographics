@@ -121,12 +121,12 @@ const STATIC_PAGE_ENTRIES: SiteSearchEntry[] = [
   },
   {
     href: "/pressure/",
-    title: "Service demand pressure",
+    title: "Demographic change and service exposure",
     kind: "page",
-    kicker: "Pressure index",
-    description: "Composite service-demand pressure score across health, schools, social care.",
+    kicker: "Exposure index",
+    description: "Composite exposure score from ethnic change, asylum support, school, language and foreign-born components, with the full formula.",
     priority: 106,
-    searchText: "pressure service demand index composite asc send"
+    searchText: "exposure pressure service demand index composite methodology formula asylum eal language"
   },
   {
     href: "/your-area/",

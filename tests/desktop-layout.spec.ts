@@ -9,7 +9,7 @@ const pages = [
   { name: "regional", path: "/regional/", h1Match: /Regional demographic/i },
   { name: "compare", path: "/compare/", h1Match: /put two places side by side/i },
   { name: "your-area", path: "/your-area/", h1Match: /start with the postcode/i },
-  { name: "pressure", path: "/pressure/", h1Match: /Service demand pressure/i },
+  { name: "pressure", path: "/pressure/", h1Match: /Demographic change and service exposure/i },
   { name: "schools", path: "/schools/", h1Match: /School/i },
   { name: "housing", path: "/housing/", h1Match: /Housing/i },
   { name: "findings", path: "/findings/", h1Match: /what the data has turned up/i },

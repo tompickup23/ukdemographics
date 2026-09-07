@@ -80,6 +80,17 @@ const health = (healthDemand as any).areas?.[area.areaCode];
 const language = (languageProjections as any).areas?.[area.areaCode];
 const pressure = (fiscalResilience as any).areas?.[area.areaCode];
 
+// The stored category values stay unchanged in fiscal-resilience.json. Display
+// uses "exposure" so the page does not assert that demographic change causes
+// service pressure.
+const EXPOSURE_LABEL: Record<string, string> = {
+  'High Pressure': 'High exposure',
+  'Moderate Pressure': 'Moderate exposure',
+  'Low Pressure': 'Low exposure',
+  'Stable': 'Stable',
+};
+const exposureLabel = (c: string) => EXPOSURE_LABEL[c] ?? c;
+
 const crime = getCrimeProfile(area.areaCode);
 const crimePercentile = getCrimeRatePercentile(area.areaCode);
 
@@ -838,19 +849,26 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
               <span class="data-value" style="color: var(--accent-3);">+{language.projectedNonEnglishIncrease}pp</span>
             </div>
           </div>
-          {language.interpreterImplication && <p class="section-note">{language.interpreterImplication}</p>}
+          {language.interpreterImplication && (
+            <p class="data-flag">
+              <span class="data-flag-label">Data flag</span>
+              <span class="data-flag-text">{language.interpreterImplication}</span>
+              <span class="data-flag-note">A threshold on one Census variable, not a service-planning assessment.</span>
+            </p>
+          )}
         </>
       )}
     </section>
   )}
 
-  <!-- Service demand pressure -->
+  <!-- Demographic change and service exposure -->
   {pressure && (
     <section class="section" id="pressure">
-      <h2>Service demand pressure</h2>
+      <h2>Demographic change and service exposure</h2>
+      <p class="section-desc">A composite score from five capped components. It measures exposure to demographic change, not service cost or capacity, and it has not been validated against observed service demand. See <a href="/pressure/">how the score is built</a>.</p>
       <div class="pressure-banner" style={`border-left: 4px solid ${pressure.serviceDemandPressureScore >= 70 ? 'var(--coral)' : pressure.serviceDemandPressureScore >= 45 ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
         <span class="pressure-score">{pressure.serviceDemandPressureScore}/100</span>
-        <span class="pressure-category">{pressure.category}</span>
+        <span class="pressure-category">{exposureLabel(pressure.category)}</span>
         <span class="pressure-rank">Rank {pressure.pressureRank} of {TOTAL_PUBLIC_AREAS}</span>
       </div>
       <div class="data-grid">
@@ -1524,7 +1542,13 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
               </>
             )}
           </div>
-          {housing.housingImplication && <p class="section-note">{housing.housingImplication}</p>}
+          {housing.housingImplication && (
+            <p class="data-flag">
+              <span class="data-flag-label">Data flag</span>
+              <span class="data-flag-text">{housing.housingImplication}</span>
+              <span class="data-flag-note">A threshold on one projected variable, not a housing-need assessment.</span>
+            </p>
+          )}
         </>
       )}
     </section>
@@ -1628,6 +1652,27 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   .section h2 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--ink); margin: 0 0 0.5rem; }
   .section-desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1rem; max-width: 700px; }
   .section-note { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; }
+  /* A generated threshold flag, labelled so it does not read as service-planning advice. */
+  .data-flag {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem 0.9rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-3);
+    border-radius: var(--radius-sm);
+  }
+  .data-flag-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-3);
+  }
+  .data-flag-text { font-size: 0.85rem; color: var(--ink); line-height: 1.5; }
+  .data-flag-note { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
   /* Banner shown when a district's data is the parent county's (e.g. ASC, SEND). */
   .tier-note {
     background: var(--panel);
