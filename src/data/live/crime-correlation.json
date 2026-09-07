@@ -1,9 +1,9 @@
 {
   "source": "crime-dashboard.json + local-route-latest.json",
   "methodology": "Ecological correlation between asylum support rate per 10,000 and total crime rate per 1,000 across local authorities with both datasets",
-  "lastUpdated": "2026-04-28",
+  "lastUpdated": "2026-09-07",
   "caveat": "ECOLOGICAL FALLACY WARNING: Correlation between area-level asylum rates and area-level crime rates does NOT prove that asylum seekers commit more crime. Many confounding factors (deprivation, age structure, urbanisation) affect both variables. This analysis cannot and should not be used to draw conclusions about individual behaviour.",
-  "pairsAnalysed": 287,
+  "pairsAnalysed": 289,
   "correlationCoefficient": 0.376,
   "pairs": [
     {
@@ -1895,6 +1895,14 @@
       "supportedAsylum": 789
     },
     {
+      "areaCode": "E08000016",
+      "areaName": "Barnsley",
+      "totalCrimeRate": 105.69,
+      "violentCrimeRate": 39.14,
+      "asylumRate": 11,
+      "supportedAsylum": 277
+    },
+    {
       "areaCode": "E08000017",
       "areaName": "Doncaster",
       "totalCrimeRate": 131.45,
@@ -1909,6 +1917,14 @@
       "violentCrimeRate": 37.18,
       "asylumRate": 16.09,
       "supportedAsylum": 445
+    },
+    {
+      "areaCode": "E08000019",
+      "areaName": "Sheffield",
+      "totalCrimeRate": 106.33,
+      "violentCrimeRate": 35.45,
+      "asylumRate": 21.7,
+      "supportedAsylum": 1264
     },
     {
       "areaCode": "E08000021",

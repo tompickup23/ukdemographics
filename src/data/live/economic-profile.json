@@ -1,8 +1,8 @@
 {
   "source": "Census 2021 via ethnic-projections.json (economicActivity, housingTenure, qualifications)",
   "methodology": "Ethnic group-level Census 2021 data extracted per local authority",
-  "lastUpdated": "2026-04-28",
-  "totalAreas": 320,
+  "lastUpdated": "2026-09-07",
+  "totalAreas": 318,
   "populatedAreas": 316,
   "areas": {
     "E08000025": {

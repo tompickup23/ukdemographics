@@ -5,15 +5,18 @@
  * Generates enriched data files for ALL areas from ethnic-projections.json
  * and existing dashboard data. Fills gaps in crime/SEND/ASC/economic data.
  *
+ * Every area map below is keyed on the areas in ethnic-projections.json, so the
+ * area count is whatever that file carries and is never hard-coded here.
+ *
  * Outputs:
- *   - economic-profile.json (316 areas with real Census 2021 data)
- *   - school-pressure.json (126 areas with DfE data + projections)
- *   - housing-demand.json (316 areas from Census tenure × ethnic projections)
- *   - health-demand.json (316 areas from Census health × ethnic projections)
- *   - dependency-ratios.json (320 areas from SNPP age structure)
- *   - language-projections.json (320 areas from English proficiency data)
- *   - fiscal-resilience.json (320 areas — service demand + demographic pressure scoring)
- *   - crime-correlation.json (correlation analysis for areas with both crime + asylum data)
+ *   - economic-profile.json (Census 2021 economic activity, tenure, qualifications)
+ *   - school-pressure.json (DfE School Census pupil ethnicity + projections)
+ *   - housing-demand.json (Census tenure by ethnic group × ethnic projections)
+ *   - health-demand.json (socioeconomic proxy for health demand)
+ *   - dependency-ratios.json (employment rate as a working-age proxy)
+ *   - language-projections.json (Census 2021 English proficiency)
+ *   - fiscal-resilience.json (demographic change and service exposure scoring)
+ *   - crime-correlation.json (correlation for areas with both crime + asylum data)
  *
  * Run: node scripts/model/generate_national_dashboards.mjs
  */
@@ -44,6 +47,7 @@ const localRoute = readJSON('local-route-latest.json');
 const existingCrime = readJSON('crime-dashboard.json');
 const existingSend = readJSON('send-dashboard.json');
 const existingAsc = readJSON('asc-dashboard.json');
+const censusEnglish = readJSON('census-english-proficiency.json');
 
 if (!ep) { console.error('ERROR: ethnic-projections.json not found'); process.exit(1); }
 
@@ -348,7 +352,6 @@ console.log('5. Generating language-projections.json...');
   for (const [code, data] of Object.entries(ep.areas)) {
     const proficiency = data.englishProficiency;
     const impact = data.impactProjections;
-    const proj = data.projections;
 
     if (!proficiency || typeof proficiency !== 'object') {
       areas[code] = { areaName: data.areaName, dataAvailable: false };
@@ -362,24 +365,23 @@ console.log('5. Generating language-projections.json...');
       if (k !== 'source') levels[k] = v;
     }
 
-    // Estimate future non-English speaking from ethnic composition change
-    const wbi2021 = data.current?.groups?.white_british ?? 100;
-    const wbi2041 = proj?.['2041']?.white_british ?? wbi2021;
-    const nonWbiGrowthPp = (100 - wbi2041) - (100 - wbi2021);
-
+    // This file carries no projection of language. It used to publish
+    // projectedNonEnglishIncrease, which was the fall in the White British
+    // share 2021 to 2041 with its sign flipped: an ethnic group number under a
+    // language label. The site models ethnic group and nothing else, so the
+    // only honest language figures here are the Census 2021 observations.
     areas[code] = {
       areaName: data.areaName,
       dataAvailable: true,
       currentProficiency: levels,
       nonEnglishGrowthPp: impact?.interpreterDemand?.nonEnglishGrowthPp ?? null,
-      projectedNonEnglishIncrease: nonWbiGrowthPp > 0 ? Math.round(nonWbiGrowthPp * 10) / 10 : 0,
       interpreterImplication: impact?.interpreterDemand?.implication ?? null,
     };
   }
 
   writeJSON('language-projections.json', {
-    source: 'Census 2021 English proficiency + Hamilton-Perry ethnic projections',
-    methodology: 'Census proficiency data projected forward using ethnic composition change as a proxy for non-English speaking growth',
+    source: 'Census 2021 English proficiency (TS029) via ethnic-projections.json',
+    methodology: 'Observed Census 2021 proficiency in English per local authority. No projection of language is published: the site projects ethnic group and nothing else, and ethnic composition change is not a measure of language change. nonEnglishGrowthPp is null for every area because no upstream script writes it.',
     lastUpdated: NOW,
     totalAreas: areaCodes.length,
     areasWithData: withData,
@@ -417,9 +419,15 @@ console.log('6. Generating fiscal-resilience.json...');
     const schoolPressure = impact?.schoolDiversity?.ealDemandGrowthPp ?? 0;
     pressureScore += Math.min(20, schoolPressure * 1.0);
 
-    // Non-English growth (+20 max)
-    const langPressure = impact?.interpreterDemand?.nonEnglishGrowthPp ?? 0;
-    pressureScore += Math.min(20, langPressure * 1.0);
+    // Non-English main language (+20 max)
+    // An observed level, not a projection. The site projects ethnic group and
+    // nothing else, so there is no honest projection of language to read here:
+    // the field this component used to read, impactProjections.interpreter-
+    // Demand.nonEnglishGrowthPp, is written by no script and scored 0 for every
+    // area. Census 2021 TS029 is the measured share of residents aged 3 and
+    // over whose main language is not English, so 20 points is a 20% share.
+    const nonEnglishPct = censusEnglish?.areas?.[code]?.nonEnglishPct ?? 0;
+    pressureScore += Math.min(20, nonEnglishPct * 1.0);
 
     // Foreign-born growth / housing pressure (+20 max)
     const housingPressure = impact?.housingDemand?.foreignBornGrowthPp ?? 0;
@@ -444,13 +452,14 @@ console.log('6. Generating fiscal-resilience.json...');
       demographicChangeVelocity: velocity,
       wbiChange2021to2041: Math.round(wbiChange * 10) / 10,
       asylumRate: asylumRate,
+      nonEnglishPct: nonEnglishPct,
       diversityIndex: diversity?.entropy ?? null,
       diversityLevel: diversity?.diversityLevel ?? null,
       components: {
         ethnicChangeContribution: Math.round(Math.min(20, Math.abs(wbiChange) * 1.5)),
         asylumConcentration: Math.round(Math.min(20, asylumRate * 0.5)),
         schoolPressure: Math.round(Math.min(20, schoolPressure * 1.0)),
-        languagePressure: Math.round(Math.min(20, langPressure * 1.0)),
+        languagePressure: Math.round(Math.min(20, nonEnglishPct * 1.0)),
         housingPressure: Math.round(Math.min(20, housingPressure * 0.5)),
       }
     };
@@ -461,8 +470,8 @@ console.log('6. Generating fiscal-resilience.json...');
   ranked.forEach(([code, data], i) => { data.pressureRank = i + 1; });
 
   writeJSON('fiscal-resilience.json', {
-    source: 'Composite scoring from ethnic-projections.json, local-route-latest.json',
-    methodology: 'Service demand pressure score (0-100) from 5 components: ethnic change rate, asylum concentration, school diversity pressure, language demand, housing pressure. Each component contributes up to 20 points.',
+    source: 'Composite scoring from ethnic-projections.json, local-route-latest.json, census-english-proficiency.json',
+    methodology: 'Service demand pressure score (0-100) from 5 components: White British share change 2021 to 2041 times 1.5, supported asylum rate per 10,000 times 0.5, EAL demand growth in percentage points times 1.0, share of residents aged 3 and over whose main language is not English (Census 2021 TS029) times 1.0, foreign-born growth in percentage points times 0.5. Each component is capped at 20 points and the total is capped at 100. Two components are observed levels (asylum rate, non-English main language) and three are projected or observed changes.',
     lastUpdated: NOW,
     totalAreas: areaCodes.length,
     highPressureAreas: ranked.filter(([_, d]) => d.category === 'High Pressure').length,
@@ -522,7 +531,7 @@ console.log('8. Generating dependency-ratios.json...');
 {
   // We don't have age structure in ethnic-projections.json directly.
   // But scenario-summaries.json may have age data.
-  // For now, compute from what we have — population + working-age proxy from economic activity.
+  // For now, compute from what we have: population + working-age proxy from economic activity.
 
   const areas = {};
 
@@ -546,7 +555,7 @@ console.log('8. Generating dependency-ratios.json...');
       areaName: data.areaName,
       population: pop,
       avgEmploymentRate: Math.round(weightedEmployment * 10) / 10,
-      // Dependency ratio requires age structure — flag as estimate
+      // Dependency ratio requires age structure, so flag as estimate
       note: 'Full age-structure dependency ratios require ONS SNPP single-year-of-age data. This provides employment rate as a proxy.',
     };
   }

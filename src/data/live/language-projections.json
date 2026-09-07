@@ -1,8 +1,8 @@
 {
-  "source": "Census 2021 English proficiency + Hamilton-Perry ethnic projections",
-  "methodology": "Census proficiency data projected forward using ethnic composition change as a proxy for non-English speaking growth",
-  "lastUpdated": "2026-04-28",
-  "totalAreas": 320,
+  "source": "Census 2021 English proficiency (TS029) via ethnic-projections.json",
+  "methodology": "Observed Census 2021 proficiency in English per local authority. No projection of language is published: the site projects ethnic group and nothing else, and ethnic composition change is not a measure of language change. nonEnglishGrowthPp is null for every area because no upstream script writes it.",
+  "lastUpdated": "2026-09-07",
+  "totalAreas": 318,
   "areasWithData": 318,
   "areas": {
     "E08000025": {
@@ -14,7 +14,6 @@
         "cannotSpeakEnglishPct": 0.8
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22.7,
       "interpreterImplication": "15.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E08000012": {
@@ -26,7 +25,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 26.5,
       "interpreterImplication": "9.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000017": {
@@ -38,7 +36,6 @@
         "cannotSpeakEnglishPct": 0.6
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 23.6,
       "interpreterImplication": "22.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E08000003": {
@@ -50,7 +47,6 @@
         "cannotSpeakEnglishPct": 0.7
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22.5,
       "interpreterImplication": "18.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E08000035": {
@@ -62,7 +58,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 24.7,
       "interpreterImplication": "9.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000018": {
@@ -74,7 +69,6 @@
         "cannotSpeakEnglishPct": 0.8
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.7,
       "interpreterImplication": "28.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E08000026": {
@@ -86,7 +80,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 27.6,
       "interpreterImplication": "17.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000018": {
@@ -98,7 +91,6 @@
         "cannotSpeakEnglishPct": 0.4
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 24.1,
       "interpreterImplication": "14.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000028": {
@@ -110,7 +102,6 @@
         "cannotSpeakEnglishPct": 0.9
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 29.4,
       "interpreterImplication": "16.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000016": {
@@ -122,7 +113,6 @@
         "cannotSpeakEnglishPct": 2.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.9,
       "interpreterImplication": "30% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E09000008": {
@@ -134,7 +124,6 @@
         "cannotSpeakEnglishPct": 0.4
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.7,
       "interpreterImplication": "16% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "W06000015": {
@@ -146,7 +135,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 12.4,
       "interpreterImplication": "8.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000003": {
@@ -158,7 +146,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.8,
       "interpreterImplication": "22.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E08000032": {
@@ -170,7 +157,6 @@
         "cannotSpeakEnglishPct": 0.7
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.8,
       "interpreterImplication": "12.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000031": {
@@ -182,7 +168,6 @@
         "cannotSpeakEnglishPct": 0.7
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 25.1,
       "interpreterImplication": "15% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000021": {
@@ -194,7 +179,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 28.1,
       "interpreterImplication": "8.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000009": {
@@ -206,7 +190,6 @@
         "cannotSpeakEnglishPct": 1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.9,
       "interpreterImplication": "30.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000015": {
@@ -218,7 +201,6 @@
         "cannotSpeakEnglishPct": 0.6
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 24.4,
       "interpreterImplication": "13% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000010": {
@@ -230,7 +212,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 11.1,
       "interpreterImplication": "3.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000025": {
@@ -242,7 +223,6 @@
         "cannotSpeakEnglishPct": 1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4.1,
       "interpreterImplication": "34.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E08000021": {
@@ -254,7 +234,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 23.8,
       "interpreterImplication": "10.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000023": {
@@ -266,7 +245,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.8,
       "interpreterImplication": "10.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000001": {
@@ -278,7 +256,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 32.7,
       "interpreterImplication": "10.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000005": {
@@ -290,7 +267,6 @@
         "cannotSpeakEnglishPct": 1.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5,
       "interpreterImplication": "33.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E08000007": {
@@ -302,7 +278,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.9,
       "interpreterImplication": "4.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000004": {
@@ -314,7 +289,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.5,
       "interpreterImplication": "3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000024": {
@@ -326,7 +300,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.5,
       "interpreterImplication": "2.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000004": {
@@ -338,7 +311,6 @@
         "cannotSpeakEnglishPct": 0.7
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 27.8,
       "interpreterImplication": "10.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000015": {
@@ -350,7 +322,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.4,
       "interpreterImplication": "2.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000010": {
@@ -362,7 +333,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22.6,
       "interpreterImplication": "10% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000008": {
@@ -374,7 +344,6 @@
         "cannotSpeakEnglishPct": 0.8
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 20.6,
       "interpreterImplication": "12.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000044": {
@@ -386,7 +355,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 19.7,
       "interpreterImplication": "9.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000038": {
@@ -398,7 +366,6 @@
         "cannotSpeakEnglishPct": 0.6
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 24.6,
       "interpreterImplication": "18.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E08000034": {
@@ -410,7 +377,6 @@
         "cannotSpeakEnglishPct": 0.4
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.3,
       "interpreterImplication": "7.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000005": {
@@ -422,7 +388,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 24.2,
       "interpreterImplication": "9.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000027": {
@@ -434,7 +399,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.9,
       "interpreterImplication": "4.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000036": {
@@ -446,7 +410,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.2,
       "interpreterImplication": "5.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000032": {
@@ -458,7 +421,6 @@
         "cannotSpeakEnglishPct": 0.8
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 20.7,
       "interpreterImplication": "23.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000020": {
@@ -470,7 +432,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22,
       "interpreterImplication": "6.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000006": {
@@ -482,7 +443,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 32.9,
       "interpreterImplication": "11.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000011": {
@@ -494,7 +454,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 12,
       "interpreterImplication": "4.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000002": {
@@ -506,7 +465,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.8,
       "interpreterImplication": "7.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000067": {
@@ -518,7 +476,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.9,
       "interpreterImplication": "3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000057": {
@@ -530,7 +487,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.8,
       "interpreterImplication": "1.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000030": {
@@ -542,7 +498,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 29.4,
       "interpreterImplication": "9.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000013": {
@@ -554,7 +509,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.8,
       "interpreterImplication": "2.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000050": {
@@ -566,7 +520,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.5,
       "interpreterImplication": "3.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000017": {
@@ -578,7 +531,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.3,
       "interpreterImplication": "7.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000037": {
@@ -590,7 +542,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.5,
       "interpreterImplication": "4.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000023": {
@@ -602,7 +553,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.4,
       "interpreterImplication": "2.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000033": {
@@ -614,7 +564,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.3,
       "interpreterImplication": "4.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000006": {
@@ -626,7 +575,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.1,
       "interpreterImplication": "2.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000061": {
@@ -638,7 +586,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.5,
       "interpreterImplication": "9.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000012": {
@@ -650,7 +597,6 @@
         "cannotSpeakEnglishPct": 0.8
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4.1,
       "interpreterImplication": "19.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000009": {
@@ -662,7 +608,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.3,
       "interpreterImplication": "4.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000047": {
@@ -674,7 +619,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.4,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000220": {
@@ -686,7 +630,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 21.4,
       "interpreterImplication": "11.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000030": {
@@ -698,7 +641,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 31.2,
       "interpreterImplication": "10% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000058": {
@@ -710,7 +652,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.2,
       "interpreterImplication": "8.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000028": {
@@ -722,7 +663,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.7,
       "interpreterImplication": "18% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000063": {
@@ -734,7 +674,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.8,
       "interpreterImplication": "2.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000026": {
@@ -746,7 +685,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.7,
       "interpreterImplication": "4.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000026": {
@@ -758,7 +696,6 @@
         "cannotSpeakEnglishPct": 0.7
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.3,
       "interpreterImplication": "26.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000031": {
@@ -770,7 +707,6 @@
         "cannotSpeakEnglishPct": 0.7
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 27,
       "interpreterImplication": "20% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E08000008": {
@@ -782,7 +718,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 20.2,
       "interpreterImplication": "5.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000030": {
@@ -794,7 +729,6 @@
         "cannotSpeakEnglishPct": 1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 11,
       "interpreterImplication": "27% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000062": {
@@ -806,7 +740,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.3,
       "interpreterImplication": "10.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000065": {
@@ -818,7 +751,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.8,
       "interpreterImplication": "2.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000049": {
@@ -830,7 +762,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10,
       "interpreterImplication": "4.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000096": {
@@ -842,7 +773,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.3,
       "interpreterImplication": "6.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000117": {
@@ -854,7 +784,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22.4,
       "interpreterImplication": "9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000007": {
@@ -866,7 +795,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.3,
       "interpreterImplication": "5.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000228": {
@@ -878,7 +806,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.7,
       "interpreterImplication": "4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000122": {
@@ -890,7 +817,6 @@
         "cannotSpeakEnglishPct": 0.9
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 25.1,
       "interpreterImplication": "12.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000018": {
@@ -902,7 +828,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9,
       "interpreterImplication": "4.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000022": {
@@ -914,7 +839,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4.7,
       "interpreterImplication": "2.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000222": {
@@ -926,7 +850,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.9,
       "interpreterImplication": "8.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000014": {
@@ -938,7 +861,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.8,
       "interpreterImplication": "3.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000123": {
@@ -950,7 +872,6 @@
         "cannotSpeakEnglishPct": 0.4
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 21.9,
       "interpreterImplication": "12.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000022": {
@@ -962,7 +883,6 @@
         "cannotSpeakEnglishPct": 0.6
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 11.9,
       "interpreterImplication": "17.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000120": {
@@ -974,7 +894,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.9,
       "interpreterImplication": "6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000127": {
@@ -986,7 +905,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.7,
       "interpreterImplication": "3.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000009": {
@@ -998,7 +916,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 23.7,
       "interpreterImplication": "7.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000001": {
@@ -1010,7 +927,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2,
       "interpreterImplication": "2.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000002": {
@@ -1022,7 +938,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 21.6,
       "interpreterImplication": "6.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000226": {
@@ -1034,7 +949,6 @@
         "cannotSpeakEnglishPct": 0.4
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 20.8,
       "interpreterImplication": "15.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E09000010": {
@@ -1046,7 +960,6 @@
         "cannotSpeakEnglishPct": 1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.4,
       "interpreterImplication": "23.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000081": {
@@ -1058,7 +971,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 14.5,
       "interpreterImplication": "8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000042": {
@@ -1070,7 +982,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 27.2,
       "interpreterImplication": "12.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000039": {
@@ -1082,7 +993,6 @@
         "cannotSpeakEnglishPct": 0.7
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 14.3,
       "interpreterImplication": "27.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000126": {
@@ -1094,7 +1004,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.8,
       "interpreterImplication": "2.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000040": {
@@ -1106,7 +1015,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18,
       "interpreterImplication": "8.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000070": {
@@ -1118,7 +1026,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 21.1,
       "interpreterImplication": "5.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000066": {
@@ -1130,7 +1037,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 11.4,
       "interpreterImplication": "4.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000013": {
@@ -1142,7 +1048,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 12.6,
       "interpreterImplication": "21.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000128": {
@@ -1154,7 +1059,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 1.1,
       "interpreterImplication": "1.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000095": {
@@ -1166,7 +1070,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 31.2,
       "interpreterImplication": "9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000015": {
@@ -1178,7 +1081,6 @@
         "cannotSpeakEnglishPct": 0.8
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 14.7,
       "interpreterImplication": "30.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000148": {
@@ -1190,7 +1092,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.1,
       "interpreterImplication": "10% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000022": {
@@ -1202,7 +1103,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 12.8,
       "interpreterImplication": "6.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000045": {
@@ -1214,7 +1114,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 25.3,
       "interpreterImplication": "15.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000211": {
@@ -1226,7 +1125,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.2,
       "interpreterImplication": "6.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000066": {
@@ -1238,7 +1136,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 21.5,
       "interpreterImplication": "5.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000243": {
@@ -1250,7 +1147,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.6,
       "interpreterImplication": "8.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000011": {
@@ -1262,7 +1158,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.7,
       "interpreterImplication": "3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000071": {
@@ -1274,7 +1169,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.7,
       "interpreterImplication": "6.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000024": {
@@ -1286,7 +1180,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.9,
       "interpreterImplication": "21.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E09000002": {
@@ -1298,7 +1191,6 @@
         "cannotSpeakEnglishPct": 0.6
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 23.7,
       "interpreterImplication": "24.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000219": {
@@ -1310,7 +1202,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 19.7,
       "interpreterImplication": "7.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000029": {
@@ -1322,7 +1213,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22.2,
       "interpreterImplication": "4.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000012": {
@@ -1334,7 +1224,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.7,
       "interpreterImplication": "3.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000178": {
@@ -1346,7 +1235,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 23.3,
       "interpreterImplication": "18.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000014": {
@@ -1358,7 +1246,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.7,
       "interpreterImplication": "5.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000003": {
@@ -1370,7 +1257,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 1.3,
       "interpreterImplication": "1.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000020": {
@@ -1382,7 +1268,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 12.1,
       "interpreterImplication": "23.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E09000023": {
@@ -1394,7 +1279,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.6,
       "interpreterImplication": "16.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000035": {
@@ -1406,7 +1290,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 24,
       "interpreterImplication": "6.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000033": {
@@ -1418,7 +1301,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.1,
       "interpreterImplication": "5.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000121": {
@@ -1430,7 +1312,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.7,
       "interpreterImplication": "5.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000125": {
@@ -1442,7 +1323,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.3,
       "interpreterImplication": "2.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000130": {
@@ -1454,7 +1334,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.3,
       "interpreterImplication": "6.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000064": {
@@ -1466,7 +1345,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.5,
       "interpreterImplication": "2.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000007": {
@@ -1478,7 +1356,6 @@
         "cannotSpeakEnglishPct": 0.4
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16,
       "interpreterImplication": "21.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000118": {
@@ -1490,7 +1367,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.9,
       "interpreterImplication": "2.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000106": {
@@ -1502,7 +1378,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.5,
       "interpreterImplication": "5.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000005": {
@@ -1514,7 +1389,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.9,
       "interpreterImplication": "4.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000040": {
@@ -1526,7 +1400,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.1,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000055": {
@@ -1538,7 +1411,6 @@
         "cannotSpeakEnglishPct": 0.4
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.5,
       "interpreterImplication": "12.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000041": {
@@ -1550,7 +1422,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 25.2,
       "interpreterImplication": "8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000141": {
@@ -1562,7 +1433,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.6,
       "interpreterImplication": "4.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000199": {
@@ -1574,7 +1444,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9,
       "interpreterImplication": "4.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000054": {
@@ -1586,7 +1455,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.6,
       "interpreterImplication": "3.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000056": {
@@ -1598,7 +1466,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.7,
       "interpreterImplication": "4.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000241": {
@@ -1610,7 +1477,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.9,
       "interpreterImplication": "10.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000076": {
@@ -1622,7 +1488,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2,
       "interpreterImplication": "1.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000060": {
@@ -1634,7 +1499,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.1,
       "interpreterImplication": "7.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000171": {
@@ -1646,7 +1510,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.4,
       "interpreterImplication": "4.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000031": {
@@ -1658,7 +1521,6 @@
         "cannotSpeakEnglishPct": 0.6
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.3,
       "interpreterImplication": "22.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E09000014": {
@@ -1670,7 +1532,6 @@
         "cannotSpeakEnglishPct": 1.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.1,
       "interpreterImplication": "27.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000225": {
@@ -1682,7 +1543,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4.5,
       "interpreterImplication": "3.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000016": {
@@ -1694,7 +1554,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 43.2,
       "interpreterImplication": "9.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000006": {
@@ -1706,7 +1565,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 26.7,
       "interpreterImplication": "8.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000034": {
@@ -1718,7 +1576,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 34.6,
       "interpreterImplication": "11.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000172": {
@@ -1730,7 +1587,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10,
       "interpreterImplication": "5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000072": {
@@ -1742,7 +1598,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22,
       "interpreterImplication": "6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000174": {
@@ -1754,7 +1609,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.1,
       "interpreterImplication": "7.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000105": {
@@ -1766,7 +1620,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.2,
       "interpreterImplication": "6.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000078": {
@@ -1778,7 +1631,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.1,
       "interpreterImplication": "6.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000195": {
@@ -1790,7 +1642,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.3,
       "interpreterImplication": "3.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000099": {
@@ -1802,7 +1653,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.1,
       "interpreterImplication": "4.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000092": {
@@ -1814,7 +1664,6 @@
         "cannotSpeakEnglishPct": 1.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 19.1,
       "interpreterImplication": "15% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000016": {
@@ -1826,7 +1675,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.1,
       "interpreterImplication": "1.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000221": {
@@ -1838,7 +1686,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.8,
       "interpreterImplication": "3.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000170": {
@@ -1850,7 +1697,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.9,
       "interpreterImplication": "3.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000237": {
@@ -1862,7 +1708,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.7,
       "interpreterImplication": "7.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000177": {
@@ -1874,7 +1719,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 19.9,
       "interpreterImplication": "9.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000036": {
@@ -1886,7 +1730,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.6,
       "interpreterImplication": "2.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000011": {
@@ -1898,7 +1741,6 @@
         "cannotSpeakEnglishPct": 0.6
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 20.4,
       "interpreterImplication": "18.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E06000025": {
@@ -1910,7 +1752,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.4,
       "interpreterImplication": "5.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000193": {
@@ -1922,7 +1763,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 21.7,
       "interpreterImplication": "10% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000109": {
@@ -1934,7 +1774,6 @@
         "cannotSpeakEnglishPct": 0.4
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22.6,
       "interpreterImplication": "11.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000033": {
@@ -1946,7 +1785,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.4,
       "interpreterImplication": "3.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000006": {
@@ -1958,7 +1796,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.7,
       "interpreterImplication": "5.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000181": {
@@ -1970,7 +1807,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.2,
       "interpreterImplication": "3.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000114": {
@@ -1982,7 +1818,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.3,
       "interpreterImplication": "4.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000136": {
@@ -1994,7 +1829,6 @@
         "cannotSpeakEnglishPct": 1.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22.4,
       "interpreterImplication": "20.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000075": {
@@ -2006,7 +1840,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 1.9,
       "interpreterImplication": "1.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000202": {
@@ -2018,7 +1851,6 @@
         "cannotSpeakEnglishPct": 0.4
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22.6,
       "interpreterImplication": "11.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000238": {
@@ -2030,7 +1862,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.9,
       "interpreterImplication": "4.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000137": {
@@ -2042,7 +1873,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 1.3,
       "interpreterImplication": "1.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000004": {
@@ -2054,7 +1884,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 32.1,
       "interpreterImplication": "9.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000043": {
@@ -2066,7 +1895,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 19.5,
       "interpreterImplication": "9.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000134": {
@@ -2078,7 +1906,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.1,
       "interpreterImplication": "3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000018": {
@@ -2090,7 +1917,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.5,
       "interpreterImplication": "1.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000180": {
@@ -2102,7 +1928,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.3,
       "interpreterImplication": "5.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000227": {
@@ -2114,7 +1939,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.7,
       "interpreterImplication": "3.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000213": {
@@ -2126,7 +1950,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 25,
       "interpreterImplication": "10.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000214": {
@@ -2138,7 +1961,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 14,
       "interpreterImplication": "6.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000032": {
@@ -2150,7 +1972,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.4,
       "interpreterImplication": "1.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000024": {
@@ -2162,7 +1983,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.5,
       "interpreterImplication": "3.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000196": {
@@ -2174,7 +1994,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.8,
       "interpreterImplication": "1.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000013": {
@@ -2186,7 +2005,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.1,
       "interpreterImplication": "6.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000034": {
@@ -2198,7 +2016,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.5,
       "interpreterImplication": "2.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000140": {
@@ -2210,7 +2027,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 14.3,
       "interpreterImplication": "11.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000004": {
@@ -2222,7 +2038,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.8,
       "interpreterImplication": "1.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000119": {
@@ -2234,7 +2049,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 1.7,
       "interpreterImplication": "2.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000175": {
@@ -2246,7 +2060,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9,
       "interpreterImplication": "4.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000021": {
@@ -2258,7 +2071,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 22.9,
       "interpreterImplication": "17.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E09000032": {
@@ -2270,7 +2082,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.7,
       "interpreterImplication": "17.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000094": {
@@ -2282,7 +2093,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.9,
       "interpreterImplication": "3.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000108": {
@@ -2294,7 +2104,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.8,
       "interpreterImplication": "3.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000073": {
@@ -2306,7 +2115,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 23.8,
       "interpreterImplication": "10.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000132": {
@@ -2318,7 +2126,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.8,
       "interpreterImplication": "2.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000012": {
@@ -2330,7 +2137,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.2,
       "interpreterImplication": "1.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000173": {
@@ -2342,7 +2148,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.2,
       "interpreterImplication": "3.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000113": {
@@ -2354,7 +2159,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.7,
       "interpreterImplication": "3.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000005": {
@@ -2366,7 +2170,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.1,
       "interpreterImplication": "3.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000077": {
@@ -2378,7 +2181,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.5,
       "interpreterImplication": "3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000062": {
@@ -2390,7 +2192,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.6,
       "interpreterImplication": "5.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000010": {
@@ -2402,7 +2203,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10,
       "interpreterImplication": "2.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000027": {
@@ -2414,7 +2214,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.5,
       "interpreterImplication": "2.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000038": {
@@ -2426,7 +2225,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 1.6,
       "interpreterImplication": "1.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000011": {
@@ -2438,7 +2236,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.1,
       "interpreterImplication": "2.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000240": {
@@ -2450,7 +2247,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.6,
       "interpreterImplication": "6.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000218": {
@@ -2462,7 +2258,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.6,
       "interpreterImplication": "2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000002": {
@@ -2474,7 +2269,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.2,
       "interpreterImplication": "2.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000019": {
@@ -2486,7 +2280,6 @@
         "cannotSpeakEnglishPct": 0.4
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.9,
       "interpreterImplication": "19% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000098": {
@@ -2498,7 +2291,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 28.1,
       "interpreterImplication": "10.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000239": {
@@ -2510,7 +2302,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.6,
       "interpreterImplication": "2.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000019": {
@@ -2522,7 +2313,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000110": {
@@ -2534,7 +2324,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.5,
       "interpreterImplication": "7.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000013": {
@@ -2546,7 +2335,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.1,
       "interpreterImplication": "1.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000142": {
@@ -2558,7 +2346,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.2,
       "interpreterImplication": "1.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000045": {
@@ -2570,7 +2357,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 1.8,
       "interpreterImplication": "1.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000244": {
@@ -2582,7 +2368,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.9,
       "interpreterImplication": "2.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000061": {
@@ -2594,7 +2379,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.3,
       "interpreterImplication": "7.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000176": {
@@ -2606,7 +2390,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.2,
       "interpreterImplication": "3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000037": {
@@ -2618,7 +2401,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.2,
       "interpreterImplication": "4.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000135": {
@@ -2630,7 +2412,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 20,
       "interpreterImplication": "10.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000129": {
@@ -2642,7 +2423,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 12.2,
       "interpreterImplication": "5.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000024": {
@@ -2654,7 +2434,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.4,
       "interpreterImplication": "3.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000033": {
@@ -2666,7 +2445,6 @@
         "cannotSpeakEnglishPct": 0.5
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 11.6,
       "interpreterImplication": "26.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000192": {
@@ -2678,7 +2456,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3,
       "interpreterImplication": "1.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000112": {
@@ -2690,7 +2467,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.4,
       "interpreterImplication": "4.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000124": {
@@ -2702,7 +2478,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.3,
       "interpreterImplication": "1.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000197": {
@@ -2714,7 +2489,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.2,
       "interpreterImplication": "3.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000087": {
@@ -2726,7 +2500,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.8,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000198": {
@@ -2738,7 +2511,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.6,
       "interpreterImplication": "0.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000029": {
@@ -2750,7 +2522,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 31,
       "interpreterImplication": "14.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000001": {
@@ -2762,7 +2533,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.1,
       "interpreterImplication": "0.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000051": {
@@ -2774,7 +2544,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4.1,
       "interpreterImplication": "2.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000069": {
@@ -2786,7 +2555,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.7,
       "interpreterImplication": "1.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000207": {
@@ -2798,7 +2566,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.2,
       "interpreterImplication": "6.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000143": {
@@ -2810,7 +2577,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4,
       "interpreterImplication": "6.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000068": {
@@ -2822,7 +2588,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.5,
       "interpreterImplication": "4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000203": {
@@ -2834,7 +2599,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2,
       "interpreterImplication": "1.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000179": {
@@ -2846,7 +2610,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.9,
       "interpreterImplication": "4.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000088": {
@@ -2858,7 +2621,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.7,
       "interpreterImplication": "2.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000084": {
@@ -2870,7 +2632,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 14.3,
       "interpreterImplication": "7.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000003": {
@@ -2882,7 +2643,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.1,
       "interpreterImplication": "1.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000041": {
@@ -2894,7 +2654,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.5,
       "interpreterImplication": "7.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000019": {
@@ -2906,7 +2665,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.6,
       "interpreterImplication": "4.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000215": {
@@ -2918,7 +2676,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.3,
       "interpreterImplication": "3.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000052": {
@@ -2930,7 +2687,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.6,
       "interpreterImplication": "1.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000245": {
@@ -2942,7 +2698,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.9,
       "interpreterImplication": "5.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000090": {
@@ -2954,7 +2709,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.5,
       "interpreterImplication": "2.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000011": {
@@ -2966,7 +2720,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.4,
       "interpreterImplication": "5.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000039": {
@@ -2978,7 +2731,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.8,
       "interpreterImplication": "3.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000014": {
@@ -2990,7 +2742,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.9,
       "interpreterImplication": "1.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000107": {
@@ -3002,7 +2753,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 33.9,
       "interpreterImplication": "9.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000044": {
@@ -3014,7 +2764,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 1.3,
       "interpreterImplication": "1.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000229": {
@@ -3026,7 +2775,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.1,
       "interpreterImplication": "5.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000027": {
@@ -3038,7 +2786,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.9,
       "interpreterImplication": "11.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000103": {
@@ -3050,7 +2797,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 25.7,
       "interpreterImplication": "19% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000133": {
@@ -3062,7 +2808,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.9,
       "interpreterImplication": "2.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000149": {
@@ -3074,7 +2819,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4.6,
       "interpreterImplication": "2.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000008": {
@@ -3086,7 +2830,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 21.5,
       "interpreterImplication": "20% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "W06000020": {
@@ -3098,7 +2841,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.9,
       "interpreterImplication": "1.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000145": {
@@ -3110,7 +2852,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.7,
       "interpreterImplication": "6.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000093": {
@@ -3122,7 +2863,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 7.7,
       "interpreterImplication": "4.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000022": {
@@ -3134,7 +2874,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8.5,
       "interpreterImplication": "4.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000036": {
@@ -3146,7 +2885,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.6,
       "interpreterImplication": "7.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000023": {
@@ -3158,7 +2896,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.3,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000144": {
@@ -3170,7 +2907,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.3,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000146": {
@@ -3182,7 +2918,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.7,
       "interpreterImplication": "5.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000139": {
@@ -3194,7 +2929,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.1,
       "interpreterImplication": "2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000085": {
@@ -3206,7 +2940,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4.6,
       "interpreterImplication": "2.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000208": {
@@ -3218,7 +2951,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.6,
       "interpreterImplication": "9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000037": {
@@ -3230,7 +2962,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.1,
       "interpreterImplication": "1.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000082": {
@@ -3242,7 +2973,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.4,
       "interpreterImplication": "1.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000200": {
@@ -3254,7 +2984,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.2,
       "interpreterImplication": "1.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000234": {
@@ -3266,7 +2995,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4,
       "interpreterImplication": "1.5% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000080": {
@@ -3278,7 +3006,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.8,
       "interpreterImplication": "1.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000009": {
@@ -3290,7 +3017,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 9.8,
       "interpreterImplication": "1.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000236": {
@@ -3302,7 +3028,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.1,
       "interpreterImplication": "7.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000115": {
@@ -3314,7 +3039,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.5,
       "interpreterImplication": "3.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000046": {
@@ -3326,7 +3050,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.2,
       "interpreterImplication": "1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000216": {
@@ -3338,7 +3061,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4.7,
       "interpreterImplication": "3.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000059": {
@@ -3350,7 +3072,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.5,
       "interpreterImplication": "1.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000086": {
@@ -3362,7 +3083,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.4,
       "interpreterImplication": "3.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000063": {
@@ -3374,7 +3094,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.1,
       "interpreterImplication": "2.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000017": {
@@ -3386,7 +3105,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.3,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000111": {
@@ -3398,7 +3116,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 8,
       "interpreterImplication": "3.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000102": {
@@ -3410,7 +3127,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 23.7,
       "interpreterImplication": "7.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000009": {
@@ -3422,7 +3138,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4.4,
       "interpreterImplication": "4.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000194": {
@@ -3434,7 +3149,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4,
       "interpreterImplication": "2.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000138": {
@@ -3446,7 +3160,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 14.5,
       "interpreterImplication": "9.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000224": {
@@ -3458,7 +3171,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.4,
       "interpreterImplication": "5.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000010": {
@@ -3470,7 +3182,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.4,
       "interpreterImplication": "8.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000209": {
@@ -3482,7 +3193,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.5,
       "interpreterImplication": "8.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000074": {
@@ -3494,7 +3204,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 0.7,
       "interpreterImplication": "1.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000091": {
@@ -3506,7 +3215,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3.2,
       "interpreterImplication": "2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000043": {
@@ -3518,7 +3226,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.1,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000223": {
@@ -3530,7 +3237,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5.7,
       "interpreterImplication": "3.1% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000131": {
@@ -3542,7 +3248,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 12.4,
       "interpreterImplication": "2.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000210": {
@@ -3554,7 +3259,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 6.6,
       "interpreterImplication": "3.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000064": {
@@ -3566,7 +3270,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 3,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000012": {
@@ -3578,7 +3281,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.1,
       "interpreterImplication": "6.8% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000065": {
@@ -3590,7 +3292,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 1.9,
       "interpreterImplication": "2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000047": {
@@ -3602,7 +3303,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17,
       "interpreterImplication": "1.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000217": {
@@ -3614,7 +3314,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 15.3,
       "interpreterImplication": "11.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000008": {
@@ -3626,7 +3325,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 11.5,
       "interpreterImplication": "2.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E09000001": {
@@ -3638,7 +3336,6 @@
         "cannotSpeakEnglishPct": 0.2
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 17.2,
       "interpreterImplication": "21.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), above the 15% line this site uses to flag language demand."
     },
     "E07000079": {
@@ -3650,7 +3347,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.8,
       "interpreterImplication": "2.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000035": {
@@ -3662,7 +3358,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.5,
       "interpreterImplication": "0.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000242": {
@@ -3674,7 +3369,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.1,
       "interpreterImplication": "4.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000089": {
@@ -3686,7 +3380,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 5,
       "interpreterImplication": "3.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000046": {
@@ -3698,7 +3391,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.2,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E06000053": {
@@ -3710,7 +3402,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 14.2,
       "interpreterImplication": "2.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000235": {
@@ -3722,7 +3413,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 2.5,
       "interpreterImplication": "1.9% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000042": {
@@ -3734,7 +3424,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 16.1,
       "interpreterImplication": "2.7% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "W06000021": {
@@ -3746,7 +3435,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.1,
       "interpreterImplication": "1.6% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000147": {
@@ -3758,7 +3446,6 @@
         "cannotSpeakEnglishPct": 0
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 0.9,
       "interpreterImplication": "1.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000212": {
@@ -3770,7 +3457,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.3,
       "interpreterImplication": "8.2% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000083": {
@@ -3782,7 +3468,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 4,
       "interpreterImplication": "3.4% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E07000116": {
@@ -3794,7 +3479,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 10.7,
       "interpreterImplication": "5.3% of residents aged 3 and over have a main language other than English (Census 2021, TS029), below the 15% line this site uses to flag language demand."
     },
     "E08000016": {
@@ -3806,7 +3490,6 @@
         "cannotSpeakEnglishPct": 0.1
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 13.3,
       "interpreterImplication": null
     },
     "E08000019": {
@@ -3818,7 +3501,6 @@
         "cannotSpeakEnglishPct": 0.3
       },
       "nonEnglishGrowthPp": null,
-      "projectedNonEnglishIncrease": 18.7,
       "interpreterImplication": null
     }
   }

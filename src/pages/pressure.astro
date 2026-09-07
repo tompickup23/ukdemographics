@@ -31,6 +31,7 @@ const COMPONENTS = [
     input: 'Absolute change in White British share, 2021 to 2041',
     source: 'Census 2021 custom ONS dataset (single year of age by ethnic group by sex), projected by the Hamilton-Perry method',
     multiplier: '1.5',
+    capAt: 'A change of 13.3pp in either direction',
   },
   {
     key: 'asylumConcentration',
@@ -38,6 +39,7 @@ const COMPONENTS = [
     input: 'Supported asylum population per 10,000 residents, quarter ending 31 December 2025',
     source: 'Home Office Immigration Statistics, asylum support by local authority',
     multiplier: '0.5',
+    capAt: 'A rate of 40 per 10,000',
   },
   {
     key: 'schoolPressure',
@@ -45,13 +47,15 @@ const COMPONENTS = [
     input: 'Minority pupil share minus minority resident share, in percentage points',
     source: 'DfE School Census 2024/25 pupil ethnicity by local authority, against the Census 2021 resident share',
     multiplier: '1.0',
+    capAt: 'A gap of 20pp',
   },
   {
     key: 'languagePressure',
-    name: 'Non-English growth',
-    input: 'Projected growth in the population whose main language is not English, in percentage points',
+    name: 'Non-English main language',
+    input: 'Share of residents aged 3 and over whose main language is not English, as measured in 2021',
     source: 'ONS Census 2021 TS029 Proficiency in English via NOMIS (NM_2048_1)',
     multiplier: '1.0',
+    capAt: 'A share of 20%',
   },
   {
     key: 'housingPressure',
@@ -59,6 +63,7 @@ const COMPONENTS = [
     input: 'Change in foreign-born share, 2021 to 2051',
     source: 'ONS Census 2021 TS004 and Census 2011 KS204 country of birth via NOMIS, projected by the Hamilton-Perry method',
     multiplier: '0.5',
+    capAt: 'A change of 40pp',
   },
 ];
 
@@ -83,7 +88,7 @@ const CUTOFFS = [
   description={`Demographic change and service exposure scoring for ${totalAreas} local authorities, with the full formula and its limits. ${high.length} areas score in the high exposure band.`}
 >
   <h1>Demographic change and service exposure index</h1>
-  <p class="desc">A composite score from 0 to 100 built from five capped components: White British share change, asylum support rate, EAL demand growth, non-English growth, and foreign-born growth. It measures exposure to demographic change. It does not measure service cost, service capacity, or observed demand.</p>
+  <p class="desc">A composite score from 0 to 100 built from five capped components: White British share change, asylum support rate, EAL demand growth, non-English main language, and foreign-born growth. It measures exposure to demographic change. It does not measure service cost, service capacity, or observed demand.</p>
 
   <div class="stat-card-row">
     <StatCard value={high.length.toString()} label="High exposure" accent="var(--coral)" />
@@ -117,6 +122,7 @@ const CUTOFFS = [
           <th>Source dataset</th>
           <th class="num">Multiplier</th>
           <th class="num">Cap</th>
+          <th>20 points reached at</th>
           <th class="num">Areas scoring 0</th>
         </tr>
       </thead>
@@ -128,6 +134,7 @@ const CUTOFFS = [
             <td>{c.source}</td>
             <td class="num">{c.multiplier}</td>
             <td class="num">20</td>
+            <td>{c.capAt}</td>
             <td class="num">{zeroCounts[c.key]} of {totalAreas}</td>
           </tr>
         ))}
@@ -156,10 +163,10 @@ const CUTOFFS = [
   <h3 class="subhead">What the score does not do</h3>
   <ul class="caveat-list">
     <li><strong>A missing component scores zero, not unknown.</strong> Where an input is absent the generator substitutes 0 and the total is still published as if the component had been measured. An area with no school data therefore scores lower than a comparable area with school data, rather than being marked incomplete. The counts in the table above are areas scoring zero on each component, which is a missing input and a genuine zero combined: the published file does not distinguish them.</li>
-    <li><strong>The non-English growth component contributes nothing.</strong> It scores zero for all {totalAreas} areas, because the field it reads is not produced by the upstream script. The score is in practice built from four components with a working maximum of 80, not five with a maximum of 100.</li>
+    <li><strong>Two of the five components are levels, not changes.</strong> The asylum support rate and the non-English main language share are both stocks: what an area holds now, measured once. The other three are changes over time. An area with a large settled population whose main language is not English scores on that component whether or not anything there is changing, and the two kinds of measure are added together as though they were the same kind.</li>
     <li><strong>The index has not been validated against observed service demand.</strong> No comparison has been made against NHS interpreter spend, school place pressure, waiting lists, adult social care caseloads, or any other measure of what services actually deliver. The score has never been tested against an outcome.</li>
     <li><strong>It measures exposure, not cost or capacity.</strong> A high score means the area is projected to see fast demographic change on these five measures. It does not follow that services there cost more, are under more strain, or are failing. Demographic change is not shown here to cause service pressure, and this page does not claim that it does.</li>
-    <li><strong>The components use different time horizons.</strong> White British share change runs 2021 to 2041, foreign-born change runs 2021 to 2051, and the asylum and school inputs are single observed snapshots. They are summed as though they were comparable.</li>
+    <li><strong>The components use different time horizons.</strong> White British share change runs 2021 to 2041, foreign-born change runs 2021 to 2051, the non-English main language share is a Census 2021 observation, and the asylum and school inputs are later single snapshots. They are summed as though they were comparable.</li>
     <li><strong>Direction is discarded.</strong> The White British share component uses the absolute change, so an area where the share rises scores the same as one where it falls by the same amount.</li>
   </ul>
 
