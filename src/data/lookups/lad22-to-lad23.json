@@ -1,0 +1,96 @@
+{
+  "source": "ONS Open Geography Portal (LAD22_LAD23_UK_LU_v1)",
+  "sourceUrl": "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/LAD22_LAD23_UK_LU_v1/FeatureServer/0/query",
+  "lastFetched": "2026-09-07",
+  "description": "Maps each local authority district created by the April 2023 Local Government Reorganisation to the 2022 districts it replaced. Census 2021 outputs are published on the pre-reorganisation geography, so figures for the new unitary authorities are summed from the predecessor districts named here.",
+  "successors": {
+    "E06000066": {
+      "successorName": "Somerset",
+      "predecessors": [
+        {
+          "code": "E07000187",
+          "name": "Mendip"
+        },
+        {
+          "code": "E07000188",
+          "name": "Sedgemoor"
+        },
+        {
+          "code": "E07000189",
+          "name": "South Somerset"
+        },
+        {
+          "code": "E07000246",
+          "name": "Somerset West and Taunton"
+        }
+      ]
+    },
+    "E06000065": {
+      "successorName": "North Yorkshire",
+      "predecessors": [
+        {
+          "code": "E07000163",
+          "name": "Craven"
+        },
+        {
+          "code": "E07000164",
+          "name": "Hambleton"
+        },
+        {
+          "code": "E07000165",
+          "name": "Harrogate"
+        },
+        {
+          "code": "E07000166",
+          "name": "Richmondshire"
+        },
+        {
+          "code": "E07000167",
+          "name": "Ryedale"
+        },
+        {
+          "code": "E07000168",
+          "name": "Scarborough"
+        },
+        {
+          "code": "E07000169",
+          "name": "Selby"
+        }
+      ]
+    },
+    "E06000063": {
+      "successorName": "Cumberland",
+      "predecessors": [
+        {
+          "code": "E07000026",
+          "name": "Allerdale"
+        },
+        {
+          "code": "E07000028",
+          "name": "Carlisle"
+        },
+        {
+          "code": "E07000029",
+          "name": "Copeland"
+        }
+      ]
+    },
+    "E06000064": {
+      "successorName": "Westmorland and Furness",
+      "predecessors": [
+        {
+          "code": "E07000027",
+          "name": "Barrow-in-Furness"
+        },
+        {
+          "code": "E07000030",
+          "name": "Eden"
+        },
+        {
+          "code": "E07000031",
+          "name": "South Lakeland"
+        }
+      ]
+    }
+  }
+}

@@ -10,6 +10,11 @@ export interface CensusEnglishArea {
   mainNotEnglishCannot?: number;
   cannotSpeakWellPct?: number;
   nonEnglishPct?: number;
+  // Present only on the April 2023 unitary authorities, whose figures are
+  // summed from the 2021 districts named here because Census 2021 predates
+  // their creation and publishes nothing under their own code.
+  derivedFrom?: { code: string; name: string }[];
+  sourceNote?: string;
 }
 
 interface CensusEnglishFile {
