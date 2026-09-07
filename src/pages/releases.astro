@@ -4,6 +4,12 @@ import { buildAbsoluteUrl, buildReleaseCollectionStructuredData } from "../lib/s
 
 const releases = [
   {
+    date: "2026-09-07",
+    title: "One withholding rule for the counts, and a denominator with them",
+    summary: "The homepage and the national page counted areas crossing below a 50% White British share, under a label promising the areas already below it. That is a flow counted as a stock, and it published 60 for 2051 while leaving out Birmingham, Leicester, Luton, Slough, Manchester and 22 others that had passed the threshold before the count began. The place pages also withhold a projected year where a residual Census group runs away past a quarter of the population at several times its 2021 share, so the site was counting Enfield in 2051 while Enfield's own page declined to show 2051 at all. Both rules now apply everywhere: 86 areas below 50% at 2051, across the 312 areas where 2051 is publishable, and 99 at 2061 across 255. The counts carry their denominator, because a count without one invites a comparison against the full 318. This is the figure the site's own finding has published since 13 August 2026. See pull request 58 and commit a9a98f0.",
+    sourceUrl: "https://github.com/tompickup23/ukdemographics/pull/58"
+  },
+  {
     date: "2026-05-20",
     title: "Site audit and corrections",
     summary: "Reconciled the NEWETHPOP MAE figures across findings and methodology. National headline figures (White British share 2011 / 2021 / 2051 / 2061) are now computed live from the projection data rather than hard-coded. Added null-safety to per-place stat blocks so missing values render \"n/a\" rather than \"undefined%\". Constituency pages now carry a derived demographic snapshot (White British share, foreign-born share), weighted by postcode share and 2021 population. Removed AI-style writing tells (em-dashes, hype words, shouty caps). Expanded modelling acronyms (WBI, CCR, CWR, TFR, SNPP, IPF, MAE, NEWETHPOP, NINo, EAL, DC2101EW, RM021, TS021 / 22 / 27 / 29) in the glossary. Northern Ireland party colours added to the constituency template. Hardcoded \"of 320\" rank labels now derive from the dataset. Sources page expanded to list DWP Stat-Xplore, NOMIS and ONS births data.",

@@ -2,6 +2,7 @@
 headline: "86 local authorities projected minority White British by 2051"
 date: "2026-04-14"
 updated: "2026-08-13"
+model_version: "v8.0"
 category: demographics
 stat_value: "86"
 stat_label: "Areas WBI <50% by 2051"

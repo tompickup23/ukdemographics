@@ -12,7 +12,7 @@ summary: "Our model separates Roma (98,785) and Gypsy/Irish Traveller (63,348) f
 
 **Two populations that have never been separately projected: Roma and Gypsy/Irish Traveller.**
 
-Census 2021 distinguishes White: Roma (98,785 people, 0.18%) from White: Gypsy or Irish Traveller (63,348 people, 0.11%). Previous demographic models, including NEWETHPOP and our own earlier versions, merged both into White Other, making them invisible.
+Census 2021 distinguishes White: Roma (98,785 people, 0.18%) from White: Gypsy or Irish Traveller (63,348 people, 0.11%). 162,133 people between them. Previous demographic models, including NEWETHPOP and our own earlier versions, merged both into White Other, making them invisible.
 
 **Roma are concentrated in urban London boroughs:**
 - Hammersmith and Fulham: 0.81%

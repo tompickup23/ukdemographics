@@ -40,6 +40,20 @@ const verdictLabel: Record<string, string> = {
   resolved: "Resolved",
   info: "Analysis"
 };
+
+// A revised piece says so next to its date. The correction notices were in the
+// bodies and nowhere in the metadata, so a reader landing on a page revised in
+// August saw only its April date, and search engines saw only datePublished.
+const updated = finding.data.updated;
+const updatedLabel = updated
+  ? new Date(`${updated}T00:00:00Z`).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC"
+    })
+  : null;
+const modelVersion = finding.data.model_version;
 ---
 
 <BaseLayout
@@ -54,6 +68,7 @@ const verdictLabel: Record<string, string> = {
     "url": pageUrl,
     "image": `https://ukdemographics.co.uk${ogImage}`,
     "datePublished": finding.data.date,
+    ...(updated ? { "dateModified": updated } : {}),
     "author": { "@type": "Organization", "name": "UK Demographics", "url": "https://ukdemographics.co.uk" },
     "publisher": { "@type": "Organization", "name": "UK Demographics", "url": "https://ukdemographics.co.uk" }
   }]}
@@ -72,6 +87,8 @@ const verdictLabel: Record<string, string> = {
         {verdictLabel[finding.data.verdict]}
       </span>
       <span class="finding-detail-date">{finding.data.date}</span>
+      {updatedLabel && <span class="finding-detail-updated">Updated {updatedLabel}</span>}
+      {modelVersion && <span class="finding-detail-model">Model {modelVersion}</span>}
       <ShareButton
         url={pageUrl}
         title={finding.data.headline}
@@ -153,7 +170,8 @@ const verdictLabel: Record<string, string> = {
   .finding-detail-meta {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
     margin-bottom: 1rem;
   }
   .finding-verdict-badge {
@@ -167,6 +185,14 @@ const verdictLabel: Record<string, string> = {
   .finding-detail-date {
     font-size: 0.78rem;
     color: var(--muted);
+  }
+  .finding-detail-updated,
+  .finding-detail-model {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .finding-detail-model {
+    font-variant-numeric: tabular-nums;
   }
 
   .finding-detail-headline {

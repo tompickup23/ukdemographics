@@ -24,7 +24,7 @@ NINo (National Insurance number) is the entry-point document for any adult arriv
 | 2020 | **293,368** | Pandemic visa freeze |
 | 2021 | 567,846 | Reopening |
 | 2022 | 1,015,812 | First million-year |
-| **2023** | **1,073,103** | **Peak** |
+| **2023** | **1,073,103** | **Peak, 1.07M** |
 | 2024 | 639,072 | Tightening |
 | 2025 | 569,659 | Continued tightening |
 
