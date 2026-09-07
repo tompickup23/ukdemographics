@@ -1,7 +1,9 @@
 # UK Demographics — Claude Code Context
 
 ## Overview
-Population data for every community. Ethnic projections, school data, housing demand, health and tenure by ethnic group, and now per-constituency political mapping across **996 pages** (320 local authorities + 631 UK constituencies + dashboards + findings).
+Population data for every community. Ethnic projections, school data, housing demand, health and tenure by ethnic group, and now per-constituency political mapping across **1,000 pages**: 318 local authority profiles + 10 region pages + 631 UK constituencies + 22 findings + 16 dashboard and static pages + 3 section indexes.
+
+**Coverage counts come from `src/lib/coverage.ts`.** `PLACE_COUNT` (318) is derived from `ethnic-projections.json`, `PCON_COUNT` (631) from `pcon-dataset.json`, and `PCON_UNIVERSE` (650) is the size of the Commons. Never type a coverage count into copy: use `formatPlaceCount()` / `formatPconCount()`, or import the constants. `tests/coverage.test.ts` sweeps `src/` and `public/` and fails on any hard-coded `320`/`650` next to a coverage noun, excluding `src/data` and `src/pages/releases.astro` (verbatim history). It also pins both counts, so a dataset change breaks the test and has to be an explicit decision. The 320 that was published in the nav and on `/compare/` predates the Barnsley and Sheffield duplicate-code fix of 29 Aug 2026; it is stale by exactly two. Recompute the page total with `find dist -name index.html | wc -l` after a build.
 
 **Stack:** Astro 5 + design tokens (Tailwind dropped 19-20 May) + TypeScript. Inline SVG charts (no chart library).
 **Hosting:** GitHub Pages only (NOT Cloudflare).
@@ -12,8 +14,8 @@ Population data for every community. Ethnic projections, school data, housing de
 
 ## Key surfaces
 
-- `/places/<slug>/` — 320 LA profiles, 23 sections each. NOMIS Census data wired (TS029 English proficiency, RM134 tenure by ethnic group, RM043 health by ethnic group). District pages fall back to parent county for ASC with a clear caveat banner.
-- `/constituencies/<slug>/` — 631 UK PCONs with sitting MP card, 2024 GE bar chart, PIP claimants, constituent LAs. Index at `/constituencies/`.
+- `/places/<slug>/` — 318 LA profiles, 23 sections each. NOMIS Census data wired (TS029 English proficiency, RM134 tenure by ethnic group, RM043 health by ethnic group). District pages fall back to parent county for ASC with a clear caveat banner.
+- `/constituencies/<slug>/` — 631 of the 650 UK PCONs, with sitting MP card, 2024 GE bar chart, PIP claimants, constituent LAs. Index at `/constituencies/`.
 - `/national/` — Rebuilt with NINo 2002-2025 arc + births-by-COB 2008-2024 share charts (inline SVG).
 - `/findings/` — 16 Tom-voice pieces. Schema enum: `demographics | projections | fertility | schools | housing | health | migration | validation | crime | social-care | send` ("economy" is NOT valid).
 - Dashboards: `/regional/` `/your-area/` `/pressure/` `/schools/` `/housing/` `/compare/`.

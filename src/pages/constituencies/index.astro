@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllPcons } from "../../lib/pcon-data";
+import { PCON_COUNT, PCON_UNIVERSE, formatPconCount } from "../../lib/coverage";
 
 const all = getAllPcons();
 
@@ -36,9 +37,9 @@ const sortedWinners = Object.entries(winnerCounts).sort(([, a], [, b]) => b - a)
 
 <BaseLayout
   title="UK constituencies"
-  description={`Per-constituency demographic and political profile for ${all.length} of the 650 UK parliamentary constituencies: 2024 General Election results, MP, PIP claimants, and the local authorities that make up each seat.`}
+  description={`Per-constituency demographic and political profile for ${PCON_COUNT} of the ${PCON_UNIVERSE} UK parliamentary constituencies: 2024 General Election results, MP, PIP claimants, and the local authorities that make up each seat.`}
 >
-  <span class="page-eyebrow">{all.length} of 650 seats</span>
+  <span class="page-eyebrow">{formatPconCount()}</span>
   <h1>Find your seat and what sits underneath it</h1>
   <p class="desc">
     Every constituency joined to the councils it covers, so the 2024 result, the sitting

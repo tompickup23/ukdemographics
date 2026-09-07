@@ -1,4 +1,6 @@
 ---
+import { formatPlaceCount, formatPconCount } from "../lib/coverage";
+
 type NavItem = { href: string; label: string; desc: string };
 type NavGroup = { label: string; items: NavItem[] };
 
@@ -7,9 +9,9 @@ const NAV_GROUPS: NavGroup[] = [
     label: "Explore",
     items: [
       { href: "/your-area", label: "Your Area", desc: "Look up any UK community by postcode" },
-      { href: "/places", label: "Places", desc: "320 local authorities" },
-      { href: "/constituencies", label: "Constituencies", desc: "650 parliamentary seats" },
-      { href: "/national", label: "National", desc: "UK-level projections" },
+      { href: "/places", label: "Places", desc: formatPlaceCount() },
+      { href: "/constituencies", label: "Constituencies", desc: formatPconCount() },
+      { href: "/national", label: "National", desc: "England and Wales projections, UK flows" },
       { href: "/compare", label: "Compare", desc: "Side-by-side any two places" },
     ],
   },

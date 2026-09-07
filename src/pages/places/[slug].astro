@@ -261,9 +261,9 @@ const centralScenario = (scenarioSummaries as any).centralScenario as string | u
 const headlineStat = projData?.headlineStat;
 
 // The stored trend string carries a model-version tag that is wrong on both
-// counts for 52 of the 320 areas: it says "v2" when the published model is v7.0,
+// counts for 49 of the 318 areas: it says "v2" when the published model is v7.0,
 // and "bias-corrected" when the backcast over-predicts the White British share in
-// 268 of 269 areas. Three different tags are in the data across the 320 areas, so
+// 268 of 269 areas. Two different tags are in the data across the 318 areas, so
 // the provenance is inconsistent as well as inaccurate. Strip the parenthetical
 // and expand the "WBI" abbreviation; accurate provenance is the chart source line
 // and /methodology/, in one place, stated once.
@@ -274,8 +274,9 @@ const heroTrendLabel = (headlineStat?.trend ?? "")
 const population = projData?.current?.total_population ?? area.population ?? 0;
 const wbi2021 = projData?.current?.groups?.white_british ?? area.wbiPct2021;
 // Withhold projection years where the model diverged rather than projected. See
-// src/lib/projection-plausibility.ts. 51 of 320 areas lose part of their horizon;
-// 269 are unaffected. No figure changes, incoherent years are simply not shown.
+// src/lib/projection-plausibility.ts. 14 of 318 areas lose part of their horizon;
+// 304 are unaffected. A further 49 carry a short horizon in the data itself and
+// are not truncations. No figure changes, incoherent years are simply not shown.
 const projHorizon = plausibleThrough(projData as any);
 const projTruncated = isTruncated(projData as any);
 

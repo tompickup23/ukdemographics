@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPublicPlaceAreas, slugifyAreaName } from "../lib/site";
+import { formatPlaceCount } from "../lib/coverage";
 import rawProjections from "../data/live/ethnic-projections.json";
 import ninoDashboard from "../data/live/nino-dashboard.json";
 import ninoHistorical from "../data/live/nino-historical.json";
@@ -90,7 +91,7 @@ const indexJson = JSON.stringify(indexBySlug);
     <span>Compare</span>
   </nav>
 
-  <span class="page-eyebrow">Any two of 320 councils</span>
+  <span class="page-eyebrow">Any two of {formatPlaceCount("councils")}</span>
   <h1>Put two places side by side</h1>
   <p class="desc">
     A claim about one town usually only makes sense next to its neighbour. Pick two and
