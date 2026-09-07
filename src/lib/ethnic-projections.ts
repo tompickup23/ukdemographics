@@ -196,3 +196,42 @@ export function getEthnicCompositionTimeline(areaCode: string): Array<{
 
   return timeline.sort((a, b) => Number(a.year) - Number(b.year));
 }
+
+/**
+ * Areas whose projected White British share is under 50% in a given year.
+ *
+ * This is a stock, not a flow, and that distinction is the whole point of the
+ * function. getSignificantDemographicShifts above answers a different question:
+ * which areas *cross* the line, and when. It reads the thresholds array, and an
+ * area that was already under 50% at the 2021 Census has no crossing to record,
+ * so it carries no threshold. All 33 of them are absent from it.
+ *
+ * The homepage and the national page were both counting crossings under a label
+ * that promised a stock ("areas below 50% White British by 2051"), which
+ * silently dropped Leicester, Luton, Slough, Birmingham, Brent, Manchester,
+ * Barking and Dagenham and 26 others from a count of areas below 50%. It
+ * published 60 where the projections say 92, and disagreed with this site's own
+ * finding on the same metric.
+ *
+ * Reading the projection for the year directly is the literal reading of the
+ * label and needs no threshold bookkeeping to be correct.
+ *
+ * `covered` is returned because it is not always 318: the current model projects
+ * 269 areas as far as 2061, so a 2061 count is a count out of 269 and saying so
+ * is the difference between a number and a misleading one.
+ */
+export function getAreasBelowWhiteBritishMajority(year: number): {
+  count: number;
+  covered: number;
+  areaCodes: string[];
+} {
+  const areaCodes: string[] = [];
+  let covered = 0;
+  for (const [code, area] of Object.entries(data.areas)) {
+    const share = area.projections?.[String(year)]?.white_british;
+    if (share == null) continue;
+    covered++;
+    if (share < 50) areaCodes.push(code);
+  }
+  return { count: areaCodes.length, covered, areaCodes };
+}
