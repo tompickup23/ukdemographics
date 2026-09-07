@@ -1,6 +1,8 @@
 ---
 headline: "Academic ethnic projections over-predicted White British share in 95% of areas"
 date: "2026-04-11"
+updated: "2026-09-07"
+model_version: "v8.0"
 category: demographics
 stat_value: "3.95pp"
 stat_label: "NEWETHPOP MAE vs Census 2021 actuals (296 areas)"
@@ -9,6 +11,13 @@ source_url: "https://reshare.ukdataservice.ac.uk/852508/"
 source_label: "NEWETHPOP (University of Leeds)"
 summary: "The NEWETHPOP cohort-component model, the most cited academic ethnic projection for UK local authorities, over-predicted White British share in 282 of 296 areas when its 2021 projection is compared against actual Census 2021 results. Mean absolute error: 3.95 percentage points."
 ---
+
+> **Correction, 7 September 2026.** One bucket of the accuracy distribution was
+> wrong. The over-10pp bucket is **20 areas, 7%** of the 296 compared, six areas
+> fewer than the figure published here since April. Every other number in this
+> piece reconciles against `newethpop-validation.json`: MAE 3.95pp, RMSE 5.21pp,
+> 282 of 296 over-predicted, the five worst misses, and the within-1pp, 2pp and
+> 5pp buckets at 48, 108 and 208 areas.
 
 **The UK diversified faster than the leading academic model predicted.**
 
@@ -40,7 +49,7 @@ Every ethnic demographic projection for the UK, including Goodwin's CHSS report 
 - Within 1pp: 48 areas (16%)
 - Within 2pp: 108 areas (37%)
 - Within 5pp: 208 areas (70%)
-- Over 10pp error: 26 areas (9%)
+- Over 10pp error: 20 areas (7%)
 
 **Nobody else has published this validation.** The NEWETHPOP dataset has been downloaded and cited by researchers worldwide, but no systematic comparison against Census 2021 actuals has been published. This finding is, to the author's knowledge, the first.
 
