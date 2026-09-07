@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getPublicPlaceAreas, slugifyAreaName } from "../lib/site";
-
-const areas = getPublicPlaceAreas();
+import { PLACE_COUNT, PCON_COUNT } from "../lib/coverage";
 ---
 
 <BaseLayout
@@ -99,11 +97,11 @@ const areas = getPublicPlaceAreas();
       <h2>Or pick a way in</h2>
       <div class="ya-ways">
         <a href="/places/" class="ya-way">
-          <span class="lookup-eyebrow">{areas.length} councils</span>
+          <span class="lookup-eyebrow">{PLACE_COUNT} councils</span>
           <span class="ya-way-title">Browse every area</span>
         </a>
         <a href="/constituencies/" class="ya-way">
-          <span class="lookup-eyebrow">631 seats</span>
+          <span class="lookup-eyebrow">{PCON_COUNT} seats</span>
           <span class="ya-way-title">Browse constituencies</span>
         </a>
         <a href="/regional/" class="ya-way">

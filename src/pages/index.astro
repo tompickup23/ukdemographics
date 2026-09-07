@@ -7,12 +7,13 @@ import StatCard from "../components/StatCard.astro";
 import { getAreasBelowWhiteBritishMajority, getEthnicProjection } from "../lib/ethnic-projections";
 import rawProjections from "../data/live/ethnic-projections.json";
 import { slugifyAreaName, SITE_URL, getPublicPlaceAreas } from "../lib/site";
+import { PLACE_COUNT, PCON_COUNT } from "../lib/coverage";
 import { plausibleThrough } from "../lib/projection-plausibility";
 import { getCollection } from "astro:content";
 
 const projData = rawProjections as any;
 const publicAreas = getPublicPlaceAreas();
-const totalAreas = publicAreas.length;
+const totalAreas = PLACE_COUNT;
 
 function fmtInt(n: number) { return n.toLocaleString("en-GB"); }
 function fmtPct1(n: number) { return `${n.toFixed(1)}%`; }
@@ -245,7 +246,7 @@ function findingColor(verdict: string): string {
 
       <ul class="hero-trust">
         <li><strong>{fmtInt(totalAreas)}</strong> local authorities</li>
-        <li><strong>631</strong> constituencies</li>
+        <li><strong>{PCON_COUNT}</strong> constituencies</li>
         <li><strong>23</strong> datasets per area</li>
         <li>Free to reuse with attribution</li>
       </ul>
@@ -486,7 +487,7 @@ function findingColor(verdict: string): string {
   <!-- CTA STRIP -->
   <section class="cta-section shell">
     <div class="cta-inner">
-      <h2>Every projection sourced. Every figure checked.</h2>
+      <h2>Every figure sourced. Every correction published.</h2>
       <p>Census 2021 observed data. Hamilton-Perry methodology. Click any figure to trace it back to the ONS.</p>
       <div class="cta-buttons">
         <a href="/places/" class="cta-btn cta-btn--primary">Look up your area</a>

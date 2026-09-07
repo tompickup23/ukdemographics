@@ -95,7 +95,7 @@ function fmtCompact(n: number) {
   description={`${shifts2051.count} of ${shifts2051.covered} local authorities projected White British under 50% by 2051. Hamilton-Perry model, out-of-sample tested against Census 2021.`}
 >
   <h1>National demographic outlook</h1>
-  <p class="desc">England-wide projections from Census 2021 to 2061. Anchored to two national time series: 24 years of National Insurance number (NINo) registrations from overseas, and 17 years of births by mother's country of birth.</p>
+  <p class="desc">Projections for England and Wales from Census 2021 to 2061. Anchored to two national time series that do not share the same footprint: 24 years of UK-wide National Insurance number (NINo) registrations from overseas, and 17 years of England and Wales births by mother's country of birth. Every section heading below carries the geography its source actually covers.</p>
 
   <DataFreshness updated={projData.lastUpdated ?? "2026-04-14"} source="Census 2021, ONS SNPP, DWP NINo, ONS births by parents' COB" sourceUrl="https://www.ons.gov.uk/census" />
 
@@ -148,8 +148,8 @@ function fmtCompact(n: number) {
   )}
 
   <section class="chart-section">
-    <h2>NINo registrations from overseas: 24-year arc</h2>
-    <p class="section-desc">Adult arrivals from overseas registering for a National Insurance number, England + Wales + Scotland, calendar years 2002-2025. {fmtCompact(ninoTotalCumulative)} adults over the 24-year period.</p>
+    <h2>NINo registrations from overseas: 24-year arc <span class="scope-tag">United Kingdom</span></h2>
+    <p class="section-desc">Adult arrivals from overseas registering for a National Insurance number, all four UK countries, calendar years 2002-2025. {fmtCompact(ninoTotalCumulative)} adults over the 24-year period.</p>
     <svg viewBox={`0 0 ${chartW} ${chartH}`} class="chart" role="img" aria-label="NINo registrations by year 2002-2025">
       <path d={ninoAreaPath} fill="var(--accent-glow)" />
       <path d={ninoLinePath} fill="none" stroke="var(--accent)" stroke-width="2" />
@@ -174,11 +174,11 @@ function fmtCompact(n: number) {
       <text x={pad.left - 8} y={pad.top + 4} text-anchor="end" class="chart-tick">{fmtCompact(ninoMax)}</text>
       <text x={pad.left - 8} y={pad.top + innerH} text-anchor="end" class="chart-tick">0</text>
     </svg>
-    <p class="section-note">Source: DWP Stat-Xplore, National Insurance number registrations from overseas. Counts are first-time registrations and so are a flow, not a stock. The 2020 trough reflects the pandemic-era visa freeze; the 2021 to 2022 surge is overwhelmingly post-Brexit non-EU work and student route arrivals.</p>
+    <p class="section-note">Source: DWP Stat-Xplore, NINo registrations to adult overseas nationals entering the UK. The series covers 296 English, 22 Welsh, 32 Scottish and all 11 Northern Ireland local authority districts, plus registrations recorded as unknown or abroad. Counts are first-time registrations and so are a flow, not a stock. The 2020 trough reflects the pandemic-era visa freeze; the 2021 to 2022 surge is overwhelmingly post-Brexit non-EU work and student route arrivals.</p>
   </section>
 
   <section class="chart-section">
-    <h2>Births to non-UK-born mothers, 2008 to 2024</h2>
+    <h2>Births to non-UK-born mothers, 2008 to 2024 <span class="scope-tag">England and Wales</span></h2>
     <p class="section-desc">{bhFirstPct?.toFixed(1)}% of England + Wales births in {bhYears[0]} were to mothers born outside the UK. That share is <strong>{bhLatestPct?.toFixed(1)}%</strong> in {bhYears[bhLatestIdx]}.</p>
     <svg viewBox={`0 0 ${chartW} ${chartH}`} class="chart" role="img" aria-label="Births to non-UK-born mothers, percentage of total, 2008-2024">
       <path d={bhPctPath} fill="none" stroke="var(--coral)" stroke-width="2.5" />
@@ -200,7 +200,7 @@ function fmtCompact(n: number) {
   </section>
 
   <section class="table-section">
-    <h2>Fastest WBI decline: 2021 → 2041</h2>
+    <h2>Fastest WBI decline: 2021 → 2041 <span class="scope-tag">England and Wales</span></h2>
     <div class="area-table">
       <div class="area-table-header"><span>#</span><span>Area</span><span>2021</span><span>2041</span><span>Change</span></div>
       {fastestDecline.map((a, i) => (
@@ -225,6 +225,28 @@ function fmtCompact(n: number) {
 
   .chart-section { margin-top: 2.5rem; }
   .chart-section h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin: 0 0 0.5rem; }
+
+  /* Geography tag. The three sections on this page run on three different
+     footprints: the projections are England and Wales, births are England and
+     Wales, and the NINo series is UK-wide. The page opened by calling all of it
+     "England-wide". The tag sits in the heading so the scope cannot be read
+     past. */
+  .scope-tag {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.12rem 0.45rem;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    font-family: var(--font-display);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    vertical-align: middle;
+    white-space: nowrap;
+  }
   .chart { width: 100%; max-width: 720px; height: auto; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; }
   .chart-anno { font-family: var(--font-display); font-size: 11px; font-weight: 600; fill: var(--ink); }
   .chart-anno.coral { fill: var(--coral); }

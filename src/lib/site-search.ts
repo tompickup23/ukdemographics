@@ -1,4 +1,5 @@
 import { getPublicPlaceAreas, getPublicPlaceRegions, buildPublicPlaceRegionPath, slugifyAreaName } from "./site";
+import { formatPconCount } from "./coverage";
 import { getEthnicProjection } from "./ethnic-projections";
 
 export interface SiteSearchEntry {
@@ -42,9 +43,9 @@ const STATIC_PAGE_ENTRIES: SiteSearchEntry[] = [
     title: "National",
     kind: "page",
     kicker: "National outlook",
-    description: "England-wide demographic projections and fastest-changing areas.",
+    description: "England and Wales demographic projections, UK-wide NINo arc, and fastest-changing areas.",
     priority: 116,
-    searchText: "national england projections white british ethnic change fastest"
+    searchText: "national england wales uk projections white british ethnic change fastest nino births"
   },
   {
     href: "/compare/",
@@ -87,7 +88,7 @@ const STATIC_PAGE_ENTRIES: SiteSearchEntry[] = [
     title: "Constituencies",
     kind: "page",
     kicker: "Westminster seats",
-    description: "Per-constituency demographic and political profile for 631 of 650 UK seats.",
+    description: `Per-constituency demographic and political profile for ${formatPconCount("UK seats")}.`,
     priority: 115,
     searchText: "constituencies westminster parliamentary seats mp ge2024 election"
   },

@@ -108,7 +108,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       statLabel: `White British 2021 · Population ${(area.population ?? 0).toLocaleString()}`,
       // Always the brand accent. This previously graded the colour by the area's White
       // British share: under 50 rendered in the critical red, under 70 in the alert
-      // amber. That is an editorial judgement encoded as colour, on 320 cards that are
+      // amber. That is an editorial judgement encoded as colour, on 318 cards that are
       // exactly what people see when a page is shared, and it says a lower share is a
       // warning. The place page itself already made this correction for its stat cards
       // ("escalating the hue encoded alarm rather than data"); the card had not.
@@ -296,7 +296,7 @@ export const GET: APIRoute = async ({ props }) => {
                       fontSize: "12px",
                       color: COLORS.muted
                     },
-                    children: "Every projection sourced."
+                    children: "Every figure sourced."
                   }
                 }
               ]
