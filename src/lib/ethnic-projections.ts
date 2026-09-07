@@ -1,4 +1,5 @@
 import rawProjections from "../data/live/ethnic-projections.json";
+import { plausibleThrough } from "./projection-plausibility";
 
 export interface EthnicGroup {
   white_british: number;
@@ -144,8 +145,14 @@ export function getSocioeconomicData(areaCode: string) {
 }
 
 /**
- * Returns areas sorted by the earliest "White British <50%" threshold year.
- * Only includes areas with medium+ confidence thresholds before the cutoff year.
+ * Returns areas that cross below a 50% White British share on or before the cutoff
+ * year, sorted by the year they cross. Every threshold is returned regardless of its
+ * confidence field; an earlier version of this comment claimed a medium-and-above
+ * filter that the code has never applied.
+ *
+ * This is a flow. For the count of areas that are below 50% in a given year, which
+ * is a different question and the one the headline cards ask, see
+ * getAreasBelowWhiteBritishMajority below.
  */
 export function getSignificantDemographicShifts(cutoffYear = 2070): Array<{
   areaCode: string;
@@ -198,27 +205,32 @@ export function getEthnicCompositionTimeline(areaCode: string): Array<{
 }
 
 /**
- * Areas whose projected White British share is under 50% in a given year.
+ * Areas whose projected White British share is under 50% in a given year, counted
+ * only where that year is publishable for the area.
  *
- * This is a stock, not a flow, and that distinction is the whole point of the
- * function. getSignificantDemographicShifts above answers a different question:
- * which areas *cross* the line, and when. It reads the thresholds array, and an
- * area that was already under 50% at the 2021 Census has no crossing to record,
- * so it carries no threshold. All 33 of them are absent from it.
+ * Two rules are doing work here and the site needs both.
  *
- * The homepage and the national page were both counting crossings under a label
- * that promised a stock ("areas below 50% White British by 2051"), which
- * silently dropped Leicester, Luton, Slough, Birmingham, Brent, Manchester,
- * Barking and Dagenham and 26 others from a count of areas below 50%. It
- * published 60 where the projections say 92, and disagreed with this site's own
- * finding on the same metric.
+ * The first is stock, not flow. getSignificantDemographicShifts above answers a
+ * different question: which areas *cross* the line, and when. It reads the
+ * thresholds array, and an area already under 50% at the 2021 Census has no
+ * crossing to record, so it carries no threshold. The homepage and the national
+ * page were counting crossings under a label promising a stock, which published
+ * 60 and left out Birmingham, Leicester, Luton, Slough, Manchester and 22 others.
  *
- * Reading the projection for the year directly is the literal reading of the
- * label and needs no threshold bookkeeping to be correct.
+ * The second is the plausibility rule the place pages already apply. Where a
+ * residual Census group runs away past a quarter of the population at several
+ * times its 2021 share, the year is unconstrained composition rather than
+ * demography, and the place page withholds it: Barnet's page stops at 2041 and
+ * says so. A headline count that includes Enfield's 2051 while Enfield's own page
+ * declines to show it is publishing under two rules at once. Six area-years are
+ * withheld at 2051 and fourteen at 2061.
  *
- * `covered` is returned because it is not always 318: the current model projects
- * 269 areas as far as 2061, so a 2061 count is a count out of 269 and saying so
- * is the difference between a number and a misleading one.
+ * Together these give 86 areas at 2051 and 99 at 2061, which is what this site's
+ * own finding has said since August and what the sister site publishes.
+ *
+ * `covered` is the number of areas the count could have drawn on, and it is not
+ * 318: 312 areas are publishable at 2051 and 255 at 2061. A count without its
+ * denominator invites the comparison that is wrong.
  */
 export function getAreasBelowWhiteBritishMajority(year: number): {
   count: number;
@@ -230,6 +242,8 @@ export function getAreasBelowWhiteBritishMajority(year: number): {
   for (const [code, area] of Object.entries(data.areas)) {
     const share = area.projections?.[String(year)]?.white_british;
     if (share == null) continue;
+    const through = plausibleThrough(area as any);
+    if (through == null || through < year) continue;
     covered++;
     if (share < 50) areaCodes.push(code);
   }

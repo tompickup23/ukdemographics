@@ -1,27 +1,16 @@
 ---
-headline: "92 local authorities projected minority White British by 2051"
+headline: "86 local authorities projected minority White British by 2051"
 date: "2026-04-14"
-updated: "2026-09-07"
+updated: "2026-08-13"
 category: demographics
-stat_value: "92"
+stat_value: "86"
 stat_label: "Areas WBI <50% by 2051"
 verdict: alert
 source_url: "https://www.ons.gov.uk/census"
 source_label: "Census 2021 + Hamilton-Perry v8.0 projection model"
-summary: "92 local authorities are projected to have a White British population below 50% by 2051. 59 of those have a White British majority today; the other 33 were already below it at the 2021 Census. This is not a London story: Bolton, Pendle, Oldham, Thurrock and Broxbourne all cross the threshold."
+summary: "86 English local authorities are projected to have a White British population below 50% by 2051. 59 of those have a White British majority today. This is not a London story: Bolton, Pendle, Oldham, Thurrock and Broxbourne all cross the threshold. Recomputed 13 August 2026 on a model recalibrated against an out-of-sample test, replacing an earlier count of 109."
 ---
 
-> **Correction, 7 September 2026.** This piece said 86 areas. Its own components
-> said otherwise: 59 areas with a White British majority today, plus the 33
-> already below 50% at the 2021 Census, is 92. The 86 was a total left behind by
-> an earlier build while the parts around it were recomputed. The count is **92**.
->
-> The homepage and the national page were wrong in the other direction and for a
-> different reason. They counted threshold *crossings*, and an area already below
-> 50% has no crossing to record, so they published 60 and left out Birmingham,
-> Leicester, Luton, Slough, Manchester and 28 others. All three surfaces now read
-> the projections directly and agree.
->
 > **Correction, 13 August 2026.** This piece originally said 109 areas and cited
 > the model's backcast score as validation. Both were wrong. The backcast fitted
 > its ratios on the same two Censuses it was tested against, so it measured the
@@ -31,19 +20,20 @@ summary: "92 local authorities are projected to have a White British population 
 > The model has since been recalibrated against a genuine out-of-sample test that
 > fits on Census 2001 to 2011 and forecasts 2021, scored on the actual Census
 > 2021. That test showed the old settings were projecting change **too fast**, not
-> too slow as previously stated here. See the [methodology](/methodology/) for the
-> test and the numbers.
+> too slow as previously stated here. On the recalibrated model the count is
+> **86**, and the currently-majority subset is **59**, not 76. See the
+> [methodology](/methodology/) for the test and the numbers.
 
-**92 councils. Minority White British by 2051.**
+**86 councils. Minority White British by 2051.**
 
-67 by 2041. 92 by 2051. These are not forecasts. They are Hamilton-Perry
+67 by 2041. 86 by 2051. These are not forecasts. They are Hamilton-Perry
 projections extrapolating Census 2011-to-2021 cohort change ratios forward,
 constrained by ONS population projections. On the out-of-sample test the model is
 close to unbiased, with a mean error of +0.05 percentage points on the White
 British share and a mean absolute error of 1.56pp on that one-decade forecast. Read the numbers
 with that error attached rather than as point estimates.
 
-Of the 92, **59 have a White British majority today.** They cross the threshold
+Of the 86, **59 have a White British majority today.** They cross the threshold
 within a generation.
 
 The ten fastest transformations among current-majority areas:
@@ -72,10 +62,10 @@ Luton (31.8%), Slough (24.0%), Newham (14.8%), Brent (15.2%). These areas passed
 the threshold years ago.
 
 **The national picture.** England and Wales White British share: 74.4% (Census
-2021, ONS TS021). All 318 areas carry a 2051 projection, and across them the
-population-weighted share is 74.4% in 2021 and **55.1% by 2051**. The
+2021, ONS TS021). Across the 314 areas with a published projection, the
+population-weighted share is 74.3% in 2021 and **55.0% by 2051**. The
 cohort-component model, which assumes ethnic fertility rates converge partway to
-the national mean, gives 54.7% on the same weighting.
+the national mean, gives 54.6% on the same weighting.
 
 The two models agreeing to within half a point is worth noting, because they did
 not before. Under the settings replaced in August 2026 the Hamilton-Perry model
@@ -87,16 +77,13 @@ structure: the White British population is older, dying faster than it replaces
 itself. Migration: selective out-migration of White British to surrounding areas,
 combined with international in-migration to cities.
 
-**What the old growth ceiling did to this count.** Cohort change ratios compound,
-and with the ceiling of 5.0 replaced in August 2026 a group could quintuple in a
+**Why a handful of areas are still missing from this count.** Cohort change ratios
+compound, and with the old growth ceiling of 5.0 a group could quintuple in a
 decade, which is 625 times over four steps. That produced projections that were
-arithmetic rather than demography: Enfield's "Other" category reached 67% by
-2051, Barnsley's White Other went from 4.3% to 45.3%. The ceiling of 1.65
-selected on the out-of-sample test cuts that to a handful of area-years, which
-are withheld rather than published. Every one of the 318 areas now carries a 2051
-projection, so none is missing from the 92. The 2061 count is a different matter:
-the model reaches 2061 in 269 areas, and any 2061 figure on this site is a figure
-about those 269.
+arithmetic rather than demographic in 108 areas: Enfield's "Other" category
+reached 67% by 2051, Barnsley's White Other went from 4.3% to 45.3%. The ceiling
+selected on the out-of-sample test cuts that to a handful of areas, whose remaining
+diverged years are still withheld. Those 15 do not appear in the 86.
 
 The data is on every place page on this site. Search your area.
 

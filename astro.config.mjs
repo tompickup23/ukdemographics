@@ -12,12 +12,11 @@ export default defineConfig({
     // meta-refresh page with a canonical tag at the old path, which is what
     // search engines treat as a permanent move on a static host.
     "/findings/109-areas-minority-wbi-2051/":
-      "/findings/92-areas-minority-wbi-2051/",
+      "/findings/86-areas-minority-wbi-2051/",
 
-    // Renamed again on 7 September 2026, same reason. The body said 86 while its
-    // own parts summed to 92: 59 areas majority today plus 33 already below 50%
-    // at the 2021 Census. Both old slugs point at the corrected one.
-    "/findings/86-areas-minority-wbi-2051/":
-      "/findings/92-areas-minority-wbi-2051/",
+    // Same again: the Blackburn slug said 2028 while the headline, the stat, the
+    // summary and the threshold in the model all said 2027.
+    "/findings/blackburn-minority-wb-2028/":
+      "/findings/blackburn-minority-wb-2027/",
   },
 });

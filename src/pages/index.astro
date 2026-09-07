@@ -7,6 +7,7 @@ import StatCard from "../components/StatCard.astro";
 import { getAreasBelowWhiteBritishMajority, getEthnicProjection } from "../lib/ethnic-projections";
 import rawProjections from "../data/live/ethnic-projections.json";
 import { slugifyAreaName, SITE_URL, getPublicPlaceAreas } from "../lib/site";
+import { plausibleThrough } from "../lib/projection-plausibility";
 import { getCollection } from "astro:content";
 
 const projData = rawProjections as any;
@@ -52,24 +53,27 @@ const foreignBornMajority2051 = allAreaCodes.filter(code => {
 
 // National population-weighted White British shares, computed from projData
 // (weighted by 2021 LA population throughout for consistency).
-// Population-weighted White British share. Every year divides by the population
-// of the areas that contribute to that year, which sounds obvious and was not
-// what this did: 2061 accumulated a numerator over the 269 areas the current
-// model projects that far and divided it by the population of all 318. The 49
-// areas with no 2061 projection were counted as people with no White British
-// among them, and the published 2061 figure came out at 39.1% instead of 45.9%.
-// Those 49 are 14.9% of the population and average 89.0% White British against
-// 77.0% across the 269, so the missing denominator pulled hard and in one
-// direction.
+// Population-weighted White British share, on two rules.
 //
-// wb2051on2061Geo carries the 2051 share recomputed over exactly the areas that
-// have a 2061 projection. Without it the panel invites a reader to run 55.1 to
-// 45.9 as a decade of change when the two figures cover different countries;
-// the honest step on constant geography is 52.9 to 45.9.
+// Each year divides by the population of the areas that year covers, which sounds
+// obvious and was not what this did: 2061 accumulated a numerator over the areas
+// the model reaches that far and divided it by the population of all 318,
+// counting the rest as areas with no White British residents. It published 39.1%
+// where the areas it covers give 48.8%.
+//
+// And a year counts for an area only where that year is publishable for it. Where
+// a residual Census group runs away past a quarter of the population at several
+// times its 2021 share, the place page withholds the year, and an aggregate that
+// swallows what the page refuses to print is running a second rule in public. Six
+// area-years are withheld at 2051, fourteen at 2061.
+//
+// wb2051on2061Geo carries 2051 recomputed over exactly the areas publishable to
+// 2061, because 56.3% in 2051 against 48.8% in 2061 is not a decade of change when
+// the two cover different countries. On constant geography the step is 56.0 to 48.8.
 const natAgg = (() => {
-  let totalPop = 0, pop2051 = 0, pop2061 = 0;
-  let wb2011 = 0, wb2021 = 0, wb2051 = 0, wb2061 = 0, wb2051on2061Geo = 0;
-  let n2051 = 0, n2061 = 0;
+  let totalPop = 0, pop2051 = 0, pop2061 = 0, popCurrent = 0, legacyPop = 0;
+  let wb2011 = 0, wb2021 = 0, wb2051 = 0, wb2061 = 0, wb2051on2061Geo = 0, wb2051Current = 0;
+  let n2051 = 0, n2061 = 0, nLegacy = 0;
   for (const code of allAreaCodes) {
     const a = projData.areas[code];
     const pop = a?.current?.total_population ?? 0;
@@ -77,9 +81,19 @@ const natAgg = (() => {
     totalPop += pop;
     wb2011 += (a?.baseline?.groups?.white_british ?? 0) * pop;
     wb2021 += (a?.current?.groups?.white_british ?? 0) * pop;
-    const p51 = a?.projections?.["2051"]?.white_british;
-    const p61 = a?.projections?.["2061"]?.white_british;
-    if (p51 != null) { wb2051 += p51 * pop; pop2051 += pop; n2051++; }
+
+    const through = plausibleThrough(a);
+    const p51 = through != null && through >= 2051 ? a?.projections?.["2051"]?.white_british : null;
+    const p61 = through != null && through >= 2061 ? a?.projections?.["2061"]?.white_british : null;
+    if (p51 != null) {
+      wb2051 += p51 * pop; pop2051 += pop; n2051++;
+      // The 49 areas the current model cannot produce are exactly those carrying a
+      // 2051 projection and no 2061 one: the v8 pipeline runs an area to 2061 or
+      // not at all. Derived rather than listed, so the disclosure below cannot go
+      // stale the way a typed-in count does.
+      if (a?.projections?.["2061"] == null) { legacyPop += pop; nLegacy++; }
+      else { wb2051Current += p51 * pop; popCurrent += pop; }
+    }
     if (p61 != null) {
       wb2061 += p61 * pop; pop2061 += pop; n2061++;
       if (p51 != null) wb2051on2061Geo += p51 * pop;
@@ -92,6 +106,10 @@ const natAgg = (() => {
     wb2051: pop2051 > 0 ? wb2051 / pop2051 : 0,
     wb2061: pop2061 > 0 ? wb2061 / pop2061 : 0,
     wb2051on2061Geo: pop2061 > 0 ? wb2051on2061Geo / pop2061 : 0,
+    wb2051Current: popCurrent > 0 ? wb2051Current / popCurrent : 0,
+    nCurrent: n2051 - nLegacy,
+    nLegacy,
+    legacyPopPct: pop2051 > 0 ? (legacyPop / pop2051) * 100 : 0,
     n2051,
     n2061,
   };
@@ -261,10 +279,15 @@ function findingColor(verdict: string): string {
           <span><i class="hero-key-sw hero-key-sw--proj"></i>Projected</span>
         </div>
         <p class="hero-panel-note">
-          Population-weighted across all {fmtInt(totalAreas)} areas. The model reaches 2061 in
-          {natAgg.n2061} of them, so a 2061 bar would not be measuring the same country as the
-          three above it. On those {natAgg.n2061} areas alone the share runs
+          Census years cover all {fmtInt(totalAreas)} areas. 2051 covers the {natAgg.n2051} where
+          the model is still projecting demography rather than running away from it, and 2061 the
+          {natAgg.n2061} it reaches at all, so a 2061 bar would not be measuring the same country
+          as the three above it. On those {natAgg.n2061} areas alone the share runs
           {fmtPct1(natAgg.wb2051on2061Geo)} in 2051 to {fmtPct1(natAgg.wb2061)} in 2061.
+          The 2051 figure is not all one model: {natAgg.nLegacy} areas carry projections from an
+          earlier run the current code cannot reproduce, {natAgg.legacyPopPct.toFixed(1)}% of the
+          weighted population. Across the {natAgg.nCurrent} areas the current model produces, 2051
+          is {fmtPct1(natAgg.wb2051Current)}.
         </p>
       </aside>
     </div>
@@ -294,12 +317,12 @@ function findingColor(verdict: string): string {
       <div class="impact-item impact-item--hero">
         <span class="impact-number">{fmtPct1(natWb2021)} &rarr; {fmtPct1(natWb2051)}</span>
         <span class="impact-label">White British share, 2021 &rarr; 2051</span>
-        <span class="impact-context">Population-weighted across {fmtInt(totalAreas)} local authorities. Observed Census 2021 vs Hamilton-Perry projection.</span>
-        <span class="impact-calc">2061, across the {natAgg.n2061} areas the model reaches that far: {fmtPct1(natAgg.wb2051on2061Geo)} in 2051 to {fmtPct1(natWb2061)}. Those same {natAgg.n2061} areas, not the {totalAreas} above. Full trajectory in the model below.</span>
+        <span class="impact-context">Observed Census 2021 across {fmtInt(totalAreas)} local authorities, against the Hamilton-Perry projection across the {natAgg.n2051} where 2051 is publishable.</span>
+        <span class="impact-calc">2061, across the {natAgg.n2061} areas the model reaches that far: {fmtPct1(natAgg.wb2051on2061Geo)} in 2051 to {fmtPct1(natWb2061)}. Those same {natAgg.n2061} areas, not the {natAgg.n2051} above. Full trajectory in the model below.</span>
       </div>
       <div class="impact-item">
         <span class="impact-number">{areasBelow50}</span>
-        <span class="impact-label">areas below 50% White British by 2051</span>
+        <span class="impact-label">of {below2051.covered} areas below 50% White British by 2051</span>
         <span class="impact-context">{areasBelow50by2061} of the {below2061.covered} areas the model reaches by 2061. Click any area for its 2011 to 2061 trajectory.</span>
       </div>
       <div class="impact-item">
