@@ -31,14 +31,19 @@ for (let i = 1; i < profLines.length; i++) {
   const cols = parseCsvLine(profLines[i]);
   const code = cols[0], name = cols[2], pop = parseFloat(cols[3]);
   if (!code || isNaN(pop)) continue;
-  if (!proficiency.has(code)) proficiency.set(code, { total: 0, english: 0, notEnglish: 0, canSpeak: 0, cannotSpeak: 0 });
+  if (!proficiency.has(code)) proficiency.set(code, { total: 0, english: 0, notEnglish: 0, canSpeak: 0, cannotSpeakWell: 0, cannotSpeak: 0 });
   const p = proficiency.get(code);
 
+  // Every sub-row label starts with "Main language is not English", so the
+  // four sub-rows have to be matched before the subtotal that contains them.
+  // Testing the subtotal first counted it again inside its own parts, which
+  // doubled notEnglish and left cannotSpeak at zero for every area.
   if (name?.includes("Total")) p.total = pop;
   else if (name?.includes("Main language is English")) p.english = pop;
-  else if (name?.includes("Main language is not English")) p.notEnglish += pop;
+  else if (name?.includes("Cannot speak English well")) p.cannotSpeakWell = pop;
+  else if (name?.includes("Cannot speak English")) p.cannotSpeak = pop;
   else if (name?.includes("Can speak English")) p.canSpeak += pop;
-  else if (name?.includes("Cannot speak English")) p.cannotSpeak += pop;
+  else if (name?.includes("Main language is not English")) p.notEnglish = pop;
 }
 
 let profCount = 0;

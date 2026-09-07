@@ -48,6 +48,9 @@ Population data for every community. Ethnic projections, school data, housing de
 |---|---|---|
 | `scripts/fetch/fetch-nomis-census.mjs` | TS029 + RM134 + RM043 from NOMIS | One-shot (Census 2021 is fixed) |
 | `scripts/fetch/fetch-la-hierarchy.mjs` | District → county lookup from ONS Open Geography | Annual or after LGR events |
+| `scripts/fetch/fetch-lad-successors.mjs` | LAD22 → LAD23 successor lookup from ONS Open Geography | After LGR events |
+| `scripts/build/derive-census-english-successors.mjs` | Sums TS029 counts for the four April 2023 unitaries; post-step of the NOMIS fetch | With the NOMIS fetch |
+| `scripts/model/sync_english_proficiency.mjs` | Rewrites `englishProficiency` + `currentProficiency` from the committed TS029 file | After a TS029 refresh |
 | `scripts/fetch/fetch-stop-and-search.mjs` | data.police.uk monthly | Weekly via cron |
 | `scripts/build/build-pcon-dataset.mjs` | Join UKE GE 2024 + crosswalk + PIP into per-PCON | When upstream changes |
 

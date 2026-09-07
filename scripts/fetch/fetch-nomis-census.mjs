@@ -11,6 +11,10 @@
  * fits comfortably in one request because TYPE154 + selected dimensions
  * keeps the cell count under ~20k.
  *
+ * TYPE154 is pre-reorganisation geography, so the four unitary authorities
+ * created in April 2023 have no row. A post-step derives them by summing the
+ * districts they replaced: see scripts/build/derive-census-english-successors.mjs.
+ *
  * Output:
  *   src/data/live/census-english-proficiency.json
  *   src/data/live/census-tenure-ethnic.json
@@ -22,6 +26,7 @@
  * a table (rare).
  */
 import { mkdirSync, writeFileSync } from "node:fs";
+import { applySuccessorAggregates } from "../build/derive-census-english-successors.mjs";
 
 const BASE = "https://www.nomisweb.co.uk/api/v01/dataset";
 const OUT_DIR = "src/data/live";
@@ -110,6 +115,12 @@ async function buildEnglishProficiency() {
     }
   }
 
+  // TS029 is published on 2022 districts, so Cumberland, Westmorland and
+  // Furness, North Yorkshire and Somerset arrive with no row of their own.
+  // Sum their predecessor districts so a re-fetch reproduces every area.
+  const { added } = applySuccessorAggregates({ areas });
+  for (const a of added) console.log(`  Derived ${a} from its 2021 districts`);
+
   return {
     source: "ONS Census 2021 via NOMIS (TS029 - Proficiency in English)",
     sourceUrl: "https://www.nomisweb.co.uk/datasets/c2021ts029",
@@ -117,7 +128,7 @@ async function buildEnglishProficiency() {
     referenceDate: "2021-03-21",
     lastFetched: new Date().toISOString().slice(0, 10),
     description:
-      "Proficiency in English among usual residents aged 3+, per local authority. Derived field cannotSpeakWellPct = (cannot speak well + cannot speak) / total. Census 2021 reference date is 21 March 2021.",
+      "Proficiency in English among usual residents aged 3+, per local authority. Derived field cannotSpeakWellPct = (cannot speak well + cannot speak) / total. Census 2021 reference date is 21 March 2021. Areas carrying derivedFrom are the April 2023 unitary authorities, summed from the 2021 districts they replaced.",
     areas,
   };
 }

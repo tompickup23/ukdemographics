@@ -3646,6 +3646,130 @@
       "mainNotEnglishCannot": 116,
       "cannotSpeakWellPct": 1.11,
       "nonEnglishPct": 3.82
+    },
+    "E06000066": {
+      "areaName": "Somerset",
+      "total": 555788,
+      "mainEnglish": 532913,
+      "mainNotEnglishVeryWell": 10347,
+      "mainNotEnglishWell": 8769,
+      "mainNotEnglishNotWell": 3244,
+      "mainNotEnglishCannot": 515,
+      "cannotSpeakWellPct": 0.68,
+      "nonEnglishPct": 4.12,
+      "derivedFrom": [
+        {
+          "code": "E07000187",
+          "name": "Mendip"
+        },
+        {
+          "code": "E07000188",
+          "name": "Sedgemoor"
+        },
+        {
+          "code": "E07000189",
+          "name": "South Somerset"
+        },
+        {
+          "code": "E07000246",
+          "name": "Somerset West and Taunton"
+        }
+      ],
+      "sourceNote": "Aggregated from the 2021 districts of Mendip, Sedgemoor, South Somerset, Somerset West and Taunton. Somerset was created on 1 April 2023 and has no Census 2021 output of its own."
+    },
+    "E06000065": {
+      "areaName": "North Yorkshire",
+      "total": 599547,
+      "mainEnglish": 583851,
+      "mainNotEnglishVeryWell": 7022,
+      "mainNotEnglishWell": 5893,
+      "mainNotEnglishNotWell": 2401,
+      "mainNotEnglishCannot": 380,
+      "cannotSpeakWellPct": 0.46,
+      "nonEnglishPct": 2.62,
+      "derivedFrom": [
+        {
+          "code": "E07000163",
+          "name": "Craven"
+        },
+        {
+          "code": "E07000164",
+          "name": "Hambleton"
+        },
+        {
+          "code": "E07000165",
+          "name": "Harrogate"
+        },
+        {
+          "code": "E07000166",
+          "name": "Richmondshire"
+        },
+        {
+          "code": "E07000167",
+          "name": "Ryedale"
+        },
+        {
+          "code": "E07000168",
+          "name": "Scarborough"
+        },
+        {
+          "code": "E07000169",
+          "name": "Selby"
+        }
+      ],
+      "sourceNote": "Aggregated from the 2021 districts of Craven, Hambleton, Harrogate, Richmondshire, Ryedale, Scarborough, Selby. North Yorkshire was created on 1 April 2023 and has no Census 2021 output of its own."
+    },
+    "E06000063": {
+      "areaName": "Cumberland",
+      "total": 265828,
+      "mainEnglish": 260285,
+      "mainNotEnglishVeryWell": 2432,
+      "mainNotEnglishWell": 2026,
+      "mainNotEnglishNotWell": 925,
+      "mainNotEnglishCannot": 160,
+      "cannotSpeakWellPct": 0.41,
+      "nonEnglishPct": 2.09,
+      "derivedFrom": [
+        {
+          "code": "E07000026",
+          "name": "Allerdale"
+        },
+        {
+          "code": "E07000028",
+          "name": "Carlisle"
+        },
+        {
+          "code": "E07000029",
+          "name": "Copeland"
+        }
+      ],
+      "sourceNote": "Aggregated from the 2021 districts of Allerdale, Carlisle, Copeland. Cumberland was created on 1 April 2023 and has no Census 2021 output of its own."
+    },
+    "E06000064": {
+      "areaName": "Westmorland and Furness",
+      "total": 221013,
+      "mainEnglish": 216119,
+      "mainNotEnglishVeryWell": 2242,
+      "mainNotEnglishWell": 1855,
+      "mainNotEnglishNotWell": 681,
+      "mainNotEnglishCannot": 116,
+      "cannotSpeakWellPct": 0.36,
+      "nonEnglishPct": 2.21,
+      "derivedFrom": [
+        {
+          "code": "E07000027",
+          "name": "Barrow-in-Furness"
+        },
+        {
+          "code": "E07000030",
+          "name": "Eden"
+        },
+        {
+          "code": "E07000031",
+          "name": "South Lakeland"
+        }
+      ],
+      "sourceNote": "Aggregated from the 2021 districts of Barrow-in-Furness, Eden, South Lakeland. Westmorland and Furness was created on 1 April 2023 and has no Census 2021 output of its own."
     }
   }
 }

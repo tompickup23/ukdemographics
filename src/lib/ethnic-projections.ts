@@ -63,7 +63,14 @@ export interface AreaEthnicProjection {
   confidenceBand2051?: { median: number; ci80: [number, number]; ci95: [number, number] };
   shiftShare?: ShiftShareData;
   diversityIndex?: { entropy: number; diversityLevel: string; dissimilarity: number };
-  englishProficiency?: { mainLanguageEnglishPct: number; cannotSpeakEnglishPct: number };
+  // Written by scripts/model/sync_english_proficiency.mjs from the NOMIS
+  // TS029 file. Read by the schools and dashboard model scripts, not by any
+  // page: place pages render census-english-proficiency.json directly.
+  englishProficiency?: {
+    mainLanguageEnglishPct: number;
+    notEnglishPct: number;
+    cannotSpeakEnglishPct: number;
+  };
   migrationProfile?: { foreignBornPct: number; maturityLevel: string; implication: string };
   economicActivity?: EthGroupMetric;
   housingTenure?: EthGroupMetric;
@@ -123,10 +130,6 @@ export function getShiftShareData(areaCode: string) {
 
 export function getDiversityIndex(areaCode: string) {
   return data.areas[areaCode]?.diversityIndex ?? null;
-}
-
-export function getEnglishProficiency(areaCode: string) {
-  return data.areas[areaCode]?.englishProficiency ?? null;
 }
 
 export function getMigrationProfile(areaCode: string) {

@@ -12,7 +12,7 @@ import ScenarioSelector from "../../components/ScenarioSelector.astro";
 import {
   getEthnicProjection,
   getReligionData, getNativityData,
-  getShiftShareData, getDiversityIndex, getEnglishProficiency,
+  getShiftShareData, getDiversityIndex,
   getStochasticData, getEthnicCompositionTimeline,
 } from "../../lib/ethnic-projections";
 import { getCrimeProfile, getCrimeRatePercentile, getCrimeSource, getCrimeCaveat } from "../../lib/crime-data";
@@ -70,7 +70,6 @@ const religionData = getReligionData(area.areaCode);
 const nativityData = getNativityData(area.areaCode);
 const shiftShareData = getShiftShareData(area.areaCode);
 const diversityIndex = getDiversityIndex(area.areaCode);
-const englishProficiency = getEnglishProficiency(area.areaCode);
 
 // New dashboard data
 const econ = (economicProfile as any).areas?.[area.areaCode];
@@ -812,10 +811,10 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   )}
 
   <!-- English proficiency (Census 2021 + projection) -->
-  {(censusEnglish || englishProficiency || language?.dataAvailable) && (
+  {(censusEnglish || language?.dataAvailable) && (
     <section class="section" id="english">
       <h2>English proficiency</h2>
-      {censusEnglish ? (
+      {censusEnglish && (
         <>
           <h3 class="subhead">Census 2021</h3>
           <div class="data-grid">
@@ -825,19 +824,11 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
             <div class="data-item"><span class="data-label">Cannot speak English at all</span><span class="data-value">{((censusEnglish.mainNotEnglishCannot ?? 0) / censusEnglish.total * 100).toFixed(1)}%</span></div>
             <div class="data-item"><span class="data-label">Total population 3+</span><span class="data-value">{censusEnglish.total.toLocaleString()}</span></div>
           </div>
-          <p class="section-note">ONS Census 2021 (TS029) via NOMIS. Reference date 21 March 2021.</p>
-        </>
-      ) : englishProficiency && (
-        <>
-          <h3 class="subhead">Census 2021</h3>
-          <div class="data-grid">
-            {Object.entries(englishProficiency).filter(([k]) => k !== "source").map(([level, pct]) => (
-              <div class="data-item">
-                <span class="data-label">{level.replace(/_/g, " ")}</span>
-                <span class="data-value">{typeof pct === "number" ? `${(pct as number).toFixed(1)}%` : String(pct)}</span>
-              </div>
-            ))}
-          </div>
+          <p class="section-note">
+            {censusEnglish.derivedFrom
+              ? `ONS Census 2021 (TS029) via NOMIS, aggregated from the 2021 districts of ${censusEnglish.derivedFrom.map((d) => d.name).join(", ")}. ${censusEnglish.areaName} was created on 1 April 2023, after the census, so the census publishes no figures under its own code. Reference date 21 March 2021.`
+              : "ONS Census 2021 (TS029) via NOMIS. Reference date 21 March 2021."}
+          </p>
         </>
       )}
       {language?.dataAvailable && language.projectedNonEnglishIncrease > 0 && (
