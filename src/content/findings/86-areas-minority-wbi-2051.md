@@ -1,7 +1,7 @@
 ---
 headline: "86 local authorities projected minority White British by 2051"
 date: "2026-04-14"
-updated: "2026-08-13"
+updated: "2026-09-07"
 model_version: "v8.0"
 category: demographics
 stat_value: "86"
@@ -11,6 +11,14 @@ source_url: "https://www.ons.gov.uk/census"
 source_label: "Census 2021 + Hamilton-Perry v8.0 projection model"
 summary: "86 English local authorities are projected to have a White British population below 50% by 2051. 59 of those have a White British majority today. This is not a London story: Bolton, Pendle, Oldham, Thurrock and Broxbourne all cross the threshold. Recomputed 13 August 2026 on a model recalibrated against an out-of-sample test, replacing an earlier count of 109."
 ---
+
+> **Correction, 7 September 2026.** The national-picture paragraph was stale and
+> named a denominator no subset of the dataset has. Recomputed with the function
+> the homepage and national page use, the population-weighted White British share
+> is **74.4%** in 2021 across all 318 areas and **56.3%** by 2051 across the 312
+> where 2051 is publishable, with **54.3%** across the 263 areas the current model
+> run produces and **55.9%** for the cohort-component model on the same 312. The
+> count of areas whose 2051 is withheld reads **six**, not fifteen.
 
 > **Correction, 13 August 2026.** This piece originally said 109 areas and cited
 > the model's backcast score as validation. Both were wrong. The backcast fitted
@@ -63,10 +71,14 @@ Luton (31.8%), Slough (24.0%), Newham (14.8%), Brent (15.2%). These areas passed
 the threshold years ago.
 
 **The national picture.** England and Wales White British share: 74.4% (Census
-2021, ONS TS021). Across the 314 areas with a published projection, the
-population-weighted share is 74.3% in 2021 and **55.0% by 2051**. The
-cohort-component model, which assumes ethnic fertility rates converge partway to
-the national mean, gives 54.6% on the same weighting.
+2021, ONS TS021). This site's own weighting gives the same 74.4% across all 318
+areas in the dataset, and **56.3% by 2051** across the 312 areas where 2051 is
+publishable, which is the figure the homepage carries. The 2051 share is not all
+one model: 49 of those areas carry projections from an earlier run the current
+code cannot reproduce, 15.4% of the weighted population, and across the 263 areas
+the current model produces 2051 is **54.3%**. The cohort-component model, which
+assumes ethnic fertility rates converge partway to the national mean, gives 55.9%
+on the same weighting and the same 312 areas.
 
 The two models agreeing to within half a point is worth noting, because they did
 not before. Under the settings replaced in August 2026 the Hamilton-Perry model
@@ -83,8 +95,9 @@ compound, and with the old growth ceiling of 5.0 a group could quintuple in a
 decade, which is 625 times over four steps. That produced projections that were
 arithmetic rather than demographic in 108 areas: Enfield's "Other" category
 reached 67% by 2051, Barnsley's White Other went from 4.3% to 45.3%. The ceiling
-selected on the out-of-sample test cuts that to a handful of areas, whose remaining
-diverged years are still withheld. Those 15 do not appear in the 86.
+selected on the out-of-sample test cuts that to six areas whose 2051 is still
+withheld: Barnet, Hackney, Lambeth, Enfield, Haringey and Islington. Those six do
+not appear in the 86.
 
 The data is on every place page on this site. Search your area.
 
