@@ -308,13 +308,13 @@ function findingColor(verdict: string): string {
         <span class="impact-context">{muslimMajority2051} projected Muslim majority by 2051.</span>
       </div>
     </div>
-    <p class="impact-source">Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations. The model was fitted on Census 2001 to 2011 and scored against Census 2021: mean absolute error 1.56 percentage points per decade, bias +0.05 points across 285 areas. Areas where the model diverged are withheld. <a href="/methodology/">Full methodology &rarr;</a></p>
+    <p class="impact-source">Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations. The model was fitted on Census 2001 to 2011 and scored against Census 2021: mean absolute error 1.56 percentage points on that one-decade forecast, bias +0.05 points across 285 areas. Areas where the model diverged are withheld. <a href="/methodology/">Full methodology &rarr;</a></p>
   </section>
 
   <!-- ═══ DEMOGRAPHIC PROJECTIONS ═══ -->
   <section class="demo-section shell" id="demographics">
     <div class="demo-inner">
-      <span class="chip accent" style="margin-bottom: 0.75rem;">Hamilton-Perry model, Census-verified</span>
+      <span class="chip accent" style="margin-bottom: 0.75rem;">Hamilton-Perry model, tested out of sample against Census 2021</span>
       <h2 class="section-title">National ethnic composition trajectory</h2>
       <p class="section-desc" style="max-width: 700px;">
         The ONS does not project ethnic composition at local authority level. This model does.
@@ -383,7 +383,7 @@ function findingColor(verdict: string): string {
         </div>
         <p class="cross-note">
           The marker sits on a 2021 to 2041 axis. Source: Census 2021 (ONS) projected with
-          Hamilton-Perry v8.0, mean absolute error 1.56pp per decade.
+          Hamilton-Perry v8.0, mean absolute error 1.56pp on a one-decade out-of-sample test.
         </p>
       </div>
 

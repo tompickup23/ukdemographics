@@ -34,4 +34,4 @@ Census 2021 distinguishes White: Roma (98,785 people, 0.18%) from White: Gypsy o
 
 **CWR-implied fertility:** Gypsy/Traveller has the highest CWR-implied TFR of any group at approximately 2.56, well above the national average. Roma CWR-implied TFR: approximately 1.33. These rates drive different population growth trajectories despite both groups being small.
 
-**Methodology:** Hamilton-Perry v8.0 with 20 ethnic groups. Census 2021 direct observations. Roma separated from White Other (previously merged). Gypsy/Irish Traveller separated from White Other. Small population sizes mean wider confidence intervals than for larger groups.
+**Methodology:** Hamilton-Perry v8.0 with 20 ethnic groups. Census 2021 direct observations. Roma separated from White Other (previously merged). Gypsy/Irish Traveller separated from White Other. Small population sizes mean wider simulation intervals than for larger groups.
