@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data/raw/supplementary/ons-recorded-crime-csp.xlsx"
 OUT = ROOT / "src/data/live/crime-dashboard.json"
 EP = ROOT / "src/data/live/ethnic-projections.json"
+SNAPSHOT_DATE = "2026-04-28"
 
 
 def main() -> None:
@@ -92,6 +93,7 @@ def main() -> None:
 
         direct_rows[la_code] = {
             "areaName": la_name,
+            "snapshotDate": SNAPSHOT_DATE,
             "totalCrimeRate": round(total_rate, 2) if total_rate is not None else None,
             "violentCrimeRate": round(violent_rate, 2) if violent_rate is not None else None,
             "theftRate": round(theft_rate, 2) if theft_rate is not None else None,
@@ -146,6 +148,7 @@ def main() -> None:
                     continue
                 direct_rows[la] = {
                     "areaName": ep["areas"][la].get("areaName", la),
+                    "snapshotDate": SNAPSHOT_DATE,
                     "totalCrimeRate": round(total_rate, 2) if total_rate is not None else None,
                     "violentCrimeRate": round(violent_rate, 2) if violent_rate is not None else None,
                     "theftRate": round(theft_rate, 2) if theft_rate is not None else None,
@@ -162,7 +165,7 @@ def main() -> None:
     out = {
         "source": "ONS recorded crime by Community Safety Partnership area, year ending March 2024 (Home Office police recorded crime). LA-level rates are CSP rates inherited where multiple LAs share a CSP.",
         "methodology": "Total recorded crime rate per 1,000 population, year ending March 2024. Where a CSP groups multiple LAs (e.g. Devon districts) constituent LAs inherit the CSP rate. ASB rate derived from Table C6 count divided by Table C5 population. Year-on-year is total recorded crime % change vs YE March 2023.",
-        "lastUpdated": "2026-04-28",
+        "lastUpdated": SNAPSHOT_DATE,
         "caveat": "Police recorded crime is shaped by recording practice, reporting rates, and policing priority. Cross-area comparison must take account of those factors. Hate crime and quality-of-life detail are not in this file.",
         "areas": dict(sorted(direct_rows.items())),
     }

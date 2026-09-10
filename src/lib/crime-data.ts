@@ -7,6 +7,7 @@ export interface CrimeBreakdown {
 
 export interface AreaCrimeProfile {
   areaName: string;
+  snapshotDate: string;
   totalCrimeRate: number;
   violentCrimeRate: number;
   theftRate: number;

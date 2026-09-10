@@ -38,6 +38,7 @@ import hmoDensity from "../../data/live/hmo-density.json";
 import councilTaxSpd from "../../data/live/council-tax-spd.json";
 import { buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
 import rawProjections from "../../data/live/ethnic-projections.json";
+import ukPlacesRegistry from "../../data/live/ukplaces-places.json";
 import economicProfile from "../../data/live/economic-profile.json";
 import housingDemand from "../../data/live/housing-demand.json";
 import schoolPressure from "../../data/live/school-pressure.json";
@@ -63,6 +64,13 @@ export function getStaticPaths() {
 
 const { area } = Astro.props as { area: DemographicAreaSummary };
 const projData = (rawProjections as any).areas?.[area.areaCode];
+type UkPlacesRecord = {
+  slug: string;
+  coverage: { asylumstats: { hasPage: boolean; url: string | null } };
+};
+const ukPlacesRecord = (ukPlacesRegistry as Record<string, UkPlacesRecord>)[area.areaCode] ?? null;
+const asylumStatsUrl = ukPlacesRecord?.coverage.asylumstats.url ?? null;
+const ukPlacesUrl = ukPlacesRecord ? `https://ukplaces.co.uk/places/${ukPlacesRecord.slug}/` : null;
 
 // Demographic data
 const ethnicProjection = getEthnicProjection(area.areaCode);
@@ -1572,18 +1580,29 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     </div>
   </div>
 
-  <!-- Asylum Stats cross-link -->
-  <div class="as-cross-link">
-    <div class="as-cross-inner">
-      <span class="as-cross-label">Asylum and immigration data</span>
-      <span class="as-cross-desc">
-        Asylum seekers on support, hotel costs, grant rates, and the True Cost of Asylum for this area.
-      </span>
-      <a href={`https://asylumstats.co.uk/places/${slugifyAreaName(area.areaName)}/`} class="as-cross-btn" rel="noopener">
-        View {area.areaName} on Asylum Stats &rarr;
-      </a>
+  {asylumStatsUrl && (
+    <div class="as-cross-link">
+      <div class="as-cross-inner">
+        <span class="as-cross-label">Asylum and immigration data</span>
+        <span class="as-cross-desc">
+          Asylum seekers on support, hotel costs, grant rates, and the True Cost of Asylum for this area.
+        </span>
+        <a href={asylumStatsUrl} class="as-cross-btn" rel="noopener">
+          View {area.areaName} on Asylum Stats &rarr;
+        </a>
+      </div>
     </div>
-  </div>
+  )}
+
+  {ukPlacesUrl && (
+    <div class="as-cross-link">
+      <div class="as-cross-inner">
+        <span class="as-cross-label">Local geography</span>
+        <span class="as-cross-desc">The shared local-authority geography record and its source coverage.</span>
+        <a href={ukPlacesUrl} class="as-cross-btn" rel="noopener">Place record on UK Places</a>
+      </div>
+    </div>
+  )}
 
   <DataFreshness
     updated={(rawProjections as any).lastUpdated ?? "2026-04-14"}
