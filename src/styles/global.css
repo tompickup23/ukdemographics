@@ -4549,9 +4549,13 @@ tr:last-child td {
 }
 .as-cross-btn:hover { background: #0891b2; }
 
+/* Faint, not transparent. `opacity: 0.5` over --text-muted computed to 2.2:1 on
+   white and silently voided the contrast the token documents one line above its
+   own value. --text-faint is the palette's quietest legible colour (5.58 light,
+   7.26 dark), so the block reads as faintly as before and still clears AA. */
 .footer-legal {
   font-size: 0.78rem;
-  opacity: 0.5;
+  color: var(--text-faint);
   line-height: 1.6;
   border-top: 1px solid var(--border);
   padding-top: 0.75rem;
@@ -4560,7 +4564,6 @@ tr:last-child td {
 .footer-legal-links {
   font-size: 0.78rem;
   color: var(--muted);
-  opacity: 0.6;
   margin-top: 0.5rem;
 }
 .footer-legal-links a {
@@ -4570,9 +4573,12 @@ tr:last-child td {
   color: var(--ink);
 }
 
+/* Unused today. Kept legible rather than at opacity 0.4 (1.9:1) because the one
+   thing this class would ever carry is a statutory imprint, which has to be
+   readable to do its job at all. */
 .footer-imprint {
   font-size: 0.75rem;
-  opacity: 0.4;
+  color: var(--text-faint);
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   border-top: 1px solid var(--border);
