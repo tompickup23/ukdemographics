@@ -48,7 +48,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000002": {
       "areaName": "Middlesbrough",
@@ -78,7 +79,7 @@
         },
         {
           "type": "Burglary",
-          "rate": 9.0
+          "rate": 9
         },
         {
           "type": "Vehicle offences",
@@ -94,7 +95,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000003": {
       "areaName": "Redcar and Cleveland",
@@ -140,7 +142,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000004": {
       "areaName": "Stockton-on-Tees",
@@ -186,7 +189,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000005": {
       "areaName": "Darlington",
@@ -232,7 +236,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000006": {
       "areaName": "Halton",
@@ -278,7 +283,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000007": {
       "areaName": "Warrington",
@@ -324,7 +330,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000008": {
       "areaName": "Blackburn with Darwen",
@@ -370,7 +377,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000009": {
       "areaName": "Blackpool",
@@ -416,7 +424,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000010": {
       "areaName": "Kingston upon Hull, City of",
@@ -462,7 +471,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000011": {
       "areaName": "East Riding of Yorkshire",
@@ -508,7 +518,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000012": {
       "areaName": "North East Lincolnshire",
@@ -554,7 +565,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000013": {
       "areaName": "North Lincolnshire",
@@ -600,7 +612,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000014": {
       "areaName": "York",
@@ -646,7 +659,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000015": {
       "areaName": "Derby",
@@ -692,7 +706,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000016": {
       "areaName": "Leicester",
@@ -738,7 +753,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000017": {
       "areaName": "Rutland",
@@ -784,7 +800,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000018": {
       "areaName": "Nottingham",
@@ -830,7 +847,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000019": {
       "areaName": "Herefordshire, County of",
@@ -876,7 +894,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000020": {
       "areaName": "Telford and Wrekin",
@@ -922,7 +941,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000021": {
       "areaName": "Stoke-on-Trent",
@@ -968,13 +988,14 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000022": {
       "areaName": "Bath and North East Somerset",
       "totalCrimeRate": 69.78,
       "violentCrimeRate": 26.04,
-      "theftRate": 24.0,
+      "theftRate": 24,
       "asbRate": 10.64,
       "drugRate": 1.21,
       "hateCrimeCount": null,
@@ -994,7 +1015,7 @@
         },
         {
           "type": "Theft offences",
-          "rate": 24.0
+          "rate": 24
         },
         {
           "type": "Burglary",
@@ -1014,7 +1035,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000023": {
       "areaName": "Bristol, City of",
@@ -1060,7 +1082,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000024": {
       "areaName": "North Somerset",
@@ -1106,7 +1129,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000025": {
       "areaName": "South Gloucestershire",
@@ -1152,7 +1176,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000026": {
       "areaName": "Plymouth",
@@ -1194,11 +1219,12 @@
         },
         {
           "type": "Public order offences",
-          "rate": 6.0
+          "rate": 6
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000027": {
       "areaName": "Torbay",
@@ -1244,7 +1270,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000030": {
       "areaName": "Swindon",
@@ -1290,7 +1317,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000031": {
       "areaName": "Peterborough",
@@ -1336,7 +1364,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000032": {
       "areaName": "Luton",
@@ -1382,7 +1411,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000033": {
       "areaName": "Southend-on-Sea",
@@ -1428,7 +1458,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000034": {
       "areaName": "Thurrock",
@@ -1474,7 +1505,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000035": {
       "areaName": "Medway",
@@ -1520,7 +1552,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000036": {
       "areaName": "Bracknell Forest",
@@ -1566,7 +1599,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000037": {
       "areaName": "West Berkshire",
@@ -1612,7 +1646,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000038": {
       "areaName": "Reading",
@@ -1658,7 +1693,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000039": {
       "areaName": "Slough",
@@ -1704,7 +1740,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000040": {
       "areaName": "Windsor and Maidenhead",
@@ -1750,7 +1787,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000041": {
       "areaName": "Wokingham",
@@ -1796,7 +1834,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000042": {
       "areaName": "Milton Keynes",
@@ -1842,7 +1881,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000043": {
       "areaName": "Brighton and Hove",
@@ -1888,14 +1928,15 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000044": {
       "areaName": "Portsmouth",
       "totalCrimeRate": 120.67,
       "violentCrimeRate": 49.95,
       "theftRate": 34.23,
-      "asbRate": 15.0,
+      "asbRate": 15,
       "drugRate": 4.67,
       "hateCrimeCount": null,
       "yearOnYearChange": -7.49,
@@ -1934,7 +1975,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000045": {
       "areaName": "Southampton",
@@ -1980,7 +2022,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000046": {
       "areaName": "Isle of Wight",
@@ -2026,7 +2069,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000047": {
       "areaName": "County Durham",
@@ -2072,7 +2116,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000049": {
       "areaName": "Cheshire East",
@@ -2118,7 +2163,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000050": {
       "areaName": "Cheshire West and Chester",
@@ -2164,7 +2210,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000051": {
       "areaName": "Shropshire",
@@ -2194,7 +2241,7 @@
         },
         {
           "type": "Burglary",
-          "rate": 3.0
+          "rate": 3
         },
         {
           "type": "Vehicle offences",
@@ -2210,7 +2257,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000052": {
       "areaName": "Cornwall",
@@ -2256,14 +2304,15 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000053": {
       "areaName": "Isles of Scilly",
       "totalCrimeRate": 31.13,
       "violentCrimeRate": 12.71,
       "theftRate": 8.33,
-      "asbRate": 10.0,
+      "asbRate": 10,
       "drugRate": 2.19,
       "hateCrimeCount": null,
       "yearOnYearChange": 29.09,
@@ -2278,7 +2327,7 @@
         },
         {
           "type": "Robbery",
-          "rate": 0.0
+          "rate": 0
         },
         {
           "type": "Theft offences",
@@ -2302,7 +2351,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000054": {
       "areaName": "Wiltshire",
@@ -2348,7 +2398,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000055": {
       "areaName": "Bedford",
@@ -2394,7 +2445,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000056": {
       "areaName": "Central Bedfordshire",
@@ -2440,7 +2492,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000057": {
       "areaName": "Northumberland",
@@ -2486,7 +2539,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000058": {
       "areaName": "Bournemouth, Christchurch and Poole",
@@ -2532,7 +2586,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000059": {
       "areaName": "Dorset",
@@ -2578,7 +2633,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000060": {
       "areaName": "Wycombe",
@@ -2624,7 +2680,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000065": {
       "areaName": "North Yorkshire",
@@ -2670,7 +2727,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E06000066": {
       "areaName": "Somerset",
@@ -2716,7 +2774,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000008": {
       "areaName": "Cambridge",
@@ -2762,7 +2821,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000009": {
       "areaName": "East Cambridgeshire",
@@ -2770,7 +2830,7 @@
       "violentCrimeRate": 17.23,
       "theftRate": 13.96,
       "asbRate": 8.47,
-      "drugRate": 1.0,
+      "drugRate": 1,
       "hateCrimeCount": null,
       "yearOnYearChange": -10.77,
       "breakdown": [
@@ -2800,7 +2860,7 @@
         },
         {
           "type": "Drug offences",
-          "rate": 1.0
+          "rate": 1
         },
         {
           "type": "Public order offences",
@@ -2808,7 +2868,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000010": {
       "areaName": "Fenland",
@@ -2854,7 +2915,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000011": {
       "areaName": "Huntingdonshire",
@@ -2900,7 +2962,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000012": {
       "areaName": "South Cambridgeshire",
@@ -2946,7 +3009,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000026": {
       "areaName": "Allerdale",
@@ -2992,7 +3056,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000027": {
       "areaName": "Barrow-In-Furness",
@@ -3038,7 +3103,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000028": {
       "areaName": "Carlisle",
@@ -3048,7 +3114,7 @@
       "asbRate": 12.77,
       "drugRate": 3.81,
       "hateCrimeCount": null,
-      "yearOnYearChange": -9.0,
+      "yearOnYearChange": -9,
       "breakdown": [
         {
           "type": "Violence against the person",
@@ -3084,7 +3150,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000029": {
       "areaName": "Copeland",
@@ -3130,13 +3197,14 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000030": {
       "areaName": "Eden",
       "totalCrimeRate": 57.58,
       "violentCrimeRate": 22.42,
-      "theftRate": 14.0,
+      "theftRate": 14,
       "asbRate": 6.05,
       "drugRate": 3.64,
       "hateCrimeCount": null,
@@ -3156,7 +3224,7 @@
         },
         {
           "type": "Theft offences",
-          "rate": 14.0
+          "rate": 14
         },
         {
           "type": "Burglary",
@@ -3176,7 +3244,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000031": {
       "areaName": "South Lakeland",
@@ -3184,7 +3253,7 @@
       "violentCrimeRate": 21.76,
       "theftRate": 12.59,
       "asbRate": 7.44,
-      "drugRate": 3.0,
+      "drugRate": 3,
       "hateCrimeCount": null,
       "yearOnYearChange": -5.56,
       "breakdown": [
@@ -3214,7 +3283,7 @@
         },
         {
           "type": "Drug offences",
-          "rate": 3.0
+          "rate": 3
         },
         {
           "type": "Public order offences",
@@ -3222,7 +3291,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000032": {
       "areaName": "Amber Valley",
@@ -3268,14 +3338,15 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000033": {
       "areaName": "Bolsover",
-      "totalCrimeRate": 76.0,
+      "totalCrimeRate": 76,
       "violentCrimeRate": 33.16,
       "theftRate": 17.03,
-      "asbRate": 0.0,
+      "asbRate": 0,
       "drugRate": 1.47,
       "hateCrimeCount": null,
       "yearOnYearChange": -1.02,
@@ -3286,7 +3357,7 @@
         },
         {
           "type": "Sexual offences",
-          "rate": 3.0
+          "rate": 3
         },
         {
           "type": "Robbery",
@@ -3314,7 +3385,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000034": {
       "areaName": "Chesterfield",
@@ -3360,7 +3432,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000035": {
       "areaName": "Derbyshire Dales",
@@ -3406,7 +3479,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000036": {
       "areaName": "Erewash",
@@ -3452,7 +3526,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000037": {
       "areaName": "High Peak",
@@ -3498,7 +3573,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000038": {
       "areaName": "North East Derbyshire",
@@ -3544,7 +3620,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000039": {
       "areaName": "South Derbyshire",
@@ -3590,7 +3667,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000040": {
       "areaName": "East Devon",
@@ -3636,7 +3714,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:East and Mid Devon"
+      "source": "shared_csp:East and Mid Devon",
+      "snapshotDate": "2026-04-28"
     },
     "E07000041": {
       "areaName": "Exeter",
@@ -3682,7 +3761,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000042": {
       "areaName": "Mid Devon",
@@ -3728,7 +3808,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:East and Mid Devon"
+      "source": "shared_csp:East and Mid Devon",
+      "snapshotDate": "2026-04-28"
     },
     "E07000043": {
       "areaName": "North Devon",
@@ -3774,7 +3855,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:North Devon"
+      "source": "shared_csp:North Devon",
+      "snapshotDate": "2026-04-28"
     },
     "E07000044": {
       "areaName": "South Hams",
@@ -3820,7 +3902,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Devon and Dartmoor"
+      "source": "shared_csp:South Devon and Dartmoor",
+      "snapshotDate": "2026-04-28"
     },
     "E07000045": {
       "areaName": "Teignbridge",
@@ -3866,7 +3949,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Devon and Dartmoor"
+      "source": "shared_csp:South Devon and Dartmoor",
+      "snapshotDate": "2026-04-28"
     },
     "E07000046": {
       "areaName": "Torridge",
@@ -3912,7 +3996,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:North Devon"
+      "source": "shared_csp:North Devon",
+      "snapshotDate": "2026-04-28"
     },
     "E07000047": {
       "areaName": "West Devon",
@@ -3958,7 +4043,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Devon and Dartmoor"
+      "source": "shared_csp:South Devon and Dartmoor",
+      "snapshotDate": "2026-04-28"
     },
     "E07000061": {
       "areaName": "Eastbourne",
@@ -4004,7 +4090,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000062": {
       "areaName": "Hastings",
@@ -4038,7 +4125,7 @@
         },
         {
           "type": "Vehicle offences",
-          "rate": 6.0
+          "rate": 6
         },
         {
           "type": "Drug offences",
@@ -4050,7 +4137,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000063": {
       "areaName": "Lewes",
@@ -4096,7 +4184,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000064": {
       "areaName": "Rother",
@@ -4142,7 +4231,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000065": {
       "areaName": "Wealden",
@@ -4188,7 +4278,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000066": {
       "areaName": "Basildon",
@@ -4234,7 +4325,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000067": {
       "areaName": "Braintree",
@@ -4280,7 +4372,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000068": {
       "areaName": "Brentwood",
@@ -4326,7 +4419,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000069": {
       "areaName": "Castle Point",
@@ -4372,7 +4466,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000070": {
       "areaName": "Chelmsford",
@@ -4418,7 +4513,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000071": {
       "areaName": "Colchester",
@@ -4464,7 +4560,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000072": {
       "areaName": "Epping Forest",
@@ -4510,7 +4607,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000073": {
       "areaName": "Harlow",
@@ -4518,7 +4616,7 @@
       "violentCrimeRate": 40.44,
       "theftRate": 39.81,
       "asbRate": 13.59,
-      "drugRate": 5.0,
+      "drugRate": 5,
       "hateCrimeCount": null,
       "yearOnYearChange": -3.98,
       "breakdown": [
@@ -4540,7 +4638,7 @@
         },
         {
           "type": "Burglary",
-          "rate": 5.0
+          "rate": 5
         },
         {
           "type": "Vehicle offences",
@@ -4548,7 +4646,7 @@
         },
         {
           "type": "Drug offences",
-          "rate": 5.0
+          "rate": 5
         },
         {
           "type": "Public order offences",
@@ -4556,7 +4654,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000074": {
       "areaName": "Maldon",
@@ -4602,7 +4701,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000075": {
       "areaName": "Rochford",
@@ -4648,7 +4748,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000076": {
       "areaName": "Tendring",
@@ -4658,7 +4759,7 @@
       "asbRate": 11.76,
       "drugRate": 2.63,
       "hateCrimeCount": null,
-      "yearOnYearChange": -9.0,
+      "yearOnYearChange": -9,
       "breakdown": [
         {
           "type": "Violence against the person",
@@ -4694,7 +4795,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000077": {
       "areaName": "Uttlesford",
@@ -4740,12 +4842,13 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000078": {
       "areaName": "Cheltenham",
       "totalCrimeRate": 97.35,
-      "violentCrimeRate": 35.0,
+      "violentCrimeRate": 35,
       "theftRate": 33.47,
       "asbRate": 18.71,
       "drugRate": 2.15,
@@ -4754,7 +4857,7 @@
       "breakdown": [
         {
           "type": "Violence against the person",
-          "rate": 35.0
+          "rate": 35
         },
         {
           "type": "Sexual offences",
@@ -4786,7 +4889,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000079": {
       "areaName": "Cotswold",
@@ -4832,14 +4936,15 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000080": {
       "areaName": "Forest of Dean",
       "totalCrimeRate": 59.77,
       "violentCrimeRate": 29.4,
       "theftRate": 11.75,
-      "asbRate": 11.0,
+      "asbRate": 11,
       "drugRate": 1.1,
       "hateCrimeCount": null,
       "yearOnYearChange": -7.84,
@@ -4878,7 +4983,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000081": {
       "areaName": "Gloucester",
@@ -4924,7 +5030,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000082": {
       "areaName": "Stroud",
@@ -4970,7 +5077,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000083": {
       "areaName": "Tewkesbury",
@@ -4980,7 +5088,7 @@
       "asbRate": 9.49,
       "drugRate": 0.92,
       "hateCrimeCount": null,
-      "yearOnYearChange": 0.0,
+      "yearOnYearChange": 0,
       "breakdown": [
         {
           "type": "Violence against the person",
@@ -5016,7 +5124,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000084": {
       "areaName": "Basingstoke and Deane",
@@ -5062,7 +5171,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:North Hampshire"
+      "source": "shared_csp:North Hampshire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000085": {
       "areaName": "East Hampshire",
@@ -5108,7 +5218,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000086": {
       "areaName": "Eastleigh",
@@ -5154,7 +5265,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000087": {
       "areaName": "Fareham",
@@ -5200,7 +5312,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000088": {
       "areaName": "Gosport",
@@ -5246,7 +5359,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000089": {
       "areaName": "Hart",
@@ -5292,7 +5406,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:North Hampshire"
+      "source": "shared_csp:North Hampshire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000090": {
       "areaName": "Havant",
@@ -5338,7 +5453,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000091": {
       "areaName": "New Forest",
@@ -5384,7 +5500,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000092": {
       "areaName": "Rushmoor",
@@ -5430,7 +5547,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:North Hampshire"
+      "source": "shared_csp:North Hampshire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000093": {
       "areaName": "Test Valley",
@@ -5476,7 +5594,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000094": {
       "areaName": "Winchester",
@@ -5522,7 +5641,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000095": {
       "areaName": "Broxbourne",
@@ -5568,7 +5688,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000096": {
       "areaName": "Dacorum",
@@ -5614,7 +5735,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000098": {
       "areaName": "Hertsmere",
@@ -5660,7 +5782,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000099": {
       "areaName": "North Hertfordshire",
@@ -5706,7 +5829,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000102": {
       "areaName": "Three Rivers",
@@ -5752,7 +5876,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000103": {
       "areaName": "Watford",
@@ -5798,7 +5923,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000105": {
       "areaName": "Ashford",
@@ -5844,7 +5970,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000106": {
       "areaName": "Canterbury",
@@ -5890,7 +6017,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000107": {
       "areaName": "Dartford",
@@ -5908,7 +6036,7 @@
         },
         {
           "type": "Sexual offences",
-          "rate": 3.0
+          "rate": 3
         },
         {
           "type": "Robbery",
@@ -5936,7 +6064,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:Dartford and Gravesham"
+      "source": "shared_csp:Dartford and Gravesham",
+      "snapshotDate": "2026-04-28"
     },
     "E07000108": {
       "areaName": "Dover",
@@ -5982,7 +6111,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000109": {
       "areaName": "Gravesham",
@@ -6000,7 +6130,7 @@
         },
         {
           "type": "Sexual offences",
-          "rate": 3.0
+          "rate": 3
         },
         {
           "type": "Robbery",
@@ -6028,7 +6158,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:Dartford and Gravesham"
+      "source": "shared_csp:Dartford and Gravesham",
+      "snapshotDate": "2026-04-28"
     },
     "E07000110": {
       "areaName": "Maidstone",
@@ -6074,7 +6205,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000111": {
       "areaName": "Sevenoaks",
@@ -6120,7 +6252,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000112": {
       "areaName": "Folkestone and Hythe",
@@ -6166,7 +6299,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000113": {
       "areaName": "Swale",
@@ -6212,7 +6346,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000114": {
       "areaName": "Thanet",
@@ -6258,7 +6393,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000115": {
       "areaName": "Tonbridge and Malling",
@@ -6304,7 +6440,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000116": {
       "areaName": "Tunbridge Wells",
@@ -6350,7 +6487,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000117": {
       "areaName": "Burnley",
@@ -6396,7 +6534,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000118": {
       "areaName": "Chorley",
@@ -6442,7 +6581,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000119": {
       "areaName": "Fylde",
@@ -6488,7 +6628,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000120": {
       "areaName": "Hyndburn",
@@ -6534,7 +6675,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000121": {
       "areaName": "Lancaster",
@@ -6580,7 +6722,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000122": {
       "areaName": "Pendle",
@@ -6626,7 +6769,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000123": {
       "areaName": "Preston",
@@ -6672,7 +6816,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000124": {
       "areaName": "Ribble Valley",
@@ -6718,7 +6863,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000125": {
       "areaName": "Rossendale",
@@ -6764,7 +6910,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000126": {
       "areaName": "South Ribble",
@@ -6810,7 +6957,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000127": {
       "areaName": "West Lancashire",
@@ -6856,11 +7004,12 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000128": {
       "areaName": "Wyre",
-      "totalCrimeRate": 63.0,
+      "totalCrimeRate": 63,
       "violentCrimeRate": 27.46,
       "theftRate": 17.96,
       "asbRate": 25.3,
@@ -6902,7 +7051,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000129": {
       "areaName": "Blaby",
@@ -6948,7 +7098,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000130": {
       "areaName": "Charnwood",
@@ -6994,7 +7145,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000131": {
       "areaName": "Harborough",
@@ -7040,7 +7192,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000132": {
       "areaName": "Hinckley and Bosworth",
@@ -7086,7 +7239,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000133": {
       "areaName": "Melton",
@@ -7132,7 +7286,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000134": {
       "areaName": "North West Leicestershire",
@@ -7178,7 +7333,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000135": {
       "areaName": "Oadby and Wigston",
@@ -7224,7 +7380,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000136": {
       "areaName": "Boston",
@@ -7270,7 +7427,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000137": {
       "areaName": "East Lindsey",
@@ -7316,7 +7474,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000138": {
       "areaName": "Lincoln",
@@ -7324,7 +7483,7 @@
       "violentCrimeRate": 49.18,
       "theftRate": 42.54,
       "asbRate": 28.65,
-      "drugRate": 4.0,
+      "drugRate": 4,
       "hateCrimeCount": null,
       "yearOnYearChange": -6.61,
       "breakdown": [
@@ -7354,7 +7513,7 @@
         },
         {
           "type": "Drug offences",
-          "rate": 4.0
+          "rate": 4
         },
         {
           "type": "Public order offences",
@@ -7362,7 +7521,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000139": {
       "areaName": "North Kesteven",
@@ -7408,7 +7568,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000140": {
       "areaName": "South Holland",
@@ -7454,7 +7615,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000141": {
       "areaName": "South Kesteven",
@@ -7500,7 +7662,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000142": {
       "areaName": "West Lindsey",
@@ -7546,7 +7709,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000143": {
       "areaName": "Breckland",
@@ -7592,7 +7756,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000144": {
       "areaName": "Broadland",
@@ -7638,7 +7803,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000145": {
       "areaName": "Great Yarmouth",
@@ -7684,7 +7850,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000146": {
       "areaName": "King's Lynn and West Norfolk",
@@ -7730,7 +7897,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000147": {
       "areaName": "North Norfolk",
@@ -7776,7 +7944,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000148": {
       "areaName": "Norwich",
@@ -7822,7 +7991,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000149": {
       "areaName": "South Norfolk",
@@ -7868,7 +8038,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000150": {
       "areaName": "Corby",
@@ -7914,7 +8085,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000152": {
       "areaName": "East Northamptonshire",
@@ -7960,7 +8132,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000153": {
       "areaName": "Kettering",
@@ -8006,7 +8179,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000154": {
       "areaName": "Northampton",
@@ -8052,7 +8226,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000156": {
       "areaName": "Wellingborough",
@@ -8098,7 +8273,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000170": {
       "areaName": "Ashfield",
@@ -8144,7 +8320,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000171": {
       "areaName": "Bassetlaw",
@@ -8190,7 +8367,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000172": {
       "areaName": "Broxtowe",
@@ -8236,7 +8414,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Nottinghamshire"
+      "source": "shared_csp:South Nottinghamshire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000173": {
       "areaName": "Gedling",
@@ -8282,7 +8461,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Nottinghamshire"
+      "source": "shared_csp:South Nottinghamshire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000174": {
       "areaName": "Mansfield",
@@ -8328,7 +8508,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000175": {
       "areaName": "Newark and Sherwood",
@@ -8374,7 +8555,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000176": {
       "areaName": "Rushcliffe",
@@ -8420,7 +8602,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Nottinghamshire"
+      "source": "shared_csp:South Nottinghamshire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000177": {
       "areaName": "Cherwell",
@@ -8466,7 +8649,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000178": {
       "areaName": "Oxford",
@@ -8512,7 +8696,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000179": {
       "areaName": "South Oxfordshire",
@@ -8558,7 +8743,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000180": {
       "areaName": "Vale of White Horse",
@@ -8604,7 +8790,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000181": {
       "areaName": "West Oxfordshire",
@@ -8650,7 +8837,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000192": {
       "areaName": "Cannock Chase",
@@ -8696,7 +8884,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000193": {
       "areaName": "East Staffordshire",
@@ -8742,7 +8931,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000194": {
       "areaName": "Lichfield",
@@ -8788,7 +8978,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000195": {
       "areaName": "Newcastle-under-Lyme",
@@ -8834,7 +9025,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000196": {
       "areaName": "South Staffordshire",
@@ -8880,7 +9072,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000197": {
       "areaName": "Stafford",
@@ -8926,7 +9119,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000198": {
       "areaName": "Staffordshire Moorlands",
@@ -8972,7 +9166,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000199": {
       "areaName": "Tamworth",
@@ -9018,7 +9213,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000202": {
       "areaName": "Ipswich",
@@ -9064,15 +9260,16 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000207": {
       "areaName": "Elmbridge",
       "totalCrimeRate": 55.15,
       "violentCrimeRate": 20.34,
-      "theftRate": 18.0,
+      "theftRate": 18,
       "asbRate": 10.72,
-      "drugRate": 2.0,
+      "drugRate": 2,
       "hateCrimeCount": null,
       "yearOnYearChange": -3.41,
       "breakdown": [
@@ -9090,7 +9287,7 @@
         },
         {
           "type": "Theft offences",
-          "rate": 18.0
+          "rate": 18
         },
         {
           "type": "Burglary",
@@ -9102,7 +9299,7 @@
         },
         {
           "type": "Drug offences",
-          "rate": 2.0
+          "rate": 2
         },
         {
           "type": "Public order offences",
@@ -9110,7 +9307,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000208": {
       "areaName": "Epsom and Ewell",
@@ -9156,7 +9354,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000209": {
       "areaName": "Guildford",
@@ -9202,7 +9401,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000210": {
       "areaName": "Mole Valley",
@@ -9248,13 +9448,14 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000211": {
       "areaName": "Reigate and Banstead",
       "totalCrimeRate": 61.44,
       "violentCrimeRate": 25.46,
-      "theftRate": 17.0,
+      "theftRate": 17,
       "asbRate": 11.66,
       "drugRate": 1.84,
       "hateCrimeCount": null,
@@ -9274,7 +9475,7 @@
         },
         {
           "type": "Theft offences",
-          "rate": 17.0
+          "rate": 17
         },
         {
           "type": "Burglary",
@@ -9294,7 +9495,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000212": {
       "areaName": "Runnymede",
@@ -9340,7 +9542,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000213": {
       "areaName": "Spelthorne",
@@ -9386,7 +9589,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000214": {
       "areaName": "Surrey Heath",
@@ -9432,7 +9636,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000215": {
       "areaName": "Tandridge",
@@ -9478,7 +9683,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000216": {
       "areaName": "Waverley",
@@ -9524,7 +9730,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000217": {
       "areaName": "Woking",
@@ -9570,7 +9777,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000218": {
       "areaName": "North Warwickshire",
@@ -9616,7 +9824,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000219": {
       "areaName": "Nuneaton and Bedworth",
@@ -9662,7 +9871,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000220": {
       "areaName": "Rugby",
@@ -9708,7 +9918,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000221": {
       "areaName": "Stratford-on-Avon",
@@ -9754,7 +9965,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Warwickshire"
+      "source": "shared_csp:South Warwickshire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000222": {
       "areaName": "Warwick",
@@ -9800,7 +10012,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Warwickshire"
+      "source": "shared_csp:South Warwickshire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000223": {
       "areaName": "Adur",
@@ -9846,7 +10059,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000224": {
       "areaName": "Arun",
@@ -9892,7 +10106,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000225": {
       "areaName": "Chichester",
@@ -9938,7 +10153,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000226": {
       "areaName": "Crawley",
@@ -9984,7 +10200,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000227": {
       "areaName": "Horsham",
@@ -10030,7 +10247,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000228": {
       "areaName": "Mid Sussex",
@@ -10076,7 +10294,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000229": {
       "areaName": "Worthing",
@@ -10122,7 +10341,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000234": {
       "areaName": "Bromsgrove",
@@ -10168,7 +10388,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:North Worcestershire"
+      "source": "shared_csp:North Worcestershire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000235": {
       "areaName": "Malvern Hills",
@@ -10214,7 +10435,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Worcester"
+      "source": "shared_csp:South Worcester",
+      "snapshotDate": "2026-04-28"
     },
     "E07000236": {
       "areaName": "Redditch",
@@ -10260,7 +10482,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:North Worcestershire"
+      "source": "shared_csp:North Worcestershire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000237": {
       "areaName": "Worcester",
@@ -10306,7 +10529,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Worcester"
+      "source": "shared_csp:South Worcester",
+      "snapshotDate": "2026-04-28"
     },
     "E07000238": {
       "areaName": "Wychavon",
@@ -10352,7 +10576,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:South Worcester"
+      "source": "shared_csp:South Worcester",
+      "snapshotDate": "2026-04-28"
     },
     "E07000239": {
       "areaName": "Wyre Forest",
@@ -10398,7 +10623,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "shared_csp:North Worcestershire"
+      "source": "shared_csp:North Worcestershire",
+      "snapshotDate": "2026-04-28"
     },
     "E07000240": {
       "areaName": "St Albans",
@@ -10444,7 +10670,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000241": {
       "areaName": "Welwyn Hatfield",
@@ -10490,7 +10717,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000242": {
       "areaName": "East Hertfordshire",
@@ -10536,7 +10764,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000243": {
       "areaName": "Stevenage",
@@ -10582,7 +10811,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000244": {
       "areaName": "Waveney",
@@ -10628,7 +10858,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E07000245": {
       "areaName": "Western Suffolk",
@@ -10674,7 +10905,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000001": {
       "areaName": "Bolton",
@@ -10720,7 +10952,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000002": {
       "areaName": "Bury",
@@ -10766,7 +10999,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000003": {
       "areaName": "Manchester",
@@ -10812,7 +11046,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000004": {
       "areaName": "Oldham",
@@ -10858,7 +11093,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000005": {
       "areaName": "Rochdale",
@@ -10904,7 +11140,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000006": {
       "areaName": "Salford",
@@ -10950,7 +11187,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000007": {
       "areaName": "Stockport",
@@ -10996,7 +11234,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000008": {
       "areaName": "Tameside",
@@ -11042,7 +11281,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000009": {
       "areaName": "Trafford",
@@ -11088,7 +11328,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000010": {
       "areaName": "Wigan",
@@ -11134,7 +11375,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000011": {
       "areaName": "Knowsley",
@@ -11180,7 +11422,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000012": {
       "areaName": "Liverpool",
@@ -11226,7 +11469,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000013": {
       "areaName": "St. Helens",
@@ -11272,12 +11516,13 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000014": {
       "areaName": "Sefton",
       "totalCrimeRate": 80.75,
-      "violentCrimeRate": 37.0,
+      "violentCrimeRate": 37,
       "theftRate": 15.87,
       "asbRate": 7.77,
       "drugRate": 5.35,
@@ -11286,7 +11531,7 @@
       "breakdown": [
         {
           "type": "Violence against the person",
-          "rate": 37.0
+          "rate": 37
         },
         {
           "type": "Sexual offences",
@@ -11318,7 +11563,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000015": {
       "areaName": "Wirral",
@@ -11364,7 +11610,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000016": {
       "areaName": "Barnsley",
@@ -11410,7 +11657,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000017": {
       "areaName": "Doncaster",
@@ -11456,7 +11704,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000018": {
       "areaName": "Rotherham",
@@ -11502,7 +11751,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000019": {
       "areaName": "Sheffield",
@@ -11548,7 +11798,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000021": {
       "areaName": "Newcastle upon Tyne",
@@ -11594,7 +11845,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000022": {
       "areaName": "North Tyneside",
@@ -11640,7 +11892,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000023": {
       "areaName": "South Tyneside",
@@ -11686,7 +11939,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000024": {
       "areaName": "Sunderland",
@@ -11696,7 +11950,7 @@
       "asbRate": 28.18,
       "drugRate": 2.49,
       "hateCrimeCount": null,
-      "yearOnYearChange": 1.0,
+      "yearOnYearChange": 1,
       "breakdown": [
         {
           "type": "Violence against the person",
@@ -11732,7 +11986,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000025": {
       "areaName": "Birmingham",
@@ -11778,7 +12033,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000026": {
       "areaName": "Coventry",
@@ -11824,7 +12080,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000027": {
       "areaName": "Dudley",
@@ -11870,7 +12127,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000028": {
       "areaName": "Sandwell",
@@ -11916,7 +12174,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000029": {
       "areaName": "Solihull",
@@ -11962,7 +12221,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000030": {
       "areaName": "Walsall",
@@ -12008,7 +12268,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000031": {
       "areaName": "Wolverhampton",
@@ -12054,7 +12315,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000032": {
       "areaName": "Bradford",
@@ -12100,7 +12362,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000033": {
       "areaName": "Calderdale",
@@ -12146,7 +12409,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000034": {
       "areaName": "Kirklees",
@@ -12192,7 +12456,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000035": {
       "areaName": "Leeds",
@@ -12238,7 +12503,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000036": {
       "areaName": "Wakefield",
@@ -12284,7 +12550,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E08000037": {
       "areaName": "Gateshead",
@@ -12330,7 +12597,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000001": {
       "areaName": "City of London",
@@ -12340,10 +12608,11 @@
       "asbRate": 86.3,
       "drugRate": null,
       "hateCrimeCount": null,
-      "yearOnYearChange": 0.0,
+      "yearOnYearChange": 0,
       "breakdown": [],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000002": {
       "areaName": "Barking and Dagenham",
@@ -12389,7 +12658,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000003": {
       "areaName": "Barnet",
@@ -12435,7 +12705,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000004": {
       "areaName": "Bexley",
@@ -12481,7 +12752,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000005": {
       "areaName": "Brent",
@@ -12503,7 +12775,7 @@
         },
         {
           "type": "Robbery",
-          "rate": 3.0
+          "rate": 3
         },
         {
           "type": "Theft offences",
@@ -12527,7 +12799,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000006": {
       "areaName": "Bromley",
@@ -12573,7 +12846,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000007": {
       "areaName": "Camden",
@@ -12619,7 +12893,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000008": {
       "areaName": "Croydon",
@@ -12665,7 +12940,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000009": {
       "areaName": "Ealing",
@@ -12711,7 +12987,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000010": {
       "areaName": "Enfield",
@@ -12757,7 +13034,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000011": {
       "areaName": "Greenwich",
@@ -12803,7 +13081,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000012": {
       "areaName": "Hackney",
@@ -12849,7 +13128,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000013": {
       "areaName": "Hammersmith and Fulham",
@@ -12895,7 +13175,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000014": {
       "areaName": "Haringey",
@@ -12941,7 +13222,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000015": {
       "areaName": "Harrow",
@@ -12987,7 +13269,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000016": {
       "areaName": "Havering",
@@ -13033,7 +13316,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000017": {
       "areaName": "Hillingdon",
@@ -13079,7 +13363,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000018": {
       "areaName": "Hounslow",
@@ -13125,7 +13410,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000019": {
       "areaName": "Islington",
@@ -13171,7 +13457,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000020": {
       "areaName": "Kensington and Chelsea",
@@ -13217,7 +13504,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000021": {
       "areaName": "Kingston upon Thames",
@@ -13263,7 +13551,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000022": {
       "areaName": "Lambeth",
@@ -13309,7 +13598,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000023": {
       "areaName": "Lewisham",
@@ -13355,7 +13645,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000024": {
       "areaName": "Merton",
@@ -13401,7 +13692,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000025": {
       "areaName": "Newham",
@@ -13447,14 +13739,15 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000026": {
       "areaName": "Redbridge",
       "totalCrimeRate": 78.83,
       "violentCrimeRate": 25.84,
       "theftRate": 33.65,
-      "asbRate": 21.0,
+      "asbRate": 21,
       "drugRate": 3.06,
       "hateCrimeCount": null,
       "yearOnYearChange": 0.48,
@@ -13493,7 +13786,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000027": {
       "areaName": "Richmond upon Thames",
@@ -13539,7 +13833,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000028": {
       "areaName": "Southwark",
@@ -13585,7 +13880,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000029": {
       "areaName": "Sutton",
@@ -13631,7 +13927,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000030": {
       "areaName": "Tower Hamlets",
@@ -13677,7 +13974,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000031": {
       "areaName": "Waltham Forest",
@@ -13723,7 +14021,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000032": {
       "areaName": "Wandsworth",
@@ -13769,14 +14068,15 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     },
     "E09000033": {
       "areaName": "Westminster",
       "totalCrimeRate": 446.41,
       "violentCrimeRate": 56.19,
       "theftRate": 315.74,
-      "asbRate": 64.0,
+      "asbRate": 64,
       "drugRate": 12.53,
       "hateCrimeCount": null,
       "yearOnYearChange": 12.31,
@@ -13815,7 +14115,8 @@
         }
       ],
       "period": "Year ending March 2024",
-      "source": "direct"
+      "source": "direct",
+      "snapshotDate": "2026-04-28"
     }
   }
 }

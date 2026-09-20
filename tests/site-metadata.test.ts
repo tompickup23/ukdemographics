@@ -3,6 +3,7 @@ import {
   DEFAULT_SOCIAL_IMAGE_PATH,
   SITE_NAME,
   SITE_URL,
+  buildPlaceStructuredData,
   buildAbsoluteUrl,
   buildReleaseCollectionStructuredData,
   getIndexableSitePaths,
@@ -63,6 +64,30 @@ describe("site metadata helpers", () => {
     expect(nodes).toHaveLength(3);
     expect(nodes[1]["@type"]).toBe("CollectionPage");
     expect(nodes[2]["@type"]).toBe("ItemList");
+  });
+
+  it("identifies place data as observed Census data plus modelled projections", () => {
+    const nodes = buildPlaceStructuredData(
+      {
+        areaCode: "E08000025",
+        areaName: "Birmingham",
+        regionName: "West Midlands",
+        countryName: "England",
+        population: 1_144_922
+      },
+      {
+        canonicalUrl: buildAbsoluteUrl("/places/birmingham/"),
+        description: "Birmingham demographic profile.",
+        socialImageUrl: buildAbsoluteUrl("/og/places/birmingham.png"),
+        snapshotDate: "2026-08-14"
+      }
+    );
+
+    const dataset = nodes.find((node) => node["@type"] === "Dataset");
+    expect(dataset?.measurementTechnique).toContain("ONS Census 2021 observations");
+    expect(dataset?.citation).toEqual(expect.arrayContaining([
+      expect.objectContaining({ url: "https://www.ons.gov.uk/census" })
+    ]));
   });
 });
 

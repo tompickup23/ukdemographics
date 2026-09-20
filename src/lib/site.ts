@@ -41,6 +41,7 @@ const INDEXABLE_STATIC_PATHS = [
   "/glossary/",
   "/housing/",
   "/methodology/",
+  "/migration/",
   "/national/",
   "/places/",
   "/pressure/",
@@ -241,9 +242,25 @@ export function buildPlaceStructuredData(
       isAccessibleForFree: true,
       dateModified: options.snapshotDate,
       temporalCoverage: "2021/2051",
+      measurementTechnique: [
+        "ONS Census 2021 observations",
+        "Hamilton-Perry cohort change ratio projection model"
+      ],
       spatialCoverage: {
         "@id": areaId
       },
+      citation: [
+        {
+          "@type": "CreativeWork",
+          name: "ONS Census 2021",
+          url: "https://www.ons.gov.uk/census"
+        },
+        {
+          "@type": "WebPage",
+          name: "UK Demographics methodology and limitations",
+          url: buildAbsoluteUrl("/methodology/")
+        }
+      ],
       creator: {
         "@id": `${SITE_URL}/#organization`
       },

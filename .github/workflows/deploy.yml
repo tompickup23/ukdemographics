@@ -52,3 +52,13 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Submit only URLs whose sitemap lastmod identifies a real same-day
+      # content revision. The key file is part of the deployed artifact above.
+      - name: Notify IndexNow of changed canonical URLs
+        env:
+          INDEXNOW_SUBMIT: "1"
+        run: node scripts/indexnow-submit.mjs --sitemap
