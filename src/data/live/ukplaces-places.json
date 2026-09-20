@@ -9204,8 +9204,8 @@
       }
     }
   },
-  "E08000038": {
-    "gss": "E08000038",
+  "E08000016": {
+    "gss": "E08000016",
     "slug": "barnsley",
     "name": "Barnsley",
     "officialName": "Barnsley",
@@ -9223,9 +9223,9 @@
         "url": "https://ukelections.co.uk/seats/barnsley/"
       },
       "ukdemographics": {
-        "hasPage": false,
-        "slug": null,
-        "url": null
+        "hasPage": true,
+        "slug": "barnsley",
+        "url": "https://ukdemographics.co.uk/places/barnsley/"
       },
       "aidoge": {
         "hasPage": false,
@@ -9239,8 +9239,8 @@
       }
     }
   },
-  "E08000039": {
-    "gss": "E08000039",
+  "E08000019": {
+    "gss": "E08000019",
     "slug": "sheffield",
     "name": "Sheffield",
     "officialName": "Sheffield",
@@ -9258,9 +9258,9 @@
         "url": "https://ukelections.co.uk/seats/sheffield/"
       },
       "ukdemographics": {
-        "hasPage": false,
-        "slug": null,
-        "url": null
+        "hasPage": true,
+        "slug": "sheffield",
+        "url": "https://ukdemographics.co.uk/places/sheffield/"
       },
       "aidoge": {
         "hasPage": false,

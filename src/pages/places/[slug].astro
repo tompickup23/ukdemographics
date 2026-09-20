@@ -426,12 +426,17 @@ const projClause = wbi2051 != null
     ? `, projected to ${projHorizon}`
     : "";
 const pageDescription = `${area.areaName} demographic profile: population ${popText}, White British ${wbi2021Text} (2021)${projClause}. Ethnic composition, religion, nativity, shift-share analysis.`;
+const populationTitleValue = population >= 1_000_000
+  ? `${(population / 1_000_000).toLocaleString("en-GB", { maximumFractionDigits: 2 })}m`
+  : `${Math.round(population / 1_000).toLocaleString("en-GB")}k`;
 
-// Search intent: people type "<place> population", not "<place> demographic
-// profile". Leading with the figure follows the pattern that already works on
-// the sister asylum site, where titles carry the number.
+// Search intent: people type "<place> demographics" and "<place> population".
+// The date sits beside the population in the title because a Census count must
+// not be read as a current or projected estimate simply because the query says
+// "2026". The description supplies the modelling coverage without making the
+// title so long that its useful distinction is cut from a result snippet.
 const pageTitle = population != null
-  ? `${area.areaName} population: ${popText}. Ethnicity and projections`
+  ? `${area.areaName} demographics: ${populationTitleValue} population (2021 Census)`
   : `${area.areaName}. Population, ethnicity and projections`;
 
 const structuredData = buildPlaceStructuredData(area, {
@@ -528,13 +533,13 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <h1>{area.areaName}</h1>
       <span class="place-region">{area.regionName} &middot; {area.countryName} &middot; {area.areaCode}</span>
       <p class="place-summary">
-        {fmtInt(population)} people at the 2021 Census.
+        <strong>{fmtInt(population)}</strong> people at the 2021 Census.
         {showCrossing
           ? ` The White British majority here is projected to end around ${crossingYear}.`
           : wbi2021 != null && wbi2021 < 50
             ? " Already below a White British majority at the 2021 Census."
             : ""}
-        {" "}Twenty three datasets for this area, every figure sourced.
+        {" "}This profile combines observed Census data with clearly labelled modelled projections. Read the <a href="/methodology/">methodology and limitations</a> or inspect the <a href="/sources/">official sources</a>.
       </p>
     </div>
     <div class="place-header-aside">
