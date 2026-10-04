@@ -1,7 +1,7 @@
 {
   "source": "Parliament Members API",
-  "lastUpdated": "2026-04-11",
-  "totalMPs": 650,
+  "lastUpdated": "2026-10-04",
+  "totalMPs": 649,
   "members": [
     {
       "memberId": 4359,
@@ -22,13 +22,13 @@
       "electedDate": "2015-05-07T00:00:00"
     },
     {
-      "memberId": 4735,
-      "mpName": "Stephen Flynn",
-      "party": "SNP",
+      "memberId": 5450,
+      "mpName": "Douglas Lumsden",
+      "party": "Conservative",
       "constituencyName": "Aberdeen South",
-      "photoUrl": "https://members-api.parliament.uk/api/Members/4735/Thumbnail",
+      "photoUrl": "https://members-api.parliament.uk/api/Members/5450/Thumbnail",
       "majority": null,
-      "electedDate": "2019-12-12T00:00:00"
+      "electedDate": "2026-06-18T00:00:00"
     },
     {
       "memberId": 5280,
@@ -112,13 +112,13 @@
       "electedDate": "2019-12-12T00:00:00"
     },
     {
-      "memberId": 4434,
-      "mpName": "Stephen Gethins",
+      "memberId": 5449,
+      "mpName": "Lara Bird",
       "party": "SNP",
       "constituencyName": "Arbroath and Broughty Ferry",
-      "photoUrl": "https://members-api.parliament.uk/api/Members/4434/Thumbnail",
+      "photoUrl": "https://members-api.parliament.uk/api/Members/5449/Thumbnail",
       "majority": null,
-      "electedDate": "2024-07-04T00:00:00"
+      "electedDate": "2026-06-18T00:00:00"
     },
     {
       "memberId": 4371,
@@ -509,7 +509,7 @@
     },
     {
       "memberId": 5108,
-      "mpName": "Sam Rushworth",
+      "mpName": "Dr Sam Rushworth",
       "party": "Labour",
       "constituencyName": "Bishop Auckland",
       "photoUrl": "https://members-api.parliament.uk/api/Members/5108/Thumbnail",
@@ -941,7 +941,7 @@
     },
     {
       "memberId": 5163,
-      "mpName": "Peter Prinsley",
+      "mpName": "Dr Peter Prinsley",
       "party": "Labour",
       "constituencyName": "Bury St Edmunds and Stowmarket",
       "photoUrl": "https://members-api.parliament.uk/api/Members/5163/Thumbnail",
@@ -1104,7 +1104,7 @@
     {
       "memberId": 5303,
       "mpName": "Patrick Spencer",
-      "party": "Independent",
+      "party": "Conservative",
       "constituencyName": "Central Suffolk and North Ipswich",
       "photoUrl": "https://members-api.parliament.uk/api/Members/5303/Thumbnail",
       "majority": null,
@@ -1279,7 +1279,7 @@
       "constituencyName": "Clacton",
       "photoUrl": "https://members-api.parliament.uk/api/Members/5091/Thumbnail",
       "majority": null,
-      "electedDate": "2024-07-04T00:00:00"
+      "electedDate": "2026-08-13T00:00:00"
     },
     {
       "memberId": 4764,
@@ -2319,7 +2319,7 @@
     {
       "memberId": 172,
       "mpName": "Ms Diane Abbott",
-      "party": "Independent",
+      "party": "Labour",
       "constituencyName": "Hackney North and Stoke Newington",
       "photoUrl": "https://members-api.parliament.uk/api/Members/172/Thumbnail",
       "majority": null,
@@ -2605,15 +2605,6 @@
       "electedDate": "2023-10-19T00:00:00"
     },
     {
-      "memberId": 4514,
-      "mpName": "Sir Keir Starmer",
-      "party": "Labour",
-      "constituencyName": "Holborn and St Pancras",
-      "photoUrl": "https://members-api.parliament.uk/api/Members/4514/Thumbnail",
-      "majority": null,
-      "electedDate": "2015-05-07T00:00:00"
-    },
-    {
       "memberId": 4942,
       "mpName": "Richard Foord",
       "party": "Liberal Democrats",
@@ -2760,7 +2751,7 @@
     {
       "memberId": 185,
       "mpName": "Jeremy Corbyn",
-      "party": "Independent",
+      "party": "Your Party",
       "constituencyName": "Islington North",
       "photoUrl": "https://members-api.parliament.uk/api/Members/185/Thumbnail",
       "majority": null,
@@ -3208,13 +3199,13 @@
       "electedDate": "2010-05-06T00:00:00"
     },
     {
-      "memberId": 5060,
-      "mpName": "Josh Simons",
-      "party": "Labour",
+      "memberId": 1427,
+      "mpName": "Andy Burnham",
+      "party": "Labour (Co-op)",
       "constituencyName": "Makerfield",
-      "photoUrl": "https://members-api.parliament.uk/api/Members/5060/Thumbnail",
+      "photoUrl": "https://members-api.parliament.uk/api/Members/1427/Thumbnail",
       "majority": null,
-      "electedDate": "2024-07-04T00:00:00"
+      "electedDate": "2026-06-18T00:00:00"
     },
     {
       "memberId": 39,
@@ -4812,7 +4803,7 @@
     {
       "memberId": 5097,
       "mpName": "Mr Bayo Alaba",
-      "party": "Labour",
+      "party": "Independent",
       "constituencyName": "Southend East and Rochford",
       "photoUrl": "https://members-api.parliament.uk/api/Members/5097/Thumbnail",
       "majority": null,
@@ -5208,7 +5199,7 @@
     {
       "memberId": 5354,
       "mpName": "Cameron Thomas",
-      "party": "Liberal Democrats",
+      "party": "Independent",
       "constituencyName": "Tewkesbury",
       "photoUrl": "https://members-api.parliament.uk/api/Members/5354/Thumbnail",
       "majority": null,
@@ -5852,6 +5843,25 @@
       "photoUrl": "https://members-api.parliament.uk/api/Members/5199/Thumbnail",
       "majority": null,
       "electedDate": "2024-07-04T00:00:00"
+    }
+  ],
+  "vacancies": [
+    {
+      "constituencyName": "Holborn and St Pancras",
+      "parliamentConstituencyId": 4105,
+      "previousMember": "Sir Keir Starmer",
+      "previousMemberEnded": "2026-09-01",
+      "previousMemberEndReason": "Resignation (Chiltern)"
+    }
+  ],
+  "holds": [
+    {
+      "constituencyName": "East Kilbride and Strathaven",
+      "field": "party",
+      "apiValue": "Labour",
+      "publishedValue": "Independent",
+      "recorded": "2026-10-04",
+      "reason": "The API reports Joani Reid as Labour. Wikipedia (Joani Reid, retrieved 4 October 2026) records her resigning the Labour whip on 5 March 2026 and no restoration. Unconfirmed, so the published value stands."
     }
   ]
 }

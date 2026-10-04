@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: refresh-data
@@ -61,3 +62,25 @@ jobs:
           done
           echo "Push failed after 5 retries."
           exit 1
+
+      # MPs change at by-elections and when the whip moves. A changed MP or
+      # party is a published fact that needs a second source, so this step
+      # never commits: it keeps one open issue listing what differs from
+      # Parliament, and a person corroborates and runs the fetch.
+      - name: Check MP list against Parliament (opens an issue, never commits)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          REPORT="$RUNNER_TEMP/mp-diff.md"
+          node scripts/fetch/fetch-mp-data.mjs --check --report "$REPORT"
+          TITLE="MP list differs from Parliament"
+          NUM="$(gh issue list --state open --search "\"$TITLE\" in:title" --json number -q '.[0].number')"
+          if [ -s "$REPORT" ]; then
+            if [ -n "$NUM" ]; then
+              gh issue edit "$NUM" --body-file "$REPORT"
+            else
+              gh issue create --title "$TITLE" --body-file "$REPORT"
+            fi
+          elif [ -n "$NUM" ]; then
+            gh issue close "$NUM" --comment "The MP list matches Parliament again."
+          fi
