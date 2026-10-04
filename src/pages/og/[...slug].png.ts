@@ -21,6 +21,8 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { getCollection } from "astro:content";
 import { getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
+import { getAllPcons } from "../../lib/pcon-data";
+import { generalElectionYear } from "../../lib/search-listing";
 
 const BUILD_OG = process.env.BUILD_OG === "1";
 
@@ -118,6 +120,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
   }));
 
+  // Constituency cards carry the election result, the one figure every seat has.
+  // The winner's name sits in the label rather than as a coloured stat, so no
+  // party gets a colour judgement on the card.
+  const geYear = generalElectionYear();
+  const pconPaths = getAllPcons().map((p) => ({
+    params: { slug: `constituencies/${p.slug}` },
+    props: {
+      title: `${p.name} constituency`,
+      stat: p.ge2024.winner && p.ge2024.winnerSharePct > 0 ? `${p.ge2024.winnerSharePct.toFixed(1)}%` : p.code,
+      statLabel: p.ge2024.winner && p.ge2024.winnerSharePct > 0
+        ? `${p.ge2024.winner} vote share${geYear != null ? `, ${geYear} general election` : ""}`
+        : "UK Parliament constituency",
+      verdict: "info"
+    }
+  }));
+
   return [
     {
       params: { slug: "home" },
@@ -129,7 +147,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
       }
     },
     ...findingPaths,
-    ...placePaths
+    ...placePaths,
+    ...pconPaths
   ];
 };
 

@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// GitHub Pages serves this for any path that does not exist, with a 404
+// status, so search engines still drop the old URL. Search Console was holding
+// eight stale ones in October 2026: Scottish and Northern Irish council pages
+// that the site no longer builds, last crawled in May 2026, and a region page
+// for "Unknown" from before the Barnsley and Sheffield code fix. Those areas
+// have no page to redirect to, so the honest answer is a 404 that points
+// readers at the pages that do exist.
+---
+
+<BaseLayout title="Page not found" description="This page does not exist on UK Demographics." noIndex>
+  <h1>Page not found</h1>
+  <p class="nf-lead">
+    There is no page at this address. It may have moved, or it may cover an area this site does not profile.
+  </p>
+  <ul class="nf-links">
+    <li><a href="/your-area/">Look up your postcode</a> to find the local authority and constituency it sits in.</li>
+    <li><a href="/places/">Browse the local authority profiles</a>, with population, ethnicity, arrivals, housing and projections.</li>
+    <li><a href="/constituencies/">Find a Westminster constituency</a>.</li>
+    <li><a href="/findings/">Read the findings</a>.</li>
+  </ul>
+</BaseLayout>
+
+<style>
+  h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.5rem; }
+  .nf-lead { color: var(--muted); max-width: 60ch; margin: 0 0 1.25rem; }
+  .nf-links { display: grid; gap: 0.5rem; padding-left: 1.1rem; margin: 0; }
+</style>

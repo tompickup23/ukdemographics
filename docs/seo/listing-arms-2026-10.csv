@@ -1,0 +1,319 @@
+slug,area_code,area_name,region,fnv1a32,mod3,arm
+adur,E07000223,Adur,South East,0x42b291bf,1,A
+amber-valley,E07000032,Amber Valley,East Midlands,0x2ba5e7a0,2,B
+arun,E07000224,Arun,South East,0xb1e83609,1,A
+ashfield,E07000170,Ashfield,East Midlands,0x638e8421,1,A
+ashford,E07000105,Ashford,South East,0x5e91908a,2,B
+babergh,E07000200,Babergh,East of England,0x4c6f3f32,0,control
+barking-and-dagenham,E09000002,Barking and Dagenham,London,0x8bafde33,2,B
+barnet,E09000003,Barnet,London,0x4597ab1d,0,control
+barnsley,E08000016,Barnsley,Yorkshire and The Humber,0xd4901271,1,A
+basildon,E07000066,Basildon,East of England,0x4e973795,1,A
+basingstoke-and-deane,E07000084,Basingstoke and Deane,South East,0xc096a7df,0,control
+bassetlaw,E07000171,Bassetlaw,East Midlands,0xccf7b0d1,2,B
+bath-and-north-east-somerset,E06000022,Bath and North East Somerset,South West,0x4018be21,2,B
+bedford,E06000055,Bedford,East of England,0x22d5fc05,0,control
+bexley,E09000004,Bexley,London,0x44ae94f6,0,control
+birmingham,E08000025,Birmingham,West Midlands,0xd4ab7d67,2,B
+blaby,E07000129,Blaby,East Midlands,0x648d2317,2,B
+blackburn-with-darwen,E06000008,Blackburn with Darwen,North West,0x92420ba8,1,A
+blackpool,E06000009,Blackpool,North West,0x6c9f73fa,2,B
+blaenau-gwent,W06000019,Blaenau Gwent,Wales,0x9f346d45,2,B
+bolsover,E07000033,Bolsover,East Midlands,0x4975d705,2,B
+bolton,E08000001,Bolton,North West,0xcb98cd7f,0,control
+boston,E07000136,Boston,East Midlands,0xec60fb24,1,A
+bournemouth-christchurch-and-poole,E06000058,"Bournemouth, Christchurch and Poole",South West,0x34ec9f20,2,B
+bracknell-forest,E06000036,Bracknell Forest,South East,0x4b6e9e23,0,control
+bradford,E08000032,Bradford,Yorkshire and The Humber,0x85e2be09,0,control
+braintree,E07000067,Braintree,East of England,0xce16a82f,2,B
+breckland,E07000143,Breckland,East of England,0xf160a0c7,0,control
+brent,E09000005,Brent,London,0xe68502ca,0,control
+brentwood,E07000068,Brentwood,East of England,0x9eb3d643,0,control
+bridgend,W06000013,Bridgend,Wales,0x9d8e899a,2,B
+brighton-and-hove,E06000043,Brighton and Hove,South East,0x8070feff,2,B
+bristol-city-of,E06000023,"Bristol, City of",South West,0x408b9eea,1,A
+broadland,E07000144,Broadland,East of England,0xa4ff47b6,0,control
+bromley,E09000006,Bromley,London,0xc589b7e5,2,B
+bromsgrove,E07000234,Bromsgrove,West Midlands,0x5a720691,1,A
+broxbourne,E07000095,Broxbourne,East of England,0xa87e86ef,1,A
+broxtowe,E07000172,Broxtowe,East Midlands,0x39b98c3f,1,A
+buckinghamshire,E06000060,Buckinghamshire,South East,0x494ac16b,0,control
+burnley,E07000117,Burnley,North West,0xd3f04d26,2,B
+bury,E08000002,Bury,North West,0x68f934cd,1,A
+caerphilly,W06000018,Caerphilly,Wales,0xc0d3bb50,1,A
+calderdale,E08000033,Calderdale,Yorkshire and The Humber,0x7d449436,2,B
+cambridge,E07000008,Cambridge,East of England,0xcc997b69,0,control
+camden,E09000007,Camden,London,0x0d60ffcb,0,control
+cannock-chase,E07000192,Cannock Chase,West Midlands,0x6471798b,2,B
+canterbury,E07000106,Canterbury,South East,0x8c7c2aa8,0,control
+cardiff,W06000015,Cardiff,Wales,0xcc5e26be,1,A
+carmarthenshire,W06000010,Carmarthenshire,Wales,0xb6644647,0,control
+castle-point,E07000069,Castle Point,East of England,0x5e0cd152,1,A
+central-bedfordshire,E06000056,Central Bedfordshire,East of England,0x4e020970,0,control
+ceredigion,W06000008,Ceredigion,Wales,0x0de39cae,0,control
+charnwood,E07000130,Charnwood,East Midlands,0x6eaef86c,1,A
+chelmsford,E07000070,Chelmsford,East of England,0xde2fdbd2,2,B
+cheltenham,E07000078,Cheltenham,South West,0xe29265bc,1,A
+cherwell,E07000177,Cherwell,South East,0x8fd0f43d,2,B
+cheshire-east,E06000049,Cheshire East,North West,0xef49304e,0,control
+cheshire-west-and-chester,E06000050,Cheshire West and Chester,North West,0xad37f96f,0,control
+chesterfield,E07000034,Chesterfield,East Midlands,0x4fd24dcb,2,B
+chichester,E07000225,Chichester,South East,0x8386bc01,1,A
+chorley,E07000118,Chorley,North West,0xfc0312b3,2,B
+city-of-london,E09000001,City of London,London,0x6fe642d1,1,A
+colchester,E07000071,Colchester,East of England,0xcf4a6b9d,2,B
+conwy,W06000003,Conwy,Wales,0x6358c777,1,A
+cornwall,E06000052,Cornwall,South West,0x0ec08457,2,B
+cotswold,E07000079,Cotswold,South West,0xf4d2633c,1,A
+county-durham,E06000047,County Durham,North East,0x80926191,0,control
+coventry,E08000026,Coventry,West Midlands,0x5606663d,0,control
+crawley,E07000226,Crawley,South East,0xc99c0772,1,A
+croydon,E09000008,Croydon,London,0xf72ecee1,1,A
+cumberland,E06000063,Cumberland,North West,0xbc683c78,1,A
+dacorum,E07000096,Dacorum,East of England,0x7975dfbc,1,A
+darlington,E06000005,Darlington,North East,0x37e6b6bd,2,B
+dartford,E07000107,Dartford,South East,0x0685a309,2,B
+denbighshire,W06000004,Denbighshire,Wales,0x2670497d,0,control
+derby,E06000015,Derby,East Midlands,0x3402d6fd,2,B
+derbyshire-dales,E07000035,Derbyshire Dales,East Midlands,0x757d6800,1,A
+doncaster,E08000017,Doncaster,Yorkshire and The Humber,0x9b82ca66,1,A
+dorset,E06000059,Dorset,South West,0xfe3b11a2,0,control
+dover,E07000108,Dover,South East,0x2d75af71,0,control
+dudley,E08000027,Dudley,West Midlands,0x72a399cc,1,A
+ealing,E09000009,Ealing,London,0xf39a9ab3,1,A
+east-cambridgeshire,E07000009,East Cambridgeshire,East of England,0x16f88d6a,1,A
+east-devon,E07000040,East Devon,South West,0xd63f093b,0,control
+east-hampshire,E07000085,East Hampshire,South East,0xea3bca90,0,control
+east-hertfordshire,E07000242,East Hertfordshire,East of England,0x948d03d6,2,B
+east-lindsey,E07000137,East Lindsey,East Midlands,0xe5831f55,2,B
+east-riding-of-yorkshire,E06000011,East Riding of Yorkshire,Yorkshire and The Humber,0xf5354ed7,0,control
+east-staffordshire,E07000193,East Staffordshire,West Midlands,0xf80b7205,0,control
+east-suffolk,E07000244,East Suffolk,East of England,0xda95f3f5,0,control
+eastbourne,E07000061,Eastbourne,South East,0xc0b75f11,1,A
+eastleigh,E07000086,Eastleigh,South East,0x821642c5,1,A
+elmbridge,E07000207,Elmbridge,South East,0xdb9ae0f2,2,B
+enfield,E09000010,Enfield,London,0x1f97153e,1,A
+epping-forest,E07000072,Epping Forest,East of England,0x7737f1fa,2,B
+epsom-and-ewell,E07000208,Epsom and Ewell,South East,0x45e0d283,1,A
+erewash,E07000036,Erewash,East Midlands,0x3cc0f9da,2,B
+exeter,E07000041,Exeter,South West,0xb16ce2b2,2,B
+fareham,E07000087,Fareham,South East,0x38530bf9,0,control
+fenland,E07000010,Fenland,East of England,0x19bc488f,2,B
+flintshire,W06000005,Flintshire,Wales,0x1b4cd183,2,B
+folkestone-and-hythe,E07000112,Folkestone and Hythe,South East,0x48eba5f8,0,control
+forest-of-dean,E07000080,Forest of Dean,South West,0x8816f075,2,B
+fylde,E07000119,Fylde,North West,0xc90acfbf,0,control
+gateshead,E08000037,Gateshead,North East,0x687bb0a9,2,B
+gedling,E07000173,Gedling,East Midlands,0x592ddfef,2,B
+gloucester,E07000081,Gloucester,South West,0x661b9ae6,0,control
+gosport,E07000088,Gosport,South East,0xcdb6e593,1,A
+gravesham,E07000109,Gravesham,South East,0xfca4e917,0,control
+great-yarmouth,E07000145,Great Yarmouth,East of England,0x78b951b2,0,control
+greenwich,E09000011,Greenwich,London,0xfb1233bb,0,control
+guildford,E07000209,Guildford,South East,0x04235b91,2,B
+gwynedd,W06000002,Gwynedd,Wales,0x59c463ff,0,control
+hackney,E09000012,Hackney,London,0x943d6cc4,0,control
+halton,E06000006,Halton,North West,0xa8654433,1,A
+hammersmith-and-fulham,E09000013,Hammersmith and Fulham,London,0x834e22be,1,A
+harborough,E07000131,Harborough,East Midlands,0x148030d4,0,control
+haringey,E09000014,Haringey,London,0x73208efa,2,B
+harlow,E07000073,Harlow,East of England,0x82f94942,2,B
+harrow,E09000015,Harrow,London,0x855c28f4,2,B
+hart,E07000089,Hart,South East,0xd4c342ac,0,control
+hartlepool,E06000001,Hartlepool,North East,0x0dc9bbd5,2,B
+hastings,E07000062,Hastings,South East,0x4d512168,1,A
+havant,E07000090,Havant,South East,0x44ac6b6d,0,control
+havering,E09000016,Havering,London,0x89eabe6d,1,A
+herefordshire-county-of,E06000019,"Herefordshire, County of",West Midlands,0xca640170,1,A
+hertsmere,E07000098,Hertsmere,East of England,0x8f0fcb02,0,control
+high-peak,E07000037,High Peak,East Midlands,0x22d62103,2,B
+hillingdon,E09000017,Hillingdon,London,0x9f972faf,1,A
+hinckley-and-bosworth,E07000132,Hinckley and Bosworth,East Midlands,0xb6564547,0,control
+horsham,E07000227,Horsham,South East,0xf52a5b1b,0,control
+hounslow,E09000018,Hounslow,London,0x0175b1ca,2,B
+huntingdonshire,E07000011,Huntingdonshire,East of England,0xb49e3754,0,control
+hyndburn,E07000120,Hyndburn,North West,0x755d8aa5,0,control
+ipswich,E07000202,Ipswich,East of England,0x26c94a7e,1,A
+isle-of-anglesey,W06000001,Isle of Anglesey,Wales,0x4177fa85,0,control
+isle-of-wight,E06000046,Isle of Wight,South East,0x6f6682d8,1,A
+isles-of-scilly,E06000053,Isles of Scilly,South West,0x997471ce,0,control
+islington,E09000019,Islington,London,0xb21121a6,1,A
+kensington-and-chelsea,E09000020,Kensington and Chelsea,London,0x1e3458b7,2,B
+king-s-lynn-and-west-norfolk,E07000146,King's Lynn and West Norfolk,East of England,0x74ae9bea,1,A
+kingston-upon-hull-city-of,E06000010,"Kingston upon Hull, City of",Yorkshire and The Humber,0x8a7f37b7,2,B
+kingston-upon-thames,E09000021,Kingston upon Thames,London,0xc35bac00,2,B
+kirklees,E08000034,Kirklees,Yorkshire and The Humber,0x5d60fdc5,0,control
+knowsley,E08000011,Knowsley,North West,0x9791d44b,1,A
+lambeth,E09000022,Lambeth,London,0x271ae590,0,control
+lancaster,E07000121,Lancaster,North West,0x780f3c94,1,A
+leeds,E08000035,Leeds,Yorkshire and The Humber,0x24e021d8,2,B
+leicester,E06000016,Leicester,East Midlands,0x3794be01,1,A
+lewes,E07000063,Lewes,South East,0x10dd10cf,1,A
+lewisham,E09000023,Lewisham,London,0x82bd252f,1,A
+lichfield,E07000194,Lichfield,West Midlands,0x47df2f77,1,A
+lincoln,E07000138,Lincoln,East Midlands,0x00de40d4,0,control
+liverpool,E08000012,Liverpool,North West,0x695ea32d,2,B
+luton,E06000032,Luton,East of England,0x5f03e6a3,2,B
+maidstone,E07000110,Maidstone,South East,0x1c93727b,1,A
+maldon,E07000074,Maldon,East of England,0xc17e383e,2,B
+malvern-hills,E07000235,Malvern Hills,West Midlands,0xf71d3851,2,B
+manchester,E08000003,Manchester,North West,0x35aa1ecb,0,control
+mansfield,E07000174,Mansfield,East Midlands,0x260cb8c8,2,B
+medway,E06000035,Medway,South East,0x449da018,1,A
+melton,E07000133,Melton,East Midlands,0x691cd5fa,2,B
+merthyr-tydfil,W06000024,Merthyr Tydfil,Wales,0x90fed527,2,B
+merton,E09000024,Merton,London,0x51641eec,0,control
+mid-devon,E07000042,Mid Devon,South West,0xe94eac2a,0,control
+mid-suffolk,E07000203,Mid Suffolk,East of England,0x0853d1a0,1,A
+mid-sussex,E07000228,Mid Sussex,South East,0x14ac8f2f,1,A
+middlesbrough,E06000002,Middlesbrough,North East,0x7ac2e102,0,control
+milton-keynes,E06000042,Milton Keynes,South East,0xfb174f02,1,A
+mole-valley,E07000210,Mole Valley,South East,0xc19f9bd2,0,control
+monmouthshire,W06000021,Monmouthshire,Wales,0x41cc08a3,2,B
+neath-port-talbot,W06000012,Neath Port Talbot,Wales,0xbb1bff7a,0,control
+new-forest,E07000091,New Forest,South East,0x1052889d,1,A
+newark-and-sherwood,E07000175,Newark and Sherwood,East Midlands,0xc8cc3157,0,control
+newcastle-under-lyme,E07000195,Newcastle-under-Lyme,West Midlands,0x513aee50,1,A
+newcastle-upon-tyne,E08000021,Newcastle upon Tyne,North East,0x9f53b0b5,2,B
+newham,E09000025,Newham,London,0xf5faa639,1,A
+newport,W06000022,Newport,Wales,0xb9614e52,1,A
+north-devon,E07000043,North Devon,South West,0x729ca713,0,control
+north-east-derbyshire,E07000038,North East Derbyshire,East Midlands,0xa3a8538c,2,B
+north-east-lincolnshire,E06000012,North East Lincolnshire,Yorkshire and The Humber,0x31db4a73,1,A
+north-hertfordshire,E07000099,North Hertfordshire,East of England,0xe6c9974e,0,control
+north-kesteven,E07000139,North Kesteven,East Midlands,0xe7f6201c,0,control
+north-lincolnshire,E06000013,North Lincolnshire,Yorkshire and The Humber,0x03134b35,0,control
+north-norfolk,E07000147,North Norfolk,East of England,0x6e1f3238,1,A
+north-northamptonshire,E06000061,North Northamptonshire,East Midlands,0x650c4dcc,1,A
+north-somerset,E06000024,North Somerset,South West,0xc22fb255,0,control
+north-tyneside,E08000022,North Tyneside,North East,0x68958342,0,control
+north-warwickshire,E07000218,North Warwickshire,West Midlands,0x30ba3e94,0,control
+north-west-leicestershire,E07000134,North West Leicestershire,East Midlands,0x27753a26,0,control
+north-yorkshire,E06000065,North Yorkshire,Yorkshire and The Humber,0x1796ea43,0,control
+northumberland,E06000057,Northumberland,North East,0x60b342e2,0,control
+norwich,E07000148,Norwich,East of England,0x4a387dff,0,control
+nottingham,E06000018,Nottingham,East Midlands,0xfe38f754,2,B
+nuneaton-and-bedworth,E07000219,Nuneaton and Bedworth,West Midlands,0x1bd81fed,1,A
+oadby-and-wigston,E07000135,Oadby and Wigston,East Midlands,0x467049e4,0,control
+oldham,E08000004,Oldham,North West,0x6c512024,2,B
+oxford,E07000178,Oxford,South East,0xe3e45d9f,2,B
+pembrokeshire,W06000009,Pembrokeshire,Wales,0x51f5c349,0,control
+pendle,E07000122,Pendle,North West,0xfe414e4f,2,B
+peterborough,E06000031,Peterborough,East of England,0x6273b957,2,B
+plymouth,E06000026,Plymouth,South West,0xc94e6713,2,B
+portsmouth,E06000044,Portsmouth,South East,0x7088cfe6,1,A
+powys,W06000023,Powys,Wales,0xfe44a415,0,control
+preston,E07000123,Preston,North West,0x54b2c82c,2,B
+reading,E06000038,Reading,South East,0x2e3e57fb,2,B
+redbridge,E09000026,Redbridge,London,0xb5cddc39,0,control
+redcar-and-cleveland,E06000003,Redcar and Cleveland,North East,0x58495c3d,2,B
+redditch,E07000236,Redditch,West Midlands,0x23b8746e,1,A
+reigate-and-banstead,E07000211,Reigate and Banstead,South East,0x5faad803,1,A
+rhondda-cynon-taf,W06000016,Rhondda Cynon Taf,Wales,0x89759dc9,0,control
+ribble-valley,E07000124,Ribble Valley,North West,0xcd1767b5,2,B
+richmond-upon-thames,E09000027,Richmond upon Thames,London,0xe7899971,1,A
+rochdale,E08000005,Rochdale,North West,0x9eb35149,2,B
+rochford,E07000075,Rochford,East of England,0xdaca2ad4,2,B
+rossendale,E07000125,Rossendale,North West,0x0e9953e3,0,control
+rother,E07000064,Rother,South East,0xd5b587e5,2,B
+rotherham,E08000018,Rotherham,Yorkshire and The Humber,0x3eb4325d,1,A
+rugby,E07000220,Rugby,West Midlands,0x89bbe294,2,B
+runnymede,E07000212,Runnymede,South East,0x8a936fc6,0,control
+rushcliffe,E07000176,Rushcliffe,East Midlands,0x69857afe,2,B
+rushmoor,E07000092,Rushmoor,South East,0xfaea3636,1,A
+rutland,E06000017,Rutland,East Midlands,0x344b46c9,2,B
+salford,E08000006,Salford,North West,0xe6379f9a,1,A
+sandwell,E08000028,Sandwell,West Midlands,0xd3008efb,1,A
+sefton,E08000014,Sefton,North West,0x355d6dd2,0,control
+sevenoaks,E07000111,Sevenoaks,South East,0x6a64c16c,0,control
+sheffield,E08000019,Sheffield,Yorkshire and The Humber,0x6ed7f127,2,B
+shropshire,E06000051,Shropshire,West Midlands,0xf3caabd2,1,A
+slough,E06000039,Slough,South East,0x00e5e8a9,0,control
+solihull,E08000029,Solihull,West Midlands,0x468ef2df,2,B
+somerset,E06000066,Somerset,South West,0xbe38e12f,2,B
+south-cambridgeshire,E07000012,South Cambridgeshire,East of England,0xe220df94,2,B
+south-derbyshire,E07000039,South Derbyshire,East Midlands,0x5026d218,1,A
+south-gloucestershire,E06000025,South Gloucestershire,South West,0x6a260d95,0,control
+south-hams,E07000044,South Hams,South West,0x3155e8da,2,B
+south-holland,E07000140,South Holland,East Midlands,0xa5076669,1,A
+south-kesteven,E07000141,South Kesteven,East Midlands,0x4bc39bd6,0,control
+south-norfolk,E07000149,South Norfolk,East of England,0x4844ab46,0,control
+south-oxfordshire,E07000179,South Oxfordshire,South East,0x14adc33e,0,control
+south-ribble,E07000126,South Ribble,North West,0x1d68d8c3,1,A
+south-staffordshire,E07000196,South Staffordshire,West Midlands,0xb0fdb2b7,1,A
+south-tyneside,E08000023,South Tyneside,North East,0xc70a5374,0,control
+southampton,E06000045,Southampton,South East,0xa6a70181,1,A
+southend-on-sea,E06000033,Southend-on-Sea,East of England,0x29280205,1,A
+southwark,E09000028,Southwark,London,0x0cf3ba81,0,control
+spelthorne,E07000213,Spelthorne,South East,0x1960fccb,0,control
+st-albans,E07000240,St Albans,East of England,0x8fbc165e,0,control
+st-helens,E08000013,St Helens,North West,0xa9ffb842,2,B
+stafford,E07000197,Stafford,West Midlands,0xcecaa254,0,control
+staffordshire-moorlands,E07000198,Staffordshire Moorlands,West Midlands,0x593b5923,2,B
+stevenage,E07000243,Stevenage,East of England,0xba873261,0,control
+stockport,E08000007,Stockport,North West,0x44ca76d6,2,B
+stockton-on-tees,E06000004,Stockton-on-Tees,North East,0xa5a5fbdc,0,control
+stoke-on-trent,E06000021,Stoke-on-Trent,West Midlands,0x84fb140d,2,B
+stratford-on-avon,E07000221,Stratford-on-Avon,West Midlands,0x63420213,0,control
+stroud,E07000082,Stroud,South West,0xa25301c4,1,A
+sunderland,E08000024,Sunderland,North East,0x16debe81,2,B
+surrey-heath,E07000214,Surrey Heath,South East,0xdc46604c,0,control
+sutton,E09000029,Sutton,London,0xff8b5c10,1,A
+swale,E07000113,Swale,South East,0x1cba4515,1,A
+swansea,W06000011,Swansea,Wales,0x6350319b,2,B
+swindon,E06000030,Swindon,South West,0x48b36fb9,1,A
+tameside,E08000008,Tameside,North West,0x1abb6357,0,control
+tamworth,E07000199,Tamworth,West Midlands,0xf9e0d40b,0,control
+tandridge,E07000215,Tandridge,South East,0xe119c997,2,B
+teignbridge,E07000045,Teignbridge,South West,0x8a5bf281,0,control
+telford-and-wrekin,E06000020,Telford and Wrekin,West Midlands,0xcd72bf40,1,A
+tendring,E07000076,Tendring,East of England,0xddf1298a,2,B
+test-valley,E07000093,Test Valley,South East,0x1c3f075f,1,A
+tewkesbury,E07000083,Tewkesbury,South West,0x2bf18bf0,0,control
+thanet,E07000114,Thanet,South East,0xd20ff1db,1,A
+three-rivers,E07000102,Three Rivers,East of England,0xf99ec5c5,0,control
+thurrock,E06000034,Thurrock,East of England,0x5b22a30b,2,B
+tonbridge-and-malling,E07000115,Tonbridge and Malling,South East,0x4b840ea8,2,B
+torbay,E06000027,Torbay,South West,0x2bcedafe,1,A
+torfaen,W06000020,Torfaen,Wales,0xfb659988,2,B
+torridge,E07000046,Torridge,South West,0x2c665341,0,control
+tower-hamlets,E09000030,Tower Hamlets,London,0xca5c9b0b,1,A
+trafford,E08000009,Trafford,North West,0x7cf928b1,2,B
+tunbridge-wells,E07000116,Tunbridge Wells,South East,0xdb1d66ad,1,A
+uttlesford,E07000077,Uttlesford,East of England,0x10959649,1,A
+vale-of-glamorgan,W06000014,Vale of Glamorgan,Wales,0xd0d41370,2,B
+vale-of-white-horse,E07000180,Vale of White Horse,South East,0xd84bec93,2,B
+wakefield,E08000036,Wakefield,Yorkshire and The Humber,0xf4e6405f,0,control
+walsall,E08000030,Walsall,West Midlands,0x42060ffb,2,B
+waltham-forest,E09000031,Waltham Forest,London,0x477edfc1,1,A
+wandsworth,E09000032,Wandsworth,London,0x6d71ed9c,0,control
+warrington,E06000007,Warrington,North West,0x51cb7478,1,A
+warwick,E07000222,Warwick,West Midlands,0x4e2b2a93,1,A
+watford,E07000103,Watford,East of England,0xcd3c8f16,1,A
+waverley,E07000216,Waverley,South East,0x0b3f297c,2,B
+wealden,E07000065,Wealden,South East,0x09852f1b,0,control
+welwyn-hatfield,E07000241,Welwyn Hatfield,East of England,0x8e3efa49,2,B
+west-berkshire,E06000037,West Berkshire,South East,0xf50689e2,2,B
+west-devon,E07000047,West Devon,South West,0x5e768819,1,A
+west-lancashire,E07000127,West Lancashire,North West,0xe5b78bc7,0,control
+west-lindsey,E07000142,West Lindsey,East Midlands,0x6d1f2097,2,B
+west-northamptonshire,E06000062,West Northamptonshire,East Midlands,0x01583f8e,0,control
+west-oxfordshire,E07000181,West Oxfordshire,South East,0x4413c092,2,B
+west-suffolk,E07000245,West Suffolk,East of England,0x68264323,1,A
+westminster,E09000033,Westminster,London,0x6dfeca7e,1,A
+westmorland-and-furness,E06000064,Westmorland and Furness,North West,0xd7aa6916,2,B
+wigan,E08000010,Wigan,North West,0x003f0879,0,control
+wiltshire,E06000054,Wiltshire,South West,0x48a3c840,1,A
+winchester,E07000094,Winchester,South East,0xfcd89565,1,A
+windsor-and-maidenhead,E06000040,Windsor and Maidenhead,South East,0xaec27a6a,2,B
+wirral,E08000015,Wirral,North West,0x9cf81f78,0,control
+woking,E07000217,Woking,South East,0x1b2bf5f8,2,B
+wokingham,E06000041,Wokingham,South East,0x8347112a,0,control
+wolverhampton,E08000031,Wolverhampton,West Midlands,0x62b73145,0,control
+worcester,E07000237,Worcester,West Midlands,0xdfef5e2f,0,control
+worthing,E07000229,Worthing,South East,0xe7036819,0,control
+wrexham,W06000006,Wrexham,Wales,0x012abd61,2,B
+wychavon,E07000238,Wychavon,West Midlands,0xac526ca4,1,A
+wyre,E07000128,Wyre,North West,0x43622b48,1,A
+wyre-forest,E07000239,Wyre Forest,West Midlands,0x6e79187a,2,B
+york,E06000014,York,Yorkshire and The Humber,0xe1ee7746,1,A

@@ -2,6 +2,7 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { getPublicPlaceAreas, getPublicPlaceRegions, buildPublicPlaceRegionSlug, slugifyAreaName } from "../../../lib/site";
+import { buildRegionListing, censusYear, listingHorizon } from "../../../lib/search-listing";
 
 const allAreas = getPublicPlaceAreas();
 const regions = getPublicPlaceRegions();
@@ -19,11 +20,17 @@ const regionAreas = allAreas
   .filter(a => a.regionName === regionName)
   .sort((a, b) => (a.wbiPct2021 ?? 100) - (b.wbiPct2021 ?? 100));
 const totalPop = regionAreas.reduce((s, a) => s + (a.population ?? 0), 0);
+
+// Same treatment as arm A of the place listing test (src/lib/listing-arm.ts):
+// lead with what the page covers, no group named and no share in the listing.
+const horizons = regionAreas.map((a) => listingHorizon(a.areaCode)).filter((y): y is number => y != null);
+const regionListing = buildRegionListing(regionName, horizons.length ? Math.max(...horizons) : null);
+const baseCensusYear = censusYear();
 ---
 
 <BaseLayout
-  title={`${regionName}: regional demographic profile`}
-  description={`${regionName}: ${regionAreas.length} local authorities, population ${totalPop.toLocaleString()}. Ethnic composition projections to 2061.`}
+  title={regionListing.title}
+  description={regionListing.description}
 >
   <Breadcrumbs items={[
     { label: "Places", href: "/places/" },
@@ -31,7 +38,10 @@ const totalPop = regionAreas.reduce((s, a) => s + (a.population ?? 0), 0);
   ]} />
 
   <h1>{regionName}</h1>
-  <p class="desc">{regionAreas.length} local authorities &middot; Population {(totalPop / 1_000_000).toFixed(1)}M</p>
+  <p class="desc">
+    {regionListing.summary}
+    {" "}Combined population {(totalPop / 1_000_000).toFixed(1)}M{baseCensusYear != null ? ` at the ${baseCensusYear} Census` : ""}.
+  </p>
 
   <div class="area-table">
     <div class="area-table-header">
@@ -50,7 +60,7 @@ const totalPop = regionAreas.reduce((s, a) => s + (a.population ?? 0), 0);
 
 <style>
   h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.25rem; }
-  .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
+  .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 70ch; }
   .area-table { max-width: 700px; }
   .area-table-header { display: grid; grid-template-columns: 1fr 80px 80px 100px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
   .area-row { display: grid; grid-template-columns: 1fr 80px 80px 100px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }

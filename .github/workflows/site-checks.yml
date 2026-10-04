@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        # Full history: the sitemap dates generated pages by the last commit to
+        # their templates (src/pages/sitemap.xml.ts). A shallow clone has none.
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22

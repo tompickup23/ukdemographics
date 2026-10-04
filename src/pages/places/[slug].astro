@@ -46,6 +46,15 @@ import healthDemand from "../../data/live/health-demand.json";
 import languageProjections from "../../data/live/language-projections.json";
 import fiscalResilience from "../../data/live/fiscal-resilience.json";
 import scenarioSummaries from "../../data/live/scenario-summaries.json";
+import { getCollection } from "astro:content";
+import { listingArmForSlug } from "../../lib/listing-arm";
+import {
+  buildPlaceDirectAnswer,
+  buildPlaceListing,
+  censusYear,
+  listingHorizon,
+  profileUpdatedDate,
+} from "../../lib/search-listing";
 import { consistentBandSeries } from "../../lib/projection-consistency";
 import {
   plausibleThrough,
@@ -435,13 +444,56 @@ const populationTitleValue = population >= 1_000_000
 // not be read as a current or projected estimate simply because the query says
 // "2026". The description supplies the modelling coverage without making the
 // title so long that its useful distinction is cut from a result snippet.
-const pageTitle = population != null
+const controlTitle = population != null
   ? `${area.areaName} demographics: ${populationTitleValue} population (2021 Census)`
   : `${area.areaName}. Population, ethnicity and projections`;
 
+// Listing test, October 2026: control keeps the title, description and opening
+// sentence above; arms A and B replace all three. Assignment is by a hash of the
+// slug, see src/lib/listing-arm.ts and docs/seo/README.md.
+const placeSlug = slugifyAreaName(area.areaName);
+const listingArm = listingArmForSlug(placeSlug);
+const firstArrivalIdx = ninoHistorical?.totalByYear.findIndex((v) => v != null) ?? -1;
+const placeListing = buildPlaceListing(listingArm, {
+  areaName: area.areaName,
+  censusYear: censusYear(),
+  projectionTo: ethnicProjection && ethChartLines.length > 0 ? listingHorizon(area.areaCode) : null,
+  hasReligion: !!religionData,
+  hasCountryOfBirth: !!nativityData,
+  arrivalsSince: firstArrivalIdx >= 0 ? ninoHistoricalYears[firstArrivalIdx] ?? null : null,
+  hasHousing: !!(hmo || ctSpd || housing?.dataAvailable),
+  hasSchools: !!(school?.dataAvailable || (ealDistrict && ealDistrict.totalPupils > 0)),
+  hasServices: !!(crime || asc || send || pipMatch),
+}, profileUpdatedDate());
+const pageTitle = placeListing?.title ?? controlTitle;
+const metaDescription = placeListing?.description ?? pageDescription;
+const directAnswer = buildPlaceDirectAnswer(area.areaCode);
+
+// Findings that name this area, then this region, then the newest pieces on
+// composition and migration, so every place page passes readers on to the
+// pages that convert.
+const findingsAll = await getCollection("findings");
+const escapeRegExp = (t: string) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const mentions = (text: string, name: string) =>
+  new RegExp(`(^|[^A-Za-z])${escapeRegExp(name)}([^A-Za-z]|$)`).test(text);
+const relatedFindings = findingsAll
+  .map((f) => {
+    const text = `${f.data.headline} ${f.data.summary} ${f.body ?? ""}`;
+    const score = mentions(f.data.headline, area.areaName) ? 3
+      : mentions(text, area.areaName) ? 2
+      : area.regionName && area.regionName !== "Unknown" && mentions(text, area.regionName) ? 1
+      : 0;
+    const coreCategory = ["demographics", "projections", "migration"].includes(f.data.category);
+    return { f, score, coreCategory };
+  })
+  .filter((r) => r.score > 0 || r.coreCategory)
+  .sort((a, b) => b.score - a.score || (b.f.data.updated ?? b.f.data.date).localeCompare(a.f.data.updated ?? a.f.data.date))
+  .slice(0, 3)
+  .map((r) => ({ href: `/findings/${r.f.id.replace(/\.md$/, "")}/`, headline: r.f.data.headline }));
+
 const structuredData = buildPlaceStructuredData(area, {
   canonicalUrl,
-  description: pageDescription,
+  description: metaDescription,
   socialImageUrl: buildAbsoluteUrl(`/og/places/${slugifyAreaName(area.areaName)}.png`),
   snapshotDate: (rawProjections as any).lastUpdated ?? "2026-04-14",
 });
@@ -519,7 +571,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
 
 <BaseLayout
   title={pageTitle}
-  description={pageDescription}
+  description={metaDescription}
   image={`/og/places/${slugifyAreaName(area.areaName)}.png`}
   structuredData={structuredData}
 >
@@ -528,19 +580,26 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     { label: area.areaName }
   ]} />
 
-  <div class="place-header">
+  <div class="place-header" data-listing-arm={listingArm}>
     <div class="place-identity">
       <h1>{area.areaName}</h1>
       <span class="place-region">{area.regionName} &middot; {area.countryName} &middot; {area.areaCode}</span>
-      <p class="place-summary">
-        <strong>{fmtInt(population)}</strong> people at the 2021 Census.
-        {showCrossing
-          ? ` The White British majority here is projected to end around ${crossingYear}.`
-          : wbi2021 != null && wbi2021 < 50
-            ? " Already below a White British majority at the 2021 Census."
-            : ""}
-        {" "}This profile combines observed Census data with clearly labelled modelled projections. Read the <a href="/methodology/">methodology and limitations</a> or inspect the <a href="/sources/">official sources</a>.
-      </p>
+      {placeListing ? (
+        <p class="place-summary">
+          {placeListing.summary}
+          {" "}Modelled projections are labelled as such. Read the <a href="/methodology/">methodology and limitations</a> or inspect the <a href="/sources/">official sources</a>.
+        </p>
+      ) : (
+        <p class="place-summary">
+          <strong>{fmtInt(population)}</strong> people at the 2021 Census.
+          {showCrossing
+            ? ` The White British majority here is projected to end around ${crossingYear}.`
+            : wbi2021 != null && wbi2021 < 50
+              ? " Already below a White British majority at the 2021 Census."
+              : ""}
+          {" "}This profile combines observed Census data with clearly labelled modelled projections. Read the <a href="/methodology/">methodology and limitations</a> or inspect the <a href="/sources/">official sources</a>.
+        </p>
+      )}
     </div>
     <div class="place-header-aside">
       <MiniMap
@@ -565,6 +624,23 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       />
     </div>
   </div>
+
+  {directAnswer && (
+    <section class="place-answer" aria-label={`${area.areaName} in brief`}>
+      <p class="place-answer-text">{directAnswer}</p>
+      <p class="place-answer-links">
+        Looking at a street rather than the whole area? <a href="/your-area/">Look up your postcode</a> for the local authority and constituency it sits in.
+      </p>
+    </section>
+  )}
+
+  {placeListing && (showCrossing || (wbi2021 != null && wbi2021 < 50)) && (
+    <p class="place-trajectory">
+      {showCrossing
+        ? `The White British majority here is projected to end around ${crossingYear}.`
+        : "Already below a White British majority at the 2021 Census."}
+    </p>
+  )}
 
   {showCrossing && (
     <div class="place-crossing">
@@ -632,6 +708,17 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     />
     )}
   </section>
+
+  {relatedFindings.length > 0 && (
+    <nav class="place-related" aria-label="Related findings">
+      <span class="place-related-head">Related findings</span>
+      <ul>
+        {relatedFindings.map((r) => (
+          <li><a href={r.href}>{r.headline}</a></li>
+        ))}
+      </ul>
+    </nav>
+  )}
 
   <div class="place-body">
     <aside class="place-rail" aria-label="Sections on this page">
@@ -1630,6 +1717,14 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     text-wrap: balance;
   }
   .place-summary { margin: 0.85rem 0 0; color: var(--text-muted); font-size: 1.02rem; line-height: 1.7; }
+  .place-answer { margin: 0 0 1.5rem; padding: var(--space-4, 1rem) var(--space-5, 1.25rem); background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm, 8px); max-width: 72ch; }
+  .place-answer-text { margin: 0; font-size: 1rem; line-height: 1.65; color: var(--ink); }
+  .place-answer-links { margin: 0.6rem 0 0; font-size: 0.9rem; color: var(--muted); }
+  .place-trajectory { margin: 0 0 1rem; font-size: 0.98rem; color: var(--text-muted); max-width: 72ch; }
+  .place-related { margin: 1.25rem 0 0; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm, 8px); max-width: 72ch; }
+  .place-related-head { display: block; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.4rem; }
+  .place-related ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.3rem; }
+  .place-related li { font-size: 0.92rem; line-height: 1.45; overflow-wrap: anywhere; }
   .place-region { font-size: 0.88rem; color: var(--muted); }
   .place-header-aside { display: flex; flex-direction: column; align-items: flex-end; gap: 0.65rem; flex: 0 0 auto; }
   .place-header-aside :global(.mini-map) {
