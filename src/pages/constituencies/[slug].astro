@@ -5,13 +5,17 @@ import RaceBar from "../../components/RaceBar.astro";
 import MiniMap from "../../components/MiniMap.astro";
 import {
   getAllPcons,
+  getGeneralElectionDate,
+  getMpDirectoryDate,
   getMpForPcon,
   getPipClaimantsForPcon,
+  getVacancyForPcon,
   type PconEntry,
 } from "../../lib/pcon-data";
 import { buildAbsoluteUrl, buildConstituencyStructuredData, getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
 import { buildConstituencyDescription, generalElectionYear, pconDatasetDate } from "../../lib/search-listing";
 import { getPconDemographics } from "../../lib/pcon-demographics";
+import pipPcon from "../../data/live/pip-pcon.json";
 
 export function getStaticPaths() {
   return getAllPcons().map((p) => ({
@@ -22,6 +26,23 @@ export function getStaticPaths() {
 
 const { pcon } = Astro.props as { pcon: PconEntry };
 const mp = getMpForPcon(pcon.name);
+const vacancy = mp ? null : getVacancyForPcon(pcon.name);
+const mpCheckedOn = getMpDirectoryDate();
+const generalElectionDate = getGeneralElectionDate();
+const electedAtByElection = !!(mp?.electedDate && generalElectionDate && mp.electedDate.slice(0, 10) > generalElectionDate);
+
+function formatDate(iso: string | null | undefined): string | null {
+  if (!iso) return null;
+  return new Date(`${iso.slice(0, 10)}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+}
+
+// "Jan-26" as stored by the PIP transform, to "January 2026" for the label.
+const pipMonthLabel = (() => {
+  const m = String((pipPcon as { latestMonth?: string }).latestMonth ?? "").match(/^([A-Za-z]{3})-(\d{2})$/);
+  if (!m) return null;
+  const d = new Date(`${m[1]} 1, 20${m[2]} UTC`);
+  return Number.isNaN(d.getTime()) ? null : d.toLocaleDateString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
+})();
 const pipClaimants = getPipClaimantsForPcon(pcon.code);
 const demog = getPconDemographics(pcon);
 
@@ -37,10 +58,12 @@ const constituentLasWithPages = pcon.constituentLas
 
 const partyColors: Record<string, string> = {
   Labour: "#dc241f",
+  "Labour (Co-op)": "#dc241f",
   "Reform UK": "#12b6cf",
   Conservative: "#0087dc",
   "Liberal Democrats": "#faa61a",
   "Green Party": "#6ab023",
+  Green: "#6ab023",
   "Plaid Cymru": "#005b54",
   SNP: "#fdf38e",
   Independent: "#999999",
@@ -128,9 +151,25 @@ const structuredData = buildConstituencyStructuredData(pcon, {
         <div class="mp-info">
           <span class="mp-name">{mp.mpName}</span>
           <span class="mp-party" style={`color: ${partyColors[mp.party] ?? "var(--ink)"}`}>{mp.party}</span>
-          {mp.electedDate && <span class="mp-elected">Elected {mp.electedDate.slice(0, 10)}</span>}
+          {mp.electedDate && <span class="mp-elected">Elected {formatDate(mp.electedDate)}</span>}
         </div>
       </div>
+      {electedAtByElection && (
+        <p class="section-note">Elected at a by-election on {formatDate(mp.electedDate)}. The result below is from the general election of {formatDate(generalElectionDate)}.</p>
+      )}
+    </section>
+  )}
+
+  {vacancy && (
+    <section class="section" id="mp">
+      <h2>Sitting MP</h2>
+      <p class="mp-vacant">
+        <strong>Vacant.</strong>
+        {vacancy.previousMemberEnded
+          ? ` No MP has sat for ${pcon.name} since ${formatDate(vacancy.previousMemberEnded)}${vacancy.previousMember ? `, when ${vacancy.previousMember} ${/^resignation/i.test(vacancy.previousMemberEndReason ?? "") ? "resigned the seat" : "left the Commons"}` : ""}.`
+          : ` Parliament lists no MP for ${pcon.name} at present.`}
+      </p>
+      <p class="section-note">Source: UK Parliament Members API{mpCheckedOn ? `, checked ${formatDate(mpCheckedOn)}` : ""}.</p>
     </section>
   )}
 
@@ -169,7 +208,7 @@ const structuredData = buildConstituencyStructuredData(pcon, {
       <div class="stat-card-row" style="grid-template-columns: minmax(0, 18rem);">
         <StatCard
           value={pipClaimants.toLocaleString()}
-          label="PIP claimants · Jan 2026"
+          label={pipMonthLabel ? `PIP claimants · ${pipMonthLabel}` : "PIP claimants"}
           accent="var(--accent)"
         />
       </div>
@@ -261,6 +300,7 @@ const structuredData = buildConstituencyStructuredData(pcon, {
   .mp-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--ink); }
   .mp-party { font-size: 0.92rem; font-weight: 600; }
   .mp-elected { font-size: 0.78rem; color: var(--muted); }
+  .mp-vacant { margin: 0; max-width: 60ch; color: var(--ink); }
   .la-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.5rem; }
   .la-card { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.7rem 0.85rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--ink); transition: background 120ms; }
   .la-card:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }

@@ -52,8 +52,16 @@ const pipByCode = (rawPip as unknown as {
 
 // MP lookup by name. Constituency names match exactly (both come from
 // Parliament data ultimately).
+// The constituency dataset drops Welsh diacritics ("Montgomeryshire and
+// Glyndwr") that Parliament keeps ("Glyndŵr"), so an exact-name lookup left
+// that seat with no MP. Match on a folded form; the fetch script does the same.
+export function foldConstituencyName(name: string): string {
+  return name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+    .replace(/&/g, "and").replace(/[^a-z0-9]+/g, " ").trim();
+}
+
 const mpsByName = new Map<string, MpRow>();
-for (const m of mpData) mpsByName.set(m.constituencyName, m);
+for (const m of mpData) mpsByName.set(foldConstituencyName(m.constituencyName), m);
 
 export function getAllPcons(): PconEntry[] {
   return Object.values(pconData.pcons);
@@ -82,7 +90,42 @@ export function getPconsForLa(ladCode: string): PconEntry[] {
 }
 
 export function getMpForPcon(name: string): MpRow | null {
-  return mpsByName.get(name) ?? null;
+  return mpsByName.get(foldConstituencyName(name)) ?? null;
+}
+
+export interface MpVacancy {
+  constituencyName: string;
+  previousMember: string | null;
+  previousMemberEnded: string | null;
+  previousMemberEndReason: string | null;
+}
+
+const vacanciesByName = new Map<string, MpVacancy>(
+  ((rawMps as unknown as { vacancies?: MpVacancy[] }).vacancies ?? [])
+    .map((v) => [foldConstituencyName(v.constituencyName), v])
+);
+
+/** A seat Parliament lists with no current MP, with when and why the last one left. */
+export function getVacancyForPcon(name: string): MpVacancy | null {
+  return vacanciesByName.get(foldConstituencyName(name)) ?? null;
+}
+
+/**
+ * The general election date, read from the directory as the start date most
+ * sitting MPs share. An MP whose membership starts later came in at a
+ * by-election, so the general election result on their page predates them.
+ */
+export function getGeneralElectionDate(): string | null {
+  const counts = new Map<string, number>();
+  for (const m of mpData) {
+    const d = m.electedDate?.slice(0, 10);
+    if (d) counts.set(d, (counts.get(d) ?? 0) + 1);
+  }
+  return [...counts].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+}
+
+export function getMpDirectoryDate(): string | null {
+  return (rawMps as unknown as { lastUpdated?: string }).lastUpdated ?? null;
 }
 
 export function getPipClaimantsForPcon(code: string): number | null {

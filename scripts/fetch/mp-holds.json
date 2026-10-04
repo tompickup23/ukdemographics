@@ -1,0 +1,13 @@
+{
+  "_doc": "Published values kept while the Parliament Members API reports a change that no independent source confirms yet. A hold applies only while the API still returns apiValue. Remove the entry once the change is corroborated or reversed. See scripts/fetch/fetch-mp-data.mjs.",
+  "holds": [
+    {
+      "constituencyName": "East Kilbride and Strathaven",
+      "field": "party",
+      "apiValue": "Labour",
+      "publishedValue": "Independent",
+      "recorded": "2026-10-04",
+      "reason": "The API reports Joani Reid as Labour. Wikipedia (Joani Reid, retrieved 4 October 2026) records her resigning the Labour whip on 5 March 2026 and no restoration. Unconfirmed, so the published value stands."
+    }
+  ]
+}
