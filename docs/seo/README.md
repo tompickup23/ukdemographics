@@ -156,7 +156,7 @@ Search Console, save it here as `after-2026-11/pages-28d.csv`, and run:
 node scripts/seo/ctr-by-arm.mjs docs/seo/after-2026-11/pages-28d.csv
 ```
 
-- Deploy date: not yet deployed. Record it here at deploy; the re-measure date is 28 days later.
+- Deploy date: 4 October 2026 (PR #68 merged to main). Re-measure on or after 1 November 2026, using the 28 days from 4 to 31 October 2026, and check the deploy run succeeded on that date before counting from it.
 - Decide on clicks per impression, not clicks. Record average position by arm too, because a
   listing change can move ranking.
 - If one arm wins, roll it to every place in a follow-up PR and record the result here.
