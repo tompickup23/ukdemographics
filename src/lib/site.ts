@@ -285,6 +285,79 @@ export function buildPlaceStructuredData(
   ];
 }
 
+interface ConstituencyStructuredDataOptions {
+  canonicalUrl: string;
+  description: string;
+  snapshotDate: string | null;
+  generalElectionYear: number | null;
+}
+
+/**
+ * Constituency pages get the same shape as places: a breadcrumb, the area and a
+ * Dataset whose description is the page's meta description.
+ */
+export function buildConstituencyStructuredData(
+  pcon: { code: string; name: string; country: string },
+  options: ConstituencyStructuredDataOptions
+): StructuredDataNode[] {
+  const areaId = `${options.canonicalUrl}#area`;
+  const datasetId = `${options.canonicalUrl}#dataset`;
+  const ge = options.generalElectionYear;
+
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Constituencies", item: buildAbsoluteUrl("/constituencies/") },
+        { "@type": "ListItem", position: 3, name: pcon.name, item: options.canonicalUrl }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "AdministrativeArea",
+      "@id": areaId,
+      name: `${pcon.name} (UK Parliament constituency)`,
+      identifier: pcon.code,
+      containedInPlace: { "@type": "Country", name: pcon.country },
+      subjectOf: { "@id": datasetId }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "@id": datasetId,
+      name: `${pcon.name} constituency profile`,
+      description: options.description,
+      url: options.canonicalUrl,
+      isAccessibleForFree: true,
+      ...(options.snapshotDate ? { dateModified: options.snapshotDate } : {}),
+      measurementTechnique: [
+        ge != null ? `UK Parliament general election results, ${ge}` : "UK Parliament general election results",
+        "DWP Stat-Xplore Personal Independence Payment claimant counts",
+        "Local authority Census 2021 profiles aggregated by postcode share and population"
+      ],
+      spatialCoverage: { "@id": areaId },
+      citation: [
+        { "@type": "WebPage", name: "UK Parliament Members API", url: "https://members-api.parliament.uk/" },
+        { "@type": "WebPage", name: "DWP Stat-Xplore", url: "https://stat-xplore.dwp.gov.uk/" },
+        { "@type": "CreativeWork", name: "ONS Census 2021", url: "https://www.ons.gov.uk/census" },
+        { "@type": "WebPage", name: "UK Demographics methodology and limitations", url: buildAbsoluteUrl("/methodology/") }
+      ],
+      creator: { "@id": `${SITE_URL}/#organization` },
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      keywords: ["constituency profile", "general election result", "PIP claimants", "demographics", pcon.name],
+      variableMeasured: [
+        "Sitting MP",
+        "General election vote shares",
+        "PIP claimants",
+        "Ethnic composition (derived)",
+        "Country of birth (derived)"
+      ]
+    }
+  ];
+}
+
 interface ReleaseCollectionStructuredDataOptions {
   canonicalUrl: string;
   description: string;

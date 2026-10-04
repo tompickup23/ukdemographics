@@ -9,7 +9,8 @@ import {
   getPipClaimantsForPcon,
   type PconEntry,
 } from "../../lib/pcon-data";
-import { getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
+import { buildAbsoluteUrl, buildConstituencyStructuredData, getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
+import { buildConstituencyDescription, generalElectionYear, pconDatasetDate } from "../../lib/search-listing";
 import { getPconDemographics } from "../../lib/pcon-demographics";
 
 export function getStaticPaths() {
@@ -72,11 +73,29 @@ const winnerShareText = pcon.ge2024.winnerSharePct > 0
 // Search intent: people look for "<constituency> population" and
 // "<constituency> MP", not "constituency profile".
 const pageTitle = `${pcon.name}. Population, demographics and MP`;
+
+// A description that says what is on the page in plain words, and the same
+// structured data and social card the place pages carry.
+const pageDescription = buildConstituencyDescription(pcon.name, {
+  mp: !!mp,
+  pip: pipClaimants != null,
+  demographics: !!demog,
+  localAuthorities: constituentLasWithPages.length > 0,
+});
+const canonicalUrl = buildAbsoluteUrl(`/constituencies/${pcon.slug}/`);
+const structuredData = buildConstituencyStructuredData(pcon, {
+  canonicalUrl,
+  description: pageDescription,
+  snapshotDate: pconDatasetDate(),
+  generalElectionYear: generalElectionYear(),
+});
 ---
 
 <BaseLayout
   title={pageTitle}
-  description={`${pcon.name} (UK Parliament constituency ${pcon.code}). 2024 General Election result, MP, PIP claimants and the constituent local authorities.`}
+  description={pageDescription}
+  image={`/og/constituencies/${pcon.slug}.png`}
+  structuredData={structuredData}
 >
   <a class="back-link" href="/constituencies/">&larr; All constituencies</a>
   <div class="pcon-header">
