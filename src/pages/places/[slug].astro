@@ -56,6 +56,7 @@ import {
   profileUpdatedDate,
 } from "../../lib/search-listing";
 import { consistentBandSeries } from "../../lib/projection-consistency";
+import { ordinal } from "../../lib/ordinal";
 import {
   plausibleThrough,
   isTruncated,
@@ -968,7 +969,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Adults from overseas registering for a National Insurance number, rolling year ending {nino.periodEnd}.
         {ninoPercentile != null && (
-          <> {area.areaName} ranks at the <strong>{ninoPercentile}th percentile</strong> nationally for total NINo registrations.</>
+          <> {area.areaName} ranks at the <strong>{ordinal(ninoPercentile)} percentile</strong> nationally for total NINo registrations.</>
         )}
       </p>
       <div class="data-grid">
@@ -1326,7 +1327,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Police-recorded crime rates per 1,000 population, {crime.period}.
         {crimePercentile != null && (
-          <> {area.areaName} ranks at the <strong>{crimePercentile}th percentile</strong> nationally for total crime rate.</>
+          <> {area.areaName} ranks at the <strong>{ordinal(crimePercentile)} percentile</strong> nationally for total crime rate.</>
         )}
       </p>
       <div class="data-grid">
@@ -1373,7 +1374,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Council ASC spend, residential placements, and quality-of-life outcomes, {asc.period}.
         {ascPercentile != null && (
-          <> Spend per head sits at the <strong>{ascPercentile}th percentile</strong> nationally.</>
+          <> Spend per head sits at the <strong>{ordinal(ascPercentile)} percentile</strong> nationally.</>
         )}
       </p>
       <div class="data-grid">
@@ -1423,7 +1424,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         EHCPs and primary need breakdown, {send.period}.
         {sendGrowthPercentile != null && (
-          <> 5-year EHCP growth at the <strong>{sendGrowthPercentile}th percentile</strong> nationally.</>
+          <> 5-year EHCP growth at the <strong>{ordinal(sendGrowthPercentile)} percentile</strong> nationally.</>
         )}
       </p>
       <div class="data-grid">
