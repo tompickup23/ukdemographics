@@ -13,17 +13,9 @@ import { describe, expect, it } from "vitest";
  * into a string.
  */
 const EXCLUDED: Record<string, string> = {
-  // Being fixed by separate pull requests; listed so each one is a decision.
-  "transform_crime.py": "separate PR (crime)",
-  "transform_send.py": "separate PR (SEND)",
-  "transform_tb.py": "separate PR (TB)",
-  "transform_council_tax_spd.py": "separate PR (council tax SPD)",
-  "transform_school_eal.py": "separate PR (school EAL)",
-  "transform_school_eal_district.py": "separate PR (school EAL district)",
-  "transform_payroll_by_nationality.py": "separate PR (payroll)",
-  "transform_payroll_regional.py": "separate PR (payroll)",
-  "transform_births_by_mother_cob.py": "separate PR (births)",
-  "transform_births_history.py": "separate PR (births)",
+  // PR #79 rewrites this transform and derives its snapshot date; still typed on main
+  // until it merges. Remove this line when it does.
+  "transform_crime.py": "separate PR (crime, #79)",
   // No raw input: hand-curated from cited reports, so its date is the curation date.
   "transform_nhs_funding_context.py": "hand-curated, no file to read a date from"
 };
