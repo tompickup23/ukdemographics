@@ -1,0 +1,629 @@
+{
+  "schema": 1,
+  "description": "Every file the UK Demographics projection model reads that is not in git. Each input names the repo path a script reads, the store that holds the bytes and their sha256. scripts/model/link_inputs.mjs links them into a checkout and fails on a missing file or a changed hash. Committed files under src/data/live are not listed: git pins those.",
+  "updated": "2026-10-12",
+  "stores": {
+    "asylumstats": {
+      "default": "~/asylumstats/data",
+      "env": "UKD_MODEL_STORE_AS",
+      "note": "Gitignored data held in the Asylum Stats checkout. Other repos (the LGR Zenodo tools, the LCC budget model) read raw/snpp and model/ here directly: never move, rename or overwrite anything in this store."
+    },
+    "ukd": {
+      "default": "~/ukdemographics/data",
+      "env": "UKD_MODEL_STORE_UKD",
+      "note": "Gitignored data held in the main UK Demographics checkout, for inputs fetched by this repo's own scripts."
+    }
+  },
+  "inputs": [
+    {
+      "id": "census2021_custom_ethnic_age_sex",
+      "path": "data/raw/census_single_year/census2021_ethnic_age_sex_la_singleyear.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_single_year/census2021_ethnic_age_sex_la_singleyear.csv",
+      "sha256": "8ab91d8d614e6bbb0fbd7cfad4ee09fe7497ffc0c9b17ab6f5283538098f80e3",
+      "bytes": 121914867,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 custom dataset: lower tier local authorities by age (101 categories), ethnic group (20 categories) and sex (2 categories), 2022 local authority geography",
+      "obtained": "Manual download from the ONS 'Create a custom dataset' tool, April 2026 (docs/ons-custom-dataset-download-guide.md)",
+      "usedBy": [
+        "build_single_year_base.mjs"
+      ],
+      "note": "Holds 292 English and 19 Welsh authorities. Ten English and three Welsh authorities have no rows (ONS disclosure control)."
+    },
+    {
+      "id": "census2011_dc2101ew",
+      "path": "data/raw/census_2011_ethnicity_age/dc2101ew_ethnicity_sex_age_la.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_2011_ethnicity_age/dc2101ew_ethnicity_sex_age_la.csv",
+      "sha256": "9ec6fb027aac85c3c6a8e4240f4dc213460393836fa712e20bd8c8210de0944c",
+      "bytes": 27632148,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2011 DC2101EW: ethnic group by sex by age, 2011 local authorities",
+      "obtained": "scripts/fetch/fetch-census-2011-ethnicity-age.mjs (run in April 2026; that script uses the Nomis API, which this repo no longer calls)",
+      "usedBy": [
+        "lib/census-2011-base.mjs",
+        "validate_backcast.mjs",
+        "validate_out_of_sample.mjs"
+      ]
+    },
+    {
+      "id": "newethpop_population_2011",
+      "path": "data/raw/newethpop/extracted/2DataArchive/OutputData/Population/Population2011_LEEDS2.csv",
+      "store": "asylumstats",
+      "storePath": "raw/newethpop/extracted/2DataArchive/OutputData/Population/Population2011_LEEDS2.csv",
+      "sha256": "f5bc3566ebf257b0ae131f22f0bc9207455fa223f492e54468ec915dd5a36094",
+      "bytes": 8527365,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "University of Leeds (NEWETHPOP, UK Data Service ReShare 852508)",
+      "title": "NEWETHPOP Population2011_LEEDS2.csv",
+      "obtained": "Manual download",
+      "usedBy": [
+        "lib/census-2011-base.mjs",
+        "validate_backcast.mjs"
+      ],
+      "note": "Also decides which areas the forward model projects: an area is modelled only if its code appears here."
+    },
+    {
+      "id": "newethpop_population_2021",
+      "path": "data/raw/newethpop/extracted/2DataArchive/OutputData/Population/Population2021_LEEDS2.csv",
+      "store": "asylumstats",
+      "storePath": "raw/newethpop/extracted/2DataArchive/OutputData/Population/Population2021_LEEDS2.csv",
+      "sha256": "24ba6fec8781551b2bf257f2276fb02964cccf24376c6692d1a3662099be4605",
+      "bytes": 14485297,
+      "role": "raw",
+      "models": [
+        "v8.0"
+      ],
+      "publisher": "University of Leeds (NEWETHPOP, UK Data Service ReShare 852508)",
+      "title": "NEWETHPOP Population2021_LEEDS2.csv",
+      "obtained": "Manual download",
+      "usedBy": [
+        "validate_backcast.mjs"
+      ]
+    },
+    {
+      "id": "newethpop_internal_inmig_2011",
+      "path": "data/raw/newethpop/extracted/2DataArchive/InputData/InternalMigration/InternalInmig2011_LEEDS2.csv",
+      "store": "asylumstats",
+      "storePath": "raw/newethpop/extracted/2DataArchive/InputData/InternalMigration/InternalInmig2011_LEEDS2.csv",
+      "sha256": "5718ad2b7003b89a0c8c00bc7ee65a11ac1901a8d96f41b6e07742c21239f572",
+      "bytes": 15147931,
+      "role": "raw",
+      "models": [
+        "v8.0"
+      ],
+      "publisher": "University of Leeds (NEWETHPOP)",
+      "title": "NEWETHPOP InternalInmig2011_LEEDS2.csv",
+      "obtained": "Manual download",
+      "usedBy": [
+        "build_migration_matrix.mjs"
+      ]
+    },
+    {
+      "id": "newethpop_internal_outmig_2011",
+      "path": "data/raw/newethpop/extracted/2DataArchive/InputData/InternalMigration/InternalOutmig2011_LEEDS2.csv",
+      "store": "asylumstats",
+      "storePath": "raw/newethpop/extracted/2DataArchive/InputData/InternalMigration/InternalOutmig2011_LEEDS2.csv",
+      "sha256": "b62bdcb75f6253971b91b692a3b994a6b4823c1bd37a58c3c1b6d08bdf6db7f1",
+      "bytes": 12082946,
+      "role": "raw",
+      "models": [
+        "v8.0"
+      ],
+      "publisher": "University of Leeds (NEWETHPOP)",
+      "title": "NEWETHPOP InternalOutmig2011_LEEDS2.csv",
+      "obtained": "Manual download",
+      "usedBy": [
+        "build_migration_matrix.mjs",
+        "build_net_migration_rates.mjs"
+      ]
+    },
+    {
+      "id": "snpp_2022_persons_csv",
+      "path": "data/raw/snpp/2022 SNPP Population persons.csv",
+      "store": "asylumstats",
+      "storePath": "raw/snpp/2022 SNPP Population persons.csv",
+      "sha256": "1fe9e4d9ccbb4aeecf0fa898e5abaf5c499b05077d4bdef6c8355b38e55f0b08",
+      "bytes": 7814873,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Subnational population projections for England, 2022-based, migration category variant: persons by single year of age (2022 SNPP Population persons.csv)",
+      "obtained": "Extracted from snpp_z1.zip; byte-identical to the member of that zip",
+      "usedBy": [
+        "run_hp_single_year.mjs",
+        "run_stochastic_hp.mjs",
+        "run_projection_v2.mjs",
+        "run_hamilton_perry.mjs"
+      ],
+      "note": "The zip it came from carries 'Migration category variant.txt', so the v8.0 cap was already the variant ONS uses in its own bulletin, not the principal. Read by other repos; never move or overwrite."
+    },
+    {
+      "id": "snpp_2022_migcat_zip",
+      "path": "data/raw/snpp/snpp_z1.zip",
+      "store": "asylumstats",
+      "storePath": "raw/snpp/snpp_z1.zip",
+      "sha256": "66d84d0ed6d84e3bb40b1c6bb0495a8851218284f9bd96143ba010803b30c5a1",
+      "bytes": 8721712,
+      "role": "raw",
+      "models": [
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Subnational population projections for England, 2022-based, migration category variant, single year of age (2022snpppopulationsyoamigcat.zip)",
+      "sourceUrl": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/localauthoritiesinenglandz1/2022basedmigrationcategoryvariant/2022snpppopulationsyoamigcat.zip",
+      "drive": "doge:Care Directory Data/03 ONS population/2022snpppopulationsyoamigcat.zip",
+      "obtained": "Held in Asylum Stats as snpp_z1.zip; the Drive copy retrieved 22 Aug 2026 has the same sha256",
+      "usedBy": [
+        "build_control_totals.mjs"
+      ]
+    },
+    {
+      "id": "census2021_rm032",
+      "path": "data/raw/census_base/rm032_ethnic_age_sex.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/rm032_ethnic_age_sex.csv",
+      "sha256": "73484da6c437c86a9b62874de410df32932b57c9486132bab7c02dc9c05882a4",
+      "bytes": 6574516,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 RM032: ethnic group (20 categories) by age (6 categories) by sex, 2023 local authority geography",
+      "obtained": "Manual download, April 2026",
+      "usedBy": [
+        "build_base_population.mjs",
+        "run_hamilton_perry.mjs",
+        "build_single_year_base.mjs (suppressed-area fallback)"
+      ]
+    },
+    {
+      "id": "census2021_ts009",
+      "path": "data/raw/census_base/ts009_single_year_age_sex.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/ts009_single_year_age_sex.csv",
+      "sha256": "7294c2661c014e33415a2658f7d57634f0ea5c46dcab18791b412e67a09a8fab",
+      "bytes": 2336773,
+      "role": "raw",
+      "models": [
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 TS009: sex by single year of age, 2023 local authority geography",
+      "obtained": "Manual download, April 2026",
+      "usedBy": [
+        "build_single_year_base.mjs (suppressed-area fallback)"
+      ]
+    },
+    {
+      "id": "census2011_dc2101_legacy",
+      "path": "data/raw/census_base/dc2101_2011_ethnic_age_sex.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/dc2101_2011_ethnic_age_sex.csv",
+      "sha256": "b5eae6708709fef1c45e6515634247b1e66a1367ed0e3a60953a41a82f2785d0",
+      "bytes": 17971297,
+      "role": "raw",
+      "models": [
+        "v8.0"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2011 DC2101 extract used by the retired five-year Hamilton-Perry script",
+      "obtained": "Manual download",
+      "usedBy": [
+        "run_hamilton_perry.mjs (retired)"
+      ]
+    },
+    {
+      "id": "census2021_ts023",
+      "path": "data/raw/census_base/ts023_multi_ethnic_2021.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/ts023_multi_ethnic_2021.csv",
+      "sha256": "a518df584bcdd83762174996a99f8b71322b7ad5308c0a3cb6fd91e13fb84165",
+      "bytes": 41520,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 TS023: multiple ethnic groups in household",
+      "obtained": "Manual download",
+      "usedBy": [
+        "improve_mixing.mjs"
+      ]
+    },
+    {
+      "id": "census2011_ks204",
+      "path": "data/raw/census_base/ks204_cob_2011.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/ks204_cob_2011.csv",
+      "sha256": "36b332b4b970a53c706d23f155428fb225754c39ebb6e022ab5c90d8ebdbbfba",
+      "bytes": 154007,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2011 KS204EW: country of birth",
+      "obtained": "Manual download",
+      "usedBy": [
+        "project_religion_nativity.mjs",
+        "apply_methodology_fixes.mjs"
+      ]
+    },
+    {
+      "id": "census2011_ks209",
+      "path": "data/raw/census_base/ks209_religion_2011.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/ks209_religion_2011.csv",
+      "sha256": "990102830566477b9a7a21669a76c302340199c042263597d33b52f96ea13246",
+      "bytes": 115196,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2011 KS209EW: religion",
+      "obtained": "Manual download",
+      "usedBy": [
+        "project_religion_nativity.mjs"
+      ]
+    },
+    {
+      "id": "census2021_ts004",
+      "path": "data/raw/census_base/ts004_cob_2021.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/ts004_cob_2021.csv",
+      "sha256": "0c686765d2405ecb735b8dd1faf66af150c506374cca07cac84c1920feb88b85",
+      "bytes": 127351,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 TS004: country of birth",
+      "obtained": "Manual download",
+      "usedBy": [
+        "project_religion_nativity.mjs",
+        "apply_methodology_fixes.mjs"
+      ]
+    },
+    {
+      "id": "census2021_ts030",
+      "path": "data/raw/census_base/ts030_religion_2021.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/ts030_religion_2021.csv",
+      "sha256": "be64ef400b9057f204994b801a2a91a4baaf2ec9de810931988045beb308fc66",
+      "bytes": 120924,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 TS030: religion",
+      "obtained": "Manual download",
+      "usedBy": [
+        "project_religion_nativity.mjs"
+      ]
+    },
+    {
+      "id": "census2021_rm018",
+      "path": "data/raw/census_base/rm018_econ_ethnicity_2021.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/rm018_econ_ethnicity_2021.csv",
+      "sha256": "142cc3f737f53f92a1d58b348bd2739861b8e1739e48bea40d1e2762fc764f38",
+      "bytes": 21750343,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 RM018: economic activity by ethnic group",
+      "obtained": "Manual download",
+      "usedBy": [
+        "integrate_socioeconomic.mjs"
+      ]
+    },
+    {
+      "id": "census2021_rm043",
+      "path": "data/raw/census_base/rm043_health_ethnicity_2021.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/rm043_health_ethnicity_2021.csv",
+      "sha256": "61fdbeae9f34405eab4796672ff0fb7b05c5d69e2e62e9463788ba19bba49664",
+      "bytes": 17440017,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 RM043: general health by ethnic group",
+      "obtained": "Manual download",
+      "usedBy": [
+        "integrate_socioeconomic.mjs"
+      ]
+    },
+    {
+      "id": "census2021_rm049",
+      "path": "data/raw/census_base/rm049_qualification_ethnicity_2021.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/rm049_qualification_ethnicity_2021.csv",
+      "sha256": "9d884cbf81ee95239cbea309b5a510211aee1e317fe4000d44f573a7ef02608c",
+      "bytes": 13579818,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 RM049: highest qualification by ethnic group",
+      "obtained": "Manual download",
+      "usedBy": [
+        "integrate_socioeconomic.mjs"
+      ]
+    },
+    {
+      "id": "census2021_rm134",
+      "path": "data/raw/census_base/rm134_tenure_ethnicity_2021.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/rm134_tenure_ethnicity_2021.csv",
+      "sha256": "7032ad0e07184e851f28cf3a5ad0e815376db551ab924787ebb0f72e1fe763a3",
+      "bytes": 8629154,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 RM134: tenure by ethnic group",
+      "obtained": "Manual download",
+      "usedBy": [
+        "integrate_socioeconomic.mjs"
+      ]
+    },
+    {
+      "id": "census2021_ts029",
+      "path": "data/raw/census_base/ts029_english_proficiency_2021.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_base/ts029_english_proficiency_2021.csv",
+      "sha256": "57f8f86fc358fb9c039376e3bb92352300a6b7cebcb4d21779c44673181e56e3",
+      "bytes": 229838,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 TS029: proficiency in English",
+      "obtained": "Manual download",
+      "usedBy": [
+        "integrate_supplementary.mjs"
+      ]
+    },
+    {
+      "id": "census2021_ts022",
+      "path": "data/raw/census_ethnicity_detail/census2021-ts022-ltla.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_ethnicity_detail/census2021-ts022-ltla.csv",
+      "sha256": "6a5d4ccafa019af7d122f41b14d3f023541d6ff9d139320e6c5d4fe7b9d3f28d",
+      "bytes": 296803,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 TS022: ethnic group (detailed)",
+      "obtained": "Manual download",
+      "usedBy": [
+        "build_nationality_ethnicity_map.mjs"
+      ]
+    },
+    {
+      "id": "census_migration_indicator",
+      "path": "data/raw/census_migration/census2021_migration_indicator_ethnicity.csv",
+      "store": "asylumstats",
+      "storePath": "raw/census_migration/census2021_migration_indicator_ethnicity.csv",
+      "sha256": "28ce01fc7b382cb31363180e229e408052f01bc3cad97f0b635f835653788803",
+      "bytes": 4384158,
+      "role": "raw",
+      "models": [
+        "v8.0"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2021 migrant indicator by ethnic group",
+      "obtained": "Manual download",
+      "usedBy": [
+        "integrate_census_migration.mjs"
+      ]
+    },
+    {
+      "id": "dfe_pupils_ethnicity_language",
+      "path": "data/raw/dfe_schools/spc_pupils_ethnicity_and_language.csv",
+      "store": "ukd",
+      "storePath": "raw/dfe_schools/spc_pupils_ethnicity_and_language.csv",
+      "sha256": "8cf8af8c8608565529aa730b1f93433cab65bb753313aefbcd1a95a867718db1",
+      "bytes": 36804390,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Department for Education",
+      "title": "Schools, pupils and their characteristics 2024/25: spc_pupils_ethnicity_and_language.csv",
+      "obtained": "Manual download, April 2026",
+      "usedBy": [
+        "validate_schools.mjs",
+        "integrate_schools_compare.mjs",
+        "compute_school_fertility_proxy.mjs"
+      ],
+      "note": "The 2025/26 release replaces this for v8.1; add it as a new input with its own hash when the schools refresh lands."
+    },
+    {
+      "id": "census2001_st101",
+      "path": "data/raw/census_2001_ethnicity_age/st101_ethnicity_sex_age_la.csv",
+      "store": "ukd",
+      "storePath": "raw/census_2001_ethnicity_age/st101_ethnicity_sex_age_la.csv",
+      "sha256": "737806469b2c871e3d2f223e5825e9390d2a0fb0ac36e7829e269153b809e7cd",
+      "bytes": 22586702,
+      "role": "raw",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Census 2001 ST101: sex and age by ethnic group, 2011 local authority geography",
+      "obtained": "scripts/fetch/fetch-census-2001-ethnicity-age.mjs, 13 Aug 2026 (Nomis NM_1869_1; this repo no longer calls the Nomis API)",
+      "usedBy": [
+        "validate_out_of_sample.mjs"
+      ]
+    },
+    {
+      "id": "model_base_single_year_2021",
+      "path": "data/model/base_single_year_2021.json",
+      "store": "asylumstats",
+      "storePath": "model/base_single_year_2021.json",
+      "sha256": "e1d4a3dc6cefaaf46a19b295b87f11c7630924f70de1a7753c2cc6750b42fb9e",
+      "bytes": 7606752,
+      "role": "derived",
+      "models": [
+        "v8.0"
+      ],
+      "builtBy": "build_single_year_base.mjs",
+      "usedBy": [
+        "run_hp_single_year.mjs",
+        "run_stochastic_hp.mjs",
+        "validate_schools.mjs",
+        "validate_backcast.mjs",
+        "build_migration_matrix.mjs",
+        "extract_fertility_rates.mjs"
+      ],
+      "note": "The base the v8.0 run read, built 14 Apr 2026. v8.1 rebuilds it to a new name; this copy is read by other repos and is never overwritten."
+    },
+    {
+      "id": "model_base_population_2021",
+      "path": "data/model/base_population_2021.json",
+      "store": "asylumstats",
+      "storePath": "model/base_population_2021.json",
+      "sha256": "3aa097aad669f378248189a2d9cb6fb202c74053328c6673097bc368c5bc713e",
+      "bytes": 5606346,
+      "role": "derived",
+      "models": [
+        "v8.0"
+      ],
+      "builtBy": "build_base_population.mjs",
+      "usedBy": [
+        "build_components.mjs",
+        "run_projection.mjs",
+        "run_projection_v2.mjs"
+      ]
+    },
+    {
+      "id": "model_net_migration_rates",
+      "path": "data/model/net_migration_rates.json",
+      "store": "asylumstats",
+      "storePath": "model/net_migration_rates.json",
+      "sha256": "b164402c58ce69a8e382b0b13f73ef7574cccf6dae4cb3c2bf98a7d24be66768",
+      "bytes": 131279,
+      "role": "derived",
+      "models": [
+        "v8.0"
+      ],
+      "builtBy": "build_net_migration_rates.mjs",
+      "usedBy": [
+        "run_projection_v2.mjs"
+      ]
+    },
+    {
+      "id": "model_migration_rates_2021",
+      "path": "data/model/migration_rates_2021.json",
+      "store": "asylumstats",
+      "storePath": "model/migration_rates_2021.json",
+      "sha256": "b88f6c976f102e4a065ecf8bb0c4981081eb445c007b666e8582b530f5a73868",
+      "bytes": 891078,
+      "role": "derived",
+      "models": [
+        "v8.0"
+      ],
+      "builtBy": "integrate_census_migration.mjs",
+      "usedBy": [
+        "build_net_migration_rates.mjs"
+      ]
+    },
+    {
+      "id": "model_region_groups",
+      "path": "data/model/region_groups.json",
+      "store": "asylumstats",
+      "storePath": "model/region_groups.json",
+      "sha256": "903967853319eaa8bbb71c889f6970ce15410879be26a2a4553883333b43cdb7",
+      "bytes": 6423,
+      "role": "derived",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "builtBy": "not found in scripts/model (no script in this repo writes it)",
+      "usedBy": [
+        "apply_spatial_smoothing.mjs"
+      ]
+    },
+    {
+      "id": "model_nationality_ethnicity_lookup",
+      "path": "data/model/nationality_ethnicity_lookup.json",
+      "store": "asylumstats",
+      "storePath": "model/nationality_ethnicity_lookup.json",
+      "sha256": "05f213b95e68f9a20a7a7217a968a056229461406b81979332884621550323d5",
+      "bytes": 4551,
+      "role": "derived",
+      "models": [
+        "v8.0",
+        "v8.1"
+      ],
+      "builtBy": "build_nationality_ethnicity_map.mjs",
+      "usedBy": [
+        "integrate_asylum_ethnicity.mjs"
+      ]
+    },
+    {
+      "id": "model_projections_cc",
+      "path": "data/model/projections.json",
+      "store": "asylumstats",
+      "storePath": "model/projections.json",
+      "sha256": "f1d24c2ea8009d2253a23392016e419e1009f449ded84efac63337ef284197a7",
+      "bytes": 22826399,
+      "role": "derived",
+      "models": [
+        "v8.0"
+      ],
+      "builtBy": "run_projection.mjs (retired cohort-component model)",
+      "usedBy": [
+        "build_scenario_summary.mjs",
+        "run_ensemble.mjs"
+      ]
+    }
+  ]
+}
