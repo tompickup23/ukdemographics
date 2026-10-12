@@ -123,6 +123,27 @@ jobs:
         if: steps.ctb_fetch.outcome == 'failure' || steps.ctb.outcome == 'failure'
         run: git checkout -- src/data/live/council-tax-spd.json
 
+      # DHSC adult social care finance and activity reports on GOV.UK, no key. Each
+      # series resolves its own newest edition by title, so finance moves to a new year
+      # when DHSC publishes it while activity keeps its last edition until its own
+      # release. Annual: most weeks rewrite the same file. Secondary ingest, as births
+      # above: a failure restores the committed file and turns the run red at the end.
+      - name: Fetch DHSC adult social care tables (GOV.UK, no auth)
+        id: asc_fetch
+        continue-on-error: true
+        run: node scripts/fetch/fetch-dhsc-asc.mjs
+
+      - name: Transform DHSC adult social care tables
+        id: asc
+        if: steps.asc_fetch.outcome == 'success'
+        continue-on-error: true
+        run: python3 scripts/transform/transform_asc.py
+
+      # Pure shell, no GitHub event data is interpolated here.
+      - name: Restore the ASC file if the ASC ingest failed
+        if: steps.asc_fetch.outcome == 'failure' || steps.asc.outcome == 'failure'
+        run: git checkout -- src/data/live/asc-dashboard.json
+
       # DfE SEN figures from the statistics API, no key: newest release found by the
       # publication's slug. Annual (June); other weeks rewrite the same file.
       # Secondary ingest, as births above: a failure restores the committed file, lets
@@ -292,6 +313,8 @@ jobs:
           TB_OUTCOME: ${{ steps.tb.outcome }}
           CTB_FETCH_OUTCOME: ${{ steps.ctb_fetch.outcome }}
           CTB_OUTCOME: ${{ steps.ctb.outcome }}
+          ASC_FETCH_OUTCOME: ${{ steps.asc_fetch.outcome }}
+          ASC_OUTCOME: ${{ steps.asc.outcome }}
           SEND_FETCH_OUTCOME: ${{ steps.send_fetch.outcome }}
           SEND_OUTCOME: ${{ steps.send.outcome }}
         run: |
@@ -310,6 +333,10 @@ jobs:
           fi
           if [ "$CTB_FETCH_OUTCOME" = "failure" ] || [ "$CTB_OUTCOME" = "failure" ]; then
             echo "MHCLG Council Taxbase was skipped (fetch: $CTB_FETCH_OUTCOME, transform: $CTB_OUTCOME). The committed council-tax-spd.json was kept."
+            failed=1
+          fi
+          if [ "$ASC_FETCH_OUTCOME" = "failure" ] || [ "$ASC_OUTCOME" = "failure" ]; then
+            echo "DHSC adult social care was skipped (fetch: $ASC_FETCH_OUTCOME, transform: $ASC_OUTCOME). The committed asc-dashboard.json was kept."
             failed=1
           fi
           if [ "$SEND_FETCH_OUTCOME" = "failure" ] || [ "$SEND_OUTCOME" = "failure" ]; then
