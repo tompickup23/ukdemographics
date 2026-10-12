@@ -1,0 +1,28 @@
+{
+  "dataset": "ons_mye",
+  "publisher": "Office for National Statistics",
+  "cadence": "annual",
+  "landing": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales",
+  "note": "Edition, publication date and reference period are read from the workbook's cover sheet by scripts/build/build-population-estimates.mjs, never from this manifest or the file name.",
+  "current": {
+    "fileName": "mye25tablesew.xlsx",
+    "fileSha256": "85b4e105e9618043884e5ac41d46e6eae8a46bb01b31790f1c76110cbe92d0d8",
+    "sizeBytes": 976621,
+    "sourceUrl": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid20252023localauthorityboundaries/mye25tablesew.xlsx"
+  },
+  "attempts": [
+    {
+      "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid20252023localauthorityboundaries/mye25tablesew.xlsx",
+      "attempted_at": "2026-10-12T07:08:36.713Z",
+      "outcome": "adopted_held_copy",
+      "held_copy_retrieved_at": "2026-08-22T11:27:10.319Z",
+      "held_copy_path": "doge:Care Directory Data/03 ONS population/mye25tablesew.xlsx (Drive manifest _manifest.json, retrieved 22 Aug 2026)",
+      "http_status": null,
+      "robots_status": "not_requested",
+      "blob_sha256": "85b4e105e9618043884e5ac41d46e6eae8a46bb01b31790f1c76110cbe92d0d8",
+      "bytes": 976621,
+      "user_agent": null,
+      "file_name": "mye25tablesew.xlsx"
+    }
+  ]
+}
