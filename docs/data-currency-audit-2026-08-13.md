@@ -300,7 +300,7 @@ Checked against upstream as at 13 August 2026.
 ### Not yet checked, likely stale
 
 `nino-*.json` (rolling year ending Q4 2025), `pip-pcon.json`, `asc-dashboard.json`
-(ASCFR/SALT 2023-24), `fno-bridge.json` (MoJ Jul-Sep 2025),
+(ASCFR/SALT 2023-24), `fno-bridge.json` (MoJ Jul-Sep 2025; retired 12 October 2026, not refreshed: it joined offenders by nationality to NINo registrations, which this site does not publish),
 `council-tax-spd.json` (CTB 2024), `companies-house-psc-nationality.json`
 (Apr 2026 snapshot), `place-boundaries.json` (LAD May 2024, while the PCON
 crosswalk already uses LAD25), `mp-directory.json` (Apr 2026).
