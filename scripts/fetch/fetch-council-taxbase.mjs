@@ -53,6 +53,13 @@ if (files.length !== 1) {
   process.exit(1);
 }
 const url = files[0].url;
+// The URL comes from the publisher's record, so check where it points; the stored name
+// is built from the edition year and a checked extension, and download() refuses any
+// name that is not a bare file name.
+if (!/^https:\/\/assets\.publishing\.service\.gov\.uk\/media\/[A-Za-z0-9]+\/[A-Za-z0-9._-]+\.(xlsx|ods)$/i.test(url)) {
+  console.error(`unexpected attachment URL ${url}; refusing it`);
+  process.exit(1);
+}
 const publishedName = decodeURIComponent(url.split("/").pop());
 const fileName = `${STEM}${edition.year}${path.extname(publishedName).toLowerCase()}`;
 console.log(`newest edition: ${content.title} (first published ${content.first_published_at}, updated ${content.public_updated_at})`);
