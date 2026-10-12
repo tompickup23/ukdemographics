@@ -82,9 +82,13 @@ export function getPconDemographics(pconCodeOrEntry: string | PconEntry): PconDe
     const area = _publicAreaByCode.get(ladCode);
     if (!area) continue;
     const proj = projData.areas[ladCode];
-    const pop = area.population ?? proj?.current?.total_population ?? 0;
-    if (!pop) continue;
-    const weight = la.postcodeShare * pop;
+    // Weight by the share of the constituency's postcodes that fall in this
+    // authority, and nothing else. postcodeShare already sums to one across a
+    // constituency's authorities, so it stands for the constituency's own
+    // population split. Multiplying it by the whole authority's population, as
+    // this did until 12 October 2026, weighted a constituency half in Birmingham
+    // and half in a district of 100,000 about eleven to one towards Birmingham.
+    const weight = la.postcodeShare;
     if (weight <= 0) continue;
     coverageCount++;
     totalWeight += weight;
