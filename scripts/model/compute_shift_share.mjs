@@ -8,26 +8,45 @@
  *
  * Following Franklin (2014, Population Space and Place)
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import path from "node:path";
+import { writeJsonLike } from "../lib/json-like.mjs";
 
 const SITE_OUTPUT = path.resolve("src/data/live/ethnic-projections.json");
-const existing = JSON.parse(readFileSync(SITE_OUTPUT, "utf8"));
+const original = readFileSync(SITE_OUTPUT, "utf8");
+const existing = JSON.parse(original);
 
-// Compute national-level change
-let natWBI_2011 = 0, natWBI_2021 = 0, natTotal_2011 = 0, natTotal_2021 = 0;
+// Compute national-level change, on constant geography: the areas with a 2011
+// baseline, each counted in both years. Until October 2026 every 2011 total
+// was 0 (the ethnicity transform missed the 2011 label "All usual residents"),
+// and the script fell back to a typed 80% for 2011 and 74% for 2021, so the
+// published national effect was not computed from the Census at all. There is
+// no fallback now: a missing total stops the script.
+let natWBI_2011 = 0, natWBI_2021 = 0, natTotal_2011 = 0, natTotal_2021 = 0, natAreas = 0;
+const missing = [];
 for (const [code, area] of Object.entries(existing.areas)) {
   if (!area.baseline || !area.current || area.baseline.year === area.current.year) continue;
-  natWBI_2011 += area.baseline.groups_absolute?.white_british || 0;
-  natWBI_2021 += area.current.groups_absolute?.white_british || 0;
-  natTotal_2011 += area.baseline.total_population || 0;
-  natTotal_2021 += area.current.total_population || 0;
+  const b = area.baseline, c = area.current;
+  if (!(b.total_population > 0) || !(c.total_population > 0) ||
+      b.groups_absolute?.white_british == null || c.groups_absolute?.white_british == null) {
+    missing.push(`${code} ${area.areaName}`);
+    continue;
+  }
+  natWBI_2011 += b.groups_absolute.white_british;
+  natWBI_2021 += c.groups_absolute.white_british;
+  natTotal_2011 += b.total_population;
+  natTotal_2021 += c.total_population;
+  natAreas++;
+}
+if (missing.length || natTotal_2011 === 0 || natTotal_2021 === 0) {
+  throw new Error(`Census totals or White British counts missing for ${missing.length} areas (${missing.slice(0, 5).join("; ")}). Run scripts/build/rebase-census-groups.mjs first.`);
 }
 
-const natWBI_pct_2011 = natTotal_2011 > 0 ? natWBI_2011 / natTotal_2011 * 100 : 80;
-const natWBI_pct_2021 = natTotal_2021 > 0 ? natWBI_2021 / natTotal_2021 * 100 : 74;
+const natWBI_pct_2011 = natWBI_2011 / natTotal_2011 * 100;
+const natWBI_pct_2021 = natWBI_2021 / natTotal_2021 * 100;
 const natWBI_change = natWBI_pct_2021 - natWBI_pct_2011; // negative = national WBI decline
 
+console.log(`National base: ${natAreas} areas with a 2011 baseline; ${natTotal_2011} residents in 2011, ${natTotal_2021} in 2021`);
 console.log(`National WBI: ${natWBI_pct_2011.toFixed(1)}% → ${natWBI_pct_2021.toFixed(1)}% (${natWBI_change.toFixed(1)}pp)`);
 
 let count = 0;
@@ -77,5 +96,5 @@ for (const code of ["E07000117", "E06000008", "E08000025"]) {
   console.log(`  Dominant driver: ${a.shiftShare.dominantDriver}`);
 }
 
-writeFileSync(SITE_OUTPUT, JSON.stringify(existing, null, 2), "utf8");
+writeJsonLike(SITE_OUTPUT, existing, original);
 console.log("\nUpdated ethnic-projections.json");
