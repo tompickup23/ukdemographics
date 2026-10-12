@@ -1,0 +1,29 @@
+{
+  "dataset": "ons_births_cob",
+  "publisher": "Office for National Statistics",
+  "cadence": "annual",
+  "landing": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/parentscountryofbirth",
+  "note": "Edition, title and release date are read from the workbook's cover sheet by the births transforms, never from this manifest or the file name.",
+  "current": {
+    "fileName": "2025birthbyparentscountry.xlsx",
+    "fileSha256": "d444d2c5b6b96eea67ccb82ad5acffb9f5ea7e63f5efe6311cf2a92db065e264",
+    "sizeBytes": 158731,
+    "sourceUrl": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/parentscountryofbirth/2025/2025birthbyparentscountry.xlsx"
+  },
+  "attempts": [
+    {
+      "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/parentscountryofbirth/2025/2025birthbyparentscountry.xlsx",
+      "attempted_at": "2026-10-12T08:19:26.971Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "etag": "\"92bb68a9a03fae82f5137755d6396b06fc2c8c9a--gzip\"",
+      "last_modified": null,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "2025birthbyparentscountry.xlsx",
+      "edition_on_page": 2025,
+      "blob_sha256": "d444d2c5b6b96eea67ccb82ad5acffb9f5ea7e63f5efe6311cf2a92db065e264",
+      "bytes": 158731
+    }
+  ]
+}

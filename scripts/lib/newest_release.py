@@ -31,19 +31,39 @@ def _period(name: str):
     return int(m.group(2)), MONTHS[m.group(1)]
 
 
-def newest_release(directory, stem: str, exts=(".xlsx", ".ods")) -> Path:
+def _year(name: str):
+    """Latest four-digit year in a filename, for annual series with no month in the name.
+
+    `ctb_la_2025.ods`, `...-England-2025-supplementary-data-tables.ods` and
+    `special-educational-needs-in-england_2025-26.zip` give 2025. The year only orders
+    files on disk; the edition and period a transform reports are read from the file.
+    """
+    years = [int(y) for y in re.findall(r"(?<![0-9A-Za-z])((?:19|20)\d{2})(?![0-9A-Za-z])", name)]
+    return (max(years), 0) if years else None
+
+
+def newest_release(directory, stem: str, exts=(".xlsx", ".ods"), by: str = "month") -> Path:
     """Newest file in `directory` whose name starts with `stem` and carries a period.
+
+    `by="month"` (the default) orders on a `-mon-yyyy` period, as the Home Office names
+    its files. `by="year"` orders on the latest year in the name, for annual series.
 
     Raises FileNotFoundError naming the directory and stem, rather than returning a
     path that does not exist, so a missing download fails where it happens.
     """
+    if by not in ("month", "year"):
+        raise ValueError(f"by must be 'month' or 'year', not {by!r}")
+    keyer = _period if by == "month" else _year
     d = Path(directory)
     best, best_key = None, None
     if d.is_dir():
         for f in d.iterdir():
             if not f.name.startswith(stem) or f.suffix.lower() not in exts:
                 continue
-            key = _period(f.name)
+            key = keyer(f.name)
+            # Equal periods (a publisher replacing a file in place, kept beside the
+            # old one under a hash suffix) resolve to the later download.
+            key = key and (*key, f.stat().st_mtime)
             if key and (best_key is None or key > best_key):
                 best, best_key = f, key
     if best is None:

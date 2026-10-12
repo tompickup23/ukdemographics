@@ -12,6 +12,19 @@
 import { writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { refuseNomisDatasetApi } from "../lib/nomis-guard.mjs";
+
+refuseNomisDatasetApi({
+  script: "scripts/fetch/fetch-economic-data.mjs",
+  tables: "Annual Population Survey local indicators (NM_17_5); not a Census table, so it changes each quarter",
+  held: [
+    "src/data/live/economic-profile.json (the committed output; this script wrote it)"
+  ],
+  ons: [
+    "LI01 Regional labour market: local indicators for counties, local and unitary authorities: https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/datasets/li01regionallabourmarketlocalindicatorsforcountieslocalandunitaryauthorities"
+  ],
+  note: "LI01 is APS-based; match its headers to the four measures this script read before switching. The script made no other request: its DWP line was never implemented. It also wrote empty profiles over the file when Nomis failed, which this guard now prevents.",
+});
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = join(__dirname, "../../src/data/live/economic-profile.json");
