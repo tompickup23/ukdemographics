@@ -3,7 +3,7 @@
  *
  * Crime: ONS "Recorded crime data at Community Safety Partnership area" (XLSX)
  * SEND: DfE "Special educational needs in England" SEN2 return (XLSX)
- * ASC: NHS Digital "Adult Social Care Activity and Finance Report" (XLSX)
+ * ASC: no longer here; see scripts/fetch/fetch-dhsc-asc.mjs
  *
  * These are direct downloads from GOV.UK and ONS — no API parsing needed.
  * The transform scripts will parse the XLSX files.
@@ -26,13 +26,9 @@ const downloads = [
     fileName: "dfe-sen-2024-25.zip",
     // DfE SEN in England 2024/25 release ZIP. Re-resolve via /api/publications/special-educational-needs-in-england/releases/latest if this UUID rotates.
     url: "https://content.explore-education-statistics.service.gov.uk/api/releases/f7330b25-398d-477d-80c7-9b33bc10316f/files?fromPage=ReleaseDownloads"
-  },
-  {
-    id: "asc",
-    fileName: "nhs-asc-ascfr-salt-2023-24.xlsx",
-    // NHS Digital ASCFR & SALT 2023/24 (CASSR-level, ~153 upper-tier authorities)
-    url: "https://files.digital.nhs.uk/21/38468F/ASCFR%20and%20SALT%20Data%20Tables%202023-24.xlsx"
   }
+  // Adult social care moved to DHSC on GOV.UK from 2024-25 and is fetched by
+  // scripts/fetch/fetch-dhsc-asc.mjs, which finds the newest edition itself.
 ];
 
 for (const dl of downloads) {
