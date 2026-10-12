@@ -31,19 +31,39 @@ def _period(name: str):
     return int(m.group(2)), MONTHS[m.group(1)]
 
 
-def newest_release(directory, stem: str, exts=(".xlsx", ".ods")) -> Path:
+def _year(name: str):
+    """Latest four-digit year in a filename, for annual series with no month in the name.
+
+    `ctb_la_2025.ods`, `...-England-2025-supplementary-data-tables.ods` and
+    `special-educational-needs-in-england_2025-26.zip` give 2025. The year only orders
+    files on disk; the edition and period a transform reports are read from the file.
+    """
+    years = [int(y) for y in re.findall(r"(?<![0-9A-Za-z])((?:19|20)\d{2})(?![0-9A-Za-z])", name)]
+    return (max(years), 0) if years else None
+
+
+def newest_release(directory, stem: str, exts=(".xlsx", ".ods"), by: str = "month") -> Path:
     """Newest file in `directory` whose name starts with `stem` and carries a period.
+
+    `by="month"` (the default) orders on a `-mon-yyyy` period, as the Home Office names
+    its files. `by="year"` orders on the latest year in the name, for annual series.
 
     Raises FileNotFoundError naming the directory and stem, rather than returning a
     path that does not exist, so a missing download fails where it happens.
     """
+    if by not in ("month", "year"):
+        raise ValueError(f"by must be 'month' or 'year', not {by!r}")
+    keyer = _period if by == "month" else _year
     d = Path(directory)
     best, best_key = None, None
     if d.is_dir():
         for f in d.iterdir():
             if not f.name.startswith(stem) or f.suffix.lower() not in exts:
                 continue
-            key = _period(f.name)
+            key = keyer(f.name)
+            # Equal periods (a publisher replacing a file in place, kept beside the
+            # old one under a hash suffix) resolve to the later download.
+            key = key and (*key, f.stat().st_mtime)
             if key and (best_key is None or key > best_key):
                 best, best_key = f, key
     if best is None:
@@ -70,3 +90,69 @@ def period_phrase(path) -> str:
     naive .lower() on period_label() produces.
     """
     return period_label(path).replace("Year ending", "year ending", 1)
+
+
+# Annual and academic-year series.
+#
+# The functions above read a Home Office month and year out of the file name. ONS, HMRC
+# and DfE annual series carry a year instead, and not in one place: ONS puts it first
+# (`2025birthbyparentscountry.xlsx`, after `2024birthsbyparentscountry.xlsx`), HMRC puts
+# the end of a period last (`..._from_July_2014_to_December_2025.ods`) and DfE an academic
+# year (`spc_school_level_2025-26.csv`). So the caller names the stable part as a regular
+# expression with a named group `edition` holding the year to sort on, and optionally a
+# group `month` holding a month name, for a series published more than once a year.
+
+_MONTH_NAMES = {name: i for i, name in enumerate(
+    ["january", "february", "march", "april", "may", "june", "july", "august",
+     "september", "october", "november", "december"], start=1)}
+
+
+def _edition_key(m: re.Match) -> int:
+    key = int(m.group("edition")) * 100
+    if "month" in m.re.groupindex and m.group("month"):
+        word = m.group("month").lower()
+        month = _MONTH_NAMES.get(word) or MONTHS.get(word[:3])
+        if month is None:
+            raise ValueError(f"unrecognised month {m.group('month')!r} in {m.string!r}")
+        key += month
+    return key
+
+
+def editions(directory, pattern: str) -> list[Path]:
+    """Every file in `directory` whose whole name matches `pattern`, oldest first.
+
+    `pattern` must contain a named group `edition` of digits (a year) and may contain a
+    group `month`. Two files with the same edition raise, because which of them is
+    current is a question for a person, not for the order a directory lists them in.
+    """
+    rx = re.compile(pattern, re.IGNORECASE)
+    if "edition" not in rx.groupindex:
+        raise ValueError(f"pattern {pattern!r} has no named group 'edition'")
+    d = Path(directory)
+    found = []
+    if d.is_dir():
+        for f in d.iterdir():
+            m = rx.fullmatch(f.name)
+            if m:
+                found.append((_edition_key(m), f))
+    found.sort(key=lambda kv: kv[0])
+    for (k1, f1), (k2, f2) in zip(found, found[1:]):
+        if k1 == k2:
+            raise RuntimeError(f"two files share one edition in {d}: {f1.name} and {f2.name}")
+    return [f for _, f in found]
+
+
+def newest_edition(directory, pattern: str) -> Path:
+    """Newest file in `directory` whose whole name matches `pattern` (see editions).
+
+    Nothing matching raises FileNotFoundError naming the directory and pattern, rather
+    than returning a path that does not exist, so a missing download fails where it
+    happens.
+    """
+    found = editions(directory, pattern)
+    if not found:
+        raise FileNotFoundError(
+            f"no file matching {pattern!r} in {Path(directory)}. "
+            f"Run the fetch script rather than pinning an edition in the transform."
+        )
+    return found[-1]

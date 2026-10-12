@@ -1,0 +1,30 @@
+{
+  "dataset": "ons_3596",
+  "publisher": "Office for National Statistics",
+  "cadence": "ad hoc (user requested data 3596, 27 August 2026)",
+  "landing": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/adhocs/3596midyearpopulationestimatesandrescaledpopulationestimatesusingnationalpopulationprojectionsforlocalauthoritiesinenglandbysexandsingleyearofage2025to2050",
+  "note": "Published by UKD as a sensitivity line only (decision D3), never as the cap.",
+  "current": {
+    "fileName": "rescaledpop2025to2050.xlsx",
+    "fileSha256": "0f5643892fbd185b6c13c34322d15a550de8c7133a0892e9725709e03cbc2003",
+    "sizeBytes": 8608438,
+    "sourceUrl": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationprojections/adhocs/3596midyearpopulationestimatesandrescaledpopulationestimatesusingnationalpopulationprojectionsforlocalauthoritiesinenglandbysexandsingleyearofage2025to2050/rescaledpop2025to2050.xlsx",
+    "heldAt": "~/asylumstats/data/raw/snpp/control_totals_inputs"
+  },
+  "attempts": [
+    {
+      "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationprojections/adhocs/3596midyearpopulationestimatesandrescaledpopulationestimatesusingnationalpopulationprojectionsforlocalauthoritiesinenglandbysexandsingleyearofage2025to2050/rescaledpop2025to2050.xlsx",
+      "attempted_at": "2026-10-12T08:38:47.292Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "etag": "\"99bf9357d7733b1a0c3739b8112f6a26e745200b--gzip\"",
+      "last_modified": null,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "rescaledpop2025to2050.xlsx",
+      "held_at": "~/asylumstats/data/raw/snpp/control_totals_inputs",
+      "blob_sha256": "0f5643892fbd185b6c13c34322d15a550de8c7133a0892e9725709e03cbc2003",
+      "bytes": 8608438
+    }
+  ]
+}

@@ -1,236 +1,238 @@
 {
-  "source": "HMRC Real Time Information via ONS, Payrolled employments in the UK by nationality, region and industrial sector, July 2014 to December 2024 (Table 1: monthly counts of UK payrolled employments by nationality). Joined with DWP Stat-Xplore NINo flow rolling year ending Q4 2025.",
-  "lastUpdated": "2026-04-28",
-  "latestSnapshotDate": "December 2024",
-  "fiveYearBaselineDate": "December 2019",
-  "caveat": "HMRC RTI counts EMPLOYMENTS not employees, one person with two jobs is counted twice. The series excludes self-employed, students, dependants and the inactive. 47 nationalities are published; smaller cohorts (Eritrea, Sudan, Iraq, Afghanistan and many others) are aggregated into UK / EU / Non-EU rollups only. National granularity only at this level, there is no LA-level RTI by nationality. NINo flow and HMRC payroll are different concepts and should not be summed.",
+  "source": "HM Revenue and Customs, Payrolled employments in the UK by nationality, region and industrial sector, from July 2014 to December 2025, published 14 April 2026 (table: Monthly counts of payrolled employments in the UK, by nationality). Joined with DWP Stat-Xplore NINo registrations to adult overseas nationals, January 2025 to December 2025.",
+  "sourceUrl": "https://www.gov.uk/government/collections/uk-payrolled-employments-by-nationality-region-industry-age-and-sex",
+  "sourceFile": "Payrolled_employments_in_the_UK_by_nationality__region_and_industry__from_July_2014_to_December_2025.ods",
+  "lastUpdated": "2026-04-14",
+  "latestSnapshotDate": "December 2025",
+  "fiveYearBaselineDate": "December 2020",
+  "caveat": "HMRC RTI counts employments, not employees: one person with two jobs is counted twice. The series excludes the self-employed, students not working, dependants and the inactive. 47 nationalities are published; smaller cohorts appear only in the UK, EU and non-EU totals. National granularity only: there is no local authority RTI by nationality. NINo flow and HMRC payroll are different concepts and should not be summed.",
   "totalNationalitiesPublished": 47,
   "topByLatestPayroll": [
     {
       "country": "India",
       "ninoCountryNameUsed": "India",
-      "payrollLatest": 975100,
-      "payroll5yPrior": 387900,
-      "payrollChange5y": 587200,
-      "payrollChange5yPct": 151.4,
+      "payrollLatest": 1029300,
+      "payroll5yPrior": 410400,
+      "payrollChange5y": 618900,
+      "payrollChange5yPct": 150.8,
       "ninoFlowRollingYear_UK": 129772
-    },
-    {
-      "country": "Poland",
-      "ninoCountryNameUsed": "Poland",
-      "payrollLatest": 505400,
-      "payroll5yPrior": 617100,
-      "payrollChange5y": -111700,
-      "payrollChange5yPct": -18.1,
-      "ninoFlowRollingYear_UK": 1692
     },
     {
       "country": "Nigeria",
       "ninoCountryNameUsed": "Nigeria",
-      "payrollLatest": 482200,
-      "payroll5yPrior": 135000,
-      "payrollChange5y": 347200,
-      "payrollChange5yPct": 257.2,
+      "payrollLatest": 519700,
+      "payroll5yPrior": 141600,
+      "payrollChange5y": 378100,
+      "payrollChange5yPct": 267.0,
       "ninoFlowRollingYear_UK": 45877
+    },
+    {
+      "country": "Poland",
+      "ninoCountryNameUsed": "Poland",
+      "payrollLatest": 488600,
+      "payroll5yPrior": 571800,
+      "payrollChange5y": -83200,
+      "payrollChange5yPct": -14.6,
+      "ninoFlowRollingYear_UK": 1692
     },
     {
       "country": "Romania",
       "ninoCountryNameUsed": "Romania",
-      "payrollLatest": 358600,
-      "payroll5yPrior": 400200,
-      "payrollChange5y": -41600,
-      "payrollChange5yPct": -10.4,
+      "payrollLatest": 349700,
+      "payroll5yPrior": 379500,
+      "payrollChange5y": -29800,
+      "payrollChange5yPct": -7.9,
       "ninoFlowRollingYear_UK": 6604
     },
     {
       "country": "Pakistan",
       "ninoCountryNameUsed": "Pakistan",
-      "payrollLatest": 297300,
-      "payroll5yPrior": 146700,
-      "payrollChange5y": 150600,
-      "payrollChange5yPct": 102.7,
+      "payrollLatest": 330400,
+      "payroll5yPrior": 154600,
+      "payrollChange5y": 175800,
+      "payrollChange5yPct": 113.7,
       "ninoFlowRollingYear_UK": 56201
     },
     {
       "country": "Italy",
       "ninoCountryNameUsed": "Italy",
-      "payrollLatest": 206900,
-      "payroll5yPrior": 230200,
-      "payrollChange5y": -23300,
-      "payrollChange5yPct": -10.1,
+      "payrollLatest": 201100,
+      "payroll5yPrior": 208200,
+      "payrollChange5y": -7100,
+      "payrollChange5yPct": -3.4,
       "ninoFlowRollingYear_UK": 4811
     },
     {
       "country": "Portugal",
       "ninoCountryNameUsed": "Portugal",
-      "payrollLatest": 179000,
-      "payroll5yPrior": 187500,
-      "payrollChange5y": -8500,
-      "payrollChange5yPct": -4.5,
+      "payrollLatest": 175000,
+      "payroll5yPrior": 177200,
+      "payrollChange5y": -2200,
+      "payrollChange5yPct": -1.2,
       "ninoFlowRollingYear_UK": 1665
     },
     {
       "country": "Ghana",
       "ninoCountryNameUsed": "Ghana",
-      "payrollLatest": 154800,
-      "payroll5yPrior": 76500,
-      "payrollChange5y": 78300,
-      "payrollChange5yPct": 102.4,
+      "payrollLatest": 161400,
+      "payroll5yPrior": 77400,
+      "payrollChange5y": 84000,
+      "payrollChange5yPct": 108.5,
       "ninoFlowRollingYear_UK": 9227
     },
     {
       "country": "Philippines",
       "ninoCountryNameUsed": "Philippines",
-      "payrollLatest": 154000,
-      "payroll5yPrior": 107800,
-      "payrollChange5y": 46200,
-      "payrollChange5yPct": 42.9,
+      "payrollLatest": 157400,
+      "payroll5yPrior": 109400,
+      "payrollChange5y": 48000,
+      "payrollChange5yPct": 43.9,
       "ninoFlowRollingYear_UK": 6903
     },
     {
       "country": "Spain",
       "ninoCountryNameUsed": "Spain",
-      "payrollLatest": 141900,
-      "payroll5yPrior": 160900,
-      "payrollChange5y": -19000,
-      "payrollChange5yPct": -11.8,
+      "payrollLatest": 136800,
+      "payroll5yPrior": 144400,
+      "payrollChange5y": -7600,
+      "payrollChange5yPct": -5.3,
       "ninoFlowRollingYear_UK": 3915
+    },
+    {
+      "country": "Bangladesh",
+      "ninoCountryNameUsed": "Bangladesh",
+      "payrollLatest": 129300,
+      "payroll5yPrior": 56200,
+      "payrollChange5y": 73100,
+      "payrollChange5yPct": 130.1,
+      "ninoFlowRollingYear_UK": 16145
     },
     {
       "country": "Ireland",
       "ninoCountryNameUsed": "Ireland",
-      "payrollLatest": 129500,
-      "payroll5yPrior": 128600,
-      "payrollChange5y": 900,
-      "payrollChange5yPct": 0.7,
+      "payrollLatest": 128500,
+      "payroll5yPrior": 122500,
+      "payrollChange5y": 6000,
+      "payrollChange5yPct": 4.9,
       "ninoFlowRollingYear_UK": 11421
     },
     {
       "country": "Zimbabwe",
       "ninoCountryNameUsed": "Zimbabwe",
-      "payrollLatest": 119800,
-      "payroll5yPrior": 58400,
-      "payrollChange5y": 61400,
-      "payrollChange5yPct": 105.1,
+      "payrollLatest": 124600,
+      "payroll5yPrior": 57200,
+      "payrollChange5y": 67400,
+      "payrollChange5yPct": 117.8,
       "ninoFlowRollingYear_UK": 5097
-    },
-    {
-      "country": "Bangladesh",
-      "ninoCountryNameUsed": "Bangladesh",
-      "payrollLatest": 118300,
-      "payroll5yPrior": 56100,
-      "payrollChange5y": 62200,
-      "payrollChange5yPct": 110.9,
-      "ninoFlowRollingYear_UK": 16145
     },
     {
       "country": "China",
       "ninoCountryNameUsed": "China",
-      "payrollLatest": 115100,
-      "payroll5yPrior": 76900,
-      "payrollChange5y": 38200,
-      "payrollChange5yPct": 49.7,
+      "payrollLatest": 119800,
+      "payroll5yPrior": 75600,
+      "payrollChange5y": 44200,
+      "payrollChange5yPct": 58.5,
       "ninoFlowRollingYear_UK": 27837
     },
     {
-      "country": "Lithuania",
-      "ninoCountryNameUsed": "Lithuania",
-      "payrollLatest": 113200,
-      "payroll5yPrior": 142100,
-      "payrollChange5y": -28900,
-      "payrollChange5yPct": -20.3,
-      "ninoFlowRollingYear_UK": 177
+      "country": "Nepal",
+      "ninoCountryNameUsed": "Nepal",
+      "payrollLatest": 118400,
+      "payroll5yPrior": 45900,
+      "payrollChange5y": 72500,
+      "payrollChange5yPct": 158.0,
+      "ninoFlowRollingYear_UK": 25087
     }
   ],
   "topGainersBy5yChange": [
     {
       "country": "India",
       "ninoCountryNameUsed": "India",
-      "payrollLatest": 975100,
-      "payroll5yPrior": 387900,
-      "payrollChange5y": 587200,
-      "payrollChange5yPct": 151.4,
+      "payrollLatest": 1029300,
+      "payroll5yPrior": 410400,
+      "payrollChange5y": 618900,
+      "payrollChange5yPct": 150.8,
       "ninoFlowRollingYear_UK": 129772
     },
     {
       "country": "Nigeria",
       "ninoCountryNameUsed": "Nigeria",
-      "payrollLatest": 482200,
-      "payroll5yPrior": 135000,
-      "payrollChange5y": 347200,
-      "payrollChange5yPct": 257.2,
+      "payrollLatest": 519700,
+      "payroll5yPrior": 141600,
+      "payrollChange5y": 378100,
+      "payrollChange5yPct": 267.0,
       "ninoFlowRollingYear_UK": 45877
     },
     {
       "country": "Pakistan",
       "ninoCountryNameUsed": "Pakistan",
-      "payrollLatest": 297300,
-      "payroll5yPrior": 146700,
-      "payrollChange5y": 150600,
-      "payrollChange5yPct": 102.7,
+      "payrollLatest": 330400,
+      "payroll5yPrior": 154600,
+      "payrollChange5y": 175800,
+      "payrollChange5yPct": 113.7,
       "ninoFlowRollingYear_UK": 56201
     },
     {
       "country": "Ghana",
       "ninoCountryNameUsed": "Ghana",
-      "payrollLatest": 154800,
-      "payroll5yPrior": 76500,
-      "payrollChange5y": 78300,
-      "payrollChange5yPct": 102.4,
+      "payrollLatest": 161400,
+      "payroll5yPrior": 77400,
+      "payrollChange5y": 84000,
+      "payrollChange5yPct": 108.5,
       "ninoFlowRollingYear_UK": 9227
     },
     {
       "country": "Bangladesh",
       "ninoCountryNameUsed": "Bangladesh",
-      "payrollLatest": 118300,
-      "payroll5yPrior": 56100,
-      "payrollChange5y": 62200,
-      "payrollChange5yPct": 110.9,
+      "payrollLatest": 129300,
+      "payroll5yPrior": 56200,
+      "payrollChange5y": 73100,
+      "payrollChange5yPct": 130.1,
       "ninoFlowRollingYear_UK": 16145
+    },
+    {
+      "country": "Nepal",
+      "ninoCountryNameUsed": "Nepal",
+      "payrollLatest": 118400,
+      "payroll5yPrior": 45900,
+      "payrollChange5y": 72500,
+      "payrollChange5yPct": 158.0,
+      "ninoFlowRollingYear_UK": 25087
     },
     {
       "country": "Zimbabwe",
       "ninoCountryNameUsed": "Zimbabwe",
-      "payrollLatest": 119800,
-      "payroll5yPrior": 58400,
-      "payrollChange5y": 61400,
-      "payrollChange5yPct": 105.1,
+      "payrollLatest": 124600,
+      "payroll5yPrior": 57200,
+      "payrollChange5y": 67400,
+      "payrollChange5yPct": 117.8,
       "ninoFlowRollingYear_UK": 5097
     },
     {
       "country": "Ukraine",
       "ninoCountryNameUsed": "Ukraine",
-      "payrollLatest": 75200,
-      "payroll5yPrior": 14300,
-      "payrollChange5y": 60900,
-      "payrollChange5yPct": 425.9,
+      "payrollLatest": 79100,
+      "payroll5yPrior": 14900,
+      "payrollChange5y": 64200,
+      "payrollChange5yPct": 430.9,
       "ninoFlowRollingYear_UK": 13167
-    },
-    {
-      "country": "Nepal",
-      "ninoCountryNameUsed": "Nepal",
-      "payrollLatest": 94400,
-      "payroll5yPrior": 45300,
-      "payrollChange5y": 49100,
-      "payrollChange5yPct": 108.4,
-      "ninoFlowRollingYear_UK": 25087
     },
     {
       "country": "Philippines",
       "ninoCountryNameUsed": "Philippines",
-      "payrollLatest": 154000,
-      "payroll5yPrior": 107800,
-      "payrollChange5y": 46200,
-      "payrollChange5yPct": 42.9,
+      "payrollLatest": 157400,
+      "payroll5yPrior": 109400,
+      "payrollChange5y": 48000,
+      "payrollChange5yPct": 43.9,
       "ninoFlowRollingYear_UK": 6903
     },
     {
       "country": "Sri Lanka",
       "ninoCountryNameUsed": "Sri Lanka",
-      "payrollLatest": 98700,
-      "payroll5yPrior": 59700,
-      "payrollChange5y": 39000,
-      "payrollChange5yPct": 65.3,
+      "payrollLatest": 104800,
+      "payroll5yPrior": 59200,
+      "payrollChange5y": 45600,
+      "payrollChange5yPct": 77.0,
       "ninoFlowRollingYear_UK": 8244
     }
   ],
@@ -238,92 +240,92 @@
     {
       "country": "Poland",
       "ninoCountryNameUsed": "Poland",
-      "payrollLatest": 505400,
-      "payroll5yPrior": 617100,
-      "payrollChange5y": -111700,
-      "payrollChange5yPct": -18.1,
+      "payrollLatest": 488600,
+      "payroll5yPrior": 571800,
+      "payrollChange5y": -83200,
+      "payrollChange5yPct": -14.6,
       "ninoFlowRollingYear_UK": 1692
     },
     {
       "country": "Romania",
       "ninoCountryNameUsed": "Romania",
-      "payrollLatest": 358600,
-      "payroll5yPrior": 400200,
-      "payrollChange5y": -41600,
-      "payrollChange5yPct": -10.4,
+      "payrollLatest": 349700,
+      "payroll5yPrior": 379500,
+      "payrollChange5y": -29800,
+      "payrollChange5yPct": -7.9,
       "ninoFlowRollingYear_UK": 6604
     },
     {
       "country": "Lithuania",
       "ninoCountryNameUsed": "Lithuania",
-      "payrollLatest": 113200,
-      "payroll5yPrior": 142100,
-      "payrollChange5y": -28900,
-      "payrollChange5yPct": -20.3,
+      "payrollLatest": 109300,
+      "payroll5yPrior": 130700,
+      "payrollChange5y": -21400,
+      "payrollChange5yPct": -16.4,
       "ninoFlowRollingYear_UK": 177
     },
     {
-      "country": "Italy",
-      "ninoCountryNameUsed": "Italy",
-      "payrollLatest": 206900,
-      "payroll5yPrior": 230200,
-      "payrollChange5y": -23300,
-      "payrollChange5yPct": -10.1,
-      "ninoFlowRollingYear_UK": 4811
-    },
-    {
-      "country": "Spain",
-      "ninoCountryNameUsed": "Spain",
-      "payrollLatest": 141900,
-      "payroll5yPrior": 160900,
-      "payrollChange5y": -19000,
-      "payrollChange5yPct": -11.8,
-      "ninoFlowRollingYear_UK": 3915
+      "country": "Bulgaria",
+      "ninoCountryNameUsed": "Bulgaria",
+      "payrollLatest": 103000,
+      "payroll5yPrior": 114700,
+      "payrollChange5y": -11700,
+      "payrollChange5yPct": -10.2,
+      "ninoFlowRollingYear_UK": 1701
     },
     {
       "country": "Hungary",
       "ninoCountryNameUsed": "Hungary",
-      "payrollLatest": 73300,
-      "payroll5yPrior": 91400,
-      "payrollChange5y": -18100,
-      "payrollChange5yPct": -19.8,
+      "payrollLatest": 71100,
+      "payroll5yPrior": 81700,
+      "payrollChange5y": -10600,
+      "payrollChange5yPct": -13.0,
       "ninoFlowRollingYear_UK": 352
-    },
-    {
-      "country": "France",
-      "ninoCountryNameUsed": "France",
-      "payrollLatest": 94900,
-      "payroll5yPrior": 111000,
-      "payrollChange5y": -16100,
-      "payrollChange5yPct": -14.5,
-      "ninoFlowRollingYear_UK": 5044
-    },
-    {
-      "country": "Slovakia",
-      "ninoCountryNameUsed": "Slovakia",
-      "payrollLatest": 40500,
-      "payroll5yPrior": 53500,
-      "payrollChange5y": -13000,
-      "payrollChange5yPct": -24.3,
-      "ninoFlowRollingYear_UK": 213
     },
     {
       "country": "Latvia",
       "ninoCountryNameUsed": "Latvia",
-      "payrollLatest": 61600,
-      "payroll5yPrior": 73800,
-      "payrollChange5y": -12200,
-      "payrollChange5yPct": -16.5,
+      "payrollLatest": 60000,
+      "payroll5yPrior": 68600,
+      "payrollChange5y": -8600,
+      "payrollChange5yPct": -12.5,
       "ninoFlowRollingYear_UK": 116
     },
     {
-      "country": "Portugal",
-      "ninoCountryNameUsed": "Portugal",
-      "payrollLatest": 179000,
-      "payroll5yPrior": 187500,
-      "payrollChange5y": -8500,
-      "payrollChange5yPct": -4.5,
-      "ninoFlowRollingYear_UK": 1665
+      "country": "Slovakia",
+      "ninoCountryNameUsed": "Slovakia",
+      "payrollLatest": 38700,
+      "payroll5yPrior": 46900,
+      "payrollChange5y": -8200,
+      "payrollChange5yPct": -17.5,
+      "ninoFlowRollingYear_UK": 213
+    },
+    {
+      "country": "Spain",
+      "ninoCountryNameUsed": "Spain",
+      "payrollLatest": 136800,
+      "payroll5yPrior": 144400,
+      "payrollChange5y": -7600,
+      "payrollChange5yPct": -5.3,
+      "ninoFlowRollingYear_UK": 3915
+    },
+    {
+      "country": "France",
+      "ninoCountryNameUsed": "France",
+      "payrollLatest": 92600,
+      "payroll5yPrior": 99900,
+      "payrollChange5y": -7300,
+      "payrollChange5yPct": -7.3,
+      "ninoFlowRollingYear_UK": 5044
+    },
+    {
+      "country": "Italy",
+      "ninoCountryNameUsed": "Italy",
+      "payrollLatest": 201100,
+      "payroll5yPrior": 208200,
+      "payrollChange5y": -7100,
+      "payrollChange5yPct": -3.4,
+      "ninoFlowRollingYear_UK": 4811
     }
   ],
   "timeSeries": {
@@ -694,7 +696,7 @@
       ],
       [
         "February 2022",
-        8400
+        8500
       ],
       [
         "March 2022",
@@ -702,7 +704,7 @@
       ],
       [
         "April 2022",
-        8500
+        8600
       ],
       [
         "May 2022",
@@ -742,7 +744,7 @@
       ],
       [
         "February 2023",
-        8600
+        8700
       ],
       [
         "March 2023",
@@ -774,7 +776,7 @@
       ],
       [
         "October 2023",
-        8500
+        8600
       ],
       [
         "November 2023",
@@ -814,11 +816,11 @@
       ],
       [
         "August 2024",
-        8300
+        8400
       ],
       [
         "September 2024",
-        8300
+        8400
       ],
       [
         "October 2024",
@@ -831,6 +833,54 @@
       [
         "December 2024",
         8300
+      ],
+      [
+        "January 2025",
+        8300
+      ],
+      [
+        "February 2025",
+        8300
+      ],
+      [
+        "March 2025",
+        8300
+      ],
+      [
+        "April 2025",
+        8300
+      ],
+      [
+        "May 2025",
+        8300
+      ],
+      [
+        "June 2025",
+        8300
+      ],
+      [
+        "July 2025",
+        8300
+      ],
+      [
+        "August 2025",
+        8200
+      ],
+      [
+        "September 2025",
+        8200
+      ],
+      [
+        "October 2025",
+        8300
+      ],
+      [
+        "November 2025",
+        8300
+      ],
+      [
+        "December 2025",
+        8200
       ]
     ],
     "Belgium": [
@@ -1020,7 +1070,7 @@
       ],
       [
         "May 2018",
-        15600
+        15700
       ],
       [
         "June 2018",
@@ -1112,7 +1162,7 @@
       ],
       [
         "April 2020",
-        16300
+        16400
       ],
       [
         "May 2020",
@@ -1304,7 +1354,7 @@
       ],
       [
         "April 2024",
-        16400
+        16500
       ],
       [
         "May 2024",
@@ -1312,7 +1362,7 @@
       ],
       [
         "June 2024",
-        16400
+        16500
       ],
       [
         "July 2024",
@@ -1324,19 +1374,67 @@
       ],
       [
         "September 2024",
-        16200
-      ],
-      [
-        "October 2024",
         16300
       ],
       [
-        "November 2024",
+        "October 2024",
         16400
       ],
       [
+        "November 2024",
+        16500
+      ],
+      [
         "December 2024",
-        16200
+        16300
+      ],
+      [
+        "January 2025",
+        16100
+      ],
+      [
+        "February 2025",
+        16100
+      ],
+      [
+        "March 2025",
+        16100
+      ],
+      [
+        "April 2025",
+        16000
+      ],
+      [
+        "May 2025",
+        16100
+      ],
+      [
+        "June 2025",
+        16100
+      ],
+      [
+        "July 2025",
+        16000
+      ],
+      [
+        "August 2025",
+        15900
+      ],
+      [
+        "September 2025",
+        15900
+      ],
+      [
+        "October 2025",
+        15900
+      ],
+      [
+        "November 2025",
+        15900
+      ],
+      [
+        "December 2025",
+        15800
       ]
     ],
     "Bulgaria": [
@@ -1390,7 +1488,7 @@
       ],
       [
         "July 2015",
-        69400
+        69300
       ],
       [
         "August 2015",
@@ -1450,7 +1548,7 @@
       ],
       [
         "October 2016",
-        85200
+        85100
       ],
       [
         "November 2016",
@@ -1474,7 +1572,7 @@
       ],
       [
         "April 2017",
-        90200
+        90100
       ],
       [
         "May 2017",
@@ -1490,11 +1588,11 @@
       ],
       [
         "August 2017",
-        100600
+        100500
       ],
       [
         "September 2017",
-        100300
+        100200
       ],
       [
         "October 2017",
@@ -1522,7 +1620,7 @@
       ],
       [
         "April 2018",
-        102900
+        102800
       ],
       [
         "May 2018",
@@ -1530,7 +1628,7 @@
       ],
       [
         "June 2018",
-        111800
+        111700
       ],
       [
         "July 2018",
@@ -1546,7 +1644,7 @@
       ],
       [
         "October 2018",
-        111000
+        110900
       ],
       [
         "November 2018",
@@ -1558,7 +1656,7 @@
       ],
       [
         "January 2019",
-        105200
+        105100
       ],
       [
         "February 2019",
@@ -1646,15 +1744,15 @@
       ],
       [
         "November 2020",
-        116500
+        116400
       ],
       [
         "December 2020",
-        114800
+        114700
       ],
       [
         "January 2021",
-        113100
+        113000
       ],
       [
         "February 2021",
@@ -1674,7 +1772,7 @@
       ],
       [
         "June 2021",
-        123000
+        122900
       ],
       [
         "July 2021",
@@ -1706,7 +1804,7 @@
       ],
       [
         "February 2022",
-        118500
+        118400
       ],
       [
         "March 2022",
@@ -1742,19 +1840,19 @@
       ],
       [
         "November 2022",
-        121600
+        121700
       ],
       [
         "December 2022",
-        119700
+        119800
       ],
       [
         "January 2023",
-        117600
+        117700
       ],
       [
         "February 2023",
-        118700
+        118800
       ],
       [
         "March 2023",
@@ -1774,35 +1872,35 @@
       ],
       [
         "July 2023",
-        122200
+        122300
       ],
       [
         "August 2023",
-        120100
+        120200
       ],
       [
         "September 2023",
-        119200
-      ],
-      [
-        "October 2023",
         119300
       ],
       [
+        "October 2023",
+        119400
+      ],
+      [
         "November 2023",
-        118600
+        118700
       ],
       [
         "December 2023",
-        115700
+        115800
       ],
       [
         "January 2024",
-        113500
+        113600
       ],
       [
         "February 2024",
-        114100
+        114200
       ],
       [
         "March 2024",
@@ -1814,35 +1912,83 @@
       ],
       [
         "May 2024",
-        115000
+        115100
       ],
       [
         "June 2024",
-        115700
+        115800
       ],
       [
         "July 2024",
-        114700
+        114800
       ],
       [
         "August 2024",
-        112600
+        112800
       ],
       [
         "September 2024",
-        111600
+        111800
       ],
       [
         "October 2024",
-        111300
+        111400
       ],
       [
         "November 2024",
-        110500
+        110200
       ],
       [
         "December 2024",
-        108900
+        108400
+      ],
+      [
+        "January 2025",
+        106400
+      ],
+      [
+        "February 2025",
+        107300
+      ],
+      [
+        "March 2025",
+        107700
+      ],
+      [
+        "April 2025",
+        108500
+      ],
+      [
+        "May 2025",
+        109000
+      ],
+      [
+        "June 2025",
+        109500
+      ],
+      [
+        "July 2025",
+        108500
+      ],
+      [
+        "August 2025",
+        106500
+      ],
+      [
+        "September 2025",
+        105500
+      ],
+      [
+        "October 2025",
+        105100
+      ],
+      [
+        "November 2025",
+        104500
+      ],
+      [
+        "December 2025",
+        103000
       ]
     ],
     "Croatia": [
@@ -2052,7 +2198,7 @@
       ],
       [
         "October 2018",
-        7800
+        7700
       ],
       [
         "November 2018",
@@ -2292,7 +2438,7 @@
       ],
       [
         "October 2023",
-        9900
+        9800
       ],
       [
         "November 2023",
@@ -2328,7 +2474,7 @@
       ],
       [
         "July 2024",
-        9700
+        9800
       ],
       [
         "August 2024",
@@ -2349,6 +2495,54 @@
       [
         "December 2024",
         9600
+      ],
+      [
+        "January 2025",
+        9600
+      ],
+      [
+        "February 2025",
+        9600
+      ],
+      [
+        "March 2025",
+        9600
+      ],
+      [
+        "April 2025",
+        9600
+      ],
+      [
+        "May 2025",
+        9600
+      ],
+      [
+        "June 2025",
+        9500
+      ],
+      [
+        "July 2025",
+        9500
+      ],
+      [
+        "August 2025",
+        9400
+      ],
+      [
+        "September 2025",
+        9400
+      ],
+      [
+        "October 2025",
+        9400
+      ],
+      [
+        "November 2025",
+        9400
+      ],
+      [
+        "December 2025",
+        9300
       ]
     ],
     "Cyprus": [
@@ -2366,7 +2560,7 @@
       ],
       [
         "October 2014",
-        7200
+        7100
       ],
       [
         "November 2014",
@@ -2486,7 +2680,7 @@
       ],
       [
         "April 2017",
-        9600
+        9500
       ],
       [
         "May 2017",
@@ -2826,11 +3020,11 @@
       ],
       [
         "May 2024",
-        10800
+        10900
       ],
       [
         "June 2024",
-        10800
+        10900
       ],
       [
         "July 2024",
@@ -2854,7 +3048,55 @@
       ],
       [
         "December 2024",
-        10800
+        10700
+      ],
+      [
+        "January 2025",
+        10600
+      ],
+      [
+        "February 2025",
+        10600
+      ],
+      [
+        "March 2025",
+        10600
+      ],
+      [
+        "April 2025",
+        10500
+      ],
+      [
+        "May 2025",
+        10500
+      ],
+      [
+        "June 2025",
+        10400
+      ],
+      [
+        "July 2025",
+        10400
+      ],
+      [
+        "August 2025",
+        10300
+      ],
+      [
+        "September 2025",
+        10200
+      ],
+      [
+        "October 2025",
+        10200
+      ],
+      [
+        "November 2025",
+        10300
+      ],
+      [
+        "December 2025",
+        10200
       ]
     ],
     "Czechia": [
@@ -2880,7 +3122,7 @@
       ],
       [
         "December 2014",
-        31100
+        31000
       ],
       [
         "January 2015",
@@ -2900,7 +3142,7 @@
       ],
       [
         "May 2015",
-        32900
+        32800
       ],
       [
         "June 2015",
@@ -3132,7 +3374,7 @@
       ],
       [
         "March 2020",
-        32000
+        31900
       ],
       [
         "April 2020",
@@ -3220,7 +3462,7 @@
       ],
       [
         "January 2022",
-        27500
+        27400
       ],
       [
         "February 2022",
@@ -3320,7 +3562,7 @@
       ],
       [
         "February 2024",
-        25300
+        25400
       ],
       [
         "March 2024",
@@ -3328,7 +3570,7 @@
       ],
       [
         "April 2024",
-        25300
+        25400
       ],
       [
         "May 2024",
@@ -3336,7 +3578,7 @@
       ],
       [
         "June 2024",
-        25300
+        25400
       ],
       [
         "July 2024",
@@ -3361,6 +3603,54 @@
       [
         "December 2024",
         24600
+      ],
+      [
+        "January 2025",
+        24300
+      ],
+      [
+        "February 2025",
+        24300
+      ],
+      [
+        "March 2025",
+        24300
+      ],
+      [
+        "April 2025",
+        24300
+      ],
+      [
+        "May 2025",
+        24300
+      ],
+      [
+        "June 2025",
+        24200
+      ],
+      [
+        "July 2025",
+        24000
+      ],
+      [
+        "August 2025",
+        23700
+      ],
+      [
+        "September 2025",
+        23700
+      ],
+      [
+        "October 2025",
+        23800
+      ],
+      [
+        "November 2025",
+        23800
+      ],
+      [
+        "December 2025",
+        23500
       ]
     ],
     "Denmark": [
@@ -3394,7 +3684,7 @@
       ],
       [
         "February 2015",
-        9900
+        9800
       ],
       [
         "March 2015",
@@ -3510,7 +3800,7 @@
       ],
       [
         "July 2017",
-        10500
+        10400
       ],
       [
         "August 2017",
@@ -3598,7 +3888,7 @@
       ],
       [
         "May 2019",
-        10800
+        10700
       ],
       [
         "June 2019",
@@ -3698,7 +3988,7 @@
       ],
       [
         "June 2021",
-        10200
+        10100
       ],
       [
         "July 2021",
@@ -3814,11 +4104,11 @@
       ],
       [
         "November 2023",
-        9900
+        10000
       ],
       [
         "December 2023",
-        9800
+        9900
       ],
       [
         "January 2024",
@@ -3834,15 +4124,15 @@
       ],
       [
         "April 2024",
-        9700
+        9800
       ],
       [
         "May 2024",
-        9700
+        9800
       ],
       [
         "June 2024",
-        9700
+        9800
       ],
       [
         "July 2024",
@@ -3854,7 +4144,7 @@
       ],
       [
         "September 2024",
-        9500
+        9600
       ],
       [
         "October 2024",
@@ -3867,6 +4157,54 @@
       [
         "December 2024",
         9500
+      ],
+      [
+        "January 2025",
+        9500
+      ],
+      [
+        "February 2025",
+        9400
+      ],
+      [
+        "March 2025",
+        9400
+      ],
+      [
+        "April 2025",
+        9400
+      ],
+      [
+        "May 2025",
+        9300
+      ],
+      [
+        "June 2025",
+        9400
+      ],
+      [
+        "July 2025",
+        9300
+      ],
+      [
+        "August 2025",
+        9200
+      ],
+      [
+        "September 2025",
+        9100
+      ],
+      [
+        "October 2025",
+        9100
+      ],
+      [
+        "November 2025",
+        9200
+      ],
+      [
+        "December 2025",
+        9100
       ]
     ],
     "Estonia": [
@@ -4204,7 +4542,7 @@
       ],
       [
         "June 2021",
-        7800
+        7700
       ],
       [
         "July 2021",
@@ -4372,7 +4710,55 @@
       ],
       [
         "December 2024",
+        7200
+      ],
+      [
+        "January 2025",
         7100
+      ],
+      [
+        "February 2025",
+        7100
+      ],
+      [
+        "March 2025",
+        7100
+      ],
+      [
+        "April 2025",
+        7100
+      ],
+      [
+        "May 2025",
+        7100
+      ],
+      [
+        "June 2025",
+        7100
+      ],
+      [
+        "July 2025",
+        7000
+      ],
+      [
+        "August 2025",
+        6900
+      ],
+      [
+        "September 2025",
+        6900
+      ],
+      [
+        "October 2025",
+        6900
+      ],
+      [
+        "November 2025",
+        6900
+      ],
+      [
+        "December 2025",
+        6800
       ]
     ],
     "Finland": [
@@ -4726,7 +5112,7 @@
       ],
       [
         "October 2021",
-        8200
+        8100
       ],
       [
         "November 2021",
@@ -4870,7 +5256,7 @@
       ],
       [
         "October 2024",
-        8100
+        8200
       ],
       [
         "November 2024",
@@ -4879,6 +5265,54 @@
       [
         "December 2024",
         8100
+      ],
+      [
+        "January 2025",
+        8000
+      ],
+      [
+        "February 2025",
+        8000
+      ],
+      [
+        "March 2025",
+        8100
+      ],
+      [
+        "April 2025",
+        8100
+      ],
+      [
+        "May 2025",
+        8100
+      ],
+      [
+        "June 2025",
+        8100
+      ],
+      [
+        "July 2025",
+        8000
+      ],
+      [
+        "August 2025",
+        8000
+      ],
+      [
+        "September 2025",
+        8000
+      ],
+      [
+        "October 2025",
+        8000
+      ],
+      [
+        "November 2025",
+        8000
+      ],
+      [
+        "December 2025",
+        8000
       ]
     ],
     "France": [
@@ -4900,7 +5334,7 @@
       ],
       [
         "November 2014",
-        96500
+        96400
       ],
       [
         "December 2014",
@@ -4948,7 +5382,7 @@
       ],
       [
         "November 2015",
-        105000
+        104900
       ],
       [
         "December 2015",
@@ -5140,7 +5574,7 @@
       ],
       [
         "November 2019",
-        111400
+        111300
       ],
       [
         "December 2019",
@@ -5252,7 +5686,7 @@
       ],
       [
         "March 2022",
-        102200
+        102300
       ],
       [
         "April 2022",
@@ -5264,7 +5698,7 @@
       ],
       [
         "June 2022",
-        102400
+        102500
       ],
       [
         "July 2022",
@@ -5272,7 +5706,7 @@
       ],
       [
         "August 2022",
-        100200
+        100300
       ],
       [
         "September 2022",
@@ -5284,7 +5718,7 @@
       ],
       [
         "November 2022",
-        101800
+        101900
       ],
       [
         "December 2022",
@@ -5292,7 +5726,7 @@
       ],
       [
         "January 2023",
-        100600
+        100700
       ],
       [
         "February 2023",
@@ -5300,23 +5734,23 @@
       ],
       [
         "March 2023",
-        101300
+        101400
       ],
       [
         "April 2023",
-        100700
+        100800
       ],
       [
         "May 2023",
-        100900
-      ],
-      [
-        "June 2023",
         101000
       ],
       [
+        "June 2023",
+        101100
+      ],
+      [
         "July 2023",
-        100200
+        100300
       ],
       [
         "August 2023",
@@ -5336,55 +5770,103 @@
       ],
       [
         "December 2023",
-        98100
+        98200
       ],
       [
         "January 2024",
-        97200
-      ],
-      [
-        "February 2024",
-        97600
-      ],
-      [
-        "March 2024",
-        97900
-      ],
-      [
-        "April 2024",
-        97100
-      ],
-      [
-        "May 2024",
         97300
       ],
       [
+        "February 2024",
+        97700
+      ],
+      [
+        "March 2024",
+        98000
+      ],
+      [
+        "April 2024",
+        97400
+      ],
+      [
+        "May 2024",
+        97600
+      ],
+      [
         "June 2024",
-        97100
+        97500
       ],
       [
         "July 2024",
-        96400
+        96700
       ],
       [
         "August 2024",
-        95000
+        95300
       ],
       [
         "September 2024",
-        95200
-      ],
-      [
-        "October 2024",
         95600
       ],
       [
+        "October 2024",
+        96000
+      ],
+      [
         "November 2024",
-        95800
+        96200
       ],
       [
         "December 2024",
+        95500
+      ],
+      [
+        "January 2025",
         94900
+      ],
+      [
+        "February 2025",
+        95200
+      ],
+      [
+        "March 2025",
+        95300
+      ],
+      [
+        "April 2025",
+        94500
+      ],
+      [
+        "May 2025",
+        94700
+      ],
+      [
+        "June 2025",
+        94600
+      ],
+      [
+        "July 2025",
+        94200
+      ],
+      [
+        "August 2025",
+        93000
+      ],
+      [
+        "September 2025",
+        93100
+      ],
+      [
+        "October 2025",
+        93400
+      ],
+      [
+        "November 2025",
+        93500
+      ],
+      [
+        "December 2025",
+        92600
       ]
     ],
     "Germany": [
@@ -5442,7 +5924,7 @@
       ],
       [
         "August 2015",
-        64900
+        64800
       ],
       [
         "September 2015",
@@ -5470,7 +5952,7 @@
       ],
       [
         "March 2016",
-        67700
+        67600
       ],
       [
         "April 2016",
@@ -5494,7 +5976,7 @@
       ],
       [
         "September 2016",
-        67500
+        67400
       ],
       [
         "October 2016",
@@ -5506,7 +5988,7 @@
       ],
       [
         "December 2016",
-        68900
+        68800
       ],
       [
         "January 2017",
@@ -5514,7 +5996,7 @@
       ],
       [
         "February 2017",
-        69000
+        68900
       ],
       [
         "March 2017",
@@ -5534,11 +6016,11 @@
       ],
       [
         "July 2017",
-        69000
+        68900
       ],
       [
         "August 2017",
-        68100
+        68000
       ],
       [
         "September 2017",
@@ -5558,11 +6040,11 @@
       ],
       [
         "January 2018",
-        68900
+        68800
       ],
       [
         "February 2018",
-        69200
+        69100
       ],
       [
         "March 2018",
@@ -5634,7 +6116,7 @@
       ],
       [
         "August 2019",
-        69700
+        69600
       ],
       [
         "September 2019",
@@ -5682,7 +6164,7 @@
       ],
       [
         "August 2020",
-        67000
+        66900
       ],
       [
         "September 2020",
@@ -5690,7 +6172,7 @@
       ],
       [
         "October 2020",
-        66900
+        66800
       ],
       [
         "November 2020",
@@ -5702,7 +6184,7 @@
       ],
       [
         "January 2021",
-        66100
+        66000
       ],
       [
         "February 2021",
@@ -5714,7 +6196,7 @@
       ],
       [
         "April 2021",
-        67400
+        67300
       ],
       [
         "May 2021",
@@ -5742,7 +6224,7 @@
       ],
       [
         "November 2021",
-        68500
+        68400
       ],
       [
         "December 2021",
@@ -5762,11 +6244,11 @@
       ],
       [
         "April 2022",
-        68700
+        68600
       ],
       [
         "May 2022",
-        68800
+        68700
       ],
       [
         "June 2022",
@@ -5782,7 +6264,7 @@
       ],
       [
         "September 2022",
-        68300
+        68400
       ],
       [
         "October 2022",
@@ -5802,7 +6284,7 @@
       ],
       [
         "February 2023",
-        68500
+        68600
       ],
       [
         "March 2023",
@@ -5818,7 +6300,7 @@
       ],
       [
         "June 2023",
-        68400
+        68500
       ],
       [
         "July 2023",
@@ -5826,7 +6308,7 @@
       ],
       [
         "August 2023",
-        67200
+        67300
       ],
       [
         "September 2023",
@@ -5846,7 +6328,7 @@
       ],
       [
         "January 2024",
-        66900
+        67000
       ],
       [
         "February 2024",
@@ -5858,39 +6340,87 @@
       ],
       [
         "April 2024",
-        67000
+        67100
       ],
       [
         "May 2024",
-        67100
+        67200
       ],
       [
         "June 2024",
-        67100
+        67300
       ],
       [
         "July 2024",
-        66900
+        67100
       ],
       [
         "August 2024",
-        66000
+        66200
       ],
       [
         "September 2024",
-        66000
+        66200
       ],
       [
         "October 2024",
-        66500
-      ],
-      [
-        "November 2024",
         66700
       ],
       [
+        "November 2024",
+        66900
+      ],
+      [
         "December 2024",
+        66500
+      ],
+      [
+        "January 2025",
+        65900
+      ],
+      [
+        "February 2025",
+        66000
+      ],
+      [
+        "March 2025",
         66100
+      ],
+      [
+        "April 2025",
+        65500
+      ],
+      [
+        "May 2025",
+        65600
+      ],
+      [
+        "June 2025",
+        65600
+      ],
+      [
+        "July 2025",
+        65500
+      ],
+      [
+        "August 2025",
+        64900
+      ],
+      [
+        "September 2025",
+        64800
+      ],
+      [
+        "October 2025",
+        65000
+      ],
+      [
+        "November 2025",
+        65200
+      ],
+      [
+        "December 2025",
+        64700
       ]
     ],
     "Greece": [
@@ -5916,7 +6446,7 @@
       ],
       [
         "December 2014",
-        33100
+        33000
       ],
       [
         "January 2015",
@@ -5956,7 +6486,7 @@
       ],
       [
         "October 2015",
-        38100
+        38000
       ],
       [
         "November 2015",
@@ -5964,7 +6494,7 @@
       ],
       [
         "December 2015",
-        40200
+        40100
       ],
       [
         "January 2016",
@@ -5984,7 +6514,7 @@
       ],
       [
         "May 2016",
-        43100
+        43000
       ],
       [
         "June 2016",
@@ -6040,7 +6570,7 @@
       ],
       [
         "July 2017",
-        50700
+        50600
       ],
       [
         "August 2017",
@@ -6176,7 +6706,7 @@
       ],
       [
         "May 2020",
-        64600
+        64500
       ],
       [
         "June 2020",
@@ -6196,7 +6726,7 @@
       ],
       [
         "October 2020",
-        63200
+        63100
       ],
       [
         "November 2020",
@@ -6208,7 +6738,7 @@
       ],
       [
         "January 2021",
-        62800
+        62700
       ],
       [
         "February 2021",
@@ -6228,7 +6758,7 @@
       ],
       [
         "June 2021",
-        66000
+        65900
       ],
       [
         "July 2021",
@@ -6268,7 +6798,7 @@
       ],
       [
         "April 2022",
-        68100
+        68000
       ],
       [
         "May 2022",
@@ -6312,7 +6842,7 @@
       ],
       [
         "March 2023",
-        68100
+        68200
       ],
       [
         "April 2023",
@@ -6356,7 +6886,7 @@
       ],
       [
         "February 2024",
-        66000
+        66100
       ],
       [
         "March 2024",
@@ -6364,39 +6894,87 @@
       ],
       [
         "April 2024",
-        65900
+        66000
       ],
       [
         "May 2024",
-        65800
+        65900
       ],
       [
         "June 2024",
-        65600
+        65700
       ],
       [
         "July 2024",
-        65300
-      ],
-      [
-        "August 2024",
-        64100
-      ],
-      [
-        "September 2024",
-        64200
-      ],
-      [
-        "October 2024",
-        65000
-      ],
-      [
-        "November 2024",
         65400
       ],
       [
+        "August 2024",
+        64300
+      ],
+      [
+        "September 2024",
+        64400
+      ],
+      [
+        "October 2024",
+        65200
+      ],
+      [
+        "November 2024",
+        65600
+      ],
+      [
         "December 2024",
-        64600
+        64700
+      ],
+      [
+        "January 2025",
+        64000
+      ],
+      [
+        "February 2025",
+        64100
+      ],
+      [
+        "March 2025",
+        63900
+      ],
+      [
+        "April 2025",
+        63700
+      ],
+      [
+        "May 2025",
+        63600
+      ],
+      [
+        "June 2025",
+        63700
+      ],
+      [
+        "July 2025",
+        63400
+      ],
+      [
+        "August 2025",
+        62400
+      ],
+      [
+        "September 2025",
+        62300
+      ],
+      [
+        "October 2025",
+        62600
+      ],
+      [
+        "November 2025",
+        62700
+      ],
+      [
+        "December 2025",
+        62200
       ]
     ],
     "Hungary": [
@@ -6434,7 +7012,7 @@
       ],
       [
         "March 2015",
-        82400
+        82300
       ],
       [
         "April 2015",
@@ -6454,11 +7032,11 @@
       ],
       [
         "August 2015",
-        86800
+        86700
       ],
       [
         "September 2015",
-        88100
+        88000
       ],
       [
         "October 2015",
@@ -6470,7 +7048,7 @@
       ],
       [
         "December 2015",
-        90500
+        90400
       ],
       [
         "January 2016",
@@ -6478,7 +7056,7 @@
       ],
       [
         "February 2016",
-        89700
+        89600
       ],
       [
         "March 2016",
@@ -6522,7 +7100,7 @@
       ],
       [
         "January 2017",
-        93000
+        92900
       ],
       [
         "February 2017",
@@ -6546,7 +7124,7 @@
       ],
       [
         "July 2017",
-        95700
+        95600
       ],
       [
         "August 2017",
@@ -6598,7 +7176,7 @@
       ],
       [
         "August 2018",
-        93500
+        93400
       ],
       [
         "September 2018",
@@ -6642,7 +7220,7 @@
       ],
       [
         "July 2019",
-        92700
+        92600
       ],
       [
         "August 2019",
@@ -6654,7 +7232,7 @@
       ],
       [
         "October 2019",
-        92200
+        92100
       ],
       [
         "November 2019",
@@ -6682,7 +7260,7 @@
       ],
       [
         "May 2020",
-        86100
+        86000
       ],
       [
         "June 2020",
@@ -6730,7 +7308,7 @@
       ],
       [
         "May 2021",
-        82500
+        82400
       ],
       [
         "June 2021",
@@ -6762,7 +7340,7 @@
       ],
       [
         "January 2022",
-        79700
+        79600
       ],
       [
         "February 2022",
@@ -6778,7 +7356,7 @@
       ],
       [
         "May 2022",
-        80900
+        80800
       ],
       [
         "June 2022",
@@ -6842,7 +7420,7 @@
       ],
       [
         "September 2023",
-        76800
+        76900
       ],
       [
         "October 2023",
@@ -6858,7 +7436,7 @@
       ],
       [
         "January 2024",
-        75200
+        75300
       ],
       [
         "February 2024",
@@ -6866,7 +7444,7 @@
       ],
       [
         "March 2024",
-        75300
+        75400
       ],
       [
         "April 2024",
@@ -6874,35 +7452,83 @@
       ],
       [
         "May 2024",
-        75300
+        75400
       ],
       [
         "June 2024",
-        75200
+        75300
       ],
       [
         "July 2024",
-        74800
+        74900
       ],
       [
         "August 2024",
-        73900
+        74000
       ],
       [
         "September 2024",
-        74100
+        74200
       ],
       [
         "October 2024",
-        74300
+        74400
       ],
       [
         "November 2024",
-        74300
+        74400
       ],
       [
         "December 2024",
-        73300
+        73600
+      ],
+      [
+        "January 2025",
+        72800
+      ],
+      [
+        "February 2025",
+        72800
+      ],
+      [
+        "March 2025",
+        72800
+      ],
+      [
+        "April 2025",
+        72800
+      ],
+      [
+        "May 2025",
+        72900
+      ],
+      [
+        "June 2025",
+        72700
+      ],
+      [
+        "July 2025",
+        72300
+      ],
+      [
+        "August 2025",
+        71600
+      ],
+      [
+        "September 2025",
+        71600
+      ],
+      [
+        "October 2025",
+        71700
+      ],
+      [
+        "November 2025",
+        71800
+      ],
+      [
+        "December 2025",
+        71100
       ]
     ],
     "Italy": [
@@ -6920,7 +7546,7 @@
       ],
       [
         "October 2014",
-        121800
+        121700
       ],
       [
         "November 2014",
@@ -6928,11 +7554,11 @@
       ],
       [
         "December 2014",
-        129400
+        129300
       ],
       [
         "January 2015",
-        129500
+        129400
       ],
       [
         "February 2015",
@@ -6940,11 +7566,11 @@
       ],
       [
         "March 2015",
-        136200
+        136100
       ],
       [
         "April 2015",
-        138900
+        138800
       ],
       [
         "May 2015",
@@ -6960,15 +7586,15 @@
       ],
       [
         "August 2015",
-        143900
+        143800
       ],
       [
         "September 2015",
-        146500
+        146400
       ],
       [
         "October 2015",
-        151000
+        150900
       ],
       [
         "November 2015",
@@ -6976,11 +7602,11 @@
       ],
       [
         "December 2015",
-        157700
+        157600
       ],
       [
         "January 2016",
-        156800
+        156700
       ],
       [
         "February 2016",
@@ -6996,7 +7622,7 @@
       ],
       [
         "May 2016",
-        168200
+        168100
       ],
       [
         "June 2016",
@@ -7028,7 +7654,7 @@
       ],
       [
         "January 2017",
-        179600
+        179500
       ],
       [
         "February 2017",
@@ -7048,11 +7674,11 @@
       ],
       [
         "June 2017",
-        191900
+        191800
       ],
       [
         "July 2017",
-        190900
+        190800
       ],
       [
         "August 2017",
@@ -7084,7 +7710,7 @@
       ],
       [
         "March 2018",
-        200900
+        200800
       ],
       [
         "April 2018",
@@ -7116,7 +7742,7 @@
       ],
       [
         "November 2018",
-        214500
+        214400
       ],
       [
         "December 2018",
@@ -7132,15 +7758,15 @@
       ],
       [
         "March 2019",
-        219000
+        218900
       ],
       [
         "April 2019",
-        222100
+        222000
       ],
       [
         "May 2019",
-        223500
+        223400
       ],
       [
         "June 2019",
@@ -7156,7 +7782,7 @@
       ],
       [
         "September 2019",
-        223400
+        223300
       ],
       [
         "October 2019",
@@ -7236,7 +7862,7 @@
       ],
       [
         "May 2021",
-        216500
+        216400
       ],
       [
         "June 2021",
@@ -7244,7 +7870,7 @@
       ],
       [
         "July 2021",
-        218400
+        218300
       ],
       [
         "August 2021",
@@ -7260,7 +7886,7 @@
       ],
       [
         "November 2021",
-        221900
+        221800
       ],
       [
         "December 2021",
@@ -7268,7 +7894,7 @@
       ],
       [
         "January 2022",
-        216500
+        216400
       ],
       [
         "February 2022",
@@ -7276,15 +7902,15 @@
       ],
       [
         "March 2022",
-        219500
+        219400
       ],
       [
         "April 2022",
-        220600
+        220500
       ],
       [
         "May 2022",
-        221500
+        221400
       ],
       [
         "June 2022",
@@ -7364,7 +7990,7 @@
       ],
       [
         "January 2024",
-        210100
+        210200
       ],
       [
         "February 2024",
@@ -7376,45 +8002,93 @@
       ],
       [
         "April 2024",
-        209900
+        210100
       ],
       [
         "May 2024",
-        210400
+        210600
       ],
       [
         "June 2024",
-        210500
+        210800
       ],
       [
         "July 2024",
-        209500
+        209900
       ],
       [
         "August 2024",
-        206900
-      ],
-      [
-        "September 2024",
         207300
       ],
       [
+        "September 2024",
+        207700
+      ],
+      [
         "October 2024",
-        208500
+        209000
       ],
       [
         "November 2024",
-        209200
+        209600
       ],
       [
         "December 2024",
-        206900
+        207700
+      ],
+      [
+        "January 2025",
+        205100
+      ],
+      [
+        "February 2025",
+        205200
+      ],
+      [
+        "March 2025",
+        205300
+      ],
+      [
+        "April 2025",
+        204900
+      ],
+      [
+        "May 2025",
+        204700
+      ],
+      [
+        "June 2025",
+        204500
+      ],
+      [
+        "July 2025",
+        203900
+      ],
+      [
+        "August 2025",
+        202200
+      ],
+      [
+        "September 2025",
+        201800
+      ],
+      [
+        "October 2025",
+        202400
+      ],
+      [
+        "November 2025",
+        203000
+      ],
+      [
+        "December 2025",
+        201100
       ]
     ],
     "Latvia": [
       [
         "July 2014",
-        68300
+        68200
       ],
       [
         "August 2014",
@@ -7470,7 +8144,7 @@
       ],
       [
         "September 2015",
-        71700
+        71600
       ],
       [
         "October 2015",
@@ -7506,7 +8180,7 @@
       ],
       [
         "June 2016",
-        72900
+        72800
       ],
       [
         "July 2016",
@@ -7746,7 +8420,7 @@
       ],
       [
         "June 2021",
-        69200
+        69100
       ],
       [
         "July 2021",
@@ -7758,7 +8432,7 @@
       ],
       [
         "September 2021",
-        68400
+        68300
       ],
       [
         "October 2021",
@@ -7786,7 +8460,7 @@
       ],
       [
         "April 2022",
-        67700
+        67600
       ],
       [
         "May 2022",
@@ -7810,7 +8484,7 @@
       ],
       [
         "October 2022",
-        67100
+        67200
       ],
       [
         "November 2022",
@@ -7850,11 +8524,11 @@
       ],
       [
         "August 2023",
-        64400
+        64500
       ],
       [
         "September 2023",
-        64600
+        64700
       ],
       [
         "October 2023",
@@ -7866,7 +8540,7 @@
       ],
       [
         "December 2023",
-        64000
+        64100
       ],
       [
         "January 2024",
@@ -7878,11 +8552,11 @@
       ],
       [
         "March 2024",
-        63100
+        63200
       ],
       [
         "April 2024",
-        63000
+        63100
       ],
       [
         "May 2024",
@@ -7890,31 +8564,79 @@
       ],
       [
         "June 2024",
-        63000
+        63100
       ],
       [
         "July 2024",
-        62600
+        62800
       ],
       [
         "August 2024",
-        62200
-      ],
-      [
-        "September 2024",
-        62200
-      ],
-      [
-        "October 2024",
         62300
       ],
       [
-        "November 2024",
+        "September 2024",
         62400
       ],
       [
+        "October 2024",
+        62500
+      ],
+      [
+        "November 2024",
+        62500
+      ],
+      [
         "December 2024",
-        61600
+        61800
+      ],
+      [
+        "January 2025",
+        61300
+      ],
+      [
+        "February 2025",
+        61200
+      ],
+      [
+        "March 2025",
+        61400
+      ],
+      [
+        "April 2025",
+        61300
+      ],
+      [
+        "May 2025",
+        61400
+      ],
+      [
+        "June 2025",
+        61200
+      ],
+      [
+        "July 2025",
+        60800
+      ],
+      [
+        "August 2025",
+        60400
+      ],
+      [
+        "September 2025",
+        60600
+      ],
+      [
+        "October 2025",
+        60700
+      ],
+      [
+        "November 2025",
+        60700
+      ],
+      [
+        "December 2025",
+        60000
       ]
     ],
     "Lithuania": [
@@ -7952,15 +8674,15 @@
       ],
       [
         "March 2015",
-        128300
+        128200
       ],
       [
         "April 2015",
-        128800
+        128700
       ],
       [
         "May 2015",
-        130100
+        130000
       ],
       [
         "June 2015",
@@ -7968,7 +8690,7 @@
       ],
       [
         "July 2015",
-        133100
+        133000
       ],
       [
         "August 2015",
@@ -7988,15 +8710,15 @@
       ],
       [
         "December 2015",
-        134600
+        134500
       ],
       [
         "January 2016",
-        132900
+        132800
       ],
       [
         "February 2016",
-        134200
+        134100
       ],
       [
         "March 2016",
@@ -8004,7 +8726,7 @@
       ],
       [
         "April 2016",
-        135300
+        135200
       ],
       [
         "May 2016",
@@ -8048,7 +8770,7 @@
       ],
       [
         "March 2017",
-        140900
+        140800
       ],
       [
         "April 2017",
@@ -8056,7 +8778,7 @@
       ],
       [
         "May 2017",
-        142300
+        142200
       ],
       [
         "June 2017",
@@ -8064,15 +8786,15 @@
       ],
       [
         "July 2017",
-        144700
+        144600
       ],
       [
         "August 2017",
-        144200
+        144100
       ],
       [
         "September 2017",
-        144700
+        144600
       ],
       [
         "October 2017",
@@ -8096,7 +8818,7 @@
       ],
       [
         "March 2018",
-        144300
+        144200
       ],
       [
         "April 2018",
@@ -8104,7 +8826,7 @@
       ],
       [
         "May 2018",
-        145600
+        145500
       ],
       [
         "June 2018",
@@ -8112,7 +8834,7 @@
       ],
       [
         "July 2018",
-        146400
+        146300
       ],
       [
         "August 2018",
@@ -8124,7 +8846,7 @@
       ],
       [
         "October 2018",
-        146300
+        146200
       ],
       [
         "November 2018",
@@ -8148,7 +8870,7 @@
       ],
       [
         "April 2019",
-        145100
+        145000
       ],
       [
         "May 2019",
@@ -8156,7 +8878,7 @@
       ],
       [
         "June 2019",
-        145300
+        145200
       ],
       [
         "July 2019",
@@ -8172,7 +8894,7 @@
       ],
       [
         "October 2019",
-        144100
+        144000
       ],
       [
         "November 2019",
@@ -8188,11 +8910,11 @@
       ],
       [
         "February 2020",
-        140700
+        140600
       ],
       [
         "March 2020",
-        140300
+        140200
       ],
       [
         "April 2020",
@@ -8204,7 +8926,7 @@
       ],
       [
         "June 2020",
-        137000
+        136900
       ],
       [
         "July 2020",
@@ -8224,15 +8946,15 @@
       ],
       [
         "November 2020",
-        132700
+        132600
       ],
       [
         "December 2020",
-        130800
+        130700
       ],
       [
         "January 2021",
-        129200
+        129100
       ],
       [
         "February 2021",
@@ -8240,7 +8962,7 @@
       ],
       [
         "March 2021",
-        129600
+        129500
       ],
       [
         "April 2021",
@@ -8260,11 +8982,11 @@
       ],
       [
         "August 2021",
-        127900
+        127800
       ],
       [
         "September 2021",
-        128400
+        128300
       ],
       [
         "October 2021",
@@ -8280,11 +9002,11 @@
       ],
       [
         "January 2022",
-        125700
+        125600
       ],
       [
         "February 2022",
-        126300
+        126200
       ],
       [
         "March 2022",
@@ -8292,7 +9014,7 @@
       ],
       [
         "April 2022",
-        126400
+        126300
       ],
       [
         "May 2022",
@@ -8312,7 +9034,7 @@
       ],
       [
         "September 2022",
-        124200
+        124100
       ],
       [
         "October 2022",
@@ -8336,7 +9058,7 @@
       ],
       [
         "March 2023",
-        121700
+        121600
       ],
       [
         "April 2023",
@@ -8344,7 +9066,7 @@
       ],
       [
         "May 2023",
-        121600
+        121500
       ],
       [
         "June 2023",
@@ -8364,7 +9086,7 @@
       ],
       [
         "October 2023",
-        119500
+        119400
       ],
       [
         "November 2023",
@@ -8384,7 +9106,7 @@
       ],
       [
         "March 2024",
-        116800
+        116900
       ],
       [
         "April 2024",
@@ -8392,35 +9114,83 @@
       ],
       [
         "May 2024",
-        116800
+        116900
       ],
       [
         "June 2024",
-        116600
+        116700
       ],
       [
         "July 2024",
-        115700
+        115800
       ],
       [
         "August 2024",
-        114500
+        114600
       ],
       [
         "September 2024",
-        114700
+        114900
       ],
       [
         "October 2024",
-        115100
+        115200
       ],
       [
         "November 2024",
-        114800
+        115000
       ],
       [
         "December 2024",
-        113200
+        113500
+      ],
+      [
+        "January 2025",
+        112700
+      ],
+      [
+        "February 2025",
+        112900
+      ],
+      [
+        "March 2025",
+        112900
+      ],
+      [
+        "April 2025",
+        112900
+      ],
+      [
+        "May 2025",
+        112700
+      ],
+      [
+        "June 2025",
+        112400
+      ],
+      [
+        "July 2025",
+        111400
+      ],
+      [
+        "August 2025",
+        110600
+      ],
+      [
+        "September 2025",
+        110700
+      ],
+      [
+        "October 2025",
+        110700
+      ],
+      [
+        "November 2025",
+        110500
+      ],
+      [
+        "December 2025",
+        109300
       ]
     ],
     "Luxembourg": [
@@ -8927,6 +9697,54 @@
       [
         "December 2024",
         700
+      ],
+      [
+        "January 2025",
+        700
+      ],
+      [
+        "February 2025",
+        700
+      ],
+      [
+        "March 2025",
+        700
+      ],
+      [
+        "April 2025",
+        700
+      ],
+      [
+        "May 2025",
+        700
+      ],
+      [
+        "June 2025",
+        700
+      ],
+      [
+        "July 2025",
+        700
+      ],
+      [
+        "August 2025",
+        700
+      ],
+      [
+        "September 2025",
+        700
+      ],
+      [
+        "October 2025",
+        700
+      ],
+      [
+        "November 2025",
+        700
+      ],
+      [
+        "December 2025",
+        700
       ]
     ],
     "Malta": [
@@ -9152,7 +9970,7 @@
       ],
       [
         "February 2019",
-        3600
+        3500
       ],
       [
         "March 2019",
@@ -9336,7 +10154,7 @@
       ],
       [
         "December 2022",
-        3500
+        3600
       ],
       [
         "January 2023",
@@ -9433,6 +10251,54 @@
       [
         "December 2024",
         3500
+      ],
+      [
+        "January 2025",
+        3500
+      ],
+      [
+        "February 2025",
+        3500
+      ],
+      [
+        "March 2025",
+        3500
+      ],
+      [
+        "April 2025",
+        3500
+      ],
+      [
+        "May 2025",
+        3500
+      ],
+      [
+        "June 2025",
+        3500
+      ],
+      [
+        "July 2025",
+        3500
+      ],
+      [
+        "August 2025",
+        3500
+      ],
+      [
+        "September 2025",
+        3400
+      ],
+      [
+        "October 2025",
+        3400
+      ],
+      [
+        "November 2025",
+        3400
+      ],
+      [
+        "December 2025",
+        3400
       ]
     ],
     "Netherlands": [
@@ -9518,7 +10384,7 @@
       ],
       [
         "March 2016",
-        42400
+        42300
       ],
       [
         "April 2016",
@@ -9666,7 +10532,7 @@
       ],
       [
         "April 2019",
-        45600
+        45500
       ],
       [
         "May 2019",
@@ -9762,7 +10628,7 @@
       ],
       [
         "April 2021",
-        43500
+        43400
       ],
       [
         "May 2021",
@@ -9774,7 +10640,7 @@
       ],
       [
         "July 2021",
-        44000
+        43900
       ],
       [
         "August 2021",
@@ -9782,7 +10648,7 @@
       ],
       [
         "September 2021",
-        44000
+        43900
       ],
       [
         "October 2021",
@@ -9866,7 +10732,7 @@
       ],
       [
         "June 2023",
-        43100
+        43200
       ],
       [
         "July 2023",
@@ -9874,7 +10740,7 @@
       ],
       [
         "August 2023",
-        42200
+        42300
       ],
       [
         "September 2023",
@@ -9882,7 +10748,7 @@
       ],
       [
         "October 2023",
-        42400
+        42500
       ],
       [
         "November 2023",
@@ -9890,15 +10756,15 @@
       ],
       [
         "December 2023",
-        42000
+        42100
       ],
       [
         "January 2024",
-        41500
+        41600
       ],
       [
         "February 2024",
-        41500
+        41600
       ],
       [
         "March 2024",
@@ -9906,31 +10772,31 @@
       ],
       [
         "April 2024",
-        41200
-      ],
-      [
-        "May 2024",
         41300
       ],
       [
-        "June 2024",
+        "May 2024",
         41400
       ],
       [
+        "June 2024",
+        41500
+      ],
+      [
         "July 2024",
-        41200
+        41300
       ],
       [
         "August 2024",
-        40700
-      ],
-      [
-        "September 2024",
         40800
       ],
       [
+        "September 2024",
+        40900
+      ],
+      [
         "October 2024",
-        41000
+        41100
       ],
       [
         "November 2024",
@@ -9938,17 +10804,65 @@
       ],
       [
         "December 2024",
-        40600
+        40700
+      ],
+      [
+        "January 2025",
+        40200
+      ],
+      [
+        "February 2025",
+        40200
+      ],
+      [
+        "March 2025",
+        40200
+      ],
+      [
+        "April 2025",
+        39900
+      ],
+      [
+        "May 2025",
+        39900
+      ],
+      [
+        "June 2025",
+        39900
+      ],
+      [
+        "July 2025",
+        39800
+      ],
+      [
+        "August 2025",
+        39400
+      ],
+      [
+        "September 2025",
+        39400
+      ],
+      [
+        "October 2025",
+        39500
+      ],
+      [
+        "November 2025",
+        39500
+      ],
+      [
+        "December 2025",
+        39200
       ]
     ],
     "Poland": [
       [
         "July 2014",
-        570900
+        570800
       ],
       [
         "August 2014",
-        576700
+        576600
       ],
       [
         "September 2014",
@@ -9956,15 +10870,15 @@
       ],
       [
         "October 2014",
-        583400
+        583300
       ],
       [
         "November 2014",
-        589500
+        589400
       ],
       [
         "December 2014",
-        580700
+        580600
       ],
       [
         "January 2015",
@@ -9972,15 +10886,15 @@
       ],
       [
         "February 2015",
-        583800
+        583700
       ],
       [
         "March 2015",
-        592400
+        592300
       ],
       [
         "April 2015",
-        598700
+        598600
       ],
       [
         "May 2015",
@@ -9988,15 +10902,15 @@
       ],
       [
         "June 2015",
-        614000
+        613900
       ],
       [
         "July 2015",
-        623300
+        623200
       ],
       [
         "August 2015",
-        628900
+        628800
       ],
       [
         "September 2015",
@@ -10004,27 +10918,27 @@
       ],
       [
         "October 2015",
-        635900
+        635800
       ],
       [
         "November 2015",
-        639600
+        639500
       ],
       [
         "December 2015",
-        630000
+        629900
       ],
       [
         "January 2016",
-        621900
+        621800
       ],
       [
         "February 2016",
-        628300
+        628200
       ],
       [
         "March 2016",
-        633400
+        633300
       ],
       [
         "April 2016",
@@ -10032,15 +10946,15 @@
       ],
       [
         "May 2016",
-        642300
+        642200
       ],
       [
         "June 2016",
-        650000
+        649900
       ],
       [
         "July 2016",
-        656300
+        656200
       ],
       [
         "August 2016",
@@ -10048,31 +10962,31 @@
       ],
       [
         "September 2016",
-        661100
+        661000
       ],
       [
         "October 2016",
-        657600
+        657500
       ],
       [
         "November 2016",
-        658800
+        658700
       ],
       [
         "December 2016",
-        650000
+        649900
       ],
       [
         "January 2017",
-        638900
+        638800
       ],
       [
         "February 2017",
-        644600
+        644500
       ],
       [
         "March 2017",
-        649300
+        649200
       ],
       [
         "April 2017",
@@ -10080,43 +10994,43 @@
       ],
       [
         "May 2017",
-        653200
+        653100
       ],
       [
         "June 2017",
-        657500
+        657400
       ],
       [
         "July 2017",
-        660300
+        660200
       ],
       [
         "August 2017",
-        659000
+        658900
       ],
       [
         "September 2017",
-        660100
+        660000
       ],
       [
         "October 2017",
-        657700
+        657600
       ],
       [
         "November 2017",
-        658800
+        658700
       ],
       [
         "December 2017",
-        648600
+        648500
       ],
       [
         "January 2018",
-        638800
+        638700
       ],
       [
         "February 2018",
-        642400
+        642300
       ],
       [
         "March 2018",
@@ -10124,7 +11038,7 @@
       ],
       [
         "April 2018",
-        644700
+        644600
       ],
       [
         "May 2018",
@@ -10132,7 +11046,7 @@
       ],
       [
         "June 2018",
-        648600
+        648500
       ],
       [
         "July 2018",
@@ -10140,15 +11054,15 @@
       ],
       [
         "August 2018",
-        647300
+        647200
       ],
       [
         "September 2018",
-        646200
+        646100
       ],
       [
         "October 2018",
-        644200
+        644100
       ],
       [
         "November 2018",
@@ -10156,7 +11070,7 @@
       ],
       [
         "December 2018",
-        635500
+        635400
       ],
       [
         "January 2019",
@@ -10164,15 +11078,15 @@
       ],
       [
         "February 2019",
-        630300
+        630200
       ],
       [
         "March 2019",
-        633400
+        633300
       ],
       [
         "April 2019",
-        632900
+        632800
       ],
       [
         "May 2019",
@@ -10180,51 +11094,51 @@
       ],
       [
         "June 2019",
-        634200
+        634100
       ],
       [
         "July 2019",
-        632600
+        632500
       ],
       [
         "August 2019",
-        630400
+        630300
       ],
       [
         "September 2019",
-        630100
+        630000
       ],
       [
         "October 2019",
-        628000
+        627900
       ],
       [
         "November 2019",
-        627300
+        627200
       ],
       [
         "December 2019",
-        617100
+        617000
       ],
       [
         "January 2020",
-        610100
+        610000
       ],
       [
         "February 2020",
-        612000
+        611900
       ],
       [
         "March 2020",
-        610200
+        610100
       ],
       [
         "April 2020",
-        592900
+        592800
       ],
       [
         "May 2020",
-        592400
+        592300
       ],
       [
         "June 2020",
@@ -10232,51 +11146,51 @@
       ],
       [
         "July 2020",
-        592900
+        592800
       ],
       [
         "August 2020",
-        586100
+        586000
       ],
       [
         "September 2020",
-        584000
+        583900
       ],
       [
         "October 2020",
-        582500
+        582400
       ],
       [
         "November 2020",
-        579600
+        579500
       ],
       [
         "December 2020",
-        571900
+        571800
       ],
       [
         "January 2021",
-        565000
+        564900
       ],
       [
         "February 2021",
-        565500
+        565400
       ],
       [
         "March 2021",
-        566600
+        566500
       ],
       [
         "April 2021",
-        572700
+        572600
       ],
       [
         "May 2021",
-        576100
+        576000
       ],
       [
         "June 2021",
-        576200
+        576100
       ],
       [
         "July 2021",
@@ -10284,55 +11198,55 @@
       ],
       [
         "August 2021",
-        563600
+        563500
       ],
       [
         "September 2021",
-        565900
+        565800
       ],
       [
         "October 2021",
-        565100
+        565000
       ],
       [
         "November 2021",
-        565600
+        565500
       ],
       [
         "December 2021",
-        557500
+        557400
       ],
       [
         "January 2022",
-        551400
+        551300
       ],
       [
         "February 2022",
-        554600
+        554500
       ],
       [
         "March 2022",
-        555300
+        555200
       ],
       [
         "April 2022",
-        555000
+        554400
       ],
       [
         "May 2022",
-        555400
+        555100
       ],
       [
         "June 2022",
-        554900
+        554800
       ],
       [
         "July 2022",
-        551000
+        550900
       ],
       [
         "August 2022",
-        545800
+        545700
       ],
       [
         "September 2022",
@@ -10340,11 +11254,11 @@
       ],
       [
         "October 2022",
-        549100
+        549000
       ],
       [
         "November 2022",
-        549400
+        549300
       ],
       [
         "December 2022",
@@ -10352,11 +11266,11 @@
       ],
       [
         "January 2023",
-        538300
+        538200
       ],
       [
         "February 2023",
-        539800
+        539700
       ],
       [
         "March 2023",
@@ -10364,15 +11278,15 @@
       ],
       [
         "April 2023",
-        539700
-      ],
-      [
-        "May 2023",
         539600
       ],
       [
+        "May 2023",
+        539500
+      ],
+      [
         "June 2023",
-        539700
+        539600
       ],
       [
         "July 2023",
@@ -10380,7 +11294,7 @@
       ],
       [
         "August 2023",
-        530400
+        530300
       ],
       [
         "September 2023",
@@ -10408,43 +11322,91 @@
       ],
       [
         "March 2024",
-        520000
+        520100
       ],
       [
         "April 2024",
-        520000
+        520200
       ],
       [
         "May 2024",
-        520500
+        520700
       ],
       [
         "June 2024",
-        519900
+        520300
       ],
       [
         "July 2024",
-        516500
+        516900
       ],
       [
         "August 2024",
-        511200
+        511700
       ],
       [
         "September 2024",
-        512000
-      ],
-      [
-        "October 2024",
         512600
       ],
       [
+        "October 2024",
+        513300
+      ],
+      [
         "November 2024",
-        512500
+        513100
       ],
       [
         "December 2024",
-        505400
+        506900
+      ],
+      [
+        "January 2025",
+        503000
+      ],
+      [
+        "February 2025",
+        503700
+      ],
+      [
+        "March 2025",
+        503700
+      ],
+      [
+        "April 2025",
+        503600
+      ],
+      [
+        "May 2025",
+        503000
+      ],
+      [
+        "June 2025",
+        502200
+      ],
+      [
+        "July 2025",
+        498900
+      ],
+      [
+        "August 2025",
+        494700
+      ],
+      [
+        "September 2025",
+        495100
+      ],
+      [
+        "October 2025",
+        495000
+      ],
+      [
+        "November 2025",
+        494500
+      ],
+      [
+        "December 2025",
+        488600
       ]
     ],
     "Portugal": [
@@ -10530,11 +11492,11 @@
       ],
       [
         "March 2016",
-        148200
+        148100
       ],
       [
         "April 2016",
-        150100
+        150000
       ],
       [
         "May 2016",
@@ -10562,7 +11524,7 @@
       ],
       [
         "November 2016",
-        162700
+        162600
       ],
       [
         "December 2016",
@@ -10578,7 +11540,7 @@
       ],
       [
         "March 2017",
-        163100
+        163000
       ],
       [
         "April 2017",
@@ -10638,7 +11600,7 @@
       ],
       [
         "June 2018",
-        175700
+        175600
       ],
       [
         "July 2018",
@@ -10650,7 +11612,7 @@
       ],
       [
         "September 2018",
-        176000
+        175900
       ],
       [
         "October 2018",
@@ -10662,7 +11624,7 @@
       ],
       [
         "December 2018",
-        177900
+        177800
       ],
       [
         "January 2019",
@@ -10670,7 +11632,7 @@
       ],
       [
         "February 2019",
-        177100
+        177000
       ],
       [
         "March 2019",
@@ -10678,7 +11640,7 @@
       ],
       [
         "April 2019",
-        181600
+        181500
       ],
       [
         "May 2019",
@@ -10750,15 +11712,15 @@
       ],
       [
         "October 2020",
-        178600
+        178500
       ],
       [
         "November 2020",
-        178400
+        178300
       ],
       [
         "December 2020",
-        177300
+        177200
       ],
       [
         "January 2021",
@@ -10778,7 +11740,7 @@
       ],
       [
         "May 2021",
-        182400
+        182300
       ],
       [
         "June 2021",
@@ -10790,7 +11752,7 @@
       ],
       [
         "August 2021",
-        184700
+        184600
       ],
       [
         "September 2021",
@@ -10822,11 +11784,11 @@
       ],
       [
         "April 2022",
-        187500
+        187100
       ],
       [
         "May 2022",
-        188500
+        188300
       ],
       [
         "June 2022",
@@ -10862,7 +11824,7 @@
       ],
       [
         "February 2023",
-        184400
+        184300
       ],
       [
         "March 2023",
@@ -10874,7 +11836,7 @@
       ],
       [
         "May 2023",
-        185900
+        185800
       ],
       [
         "June 2023",
@@ -10890,7 +11852,7 @@
       ],
       [
         "September 2023",
-        184800
+        184700
       ],
       [
         "October 2023",
@@ -10918,39 +11880,87 @@
       ],
       [
         "April 2024",
-        181000
+        181200
       ],
       [
         "May 2024",
-        181500
+        181700
       ],
       [
         "June 2024",
-        182100
+        182300
       ],
       [
         "July 2024",
-        181300
+        181500
       ],
       [
         "August 2024",
-        179600
+        179900
       ],
       [
         "September 2024",
-        180300
+        180700
       ],
       [
         "October 2024",
-        181400
+        181800
       ],
       [
         "November 2024",
-        181400
+        181700
       ],
       [
         "December 2024",
-        179000
+        179400
+      ],
+      [
+        "January 2025",
+        176900
+      ],
+      [
+        "February 2025",
+        176900
+      ],
+      [
+        "March 2025",
+        177200
+      ],
+      [
+        "April 2025",
+        177900
+      ],
+      [
+        "May 2025",
+        178000
+      ],
+      [
+        "June 2025",
+        178100
+      ],
+      [
+        "July 2025",
+        177600
+      ],
+      [
+        "August 2025",
+        176300
+      ],
+      [
+        "September 2025",
+        176400
+      ],
+      [
+        "October 2025",
+        176800
+      ],
+      [
+        "November 2025",
+        176700
+      ],
+      [
+        "December 2025",
+        175000
       ]
     ],
     "Ireland": [
@@ -10976,7 +11986,7 @@
       ],
       [
         "December 2014",
-        119900
+        119800
       ],
       [
         "January 2015",
@@ -10992,7 +12002,7 @@
       ],
       [
         "April 2015",
-        123300
+        123200
       ],
       [
         "May 2015",
@@ -11020,7 +12030,7 @@
       ],
       [
         "November 2015",
-        127200
+        127100
       ],
       [
         "December 2015",
@@ -11104,15 +12114,15 @@
       ],
       [
         "August 2017",
-        128500
+        128400
       ],
       [
         "September 2017",
-        128600
+        128500
       ],
       [
         "October 2017",
-        129300
+        129200
       ],
       [
         "November 2017",
@@ -11124,11 +12134,11 @@
       ],
       [
         "January 2018",
-        128100
+        128000
       ],
       [
         "February 2018",
-        129200
+        129100
       ],
       [
         "March 2018",
@@ -11136,11 +12146,11 @@
       ],
       [
         "April 2018",
-        129500
+        129400
       ],
       [
         "May 2018",
-        129700
+        129600
       ],
       [
         "June 2018",
@@ -11156,7 +12166,7 @@
       ],
       [
         "September 2018",
-        128900
+        128800
       ],
       [
         "October 2018",
@@ -11164,15 +12174,15 @@
       ],
       [
         "November 2018",
-        130200
+        130100
       ],
       [
         "December 2018",
-        128500
+        128400
       ],
       [
         "January 2019",
-        128000
+        127900
       ],
       [
         "February 2019",
@@ -11184,7 +12194,7 @@
       ],
       [
         "April 2019",
-        129600
+        129500
       ],
       [
         "May 2019",
@@ -11192,15 +12202,15 @@
       ],
       [
         "June 2019",
-        130300
+        130200
       ],
       [
         "July 2019",
-        129700
+        129600
       ],
       [
         "August 2019",
-        128900
+        128800
       ],
       [
         "September 2019",
@@ -11220,7 +12230,7 @@
       ],
       [
         "January 2020",
-        128200
+        128100
       ],
       [
         "February 2020",
@@ -11236,7 +12246,7 @@
       ],
       [
         "May 2020",
-        125700
+        125600
       ],
       [
         "June 2020",
@@ -11268,11 +12278,11 @@
       ],
       [
         "January 2021",
-        122000
+        121900
       ],
       [
         "February 2021",
-        122500
+        122400
       ],
       [
         "March 2021",
@@ -11312,7 +12322,7 @@
       ],
       [
         "December 2021",
-        127000
+        126900
       ],
       [
         "January 2022",
@@ -11340,7 +12350,7 @@
       ],
       [
         "July 2022",
-        130500
+        130600
       ],
       [
         "August 2022",
@@ -11384,7 +12394,7 @@
       ],
       [
         "June 2023",
-        132200
+        132300
       ],
       [
         "July 2023",
@@ -11392,71 +12402,119 @@
       ],
       [
         "August 2023",
-        130300
+        130400
       ],
       [
         "September 2023",
-        130400
+        130500
       ],
       [
         "October 2023",
-        130800
-      ],
-      [
-        "November 2023",
-        131400
-      ],
-      [
-        "December 2023",
-        130200
-      ],
-      [
-        "January 2024",
-        129600
-      ],
-      [
-        "February 2024",
-        130000
-      ],
-      [
-        "March 2024",
-        130400
-      ],
-      [
-        "April 2024",
-        130200
-      ],
-      [
-        "May 2024",
-        130600
-      ],
-      [
-        "June 2024",
-        131200
-      ],
-      [
-        "July 2024",
         130900
       ],
       [
-        "August 2024",
-        129500
+        "November 2023",
+        131500
       ],
       [
-        "September 2024",
-        129400
-      ],
-      [
-        "October 2024",
+        "December 2023",
         130300
       ],
       [
+        "January 2024",
+        129700
+      ],
+      [
+        "February 2024",
+        130200
+      ],
+      [
+        "March 2024",
+        130500
+      ],
+      [
+        "April 2024",
+        130500
+      ],
+      [
+        "May 2024",
+        130900
+      ],
+      [
+        "June 2024",
+        131600
+      ],
+      [
+        "July 2024",
+        131200
+      ],
+      [
+        "August 2024",
+        130000
+      ],
+      [
+        "September 2024",
+        129900
+      ],
+      [
+        "October 2024",
+        130800
+      ],
+      [
         "November 2024",
-        131100
+        131500
       ],
       [
         "December 2024",
+        129600
+      ],
+      [
+        "January 2025",
+        128600
+      ],
+      [
+        "February 2025",
+        129300
+      ],
+      [
+        "March 2025",
+        129800
+      ],
+      [
+        "April 2025",
+        129300
+      ],
+      [
+        "May 2025",
         129500
+      ],
+      [
+        "June 2025",
+        129700
+      ],
+      [
+        "July 2025",
+        129800
+      ],
+      [
+        "August 2025",
+        128900
+      ],
+      [
+        "September 2025",
+        128500
+      ],
+      [
+        "October 2025",
+        129100
+      ],
+      [
+        "November 2025",
+        129500
+      ],
+      [
+        "December 2025",
+        128500
       ]
     ],
     "Romania": [
@@ -11470,7 +12528,7 @@
       ],
       [
         "September 2014",
-        107000
+        106900
       ],
       [
         "October 2014",
@@ -11494,7 +12552,7 @@
       ],
       [
         "March 2015",
-        138000
+        137900
       ],
       [
         "April 2015",
@@ -11510,7 +12568,7 @@
       ],
       [
         "July 2015",
-        177100
+        177000
       ],
       [
         "August 2015",
@@ -11534,15 +12592,15 @@
       ],
       [
         "January 2016",
-        204600
+        204500
       ],
       [
         "February 2016",
-        214500
+        214400
       ],
       [
         "March 2016",
-        224500
+        224400
       ],
       [
         "April 2016",
@@ -11554,7 +12612,7 @@
       ],
       [
         "June 2016",
-        255300
+        255200
       ],
       [
         "July 2016",
@@ -11562,7 +12620,7 @@
       ],
       [
         "August 2016",
-        262300
+        262200
       ],
       [
         "September 2016",
@@ -11570,7 +12628,7 @@
       ],
       [
         "October 2016",
-        277900
+        277800
       ],
       [
         "November 2016",
@@ -11578,11 +12636,11 @@
       ],
       [
         "December 2016",
-        283700
+        283600
       ],
       [
         "January 2017",
-        276200
+        276100
       ],
       [
         "February 2017",
@@ -11594,15 +12652,15 @@
       ],
       [
         "April 2017",
-        302900
+        302800
       ],
       [
         "May 2017",
-        311300
+        311200
       ],
       [
         "June 2017",
-        320000
+        319900
       ],
       [
         "July 2017",
@@ -11614,11 +12672,11 @@
       ],
       [
         "September 2017",
-        324900
+        324800
       ],
       [
         "October 2017",
-        334700
+        334600
       ],
       [
         "November 2017",
@@ -11626,27 +12684,27 @@
       ],
       [
         "December 2017",
-        338600
+        338500
       ],
       [
         "January 2018",
-        329300
+        329200
       ],
       [
         "February 2018",
-        336600
+        336500
       ],
       [
         "March 2018",
-        343600
+        343500
       ],
       [
         "April 2018",
-        350400
+        350300
       ],
       [
         "May 2018",
-        358300
+        358200
       ],
       [
         "June 2018",
@@ -11654,15 +12712,15 @@
       ],
       [
         "July 2018",
-        366400
+        366300
       ],
       [
         "August 2018",
-        362600
+        362500
       ],
       [
         "September 2018",
-        366100
+        366000
       ],
       [
         "October 2018",
@@ -11670,27 +12728,27 @@
       ],
       [
         "November 2018",
-        382000
+        381900
       ],
       [
         "December 2018",
-        377500
+        377400
       ],
       [
         "January 2019",
-        367500
+        367400
       ],
       [
         "February 2019",
-        372900
+        372800
       ],
       [
         "March 2019",
-        381300
+        381200
       ],
       [
         "April 2019",
-        388500
+        388400
       ],
       [
         "May 2019",
@@ -11698,7 +12756,7 @@
       ],
       [
         "June 2019",
-        396500
+        396400
       ],
       [
         "July 2019",
@@ -11710,39 +12768,39 @@
       ],
       [
         "September 2019",
-        393100
+        393000
       ],
       [
         "October 2019",
-        400500
+        400400
       ],
       [
         "November 2019",
-        406200
+        406100
       ],
       [
         "December 2019",
-        400200
+        400100
       ],
       [
         "January 2020",
-        388600
+        388500
       ],
       [
         "February 2020",
-        392800
+        392700
       ],
       [
         "March 2020",
-        394600
+        394500
       ],
       [
         "April 2020",
-        386300
+        386200
       ],
       [
         "May 2020",
-        388800
+        388700
       ],
       [
         "June 2020",
@@ -11754,11 +12812,11 @@
       ],
       [
         "August 2020",
-        378700
+        378600
       ],
       [
         "September 2020",
-        376800
+        376700
       ],
       [
         "October 2020",
@@ -11766,31 +12824,31 @@
       ],
       [
         "November 2020",
-        384500
+        384400
       ],
       [
         "December 2020",
-        379600
+        379500
       ],
       [
         "January 2021",
-        370100
+        370000
       ],
       [
         "February 2021",
-        370800
+        370700
       ],
       [
         "March 2021",
-        372400
+        372300
       ],
       [
         "April 2021",
-        382500
+        382400
       ],
       [
         "May 2021",
-        384500
+        384400
       ],
       [
         "June 2021",
@@ -11798,15 +12856,15 @@
       ],
       [
         "July 2021",
-        383000
+        382900
       ],
       [
         "August 2021",
-        375700
+        375600
       ],
       [
         "September 2021",
-        376300
+        376200
       ],
       [
         "October 2021",
@@ -11814,7 +12872,7 @@
       ],
       [
         "November 2021",
-        383900
+        383800
       ],
       [
         "December 2021",
@@ -11822,23 +12880,23 @@
       ],
       [
         "January 2022",
-        370200
+        370100
       ],
       [
         "February 2022",
-        375500
+        375300
       ],
       [
         "March 2022",
-        379500
+        379400
       ],
       [
         "April 2022",
-        385800
+        385600
       ],
       [
         "May 2022",
-        388600
+        388500
       ],
       [
         "June 2022",
@@ -11870,7 +12928,7 @@
       ],
       [
         "January 2023",
-        374100
+        374000
       ],
       [
         "February 2023",
@@ -11878,7 +12936,7 @@
       ],
       [
         "March 2023",
-        378300
+        378200
       ],
       [
         "April 2023",
@@ -11886,7 +12944,7 @@
       ],
       [
         "May 2023",
-        383700
+        383800
       ],
       [
         "June 2023",
@@ -11898,7 +12956,7 @@
       ],
       [
         "August 2023",
-        375100
+        375200
       ],
       [
         "September 2023",
@@ -11906,7 +12964,7 @@
       ],
       [
         "October 2023",
-        377600
+        377700
       ],
       [
         "November 2023",
@@ -11914,43 +12972,43 @@
       ],
       [
         "December 2023",
-        371900
+        372000
       ],
       [
         "January 2024",
-        363600
+        363700
       ],
       [
         "February 2024",
-        364900
+        365000
       ],
       [
         "March 2024",
-        365200
+        365300
       ],
       [
         "April 2024",
-        366600
+        367000
       ],
       [
         "May 2024",
-        367600
+        367800
       ],
       [
         "June 2024",
-        368700
+        368900
       ],
       [
         "July 2024",
-        366900
+        367000
       ],
       [
         "August 2024",
-        360400
+        360600
       ],
       [
         "September 2024",
-        360600
+        360800
       ],
       [
         "October 2024",
@@ -11958,11 +13016,59 @@
       ],
       [
         "November 2024",
-        364600
+        364500
       ],
       [
         "December 2024",
         358600
+      ],
+      [
+        "January 2025",
+        351200
+      ],
+      [
+        "February 2025",
+        353300
+      ],
+      [
+        "March 2025",
+        354300
+      ],
+      [
+        "April 2025",
+        355400
+      ],
+      [
+        "May 2025",
+        355700
+      ],
+      [
+        "June 2025",
+        356300
+      ],
+      [
+        "July 2025",
+        353900
+      ],
+      [
+        "August 2025",
+        348900
+      ],
+      [
+        "September 2025",
+        349100
+      ],
+      [
+        "October 2025",
+        351800
+      ],
+      [
+        "November 2025",
+        354100
+      ],
+      [
+        "December 2025",
+        349700
       ]
     ],
     "Slovakia": [
@@ -11980,11 +13086,11 @@
       ],
       [
         "October 2014",
-        59700
+        59600
       ],
       [
         "November 2014",
-        60600
+        60500
       ],
       [
         "December 2014",
@@ -12040,7 +13146,7 @@
       ],
       [
         "January 2016",
-        60100
+        60000
       ],
       [
         "February 2016",
@@ -12056,11 +13162,11 @@
       ],
       [
         "May 2016",
-        61200
+        61100
       ],
       [
         "June 2016",
-        61900
+        61800
       ],
       [
         "July 2016",
@@ -12244,7 +13350,7 @@
       ],
       [
         "April 2020",
-        49400
+        49300
       ],
       [
         "May 2020",
@@ -12296,7 +13402,7 @@
       ],
       [
         "May 2021",
-        47300
+        47200
       ],
       [
         "June 2021",
@@ -12328,7 +13434,7 @@
       ],
       [
         "January 2022",
-        46400
+        46300
       ],
       [
         "February 2022",
@@ -12340,7 +13446,7 @@
       ],
       [
         "April 2022",
-        46700
+        46600
       ],
       [
         "May 2022",
@@ -12348,7 +13454,7 @@
       ],
       [
         "June 2022",
-        46700
+        46600
       ],
       [
         "July 2022",
@@ -12456,7 +13562,7 @@
       ],
       [
         "September 2024",
-        40800
+        40900
       ],
       [
         "October 2024",
@@ -12464,11 +13570,59 @@
       ],
       [
         "November 2024",
-        41000
+        41100
       ],
       [
         "December 2024",
-        40500
+        40600
+      ],
+      [
+        "January 2025",
+        40000
+      ],
+      [
+        "February 2025",
+        39900
+      ],
+      [
+        "March 2025",
+        39800
+      ],
+      [
+        "April 2025",
+        39700
+      ],
+      [
+        "May 2025",
+        39700
+      ],
+      [
+        "June 2025",
+        39600
+      ],
+      [
+        "July 2025",
+        39300
+      ],
+      [
+        "August 2025",
+        38900
+      ],
+      [
+        "September 2025",
+        39000
+      ],
+      [
+        "October 2025",
+        39100
+      ],
+      [
+        "November 2025",
+        39000
+      ],
+      [
+        "December 2025",
+        38700
       ]
     ],
     "Slovenia": [
@@ -12518,7 +13672,7 @@
       ],
       [
         "June 2015",
-        6900
+        6800
       ],
       [
         "July 2015",
@@ -12530,7 +13684,7 @@
       ],
       [
         "September 2015",
-        6900
+        6800
       ],
       [
         "October 2015",
@@ -12602,7 +13756,7 @@
       ],
       [
         "March 2017",
-        7500
+        7400
       ],
       [
         "April 2017",
@@ -12654,7 +13808,7 @@
       ],
       [
         "April 2018",
-        7700
+        7600
       ],
       [
         "May 2018",
@@ -12966,15 +14120,63 @@
       ],
       [
         "October 2024",
-        7400
+        7500
       ],
       [
         "November 2024",
-        7400
+        7500
       ],
       [
         "December 2024",
+        7400
+      ],
+      [
+        "January 2025",
         7300
+      ],
+      [
+        "February 2025",
+        7300
+      ],
+      [
+        "March 2025",
+        7300
+      ],
+      [
+        "April 2025",
+        7400
+      ],
+      [
+        "May 2025",
+        7400
+      ],
+      [
+        "June 2025",
+        7300
+      ],
+      [
+        "July 2025",
+        7300
+      ],
+      [
+        "August 2025",
+        7200
+      ],
+      [
+        "September 2025",
+        7200
+      ],
+      [
+        "October 2025",
+        7200
+      ],
+      [
+        "November 2025",
+        7200
+      ],
+      [
+        "December 2025",
+        7200
       ]
     ],
     "Spain": [
@@ -13056,11 +14258,11 @@
       ],
       [
         "February 2016",
-        139500
+        139400
       ],
       [
         "March 2016",
-        141900
+        141800
       ],
       [
         "April 2016",
@@ -13084,7 +14286,7 @@
       ],
       [
         "September 2016",
-        144500
+        144400
       ],
       [
         "October 2016",
@@ -13096,15 +14298,15 @@
       ],
       [
         "December 2016",
-        149000
+        148900
       ],
       [
         "January 2017",
-        146300
+        146200
       ],
       [
         "February 2017",
-        148600
+        148500
       ],
       [
         "March 2017",
@@ -13116,7 +14318,7 @@
       ],
       [
         "May 2017",
-        152200
+        152100
       ],
       [
         "June 2017",
@@ -13164,19 +14366,19 @@
       ],
       [
         "May 2018",
-        154100
+        154000
       ],
       [
         "June 2018",
-        154600
+        154500
       ],
       [
         "July 2018",
-        154300
+        154200
       ],
       [
         "August 2018",
-        152200
+        152100
       ],
       [
         "September 2018",
@@ -13188,7 +14390,7 @@
       ],
       [
         "November 2018",
-        155900
+        155800
       ],
       [
         "December 2018",
@@ -13200,7 +14402,7 @@
       ],
       [
         "February 2019",
-        154200
+        154100
       ],
       [
         "March 2019",
@@ -13220,7 +14422,7 @@
       ],
       [
         "July 2019",
-        159200
+        159100
       ],
       [
         "August 2019",
@@ -13260,11 +14462,11 @@
       ],
       [
         "May 2020",
-        149300
+        149200
       ],
       [
         "June 2020",
-        149600
+        149500
       ],
       [
         "July 2020",
@@ -13316,7 +14518,7 @@
       ],
       [
         "July 2021",
-        150200
+        150100
       ],
       [
         "August 2021",
@@ -13352,11 +14554,11 @@
       ],
       [
         "April 2022",
-        152400
+        152100
       ],
       [
         "May 2022",
-        153100
+        153000
       ],
       [
         "June 2022",
@@ -13416,7 +14618,7 @@
       ],
       [
         "August 2023",
-        147700
+        147800
       ],
       [
         "September 2023",
@@ -13440,47 +14642,95 @@
       ],
       [
         "February 2024",
-        145100
+        145200
       ],
       [
         "March 2024",
-        145000
+        145100
       ],
       [
         "April 2024",
-        144800
-      ],
-      [
-        "May 2024",
         145000
       ],
       [
+        "May 2024",
+        145300
+      ],
+      [
         "June 2024",
-        144900
+        145200
       ],
       [
         "July 2024",
-        144200
+        144500
       ],
       [
         "August 2024",
-        142200
+        142500
       ],
       [
         "September 2024",
-        142300
+        142800
       ],
       [
         "October 2024",
-        143300
+        143700
       ],
       [
         "November 2024",
-        143600
+        143900
       ],
       [
         "December 2024",
-        141900
+        142400
+      ],
+      [
+        "January 2025",
+        140100
+      ],
+      [
+        "February 2025",
+        140100
+      ],
+      [
+        "March 2025",
+        140200
+      ],
+      [
+        "April 2025",
+        139900
+      ],
+      [
+        "May 2025",
+        140100
+      ],
+      [
+        "June 2025",
+        140100
+      ],
+      [
+        "July 2025",
+        139600
+      ],
+      [
+        "August 2025",
+        138000
+      ],
+      [
+        "September 2025",
+        137600
+      ],
+      [
+        "October 2025",
+        137800
+      ],
+      [
+        "November 2025",
+        138100
+      ],
+      [
+        "December 2025",
+        136800
       ]
     ],
     "Sweden": [
@@ -13618,7 +14868,7 @@
       ],
       [
         "April 2017",
-        20400
+        20300
       ],
       [
         "May 2017",
@@ -13794,7 +15044,7 @@
       ],
       [
         "December 2020",
-        21700
+        21600
       ],
       [
         "January 2021",
@@ -13930,7 +15180,7 @@
       ],
       [
         "October 2023",
-        25700
+        25800
       ],
       [
         "November 2023",
@@ -13962,31 +15212,79 @@
       ],
       [
         "June 2024",
-        25200
+        25300
       ],
       [
         "July 2024",
-        25100
+        25200
       ],
       [
         "August 2024",
-        24900
-      ],
-      [
-        "September 2024",
-        24900
-      ],
-      [
-        "October 2024",
         25000
       ],
       [
+        "September 2024",
+        25000
+      ],
+      [
+        "October 2024",
+        25100
+      ],
+      [
         "November 2024",
-        25200
+        25300
       ],
       [
         "December 2024",
         25000
+      ],
+      [
+        "January 2025",
+        24600
+      ],
+      [
+        "February 2025",
+        24600
+      ],
+      [
+        "March 2025",
+        24500
+      ],
+      [
+        "April 2025",
+        24400
+      ],
+      [
+        "May 2025",
+        24400
+      ],
+      [
+        "June 2025",
+        24400
+      ],
+      [
+        "July 2025",
+        24300
+      ],
+      [
+        "August 2025",
+        24000
+      ],
+      [
+        "September 2025",
+        24000
+      ],
+      [
+        "October 2025",
+        24200
+      ],
+      [
+        "November 2025",
+        24200
+      ],
+      [
+        "December 2025",
+        24100
       ]
     ],
     "Australia": [
@@ -14188,7 +15486,7 @@
       ],
       [
         "August 2018",
-        54900
+        55000
       ],
       [
         "September 2018",
@@ -14220,7 +15518,7 @@
       ],
       [
         "April 2019",
-        55800
+        55700
       ],
       [
         "May 2019",
@@ -14288,7 +15586,7 @@
       ],
       [
         "September 2020",
-        51500
+        51400
       ],
       [
         "October 2020",
@@ -14296,7 +15594,7 @@
       ],
       [
         "November 2020",
-        51000
+        50900
       ],
       [
         "December 2020",
@@ -14308,7 +15606,7 @@
       ],
       [
         "February 2021",
-        50100
+        50000
       ],
       [
         "March 2021",
@@ -14324,7 +15622,7 @@
       ],
       [
         "June 2021",
-        50100
+        50000
       ],
       [
         "July 2021",
@@ -14372,7 +15670,7 @@
       ],
       [
         "June 2022",
-        49400
+        49500
       ],
       [
         "July 2022",
@@ -14384,7 +15682,7 @@
       ],
       [
         "September 2022",
-        49900
+        50000
       ],
       [
         "October 2022",
@@ -14392,7 +15690,7 @@
       ],
       [
         "November 2022",
-        50800
+        50900
       ],
       [
         "December 2022",
@@ -14400,7 +15698,7 @@
       ],
       [
         "January 2023",
-        50500
+        50600
       ],
       [
         "February 2023",
@@ -14448,51 +15746,99 @@
       ],
       [
         "January 2024",
-        55100
+        55200
       ],
       [
         "February 2024",
-        55800
+        55900
       ],
       [
         "March 2024",
-        56400
-      ],
-      [
-        "April 2024",
         56500
       ],
       [
+        "April 2024",
+        56600
+      ],
+      [
         "May 2024",
-        57600
+        57800
       ],
       [
         "June 2024",
-        58100
+        58200
       ],
       [
         "July 2024",
-        58200
+        58400
       ],
       [
         "August 2024",
-        57500
+        57700
       ],
       [
         "September 2024",
-        58200
+        58400
       ],
       [
         "October 2024",
-        58600
+        58800
       ],
       [
         "November 2024",
-        59100
+        59200
       ],
       [
         "December 2024",
+        58500
+      ],
+      [
+        "January 2025",
+        57800
+      ],
+      [
+        "February 2025",
         58400
+      ],
+      [
+        "March 2025",
+        59000
+      ],
+      [
+        "April 2025",
+        59000
+      ],
+      [
+        "May 2025",
+        59800
+      ],
+      [
+        "June 2025",
+        60000
+      ],
+      [
+        "July 2025",
+        60000
+      ],
+      [
+        "August 2025",
+        59200
+      ],
+      [
+        "September 2025",
+        59300
+      ],
+      [
+        "October 2025",
+        59300
+      ],
+      [
+        "November 2025",
+        59400
+      ],
+      [
+        "December 2025",
+        58500
       ]
     ],
     "Bangladesh": [
@@ -14518,7 +15864,7 @@
       ],
       [
         "December 2014",
-        54700
+        54600
       ],
       [
         "January 2015",
@@ -14530,11 +15876,11 @@
       ],
       [
         "March 2015",
-        53400
+        53300
       ],
       [
         "April 2015",
-        54000
+        53900
       ],
       [
         "May 2015",
@@ -14558,7 +15904,7 @@
       ],
       [
         "October 2015",
-        53000
+        52900
       ],
       [
         "November 2015",
@@ -14574,19 +15920,19 @@
       ],
       [
         "February 2016",
-        51600
+        51500
       ],
       [
         "March 2016",
-        51100
+        51000
       ],
       [
         "April 2016",
-        51400
+        51300
       ],
       [
         "May 2016",
-        51600
+        51500
       ],
       [
         "June 2016",
@@ -14602,7 +15948,7 @@
       ],
       [
         "September 2016",
-        51000
+        50900
       ],
       [
         "October 2016",
@@ -14646,7 +15992,7 @@
       ],
       [
         "August 2017",
-        51000
+        50900
       ],
       [
         "September 2017",
@@ -14658,7 +16004,7 @@
       ],
       [
         "November 2017",
-        52200
+        52100
       ],
       [
         "December 2017",
@@ -14670,11 +16016,11 @@
       ],
       [
         "February 2018",
-        51600
+        51500
       ],
       [
         "March 2018",
-        51400
+        51300
       ],
       [
         "April 2018",
@@ -14682,11 +16028,11 @@
       ],
       [
         "May 2018",
-        52500
+        52400
       ],
       [
         "June 2018",
-        52600
+        52500
       ],
       [
         "July 2018",
@@ -14694,11 +16040,11 @@
       ],
       [
         "August 2018",
-        52300
+        52200
       ],
       [
         "September 2018",
-        52600
+        52500
       ],
       [
         "October 2018",
@@ -14706,7 +16052,7 @@
       ],
       [
         "November 2018",
-        53700
+        53600
       ],
       [
         "December 2018",
@@ -14714,7 +16060,7 @@
       ],
       [
         "January 2019",
-        53300
+        53200
       ],
       [
         "February 2019",
@@ -14730,7 +16076,7 @@
       ],
       [
         "May 2019",
-        54000
+        53900
       ],
       [
         "June 2019",
@@ -14742,7 +16088,7 @@
       ],
       [
         "August 2019",
-        54300
+        54200
       ],
       [
         "September 2019",
@@ -14750,7 +16096,7 @@
       ],
       [
         "October 2019",
-        55500
+        55400
       ],
       [
         "November 2019",
@@ -14758,7 +16104,7 @@
       ],
       [
         "December 2019",
-        56100
+        56000
       ],
       [
         "January 2020",
@@ -14770,11 +16116,11 @@
       ],
       [
         "March 2020",
-        56200
+        56100
       ],
       [
         "April 2020",
-        54400
+        54300
       ],
       [
         "May 2020",
@@ -14782,7 +16128,7 @@
       ],
       [
         "June 2020",
-        54100
+        54000
       ],
       [
         "July 2020",
@@ -14794,7 +16140,7 @@
       ],
       [
         "September 2020",
-        55100
+        55000
       ],
       [
         "October 2020",
@@ -14834,11 +16180,11 @@
       ],
       [
         "July 2021",
-        60600
+        60500
       ],
       [
         "August 2021",
-        60900
+        60800
       ],
       [
         "September 2021",
@@ -14862,11 +16208,11 @@
       ],
       [
         "February 2022",
-        66500
+        66400
       ],
       [
         "March 2022",
-        67900
+        67800
       ],
       [
         "April 2022",
@@ -14874,7 +16220,7 @@
       ],
       [
         "May 2022",
-        71300
+        71200
       ],
       [
         "June 2022",
@@ -14882,7 +16228,7 @@
       ],
       [
         "July 2022",
-        73300
+        73200
       ],
       [
         "August 2022",
@@ -14894,23 +16240,23 @@
       ],
       [
         "October 2022",
-        77400
+        77300
       ],
       [
         "November 2022",
-        79900
+        79800
       ],
       [
         "December 2022",
-        81000
-      ],
-      [
-        "January 2023",
         80900
       ],
       [
+        "January 2023",
+        80800
+      ],
+      [
         "February 2023",
-        82000
+        81900
       ],
       [
         "March 2023",
@@ -14922,7 +16268,7 @@
       ],
       [
         "May 2023",
-        87500
+        87400
       ],
       [
         "June 2023",
@@ -14938,7 +16284,7 @@
       ],
       [
         "September 2023",
-        94300
+        94200
       ],
       [
         "October 2023",
@@ -14946,23 +16292,23 @@
       ],
       [
         "November 2023",
-        100400
+        100300
       ],
       [
         "December 2023",
-        102300
+        102200
       ],
       [
         "January 2024",
-        102400
+        102300
       ],
       [
         "February 2024",
-        103300
+        103200
       ],
       [
         "March 2024",
-        104600
+        104500
       ],
       [
         "April 2024",
@@ -14986,19 +16332,67 @@
       ],
       [
         "September 2024",
-        114300
+        114500
       ],
       [
         "October 2024",
-        116600
+        116700
       ],
       [
         "November 2024",
-        118700
+        118800
       ],
       [
         "December 2024",
-        118300
+        118800
+      ],
+      [
+        "January 2025",
+        117700
+      ],
+      [
+        "February 2025",
+        117600
+      ],
+      [
+        "March 2025",
+        118000
+      ],
+      [
+        "April 2025",
+        119700
+      ],
+      [
+        "May 2025",
+        121300
+      ],
+      [
+        "June 2025",
+        122300
+      ],
+      [
+        "July 2025",
+        123200
+      ],
+      [
+        "August 2025",
+        123500
+      ],
+      [
+        "September 2025",
+        124900
+      ],
+      [
+        "October 2025",
+        127000
+      ],
+      [
+        "November 2025",
+        129300
+      ],
+      [
+        "December 2025",
+        129300
       ]
     ],
     "Brazil": [
@@ -15060,7 +16454,7 @@
       ],
       [
         "September 2015",
-        21400
+        21300
       ],
       [
         "October 2015",
@@ -15100,7 +16494,7 @@
       ],
       [
         "July 2016",
-        23100
+        23000
       ],
       [
         "August 2016",
@@ -15156,7 +16550,7 @@
       ],
       [
         "September 2017",
-        25200
+        25100
       ],
       [
         "October 2017",
@@ -15188,7 +16582,7 @@
       ],
       [
         "May 2018",
-        26800
+        26700
       ],
       [
         "June 2018",
@@ -15304,7 +16698,7 @@
       ],
       [
         "October 2020",
-        30900
+        30800
       ],
       [
         "November 2020",
@@ -15348,7 +16742,7 @@
       ],
       [
         "September 2021",
-        33900
+        33800
       ],
       [
         "October 2021",
@@ -15356,7 +16750,7 @@
       ],
       [
         "November 2021",
-        34800
+        34700
       ],
       [
         "December 2021",
@@ -15376,7 +16770,7 @@
       ],
       [
         "April 2022",
-        36600
+        36500
       ],
       [
         "May 2022",
@@ -15468,19 +16862,19 @@
       ],
       [
         "March 2024",
-        41800
+        41900
       ],
       [
         "April 2024",
-        42000
+        42100
       ],
       [
         "May 2024",
-        42400
+        42500
       ],
       [
         "June 2024",
-        42800
+        42900
       ],
       [
         "July 2024",
@@ -15488,23 +16882,71 @@
       ],
       [
         "August 2024",
-        42600
+        42700
       ],
       [
         "September 2024",
-        42900
+        43000
       ],
       [
         "October 2024",
-        43300
+        43400
       ],
       [
         "November 2024",
-        43500
+        43600
       ],
       [
         "December 2024",
+        43200
+      ],
+      [
+        "January 2025",
+        42600
+      ],
+      [
+        "February 2025",
+        42800
+      ],
+      [
+        "March 2025",
         43000
+      ],
+      [
+        "April 2025",
+        43200
+      ],
+      [
+        "May 2025",
+        43500
+      ],
+      [
+        "June 2025",
+        43600
+      ],
+      [
+        "July 2025",
+        43500
+      ],
+      [
+        "August 2025",
+        43400
+      ],
+      [
+        "September 2025",
+        43600
+      ],
+      [
+        "October 2025",
+        43800
+      ],
+      [
+        "November 2025",
+        43900
+      ],
+      [
+        "December 2025",
+        43500
       ]
     ],
     "Canada": [
@@ -15550,7 +16992,7 @@
       ],
       [
         "May 2015",
-        25000
+        24900
       ],
       [
         "June 2015",
@@ -15566,7 +17008,7 @@
       ],
       [
         "September 2015",
-        24800
+        24700
       ],
       [
         "October 2015",
@@ -15634,7 +17076,7 @@
       ],
       [
         "February 2017",
-        26400
+        26300
       ],
       [
         "March 2017",
@@ -15662,7 +17104,7 @@
       ],
       [
         "September 2017",
-        25800
+        25700
       ],
       [
         "October 2017",
@@ -15674,7 +17116,7 @@
       ],
       [
         "December 2017",
-        26600
+        26500
       ],
       [
         "January 2018",
@@ -15682,7 +17124,7 @@
       ],
       [
         "February 2018",
-        26800
+        26700
       ],
       [
         "March 2018",
@@ -15702,7 +17144,7 @@
       ],
       [
         "July 2018",
-        26900
+        26800
       ],
       [
         "August 2018",
@@ -15722,11 +17164,11 @@
       ],
       [
         "December 2018",
-        27100
+        27000
       ],
       [
         "January 2019",
-        27000
+        26900
       ],
       [
         "February 2019",
@@ -15742,7 +17184,7 @@
       ],
       [
         "May 2019",
-        28000
+        27900
       ],
       [
         "June 2019",
@@ -15770,7 +17212,7 @@
       ],
       [
         "December 2019",
-        28200
+        28100
       ],
       [
         "January 2020",
@@ -15794,7 +17236,7 @@
       ],
       [
         "June 2020",
-        27400
+        27300
       ],
       [
         "July 2020",
@@ -15818,7 +17260,7 @@
       ],
       [
         "December 2020",
-        26800
+        26700
       ],
       [
         "January 2021",
@@ -15846,7 +17288,7 @@
       ],
       [
         "July 2021",
-        27700
+        27600
       ],
       [
         "August 2021",
@@ -15902,7 +17344,7 @@
       ],
       [
         "September 2022",
-        30300
+        30400
       ],
       [
         "October 2022",
@@ -15926,7 +17368,7 @@
       ],
       [
         "March 2023",
-        32300
+        32400
       ],
       [
         "April 2023",
@@ -15954,7 +17396,7 @@
       ],
       [
         "October 2023",
-        32800
+        32900
       ],
       [
         "November 2023",
@@ -15966,15 +17408,15 @@
       ],
       [
         "January 2024",
-        32900
+        33000
       ],
       [
         "February 2024",
-        33300
+        33400
       ],
       [
         "March 2024",
-        33600
+        33700
       ],
       [
         "April 2024",
@@ -15986,31 +17428,79 @@
       ],
       [
         "June 2024",
-        33700
+        33800
       ],
       [
         "July 2024",
-        33600
+        33700
       ],
       [
         "August 2024",
-        33200
+        33300
       ],
       [
         "September 2024",
-        33400
+        33500
       ],
       [
         "October 2024",
-        34000
+        34100
       ],
       [
         "November 2024",
-        34700
+        34800
       ],
       [
         "December 2024",
         34300
+      ],
+      [
+        "January 2025",
+        34100
+      ],
+      [
+        "February 2025",
+        34400
+      ],
+      [
+        "March 2025",
+        34700
+      ],
+      [
+        "April 2025",
+        34600
+      ],
+      [
+        "May 2025",
+        34600
+      ],
+      [
+        "June 2025",
+        34700
+      ],
+      [
+        "July 2025",
+        34700
+      ],
+      [
+        "August 2025",
+        34500
+      ],
+      [
+        "September 2025",
+        34500
+      ],
+      [
+        "October 2025",
+        35000
+      ],
+      [
+        "November 2025",
+        35400
+      ],
+      [
+        "December 2025",
+        35200
       ]
     ],
     "China": [
@@ -16032,7 +17522,7 @@
       ],
       [
         "November 2014",
-        58400
+        58300
       ],
       [
         "December 2014",
@@ -16108,7 +17598,7 @@
       ],
       [
         "June 2016",
-        64100
+        64000
       ],
       [
         "July 2016",
@@ -16116,7 +17606,7 @@
       ],
       [
         "August 2016",
-        63000
+        62900
       ],
       [
         "September 2016",
@@ -16136,11 +17626,11 @@
       ],
       [
         "January 2017",
-        65000
+        64900
       ],
       [
         "February 2017",
-        64900
+        64800
       ],
       [
         "March 2017",
@@ -16168,7 +17658,7 @@
       ],
       [
         "September 2017",
-        66300
+        66200
       ],
       [
         "October 2017",
@@ -16200,7 +17690,7 @@
       ],
       [
         "May 2018",
-        69100
+        69000
       ],
       [
         "June 2018",
@@ -16224,7 +17714,7 @@
       ],
       [
         "November 2018",
-        71800
+        71700
       ],
       [
         "December 2018",
@@ -16232,7 +17722,7 @@
       ],
       [
         "January 2019",
-        71700
+        71600
       ],
       [
         "February 2019",
@@ -16292,7 +17782,7 @@
       ],
       [
         "April 2020",
-        74000
+        73900
       ],
       [
         "May 2020",
@@ -16308,7 +17798,7 @@
       ],
       [
         "August 2020",
-        73900
+        73800
       ],
       [
         "September 2020",
@@ -16404,7 +17894,7 @@
       ],
       [
         "August 2022",
-        92800
+        92900
       ],
       [
         "September 2022",
@@ -16412,7 +17902,7 @@
       ],
       [
         "October 2022",
-        95800
+        95900
       ],
       [
         "November 2022",
@@ -16424,15 +17914,15 @@
       ],
       [
         "January 2023",
-        98600
+        98700
       ],
       [
         "February 2023",
-        99300
+        99400
       ],
       [
         "March 2023",
-        100400
+        100500
       ],
       [
         "April 2023",
@@ -16464,7 +17954,7 @@
       ],
       [
         "November 2023",
-        107100
+        107200
       ],
       [
         "December 2023",
@@ -16472,11 +17962,11 @@
       ],
       [
         "January 2024",
-        107800
+        107900
       ],
       [
         "February 2024",
-        107800
+        107900
       ],
       [
         "March 2024",
@@ -16484,39 +17974,87 @@
       ],
       [
         "April 2024",
-        109400
+        109600
       ],
       [
         "May 2024",
-        110300
+        110400
       ],
       [
         "June 2024",
-        111200
+        111400
       ],
       [
         "July 2024",
-        111200
+        111500
       ],
       [
         "August 2024",
-        110000
+        110200
       ],
       [
         "September 2024",
-        111100
+        111400
       ],
       [
         "October 2024",
-        113500
+        113800
       ],
       [
         "November 2024",
-        115400
+        115600
       ],
       [
         "December 2024",
+        115900
+      ],
+      [
+        "January 2025",
+        115300
+      ],
+      [
+        "February 2025",
         115100
+      ],
+      [
+        "March 2025",
+        115600
+      ],
+      [
+        "April 2025",
+        116400
+      ],
+      [
+        "May 2025",
+        116800
+      ],
+      [
+        "June 2025",
+        117400
+      ],
+      [
+        "July 2025",
+        117000
+      ],
+      [
+        "August 2025",
+        115900
+      ],
+      [
+        "September 2025",
+        116600
+      ],
+      [
+        "October 2025",
+        118300
+      ],
+      [
+        "November 2025",
+        120000
+      ],
+      [
+        "December 2025",
+        119800
       ]
     ],
     "Ghana": [
@@ -16602,7 +18140,7 @@
       ],
       [
         "March 2016",
-        64200
+        64100
       ],
       [
         "April 2016",
@@ -16630,7 +18168,7 @@
       ],
       [
         "October 2016",
-        65500
+        65400
       ],
       [
         "November 2016",
@@ -16682,7 +18220,7 @@
       ],
       [
         "November 2017",
-        68000
+        67900
       ],
       [
         "December 2017",
@@ -16730,7 +18268,7 @@
       ],
       [
         "November 2018",
-        71000
+        70900
       ],
       [
         "December 2018",
@@ -16738,7 +18276,7 @@
       ],
       [
         "January 2019",
-        70500
+        70400
       ],
       [
         "February 2019",
@@ -16750,7 +18288,7 @@
       ],
       [
         "April 2019",
-        71400
+        71300
       ],
       [
         "May 2019",
@@ -16822,7 +18360,7 @@
       ],
       [
         "October 2020",
-        77400
+        77300
       ],
       [
         "November 2020",
@@ -16854,7 +18392,7 @@
       ],
       [
         "June 2021",
-        81200
+        81100
       ],
       [
         "July 2021",
@@ -16890,15 +18428,15 @@
       ],
       [
         "March 2022",
-        89200
+        89100
       ],
       [
         "April 2022",
-        89900
+        89600
       ],
       [
         "May 2022",
-        91200
+        91000
       ],
       [
         "June 2022",
@@ -16914,7 +18452,7 @@
       ],
       [
         "September 2022",
-        96000
+        95900
       ],
       [
         "October 2022",
@@ -16922,7 +18460,7 @@
       ],
       [
         "November 2022",
-        98600
+        98500
       ],
       [
         "December 2022",
@@ -16930,11 +18468,11 @@
       ],
       [
         "January 2023",
-        99700
+        99600
       ],
       [
         "February 2023",
-        101300
+        101200
       ],
       [
         "March 2023",
@@ -16946,11 +18484,11 @@
       ],
       [
         "May 2023",
-        108100
+        108000
       ],
       [
         "June 2023",
-        111400
+        111300
       ],
       [
         "July 2023",
@@ -16958,7 +18496,7 @@
       ],
       [
         "August 2023",
-        115600
+        115500
       ],
       [
         "September 2023",
@@ -16966,7 +18504,7 @@
       ],
       [
         "October 2023",
-        123200
+        123100
       ],
       [
         "November 2023",
@@ -16974,19 +18512,19 @@
       ],
       [
         "December 2023",
-        131500
+        131400
       ],
       [
         "January 2024",
-        132200
+        132100
       ],
       [
         "February 2024",
-        135400
+        135300
       ],
       [
         "March 2024",
-        138500
+        138400
       ],
       [
         "April 2024",
@@ -17002,15 +18540,15 @@
       ],
       [
         "July 2024",
-        148300
+        148400
       ],
       [
         "August 2024",
-        148900
+        149000
       ],
       [
         "September 2024",
-        151200
+        151300
       ],
       [
         "October 2024",
@@ -17022,45 +18560,93 @@
       ],
       [
         "December 2024",
+        154700
+      ],
+      [
+        "January 2025",
+        152800
+      ],
+      [
+        "February 2025",
+        153600
+      ],
+      [
+        "March 2025",
+        154100
+      ],
+      [
+        "April 2025",
         154800
+      ],
+      [
+        "May 2025",
+        155900
+      ],
+      [
+        "June 2025",
+        157000
+      ],
+      [
+        "July 2025",
+        157800
+      ],
+      [
+        "August 2025",
+        158500
+      ],
+      [
+        "September 2025",
+        159300
+      ],
+      [
+        "October 2025",
+        160500
+      ],
+      [
+        "November 2025",
+        161600
+      ],
+      [
+        "December 2025",
+        161400
       ]
     ],
     "India": [
       [
         "July 2014",
-        301200
-      ],
-      [
-        "August 2014",
-        300200
-      ],
-      [
-        "September 2014",
-        300600
-      ],
-      [
-        "October 2014",
-        301200
-      ],
-      [
-        "November 2014",
-        303100
-      ],
-      [
-        "December 2014",
-        301900
-      ],
-      [
-        "January 2015",
-        299500
-      ],
-      [
-        "February 2015",
         301100
       ],
       [
+        "August 2014",
+        300100
+      ],
+      [
+        "September 2014",
+        300500
+      ],
+      [
+        "October 2014",
+        301100
+      ],
+      [
+        "November 2014",
+        303000
+      ],
+      [
+        "December 2014",
+        301800
+      ],
+      [
+        "January 2015",
+        299400
+      ],
+      [
+        "February 2015",
+        301000
+      ],
+      [
         "March 2015",
-        304000
+        303900
       ],
       [
         "April 2015",
@@ -17068,7 +18654,7 @@
       ],
       [
         "May 2015",
-        307200
+        307100
       ],
       [
         "June 2015",
@@ -17076,23 +18662,23 @@
       ],
       [
         "July 2015",
-        309300
+        309200
       ],
       [
         "August 2015",
-        308600
+        308500
       ],
       [
         "September 2015",
-        310800
+        310700
       ],
       [
         "October 2015",
-        312200
+        312100
       ],
       [
         "November 2015",
-        311800
+        311700
       ],
       [
         "December 2015",
@@ -17100,39 +18686,39 @@
       ],
       [
         "January 2016",
-        309000
+        308900
       ],
       [
         "February 2016",
-        312100
+        312000
       ],
       [
         "March 2016",
-        313700
+        313600
       ],
       [
         "April 2016",
-        310200
+        310100
       ],
       [
         "May 2016",
-        311400
+        311300
       ],
       [
         "June 2016",
-        313200
+        313100
       ],
       [
         "July 2016",
-        312900
+        312800
       ],
       [
         "August 2016",
-        311200
+        311100
       ],
       [
         "September 2016",
-        313700
+        313600
       ],
       [
         "October 2016",
@@ -17140,7 +18726,7 @@
       ],
       [
         "November 2016",
-        316900
+        316800
       ],
       [
         "December 2016",
@@ -17148,203 +18734,203 @@
       ],
       [
         "January 2017",
-        315500
+        315400
       ],
       [
         "February 2017",
-        316100
+        316000
       ],
       [
         "March 2017",
-        318100
-      ],
-      [
-        "April 2017",
         318000
       ],
       [
+        "April 2017",
+        317900
+      ],
+      [
         "May 2017",
-        320900
-      ],
-      [
-        "June 2017",
-        322700
-      ],
-      [
-        "July 2017",
-        322500
-      ],
-      [
-        "August 2017",
         320800
       ],
       [
+        "June 2017",
+        322600
+      ],
+      [
+        "July 2017",
+        322400
+      ],
+      [
+        "August 2017",
+        320700
+      ],
+      [
         "September 2017",
-        323200
+        323100
       ],
       [
         "October 2017",
-        325200
+        325100
       ],
       [
         "November 2017",
-        327900
+        327800
       ],
       [
         "December 2017",
-        326200
+        326100
       ],
       [
         "January 2018",
-        325900
+        325800
       ],
       [
         "February 2018",
-        327200
+        327000
       ],
       [
         "March 2018",
-        329800
+        329600
       ],
       [
         "April 2018",
-        330300
+        330200
       ],
       [
         "May 2018",
-        333300
+        333200
       ],
       [
         "June 2018",
-        336300
+        336200
       ],
       [
         "July 2018",
-        338000
+        337900
       ],
       [
         "August 2018",
-        338000
+        337900
       ],
       [
         "September 2018",
-        341200
+        341000
       ],
       [
         "October 2018",
-        344100
+        343900
       ],
       [
         "November 2018",
-        348300
+        348200
       ],
       [
         "December 2018",
-        348300
+        348200
       ],
       [
         "January 2019",
-        348600
+        348500
       ],
       [
         "February 2019",
-        351700
+        351600
       ],
       [
         "March 2019",
-        356600
+        356500
       ],
       [
         "April 2019",
-        359400
+        359300
       ],
       [
         "May 2019",
-        363100
+        363000
       ],
       [
         "June 2019",
-        367400
+        367300
       ],
       [
         "July 2019",
-        368900
+        368700
       ],
       [
         "August 2019",
-        370200
+        370100
       ],
       [
         "September 2019",
-        375400
+        375300
       ],
       [
         "October 2019",
-        379400
+        379300
       ],
       [
         "November 2019",
-        385000
+        384900
       ],
       [
         "December 2019",
-        387900
-      ],
-      [
-        "January 2020",
-        387900
-      ],
-      [
-        "February 2020",
-        390900
-      ],
-      [
-        "March 2020",
-        395900
-      ],
-      [
-        "April 2020",
-        387700
-      ],
-      [
-        "May 2020",
         387800
       ],
       [
+        "January 2020",
+        387700
+      ],
+      [
+        "February 2020",
+        390800
+      ],
+      [
+        "March 2020",
+        395700
+      ],
+      [
+        "April 2020",
+        387500
+      ],
+      [
+        "May 2020",
+        387700
+      ],
+      [
         "June 2020",
-        393200
+        393100
       ],
       [
         "July 2020",
-        396200
+        396100
       ],
       [
         "August 2020",
-        397600
+        397500
       ],
       [
         "September 2020",
-        399500
+        399400
       ],
       [
         "October 2020",
-        401900
+        401800
       ],
       [
         "November 2020",
-        406800
+        406700
       ],
       [
         "December 2020",
-        410500
+        410400
       ],
       [
         "January 2021",
-        410500
+        410400
       ],
       [
         "February 2021",
-        413000
+        412900
       ],
       [
         "March 2021",
@@ -17352,35 +18938,35 @@
       ],
       [
         "April 2021",
-        427900
+        427800
       ],
       [
         "May 2021",
-        436000
+        435900
       ],
       [
         "June 2021",
-        446100
+        446000
       ],
       [
         "July 2021",
-        453200
+        453100
       ],
       [
         "August 2021",
-        460100
+        459900
       ],
       [
         "September 2021",
-        469600
+        469400
       ],
       [
         "October 2021",
-        478600
+        478500
       ],
       [
         "November 2021",
-        496800
+        496700
       ],
       [
         "December 2021",
@@ -17388,27 +18974,27 @@
       ],
       [
         "January 2022",
-        511900
+        511800
       ],
       [
         "February 2022",
-        524800
+        524700
       ],
       [
         "March 2022",
-        543900
+        543800
       ],
       [
         "April 2022",
-        559700
+        559500
       ],
       [
         "May 2022",
-        572800
+        572700
       ],
       [
         "June 2022",
-        585900
+        585800
       ],
       [
         "July 2022",
@@ -17416,79 +19002,79 @@
       ],
       [
         "August 2022",
-        607200
+        607100
       ],
       [
         "September 2022",
-        623200
+        623100
       ],
       [
         "October 2022",
-        645600
+        645500
       ],
       [
         "November 2022",
-        677600
+        677500
       ],
       [
         "December 2022",
-        694700
+        694600
       ],
       [
         "January 2023",
-        694100
+        694000
       ],
       [
         "February 2023",
-        706400
+        706300
       ],
       [
         "March 2023",
-        728000
+        727900
       ],
       [
         "April 2023",
-        746000
+        745800
       ],
       [
         "May 2023",
-        765700
+        765600
       ],
       [
         "June 2023",
-        787700
+        787500
       ],
       [
         "July 2023",
-        796900
+        796700
       ],
       [
         "August 2023",
-        804600
+        804400
       ],
       [
         "September 2023",
-        819600
+        819500
       ],
       [
         "October 2023",
-        841000
+        840800
       ],
       [
         "November 2023",
-        866300
+        866100
       ],
       [
         "December 2023",
-        876000
+        875800
       ],
       [
         "January 2024",
-        867000
+        866800
       ],
       [
         "February 2024",
-        869600
+        869400
       ],
       [
         "March 2024",
@@ -17496,39 +19082,87 @@
       ],
       [
         "April 2024",
-        893600
+        894200
       ],
       [
         "May 2024",
-        907800
+        908300
       ],
       [
         "June 2024",
-        922300
+        923000
       ],
       [
         "July 2024",
-        929300
+        930100
       ],
       [
         "August 2024",
-        932100
+        933100
       ],
       [
         "September 2024",
-        942400
+        943400
       ],
       [
         "October 2024",
-        960600
+        961800
       ],
       [
         "November 2024",
-        976500
+        977200
       ],
       [
         "December 2024",
         975100
+      ],
+      [
+        "January 2025",
+        959300
+      ],
+      [
+        "February 2025",
+        953700
+      ],
+      [
+        "March 2025",
+        962800
+      ],
+      [
+        "April 2025",
+        970000
+      ],
+      [
+        "May 2025",
+        979000
+      ],
+      [
+        "June 2025",
+        989600
+      ],
+      [
+        "July 2025",
+        996700
+      ],
+      [
+        "August 2025",
+        1001100
+      ],
+      [
+        "September 2025",
+        1004800
+      ],
+      [
+        "October 2025",
+        1016000
+      ],
+      [
+        "November 2025",
+        1031700
+      ],
+      [
+        "December 2025",
+        1029300
       ]
     ],
     "Iran": [
@@ -17618,7 +19252,7 @@
       ],
       [
         "April 2016",
-        24500
+        24400
       ],
       [
         "May 2016",
@@ -17634,7 +19268,7 @@
       ],
       [
         "August 2016",
-        24900
+        24800
       ],
       [
         "September 2016",
@@ -17762,7 +19396,7 @@
       ],
       [
         "April 2019",
-        30100
+        30000
       ],
       [
         "May 2019",
@@ -17854,7 +19488,7 @@
       ],
       [
         "March 2021",
-        31500
+        31400
       ],
       [
         "April 2021",
@@ -17898,7 +19532,7 @@
       ],
       [
         "February 2022",
-        37400
+        37300
       ],
       [
         "March 2022",
@@ -17906,7 +19540,7 @@
       ],
       [
         "April 2022",
-        38500
+        38400
       ],
       [
         "May 2022",
@@ -18002,39 +19636,87 @@
       ],
       [
         "April 2024",
-        49400
+        49500
       ],
       [
         "May 2024",
-        50300
+        50400
       ],
       [
         "June 2024",
-        51000
+        51100
       ],
       [
         "July 2024",
-        51300
+        51400
       ],
       [
         "August 2024",
-        51200
+        51300
       ],
       [
         "September 2024",
-        51800
+        51900
       ],
       [
         "October 2024",
-        52500
+        52600
       ],
       [
         "November 2024",
-        53100
+        53200
       ],
       [
         "December 2024",
-        52900
+        53300
+      ],
+      [
+        "January 2025",
+        53100
+      ],
+      [
+        "February 2025",
+        53400
+      ],
+      [
+        "March 2025",
+        53700
+      ],
+      [
+        "April 2025",
+        54700
+      ],
+      [
+        "May 2025",
+        55400
+      ],
+      [
+        "June 2025",
+        55800
+      ],
+      [
+        "July 2025",
+        56200
+      ],
+      [
+        "August 2025",
+        56200
+      ],
+      [
+        "September 2025",
+        56600
+      ],
+      [
+        "October 2025",
+        57300
+      ],
+      [
+        "November 2025",
+        58000
+      ],
+      [
+        "December 2025",
+        58000
       ]
     ],
     "Jamaica": [
@@ -18104,7 +19786,7 @@
       ],
       [
         "November 2015",
-        39300
+        39200
       ],
       [
         "December 2015",
@@ -18120,7 +19802,7 @@
       ],
       [
         "March 2016",
-        38900
+        38800
       ],
       [
         "April 2016",
@@ -18168,7 +19850,7 @@
       ],
       [
         "March 2017",
-        39700
+        39600
       ],
       [
         "April 2017",
@@ -18232,7 +19914,7 @@
       ],
       [
         "July 2018",
-        41200
+        41100
       ],
       [
         "August 2018",
@@ -18264,7 +19946,7 @@
       ],
       [
         "March 2019",
-        41700
+        41600
       ],
       [
         "April 2019",
@@ -18304,7 +19986,7 @@
       ],
       [
         "January 2020",
-        42200
+        42100
       ],
       [
         "February 2020",
@@ -18412,7 +20094,7 @@
       ],
       [
         "April 2022",
-        42000
+        41900
       ],
       [
         "May 2022",
@@ -18440,7 +20122,7 @@
       ],
       [
         "November 2022",
-        43100
+        43000
       ],
       [
         "December 2022",
@@ -18536,11 +20218,59 @@
       ],
       [
         "November 2024",
-        44500
+        44600
       ],
       [
         "December 2024",
         44300
+      ],
+      [
+        "January 2025",
+        43900
+      ],
+      [
+        "February 2025",
+        44000
+      ],
+      [
+        "March 2025",
+        44100
+      ],
+      [
+        "April 2025",
+        43800
+      ],
+      [
+        "May 2025",
+        43900
+      ],
+      [
+        "June 2025",
+        44000
+      ],
+      [
+        "July 2025",
+        43900
+      ],
+      [
+        "August 2025",
+        43600
+      ],
+      [
+        "September 2025",
+        43600
+      ],
+      [
+        "October 2025",
+        43500
+      ],
+      [
+        "November 2025",
+        43600
+      ],
+      [
+        "December 2025",
+        43300
       ]
     ],
     "Nepal": [
@@ -18558,7 +20288,7 @@
       ],
       [
         "October 2014",
-        39500
+        39400
       ],
       [
         "November 2014",
@@ -18582,7 +20312,7 @@
       ],
       [
         "April 2015",
-        38900
+        38800
       ],
       [
         "May 2015",
@@ -18590,7 +20320,7 @@
       ],
       [
         "June 2015",
-        39400
+        39300
       ],
       [
         "July 2015",
@@ -18598,7 +20328,7 @@
       ],
       [
         "August 2015",
-        39400
+        39300
       ],
       [
         "September 2015",
@@ -18630,7 +20360,7 @@
       ],
       [
         "April 2016",
-        39200
+        39100
       ],
       [
         "May 2016",
@@ -18666,7 +20396,7 @@
       ],
       [
         "January 2017",
-        39500
+        39400
       ],
       [
         "February 2017",
@@ -18714,11 +20444,11 @@
       ],
       [
         "January 2018",
-        40900
+        40800
       ],
       [
         "February 2018",
-        41200
+        41100
       ],
       [
         "March 2018",
@@ -18726,7 +20456,7 @@
       ],
       [
         "April 2018",
-        41600
+        41500
       ],
       [
         "May 2018",
@@ -18738,7 +20468,7 @@
       ],
       [
         "July 2018",
-        42400
+        42300
       ],
       [
         "August 2018",
@@ -18746,7 +20476,7 @@
       ],
       [
         "September 2018",
-        42700
+        42600
       ],
       [
         "October 2018",
@@ -18754,11 +20484,11 @@
       ],
       [
         "November 2018",
-        42900
+        42800
       ],
       [
         "December 2018",
-        42800
+        42700
       ],
       [
         "January 2019",
@@ -18774,7 +20504,7 @@
       ],
       [
         "April 2019",
-        43400
+        43300
       ],
       [
         "May 2019",
@@ -18790,7 +20520,7 @@
       ],
       [
         "August 2019",
-        44500
+        44400
       ],
       [
         "September 2019",
@@ -18802,7 +20532,7 @@
       ],
       [
         "November 2019",
-        45100
+        45000
       ],
       [
         "December 2019",
@@ -18830,7 +20560,7 @@
       ],
       [
         "June 2020",
-        44400
+        44300
       ],
       [
         "July 2020",
@@ -18850,7 +20580,7 @@
       ],
       [
         "November 2020",
-        45900
+        45800
       ],
       [
         "December 2020",
@@ -18866,15 +20596,15 @@
       ],
       [
         "March 2021",
-        46600
+        46500
       ],
       [
         "April 2021",
-        47300
+        47200
       ],
       [
         "May 2021",
-        48100
+        48000
       ],
       [
         "June 2021",
@@ -18882,11 +20612,11 @@
       ],
       [
         "July 2021",
-        49300
+        49200
       ],
       [
         "August 2021",
-        49800
+        49700
       ],
       [
         "September 2021",
@@ -18894,7 +20624,7 @@
       ],
       [
         "October 2021",
-        50500
+        50400
       ],
       [
         "November 2021",
@@ -18914,27 +20644,27 @@
       ],
       [
         "March 2022",
-        54200
+        54100
       ],
       [
         "April 2022",
-        55300
+        55200
       ],
       [
         "May 2022",
-        56100
+        56000
       ],
       [
         "June 2022",
-        57200
+        57100
       ],
       [
         "July 2022",
-        58000
+        57900
       ],
       [
         "August 2022",
-        58500
+        58400
       ],
       [
         "September 2022",
@@ -18946,7 +20676,7 @@
       ],
       [
         "November 2022",
-        60100
+        60000
       ],
       [
         "December 2022",
@@ -18954,7 +20684,7 @@
       ],
       [
         "January 2023",
-        61100
+        61000
       ],
       [
         "February 2023",
@@ -18962,7 +20692,7 @@
       ],
       [
         "March 2023",
-        63700
+        63600
       ],
       [
         "April 2023",
@@ -18970,7 +20700,7 @@
       ],
       [
         "May 2023",
-        66800
+        66700
       ],
       [
         "June 2023",
@@ -18986,15 +20716,15 @@
       ],
       [
         "September 2023",
-        71400
+        71300
       ],
       [
         "October 2023",
-        73000
+        72900
       ],
       [
         "November 2023",
-        74700
+        74600
       ],
       [
         "December 2023",
@@ -19010,11 +20740,11 @@
       ],
       [
         "March 2024",
-        79500
+        79400
       ],
       [
         "April 2024",
-        81300
+        81200
       ],
       [
         "May 2024",
@@ -19026,7 +20756,7 @@
       ],
       [
         "July 2024",
-        86500
+        86400
       ],
       [
         "August 2024",
@@ -19034,7 +20764,7 @@
       ],
       [
         "September 2024",
-        89000
+        89100
       ],
       [
         "October 2024",
@@ -19042,11 +20772,59 @@
       ],
       [
         "November 2024",
-        92900
+        93000
       ],
       [
         "December 2024",
-        94400
+        94600
+      ],
+      [
+        "January 2025",
+        94600
+      ],
+      [
+        "February 2025",
+        95400
+      ],
+      [
+        "March 2025",
+        97700
+      ],
+      [
+        "April 2025",
+        100300
+      ],
+      [
+        "May 2025",
+        102400
+      ],
+      [
+        "June 2025",
+        104700
+      ],
+      [
+        "July 2025",
+        106800
+      ],
+      [
+        "August 2025",
+        108500
+      ],
+      [
+        "September 2025",
+        110400
+      ],
+      [
+        "October 2025",
+        112700
+      ],
+      [
+        "November 2025",
+        116400
+      ],
+      [
+        "December 2025",
+        118400
       ]
     ],
     "New Zealand": [
@@ -19072,11 +20850,11 @@
       ],
       [
         "December 2014",
-        27100
+        27000
       ],
       [
         "January 2015",
-        26800
+        26700
       ],
       [
         "February 2015",
@@ -19088,7 +20866,7 @@
       ],
       [
         "April 2015",
-        27400
+        27300
       ],
       [
         "May 2015",
@@ -19124,7 +20902,7 @@
       ],
       [
         "January 2016",
-        28300
+        28200
       ],
       [
         "February 2016",
@@ -19160,7 +20938,7 @@
       ],
       [
         "October 2016",
-        28800
+        28700
       ],
       [
         "November 2016",
@@ -19188,7 +20966,7 @@
       ],
       [
         "May 2017",
-        28300
+        28200
       ],
       [
         "June 2017",
@@ -19200,7 +20978,7 @@
       ],
       [
         "August 2017",
-        27800
+        27700
       ],
       [
         "September 2017",
@@ -19216,7 +20994,7 @@
       ],
       [
         "December 2017",
-        27800
+        27700
       ],
       [
         "January 2018",
@@ -19232,7 +21010,7 @@
       ],
       [
         "April 2018",
-        27700
+        27600
       ],
       [
         "May 2018",
@@ -19340,7 +21118,7 @@
       ],
       [
         "July 2020",
-        26000
+        25900
       ],
       [
         "August 2020",
@@ -19352,7 +21130,7 @@
       ],
       [
         "October 2020",
-        25000
+        24900
       ],
       [
         "November 2020",
@@ -19364,7 +21142,7 @@
       ],
       [
         "January 2021",
-        24200
+        24100
       ],
       [
         "February 2021",
@@ -19384,7 +21162,7 @@
       ],
       [
         "June 2021",
-        23900
+        23800
       ],
       [
         "July 2021",
@@ -19460,7 +21238,7 @@
       ],
       [
         "January 2023",
-        24300
+        24200
       ],
       [
         "February 2023",
@@ -19508,7 +21286,7 @@
       ],
       [
         "January 2024",
-        27200
+        27300
       ],
       [
         "February 2024",
@@ -19516,7 +21294,7 @@
       ],
       [
         "March 2024",
-        27800
+        27900
       ],
       [
         "April 2024",
@@ -19532,19 +21310,19 @@
       ],
       [
         "July 2024",
-        28600
+        28700
       ],
       [
         "August 2024",
-        28500
+        28600
       ],
       [
         "September 2024",
-        28800
+        28900
       ],
       [
         "October 2024",
-        29200
+        29300
       ],
       [
         "November 2024",
@@ -19552,7 +21330,55 @@
       ],
       [
         "December 2024",
+        29300
+      ],
+      [
+        "January 2025",
+        29100
+      ],
+      [
+        "February 2025",
         29200
+      ],
+      [
+        "March 2025",
+        29500
+      ],
+      [
+        "April 2025",
+        29500
+      ],
+      [
+        "May 2025",
+        29800
+      ],
+      [
+        "June 2025",
+        29900
+      ],
+      [
+        "July 2025",
+        29800
+      ],
+      [
+        "August 2025",
+        29600
+      ],
+      [
+        "September 2025",
+        29700
+      ],
+      [
+        "October 2025",
+        29700
+      ],
+      [
+        "November 2025",
+        29800
+      ],
+      [
+        "December 2025",
+        29400
       ]
     ],
     "Nigeria": [
@@ -19562,31 +21388,31 @@
       ],
       [
         "August 2014",
-        104000
+        103900
       ],
       [
         "September 2014",
-        104700
+        104600
       ],
       [
         "October 2014",
-        104800
+        104700
       ],
       [
         "November 2014",
-        105300
+        105200
       ],
       [
         "December 2014",
-        104300
+        104200
       ],
       [
         "January 2015",
-        102900
+        102800
       ],
       [
         "February 2015",
-        103400
+        103300
       ],
       [
         "March 2015",
@@ -19594,11 +21420,11 @@
       ],
       [
         "April 2015",
-        104900
+        104800
       ],
       [
         "May 2015",
-        105600
+        105500
       ],
       [
         "June 2015",
@@ -19606,7 +21432,7 @@
       ],
       [
         "July 2015",
-        107500
+        107400
       ],
       [
         "August 2015",
@@ -19614,11 +21440,11 @@
       ],
       [
         "September 2015",
-        108400
+        108300
       ],
       [
         "October 2015",
-        108500
+        108400
       ],
       [
         "November 2015",
@@ -19626,11 +21452,11 @@
       ],
       [
         "December 2015",
-        107800
+        107700
       ],
       [
         "January 2016",
-        106100
+        106000
       ],
       [
         "February 2016",
@@ -19638,11 +21464,11 @@
       ],
       [
         "March 2016",
-        107000
+        106900
       ],
       [
         "April 2016",
-        107000
+        106900
       ],
       [
         "May 2016",
@@ -19650,11 +21476,11 @@
       ],
       [
         "June 2016",
-        109800
+        109700
       ],
       [
         "July 2016",
-        110500
+        110400
       ],
       [
         "August 2016",
@@ -19662,7 +21488,7 @@
       ],
       [
         "September 2016",
-        111500
+        111400
       ],
       [
         "October 2016",
@@ -19670,27 +21496,27 @@
       ],
       [
         "November 2016",
-        112400
+        112300
       ],
       [
         "December 2016",
-        112100
+        112000
       ],
       [
         "January 2017",
-        110400
-      ],
-      [
-        "February 2017",
         110300
       ],
       [
+        "February 2017",
+        110200
+      ],
+      [
         "March 2017",
-        110800
+        110700
       ],
       [
         "April 2017",
-        112800
+        112700
       ],
       [
         "May 2017",
@@ -19702,7 +21528,7 @@
       ],
       [
         "July 2017",
-        117200
+        117100
       ],
       [
         "August 2017",
@@ -19714,23 +21540,23 @@
       ],
       [
         "October 2017",
-        117900
+        117800
       ],
       [
         "November 2017",
-        118800
+        118700
       ],
       [
         "December 2017",
-        118200
+        118100
       ],
       [
         "January 2018",
-        117100
+        117000
       ],
       [
         "February 2018",
-        117300
+        117200
       ],
       [
         "March 2018",
@@ -19742,7 +21568,7 @@
       ],
       [
         "May 2018",
-        120200
+        120100
       ],
       [
         "June 2018",
@@ -19750,15 +21576,15 @@
       ],
       [
         "July 2018",
-        122900
+        122800
       ],
       [
         "August 2018",
-        122700
+        122600
       ],
       [
         "September 2018",
-        123700
+        123600
       ],
       [
         "October 2018",
@@ -19766,15 +21592,15 @@
       ],
       [
         "November 2018",
-        125100
+        125000
       ],
       [
         "December 2018",
-        124500
+        124400
       ],
       [
         "January 2019",
-        123500
+        123400
       ],
       [
         "February 2019",
@@ -19790,285 +21616,333 @@
       ],
       [
         "May 2019",
-        127200
+        127100
       ],
       [
         "June 2019",
-        129700
+        129600
       ],
       [
         "July 2019",
-        130100
+        130000
       ],
       [
         "August 2019",
-        130900
+        130800
       ],
       [
         "September 2019",
-        132800
+        132700
       ],
       [
         "October 2019",
-        133500
-      ],
-      [
-        "November 2019",
-        134700
-      ],
-      [
-        "December 2019",
-        135000
-      ],
-      [
-        "January 2020",
-        134300
-      ],
-      [
-        "February 2020",
-        135100
-      ],
-      [
-        "March 2020",
-        136100
-      ],
-      [
-        "April 2020",
-        132100
-      ],
-      [
-        "May 2020",
-        131300
-      ],
-      [
-        "June 2020",
         133400
       ],
       [
+        "November 2019",
+        134600
+      ],
+      [
+        "December 2019",
+        134900
+      ],
+      [
+        "January 2020",
+        134200
+      ],
+      [
+        "February 2020",
+        135000
+      ],
+      [
+        "March 2020",
+        135900
+      ],
+      [
+        "April 2020",
+        132000
+      ],
+      [
+        "May 2020",
+        131200
+      ],
+      [
+        "June 2020",
+        133300
+      ],
+      [
         "July 2020",
-        135600
+        135500
       ],
       [
         "August 2020",
-        137200
+        137100
       ],
       [
         "September 2020",
-        138100
+        138000
       ],
       [
         "October 2020",
-        138900
+        138800
       ],
       [
         "November 2020",
-        140500
+        140400
       ],
       [
         "December 2020",
-        141800
+        141600
       ],
       [
         "January 2021",
-        141800
+        141700
       ],
       [
         "February 2021",
-        143400
+        143300
       ],
       [
         "March 2021",
-        145600
+        145500
       ],
       [
         "April 2021",
-        150800
+        150700
       ],
       [
         "May 2021",
-        155900
+        155800
       ],
       [
         "June 2021",
-        160300
+        160200
       ],
       [
         "July 2021",
-        163600
+        163400
       ],
       [
         "August 2021",
-        166600
+        166500
       ],
       [
         "September 2021",
-        170400
+        170200
       ],
       [
         "October 2021",
-        173000
+        172800
       ],
       [
         "November 2021",
-        180200
+        180100
       ],
       [
         "December 2021",
-        183700
+        183500
       ],
       [
         "January 2022",
-        184800
+        184700
       ],
       [
         "February 2022",
-        190900
+        190700
       ],
       [
         "March 2022",
-        199600
+        199400
       ],
       [
         "April 2022",
-        207200
+        206900
       ],
       [
         "May 2022",
-        213900
+        213600
       ],
       [
         "June 2022",
-        221100
+        220800
       ],
       [
         "July 2022",
-        227300
+        227000
       ],
       [
         "August 2022",
-        232000
+        231700
       ],
       [
         "September 2022",
-        240100
+        239800
       ],
       [
         "October 2022",
-        248500
+        248100
       ],
       [
         "November 2022",
-        265100
+        264600
       ],
       [
         "December 2022",
-        276300
+        275800
       ],
       [
         "January 2023",
-        275600
+        275100
       ],
       [
         "February 2023",
-        285800
+        285300
       ],
       [
         "March 2023",
-        301500
+        300900
       ],
       [
         "April 2023",
-        313200
+        312500
       ],
       [
         "May 2023",
-        327700
+        327100
       ],
       [
         "June 2023",
-        344200
+        343500
       ],
       [
         "July 2023",
-        351600
+        350800
       ],
       [
         "August 2023",
-        360400
+        359600
       ],
       [
         "September 2023",
-        373200
+        372400
       ],
       [
         "October 2023",
-        384900
+        384100
       ],
       [
         "November 2023",
-        403000
+        402000
       ],
       [
         "December 2023",
-        413300
+        412200
       ],
       [
         "January 2024",
-        407800
+        406800
       ],
       [
         "February 2024",
-        417300
+        416300
       ],
       [
         "March 2024",
-        428000
+        427000
       ],
       [
         "April 2024",
-        433200
+        432200
       ],
       [
         "May 2024",
-        443000
+        442000
       ],
       [
         "June 2024",
-        450900
+        449900
       ],
       [
         "July 2024",
-        456100
+        455300
       ],
       [
         "August 2024",
-        458200
+        457600
       ],
       [
         "September 2024",
-        467300
+        466800
       ],
       [
         "October 2024",
-        475900
+        475200
       ],
       [
         "November 2024",
-        481500
+        480000
       ],
       [
         "December 2024",
-        482200
+        477600
+      ],
+      [
+        "January 2025",
+        467500
+      ],
+      [
+        "February 2025",
+        471000
+      ],
+      [
+        "March 2025",
+        477800
+      ],
+      [
+        "April 2025",
+        479600
+      ],
+      [
+        "May 2025",
+        484500
+      ],
+      [
+        "June 2025",
+        488500
+      ],
+      [
+        "July 2025",
+        493700
+      ],
+      [
+        "August 2025",
+        498300
+      ],
+      [
+        "September 2025",
+        502300
+      ],
+      [
+        "October 2025",
+        507700
+      ],
+      [
+        "November 2025",
+        515900
+      ],
+      [
+        "December 2025",
+        519700
       ]
     ],
     "Pakistan": [
       [
         "July 2014",
-        118500
+        118400
       ],
       [
         "August 2014",
-        118200
+        118100
       ],
       [
         "September 2014",
@@ -20080,7 +21954,7 @@
       ],
       [
         "November 2014",
-        119000
+        118900
       ],
       [
         "December 2014",
@@ -20088,7 +21962,7 @@
       ],
       [
         "January 2015",
-        117900
+        117800
       ],
       [
         "February 2015",
@@ -20096,7 +21970,7 @@
       ],
       [
         "March 2015",
-        117300
+        117200
       ],
       [
         "April 2015",
@@ -20108,11 +21982,11 @@
       ],
       [
         "June 2015",
-        120900
+        120800
       ],
       [
         "July 2015",
-        120500
+        120400
       ],
       [
         "August 2015",
@@ -20120,7 +21994,7 @@
       ],
       [
         "September 2015",
-        121200
+        121100
       ],
       [
         "October 2015",
@@ -20140,11 +22014,11 @@
       ],
       [
         "February 2016",
-        120600
+        120500
       ],
       [
         "March 2016",
-        120200
+        120100
       ],
       [
         "April 2016",
@@ -20156,15 +22030,15 @@
       ],
       [
         "June 2016",
-        123400
+        123300
       ],
       [
         "July 2016",
-        123100
+        123000
       ],
       [
         "August 2016",
-        123100
+        123000
       ],
       [
         "September 2016",
@@ -20172,19 +22046,19 @@
       ],
       [
         "October 2016",
-        124200
+        124100
       ],
       [
         "November 2016",
-        125300
+        125200
       ],
       [
         "December 2016",
-        125000
+        124900
       ],
       [
         "January 2017",
-        124600
+        124500
       ],
       [
         "February 2017",
@@ -20192,7 +22066,7 @@
       ],
       [
         "March 2017",
-        124100
+        124000
       ],
       [
         "April 2017",
@@ -20204,11 +22078,11 @@
       ],
       [
         "June 2017",
-        127500
+        127400
       ],
       [
         "July 2017",
-        127500
+        127400
       ],
       [
         "August 2017",
@@ -20220,7 +22094,7 @@
       ],
       [
         "October 2017",
-        129300
+        129200
       ],
       [
         "November 2017",
@@ -20232,7 +22106,7 @@
       ],
       [
         "January 2018",
-        129800
+        129700
       ],
       [
         "February 2018",
@@ -20240,15 +22114,15 @@
       ],
       [
         "March 2018",
-        129800
+        129700
       ],
       [
         "April 2018",
-        131500
+        131400
       ],
       [
         "May 2018",
-        132900
+        132800
       ],
       [
         "June 2018",
@@ -20256,7 +22130,7 @@
       ],
       [
         "July 2018",
-        134000
+        133900
       ],
       [
         "August 2018",
@@ -20264,11 +22138,11 @@
       ],
       [
         "September 2018",
-        134800
+        134700
       ],
       [
         "October 2018",
-        136100
+        136000
       ],
       [
         "November 2018",
@@ -20276,19 +22150,19 @@
       ],
       [
         "December 2018",
-        137600
+        137500
       ],
       [
         "January 2019",
-        137300
+        137200
       ],
       [
         "February 2019",
-        137400
+        137300
       ],
       [
         "March 2019",
-        137400
+        137300
       ],
       [
         "April 2019",
@@ -20296,15 +22170,15 @@
       ],
       [
         "May 2019",
-        140300
+        140200
       ],
       [
         "June 2019",
-        141300
+        141200
       ],
       [
         "July 2019",
-        141800
+        141700
       ],
       [
         "August 2019",
@@ -20316,15 +22190,15 @@
       ],
       [
         "October 2019",
-        145300
+        145200
       ],
       [
         "November 2019",
-        146600
+        146500
       ],
       [
         "December 2019",
-        146700
+        146600
       ],
       [
         "January 2020",
@@ -20340,7 +22214,7 @@
       ],
       [
         "April 2020",
-        146100
+        146000
       ],
       [
         "May 2020",
@@ -20348,7 +22222,7 @@
       ],
       [
         "June 2020",
-        147900
+        147800
       ],
       [
         "July 2020",
@@ -20364,19 +22238,19 @@
       ],
       [
         "October 2020",
-        152700
+        152600
       ],
       [
         "November 2020",
-        154100
+        154000
       ],
       [
         "December 2020",
-        154700
+        154600
       ],
       [
         "January 2021",
-        154600
+        154500
       ],
       [
         "February 2021",
@@ -20384,15 +22258,15 @@
       ],
       [
         "March 2021",
-        155400
+        155300
       ],
       [
         "April 2021",
-        158400
+        158300
       ],
       [
         "May 2021",
-        160900
+        160800
       ],
       [
         "June 2021",
@@ -20400,15 +22274,15 @@
       ],
       [
         "July 2021",
-        164400
+        164300
       ],
       [
         "August 2021",
-        165500
+        165400
       ],
       [
         "September 2021",
-        167800
+        167700
       ],
       [
         "October 2021",
@@ -20416,7 +22290,7 @@
       ],
       [
         "November 2021",
-        171500
+        171400
       ],
       [
         "December 2021",
@@ -20424,7 +22298,7 @@
       ],
       [
         "January 2022",
-        173300
+        173200
       ],
       [
         "February 2022",
@@ -20436,19 +22310,19 @@
       ],
       [
         "April 2022",
-        179100
+        179000
       ],
       [
         "May 2022",
-        181800
+        181700
       ],
       [
         "June 2022",
-        185400
+        185300
       ],
       [
         "July 2022",
-        186700
+        186600
       ],
       [
         "August 2022",
@@ -20456,7 +22330,7 @@
       ],
       [
         "September 2022",
-        190900
+        190800
       ],
       [
         "October 2022",
@@ -20464,19 +22338,19 @@
       ],
       [
         "November 2022",
-        198100
+        198000
       ],
       [
         "December 2022",
-        199800
+        199700
       ],
       [
         "January 2023",
-        199900
+        199800
       ],
       [
         "February 2023",
-        202100
+        202000
       ],
       [
         "March 2023",
@@ -20484,87 +22358,135 @@
       ],
       [
         "April 2023",
-        209500
+        209400
       ],
       [
         "May 2023",
-        214600
+        214500
       ],
       [
         "June 2023",
-        220100
+        220000
       ],
       [
         "July 2023",
-        222400
+        222200
       ],
       [
         "August 2023",
-        224500
+        224400
       ],
       [
         "September 2023",
-        230000
+        229900
       ],
       [
         "October 2023",
-        235300
+        235200
       ],
       [
         "November 2023",
-        242800
+        242700
       ],
       [
         "December 2023",
-        246700
+        246600
       ],
       [
         "January 2024",
-        246900
+        246800
       ],
       [
         "February 2024",
-        249500
+        249400
       ],
       [
         "March 2024",
-        252900
+        252800
       ],
       [
         "April 2024",
-        258700
+        258800
       ],
       [
         "May 2024",
-        266100
+        266200
       ],
       [
         "June 2024",
-        272200
+        272300
       ],
       [
         "July 2024",
-        276100
+        276200
       ],
       [
         "August 2024",
-        278700
+        278900
       ],
       [
         "September 2024",
-        284500
+        285300
       ],
       [
         "October 2024",
-        291600
+        292200
       ],
       [
         "November 2024",
-        299100
+        299600
       ],
       [
         "December 2024",
-        297300
+        298700
+      ],
+      [
+        "January 2025",
+        294900
+      ],
+      [
+        "February 2025",
+        295200
+      ],
+      [
+        "March 2025",
+        297000
+      ],
+      [
+        "April 2025",
+        302200
+      ],
+      [
+        "May 2025",
+        307000
+      ],
+      [
+        "June 2025",
+        311500
+      ],
+      [
+        "July 2025",
+        314500
+      ],
+      [
+        "August 2025",
+        317000
+      ],
+      [
+        "September 2025",
+        320900
+      ],
+      [
+        "October 2025",
+        326000
+      ],
+      [
+        "November 2025",
+        331500
+      ],
+      [
+        "December 2025",
+        330400
       ]
     ],
     "Philippines": [
@@ -20594,7 +22516,7 @@
       ],
       [
         "January 2015",
-        89000
+        88900
       ],
       [
         "February 2015",
@@ -20610,7 +22532,7 @@
       ],
       [
         "May 2015",
-        89900
+        89800
       ],
       [
         "June 2015",
@@ -20646,7 +22568,7 @@
       ],
       [
         "February 2016",
-        90600
+        90500
       ],
       [
         "March 2016",
@@ -20710,7 +22632,7 @@
       ],
       [
         "June 2017",
-        95500
+        95400
       ],
       [
         "July 2017",
@@ -20726,7 +22648,7 @@
       ],
       [
         "October 2017",
-        97000
+        96900
       ],
       [
         "November 2017",
@@ -20738,7 +22660,7 @@
       ],
       [
         "January 2018",
-        96400
+        96300
       ],
       [
         "February 2018",
@@ -20758,7 +22680,7 @@
       ],
       [
         "June 2018",
-        99000
+        98900
       ],
       [
         "July 2018",
@@ -20774,7 +22696,7 @@
       ],
       [
         "October 2018",
-        101200
+        101100
       ],
       [
         "November 2018",
@@ -20806,7 +22728,7 @@
       ],
       [
         "June 2019",
-        104600
+        104500
       ],
       [
         "July 2019",
@@ -20818,7 +22740,7 @@
       ],
       [
         "September 2019",
-        107000
+        106900
       ],
       [
         "October 2019",
@@ -20830,7 +22752,7 @@
       ],
       [
         "December 2019",
-        107800
+        107700
       ],
       [
         "January 2020",
@@ -20838,7 +22760,7 @@
       ],
       [
         "February 2020",
-        109900
+        109800
       ],
       [
         "March 2020",
@@ -20846,7 +22768,7 @@
       ],
       [
         "April 2020",
-        104900
+        104800
       ],
       [
         "May 2020",
@@ -20854,7 +22776,7 @@
       ],
       [
         "June 2020",
-        103600
+        103500
       ],
       [
         "July 2020",
@@ -20878,7 +22800,7 @@
       ],
       [
         "December 2020",
-        109500
+        109400
       ],
       [
         "January 2021",
@@ -20902,7 +22824,7 @@
       ],
       [
         "June 2021",
-        114800
+        114700
       ],
       [
         "July 2021",
@@ -20918,7 +22840,7 @@
       ],
       [
         "October 2021",
-        118800
+        118700
       ],
       [
         "November 2021",
@@ -20942,7 +22864,7 @@
       ],
       [
         "April 2022",
-        124600
+        124500
       ],
       [
         "May 2022",
@@ -20958,11 +22880,11 @@
       ],
       [
         "August 2022",
-        128600
+        128500
       ],
       [
         "September 2022",
-        132000
+        131900
       ],
       [
         "October 2022",
@@ -20970,11 +22892,11 @@
       ],
       [
         "November 2022",
-        133100
+        133000
       ],
       [
         "December 2022",
-        132400
+        132300
       ],
       [
         "January 2023",
@@ -20982,11 +22904,11 @@
       ],
       [
         "February 2023",
-        136800
+        136700
       ],
       [
         "March 2023",
-        138600
+        138500
       ],
       [
         "April 2023",
@@ -21002,11 +22924,11 @@
       ],
       [
         "July 2023",
-        140900
+        140800
       ],
       [
         "August 2023",
-        141400
+        141300
       ],
       [
         "September 2023",
@@ -21014,7 +22936,7 @@
       ],
       [
         "October 2023",
-        145100
+        145000
       ],
       [
         "November 2023",
@@ -21038,39 +22960,87 @@
       ],
       [
         "April 2024",
-        150900
+        151000
       ],
       [
         "May 2024",
-        150800
+        150900
       ],
       [
         "June 2024",
-        151900
-      ],
-      [
-        "July 2024",
         152000
       ],
       [
+        "July 2024",
+        152100
+      ],
+      [
         "August 2024",
-        152500
+        152700
       ],
       [
         "September 2024",
-        154300
+        154400
       ],
       [
         "October 2024",
-        156200
+        156300
       ],
       [
         "November 2024",
-        155000
+        154900
       ],
       [
         "December 2024",
+        153100
+      ],
+      [
+        "January 2025",
         154000
+      ],
+      [
+        "February 2025",
+        155900
+      ],
+      [
+        "March 2025",
+        156900
+      ],
+      [
+        "April 2025",
+        155600
+      ],
+      [
+        "May 2025",
+        155300
+      ],
+      [
+        "June 2025",
+        155900
+      ],
+      [
+        "July 2025",
+        156400
+      ],
+      [
+        "August 2025",
+        157600
+      ],
+      [
+        "September 2025",
+        157600
+      ],
+      [
+        "October 2025",
+        157600
+      ],
+      [
+        "November 2025",
+        158400
+      ],
+      [
+        "December 2025",
+        157400
       ]
     ],
     "South Africa": [
@@ -21096,7 +23066,7 @@
       ],
       [
         "December 2014",
-        64100
+        64000
       ],
       [
         "January 2015",
@@ -21128,7 +23098,7 @@
       ],
       [
         "August 2015",
-        65500
+        65400
       ],
       [
         "September 2015",
@@ -21144,7 +23114,7 @@
       ],
       [
         "December 2015",
-        65300
+        65200
       ],
       [
         "January 2016",
@@ -21180,7 +23150,7 @@
       ],
       [
         "September 2016",
-        66900
+        66800
       ],
       [
         "October 2016",
@@ -21272,7 +23242,7 @@
       ],
       [
         "August 2018",
-        70000
+        69900
       ],
       [
         "September 2018",
@@ -21288,7 +23258,7 @@
       ],
       [
         "December 2018",
-        70200
+        70100
       ],
       [
         "January 2019",
@@ -21304,7 +23274,7 @@
       ],
       [
         "April 2019",
-        71800
+        71700
       ],
       [
         "May 2019",
@@ -21360,7 +23330,7 @@
       ],
       [
         "June 2020",
-        73900
+        73800
       ],
       [
         "July 2020",
@@ -21368,7 +23338,7 @@
       ],
       [
         "August 2020",
-        73900
+        73800
       ],
       [
         "September 2020",
@@ -21384,7 +23354,7 @@
       ],
       [
         "December 2020",
-        74500
+        74400
       ],
       [
         "January 2021",
@@ -21404,11 +23374,11 @@
       ],
       [
         "May 2021",
-        78100
+        78000
       ],
       [
         "June 2021",
-        78800
+        78700
       ],
       [
         "July 2021",
@@ -21416,7 +23386,7 @@
       ],
       [
         "August 2021",
-        79100
+        79000
       ],
       [
         "September 2021",
@@ -21504,7 +23474,7 @@
       ],
       [
         "June 2023",
-        92000
+        92100
       ],
       [
         "July 2023",
@@ -21516,7 +23486,7 @@
       ],
       [
         "September 2023",
-        92700
+        92800
       ],
       [
         "October 2023",
@@ -21532,11 +23502,11 @@
       ],
       [
         "January 2024",
-        92900
+        93000
       ],
       [
         "February 2024",
-        93700
+        93800
       ],
       [
         "March 2024",
@@ -21544,39 +23514,87 @@
       ],
       [
         "April 2024",
-        94800
+        94900
       ],
       [
         "May 2024",
-        95500
+        95700
       ],
       [
         "June 2024",
-        96200
+        96300
       ],
       [
         "July 2024",
-        96500
+        96700
       ],
       [
         "August 2024",
-        95900
-      ],
-      [
-        "September 2024",
         96100
       ],
       [
+        "September 2024",
+        96300
+      ],
+      [
         "October 2024",
-        96400
+        96600
       ],
       [
         "November 2024",
-        96500
+        96700
       ],
       [
         "December 2024",
-        95600
+        95800
+      ],
+      [
+        "January 2025",
+        95400
+      ],
+      [
+        "February 2025",
+        95700
+      ],
+      [
+        "March 2025",
+        95900
+      ],
+      [
+        "April 2025",
+        96100
+      ],
+      [
+        "May 2025",
+        96600
+      ],
+      [
+        "June 2025",
+        97100
+      ],
+      [
+        "July 2025",
+        97200
+      ],
+      [
+        "August 2025",
+        96800
+      ],
+      [
+        "September 2025",
+        96500
+      ],
+      [
+        "October 2025",
+        96300
+      ],
+      [
+        "November 2025",
+        96200
+      ],
+      [
+        "December 2025",
+        95300
       ]
     ],
     "Sri Lanka": [
@@ -21610,7 +23628,7 @@
       ],
       [
         "February 2015",
-        56200
+        56100
       ],
       [
         "March 2015",
@@ -21766,7 +23784,7 @@
       ],
       [
         "May 2018",
-        57600
+        57500
       ],
       [
         "June 2018",
@@ -21778,7 +23796,7 @@
       ],
       [
         "August 2018",
-        57400
+        57300
       ],
       [
         "September 2018",
@@ -21798,7 +23816,7 @@
       ],
       [
         "January 2019",
-        57900
+        57800
       ],
       [
         "February 2019",
@@ -21826,11 +23844,11 @@
       ],
       [
         "August 2019",
-        58700
+        58600
       ],
       [
         "September 2019",
-        59100
+        59000
       ],
       [
         "October 2019",
@@ -21838,7 +23856,7 @@
       ],
       [
         "November 2019",
-        59700
+        59600
       ],
       [
         "December 2019",
@@ -21862,11 +23880,11 @@
       ],
       [
         "May 2020",
-        58400
+        58300
       ],
       [
         "June 2020",
-        58600
+        58500
       ],
       [
         "July 2020",
@@ -21910,7 +23928,7 @@
       ],
       [
         "May 2021",
-        60600
+        60500
       ],
       [
         "June 2021",
@@ -21918,11 +23936,11 @@
       ],
       [
         "July 2021",
-        61200
+        61100
       ],
       [
         "August 2021",
-        61400
+        61300
       ],
       [
         "September 2021",
@@ -21942,7 +23960,7 @@
       ],
       [
         "January 2022",
-        63500
+        63400
       ],
       [
         "February 2022",
@@ -22042,7 +24060,7 @@
       ],
       [
         "February 2024",
-        89900
+        89800
       ],
       [
         "March 2024",
@@ -22050,15 +24068,15 @@
       ],
       [
         "April 2024",
-        91900
+        92000
       ],
       [
         "May 2024",
-        93300
+        93400
       ],
       [
         "June 2024",
-        94300
+        94400
       ],
       [
         "July 2024",
@@ -22070,19 +24088,67 @@
       ],
       [
         "September 2024",
-        96200
+        96300
       ],
       [
         "October 2024",
-        97800
+        97900
       ],
       [
         "November 2024",
-        99100
+        99300
       ],
       [
         "December 2024",
+        99200
+      ],
+      [
+        "January 2025",
         98700
+      ],
+      [
+        "February 2025",
+        99400
+      ],
+      [
+        "March 2025",
+        99900
+      ],
+      [
+        "April 2025",
+        100800
+      ],
+      [
+        "May 2025",
+        101500
+      ],
+      [
+        "June 2025",
+        102300
+      ],
+      [
+        "July 2025",
+        102800
+      ],
+      [
+        "August 2025",
+        102700
+      ],
+      [
+        "September 2025",
+        103100
+      ],
+      [
+        "October 2025",
+        104200
+      ],
+      [
+        "November 2025",
+        105100
+      ],
+      [
+        "December 2025",
+        104800
       ]
     ],
     "Turkey": [
@@ -22092,7 +24158,7 @@
       ],
       [
         "August 2014",
-        32000
+        31900
       ],
       [
         "September 2014",
@@ -22144,7 +24210,7 @@
       ],
       [
         "September 2015",
-        33800
+        33700
       ],
       [
         "October 2015",
@@ -22304,7 +24370,7 @@
       ],
       [
         "January 2019",
-        42500
+        42400
       ],
       [
         "February 2019",
@@ -22320,7 +24386,7 @@
       ],
       [
         "May 2019",
-        44500
+        44400
       ],
       [
         "June 2019",
@@ -22372,7 +24438,7 @@
       ],
       [
         "June 2020",
-        47900
+        47800
       ],
       [
         "July 2020",
@@ -22384,7 +24450,7 @@
       ],
       [
         "September 2020",
-        48400
+        48300
       ],
       [
         "October 2020",
@@ -22400,7 +24466,7 @@
       ],
       [
         "January 2021",
-        49300
+        49200
       ],
       [
         "February 2021",
@@ -22556,39 +24622,87 @@
       ],
       [
         "April 2024",
-        69900
+        70000
       ],
       [
         "May 2024",
-        70700
-      ],
-      [
-        "June 2024",
-        71200
-      ],
-      [
-        "July 2024",
-        71300
-      ],
-      [
-        "August 2024",
         70900
       ],
       [
-        "September 2024",
+        "June 2024",
+        71300
+      ],
+      [
+        "July 2024",
         71400
       ],
       [
+        "August 2024",
+        71000
+      ],
+      [
+        "September 2024",
+        71600
+      ],
+      [
         "October 2024",
-        72300
+        72400
       ],
       [
         "November 2024",
-        72900
+        73100
       ],
       [
         "December 2024",
-        72600
+        73000
+      ],
+      [
+        "January 2025",
+        73000
+      ],
+      [
+        "February 2025",
+        73200
+      ],
+      [
+        "March 2025",
+        73300
+      ],
+      [
+        "April 2025",
+        74400
+      ],
+      [
+        "May 2025",
+        74800
+      ],
+      [
+        "June 2025",
+        75100
+      ],
+      [
+        "July 2025",
+        75100
+      ],
+      [
+        "August 2025",
+        74700
+      ],
+      [
+        "September 2025",
+        75100
+      ],
+      [
+        "October 2025",
+        75400
+      ],
+      [
+        "November 2025",
+        76000
+      ],
+      [
+        "December 2025",
+        75600
       ]
     ],
     "USA": [
@@ -22662,7 +24776,7 @@
       ],
       [
         "December 2015",
-        54700
+        54600
       ],
       [
         "January 2016",
@@ -22706,7 +24820,7 @@
       ],
       [
         "November 2016",
-        56000
+        55900
       ],
       [
         "December 2016",
@@ -22738,7 +24852,7 @@
       ],
       [
         "July 2017",
-        56000
+        55900
       ],
       [
         "August 2017",
@@ -22766,11 +24880,11 @@
       ],
       [
         "February 2018",
-        58000
+        57900
       ],
       [
         "March 2018",
-        58600
+        58500
       ],
       [
         "April 2018",
@@ -22846,7 +24960,7 @@
       ],
       [
         "October 2019",
-        62500
+        62400
       ],
       [
         "November 2019",
@@ -22858,7 +24972,7 @@
       ],
       [
         "January 2020",
-        63000
+        62900
       ],
       [
         "February 2020",
@@ -22878,15 +24992,15 @@
       ],
       [
         "June 2020",
-        61700
+        61600
       ],
       [
         "July 2020",
-        61200
+        61100
       ],
       [
         "August 2020",
-        60300
+        60200
       ],
       [
         "September 2020",
@@ -22942,7 +25056,7 @@
       ],
       [
         "October 2021",
-        64700
+        64600
       ],
       [
         "November 2021",
@@ -22954,7 +25068,7 @@
       ],
       [
         "January 2022",
-        66100
+        66000
       ],
       [
         "February 2022",
@@ -22986,7 +25100,7 @@
       ],
       [
         "September 2022",
-        70600
+        70700
       ],
       [
         "October 2022",
@@ -22998,7 +25112,7 @@
       ],
       [
         "December 2022",
-        72700
+        72800
       ],
       [
         "January 2023",
@@ -23006,7 +25120,7 @@
       ],
       [
         "February 2023",
-        73800
+        73900
       ],
       [
         "March 2023",
@@ -23022,23 +25136,23 @@
       ],
       [
         "June 2023",
-        75200
+        75300
       ],
       [
         "July 2023",
-        75000
-      ],
-      [
-        "August 2023",
-        74500
-      ],
-      [
-        "September 2023",
         75100
       ],
       [
+        "August 2023",
+        74600
+      ],
+      [
+        "September 2023",
+        75200
+      ],
+      [
         "October 2023",
-        75800
+        75900
       ],
       [
         "November 2023",
@@ -23046,55 +25160,103 @@
       ],
       [
         "December 2023",
-        76500
+        76600
       ],
       [
         "January 2024",
-        76300
+        76400
       ],
       [
         "February 2024",
-        77300
+        77500
       ],
       [
         "March 2024",
-        78100
+        78200
       ],
       [
         "April 2024",
-        77400
+        77600
       ],
       [
         "May 2024",
-        77700
-      ],
-      [
-        "June 2024",
         77900
       ],
       [
+        "June 2024",
+        78200
+      ],
+      [
         "July 2024",
-        77600
+        77900
       ],
       [
         "August 2024",
-        76900
+        77100
       ],
       [
         "September 2024",
-        77600
+        77900
       ],
       [
         "October 2024",
-        78600
+        78900
       ],
       [
         "November 2024",
-        79500
+        79700
       ],
       [
         "December 2024",
-        78700
+        79300
+      ],
+      [
+        "January 2025",
+        78800
+      ],
+      [
+        "February 2025",
+        79500
+      ],
+      [
+        "March 2025",
+        80000
+      ],
+      [
+        "April 2025",
+        79300
+      ],
+      [
+        "May 2025",
+        79900
+      ],
+      [
+        "June 2025",
+        80100
+      ],
+      [
+        "July 2025",
+        80000
+      ],
+      [
+        "August 2025",
+        79200
+      ],
+      [
+        "September 2025",
+        79700
+      ],
+      [
+        "October 2025",
+        80700
+      ],
+      [
+        "November 2025",
+        81700
+      ],
+      [
+        "December 2025",
+        81300
       ]
     ],
     "Ukraine": [
@@ -23232,7 +25394,7 @@
       ],
       [
         "April 2017",
-        11700
+        11600
       ],
       [
         "May 2017",
@@ -23404,7 +25566,7 @@
       ],
       [
         "November 2020",
-        15400
+        15300
       ],
       [
         "December 2020",
@@ -23508,7 +25670,7 @@
       ],
       [
         "January 2023",
-        56200
+        56300
       ],
       [
         "February 2023",
@@ -23560,47 +25722,95 @@
       ],
       [
         "February 2024",
-        69000
+        69100
       ],
       [
         "March 2024",
-        70100
+        70200
       ],
       [
         "April 2024",
-        71200
+        71300
       ],
       [
         "May 2024",
-        72400
+        72500
       ],
       [
         "June 2024",
-        73400
+        73600
       ],
       [
         "July 2024",
-        74000
+        74200
       ],
       [
         "August 2024",
-        73800
+        74000
       ],
       [
         "September 2024",
-        74100
+        74400
       ],
       [
         "October 2024",
-        74800
+        75000
       ],
       [
         "November 2024",
-        75500
+        75700
       ],
       [
         "December 2024",
-        75200
+        75500
+      ],
+      [
+        "January 2025",
+        74600
+      ],
+      [
+        "February 2025",
+        75300
+      ],
+      [
+        "March 2025",
+        76100
+      ],
+      [
+        "April 2025",
+        77300
+      ],
+      [
+        "May 2025",
+        78200
+      ],
+      [
+        "June 2025",
+        78900
+      ],
+      [
+        "July 2025",
+        78900
+      ],
+      [
+        "August 2025",
+        78600
+      ],
+      [
+        "September 2025",
+        78600
+      ],
+      [
+        "October 2025",
+        78900
+      ],
+      [
+        "November 2025",
+        79500
+      ],
+      [
+        "December 2025",
+        79100
       ]
     ],
     "Zimbabwe": [
@@ -23642,7 +25852,7 @@
       ],
       [
         "April 2015",
-        54600
+        54500
       ],
       [
         "May 2015",
@@ -23678,7 +25888,7 @@
       ],
       [
         "January 2016",
-        54100
+        54000
       ],
       [
         "February 2016",
@@ -23710,7 +25920,7 @@
       ],
       [
         "September 2016",
-        55700
+        55600
       ],
       [
         "October 2016",
@@ -23734,11 +25944,11 @@
       ],
       [
         "March 2017",
-        55200
+        55100
       ],
       [
         "April 2017",
-        56800
+        56700
       ],
       [
         "May 2017",
@@ -23766,7 +25976,7 @@
       ],
       [
         "November 2017",
-        58500
+        58400
       ],
       [
         "December 2017",
@@ -23794,11 +26004,11 @@
       ],
       [
         "June 2018",
-        58600
+        58500
       ],
       [
         "July 2018",
-        59000
+        58900
       ],
       [
         "August 2018",
@@ -23838,7 +26048,7 @@
       ],
       [
         "May 2019",
-        58000
+        57900
       ],
       [
         "June 2019",
@@ -23850,7 +26060,7 @@
       ],
       [
         "August 2019",
-        58500
+        58400
       ],
       [
         "September 2019",
@@ -23874,11 +26084,11 @@
       ],
       [
         "February 2020",
-        58600
+        58500
       ],
       [
         "March 2020",
-        58500
+        58400
       ],
       [
         "April 2020",
@@ -23898,7 +26108,7 @@
       ],
       [
         "August 2020",
-        57300
+        57200
       ],
       [
         "September 2020",
@@ -23926,7 +26136,7 @@
       ],
       [
         "March 2021",
-        57600
+        57500
       ],
       [
         "April 2021",
@@ -23962,7 +26172,7 @@
       ],
       [
         "December 2021",
-        62400
+        62300
       ],
       [
         "January 2022",
@@ -24010,7 +26220,7 @@
       ],
       [
         "December 2022",
-        73300
+        73200
       ],
       [
         "January 2023",
@@ -24026,7 +26236,7 @@
       ],
       [
         "April 2023",
-        82500
+        82400
       ],
       [
         "May 2023",
@@ -24050,7 +26260,7 @@
       ],
       [
         "October 2023",
-        99900
+        99800
       ],
       [
         "November 2023",
@@ -24082,23 +26292,23 @@
       ],
       [
         "June 2024",
-        115200
+        115300
       ],
       [
         "July 2024",
-        116600
+        116800
       ],
       [
         "August 2024",
-        117500
+        117700
       ],
       [
         "September 2024",
-        118900
+        119100
       ],
       [
         "October 2024",
-        120100
+        120200
       ],
       [
         "November 2024",
@@ -24107,6 +26317,54 @@
       [
         "December 2024",
         119800
+      ],
+      [
+        "January 2025",
+        119400
+      ],
+      [
+        "February 2025",
+        120300
+      ],
+      [
+        "March 2025",
+        120900
+      ],
+      [
+        "April 2025",
+        121400
+      ],
+      [
+        "May 2025",
+        122100
+      ],
+      [
+        "June 2025",
+        123100
+      ],
+      [
+        "July 2025",
+        123900
+      ],
+      [
+        "August 2025",
+        124600
+      ],
+      [
+        "September 2025",
+        124600
+      ],
+      [
+        "October 2025",
+        124800
+      ],
+      [
+        "November 2025",
+        125500
+      ],
+      [
+        "December 2025",
+        124600
       ]
     ]
   }

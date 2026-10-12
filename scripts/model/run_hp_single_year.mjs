@@ -13,65 +13,98 @@
  *
  * 20 groups: WBI WIR WGT WRO WHO MWA MWF MWC MOM IND PAK BAN CHI OAS BAF BCA OBL ARB OOT
  *
+ * RUN OPTIONS: scripts/model/lib/hp-options.mjs lists every flag. With none the
+ * run is the published v8.0 run, and tests/hp-regression.test.mjs checks that a
+ * default run to a scratch file reproduces the published projections exactly.
+ *   node scripts/model/run_hp_single_year.mjs --output /tmp/hp.json
+ *   node scripts/model/run_hp_single_year.mjs --groups all-persons --snpp-cap off --output /tmp/all.json
+ *   node scripts/model/run_hp_single_year.mjs --control-totals data/model/control_totals_v81.json --cap-mode age-sex --output /tmp/v81.json
+ *
  * METHODOLOGY NOTE on 2011 base:
  * Census 2011 DC2101EW provides 18 ethnic groups (Roma not separate from Gypsy/Traveller)
  * at 21 age bands. We interpolate to single-year using uniform distribution within bands.
  * For Roma (WRO), we split the 2011 Gypsy/Traveller count using 2021 WGT:WRO proportions.
  * Fallback to NEWETHPOP 12-group proportional splitting for areas not in DC2101EW.
  */
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { readFileSync, writeFileSync, existsSync, lstatSync, mkdirSync } from "node:fs";
+import { execSync } from "node:child_process";
 import path from "node:path";
 import { loadBase2011 } from "./lib/census-2011-base.mjs";
+import { loadControlTotals } from "./lib/control-totals.mjs";
+import { isV80Configuration, parseHpOptions } from "./lib/hp-options.mjs";
+import { successors2011 } from "./lib/geography.mjs";
 
-const BASE_2021_PATH = path.resolve("data/model/base_single_year_2021.json");
-const DC2101EW_PATH = path.resolve("data/raw/census_2011_ethnicity_age/dc2101ew_ethnicity_sex_age_la.csv");
-const NEWETHPOP_2011 = path.resolve("data/raw/newethpop/extracted/2DataArchive/OutputData/Population/Population2011_LEEDS2.csv");
-const SNPP_PATH = path.resolve("data/raw/snpp/2022 SNPP Population persons.csv");
-const SCHOOL_VALIDATION_PATH = path.resolve("src/data/live/school-validation.json");
-// The published file by default. Override to run the model without touching what
-// the site serves, which is how you compare a code change against the live
-// output before deciding to publish it:
-//   HP_OUTPUT=/tmp/candidate.json node scripts/model/run_hp_single_year.mjs
-// The script merges into the existing published file, so the base is always read
-// from src/data/live/ regardless of where the result is written.
-const SITE_INPUT = path.resolve("src/data/live/ethnic-projections.json");
-const SITE_OUTPUT = process.env.HP_OUTPUT
-  ? path.resolve(process.env.HP_OUTPUT)
-  : SITE_INPUT;
+let OPTS;
+try {
+  OPTS = parseHpOptions();
+} catch (err) {
+  console.error(err.message);
+  process.exit(2);
+}
+const BASE_2021_PATH = OPTS.base;
+const SCHOOL_VALIDATION_PATH = OPTS.schoolValidation;
+// The published file by default. Set --output (or HP_OUTPUT) to run the model
+// without touching what the site serves, which is how you compare a code change
+// against the live output before deciding to publish it. A site-format run
+// merges into --site-input, so the published file is read regardless of where
+// the result is written.
+const SITE_INPUT = OPTS.siteInput;
+const SITE_OUTPUT = OPTS.output;
+if (existsSync(SITE_OUTPUT) && lstatSync(SITE_OUTPUT).isSymbolicLink()) {
+  // Model inputs are symlinked from stores other repos read; never write through one.
+  console.error(`Refusing to write through a symlink: ${SITE_OUTPUT}`);
+  process.exit(2);
+}
+console.log(`Options: groups=${OPTS.groups} snppCap=${OPTS.snppCap ? "on" : "off"} capMode=${OPTS.capMode} brexitDamp=${OPTS.brexitDamp ? "on" : "off"} schoolCalibration=${OPTS.schoolCalibration ? "on" : "off"} format=${OPTS.format}`);
+console.log(`  output: ${SITE_OUTPUT}`);
 
 const base2021 = JSON.parse(readFileSync(BASE_2021_PATH, "utf8"));
-const ETHNIC_GROUPS = base2021.ethnicGroups; // 20 groups
+let ETHNIC_GROUPS = base2021.ethnicGroups; // 20 groups
 const AGES = base2021.ages;
 const SEXES = ["M", "F"];
-
-// Map NEWETHPOP 12-group codes to parent groups for splitting
-const NEWETHPOP_TO_CHILDREN = {
-  WBI: ["WBI"],
-  WIR: ["WIR"],
-  WHO: ["WGT", "WRO", "WHO"],  // Gypsy/Traveller, Roma, Other White
-  MIX: ["MWA", "MWF", "MWC", "MOM"],  // 4 Mixed subcategories
-  IND: ["IND"],
-  PAK: ["PAK"],
-  BAN: ["BAN"],
-  CHI: ["CHI"],
-  OAS: ["OAS"],
-  BLA: ["BAF"],  // NEWETHPOP uses BLA for African
-  BLC: ["BCA"],  // NEWETHPOP uses BLC for Caribbean
-  OBL: ["OBL"],
-  OTH: ["ARB", "OOT"]  // Arab + Other
-};
-
-function parseCsvLine(line) {
-  const f = []; let c = ""; let q = false;
-  for (const ch of line) { if (ch === '"') q = !q; else if (ch === "," && !q) { f.push(c.trim()); c = ""; } else c += ch; }
-  f.push(c.trim()); return f;
-}
 
 // The 2011 base now comes from scripts/model/lib/census-2011-base.mjs, shared
 // with run_stochastic_hp.mjs. The two scripts each had their own copy and the
 // stochastic one read a different source, which made the uncertainty bands
 // describe a different model from the projections they were drawn around.
-const { pop2011, areas2011 } = loadBase2011(base2021, ETHNIC_GROUPS, SEXES);
+const { pop2011, areas2011 } = loadBase2011(base2021, ETHNIC_GROUPS, SEXES, {
+  dc2101ewPath: OPTS.dc2101ew,
+  newethpopPath: OPTS.newethpop2011,
+  countries: OPTS.countries2011,
+  successors: OPTS.successors2011 ? successors2011() : undefined,
+});
+
+// All-persons mode: one group, the sum of the twenty, in both censuses. The
+// 2011 loader runs on the detailed base first because it splits 2011 counts by
+// 2021 proportions; those splits preserve each parent's total, so summing after
+// loading gives the same all-persons 2011 population as summing before.
+if (OPTS.allPersons) {
+  for (const code of Object.keys(base2021.areas)) {
+    const all = { M: {}, F: {} };
+    for (const sex of SEXES) {
+      let total = 0;
+      for (const age of AGES) {
+        let v = 0;
+        for (const eth of ETHNIC_GROUPS) v += base2021.areas[code][eth]?.[sex]?.[age] || 0;
+        all[sex][age] = v;
+        total += v;
+      }
+      all[sex].total = total;
+    }
+    base2021.areas[code] = { ALL: all };
+  }
+  const collapsed = new Map();
+  for (const [key, v] of pop2011) {
+    const [code, , sex, age] = key.split("|");
+    const k = `${code}|ALL|${sex}|${age}`;
+    collapsed.set(k, (collapsed.get(k) || 0) + v);
+  }
+  pop2011.clear();
+  for (const [k, v] of collapsed) pop2011.set(k, v);
+  ETHNIC_GROUPS = ["ALL"];
+  console.log("All-persons mode: 20 groups summed into one");
+}
 
 // ============================================================
 // Compute single-year CCRs: Pop(age+10, 2021) / Pop(age, 2011)
@@ -200,7 +233,7 @@ for (const code of areaCodes) {
 // What the test does say is that the model already UNDER-projects White Other,
 // by -0.87pp. Damping White Other growth further pushes in the same direction as
 // an error the model is already making. Set BREXIT_DAMP=0 to run without it.
-const APPLY_BREXIT_DAMP = process.env.BREXIT_DAMP !== "0";
+const APPLY_BREXIT_DAMP = OPTS.brexitDamp;
 let brexitAdjusted = 0;
 if (APPLY_BREXIT_DAMP) for (const code of areaCodes) {
   for (const sex of SEXES) {
@@ -214,7 +247,7 @@ if (APPLY_BREXIT_DAMP) for (const code of areaCodes) {
     }
   }
 }
-console.log(`  Brexit-adjusted ${brexitAdjusted} WHO CCRs (ages 20-44, -15% growth)`);
+console.log(`  Brexit-adjusted ${brexitAdjusted} WHO CCRs (ages 10-34, -15% growth)${APPLY_BREXIT_DAMP ? "" : " (damp off)"}`);
 console.log(`  ${ccrs.size} CCRs, ${cwrs.size} CWRs`);
 
 // ============================================================
@@ -222,10 +255,14 @@ console.log(`  ${ccrs.size} CCRs, ${cwrs.size} CWRs`);
 // ============================================================
 console.log("\nDfE school census calibration...");
 let schoolData = null;
-try {
-  schoolData = JSON.parse(readFileSync(SCHOOL_VALIDATION_PATH, "utf8"));
-} catch (e) {
-  console.log("  WARNING: school-validation.json not found. Skipping calibration.");
+if (OPTS.schoolCalibration) {
+  try {
+    schoolData = JSON.parse(readFileSync(SCHOOL_VALIDATION_PATH, "utf8"));
+  } catch (e) {
+    console.log("  WARNING: school-validation.json not found. Skipping calibration.");
+  }
+} else {
+  console.log("  calibration off");
 }
 
 // Calibration approach:
@@ -237,7 +274,8 @@ try {
 //
 // We compute a calibration factor per area per group:
 //   schoolObserved / censusBase for ages 4-15
-// Then apply a damped version (20% of the gap) to CCRs for ages 0-15.
+// Then apply a damped version (20% of the gap) to CCRs for ages 0-5 (the
+// cohorts that are 10 to 15 at the next step).
 // This is conservative — we only partially trust the school signal because:
 // 1. School enrollment ≠ resident population (cross-boundary attendance)
 // 2. Unclassified pupils (~3-5%) introduce noise
@@ -293,25 +331,21 @@ if (schoolData?.areas) {
 }
 
 // ============================================================
-// Parse SNPP
+// Control totals (v8.0: the SNPP persons CSV, area totals)
 // ============================================================
-console.log("Parsing SNPP...");
-const snppTotals = new Map();
-const snppLines = readFileSync(SNPP_PATH, "utf8").split("\n").filter(l => l.trim());
-const snppHeader = parseCsvLine(snppLines[0]);
-const yearCols = snppHeader.slice(5);
-
-for (let i = 1; i < snppLines.length; i++) {
-  const cols = parseCsvLine(snppLines[i]);
-  const code = cols[0]; if (!code?.startsWith("E")) continue;
-  if (cols[4] !== "All ages") continue;
-  if (!snppTotals.has(code)) { snppTotals.set(code, {}); }
-  for (let j = 0; j < yearCols.length; j++) {
-    const v = parseFloat(cols[5 + j]);
-    if (!isNaN(v)) snppTotals.get(code)[yearCols[j]] = v;
+let control = null;
+if (OPTS.snppCap) {
+  console.log(`Reading control totals: ${OPTS.controlTotals}`);
+  control = loadControlTotals(OPTS.controlTotals);
+  console.log(`  ${control.areas.size} areas (${control.label})`);
+  if (OPTS.capMode === "age-sex" && !control.hasCells) {
+    console.error("--cap-mode age-sex needs a control-totals JSON with age and sex detail");
+    process.exit(2);
   }
+} else {
+  console.log("Control totals: cap off");
 }
-console.log(`  ${snppTotals.size} areas`);
+const capStats = { capped: 0, skippedOutOfRange: 0, noTarget: 0, emptyCells: 0 };
 
 // ============================================================
 // PROJECT FORWARD: 10-year steps using single-year CCRs
@@ -388,33 +422,52 @@ for (const code of areaCodes) {
       }
     }
 
-    // SNPP constraint
-    let snppTarget;
-    if (year <= 2047) {
-      snppTarget = snppTotals.get(code)?.[String(year)];
-    } else {
-      const s43 = snppTotals.get(code)?.["2043"];
-      const s47 = snppTotals.get(code)?.["2047"];
-      if (s43 && s47 && s43 > 0) {
-        const annualGrowth = (s47 - s43) / 4;
-        snppTarget = s47 + annualGrowth * (year - 2047);
-        if (snppTarget < 0) snppTarget = s47;
-      } else {
-        snppTarget = snppTotals.get(code)?.["2047"];
-      }
-    }
-    if (snppTarget && snppTarget > 0) {
-      let modelTotal = 0;
-      for (const eth of ETHNIC_GROUPS) for (const sex of SEXES) for (const age of AGES) {
-        modelTotal += newPop[eth][sex][age] || 0;
-      }
-      if (modelTotal > 0) {
-        const scale = snppTarget / modelTotal;
-        if (scale > 0.3 && scale < 3.0) {
-          for (const eth of ETHNIC_GROUPS) for (const sex of SEXES) for (const age of AGES) {
-            newPop[eth][sex][age] = Math.round((newPop[eth][sex][age] || 0) * scale);
+    // Control-total constraint.
+    // "total" (v8.0): one factor per area and year, so every ethnic share and
+    // the age structure the ratios produced are kept and only the level moves.
+    // "age-sex": one factor per area, sex, single year of age and year (Hauer
+    // 2019's within-cell ratio), so ethnic shares inside each age and sex cell
+    // are kept and the age structure follows the control totals.
+    if (control && OPTS.capMode === "total") {
+      const snppTarget = control.total(code, year);
+      if (snppTarget && snppTarget > 0) {
+        let modelTotal = 0;
+        for (const eth of ETHNIC_GROUPS) for (const sex of SEXES) for (const age of AGES) {
+          modelTotal += newPop[eth][sex][age] || 0;
+        }
+        if (modelTotal > 0) {
+          const scale = snppTarget / modelTotal;
+          if (scale > 0.3 && scale < 3.0) {
+            for (const eth of ETHNIC_GROUPS) for (const sex of SEXES) for (const age of AGES) {
+              newPop[eth][sex][age] = Math.round((newPop[eth][sex][age] || 0) * scale);
+            }
+            capStats.capped++;
+          } else {
+            capStats.skippedOutOfRange++;
           }
         }
+      } else {
+        capStats.noTarget++;
+      }
+    } else if (control && OPTS.capMode === "age-sex") {
+      if (control.total(code, year) === undefined) {
+        capStats.noTarget++;
+      } else {
+        for (const sex of SEXES) for (const age of AGES) {
+          const target = control.cell(code, sex, age, year);
+          if (target === undefined) throw new Error(`control totals lack ${code} ${sex} ${age} ${year}`);
+          let modelCell = 0;
+          for (const eth of ETHNIC_GROUPS) modelCell += newPop[eth][sex][age] || 0;
+          if (modelCell > 0) {
+            const scale = target / modelCell;
+            for (const eth of ETHNIC_GROUPS) newPop[eth][sex][age] = Math.round((newPop[eth][sex][age] || 0) * scale);
+          } else if (target > 0) {
+            // No modelled person in this cell to carry the control total's
+            // ethnic mix; left empty and counted rather than invented.
+            capStats.emptyCells++;
+          }
+        }
+        capStats.capped++;
       }
     }
 
@@ -427,6 +480,11 @@ for (const code of areaCodes) {
       total += eth[e];
     }
     timeline[year] = { total, eth };
+    if (OPTS.format === "raw") {
+      const ageSex = {};
+      for (const s of SEXES) ageSex[s] = AGES.map((a) => ETHNIC_GROUPS.reduce((sum, e) => sum + (newPop[e][s][a] || 0), 0));
+      timeline[year].ageSex = ageSex;
+    }
     currentPop = newPop;
   }
 
@@ -434,6 +492,7 @@ for (const code of areaCodes) {
 }
 
 console.log(`Projected ${Object.keys(projections).length} areas`);
+if (control) console.log(`  cap (${OPTS.capMode}): applied ${capStats.capped} area-years, skipped ${capStats.skippedOutOfRange} outside the 0.3 to 3.0 guard, ${capStats.noTarget} without a target, ${capStats.emptyCells} empty age-sex cells with a positive target`);
 
 // ============================================================
 // DIAGNOSTICS
@@ -445,6 +504,12 @@ function natSummary(year) {
     total += d.total; wbi += d.eth.WBI || 0;
   }
   return { total, wbi: (wbi / total * 100).toFixed(1) };
+}
+
+if (OPTS.allPersons) {
+  console.log("\n=== ALL-PERSONS HP NATIONAL SUMMARY ===");
+  for (const y of [2021, 2031, 2041, 2051, 2061]) console.log(`${y}: Total=${(natSummary(y).total / 1e6).toFixed(2)}M`);
+  finish();
 }
 
 console.log("\n=== 20-GROUP HP NATIONAL SUMMARY ===");
@@ -492,6 +557,10 @@ for (const code of ["E06000008", "E08000025", "E07000117"]) {
 // ============================================================
 // UPDATE SITE DATA
 // ============================================================
+if (OPTS.format === "raw") finish();
+if (!isV80Configuration(OPTS)) {
+  console.log("\nNOTE: a non-default configuration is writing the site format. The methodology string below describes v8.0 and must be rewritten before anything is published.");
+}
 console.log("\nUpdating ethnic-projections.json...");
 const existing = JSON.parse(readFileSync(SITE_INPUT, "utf8"));
 
@@ -565,8 +634,61 @@ for (const code of areaCodes) {
 }
 
 existing.methodology = "Hamilton-Perry v8.0 single-year-of-age model with 20 ethnic groups. Census 2021 base from ONS custom dataset (direct observations, no IPF). Census 2011 base from DC2101EW (18 groups, 21 age bands, interpolated to single-year; Roma split from Gypsy/Traveller using 2021 proportions). 91 age groups x 20 ethnic groups x 2 sexes. SNPP 2022-based envelope constraint (linear extrapolation beyond 2047). Cohort change ratios shrunk toward the national ratio by cell size (K=25) with a growth ceiling of 1.65 per decade, both selected on an out-of-sample test that fits 2001 to 2011 and forecasts 2021 at 16 ethnic groups: MAE 1.56pp on the White British share across 285 areas, bias +0.05pp. The previous settings (freeze at a 2011 base of five or fewer, ceiling 5.0) scored MAE 2.82pp with a bias of -2.13pp on the same test. Brexit WHO adjustment (-15% growth ages 10-34). DfE School Census 2024/25 calibration (20% damped adjustment for ages 0-5). Monte Carlo stochastic: 1000 simulations, sharing this model\u0027s ratio settings and population envelope. The stochastic run does not apply the School Census calibration, so a minority of areas disagree at the margin and their bands are withheld rather than drawn."
-existing.modelVersion = "8.0-out-of-sample-calibrated";
+existing.modelVersion = OPTS.modelVersion;
 existing.lastUpdated = new Date().toISOString().slice(0, 10);
 
 writeFileSync(SITE_OUTPUT, JSON.stringify(existing, null, 2), "utf8");
 console.log("Written ethnic-projections.json");
+writeRunRecord();
+
+// ============================================================
+// RAW OUTPUT AND RUN RECORD
+// ============================================================
+function finish() {
+  const out = {
+    model: "Hamilton-Perry single year of age (scripts/model/run_hp_single_year.mjs)",
+    groups: ETHNIC_GROUPS,
+    ages: AGES,
+    controlTotals: control ? control.label : "none (cap off)",
+    capMode: control ? OPTS.capMode : null,
+    note: "Model output for checking, not for publication. Counts are projected persons by area, group, year and (ageSex) sex and single year of age, 90 meaning 90 and over.",
+    areas: projections,
+  };
+  writeFileSync(SITE_OUTPUT, JSON.stringify(out), "utf8");
+  console.log(`Written raw output ${SITE_OUTPUT}`);
+  writeRunRecord();
+  process.exit(0);
+}
+
+function writeRunRecord() {
+  const hashFile = (p) => (existsSync(p) ? createHash("sha256").update(readFileSync(p)).digest("hex") : null);
+  let commit = null;
+  try {
+    commit = execSync("git rev-parse HEAD", { stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
+  } catch {
+    commit = null;
+  }
+  const inputs = {
+    base: OPTS.base,
+    dc2101ew: OPTS.dc2101ew,
+    newethpop2011: OPTS.newethpop2011,
+    controlTotals: OPTS.snppCap ? OPTS.controlTotals : null,
+    schoolValidation: OPTS.schoolCalibration ? OPTS.schoolValidation : null,
+    siteInput: OPTS.format === "site" ? OPTS.siteInput : null,
+  };
+  const record = {
+    script: "scripts/model/run_hp_single_year.mjs",
+    ranAt: new Date().toISOString(),
+    commit,
+    node: process.version,
+    options: { ...OPTS, ccrShrinkage: USE_SHRINKAGE, ccrShrinkK: SHRINK_K, ccrCeiling: CCR_CEILING, ccrFloor: CCR_FLOOR },
+    v80Configuration: isV80Configuration(OPTS) && USE_SHRINKAGE && SHRINK_K === 25 && CCR_CEILING === 1.65 && CCR_FLOOR === 0.05,
+    inputs: Object.fromEntries(Object.entries(inputs).map(([k, p]) => [k, p ? { path: p, sha256: hashFile(p) } : null])),
+    areasProjected: Object.keys(projections).length,
+    cap: control ? { mode: OPTS.capMode, ...capStats } : null,
+    output: { path: SITE_OUTPUT, sha256: hashFile(SITE_OUTPUT) },
+  };
+  mkdirSync(path.dirname(OPTS.runRecord), { recursive: true });
+  writeFileSync(OPTS.runRecord, JSON.stringify(record, null, 2), "utf8");
+  console.log(`Run record ${OPTS.runRecord}`);
+}

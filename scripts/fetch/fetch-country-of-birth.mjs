@@ -15,6 +15,18 @@
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { refuseNomisDatasetApi } from "../lib/nomis-guard.mjs";
+
+refuseNomisDatasetApi({
+  script: "scripts/fetch/fetch-country-of-birth.mjs",
+  tables: "Census 2021 TS012 Country of birth (detailed) (NM_2032_1)",
+  held: [
+    "data/raw/census_country_of_birth/ts012_cob_la.csv"
+  ],
+  ons: [
+    "https://www.ons.gov.uk/datasets/TS012/editions/2021/versions"
+  ],
+});
 
 const rawDir = path.resolve("data/raw/census_country_of_birth");
 mkdirSync(rawDir, { recursive: true });

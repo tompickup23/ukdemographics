@@ -1,11 +1,13 @@
 /**
- * Fetch official supplementary data files for SEND and ASC.
+ * Fetch official supplementary data files for ASC.
  *
  * Crime moved out on 12 Oct 2026: ONS discontinued "Recorded crime data by Community
  * Safety Partnership area" on 24 Oct 2024, and scripts/fetch/fetch-ons-pfa-crime.mjs
  * now resolves the newest Police Force Area data tables from the ONS dataset page.
  *
- * SEND: DfE "Special educational needs in England" SEN2 return (XLSX)
+ * SEND moved to scripts/fetch/fetch-dfe-sen.mjs (12 Oct 2026), which finds the newest
+ * release through the DfE statistics API instead of naming one release id.
+ *
  * ASC: NHS Digital "Adult Social Care Activity and Finance Report" (XLSX)
  *
  * These are direct downloads from GOV.UK and ONS — no API parsing needed.
@@ -18,12 +20,6 @@ const rawDir = path.resolve(process.cwd(), "data/raw/supplementary");
 mkdirSync(rawDir, { recursive: true });
 
 const downloads = [
-  {
-    id: "send",
-    fileName: "dfe-sen-2024-25.zip",
-    // DfE SEN in England 2024/25 release ZIP. Re-resolve via /api/publications/special-educational-needs-in-england/releases/latest if this UUID rotates.
-    url: "https://content.explore-education-statistics.service.gov.uk/api/releases/f7330b25-398d-477d-80c7-9b33bc10316f/files?fromPage=ReleaseDownloads"
-  },
   {
     id: "asc",
     fileName: "nhs-asc-ascfr-salt-2023-24.xlsx",

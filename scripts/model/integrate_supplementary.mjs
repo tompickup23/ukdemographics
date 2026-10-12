@@ -8,6 +8,7 @@
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { applyDiversityIndices } from "./lib/diversity-index.mjs";
 
 const SITE_OUTPUT = path.resolve("src/data/live/ethnic-projections.json");
 const PROFICIENCY_PATH = path.resolve("data/raw/census_base/ts029_english_proficiency_2021.csv");
@@ -66,58 +67,10 @@ console.log(`  ${profCount} areas with English proficiency data`);
 // ============================================================
 console.log("Computing convergence indices...");
 
-// Index of Dissimilarity: measures how evenly distributed ethnic groups are
-// D = 0.5 × Σ |p_i - P| where p_i = area ethnic share, P = national ethnic share
-// D ranges 0 (perfectly even) to ~1 (completely segregated)
-
-// National ethnic composition (from Census 2021 base)
-const national = { white_british: 0, white_other: 0, asian: 0, black: 0, mixed: 0, other: 0, total: 0 };
-for (const [, area] of Object.entries(existing.areas)) {
-  if (!area.current?.groups_absolute) continue;
-  for (const g of Object.keys(national)) {
-    if (g === "total") national.total += area.current.total_population || 0;
-    else national[g] += area.current.groups_absolute[g] || 0;
-  }
-}
-const nationalPct = {};
-for (const g of ["white_british", "white_other", "asian", "black", "mixed", "other"]) {
-  nationalPct[g] = national.total > 0 ? national[g] / national.total * 100 : 0;
-}
-
-let divCount = 0;
-for (const [code, area] of Object.entries(existing.areas)) {
-  if (!area.current?.groups) continue;
-
-  // Dissimilarity from national composition
-  let dissimilarity = 0;
-  for (const g of ["white_british", "white_other", "asian", "black", "mixed", "other"]) {
-    dissimilarity += Math.abs((area.current.groups[g] || 0) - nationalPct[g]);
-  }
-  dissimilarity = Math.round(dissimilarity / 2 * 10) / 10; // Scale to 0-100
-
-  // Entropy (diversity) index: H = -Σ p_i × ln(p_i) / ln(n)
-  let entropy = 0;
-  for (const g of ["white_british", "white_other", "asian", "black", "mixed", "other"]) {
-    const p = (area.current.groups[g] || 0) / 100;
-    if (p > 0) entropy -= p * Math.log(p);
-  }
-  entropy = Math.round(entropy / Math.log(6) * 100) / 100; // Normalise to 0-1
-
-  // Classify
-  let diversityLevel;
-  if (entropy > 0.7) diversityLevel = "highly diverse";
-  else if (entropy > 0.5) diversityLevel = "diverse";
-  else if (entropy > 0.3) diversityLevel = "moderately diverse";
-  else diversityLevel = "low diversity";
-
-  area.diversityIndex = {
-    dissimilarity,
-    entropy,
-    diversityLevel,
-    source: "Computed from Census 2021 ethnic composition"
-  };
-  divCount++;
-}
+// Index of Dissimilarity and entropy index, from the Census 2021 composition.
+// The logic lives in lib/diversity-index.mjs so recompute_diversity_index.mjs
+// can rerun it alone.
+const divCount = applyDiversityIndices(existing.areas);
 console.log(`  ${divCount} areas with diversity indices`);
 
 // Update metadata
