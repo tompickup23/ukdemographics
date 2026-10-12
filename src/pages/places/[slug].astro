@@ -15,8 +15,9 @@ import {
   getShiftShareData, getDiversityIndex,
   getStochasticData, getEthnicCompositionTimeline,
 } from "../../lib/ethnic-projections";
+import { shiftShareDriver } from "../../lib/shift-share-driver";
 import { getCrimeProfile, getCrimeRatePercentile, getCrimeSource, getCrimeCaveat } from "../../lib/crime-data";
-import { getAscProfile, getAscSpendPercentile, getAscSource, getAscCaveat } from "../../lib/asc-data";
+import { getAscProfile, getAscSpendPercentile, getAscSource, getAscCaveat, getAscMeasure } from "../../lib/asc-data";
 import { getSendProfile, getSendGrowthPercentile, getSendSource, getSendCaveat } from "../../lib/send-data";
 import { getParentUtla } from "../../lib/area-hierarchy";
 import { getCensusEnglish } from "../../lib/census-english";
@@ -34,6 +35,8 @@ import cobChange1121 from "../../data/live/country-of-birth-change-2011-2021.jso
 import pipPcon from "../../data/live/pip-pcon.json";
 import nhsFundingContext from "../../data/live/nhs-funding-context.json";
 import schoolEalDistrict from "../../data/live/school-eal-district.json";
+import schoolEalUpperTier from "../../data/live/school-eal.json";
+import { compareCountyEal, SIMILAR_WITHIN_PP } from "../../lib/school-eal-compare";
 import payrollRegional from "../../data/live/payroll-by-region-industry.json";
 import hmoDensity from "../../data/live/hmo-density.json";
 import councilTaxSpd from "../../data/live/council-tax-spd.json";
@@ -159,6 +162,19 @@ const ninoDemogNational = getNinoDemographicNational();
 
 // District-level school EAL
 const ealDistrict = (schoolEalDistrict as any).areas?.[area.areaCode];
+// The published upper-tier figure for the district's county, compared with the
+// district's own share on the same academic year (src/lib/school-eal-compare.ts).
+// The county comes from the ONS district to county lookup, not from the school
+// file's parentUtlaCode, which names another authority for some unitaries,
+// metropolitan districts and London boroughs (Greenwich: Lewisham; Hackney:
+// Birmingham) and for Hertsmere (Somerset). Only non-metropolitan districts have
+// a county, so only their pages carry the comparison.
+const ealCounty = ealDistrict && parentUtla
+  ? (schoolEalUpperTier as any).areas?.[parentUtla.countyCode]
+  : undefined;
+const ealCountyComparison = ealCounty
+  ? compareCountyEal(ealDistrict.ealPct, ealCounty.ealPct, (schoolEalDistrict as any).academicYear, ealCounty.latestYear)
+  : null;
 
 // Regional labour market (Burnley → North West, etc.)
 // Map LA region name from area-series or guess from area object
@@ -276,7 +292,14 @@ if (payrollRegion?.byIndustry) {
     .slice(0, 5);
 }
 
-const modelSpread = projData?.modelSpread2051 as { hamiltonPerry: number; cohortComponent: number; spreadPp: number } | undefined;
+// The two-model comparison needs a Hamilton-Perry projection to compare against.
+// The 49 areas the current forward model does not cover (no projections_detail)
+// carry projections from an earlier run, in 28 of them the cohort-component
+// model's own output, so the comparison would set a model against itself. Their
+// uncertainty bands were withheld for the same reason (reconcile_derived.mjs).
+const modelSpread = (projData?.projections_detail
+  ? projData?.modelSpread2051
+  : undefined) as { hamiltonPerry: number; cohortComponent: number; spreadPp: number } | undefined;
 const areaScenarios = (scenarioSummaries as any).areas?.[area.areaCode];
 const centralScenario = (scenarioSummaries as any).centralScenario as string | undefined;
 
@@ -817,7 +840,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <h2>What&rsquo;s driving change</h2>
       <p class="section-desc">
         Shift-share splits the change in White British share into national trend,
-        age structure, and local factors. Dominant driver: <strong>{shiftShareData.dominantDriver}</strong>.
+        age structure, and local factors. Dominant driver: <strong>{shiftShareDriver(shiftShareData)}</strong>.
       </p>
       <div class="chart-holder">
         <ShiftShareChart
@@ -1254,8 +1277,12 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, {(schoolEalDistrict as any).academicYear}),
         <strong> {ealDistrict.ealPct.toFixed(1)}% have a first language other than English</strong>.
-        {ealDistrict.parentUtlaName && ealDistrict.parentUtlaName !== ealDistrict.areaName && (
-          <> The published {ealDistrict.parentUtlaName}-wide upper-tier figure is much lower because it averages every district in the county; this is the genuine {area.areaName} number.</>
+        {parentUtla && (
+          ealCountyComparison
+            ? ealCountyComparison.direction === "similar"
+              ? <> The published {parentUtla.countyName}-wide upper-tier figure, {ealCountyComparison.countyPct.toFixed(1)}%, is within {SIMILAR_WITHIN_PP} percentage point of this; it averages every district in the county, and this is the genuine {area.areaName} number.</>
+              : <> The published {parentUtla.countyName}-wide upper-tier figure is {ealCountyComparison.direction}, {ealCountyComparison.countyPct.toFixed(1)}%, because it averages every district in the county; this is the genuine {area.areaName} number.</>
+            : <> The published {parentUtla.countyName}-wide upper-tier figure averages every district in the county; this is the genuine {area.areaName} number.</>
         )}
       </p>
       <div class="data-grid">
@@ -1384,17 +1411,17 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         </p>
       )}
       <p class="section-desc">
-        Council ASC spend, residential placements, and quality-of-life outcomes, {asc.period}.
+        Council spending on adult social care ({asc.grossSpendPeriod}) and residential care for people aged 65 and over ({asc.residentialPeriod}), against each age group's population in the ONS mid-2025 estimates.
         {ascPercentile != null && (
-          <> Spend per head sits at the <strong>{ordinal(ascPercentile)} percentile</strong> nationally.</>
+          <> Spend per adult sits at the <strong>{ordinal(ascPercentile)} percentile</strong> of English councils.</>
         )}
       </p>
       <div class="data-grid">
         {asc.grossSpendPerCapita != null && (
-          <div class="data-item"><span class="data-label">Gross spend / head</span><span class="data-value">&pound;{Math.round(asc.grossSpendPerCapita).toLocaleString()}</span></div>
+          <div class="data-item"><span class="data-label">Gross spend per adult (18+), {asc.grossSpendPeriod}</span><span class="data-value">&pound;{Math.round(asc.grossSpendPerCapita).toLocaleString()}</span></div>
         )}
         {asc.residentialRatePer10k65 != null && (
-          <div class="data-item"><span class="data-label">Residential / 10k 65+</span><span class="data-value">{asc.residentialRatePer10k65.toFixed(0)}</span></div>
+          <div class="data-item"><span class="data-label">Aged 65+ in residential care per 10,000 aged 65+, {asc.residentialPeriod}</span><span class="data-value">{asc.residentialRatePer10k65.toFixed(0)}</span></div>
         )}
         {asc.qualityOfLifeScore != null && (
           <div class="data-item"><span class="data-label">Quality-of-life score</span><span class="data-value">{asc.qualityOfLifeScore.toFixed(1)}</span></div>
@@ -1404,6 +1431,11 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         )}
       </div>
       <p class="section-note">{getAscSource()}. {getAscCaveat()}</p>
+      {getAscMeasure("residentialRatePer10k65").revisionNotice && (
+        <p class="section-note">
+          {getAscMeasure("residentialRatePer10k65").publisher} change note on the activity report, {new Date(getAscMeasure("residentialRatePer10k65").revisionNotice!.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}: &ldquo;{getAscMeasure("residentialRatePer10k65").revisionNotice!.note}&rdquo;
+        </p>
+      )}
     </section>
   )}
 
