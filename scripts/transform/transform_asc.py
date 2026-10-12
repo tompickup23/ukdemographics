@@ -17,10 +17,17 @@ sits in a separate publication and is also out of scope here. Both fields are
 written as null with a caveat in the dashboard metadata.
 
 Outputs: src/data/live/asc-dashboard.json
+
+The edition ("England 2023-24") and the publication date are read from the
+workbook's Title sheet (scripts/lib/source_dates.py), not typed here.
 """
 from pathlib import Path
 import json
+import sys
 from openpyxl import load_workbook
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import cover_match, published_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data/raw/supplementary/nhs-asc-ascfr-salt-2023-24.xlsx"
@@ -43,6 +50,8 @@ def la_rows(ws, gss_col=2, name_col=4):
 
 
 def main() -> None:
+    # Title sheet: "Adult Social Care Activity and Finance: England 2023-24".
+    edition = cover_match(SRC, r"Activity and Finance:\s*England (\d{4}-\d{2})\b", "edition").group(1)
     wb = load_workbook(SRC, data_only=True)
     t14 = wb["T14"]  # spending
     t34 = wb["T34"]  # residential clients 18-64 + 65+
@@ -95,13 +104,14 @@ def main() -> None:
             "residentialRatePer10k65": round(rate_65, 0) if rate_65 is not None else None,
             "qualityOfLifeScore": None,
             "dtocDaysAnnual": None,
-            "period": "2023-24",
+            "period": edition,
         }
 
     out = {
-        "source": "NHS Digital ASCFR & SALT data tables 2023-24 (CASSR-level). Quality-of-life and DToC fields omitted (DToC discontinued post-COVID; ASCOF measures live in a separate publication).",
-        "methodology": "Gross spend per capita = Total Gross Current Expenditure (T14 col 13, £k) × 1,000 ÷ LA total population (Census 2021). Residential placement rate per 10k 65+ = T34 65+ residential clients ÷ (total population × 0.185) × 10,000 — uses England-average 65+ share as denominator since per-LA age detail is not in this feed.",
-        "lastUpdated": "2026-04-28",
+        "source": f"NHS Digital ASCFR & SALT data tables {edition} (CASSR-level). Quality-of-life and DToC fields omitted (DToC discontinued post-COVID; ASCOF measures live in a separate publication).",
+        "methodology": "Gross spend per capita = Total Gross Current Expenditure (T14 col 13, £k) × 1,000 ÷ LA total population (Census 2021). Residential placement rate per 10k 65+ = T34 65+ residential clients ÷ (total population × 0.185) × 10,000, uses England-average 65+ share as denominator since per-LA age detail is not in this feed.",
+        # The Title sheet's "Publication Date:".
+        "lastUpdated": published_date(SRC).isoformat(),
         "caveat": "ASC sits with upper-tier authorities only (counties, unitaries, London boroughs, mets); ~153 LAs in coverage and districts are not present. Spending is shaped by demographic composition, deprivation, and informal-care availability and direct cross-area comparison must control for those.",
         "areas": dict(sorted(areas.items())),
     }

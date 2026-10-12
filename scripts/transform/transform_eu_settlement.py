@@ -10,7 +10,7 @@ politically live as 371,000 settled-status grants were issued in
 the year ending March 2026 (12 percent higher than YE Mar 2025).
 
 Input:
-  data/raw/ho_visas_extra/eu-settlement-scheme-datasets-mar-2026.xlsx
+  data/raw/ho_visas_extra/eu-settlement-scheme-datasets-<mon>-<yyyy>.xlsx (newest on disk)
 
 Output:
   src/data/live/eu-settlement-scheme.json
@@ -19,8 +19,8 @@ Sheets used:
   Data_EUSS_D02: concluded applications by outcome year + outcome
   Data_EUSS_D03: concluded applications by outcome + application type
 
-Source: Home Office Immigration Statistics, year ending March 2026
-release (21 May 2026).
+Source: Home Office Immigration Statistics. The period and publication date
+are read from the workbook's cover sheet (scripts/lib/source_dates.py).
 """
 import json
 from collections import defaultdict
@@ -33,7 +33,8 @@ import openpyxl
 # than written here. See scripts/lib/newest_release.py: a pinned filename keeps working
 # while reading an older release than the one published.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
-from newest_release import newest_release, period_phrase  # noqa: E402
+from newest_release import newest_release  # noqa: E402
+from source_dates import home_office_period, published_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 XLSX = newest_release(ROOT / "data/raw/ho_visas_extra", "eu-settlement-scheme-datasets")
@@ -132,12 +133,13 @@ def main():
     out = {
         "source": (
             "Home Office Immigration Statistics: EU Settlement Scheme detailed "
-            f"datasets, {period_phrase(XLSX)} release. Sheets "
+            f"datasets, {home_office_period(XLSX)} release. Sheets "
             "Data_EUSS_D02 (outcomes by year) and Data_EUSS_D03 (outcomes by "
             "application type)."
         ),
-        "lastUpdated": "2026-05-27",
-        "release_date": "2026-05-21",
+        # Both read from the "Published:" line of the cover sheet.
+        "lastUpdated": published_date(XLSX).isoformat(),
+        "release_date": published_date(XLSX).isoformat(),
         "caveat": (
             "The EU Settlement Scheme grants confirmed status to EU and EEA "
             "nationals already living in the UK. It does NOT count as "

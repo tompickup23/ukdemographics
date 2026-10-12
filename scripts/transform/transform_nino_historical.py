@@ -27,8 +27,12 @@ Sized to fit within an Astro static-data file (per-LA totals are 24 ints,
 top-10 entries per year keep the JSON readable for chart libraries).
 """
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import held_copy_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC_DIR = ROOT / "data/raw/supplementary/nino-by-year"
@@ -183,8 +187,12 @@ def main():
             area["latestValue"] = area["earliestValue"] = None
             area["cumulativeFlow_2002_2025"] = 0
 
+    # The cube JSON carries no release date, so lastUpdated is the retrieval date of
+    # the newest held year file (the date it was written), not a DWP publication date.
+    held_on = held_copy_date(*(SRC_DIR / f"{y}.json" for y in per_year_data)).isoformat()
+
     SOURCE = (
-        "DWP Stat-Xplore — NINO Registrations to Adult Overseas Nationals "
+        "DWP Stat-Xplore, NINO Registrations to Adult Overseas Nationals "
         "Entering the UK (Ninos cube), aggregated per calendar year by "
         "summing the four constituent quarters. Geography: ONS LA codes."
     )
@@ -216,7 +224,7 @@ def main():
         }
     compact = {
         "source": SOURCE,
-        "lastUpdated": "2026-04-29",
+        "lastUpdated": held_on,
         "years": YEARS,
         "caveat": CAVEAT,
         "national": {
@@ -236,7 +244,7 @@ def main():
     # Loaded lazily by analysis pages, NOT by the default place page.
     detail = {
         "source": SOURCE,
-        "lastUpdated": "2026-04-29",
+        "lastUpdated": held_on,
         "years": YEARS,
         "caveat": CAVEAT,
         "national": {

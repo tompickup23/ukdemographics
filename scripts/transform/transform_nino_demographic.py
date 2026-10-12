@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Transform NINo demographic cube (LA × Age × Sex × Quarter, rolling year
-ending Q4 2025) into a per-LA profile of new arrivals by age band and
-sex share.
+Transform NINo demographic cube (LA × Age × Sex × Quarter, the rolling year
+the cube holds) into a per-LA profile of new arrivals by age band and
+sex share. The period is read from the cube's quarter labels.
 
 Inputs:
   data/raw/supplementary/nino-demographic-cube.json
@@ -11,7 +11,11 @@ Output:
   src/data/live/nino-demographic-profile.json
 """
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import held_copy_date, rolling_year  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data/raw/supplementary/nino-demographic-cube.json"
@@ -34,6 +38,11 @@ def main():
     age_labels = [it["labels"][0] for it in age_field["items"]]
     sex_labels = [it["labels"][0] for it in sex_field["items"]]
     n_qtr = len(qtr_field["items"])
+    # Every quarter in the cube is summed below, and the output calls that a rolling
+    # year, so the cube must hold exactly four.
+    if n_qtr != 4:
+        sys.exit(f"ERROR: the cube holds {n_qtr} quarters; this transform sums a rolling year of 4")
+    period = rolling_year(cube)
 
     areas = {}
     national_age = {a: 0 for a in age_labels}
@@ -83,11 +92,13 @@ def main():
 
     out = {
         "source": (
-            "DWP Stat-Xplore Ninos cube — LA × Age band × Sex, rolling "
-            "year ending Q4 2025 (Jan-Dec 2025 calendar year). Counts "
-            "are NEW NINo registrations to adult overseas nationals."
+            f"DWP Stat-Xplore Ninos cube, LA × Age band × Sex, {period['phrase']} "
+            f"({period['months']}). Counts are NEW NINo registrations to adult "
+            "overseas nationals."
         ),
-        "lastUpdated": "2026-04-29",
+        # The cube JSON carries no release date, so this is the retrieval date of the
+        # held copy (the date the file was written), not a DWP publication date.
+        "lastUpdated": held_copy_date(SRC).isoformat(),
         "caveat": (
             "Age is age at NINo registration, not age at arrival. The "
             "registration may follow arrival by months. 'Less than 18' "

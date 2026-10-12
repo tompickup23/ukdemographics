@@ -1,5 +1,5 @@
 {
-  "source": "DWP Stat-Xplore PIP_Monthly_new dataset, latest published month. Geography: Westminster Parliamentary Constituency 2024 boundaries.",
+  "source": "DWP Stat-Xplore PIP_Monthly_new dataset, January 2026 (the latest month when the cube was retrieved). Geography: Westminster Parliamentary Constituency 2024 boundaries.",
   "lastUpdated": "2026-04-29",
   "latestMonth": "Jan-26",
   "totalConstituencies": 634,

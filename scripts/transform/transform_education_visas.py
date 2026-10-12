@@ -9,7 +9,7 @@ matters for downstream story-telling about which courses British
 universities are now using to fill their international student pipeline.
 
 Input:
-  data/raw/ho_visas_extra/education-visas-datasets-mar-2026.xlsx
+  data/raw/ho_visas_extra/education-visas-datasets-<mon>-<yyyy>.xlsx (newest on disk)
 
 Output:
   src/data/live/education-visas.json
@@ -19,8 +19,8 @@ Sheets:
                 Visa type subgroup, Course level, Applications)
   Data_Edu_D02: Grants (same schema, count column 'Grants')
 
-Source: Home Office Immigration Statistics, year ending March 2026
-release (21 May 2026).
+Source: Home Office Immigration Statistics. The period and publication date
+are read from the workbook's cover sheet (scripts/lib/source_dates.py).
 """
 import json
 from collections import defaultdict
@@ -33,7 +33,8 @@ import openpyxl
 # than written here. See scripts/lib/newest_release.py: a pinned filename keeps working
 # while reading an older release than the one published.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
-from newest_release import newest_release, period_phrase  # noqa: E402
+from newest_release import newest_release  # noqa: E402
+from source_dates import home_office_period, published_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 XLSX = newest_release(ROOT / "data/raw/ho_visas_extra", "education-visas-datasets")
@@ -133,11 +134,12 @@ def main():
         "source": (
             "Home Office Immigration Statistics: Education visa applications "
             "and grants by course level, "
-            f"{period_phrase(XLSX)} release. Sheets Data_Edu_D01 (applications) and "
+            f"{home_office_period(XLSX)} release. Sheets Data_Edu_D01 (applications) and "
             "Data_Edu_D02 (grants of entry clearance for study)."
         ),
-        "lastUpdated": "2026-05-27",
-        "release_date": "2026-05-21",
+        # Both read from the "Published:" line of the cover sheet.
+        "lastUpdated": published_date(XLSX).isoformat(),
+        "release_date": published_date(XLSX).isoformat(),
         "caveat": (
             "Education visa grants include main applicants AND dependants of "
             "the main applicant. The January 2024 ban on most postgraduate "
