@@ -464,7 +464,11 @@ const placeListing = buildPlaceListing(listingArm, {
   arrivalsSince: firstArrivalIdx >= 0 ? ninoHistoricalYears[firstArrivalIdx] ?? null : null,
   hasHousing: !!(hmo || ctSpd || housing?.dataAvailable),
   hasSchools: !!(school?.dataAvailable || (ealDistrict && ealDistrict.totalPupils > 0)),
-  hasServices: !!(crime || asc || send || pipMatch),
+  // Crime is left out of this flag so that a crime refresh cannot change listing copy.
+  // On 12 Oct 2026 every page that showed crime already qualified through ASC, SEND or
+  // PIP; the Welsh pages that gained crime from the Police Force Area tables did not,
+  // and their titles and descriptions must stay as the listing test set them.
+  hasServices: !!(asc || send || pipMatch),
 }, profileUpdatedDate());
 const pageTitle = placeListing?.title ?? controlTitle;
 const metaDescription = placeListing?.description ?? pageDescription;
@@ -1330,6 +1334,12 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           <> {area.areaName} ranks at the <strong>{ordinal(crimePercentile)} percentile</strong> nationally for total crime rate.</>
         )}
       </p>
+      {crime.suppressed && crime.suppressionNote && (
+        <p class="section-note">{crime.suppressionNote}</p>
+      )}
+      {crime.basisNote && (
+        <p class="section-note">{crime.basisNote}</p>
+      )}
       <div class="data-grid">
         {crime.totalCrimeRate != null && (
           <div class="data-item"><span class="data-label">Total crime / 1k</span><span class="data-value">{crime.totalCrimeRate.toFixed(1)}</span></div>
@@ -1358,6 +1368,14 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           </div>
         )}
       </div>
+      {!crime.suppressed && crime.yearOnYearNote && (
+        <p class="section-note">Year-on-year change. {crime.yearOnYearNote}</p>
+      )}
+      {crime.policeForce?.unassignedSharePct != null && crime.policeForce.unassignedSharePct >= 0.05 && (
+        <p class="section-note">
+          Police force: {crime.policeForce.name}. It could not place {crime.policeForce.unassignedSharePct.toFixed(1)}% of the offences it recorded in this period in any area, and those offences are in no area's figure.
+        </p>
+      )}
       <p class="section-note">{getCrimeSource()}. {getCrimeCaveat()}</p>
     </section>
   )}
