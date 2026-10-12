@@ -24,6 +24,7 @@ data/raw/census_2001_ethnicity_age/
 data/raw/census_2011_ethnicity_age/
 data/raw/crime/
 data/raw/supplementary/
+data/raw/dfe_sen/
 data/raw/newethpop/
 # Model inputs and intermediates are held outside git; only the manifest is tracked.
 data/model/*
@@ -59,6 +60,7 @@ data/raw/ons_mye_timeseries/
 data/raw/ons_npp_england/
 data/raw/ons_3596/
 data/raw/wg_lapp/
+data/raw/dhsc_asc/
 
 # Environment and credential files
 *.env
