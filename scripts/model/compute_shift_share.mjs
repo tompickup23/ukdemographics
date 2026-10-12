@@ -12,7 +12,18 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { writeJsonLike } from "../lib/json-like.mjs";
 
-const SITE_OUTPUT = path.resolve("src/data/live/ethnic-projections.json");
+function arg(name, fallback) {
+  const i = process.argv.indexOf(name);
+  return i >= 0 ? process.argv[i + 1] : fallback;
+}
+
+// --file: the projection file to update (default: this site's).
+// --skip: codes left out of the national composition because they duplicate
+// another record for the same authority. Asylum Stats files Barnsley and
+// Sheffield under two codes each; pass the retired pair there so each
+// authority is counted once. Skipped records still get their own shiftShare.
+const SITE_OUTPUT = path.resolve(arg("--file", "src/data/live/ethnic-projections.json"));
+const SKIP = new Set((arg("--skip", "") || "").split(",").filter(Boolean));
 const original = readFileSync(SITE_OUTPUT, "utf8");
 const existing = JSON.parse(original);
 
@@ -26,6 +37,7 @@ let natWBI_2011 = 0, natWBI_2021 = 0, natTotal_2011 = 0, natTotal_2021 = 0, natA
 const missing = [];
 for (const [code, area] of Object.entries(existing.areas)) {
   if (!area.baseline || !area.current || area.baseline.year === area.current.year) continue;
+  if (SKIP.has(code)) continue;
   const b = area.baseline, c = area.current;
   if (!(b.total_population > 0) || !(c.total_population > 0) ||
       b.groups_absolute?.white_british == null || c.groups_absolute?.white_british == null) {
