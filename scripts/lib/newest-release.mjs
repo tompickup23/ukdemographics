@@ -57,3 +57,62 @@ export function periodPhrase(filePath) {
   // would give 'year ending june 2026'.
   return periodLabel(filePath).replace("Year ending", "year ending");
 }
+
+/**
+ * Annual and academic-year series: the JavaScript half of newest_edition() in
+ * scripts/lib/newest_release.py. `pattern` is a RegExp matched against the whole file
+ * name, with a named group `edition` holding the year to sort on and optionally a group
+ * `month` holding a month name. Two files with one edition throw; nothing matching
+ * throws, naming the directory and pattern.
+ */
+const MONTH_NAMES = ["january", "february", "march", "april", "may", "june", "july",
+  "august", "september", "october", "november", "december"];
+
+function editionKey(match) {
+  let key = Number(match.groups.edition) * 100;
+  const month = match.groups.month;
+  if (month) {
+    const word = month.toLowerCase();
+    const index = MONTH_NAMES.indexOf(word) + 1 || MONTHS[word.slice(0, 3)];
+    if (!index) throw new Error(`unrecognised month '${month}' in ${match.input}`);
+    key += index;
+  }
+  return key;
+}
+
+export function editions(directory, pattern) {
+  const whole = new RegExp(`^(?:${pattern.source})$`, pattern.flags.replace("g", "") || "i");
+  let entries = [];
+  try {
+    entries = readdirSync(directory);
+  } catch {
+    entries = [];
+  }
+  const found = [];
+  for (const name of entries) {
+    const m = name.match(whole);
+    if (!m) continue;
+    if (!m.groups || m.groups.edition === undefined) {
+      throw new Error(`pattern ${pattern} has no named group 'edition'`);
+    }
+    found.push({ key: editionKey(m), file: path.join(directory, name) });
+  }
+  found.sort((a, b) => a.key - b.key);
+  for (let i = 1; i < found.length; i++) {
+    if (found[i].key === found[i - 1].key) {
+      throw new Error(`two files share one edition in ${directory}: ${found[i - 1].file} and ${found[i].file}`);
+    }
+  }
+  return found.map((f) => f.file);
+}
+
+export function newestEdition(directory, pattern) {
+  const found = editions(directory, pattern);
+  if (!found.length) {
+    throw new Error(
+      `no file matching ${pattern} in ${directory}. ` +
+      `Run the fetch script rather than pinning an edition in the script.`
+    );
+  }
+  return found[found.length - 1];
+}

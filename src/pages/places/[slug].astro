@@ -1253,7 +1253,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     <section class="section" id="schools-eal">
       <h2>Schools, first language</h2>
       <p class="section-desc">
-        Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, 2024/25),
+        Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, {(schoolEalDistrict as any).academicYear}),
         <strong> {ealDistrict.ealPct.toFixed(1)}% have a first language other than English</strong>.
         {ealDistrict.parentUtlaName && ealDistrict.parentUtlaName !== ealDistrict.areaName && (
           <> The published {ealDistrict.parentUtlaName}-wide upper-tier figure is much lower because it averages every district in the county; this is the genuine {area.areaName} number.</>
@@ -1267,7 +1267,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         )}
       </div>
       <p class="section-note">
-        Source: DfE Schools, Pupils and their Characteristics 2024/25, school-level data aggregated to district. EAL (English as Additional Language) is a household-level signal: children born in the UK to non-English-speaking households count as EAL.
+        Source: DfE Schools, Pupils and their Characteristics {(schoolEalDistrict as any).academicYear}, school-level data aggregated to district. EAL (English as Additional Language) is a household-level signal: children born in the UK to non-English-speaking households count as EAL.
       </p>
     </section>
   )}
