@@ -80,6 +80,11 @@ for (const a of areas) {
 }
 
 const indexJson = JSON.stringify(indexBySlug);
+
+// Crime is shown in its own block, never in the table that holds population,
+// migration and nationality rows (12 October 2026; tests/compare-crime-separate.test.ts).
+const crimeSource = (crimeDashboard as any).source as string;
+const crimePeriod = (crimeDashboard as any).period as string;
 ---
 
 <BaseLayout
@@ -123,6 +128,18 @@ const indexJson = JSON.stringify(indexBySlug);
 
   <div id="cmp-results" class="cmp-results"></div>
 
+  <section class="cmp-section" aria-labelledby="cmp-safety-heading">
+    <h2 id="cmp-safety-heading">Local services and safety</h2>
+    <p class="cmp-section-note">
+      Police recorded crime per 1,000 residents, excluding fraud, {crimePeriod.toLowerCase()}, and the change on
+      the year before. Shown on its own: recorded crime follows recording practice,
+      policing and deprivation, and this page does not set it beside the population and
+      migration measures above.
+    </p>
+    <div id="cmp-safety" class="cmp-results"></div>
+    <p class="cmp-source">Source: {crimeSource}.</p>
+  </section>
+
   <p class="cmp-tip">
     Tip: this page reads <code>?a=…&amp;b=…</code> from the URL, so you can share or bookmark a comparison.
   </p>
@@ -136,6 +153,7 @@ const indexJson = JSON.stringify(indexBySlug);
   const pickerA = document.getElementById("picker-a");
   const pickerB = document.getElementById("picker-b");
   const results = document.getElementById("cmp-results");
+  const safety = document.getElementById("cmp-safety");
   const swapBtn = document.getElementById("cmp-swap");
 
   const params = new URLSearchParams(window.location.search);
@@ -201,6 +219,7 @@ const indexJson = JSON.stringify(indexBySlug);
     const a = data[pickerA.value];
     const b = data[pickerB.value];
     while (results.firstChild) results.removeChild(results.firstChild);
+    while (safety.firstChild) safety.removeChild(safety.firstChild);
     if (!a || !b) {
       const p = document.createElement("p");
       p.classList.add("empty");
@@ -240,8 +259,6 @@ const indexJson = JSON.stringify(indexBySlug);
     appendRow(tbody, `Births ${a.birthsYear}`, num(a.birthsTotal), num(b.birthsTotal), null);
     appendRow(tbody, `Births to non-UK-born mother ${a.birthsYear} (%)`, pct(a.birthsNonUkPct), pct(b.birthsNonUkPct), deltaSpan(a.birthsNonUkPct, b.birthsNonUkPct, { suffix2: "pp" }));
     appendRow(tbody, "Schools EAL share (%)" + ((a.ealParentLA || b.ealParentLA) ? " *" : ""), pct(a.ealPct), pct(b.ealPct), deltaSpan(a.ealPct, b.ealPct, { suffix2: "pp" }));
-    appendRow(tbody, "Crime per 1k pop", num(a.crimeRatePer1k), num(b.crimeRatePer1k), deltaSpan(a.crimeRatePer1k, b.crimeRatePer1k, { lowerIsBetter: true }));
-    appendRow(tbody, "Crime YoY change", pct(a.crimeYoYPct), pct(b.crimeYoYPct), deltaSpan(a.crimeYoYPct, b.crimeYoYPct, { suffix2: "pp" }));
     appendRow(tbody, "TB per 100k", num(a.tbRatePer100k), num(b.tbRatePer100k), deltaSpan(a.tbRatePer100k, b.tbRatePer100k, { lowerIsBetter: true }));
     appendRow(tbody, "HMO per 1k", num(a.hmoPer1k, 2), num(b.hmoPer1k, 2), deltaSpan(a.hmoPer1k, b.hmoPer1k, { decimals: 2 }));
     appendRow(tbody, "Single-person discount (%)", pct(a.spdPct), pct(b.spdPct), deltaSpan(a.spdPct, b.spdPct, { suffix2: "pp" }));
@@ -252,6 +269,17 @@ const indexJson = JSON.stringify(indexBySlug);
     table.appendChild(tbody);
     wrap.appendChild(table);
     results.appendChild(wrap);
+
+    // Local services and safety: its own table, under its own heading and source.
+    const safetyWrap = document.createElement("div"); safetyWrap.classList.add("cmp-table-wrap");
+    const safetyTable = document.createElement("table"); safetyTable.classList.add("cmp-table");
+    safetyTable.appendChild(thead.cloneNode(true));
+    const safetyBody = document.createElement("tbody");
+    appendRow(safetyBody, "Crime per 1k pop", num(a.crimeRatePer1k), num(b.crimeRatePer1k), deltaSpan(a.crimeRatePer1k, b.crimeRatePer1k, { lowerIsBetter: true }));
+    appendRow(safetyBody, "Crime YoY change", pct(a.crimeYoYPct), pct(b.crimeYoYPct), deltaSpan(a.crimeYoYPct, b.crimeYoYPct, { suffix2: "pp" }));
+    safetyTable.appendChild(safetyBody);
+    safetyWrap.appendChild(safetyTable);
+    safety.appendChild(safetyWrap);
 
     if (a.ealParentLA || b.ealParentLA) {
       const note = document.createElement("p");
@@ -310,6 +338,10 @@ const indexJson = JSON.stringify(indexBySlug);
     cursor: pointer; height: fit-content;
   }
   .cmp-btn:hover { opacity: 0.9; }
+  .cmp-section { margin-top: 2rem; max-width: 960px; }
+  .cmp-section h2 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin: 0 0 0.4rem; }
+  .cmp-section-note, .cmp-source { color: var(--muted); font-size: 0.85rem; margin: 0 0 0.75rem; max-width: 720px; }
+  .cmp-source { margin-top: 0.6rem; }
   .cmp-table-wrap {
     overflow-x: auto;
     border: 1px solid var(--border);
