@@ -624,6 +624,104 @@
         "build_scenario_summary.mjs",
         "run_ensemble.mjs"
       ]
+    },
+    {
+      "id": "ons_mye_2025",
+      "path": "data/raw/ons_mye/mye25tablesew.xlsx",
+      "store": "asylumstats",
+      "storePath": "raw/snpp/control_totals_inputs/mye25tablesew.xlsx",
+      "sha256": "85b4e105e9618043884e5ac41d46e6eae8a46bb01b31790f1c76110cbe92d0d8",
+      "bytes": 976621,
+      "role": "raw",
+      "models": [
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Population estimates for England and Wales, mid-2025 (mye25tablesew.xlsx), tables MYE2",
+      "sourceUrl": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid20252023localauthorityboundaries/mye25tablesew.xlsx",
+      "drive": "doge:Care Directory Data/03 ONS population/mye25tablesew.xlsx",
+      "manifest": "data/raw/manifests/ons_mye.json",
+      "obtained": "Drive copy retrieved 22 Aug 2026, adopted by scripts/fetch/fetch-ons-mye.mjs on 12 Oct 2026",
+      "usedBy": [
+        "build_control_totals.mjs",
+        "scripts/build/build-population-estimates.mjs"
+      ]
+    },
+    {
+      "id": "ons_mye_timeseries",
+      "path": "data/raw/ons_mye_timeseries/myebtablesenglandwales20112025.xlsx",
+      "store": "asylumstats",
+      "storePath": "raw/snpp/control_totals_inputs/myebtablesenglandwales20112025.xlsx",
+      "sha256": "d0306f38454bfdfec4ff96003f6a4746b9da07dfbd212a29aff41905e23d592e",
+      "bytes": 48813826,
+      "role": "raw",
+      "models": [
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "Population estimates and components of population change, detailed time series 2011 to 2025 (MYEB tables)",
+      "manifest": "data/raw/manifests/ons_mye_timeseries.json",
+      "obtained": "scripts/fetch/fetch-projection-inputs.mjs, 12 Oct 2026",
+      "usedBy": [
+        "build_control_totals.mjs"
+      ]
+    },
+    {
+      "id": "ons_npp_2024_england_zip",
+      "path": "data/raw/ons_npp_england/en1.zip",
+      "store": "asylumstats",
+      "storePath": "raw/snpp/control_totals_inputs/en1.zip",
+      "sha256": "13637064194e0f0b94b1e4d2270ab32d84bda29442669799396802a313a26e19",
+      "bytes": 16594553,
+      "role": "raw",
+      "models": [
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "National population projections, 2024-based, England, machine-readable files (en1.zip; principal: en_ppp_machine_readable.xlsx)",
+      "manifest": "data/raw/manifests/ons_npp_england.json",
+      "obtained": "scripts/fetch/fetch-projection-inputs.mjs, 12 Oct 2026",
+      "usedBy": [
+        "build_control_totals.mjs"
+      ]
+    },
+    {
+      "id": "wg_lapp_2022",
+      "path": "data/raw/wg_lapp/wg_lapp_2022based_036507d7_raw_extended.csv",
+      "store": "asylumstats",
+      "storePath": "raw/snpp/control_totals_inputs/wg_lapp_2022based_036507d7_raw_extended.csv",
+      "sha256": "3f4758fcbc75064812609e342b257b9b8585cc331478f4ef150f731727154638",
+      "bytes": 167511368,
+      "role": "raw",
+      "models": [
+        "v8.1"
+      ],
+      "publisher": "Welsh Government",
+      "title": "2022-based population projections by local authority, age, sex, year and variant (StatsWales, full download with reference codes)",
+      "manifest": "data/raw/manifests/wg_lapp.json",
+      "obtained": "scripts/fetch/fetch-projection-inputs.mjs, 12 Oct 2026",
+      "usedBy": [
+        "build_control_totals.mjs"
+      ]
+    },
+    {
+      "id": "ons_3596",
+      "path": "data/raw/ons_3596/rescaledpop2025to2050.xlsx",
+      "store": "asylumstats",
+      "storePath": "raw/snpp/control_totals_inputs/rescaledpop2025to2050.xlsx",
+      "sha256": "0f5643892fbd185b6c13c34322d15a550de8c7133a0892e9725709e03cbc2003",
+      "bytes": 8608438,
+      "role": "raw",
+      "models": [
+        "v8.1"
+      ],
+      "publisher": "Office for National Statistics",
+      "title": "User requested data 3596: mid-year population estimates and re-scaled population estimates for local authorities in England, 2025 to 2050",
+      "manifest": "data/raw/manifests/ons_3596.json",
+      "obtained": "scripts/fetch/fetch-projection-inputs.mjs, 12 Oct 2026",
+      "usedBy": [
+        "build_control_totals.mjs (sensitivity only)"
+      ]
     }
   ]
 }

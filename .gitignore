@@ -55,6 +55,10 @@ data/raw/ho_visas_extra/
 data/raw/dft_evci/
 data/raw/hmrc_child_benefit/
 data/raw/ons_mye/
+data/raw/ons_mye_timeseries/
+data/raw/ons_npp_england/
+data/raw/ons_3596/
+data/raw/wg_lapp/
 
 # Environment and credential files
 *.env

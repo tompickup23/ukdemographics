@@ -1,0 +1,30 @@
+{
+  "dataset": "ons_mye_timeseries",
+  "publisher": "Office for National Statistics",
+  "cadence": "annual",
+  "landing": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales",
+  "note": "The detailed time series (MYEB tables): mid-2011 onwards by local authority, sex and single year of age, carrying the July 2026 revisions to mid-2022 to mid-2024.",
+  "current": {
+    "fileName": "myebtablesenglandwales20112025.xlsx",
+    "fileSha256": "d0306f38454bfdfec4ff96003f6a4746b9da07dfbd212a29aff41905e23d592e",
+    "sizeBytes": 48813826,
+    "sourceUrl": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid2011tomid2025detailedtimeseries/myebtablesenglandwales20112025.xlsx",
+    "heldAt": "~/asylumstats/data/raw/snpp/control_totals_inputs"
+  },
+  "attempts": [
+    {
+      "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid2011tomid2025detailedtimeseries/myebtablesenglandwales20112025.xlsx",
+      "attempted_at": "2026-10-12T08:38:43.103Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "etag": "\"72d1c4bdf4c7beb3b7467799b804412eed7f6430--gzip\"",
+      "last_modified": null,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "myebtablesenglandwales20112025.xlsx",
+      "held_at": "~/asylumstats/data/raw/snpp/control_totals_inputs",
+      "blob_sha256": "d0306f38454bfdfec4ff96003f6a4746b9da07dfbd212a29aff41905e23d592e",
+      "bytes": 48813826
+    }
+  ]
+}
