@@ -34,6 +34,8 @@ import cobChange1121 from "../../data/live/country-of-birth-change-2011-2021.jso
 import pipPcon from "../../data/live/pip-pcon.json";
 import nhsFundingContext from "../../data/live/nhs-funding-context.json";
 import schoolEalDistrict from "../../data/live/school-eal-district.json";
+import schoolEalUpperTier from "../../data/live/school-eal.json";
+import { compareCountyEal, SIMILAR_WITHIN_PP } from "../../lib/school-eal-compare";
 import payrollRegional from "../../data/live/payroll-by-region-industry.json";
 import hmoDensity from "../../data/live/hmo-density.json";
 import councilTaxSpd from "../../data/live/council-tax-spd.json";
@@ -159,6 +161,19 @@ const ninoDemogNational = getNinoDemographicNational();
 
 // District-level school EAL
 const ealDistrict = (schoolEalDistrict as any).areas?.[area.areaCode];
+// The published upper-tier figure for the district's county, compared with the
+// district's own share on the same academic year (src/lib/school-eal-compare.ts).
+// The county comes from the ONS district to county lookup, not from the school
+// file's parentUtlaCode, which names another authority for some unitaries,
+// metropolitan districts and London boroughs (Greenwich: Lewisham; Hackney:
+// Birmingham) and for Hertsmere (Somerset). Only non-metropolitan districts have
+// a county, so only their pages carry the comparison.
+const ealCounty = ealDistrict && parentUtla
+  ? (schoolEalUpperTier as any).areas?.[parentUtla.countyCode]
+  : undefined;
+const ealCountyComparison = ealCounty
+  ? compareCountyEal(ealDistrict.ealPct, ealCounty.ealPct, (schoolEalDistrict as any).academicYear, ealCounty.latestYear)
+  : null;
 
 // Regional labour market (Burnley → North West, etc.)
 // Map LA region name from area-series or guess from area object
@@ -1268,8 +1283,12 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, {(schoolEalDistrict as any).academicYear}),
         <strong> {ealDistrict.ealPct.toFixed(1)}% have a first language other than English</strong>.
-        {ealDistrict.parentUtlaName && ealDistrict.parentUtlaName !== ealDistrict.areaName && (
-          <> The published {ealDistrict.parentUtlaName}-wide upper-tier figure is much lower because it averages every district in the county; this is the genuine {area.areaName} number.</>
+        {parentUtla && (
+          ealCountyComparison
+            ? ealCountyComparison.direction === "similar"
+              ? <> The published {parentUtla.countyName}-wide upper-tier figure, {ealCountyComparison.countyPct.toFixed(1)}%, is within {SIMILAR_WITHIN_PP} percentage point of this; it averages every district in the county, and this is the genuine {area.areaName} number.</>
+              : <> The published {parentUtla.countyName}-wide upper-tier figure is {ealCountyComparison.direction}, {ealCountyComparison.countyPct.toFixed(1)}%, because it averages every district in the county; this is the genuine {area.areaName} number.</>
+            : <> The published {parentUtla.countyName}-wide upper-tier figure averages every district in the county; this is the genuine {area.areaName} number.</>
         )}
       </p>
       <div class="data-grid">
