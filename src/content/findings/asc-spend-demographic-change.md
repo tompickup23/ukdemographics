@@ -1,5 +1,5 @@
 ---
-headline: "Councils with fastest demographic change spend most on adult social care"
+headline: "Adult social care spend does not track demographic change: the councils compared are mostly one county"
 date: "2026-04-10"
 updated: "2026-10-12"
 category: social-care
@@ -26,8 +26,11 @@ summary: "Corrected 12 October 2026. This piece compared the five councils with 
 > 2025, Table 14, divided by ONS mid-2025 population estimates). Pendle, Preston
 > and Burnley in the first group, and all five councils in the second, are
 > Lancashire districts whose adult social care is run by Lancashire County
-> Council. The comparison the headline rests on therefore does not hold: on real
+> Council. The comparison the original headline rested on therefore does not hold: on real
 > figures the two groups are mostly the same council.
+>
+> The headline originally read: "Councils with fastest demographic change spend most on adult social care". It now says what the published
+> figures show.
 
 **What the published figures show.** Adult social care is run by upper-tier
 councils: counties, unitary authorities, metropolitan districts and London

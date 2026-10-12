@@ -1,5 +1,5 @@
 ---
-headline: "EHCP demand grew fastest in areas with rapid demographic change"
+headline: "Pupils with an EHC plan rose 65% in five years in England, with no link to demographic change"
 date: "2026-04-10"
 updated: "2026-10-12"
 category: send
@@ -34,11 +34,14 @@ summary: "Corrected 12 October 2026. Pupils with an EHC plan in England rose by 
 > population estimates). The crime rates have no bearing on SEND and are removed,
 > as is the unsupported asylum description.
 >
-> The headline does not hold on the published figures. Across the 123 unitary,
+> The original headline does not hold on the published figures. Across the 123 unitary,
 > metropolitan and London authorities with both figures, five-year growth in
 > pupils with an EHC plan has no relationship with the change in the White
 > British share between the 2011 and 2021 Censuses: the rank correlation is
 > **-0.04**.
+>
+> The headline originally read: "EHCP demand grew fastest in areas with rapid demographic change". It now says what the published
+> figures show.
 
 **Pupils with an EHC plan in England rose by 65.4% in five years**, from 325,618
 in 2020/21 to 538,547 in 2025/26. In 2025/26 they are 6.0% of pupils.
