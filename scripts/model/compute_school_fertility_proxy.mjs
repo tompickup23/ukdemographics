@@ -7,19 +7,41 @@
  * composition is the only annual inter-censal ethnic fertility signal at LA level.
  *
  * This script:
- * 1. Extracts State-funded primary school pupils by ethnicity × LA × year
- * 2. Computes Reception-year ethnic composition trends (2015-2025)
+ * 1. Extracts State-funded primary school pupils by ethnicity x LA x year
+ * 2. Computes primary-school ethnic composition trends for every year in the file
  * 3. Derives implied ethnic fertility differentials per LA
- * 4. Outputs school-fertility-proxy.json for model calibration
+ * 4. Outputs school-fertility-proxy.json
  *
- * Input:  data/raw/dfe_schools/spc_pupils_ethnicity_and_language.csv
+ * Nothing reads school-fertility-proxy.json: not the model (run_hp_single_year.mjs
+ * calibrates on school-validation.json, built by validate_schools.mjs from the unsuffixed
+ * spc_pupils_ethnicity_and_language.csv), not a page. It is refreshed with the display
+ * files and does not touch the model's inputs.
+ *
+ * Input:  data/raw/dfe_schools/spc_pupils_ethnicity_and_language_<yyyy-yy>.csv, newest
+ *         release, resolved by stem (scripts/fetch/fetch-dfe-pupil-characteristics.mjs);
+ *         data/raw/manifests/dfe_pupil_characteristics.json for the release title and
+ *         dates, matched to the file by sha256
  * Output: src/data/live/school-fertility-proxy.json
+ *
+ * Columns are found by header name, not position: the 2025/26 file added pcon_code and
+ * pcon_name after new_la_code, which moved every later column along by two. The years are
+ * read from the time_period column rather than listed here.
  */
+import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
-const INPUT = path.resolve("data/raw/dfe_schools/spc_pupils_ethnicity_and_language.csv");
+import { parseCsv } from "../lib/csv-parser.mjs";
+import { newestEdition } from "../lib/newest-release.mjs";
+
+const INPUT = newestEdition(
+  path.resolve("data/raw/dfe_schools"),
+  /spc_pupils_ethnicity_and_language_(?<edition>\d{4})-\d{2}\.csv/i
+);
+const MANIFEST = path.resolve("data/raw/manifests/dfe_pupil_characteristics.json");
 const OUTPUT = path.resolve("src/data/live/school-fertility-proxy.json");
+const REQUIRED = ["time_period", "geographic_level", "new_la_code", "phase_type_grouping",
+  "ethnicity_minor", "language", "headcount"];
 
 // Map DfE ethnicity labels to our 20-group codes
 const ETH_MAP = {
@@ -51,44 +73,34 @@ const SIX_GROUP_MAP = {
   "ARB": "other", "OOT": "other"
 };
 
-console.log("Reading DfE School Census...");
-const raw = readFileSync(INPUT, "utf8");
-const lines = raw.split("\n");
-console.log(`  ${lines.length - 1} data rows`);
-
-// Parse CSV — handle quoted fields
-function parseCSVLine(line) {
-  const result = [];
-  let current = "";
-  let inQuotes = false;
-  for (let i = 0; i < line.length; i++) {
-    if (line[i] === '"') { inQuotes = !inQuotes; continue; }
-    if (line[i] === ',' && !inQuotes) { result.push(current.trim()); current = ""; continue; }
-    current += line[i];
-  }
-  result.push(current.trim());
-  return result;
+console.log(`Reading ${path.basename(INPUT)}...`);
+const bytes = readFileSync(INPUT);
+const digest = createHash("sha256").update(bytes).digest("hex");
+const manifest = JSON.parse(readFileSync(MANIFEST, "utf8"));
+const entry = Object.values(manifest.current ?? {}).find((e) => e.fileSha256 === digest);
+if (!entry || !manifest.release?.published) {
+  throw new Error(`${path.basename(INPUT)} is not the file ${path.basename(MANIFEST)} records; run the fetch script`);
 }
+const rows = parseCsv(bytes.toString("utf8"));
+console.log(`  ${rows.length} data rows`);
+const missing = REQUIRED.filter((c) => !(c in (rows[0] ?? {})));
+if (missing.length) throw new Error(`${path.basename(INPUT)}: missing columns ${missing.join(", ")}`);
 
-// Aggregate: LA code → year → ethnicity → headcount (primary schools, total language)
-const data = {}; // laCode → year → ethCode → headcount
+// Aggregate: LA code -> year -> ethnicity -> headcount (primary schools, total language)
+const data = {}; // laCode -> year -> ethCode -> headcount
+const periodsSeen = new Set();
 
-for (let i = 1; i < lines.length; i++) {
-  const cols = parseCSVLine(lines[i]);
-  if (cols.length < 15) continue;
-
-  const year = cols[0]; // e.g., "202425"
-  const geoLevel = cols[2];
-  const laCode = cols[9]; // new_la_code
-  const phase = cols[10];
-  const ethnicity = cols[11];
-  const language = cols[12];
-  const headcount = parseInt(cols[13]) || 0;
+for (const row of rows) {
+  const year = row.time_period; // e.g. "202526"
+  const laCode = row.new_la_code;
+  const ethnicity = row.ethnicity_minor;
+  const headcount = parseInt(row.headcount) || 0;
+  periodsSeen.add(year);
 
   // Only LA-level, primary schools, total language
-  if (geoLevel !== "Local authority") continue;
-  if (phase !== "State-funded primary") continue;
-  if (language !== "Total") continue;
+  if (row.geographic_level !== "Local authority") continue;
+  if (row.phase_type_grouping !== "State-funded primary") continue;
+  if (row.language !== "Total") continue;
   if (!laCode || !laCode.startsWith("E")) continue;
   if (headcount === 0) continue;
 
@@ -107,11 +119,21 @@ const laCodes = Object.keys(data).sort();
 console.log(`  ${laCodes.length} LAs with primary school data`);
 
 // Compute trends: for each LA, WBI share in primary schools over time
-const yearOrder = ["201516", "201617", "201718", "201819", "201920", "202021", "202122", "202223", "202324", "202425"];
+const yearOrder = [...periodsSeen].filter((p) => /^\d{6}$/.test(p)).sort();
+const ay = (p) => `${p.slice(0, 4)}/${p.slice(4)}`;
+// '2026-06-04' -> '4 June 2026'
+const longDate = (iso) => new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+if (ay(yearOrder[yearOrder.length - 1]) !== manifest.release.yearTitle) {
+  throw new Error(`file runs to ${ay(yearOrder[yearOrder.length - 1])}, the manifest's release is ${manifest.release.yearTitle}`);
+}
 
 const output = {
   generatedAt: new Date().toISOString(),
-  source: "DfE School Census 2015/16 to 2024/25 — State-funded primary school pupils by ethnicity and local authority",
+  source: `${manifest.publisher}, ${manifest.release.publication}, academic year ${manifest.release.yearTitle} ` +
+    `(published ${longDate(manifest.release.published)}, last updated ${longDate(manifest.release.lastUpdated)}). ` +
+    `State-funded primary school pupils by ethnicity and local authority, ${ay(yearOrder[0])} to ${ay(yearOrder[yearOrder.length - 1])}.`,
+  sourceFile: path.basename(INPUT),
+  lastUpdated: manifest.release.lastUpdated,
   methodology: "Primary school enrollment by ethnicity tracks actual births ~4-5 years lagged. Year-on-year change in ethnic composition is a proxy for ethnic-specific fertility differentials at LA level. This is the only annual inter-censal ethnic signal available.",
   years: yearOrder,
   areas: {}

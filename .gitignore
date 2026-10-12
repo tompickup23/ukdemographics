@@ -24,6 +24,7 @@ data/raw/census_2001_ethnicity_age/
 data/raw/census_2011_ethnicity_age/
 data/raw/crime/
 data/raw/supplementary/
+data/raw/dfe_sen/
 data/raw/newethpop/
 # Model inputs and intermediates are held outside git; only the manifest is tracked.
 data/model/*

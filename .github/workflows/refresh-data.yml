@@ -144,6 +144,26 @@ jobs:
         if: steps.asc_fetch.outcome == 'failure' || steps.asc.outcome == 'failure'
         run: git checkout -- src/data/live/asc-dashboard.json
 
+      # DfE SEN figures from the statistics API, no key: newest release found by the
+      # publication's slug. Annual (June); other weeks rewrite the same file.
+      # Secondary ingest, as births above: a failure restores the committed file, lets
+      # the rest of the refresh carry on, and turns the run red at the end.
+      - name: Fetch DfE SEN (statistics API, no auth)
+        id: send_fetch
+        continue-on-error: true
+        run: node scripts/fetch/fetch-dfe-sen.mjs
+
+      - name: Transform DfE SEN
+        id: send
+        if: steps.send_fetch.outcome == 'success'
+        continue-on-error: true
+        run: python3 scripts/transform/transform_send.py
+
+      # Pure shell, no GitHub event data is interpolated here.
+      - name: Restore the DfE SEN file if its ingest failed
+        if: steps.send_fetch.outcome == 'failure' || steps.send.outcome == 'failure'
+        run: git checkout -- src/data/live/send-dashboard.json
+
       # Ignore run timestamps when deciding whether anything changed.
       #
       # A transform that stamps `generatedAt` or `lastUpdated` moves that line on every
@@ -295,6 +315,8 @@ jobs:
           CTB_OUTCOME: ${{ steps.ctb.outcome }}
           ASC_FETCH_OUTCOME: ${{ steps.asc_fetch.outcome }}
           ASC_OUTCOME: ${{ steps.asc.outcome }}
+          SEND_FETCH_OUTCOME: ${{ steps.send_fetch.outcome }}
+          SEND_OUTCOME: ${{ steps.send.outcome }}
         run: |
           failed=0
           if [ "$DATATESTS_OUTCOME" = "failure" ]; then
@@ -315,6 +337,10 @@ jobs:
           fi
           if [ "$ASC_FETCH_OUTCOME" = "failure" ] || [ "$ASC_OUTCOME" = "failure" ]; then
             echo "DHSC adult social care was skipped (fetch: $ASC_FETCH_OUTCOME, transform: $ASC_OUTCOME). The committed asc-dashboard.json was kept."
+            failed=1
+          fi
+          if [ "$SEND_FETCH_OUTCOME" = "failure" ] || [ "$SEND_OUTCOME" = "failure" ]; then
+            echo "DfE SEN was skipped (fetch: $SEND_FETCH_OUTCOME, transform: $SEND_OUTCOME). The committed send-dashboard.json was kept."
             failed=1
           fi
           exit "$failed"

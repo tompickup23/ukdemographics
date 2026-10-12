@@ -464,7 +464,11 @@ const placeListing = buildPlaceListing(listingArm, {
   arrivalsSince: firstArrivalIdx >= 0 ? ninoHistoricalYears[firstArrivalIdx] ?? null : null,
   hasHousing: !!(hmo || ctSpd || housing?.dataAvailable),
   hasSchools: !!(school?.dataAvailable || (ealDistrict && ealDistrict.totalPupils > 0)),
-  hasServices: !!(crime || asc || send || pipMatch),
+  // Crime is left out of this flag so that a crime refresh cannot change listing copy.
+  // On 12 Oct 2026 every page that showed crime already qualified through ASC, SEND or
+  // PIP; the Welsh pages that gained crime from the Police Force Area tables did not,
+  // and their titles and descriptions must stay as the listing test set them.
+  hasServices: !!(asc || send || pipMatch),
 }, profileUpdatedDate());
 const pageTitle = placeListing?.title ?? controlTitle;
 const metaDescription = placeListing?.description ?? pageDescription;
@@ -1254,7 +1258,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     <section class="section" id="schools-eal">
       <h2>Schools, first language</h2>
       <p class="section-desc">
-        Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, 2024/25),
+        Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, {(schoolEalDistrict as any).academicYear}),
         <strong> {ealDistrict.ealPct.toFixed(1)}% have a first language other than English</strong>.
         {ealDistrict.parentUtlaName && ealDistrict.parentUtlaName !== ealDistrict.areaName && (
           <> The published {ealDistrict.parentUtlaName}-wide upper-tier figure is much lower because it averages every district in the county; this is the genuine {area.areaName} number.</>
@@ -1268,7 +1272,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         )}
       </div>
       <p class="section-note">
-        Source: DfE Schools, Pupils and their Characteristics 2024/25, school-level data aggregated to district. EAL (English as Additional Language) is a household-level signal: children born in the UK to non-English-speaking households count as EAL.
+        Source: DfE Schools, Pupils and their Characteristics {(schoolEalDistrict as any).academicYear}, school-level data aggregated to district. EAL (English as Additional Language) is a household-level signal: children born in the UK to non-English-speaking households count as EAL.
       </p>
     </section>
   )}
@@ -1315,7 +1319,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         </div>
       )}
       <p class="section-note">
-        Source: HMRC Real Time Information via ONS, payrolled employments by region and industrial sector, July 2014 to {payrollRegion.latestSnapshotDate}. Counts are employments not employees; suppressed cells appear as missing.
+        Source: HM Revenue and Customs, PAYE Real Time Information, payrolled employments by region and industrial sector, July 2014 to {payrollRegion.latestSnapshotDate}; the five-year change runs from {payrollRegion.fiveYearBaselineDate}. Counts are employments not employees, rounded to the nearest 100; suppressed cells appear as missing.
       </p>
     </section>
   )}
@@ -1330,6 +1334,12 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           <> {area.areaName} ranks at the <strong>{ordinal(crimePercentile)} percentile</strong> nationally for total crime rate.</>
         )}
       </p>
+      {crime.suppressed && crime.suppressionNote && (
+        <p class="section-note">{crime.suppressionNote}</p>
+      )}
+      {crime.basisNote && (
+        <p class="section-note">{crime.basisNote}</p>
+      )}
       <div class="data-grid">
         {crime.totalCrimeRate != null && (
           <div class="data-item"><span class="data-label">Total crime / 1k</span><span class="data-value">{crime.totalCrimeRate.toFixed(1)}</span></div>
@@ -1358,6 +1368,14 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           </div>
         )}
       </div>
+      {!crime.suppressed && crime.yearOnYearNote && (
+        <p class="section-note">Year-on-year change. {crime.yearOnYearNote}</p>
+      )}
+      {crime.policeForce?.unassignedSharePct != null && crime.policeForce.unassignedSharePct >= 0.05 && (
+        <p class="section-note">
+          Police force: {crime.policeForce.name}. It could not place {crime.policeForce.unassignedSharePct.toFixed(1)}% of the offences it recorded in this period in any area, and those offences are in no area's figure.
+        </p>
+      )}
       <p class="section-note">{getCrimeSource()}. {getCrimeCaveat()}</p>
     </section>
   )}
@@ -1433,14 +1451,14 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         )}
       </p>
       <div class="data-grid">
-        {send.ehcpRatePer10k != null && (
-          <div class="data-item"><span class="data-label">EHCPs / 10k</span><span class="data-value">{send.ehcpRatePer10k.toFixed(0)}</span></div>
+        {send.ehcpPctOfPupils != null && (
+          <div class="data-item"><span class="data-label">Pupils with an EHC plan, % of pupils</span><span class="data-value">{send.ehcpPctOfPupils.toFixed(1)}%</span></div>
         )}
-        {send.totalEhcps != null && (
-          <div class="data-item"><span class="data-label">Total EHCPs</span><span class="data-value">{send.totalEhcps.toLocaleString()}</span></div>
+        {send.ehcpPupils != null && (
+          <div class="data-item"><span class="data-label">Pupils with an EHC plan</span><span class="data-value">{send.ehcpPupils.toLocaleString()}</span></div>
         )}
         {send.asdPrevalencePct != null && (
-          <div class="data-item"><span class="data-label">ASD prevalence</span><span class="data-value">{send.asdPrevalencePct.toFixed(1)}%</span></div>
+          <div class="data-item"><span class="data-label">Autism, share of EHC plans</span><span class="data-value">{send.asdPrevalencePct.toFixed(1)}%</span></div>
         )}
         {send.fiveYearGrowthPct != null && (
           <div class="data-item">

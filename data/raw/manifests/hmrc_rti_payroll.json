@@ -1,0 +1,35 @@
+{
+  "dataset": "hmrc_rti_payroll",
+  "publisher": "HM Revenue and Customs",
+  "cadence": "annual",
+  "landing": "https://www.gov.uk/government/collections/uk-payrolled-employments-by-nationality-region-industry-age-and-sex",
+  "note": "Reference period and release are read from the workbook's cover sheet by the payroll transforms, never from this manifest or the file name. Not in the weekly refresh: the nationality transform also reads the DWP NINo cube, which needs a Stat-Xplore key.",
+  "release": {
+    "title": "UK payrolled employments by nationality, region, industry, age and sex, from July 2014 to December 2025",
+    "page": "https://www.gov.uk/government/statistics/uk-payrolled-employments-by-nationality-region-industry-age-and-sex-from-july-2014-to-december-2025",
+    "firstPublished": "2026-04-14",
+    "lastUpdated": "2026-05-22"
+  },
+  "current": {
+    "fileName": "Payrolled_employments_in_the_UK_by_nationality__region_and_industry__from_July_2014_to_December_2025.ods",
+    "fileSha256": "8b9083360d84dd93bfb1998749cda9ee433458104904b7b9177efe96c4703a22",
+    "sizeBytes": 1323420,
+    "sourceUrl": "https://assets.publishing.service.gov.uk/media/6a0f1c2b1eb143220d8d276c/Payrolled_employments_in_the_UK_by_nationality__region_and_industry__from_July_2014_to_December_2025.ods"
+  },
+  "attempts": [
+    {
+      "url": "https://assets.publishing.service.gov.uk/media/6a0f1c2b1eb143220d8d276c/Payrolled_employments_in_the_UK_by_nationality__region_and_industry__from_July_2014_to_December_2025.ods",
+      "attempted_at": "2026-10-12T08:28:06.363Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "etag": "\"6a0f1c2b-14319c\"",
+      "last_modified": "Thu, 21 May 2026 14:52:27 GMT",
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "Payrolled_employments_in_the_UK_by_nationality__region_and_industry__from_July_2014_to_December_2025.ods",
+      "release_page": "https://www.gov.uk/government/statistics/uk-payrolled-employments-by-nationality-region-industry-age-and-sex-from-july-2014-to-december-2025",
+      "blob_sha256": "8b9083360d84dd93bfb1998749cda9ee433458104904b7b9177efe96c4703a22",
+      "bytes": 1323420
+    }
+  ]
+}

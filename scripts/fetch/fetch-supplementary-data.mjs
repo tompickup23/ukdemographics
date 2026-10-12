@@ -1,12 +1,17 @@
 /**
- * Fetch official supplementary data files for crime, SEND, and ASC.
+ * Formerly fetched the supplementary crime, SEND and ASC files. All three have moved:
  *
- * Crime: ONS "Recorded crime data at Community Safety Partnership area" (XLSX)
- * SEND: DfE "Special educational needs in England" SEN2 return (XLSX)
- * ASC: no longer here; see scripts/fetch/fetch-dhsc-asc.mjs
+ * Crime moved out on 12 Oct 2026: ONS discontinued "Recorded crime data by Community
+ * Safety Partnership area" on 24 Oct 2024, and scripts/fetch/fetch-ons-pfa-crime.mjs
+ * now resolves the newest Police Force Area data tables from the ONS dataset page.
  *
- * These are direct downloads from GOV.UK and ONS — no API parsing needed.
- * The transform scripts will parse the XLSX files.
+ * SEND moved to scripts/fetch/fetch-dfe-sen.mjs (12 Oct 2026), which finds the newest
+ * release through the DfE statistics API instead of naming one release id.
+ *
+ * ASC moved to scripts/fetch/fetch-dhsc-asc.mjs (12 Oct 2026), which finds the newest
+ * DHSC edition on GOV.UK itself.
+ *
+ * The download list is empty; the loop below is kept for any future direct download.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
@@ -15,18 +20,6 @@ const rawDir = path.resolve(process.cwd(), "data/raw/supplementary");
 mkdirSync(rawDir, { recursive: true });
 
 const downloads = [
-  {
-    id: "crime",
-    fileName: "ons-recorded-crime-csp.xlsx",
-    // ONS recorded crime by CSP area, year ending March 2024
-    url: "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea/yearendingmarch2024/csptablesyemar24correction.xlsx"
-  },
-  {
-    id: "send",
-    fileName: "dfe-sen-2024-25.zip",
-    // DfE SEN in England 2024/25 release ZIP. Re-resolve via /api/publications/special-educational-needs-in-england/releases/latest if this UUID rotates.
-    url: "https://content.explore-education-statistics.service.gov.uk/api/releases/f7330b25-398d-477d-80c7-9b33bc10316f/files?fromPage=ReleaseDownloads"
-  }
   // Adult social care moved to DHSC on GOV.UK from 2024-25 and is fetched by
   // scripts/fetch/fetch-dhsc-asc.mjs, which finds the newest edition itself.
 ];
