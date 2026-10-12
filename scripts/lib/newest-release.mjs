@@ -6,7 +6,7 @@
  * the filename, and naming one literally in a script means it keeps working while
  * reading an older period than the one published.
  */
-import { readdirSync } from "node:fs";
+import { readdirSync, statSync } from "node:fs";
 import path from "node:path";
 
 const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6,
@@ -17,7 +17,18 @@ function period(name) {
   return m ? [Number(m[2]), MONTHS[m[1]]] : null;
 }
 
-export function newestRelease(directory, stem, exts = [".xlsx", ".ods"]) {
+// Latest four-digit year in a filename, for annual series with no month in the name.
+// Orders files on disk only; the edition a transform reports is read from the file.
+function year(name) {
+  const years = [...name.matchAll(/(?<![0-9A-Za-z])((?:19|20)\d{2})(?![0-9A-Za-z])/g)].map((m) => Number(m[1]));
+  return years.length ? [Math.max(...years), 0] : null;
+}
+
+// `by: "month"` (the default) orders on a `-mon-yyyy` period, as the Home Office names
+// its files; `by: "year"` orders on the latest year in the name, for annual series.
+export function newestRelease(directory, stem, exts = [".xlsx", ".ods"], { by = "month" } = {}) {
+  if (by !== "month" && by !== "year") throw new Error(`by must be "month" or "year", not ${by}`);
+  const keyer = by === "month" ? period : year;
   let best = null, bestKey = null;
   let entries = [];
   try {
@@ -28,9 +39,12 @@ export function newestRelease(directory, stem, exts = [".xlsx", ".ods"]) {
   for (const name of entries) {
     if (!name.startsWith(stem)) continue;
     if (!exts.includes(path.extname(name).toLowerCase())) continue;
-    const key = period(name);
-    if (!key) continue;
-    if (!bestKey || key[0] > bestKey[0] || (key[0] === bestKey[0] && key[1] > bestKey[1])) {
+    const parsed = keyer(name);
+    if (!parsed) continue;
+    // Equal periods (a publisher replacing a file in place, kept beside the old one
+    // under a hash suffix) resolve to the later download.
+    const key = [...parsed, statSync(path.join(directory, name)).mtimeMs];
+    if (!bestKey || key[0] > bestKey[0] || (key[0] === bestKey[0] && (key[1] > bestKey[1] || (key[1] === bestKey[1] && key[2] > bestKey[2])))) {
       best = path.join(directory, name);
       bestKey = key;
     }
