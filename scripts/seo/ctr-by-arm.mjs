@@ -41,6 +41,19 @@ const slugIdx = armHeader.indexOf("slug");
 const armIdx = armHeader.indexOf("arm");
 const armBySlug = new Map(armRows.map((r) => [r[slugIdx], r[armIdx]]));
 
+// Pages whose listing text changed mid-window for reasons outside the test are
+// dropped from every arm (docs/seo/listing-test-exclusions-2026-10.csv). Pass
+// --include-excluded to see the unfiltered figures beside them.
+const exclusionsCsv = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../../docs/seo/listing-test-exclusions-2026-10.csv");
+const includeExcluded = process.argv.includes("--include-excluded");
+const excluded = new Set();
+if (fs.existsSync(exclusionsCsv) && !includeExcluded) {
+  const [exHeader, ...exRows] = parseCsv(fs.readFileSync(exclusionsCsv, "utf8"));
+  const exSlug = exHeader.indexOf("slug");
+  for (const r of exRows) excluded.add(r[exSlug]);
+  for (const s of excluded) armBySlug.delete(s);
+}
+
 const [, ...pageRows] = parseCsv(fs.readFileSync(exportPath, "utf8"));
 const totals = new Map([...new Set(armBySlug.values())].map((a) => [a, { pages: 0, seen: 0, clicks: 0, impressions: 0 }]));
 for (const a of armBySlug.values()) totals.get(a).pages += 1;
@@ -57,6 +70,7 @@ for (const [url, clicks, impressions] of pageRows) {
 }
 
 console.log(`Export: ${exportPath}`);
+if (excluded.size) console.log(`Excluded ${excluded.size} pages listed in docs/seo/listing-test-exclusions-2026-10.csv (use --include-excluded to keep them).`);
 console.log("arm      pages  in export  clicks  impressions  clicks/impression");
 for (const [arm, t] of [...totals].sort()) {
   const rate = t.impressions ? (100 * t.clicks / t.impressions).toFixed(3) + "%" : "n/a";
