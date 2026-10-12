@@ -60,6 +60,7 @@ data/raw/ons_mye_timeseries/
 data/raw/ons_npp_england/
 data/raw/ons_3596/
 data/raw/wg_lapp/
+data/raw/dhsc_asc/
 
 # Environment and credential files
 *.env
