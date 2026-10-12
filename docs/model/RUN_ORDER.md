@@ -38,9 +38,9 @@ For the v8.1 run (base options, control totals, cap mode) see `docs/model/V81_RE
 |---|---|---|---|
 | 3.1 | `run_hp_single_year.mjs` | base, DC2101EW, NEWETHPOP 2011, SNPP persons CSV, `school-validation.json` | `current.groups`, `current.groups_detail`, `current.groups_absolute_detail`, `projections`, `projections_detail`, `thresholds`, `headlineStat`; top-level `methodology`, `modelVersion`, `lastUpdated` |
 | 3.2 | `run_stochastic_hp.mjs` | the same inputs, `model-validation.json` | `stochastic`, `confidenceBand2051`; appends to `methodology`. Over an hour; holds `.stochastic-run.lock` |
-| 3.3 | `run_projection_v2.mjs` | `data/model/base_population_2021.json`, `net_migration_rates.json`, SNPP persons CSV, `model-validation.json` | `scenarioRange2051`, `modelSpread2051.cohortComponent` only |
+| 3.3 | `run_projection_v2.mjs` | `data/model/base_population_2021.json`, `net_migration_rates.json`, SNPP persons CSV, `model-validation.json` | `scenarioRange2051`, `modelSpread2051.cohortComponent` only, and `modelSpread2051.spreadPp` recomputed from the stored `hamiltonPerry` (which `reconcile_derived.mjs` owns) |
 
-Step 3.3 doubled its SNPP target until the fix in the v2 PR (it summed the "All ages" row with every single-year row). Do not run it from a branch without that fix.
+Step 3.3 doubled its SNPP target until the fix in the v2 PR (it summed the "All ages" row with every single-year row). Do not run it from a branch without that fix. The re-run of 12 October 2026 (fixed code, v8.0 inputs) replaced the doubled run's fields in the data file.
 
 The forward model projects an area only if its code is in both the 2021 base and NEWETHPOP's 2011 file. With the current base that is 278 codes, of which 269 are written: the other nine (E07000028, E07000031, E07000164, E07000165, E07000168, E07000169, E07000187, E07000188, E07000189) are districts abolished in April 2023 and have no record on the site.
 
