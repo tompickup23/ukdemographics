@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Aggregate DfE per-school 2024/25 census to DISTRICT-level EAL and
-ethnicity figures, breaking the upper-tier-LA-only DfE published
-breakdown into genuine district granularity.
+Aggregate the DfE school level underlying data (newest release on disk) to
+DISTRICT-level EAL and ethnicity figures, breaking the upper-tier-LA-only DfE
+published breakdown into genuine district granularity.
 
 Each school row has district_administrative_code (ONS LAD) and pupil
 counts by first language and ethnicity. Summing across schools whose
@@ -10,7 +10,10 @@ district matches gives a district-level EAL share that the DfE does
 not publish directly.
 
 Inputs:
-  data/raw/dfe_schools_per_school/spc_school_level_2024-25.csv
+  data/raw/dfe_schools_per_school/spc_school_level_underlying_data_<yyyy>.csv, newest
+  release, resolved by stem (scripts/fetch/fetch-dfe-pupil-characteristics.mjs)
+  data/raw/manifests/dfe_pupil_characteristics.json (release title and dates, matched
+  to the file by sha256)
 
 Output:
   src/data/live/school-eal-district.json
@@ -20,14 +23,23 @@ Caveats:
   - District = catchment-of-school; some schools serve neighbouring
     districts. Pupil residence is NOT in this file.
   - Suppressed values (X / *) are treated as zero where they appear.
+
+The academic year comes from the file's time_period column (one value, or the run
+stops); the release title and dates from the fetch manifest. Every column below is read
+by header name and a missing one stops the run. The 2024/25 file was Windows-1252 and
+the 2025/26 file is UTF-8 with a byte order mark; the encoding is read from the bytes.
 """
-import csv
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+import dfe_csv  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / "data/raw/dfe_schools_per_school/spc_school_level_2024-25.csv"
+RAW_DIR = ROOT / "data/raw/dfe_schools_per_school"
+MANIFEST = ROOT / "data/raw/manifests/dfe_pupil_characteristics.json"
 OUT = ROOT / "src/data/live/school-eal-district.json"
 
 # Columns of interest in the wide CSV
@@ -66,9 +78,13 @@ def to_int(s):
 
 
 def main():
-    if not SRC.exists():
-        print(f"ERROR: {SRC} not found.")
-        return 2
+    src = dfe_csv.resolve(RAW_DIR, dfe_csv.SCHOOL_LEVEL)
+    release = dfe_csv.release_for(src, MANIFEST)
+    required = [COL_DISTRICT_CODE, COL_DISTRICT_NAME, COL_LA_CODE, COL_LA_NAME, COL_HEADCOUNT,
+                COL_ENGLISH_N, COL_EAL_N, COL_UNCLASS_N, COL_PUPILS_COMPSCH, COL_FSM_N,
+                "time_period", *ETH_COLS.values()]
+    periods = set()
+    aliases = dfe_csv.area_code_aliases(ROOT)
 
     # Per district aggregator
     by_district = defaultdict(lambda: {
@@ -86,13 +102,14 @@ def main():
     })
 
     schools_processed = 0
-    # Encoding: DfE CSVs are typically Windows-1252 with stray accented characters
-    with SRC.open(encoding="cp1252") as fh:
-        reader = csv.DictReader(fh)
+    fh, reader = dfe_csv.open_reader(src, required)
+    with fh:
         for row in reader:
+            periods.add(row["time_period"])
             district_code = row.get(COL_DISTRICT_CODE)
             if not district_code or district_code in {"", "z", "c"}:
                 continue
+            district_code = aliases.get(district_code, district_code)
             agg = by_district[district_code]
             agg["name"] = row.get(COL_DISTRICT_NAME) or agg["name"]
             agg["utla_code"] = row.get(COL_LA_CODE) or agg["utla_code"]
@@ -145,13 +162,23 @@ def main():
         key=lambda kv: -kv[1]["ealPct"],
     )[:15]
 
+    if len(periods) != 1:
+        raise RuntimeError(f"{src.name}: expected one time_period, found {sorted(periods)}")
+    year = dfe_csv.academic_year(periods.pop())
+    if year != release.get("yearTitle"):
+        raise RuntimeError(f"{src.name} is {year}, the manifest's release is {release.get('yearTitle')}")
+
     out = {
         "source": (
-            "DfE Schools, Pupils and their Characteristics, academic year "
-            "2024/25 — school-level underlying data, aggregated to "
-            "district administrative code (E07/E06/E08/E09)."
+            f"{release['publisher']}, {release['publication']}, academic year {year} "
+            f"(published {dfe_csv.long_date(release['published'])}, last updated "
+            f"{dfe_csv.long_date(release['lastUpdated'])}). School level underlying data, "
+            "aggregated to district administrative code (E07/E06/E08/E09)."
         ),
-        "lastUpdated": "2026-04-29",
+        "sourceUrl": release["page"],
+        "sourceFile": src.name,
+        "academicYear": year,
+        "lastUpdated": release["lastUpdated"],
         "caveat": (
             "Aggregated per district where the school sits, not where "
             "the pupil lives. Only state-funded schools are in scope; "
@@ -166,20 +193,10 @@ def main():
         ],
         "areas": areas,
     }
-    OUT.write_text(json.dumps(out, indent=2))
+    OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+    print(f"Read {src.name} ({year}); release {release['title']}, updated {release['lastUpdated']}")
+    print(f"Schools processed: {schools_processed:,}; districts: {len(areas)}")
     print(f"Wrote {OUT}")
-    print(f"Schools processed: {schools_processed:,}")
-    print(f"Districts: {len(areas)}")
-    print(f"\nTop 10 districts by EAL share:")
-    for c, a in top_eal[:10]:
-        print(f"  {a['areaName']:30s} {a['ealPct']:5.1f}% EAL  ({a['totalPupils']:,} pupils, {a['schoolCount']} schools)")
-    print(f"\nLancashire district comparison (Burnley + neighbours):")
-    for code in ["E07000117", "E07000122", "E07000120", "E07000121", "E07000123", "E07000125"]:
-        a = areas.get(code)
-        if a:
-            print(f"  {a['areaName']:18s} EAL {a['ealPct']:5.1f}%  ({a['totalPupils']:,} pupils, {a['schoolCount']} schools)")
-    print(f"\nLancashire UTLA comparison: 14.47% (parent-county figure from DfE)")
-
 
 if __name__ == "__main__":
     main()

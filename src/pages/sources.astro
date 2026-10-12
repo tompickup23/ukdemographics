@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import sourceScope from "../data/live/source-scope.json";
+import birthsHistory from "../data/live/births-history-national.json";
+
+const birthsYears: number[] = (birthsHistory as any).years ?? [];
 ---
 
 <BaseLayout title="Sources" description="Data sources used by UK Demographics. Census, ONS, DfE, NHS Digital, and Home Office publications.">
@@ -57,8 +60,8 @@ import sourceScope from "../data/live/source-scope.json";
       </div>
       <div class="source-card">
         <h3>ONS Births by Country of Birth</h3>
-        <p>Births to UK-born vs non-UK-born mothers, 2008 to 2024, England and Wales. Table 1 for national, Table 6a for per-local-authority breakdowns.</p>
-        <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths" target="_blank" rel="noopener">ons.gov.uk</a>
+        <p>Births to UK-born vs non-UK-born mothers, {birthsYears[0]} to {birthsYears[birthsYears.length - 1]}, England and Wales, from the "Parents' country of birth" dataset published with Births in England and Wales. Table 1 for national, Table 6a for per-local-authority breakdowns.</p>
+        <a href={(birthsHistory as any).sourceUrl} target="_blank" rel="noopener">ons.gov.uk</a>
       </div>
     </div>
     <p class="source-note">This list covers the primary feeds. Specialist sources (Land Registry HPI for housing, Police.uk LSOA-level crime, NHS Digital for adult social care, DLUHC homelessness counts) are referenced inline on the pages that use them.</p>

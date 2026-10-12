@@ -26,12 +26,15 @@ data/raw/crime/
 data/raw/supplementary/
 data/raw/dfe_sen/
 data/raw/newethpop/
-data/model/
+# Model inputs and intermediates are held outside git; only the manifest is tracked.
+data/model/*
+!data/model/INPUTS.json
 data/raw/census_base/
 data/raw/census_single_year/
 data/raw/dfe_schools/
 data/raw/ons_births/
 data/raw/census_ethnicity_detail/
+data/raw/census_migration/
 data/raw/snpp/
 data/raw/companies_house/
 data/raw/ho_visas/
@@ -53,6 +56,10 @@ data/raw/ho_visas_extra/
 data/raw/dft_evci/
 data/raw/hmrc_child_benefit/
 data/raw/ons_mye/
+data/raw/ons_mye_timeseries/
+data/raw/ons_npp_england/
+data/raw/ons_3596/
+data/raw/wg_lapp/
 
 # Environment and credential files
 *.env
