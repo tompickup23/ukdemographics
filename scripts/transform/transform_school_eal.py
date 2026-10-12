@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-DfE Schools, Pupils and their Characteristics — pupils by first language,
-per upper-tier local authority, time series 2020/21 → 2024/25.
+DfE Schools, Pupils and their Characteristics: pupils by first language, per
+upper-tier local authority, every academic year in the newest release on disk.
 
 The DfE schools census reports at upper-tier (UTLA) level only: counties
 own schools, not districts. So Burnley, Pendle and the other Lancashire
@@ -13,7 +13,12 @@ applicable, with the UTLA's figure attached and a clear `dataLevel`
 field showing whether the figure is the LA's own or its parent county's.
 
 Inputs:
-  data/raw/dfe_schools/spc_pupils_ethnicity_and_language.csv (DfE)
+  data/raw/dfe_schools/spc_pupils_ethnicity_and_language_<yyyy-yy>.csv, newest
+  release, resolved by stem (scripts/fetch/fetch-dfe-pupil-characteristics.mjs
+  downloads it under that name). The unsuffixed spc_pupils_ethnicity_and_language.csv
+  is the model's calibration input (validate_schools.mjs) and is not read here.
+  data/raw/manifests/dfe_pupil_characteristics.json (release title and dates, matched
+  to the file by sha256)
 
 Output:
   src/data/live/school-eal.json
@@ -21,7 +26,11 @@ Output:
 Each area record has:
   areaName, dataLevel ('own' or 'parent_county'), parentCountyCode,
   parentCountyName, latestYear, totalPupils, eal_pct, english_pct,
-  unclassified_pct, eal_count, timeSeries (5-year)
+  unclassified_pct, eal_count, timeSeries (every year in the file)
+
+The academic year comes from the file's time_period column; the release title and
+dates from the fetch manifest. Columns are read by header name and a missing one stops
+the run.
 
 Caveats:
   - Pupils with English as Additional Language ('Known or believed to be
@@ -32,14 +41,23 @@ Caveats:
     A district within a high-EAL or low-EAL county will inherit the
     county figure; intra-county variation is not captured by this data.
 """
-import csv
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+import dfe_csv  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / "data/raw/dfe_schools/spc_pupils_ethnicity_and_language.csv"
+RAW_DIR = ROOT / "data/raw/dfe_schools"
+MANIFEST = ROOT / "data/raw/manifests/dfe_pupil_characteristics.json"
 OUT = ROOT / "src/data/live/school-eal.json"
+REQUIRED = ["time_period", "geographic_level", "new_la_code", "la_name", "phase_type_grouping",
+            "ethnicity_minor", "language", "headcount", "percent_of_pupils"]
+EAL = "Known or believed to be other than English"
+ENGLISH = "Known or believed to be English"
+UNCLASSIFIED = "Language unclassified"
 
 # District -> Upper-tier county mapping (E07 -> E10) for England's two-tier
 # counties as at December 2024. Unitary codes (E06, E08, E09) and county
@@ -131,23 +149,21 @@ DISTRICT_TO_COUNTY = {
 }
 
 
-def parse_period(period):
-    """`202425` -> `2024/25`."""
-    s = str(period)
-    return f"{s[:4]}/{s[4:]}"
+parse_period = dfe_csv.academic_year
 
 
 def main():
-    if not SRC.exists():
-        print(f"ERROR: {SRC} not found.")
-        return 2
+    src = dfe_csv.resolve(RAW_DIR, dfe_csv.ETHNICITY_LANGUAGE)
+    release = dfe_csv.release_for(src, MANIFEST)
 
     # utla_data[utla_code][period][language] = (headcount, pct)
     utla_data = defaultdict(lambda: defaultdict(dict))
     utla_name = {}
+    languages = set()
 
-    with SRC.open() as fh:
-        reader = csv.DictReader(fh)
+    aliases = dfe_csv.area_code_aliases(ROOT)
+    fh, reader = dfe_csv.open_reader(src, REQUIRED)
+    with fh:
         for row in reader:
             if row.get("geographic_level") != "Local authority":
                 continue
@@ -158,6 +174,7 @@ def main():
             code = row.get("new_la_code")
             if not code:
                 continue
+            code = aliases.get(code, code)
             period = row["time_period"]
             lang = row["language"]
             try:
@@ -167,6 +184,13 @@ def main():
                 continue
             utla_data[code][period][lang] = (headcount, pct)
             utla_name[code] = row.get("la_name", code)
+            languages.add(lang)
+
+    for label in (EAL, ENGLISH, UNCLASSIFIED, "Total"):
+        if label not in languages:
+            raise RuntimeError(f"{src.name}: no rows for language '{label}'")
+    if not utla_data:
+        raise RuntimeError(f"{src.name}: no local authority totals read")
 
     # Build per-UTLA latest-year summary + time series
     utla_summary = {}
@@ -229,16 +253,31 @@ def main():
         key=lambda kv: -kv[1]["ealPct"],
     )[:10]
 
+    periods = sorted({p for d in utla_data.values() for p in d})
+    first_year, latest_year = parse_period(periods[0]), parse_period(periods[-1])
+    if latest_year != release.get("yearTitle"):
+        raise RuntimeError(f"{src.name} runs to {latest_year}, the manifest's release is {release.get('yearTitle')}")
+    revisions = compare_with_previous(utla_summary)
+
     out = {
-        "source": "DfE Schools, Pupils and their Characteristics, academic year 2024/25 (and four prior years for time series)",
-        "lastUpdated": "2026-04-28",
+        "source": (
+            f"{release['publisher']}, {release['publication']}, academic year {latest_year} "
+            f"(published {dfe_csv.long_date(release['published'])}, last updated "
+            f"{dfe_csv.long_date(release['lastUpdated'])}). Data set: "
+            f"Pupil characteristics, number of pupils by ethnicity and language, {first_year} to "
+            f"{latest_year}, local authority rows, all school types."
+        ),
+        "sourceUrl": release["page"],
+        "sourceFile": src.name,
+        "academicYear": latest_year,
+        "lastUpdated": release["lastUpdated"],
         "caveat": (
             "Pupils whose first language is 'Known or believed to be other "
             "than English' captures children for whom the home language is "
             "not English. It is a household-level signal, not a measure of "
             "new arrivals: a child born in the UK whose parents speak a "
             "non-English language at home is counted as EAL. The DfE "
-            "publishes this at upper-tier local authority level only — "
+            "publishes this at upper-tier local authority level only: "
             "Lancashire, Kent and other two-tier counties report a single "
             "figure covering all their districts. For districts in this "
             "data file the dataLevel field is 'parent_county' and the "
@@ -252,18 +291,36 @@ def main():
         ],
         "areas": areas,
     }
-    OUT.write_text(json.dumps(out, indent=2))
+    OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+    print(f"Read {src.name} ({first_year} to {latest_year}); release {release['title']}, updated {release['lastUpdated']}")
+    print(f"Upper-tier LAs: {len(utla_summary)}; areas including districts: {len(areas)}")
+    if revisions is None:
+        print("No earlier output to check against")
+    else:
+        print(f"Checked against the output it replaces: {len(revisions)} revised value(s) in overlapping years")
+        for r in revisions[:20]:
+            print(f"  {r}")
     print(f"Wrote {OUT}")
-    print(f"Upper-tier LAs: {len(utla_summary)}")
-    print(f"Total areas (incl. districts): {len(areas)}")
-    print(f"\nTop 10 EAL upper-tier LAs:")
-    for c, s in top_eal:
-        print(f"  {s['areaName']:30s} {s['ealPct']:5.1f}%  ({s['totalPupils']:,} pupils)")
-    print(f"\nLancashire (E10000017):")
-    print(json.dumps(utla_summary["E10000017"], indent=2))
-    print(f"\nBurnley (E07000117) inherits:")
-    print(json.dumps({k: v for k, v in areas["E07000117"].items() if k != 'timeSeries'}, indent=2))
 
+
+def compare_with_previous(utla_summary):
+    """Revisions to earlier years' figures against the file being replaced, or None."""
+    if not OUT.exists():
+        return None
+    previous = json.loads(OUT.read_text()).get("areas", {})
+    revisions = []
+    for code, summary in utla_summary.items():
+        old = previous.get(code)
+        if not old or old.get("dataLevel") != "own":
+            continue
+        for year, new_vals in summary["timeSeries"].items():
+            old_vals = old.get("timeSeries", {}).get(year)
+            if not old_vals:
+                continue
+            for key in ("totalPupils", "ealCount"):
+                if old_vals.get(key) != new_vals.get(key):
+                    revisions.append((code, year, key, old_vals.get(key), new_vals.get(key)))
+    return revisions
 
 if __name__ == "__main__":
     main()
