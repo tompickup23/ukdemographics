@@ -46,13 +46,15 @@ Population data for every community. Ethnic projections, school data, housing de
 
 | Script | Purpose | Cadence |
 |---|---|---|
-| `scripts/fetch/fetch-nomis-census.mjs` | TS029 + RM134 + RM043 from NOMIS | One-shot (Census 2021 is fixed) |
+| `scripts/fetch/fetch-nomis-census.mjs` | TS029 + RM134 + RM043, formerly from the NOMIS dataset API. Stops before any request since 12 Oct 2026 (see below); the committed JSON is the record | Retired |
 | `scripts/fetch/fetch-la-hierarchy.mjs` | District → county lookup from ONS Open Geography | Annual or after LGR events |
 | `scripts/fetch/fetch-lad-successors.mjs` | LAD22 → LAD23 successor lookup from ONS Open Geography | After LGR events |
-| `scripts/build/derive-census-english-successors.mjs` | Sums TS029 counts for the four April 2023 unitaries; post-step of the NOMIS fetch | With the NOMIS fetch |
+| `scripts/build/derive-census-english-successors.mjs` | Sums TS029 counts for the four April 2023 unitaries; runs on the committed JSON without a fetch | When the successor lookup changes |
 | `scripts/model/sync_english_proficiency.mjs` | Rewrites `englishProficiency` + `currentProficiency` from the committed TS029 file | After a TS029 refresh |
 | `scripts/fetch/fetch-stop-and-search.mjs` | data.police.uk monthly | Weekly via cron |
 | `scripts/build/build-pcon-dataset.mjs` | Join UKE GE 2024 + crosswalk + PIP into per-PCON | When upstream changes |
+
+**No Nomis dataset API (12 Oct 2026).** Nomis's robots.txt disallows `nomisweb.co.uk/api/` for all agents. Eight scripts that called it now stop at `refuseNomisDatasetApi()` (`scripts/lib/nomis-guard.mjs`) before any request, and print the raw files already held and the ONS download for the same table, where one is identified: `fetch-census-ethnicity`, `fetch-census-2001-ethnicity-age`, `fetch-census-2011-ethnicity-age`, `fetch-census-2011-migration`, `fetch-country-of-birth`, `fetch-econ-activity-passport`, `fetch-economic-data` and `fetch-nomis-census`. `tests/nomis-guard.test.ts` fails if any other file under `scripts/` mentions the dataset API, and runs each guarded script to show it exits before `fetch()`. A replacement fetch follows `scripts/fetch/fetch-ons-mye.mjs`.
 
 Other Python transforms in `scripts/transform/transform_*.py` handle the NINo / PIP / payroll / births / TB / etc. pipelines. Most run manually because raw data is gitignored.
 
