@@ -51,6 +51,12 @@ if (files.length !== 1) {
   process.exit(1);
 }
 const url = files[0].url;
+// The file name comes from the publisher's URL, so check where it points before it
+// becomes a path; download() also refuses any name that is not a bare file name.
+if (!/^https:\/\/assets\.publishing\.service\.gov\.uk\/media\/[A-Za-z0-9]+\/[A-Za-z0-9._-]+$/.test(url)) {
+  console.error(`unexpected attachment URL ${url}; refusing it`);
+  process.exit(1);
+}
 const fileName = decodeURIComponent(url.split("/").pop());
 console.log(`newest edition: ${content.title} (published ${content.first_published_at})`);
 if (dryRun) {
