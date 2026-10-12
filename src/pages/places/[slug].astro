@@ -1427,14 +1427,14 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         )}
       </p>
       <div class="data-grid">
-        {send.ehcpRatePer10k != null && (
-          <div class="data-item"><span class="data-label">EHCPs / 10k</span><span class="data-value">{send.ehcpRatePer10k.toFixed(0)}</span></div>
+        {send.ehcpPctOfPupils != null && (
+          <div class="data-item"><span class="data-label">Pupils with an EHC plan, % of pupils</span><span class="data-value">{send.ehcpPctOfPupils.toFixed(1)}%</span></div>
         )}
-        {send.totalEhcps != null && (
-          <div class="data-item"><span class="data-label">Total EHCPs</span><span class="data-value">{send.totalEhcps.toLocaleString()}</span></div>
+        {send.ehcpPupils != null && (
+          <div class="data-item"><span class="data-label">Pupils with an EHC plan</span><span class="data-value">{send.ehcpPupils.toLocaleString()}</span></div>
         )}
         {send.asdPrevalencePct != null && (
-          <div class="data-item"><span class="data-label">ASD prevalence</span><span class="data-value">{send.asdPrevalencePct.toFixed(1)}%</span></div>
+          <div class="data-item"><span class="data-label">Autism, share of EHC plans</span><span class="data-value">{send.asdPrevalencePct.toFixed(1)}%</span></div>
         )}
         {send.fiveYearGrowthPct != null && (
           <div class="data-item">

@@ -52,6 +52,13 @@ jobs:
       - name: Fetch stop-and-search (data.police.uk, no auth)
         run: node scripts/fetch/fetch-stop-and-search.mjs
 
+      # DfE SEN figures from the statistics API, no key: newest release found by the
+      # publication's slug. Annual (June); other weeks rewrite the same file.
+      - name: Fetch and transform DfE SEN (statistics API, no auth)
+        run: |
+          node scripts/fetch/fetch-dfe-sen.mjs && python3 scripts/transform/transform_send.py \
+            || { echo "DfE SEN (send-dashboard.json)" >> "$RUNNER_TEMP/skipped-ingests.txt"; echo "::warning::DfE SEN ingest failed; send-dashboard.json keeps its last data"; }
+
       - name: Transform stop-and-search
         run: python3 scripts/transform/transform_stop_and_search.py
 
@@ -105,7 +112,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git add src/data/live/
+          git add src/data/live/ data/raw/manifests/
           git commit -m "data: refresh that failed the tests $(date -u +%Y-%m-%d)"
           git push origin "$branch"
           gh label create refresh-failed --color B60205 --description "Refreshed data failed the tests" --force
@@ -124,7 +131,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/live/
+          git add src/data/live/ data/raw/manifests/
 
           # A refresh adds and updates. It does not delete. A fetch that half fails
           # leaves files unwritten, and `git add` would stage their absence as a
@@ -199,5 +206,18 @@ jobs:
         run: |
           if [ "$DATATESTS_OUTCOME" = "failure" ]; then
             echo "The refreshed data failed npm test and was NOT committed. See the refresh-failed issue."
+            exit 1
+          fi
+
+      # Each publisher ingest records its own failure instead of stopping the run, so
+      # one publisher's format change cannot hold back the others, and the dataset it
+      # feeds keeps its last committed data. This ends the run red, naming each one.
+      # Reads a runner file only; no GitHub event data is interpolated here.
+      - name: Fail if any ingest was skipped
+        if: always()
+        run: |
+          if [ -s "$RUNNER_TEMP/skipped-ingests.txt" ]; then
+            echo "These ingests failed and kept their last committed data:"
+            cat "$RUNNER_TEMP/skipped-ingests.txt"
             exit 1
           fi
