@@ -4,18 +4,29 @@ name: Refresh data
 # Adds one transform at a time; the pattern is:
 #   1. fetch raw data into data/raw/<dataset>/ (gitignored)
 #   2. run the Python transform to produce src/data/live/<file>.json
-#   3. commit any diff back to main (rebase-retry to survive cron races)
+#   3. decide whether anything substantive changed (run timestamps do not count)
+#   4. run npm test on the refreshed data; a failure parks it on a branch with an
+#      issue, and main keeps the last data that passed
+#   5. commit to main (never deleting a data file), rebase-retry to survive cron
+#      races, then dispatch deploy.yml, because this push alone deploys nothing
 #
 # Datasets that need DWP Stat-Xplore / Companies House / Land Registry
 # API keys land separately once the secrets are wired up.
+#
+# The pattern follows Asylum Stats' refresh-data.yml, which learned each of these
+# steps from a failure on its own live site.
 
 on:
   schedule:
     - cron: "0 8 * * 1"
   workflow_dispatch:
 
+# contents: write for the commit and the refresh-failed branch. issues: write for the
+# refresh-failed issue and the MP list issue. actions: write for the deploy dispatch
+# at the end; see the comment on that step.
 permissions:
   contents: write
+  actions: write
   issues: write
 
 concurrency:
@@ -44,15 +55,90 @@ jobs:
       - name: Transform stop-and-search
         run: python3 scripts/transform/transform_stop_and_search.py
 
-      - name: Commit and push any data changes
+      # Ignore run timestamps when deciding whether anything changed.
+      #
+      # A transform that stamps `generatedAt` or `lastUpdated` moves that line on every
+      # run whether or not a single figure did. Counting it as a change would commit
+      # every Monday and bury a real data change in a stream of identical ones, so a
+      # diff that is nothing but those lines commits nothing. New, untracked files
+      # under src/data/live/ always count as a change.
+      # Pure shell, no GitHub event data is interpolated here.
+      - name: Check for data changes
+        id: changes
+        run: |
+          substantive="$(git diff -U0 -- src/data/live/ \
+            | grep -E '^[+-]' \
+            | grep -Ev '^(\+\+\+|---)' \
+            | grep -Ev '"(generatedAt|generated_at|lastUpdated)"' \
+            || true)"
+          untracked="$(git ls-files --others --exclude-standard -- src/data/live/)"
+          if [ -n "$substantive" ] || [ -n "$untracked" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Substantive data changes found:"
+            if [ -n "$untracked" ]; then
+              echo "New files:"
+              echo "$untracked"
+            fi
+            echo "$substantive" | head -40
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No data changes beyond run timestamps. Nothing to commit."
+          fi
+
+      # The same unit tests the deploy runs, run here before anything reaches main.
+      # Until now only deploy.yml ran them, after this job had already pushed, so
+      # refreshed data that broke a test would have turned main red with nobody told.
+      # Pure shell, no GitHub event data is interpolated here.
+      - name: Test the refreshed data
+        id: datatests
+        if: steps.changes.outputs.changed == 'true'
+        continue-on-error: true
+        run: npm test
+
+      - name: Park refreshed data that failed the tests
+        if: steps.changes.outputs.changed == 'true' && steps.datatests.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          branch="data/refresh-failed-$(date -u +%Y-%m-%d-%H%M)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add src/data/live/
+          git commit -m "data: refresh that failed the tests $(date -u +%Y-%m-%d)"
+          git push origin "$branch"
+          gh label create refresh-failed --color B60205 --description "Refreshed data failed the tests" --force
+          gh issue create --label refresh-failed \
+            --title "Data refresh failed the tests ($(date -u +%Y-%m-%d))" \
+            --body "The refreshed data failed \`npm test\` and was not committed to main. The live site keeps the last data that passed.
+
+          Run: $RUN_URL
+          Data: branch \`$branch\`
+
+          If the failure is a test pinned to an old figure, the test is wrong: make it check shape, not values. If a figure moved, check it against the primary source before merging."
+
+      - name: Commit and push updated data
+        id: commit
+        if: steps.changes.outputs.changed == 'true' && steps.datatests.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet src/data/live/; then
-            echo "No data changes to commit."
-            exit 0
-          fi
           git add src/data/live/
+
+          # A refresh adds and updates. It does not delete. A fetch that half fails
+          # leaves files unwritten, and `git add` would stage their absence as a
+          # routine refresh (Asylum Stats lost 11 canonical files that way on
+          # 24 August 2026). Deleting a data file belongs in a human commit.
+          # Pure shell, no GitHub event data is interpolated here.
+          deleted="$(git diff --cached --diff-filter=D --name-only -- src/data/live/)"
+          if [ -n "$deleted" ]; then
+            echo "Refusing to commit: this refresh would DELETE committed data."
+            echo "$deleted"
+            echo "A failed or partial ingest cannot be allowed to remove files."
+            exit 1
+          fi
+
           STAMP="$(date -u +%Y-%m-%d)"
           git commit -m "data: weekly refresh ${STAMP}"
           for i in 1 2 3 4 5; do
@@ -62,6 +148,23 @@ jobs:
           done
           echo "Push failed after 5 retries."
           exit 1
+
+      # Ask for a deploy, because the push above will not produce one.
+      #
+      # GitHub raises no workflow events for pushes made with the default
+      # GITHUB_TOKEN, which stops workflows triggering themselves forever. The side
+      # effect was that every refresh commit since this workflow was restored in May
+      # 2026 landed on main and never deployed on its own: the data reached the live
+      # site only when an unrelated human push happened to follow. A
+      # workflow_dispatch is the documented exception, and needs actions: write.
+      # Pure shell, no GitHub event data is interpolated here.
+      - name: Deploy the refreshed data
+        if: steps.commit.outcome == 'success' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run deploy.yml --ref main
+          echo "Dispatched deploy.yml on main." >> "$GITHUB_STEP_SUMMARY"
 
       # MPs change at by-elections and when the whip moves. A changed MP or
       # party is a published fact that needs a second source, so this step
@@ -83,4 +186,18 @@ jobs:
             fi
           elif [ -n "$NUM" ]; then
             gh issue close "$NUM" --comment "The MP list matches Parliament again."
+          fi
+
+      # Last, so the MP check above still runs on a week when the data tests fail.
+      # The test step is continue-on-error so that the data can be parked; this
+      # makes sure the run still ends red when it was.
+      # Reads a step outcome only; no GitHub event data is interpolated here.
+      - name: Fail if the refreshed data failed the tests
+        if: always()
+        env:
+          DATATESTS_OUTCOME: ${{ steps.datatests.outcome }}
+        run: |
+          if [ "$DATATESTS_OUTCOME" = "failure" ]; then
+            echo "The refreshed data failed npm test and was NOT committed. See the refresh-failed issue."
+            exit 1
           fi

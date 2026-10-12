@@ -1,0 +1,66 @@
+name: Live site freshness
+
+# Compares the date the live site was last built (its Last-Modified header) with
+# the last commit on main that changed the site. If main has moved on and the live
+# site has not caught up within three days, something is stopping deploys, and this
+# opens a deploy-failed issue saying so, or updates the one already open. When the
+# live site catches up, it closes that issue.
+#
+# This exists because UKD's weekly data refresh committed to main with the default
+# token, which triggers no deploy, so every refresh from June to October 2026 sat
+# undeployed until an unrelated push happened along, and nothing noticed. It also
+# catches a deploy that ran and failed.
+# Adapted from Asylum Stats' live-freshness.yml.
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Pure shell, no GitHub event data is interpolated here.
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="Live site is behind main"
+          live="$(curl -sSI --max-time 30 https://ukdemographics.co.uk/ | tr -d '\r' | awk -F': ' 'tolower($1)=="last-modified"{print $2}')"
+          if [ -z "$live" ]; then
+            echo "Could not read Last-Modified from https://ukdemographics.co.uk/."
+            exit 1
+          fi
+          live_epoch="$(date -u -d "$live" +%s)"
+          main_epoch="$(git log -1 --format=%ct -- src data public astro.config.mjs package.json package-lock.json CNAME)"
+          main_sha="$(git log -1 --format=%h -- src data public astro.config.mjs package.json package-lock.json CNAME)"
+          now_epoch="$(date -u +%s)"
+          age_days=$(( (now_epoch - main_epoch) / 86400 ))
+          echo "Live built: $live. Main last changed the site: $(date -u -d @"$main_epoch") ($main_sha)."
+          {
+            echo "Live site built: $live"
+            echo ""
+            echo "Last site-affecting commit on main: $main_sha, $(date -u -d @"$main_epoch" '+%F %H:%M UTC')"
+          } >> "$GITHUB_STEP_SUMMARY"
+          open="$(gh issue list --label deploy-failed --state open --search "\"$TITLE\" in:title" --json number --jq '.[0].number')"
+          if [ "$main_epoch" -gt "$live_epoch" ] && [ "$age_days" -ge 3 ]; then
+            body="The live site was built $live, but main changed the site on $(date -u -d @"$main_epoch" +%F) (commit $main_sha) and that change has not been live for $age_days days. Check the latest Deploy to GitHub Pages run, or dispatch deploy.yml on main. Checked $(date -u '+%F %H:%M UTC'). This issue closes itself once the live site catches up."
+            gh label create deploy-failed --color B60205 --description "The live site did not update" --force
+            if [ -n "$open" ]; then
+              gh issue edit "$open" --body "$body"
+            else
+              gh issue create --label deploy-failed --title "$TITLE" --body "$body"
+            fi
+            echo "Live site is behind main by $age_days day(s)." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          if [ -n "$open" ] && [ "$main_epoch" -le "$live_epoch" ]; then
+            gh issue close "$open" --comment "The live site (built $live) has caught up with main ($main_sha)."
+          fi
+          echo "Live site is current, or main changed less than three days ago." >> "$GITHUB_STEP_SUMMARY"
