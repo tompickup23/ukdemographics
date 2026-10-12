@@ -4,6 +4,18 @@ import { buildAbsoluteUrl, buildReleaseCollectionStructuredData } from "../lib/s
 
 const releases = [
   {
+    date: "2026-10-12",
+    title: "Homepage 2011 White British share corrected to 80.5%",
+    summary: "The homepage gave the White British share of England and Wales in 2011 as 80.0%. It weighted each area's 2011 share by its 2021 population, and it counted the eleven authorities created after 2011, whose earliest figure on this site is from the 2021 Census, inside the 2011 figure. Census 2011 table KS201EW gives 45,134,686 White British residents of 56,075,912 in England and Wales, 80.5%, which is the figure the homepage now shows. Both Census years are now summed from Census counts and weighted by their own population; the 2021 figure, 74.4%, does not change.",
+    sourceUrl: "https://ukdemographics.co.uk/"
+  },
+  {
+    date: "2026-10-12",
+    title: "Shift-share national effect recomputed from the Census",
+    summary: "Every place page's shift-share breakdown, and the finding on what drives ethnic change, gave the national effect as -6.4 percentage points. That figure was not computed from the 2011 Census: the site's 2011 population totals were all zero, because the script reading Census table KS201EW did not recognise its \"All usual residents\" row, and the calculation fell back to a typed 80% for 2011. With the real totals, the White British share across the 307 authorities that can be compared on the same boundaries fell from 79.7% in 2011 to 73.5% in 2021 (Census 2011 KS201EW, Census 2021 TS021), a national effect of -6.2 points. The age structure and local components move with it on every page, and Barnsley and Sheffield, whose 2011 figures had left out the Other ethnic group, are recomputed in full: Sheffield's total change is -6.3 points, not -9.5. Coventry's leading component changes from the national trend to the local one. The finding carries a dated correction.",
+    sourceUrl: "https://ukdemographics.co.uk/findings/shift-share-what-drives-change/"
+  },
+  {
     date: "2026-09-07",
     title: "One withholding rule for the counts, and a denominator with them",
     summary: "The homepage and the national page counted areas crossing below a 50% White British share, under a label promising the areas already below it. That is a flow counted as a stock, and it published 60 for 2051 while leaving out Birmingham, Leicester, Luton, Slough, Manchester and 22 others that had passed the threshold before the count began. The place pages also withhold a projected year where a residual Census group runs away past a quarter of the population at several times its 2021 share, so the site was counting Enfield in 2051 while Enfield's own page declined to show 2051 at all. Both rules now apply everywhere: 86 areas below 50% at 2051, across the 312 areas where 2051 is publishable, and 99 at 2061 across 255. The counts carry their denominator, because a count without one invites a comparison against the full 318. This is the figure the site's own finding has published since 13 August 2026. See pull request 58 and commit a9a98f0.",
