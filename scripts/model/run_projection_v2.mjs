@@ -392,13 +392,18 @@ for (const code of areaCodes) {
   const ld = allProjections["full_convergence__low_migration"]?.[code]?.[2051]?.pct?.WBI ?? wb51_cc;
   area.scenarioRange2051 = { central: Math.round(wb51_cc*10)/10, highDiversity: Math.round(hd*10)/10, lowDiversity: Math.round(ld*10)/10 };
 
-  // Add CC v2 projection as model comparison (for ensemble/methodology, not primary display)
-  const wb51_hp = area.projections?.["2051"]?.white_british ?? 0;
-  area.modelSpread2051 = {
-    hamiltonPerry: Math.round(wb51_hp * 10) / 10,
-    cohortComponent: Math.round(wb51_cc * 10) / 10,
-    spreadPp: Math.round(Math.abs(wb51_hp - wb51_cc) * 10) / 10
-  };
+  // Add CC v2 projection as model comparison (for ensemble/methodology, not primary display).
+  // v2 owns only the cohort-component side. The Hamilton-Perry side belongs to the
+  // forward model and is kept in step by reconcile_derived.mjs (to two decimals), so
+  // a stored value is left alone and the spread is recomputed from the two stored
+  // numbers by the same rule reconcile_derived.mjs uses.
+  const ms = area.modelSpread2051 ?? {};
+  if (typeof ms.hamiltonPerry !== "number") {
+    ms.hamiltonPerry = Math.round((area.projections?.["2051"]?.white_british ?? 0) * 100) / 100;
+  }
+  ms.cohortComponent = Math.round(wb51_cc * 10) / 10;
+  ms.spreadPp = Math.round(Math.abs(ms.cohortComponent - ms.hamiltonPerry) * 10) / 10;
+  area.modelSpread2051 = ms;
 }
 
 // Do NOT overwrite methodology or modelVersion — HP model owns these

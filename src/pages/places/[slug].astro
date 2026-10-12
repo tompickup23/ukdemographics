@@ -282,7 +282,14 @@ if (payrollRegion?.byIndustry) {
     .slice(0, 5);
 }
 
-const modelSpread = projData?.modelSpread2051 as { hamiltonPerry: number; cohortComponent: number; spreadPp: number } | undefined;
+// The two-model comparison needs a Hamilton-Perry projection to compare against.
+// The 49 areas the current forward model does not cover (no projections_detail)
+// carry projections from an earlier run, in 28 of them the cohort-component
+// model's own output, so the comparison would set a model against itself. Their
+// uncertainty bands were withheld for the same reason (reconcile_derived.mjs).
+const modelSpread = (projData?.projections_detail
+  ? projData?.modelSpread2051
+  : undefined) as { hamiltonPerry: number; cohortComponent: number; spreadPp: number } | undefined;
 const areaScenarios = (scenarioSummaries as any).areas?.[area.areaCode];
 const centralScenario = (scenarioSummaries as any).centralScenario as string | undefined;
 
