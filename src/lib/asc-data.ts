@@ -1,4 +1,5 @@
 import rawAsc from "../data/live/asc-dashboard.json";
+import { percentileRank, type PercentileRank } from "./percentile";
 
 export interface AreaAscProfile {
   areaName: string;
@@ -31,10 +32,9 @@ export function getAscCaveat(): string {
   return data.caveat;
 }
 
-export function getAscSpendPercentile(areaCode: string): number | null {
+/** Rank among areas with a spend figure; describeRank() in percentile.ts words it. */
+export function getAscSpendPercentile(areaCode: string): PercentileRank | null {
   const area = data.areas[areaCode];
   if (!area) return null;
-  const spends = Object.values(data.areas).map((a) => a.grossSpendPerCapita);
-  const below = spends.filter((s) => s < area.grossSpendPerCapita).length;
-  return Math.round((below / spends.length) * 100);
+  return percentileRank(Object.values(data.areas).map((a) => a.grossSpendPerCapita), area.grossSpendPerCapita);
 }

@@ -1,4 +1,5 @@
 import rawCrime from "../data/live/crime-dashboard.json";
+import { percentileRank, type PercentileRank } from "./percentile";
 
 export interface CrimeBreakdown {
   type: string;
@@ -41,10 +42,9 @@ export function getCrimeCaveat(): string {
   return data.caveat;
 }
 
-export function getCrimeRatePercentile(areaCode: string): number | null {
+/** Rank among areas with a published rate; describeRank() in percentile.ts words it. */
+export function getCrimeRatePercentile(areaCode: string): PercentileRank | null {
   const area = data.areas[areaCode];
   if (!area) return null;
-  const rates = Object.values(data.areas).map((a) => a.totalCrimeRate);
-  const below = rates.filter((r) => r < area.totalCrimeRate).length;
-  return Math.round((below / rates.length) * 100);
+  return percentileRank(Object.values(data.areas).map((a) => a.totalCrimeRate), area.totalCrimeRate);
 }
