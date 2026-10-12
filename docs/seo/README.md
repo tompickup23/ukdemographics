@@ -157,6 +157,14 @@ node scripts/seo/ctr-by-arm.mjs docs/seo/after-2026-11/pages-28d.csv
 ```
 
 - Deploy date: 4 October 2026 (PR #68 merged to main). Re-measure on or after 1 November 2026, using the 28 days from 4 to 31 October 2026, and check the deploy run succeeded on that date before counting from it.
+- Exclusions (12 October 2026): the Census Mixed/Black fix (PR 73) changed the direct-answer
+  paragraph on 15 place pages, five in each arm, mid-window. They are listed in
+  `docs/seo/listing-test-exclusions-2026-10.csv` and `ctr-by-arm.mjs` drops them from every arm by
+  default (`--include-excluded` keeps them). The same day's data refreshes (TB, SEND, Council
+  Taxbase, schools, payroll, crime, births) changed place-page body text and sitemap `lastmod` on
+  every page, equally across arms, but no title, meta description or direct answer. Compare
+  the arms with each other, not with the September baseline alone, and note any crawl jump
+  after 12 October.
 - Decide on clicks per impression, not clicks. Record average position by arm too, because a
   listing change can move ranking.
 - If one arm wins, roll it to every place in a follow-up PR and record the result here.
