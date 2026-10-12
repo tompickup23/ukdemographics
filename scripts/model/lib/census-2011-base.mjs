@@ -18,8 +18,8 @@
 import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 
-const DC2101EW_PATH = path.resolve("data/raw/census_2011_ethnicity_age/dc2101ew_ethnicity_sex_age_la.csv");
-const NEWETHPOP_2011 = path.resolve("data/raw/newethpop/extracted/2DataArchive/OutputData/Population/Population2011_LEEDS2.csv");
+const DC2101EW_DEFAULT = path.resolve("data/raw/census_2011_ethnicity_age/dc2101ew_ethnicity_sex_age_la.csv");
+const NEWETHPOP_2011_DEFAULT = path.resolve("data/raw/newethpop/extracted/2DataArchive/OutputData/Population/Population2011_LEEDS2.csv");
 
 const DC_ETH_MAP = {
   "2": "WBI", "3": "WIR", "4": "WGT", "5": "WHO",
@@ -57,9 +57,26 @@ function distribute5YearBand(total, startAge) {
  * @param {object} base2021       parsed data/model/base_single_year_2021.json
  * @param {string[]} ETHNIC_GROUPS the 20 group codes
  * @param {string[]} SEXES         ["M", "F"]
- * @returns {{ pop2011: Map, areas2011: Set }}
+ * @param {object} [opts]
+ * @param {string} [opts.dc2101ewPath]   override the DC2101EW file
+ * @param {string} [opts.newethpopPath]  override the NEWETHPOP 2011 file
+ * @param {string[]} [opts.countries]    code prefixes read from DC2101EW; default ["E"].
+ *   Adding "W" lets Welsh authorities in the 2021 base find their 2011 counts.
+ *   Rows are only used for areas in the 2021 base, so the default output is
+ *   unchanged whatever this holds.
+ * @param {Record<string,string[]>} [opts.successors]  current code -> the 2011
+ *   codes it is made of (scripts/model/lib/geography.mjs builds this). Where
+ *   DC2101EW lacks the current code but holds every 2011 code, the 2011 counts
+ *   are summed under the current code, and the area is admitted to the model
+ *   even though NEWETHPOP files it under its 2011 code. Off by default, which
+ *   leaves the v8.0 run unchanged.
+ * @returns {{ pop2011: Map, areas2011: Set, successorsUsed: string[] }}
  */
-export function loadBase2011(base2021, ETHNIC_GROUPS, SEXES) {
+export function loadBase2011(base2021, ETHNIC_GROUPS, SEXES, opts = {}) {
+  const DC2101EW_PATH = opts.dc2101ewPath ?? DC2101EW_DEFAULT;
+  const NEWETHPOP_2011 = opts.newethpopPath ?? NEWETHPOP_2011_DEFAULT;
+  const COUNTRIES = opts.countries ?? ["E"];
+  const successorsUsed = [];
   // ============================================================
   // Parse Census 2011 DC2101EW (18 groups, 21 age bands) → single-year
   // ============================================================
@@ -96,7 +113,7 @@ export function loadBase2011(base2021, ETHNIC_GROUPS, SEXES) {
       const ageCode = cols[6];
       const count = parseInt(cols[8]) || 0;
 
-      if (!laCode?.startsWith("E")) continue;
+      if (!laCode || !COUNTRIES.some((p) => laCode.startsWith(p))) continue;
       const eth20 = DC_ETH_MAP[ethCode];
       if (!eth20) continue;
       const sex = sexCode === "1" ? "M" : "F";
@@ -121,6 +138,21 @@ export function loadBase2011(base2021, ETHNIC_GROUPS, SEXES) {
           dc2101ewLoaded.set(key, (dc2101ewLoaded.get(key) || 0) + perYear);
         }
       }
+    }
+
+    if (opts.successors) {
+      const has = (code) => dc2101ewLoaded.has(`${code}|WBI|M|0`);
+      for (const [succ, preds] of Object.entries(opts.successors)) {
+        if (has(succ)) { successorsUsed.push(succ); continue; }
+        if (!preds.length || !preds.every(has)) continue;
+        for (const eth of ETHNIC_GROUPS) for (const sex of SEXES) for (let age = 0; age <= 90; age++) {
+          let v = 0;
+          for (const p of preds) v += dc2101ewLoaded.get(`${p}|${eth}|${sex}|${age}`) || 0;
+          dc2101ewLoaded.set(`${succ}|${eth}|${sex}|${age}`, v);
+        }
+        successorsUsed.push(succ);
+      }
+      console.log(`  ${successorsUsed.length} current codes given 2011 counts through the successor lookup`);
     }
 
     const dcAreas = new Set([...dc2101ewLoaded.keys()].map(k => k.split("|")[0]));
@@ -188,6 +220,8 @@ export function loadBase2011(base2021, ETHNIC_GROUPS, SEXES) {
     }
   }
   const areas2011 = new Set([...pop2011_12.keys()].map(k => k.split("|")[0]));
+  // A successor with summed DC2101EW counts is modelled under its current code.
+  for (const succ of successorsUsed) areas2011.add(succ);
   console.log(`  ${areas2011.size} areas (12-group)`);
 
   // Build unified pop2011 map: prefer DC2101EW (18-group direct), fallback to NEWETHPOP (12→20 split)
@@ -241,5 +275,5 @@ export function loadBase2011(base2021, ETHNIC_GROUPS, SEXES) {
     }
   }
   console.log(`  DC2101EW: ${dcUsed} areas | NEWETHPOP fallback: ${newethpopUsed} areas | Total cells: ${pop2011.size}`);
-  return { pop2011, areas2011 };
+  return { pop2011, areas2011, successorsUsed };
 }

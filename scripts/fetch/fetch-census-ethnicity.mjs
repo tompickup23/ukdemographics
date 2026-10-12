@@ -12,6 +12,19 @@
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { refuseNomisDatasetApi } from "../lib/nomis-guard.mjs";
+
+refuseNomisDatasetApi({
+  script: "scripts/fetch/fetch-census-ethnicity.mjs",
+  tables: "Census 2021 TS021 Ethnic group (NM_2041_1); Census 2011 KS201EW Ethnic group (NM_608_1)",
+  held: [
+    "data/raw/census_ethnicity/census_2021_ethnicity.csv and census_2011_ethnicity.csv (not in this checkout; copies held at ~/asylumstats/data/raw/census_ethnicity/)"
+  ],
+  ons: [
+    "TS021: https://www.ons.gov.uk/datasets/TS021/editions/2021/versions",
+    "KS201EW: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/2011censuskeystatisticsforlocalauthoritiesinenglandandwales"
+  ],
+});
 
 const rawDir = path.resolve("data/raw/census_ethnicity");
 mkdirSync(rawDir, { recursive: true });

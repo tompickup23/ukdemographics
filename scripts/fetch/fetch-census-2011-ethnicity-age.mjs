@@ -11,6 +11,16 @@
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { refuseNomisDatasetApi } from "../lib/nomis-guard.mjs";
+
+refuseNomisDatasetApi({
+  script: "scripts/fetch/fetch-census-2011-ethnicity-age.mjs",
+  tables: "Census 2011 DC2101EW Ethnic group by sex by age (NM_651_1)",
+  held: [
+    "data/raw/census_2011_ethnicity_age/dc2101ew_ethnicity_sex_age_la.csv (not in this checkout; held at ~/asylumstats/data/raw/census_2011_ethnicity_age/, with a second extract at ~/asylumstats/data/raw/census_base/dc2101_2011_ethnic_age_sex.csv)"
+  ],
+  ons: [],
+});
 
 const rawDir = path.resolve("data/raw/census_2011_ethnicity_age");
 mkdirSync(rawDir, { recursive: true });

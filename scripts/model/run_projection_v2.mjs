@@ -23,11 +23,16 @@
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { readSnppTotals } from "./lib/snpp.mjs";
 
 const BASE_PATH = path.resolve("data/model/base_population_2021.json");
 const SNPP_PATH = path.resolve("data/raw/snpp/2022 SNPP Population persons.csv");
 const VALIDATION_PATH = path.resolve("src/data/live/model-validation.json");
-const SITE_OUTPUT_PATH = path.resolve("src/data/live/ethnic-projections.json");
+const SITE_INPUT_PATH = path.resolve("src/data/live/ethnic-projections.json");
+// The published file by default. Set V2_OUTPUT to write a candidate elsewhere,
+// as run_hp_single_year.mjs does with HP_OUTPUT:
+//   V2_OUTPUT=/tmp/candidate.json node scripts/model/run_projection_v2.mjs
+const SITE_OUTPUT_PATH = process.env.V2_OUTPUT ? path.resolve(process.env.V2_OUTPUT) : SITE_INPUT_PATH;
 
 const basePop = JSON.parse(readFileSync(BASE_PATH, "utf8"));
 const validation = JSON.parse(readFileSync(VALIDATION_PATH, "utf8"));
@@ -35,39 +40,16 @@ const ETHNIC_GROUPS = basePop.ethnicGroups;
 const AGE_BANDS = basePop.ageBands;
 const SEXES = ["M", "F"];
 
-function parseCsvLine(line) {
-  const fields = []; let current = ""; let inQuotes = false;
-  for (const ch of line) {
-    if (ch === '"') inQuotes = !inQuotes;
-    else if (ch === "," && !inQuotes) { fields.push(current.trim()); current = ""; }
-    else current += ch;
-  }
-  fields.push(current.trim());
-  return fields;
-}
-
 // ============================================================
-// ONS SNPP: Parse total population by LA (England only, 2022-2047)
+// ONS SNPP: total population by LA (England only, 2022-2047)
 // ============================================================
+// The total is the "All ages" row alone. This loop used to add every row for an
+// area, "All ages" plus each single year, which doubled the target (Burnley 2031:
+// 199,651 against the file's 99,825). The scale guard below then either doubled
+// the area or skipped the cap, area by area. lib/snpp.mjs reads the row by name
+// and checks it against the single years.
 console.log("Parsing ONS SNPP Z1...");
-const snppLines = readFileSync(SNPP_PATH, "utf8").split("\n").filter(l => l.trim());
-const snppHeader = parseCsvLine(snppLines[0]);
-const yearCols = snppHeader.slice(5);
-
-const snppTotals = new Map();
-for (let i = 1; i < snppLines.length; i++) {
-  const cols = parseCsvLine(snppLines[i]);
-  const areaCode = cols[0];
-  if (!areaCode?.startsWith("E")) continue;
-  if (!snppTotals.has(areaCode)) {
-    snppTotals.set(areaCode, {});
-    for (const y of yearCols) snppTotals.get(areaCode)[y] = 0;
-  }
-  for (let j = 0; j < yearCols.length; j++) {
-    const val = parseFloat(cols[5 + j]);
-    if (!isNaN(val)) snppTotals.get(areaCode)[yearCols[j]] += val;
-  }
-}
+const { totals: snppTotals } = readSnppTotals(readFileSync(SNPP_PATH, "utf8"));
 console.log(`  ${snppTotals.size} English LAs with SNPP data`);
 
 // Population shares for migration weighting
@@ -387,7 +369,7 @@ for (const c of ["E06000008", "E08000025"]) {
 // UPDATE SITE DATA
 // ============================================================
 console.log("\nUpdating ethnic-projections.json...");
-const existing = JSON.parse(readFileSync(SITE_OUTPUT_PATH, "utf8"));
+const existing = JSON.parse(readFileSync(SITE_INPUT_PATH, "utf8"));
 
 function toSimple(pct) {
   return {

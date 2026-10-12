@@ -56,6 +56,7 @@ import {
   profileUpdatedDate,
 } from "../../lib/search-listing";
 import { consistentBandSeries } from "../../lib/projection-consistency";
+import { ordinal } from "../../lib/ordinal";
 import {
   plausibleThrough,
   isTruncated,
@@ -968,7 +969,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Adults from overseas registering for a National Insurance number, rolling year ending {nino.periodEnd}.
         {ninoPercentile != null && (
-          <> {area.areaName} ranks at the <strong>{ninoPercentile}th percentile</strong> nationally for total NINo registrations.</>
+          <> {area.areaName} ranks at the <strong>{ordinal(ninoPercentile)} percentile</strong> nationally for total NINo registrations.</>
         )}
       </p>
       <div class="data-grid">
@@ -1253,7 +1254,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     <section class="section" id="schools-eal">
       <h2>Schools, first language</h2>
       <p class="section-desc">
-        Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, 2024/25),
+        Across {ealDistrict.schoolCount} state-funded schools in {area.areaName} ({ealDistrict.totalPupils.toLocaleString()} pupils, {(schoolEalDistrict as any).academicYear}),
         <strong> {ealDistrict.ealPct.toFixed(1)}% have a first language other than English</strong>.
         {ealDistrict.parentUtlaName && ealDistrict.parentUtlaName !== ealDistrict.areaName && (
           <> The published {ealDistrict.parentUtlaName}-wide upper-tier figure is much lower because it averages every district in the county; this is the genuine {area.areaName} number.</>
@@ -1267,7 +1268,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         )}
       </div>
       <p class="section-note">
-        Source: DfE Schools, Pupils and their Characteristics 2024/25, school-level data aggregated to district. EAL (English as Additional Language) is a household-level signal: children born in the UK to non-English-speaking households count as EAL.
+        Source: DfE Schools, Pupils and their Characteristics {(schoolEalDistrict as any).academicYear}, school-level data aggregated to district. EAL (English as Additional Language) is a household-level signal: children born in the UK to non-English-speaking households count as EAL.
       </p>
     </section>
   )}
@@ -1326,7 +1327,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Police-recorded crime rates per 1,000 population, {crime.period}.
         {crimePercentile != null && (
-          <> {area.areaName} ranks at the <strong>{crimePercentile}th percentile</strong> nationally for total crime rate.</>
+          <> {area.areaName} ranks at the <strong>{ordinal(crimePercentile)} percentile</strong> nationally for total crime rate.</>
         )}
       </p>
       <div class="data-grid">
@@ -1373,7 +1374,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Council ASC spend, residential placements, and quality-of-life outcomes, {asc.period}.
         {ascPercentile != null && (
-          <> Spend per head sits at the <strong>{ascPercentile}th percentile</strong> nationally.</>
+          <> Spend per head sits at the <strong>{ordinal(ascPercentile)} percentile</strong> nationally.</>
         )}
       </p>
       <div class="data-grid">
@@ -1423,7 +1424,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         EHCPs and primary need breakdown, {send.period}.
         {sendGrowthPercentile != null && (
-          <> 5-year EHCP growth at the <strong>{sendGrowthPercentile}th percentile</strong> nationally.</>
+          <> 5-year EHCP growth at the <strong>{ordinal(sendGrowthPercentile)} percentile</strong> nationally.</>
         )}
       </p>
       <div class="data-grid">
@@ -1587,7 +1588,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
             )}
           </div>
           <p class="section-note">
-            Sources: MHCLG Council Taxbase 2024 (CTB1, snapshot 7 October 2024) for single-person discount; ONS Census 2021 RM192 for HMO dwellings. HMO Census numbers reflect dwellings classified as HMO on Census Day; current licensing registers held by individual councils are not centrally published.
+            Sources: {(councilTaxSpd as any).sourceShort} for single-person discount; ONS Census 2021 RM192 for HMO dwellings. HMO Census numbers reflect dwellings classified as HMO on Census Day; current licensing registers held by individual councils are not centrally published.
           </p>
         </>
       )}

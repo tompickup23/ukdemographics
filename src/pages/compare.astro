@@ -63,8 +63,9 @@ for (const a of areas) {
     cobNonUkPct2021: cobA?.nonUkBornPct ?? null,
     cobNonUkPct2011: ccA?.nonUkBornPct2011 ?? null,
     cobNonUkChange: ccA?.nonUkBornChange ?? null,
-    birthsTotal2024: bA?.totalBirths2024 ?? null,
-    birthsNonUkPct2024: bA?.nonUkBornMotherPct ?? null,
+    birthsTotal: bA?.totalBirths ?? null,
+    birthsNonUkPct: bA?.nonUkBornMotherPct ?? null,
+    birthsYear: (birthsByMother as any).year ?? null,
     ealPct,
     ealParentLA,
     crimeRatePer1k: crimeA?.totalCrimeRate ?? null,
@@ -236,8 +237,8 @@ const indexJson = JSON.stringify(indexBySlug);
     appendRow(tbody, "NINo YoY change 2024→2025", pct(a.ninoYoYPct), pct(b.ninoYoYPct), deltaSpan(a.ninoYoYPct, b.ninoYoYPct, { suffix2: "pp" }));
     appendRow(tbody, "Cumulative NINo 2002-2025", num(a.ninoCumulative24y), num(b.ninoCumulative24y), deltaSpan(a.ninoCumulative24y, b.ninoCumulative24y, { decimals: 0 }));
     appendRow(tbody, "Top arriving nationality 2025", topNatLabel(a), topNatLabel(b), null);
-    appendRow(tbody, "Births 2024", num(a.birthsTotal2024), num(b.birthsTotal2024), null);
-    appendRow(tbody, "Births to non-UK-born mother 2024 (%)", pct(a.birthsNonUkPct2024), pct(b.birthsNonUkPct2024), deltaSpan(a.birthsNonUkPct2024, b.birthsNonUkPct2024, { suffix2: "pp" }));
+    appendRow(tbody, `Births ${a.birthsYear}`, num(a.birthsTotal), num(b.birthsTotal), null);
+    appendRow(tbody, `Births to non-UK-born mother ${a.birthsYear} (%)`, pct(a.birthsNonUkPct), pct(b.birthsNonUkPct), deltaSpan(a.birthsNonUkPct, b.birthsNonUkPct, { suffix2: "pp" }));
     appendRow(tbody, "Schools EAL share (%)" + ((a.ealParentLA || b.ealParentLA) ? " *" : ""), pct(a.ealPct), pct(b.ealPct), deltaSpan(a.ealPct, b.ealPct, { suffix2: "pp" }));
     appendRow(tbody, "Crime per 1k pop", num(a.crimeRatePer1k), num(b.crimeRatePer1k), deltaSpan(a.crimeRatePer1k, b.crimeRatePer1k, { lowerIsBetter: true }));
     appendRow(tbody, "Crime YoY change", pct(a.crimeYoYPct), pct(b.crimeYoYPct), deltaSpan(a.crimeYoYPct, b.crimeYoYPct, { suffix2: "pp" }));
