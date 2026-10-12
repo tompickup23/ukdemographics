@@ -1,5 +1,5 @@
 {
-  "source": "Ministry of Justice, Offender Management Statistics Quarterly (July to September 2025), Table 1.Q.12 (snapshot 31 Dec 2025) + DWP Stat-Xplore NINo registrations (rolling year ending Q4 2025)",
+  "source": "Ministry of Justice, Offender Management Statistics Quarterly, Prison Population: as at 31 December 2025 (published 29 January 2026), Table 1.Q.12 + DWP Stat-Xplore NINo registrations (rolling year ending Q4 2025)",
   "lastUpdated": "2026-04-28",
   "caveat": "Stock vs flow, never combined into a ratio: prison population is a snapshot on 31 December 2025; NINo flow is one rolling year of new registrations. Geographic scope differs: FNO is England and Wales only, NINo is UK-wide. Concept differs: MOJ records nationality of the prisoner; NINo records nationality self-declared at registration. Both numbers tell you nothing about whether overseas arrivals commit crime at any particular rate, because we have no per-individual link between the two datasets and no shared denominator. The bridge is offered to surface composition only.",
   "totals": {

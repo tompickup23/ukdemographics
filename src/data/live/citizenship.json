@@ -1,7 +1,7 @@
 {
   "source": "Home Office Immigration Statistics: Citizenship detailed datasets, year ending June 2026 release. Sheets Cit_D01 (applications) and Cit_D02 (grants).",
-  "lastUpdated": "2026-05-27",
-  "release_date": "2026-05-21",
+  "lastUpdated": "2026-08-27",
+  "release_date": "2026-08-27",
   "caveat": "Citizenship grants are a lagging indicator of migration: most naturalisations are granted to people who arrived in the UK more than five years earlier and have since settled. The volume reflects who arrived a decade ago, NOT current migration policy.",
   "headline": {
     "latest_year_grants": 131531,

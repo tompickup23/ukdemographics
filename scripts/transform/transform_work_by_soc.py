@@ -10,7 +10,7 @@ visa grants, how they have shifted, and which industries the workers
 are deployed in.
 
 Input:
-  data/raw/ho_visas_extra/occupation-soc2020-visas-datasets-mar-2026.xlsx
+  data/raw/ho_visas_extra/occupation-soc2020-visas-datasets-<mon>-<yyyy>.xlsx (newest on disk)
 
 Output:
   src/data/live/work-visas-by-occupation.json
@@ -20,7 +20,8 @@ Sheets:
     visa subgroup, industry, SOC major/sub-major/minor/unit, count)
   Data_Occ_D02: Grants (same schema as D01, count column 'Grants')
 
-Source: Home Office, year ending March 2026 release (21 May 2026).
+Source: Home Office Immigration Statistics. The period and publication date
+are read from the workbook's cover sheet (scripts/lib/source_dates.py).
 """
 import json
 from collections import defaultdict
@@ -33,7 +34,8 @@ import openpyxl
 # than written here. See scripts/lib/newest_release.py: a pinned filename keeps working
 # while reading an older release than the one published.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
-from newest_release import newest_release, period_phrase  # noqa: E402
+from newest_release import newest_release  # noqa: E402
+from source_dates import home_office_period, published_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 XLSX = newest_release(ROOT / "data/raw/ho_visas_extra", "occupation-soc2020-visas-datasets")
@@ -176,11 +178,12 @@ def main():
     out = {
         "source": (
             "Home Office Immigration Statistics: Occupation by SOC2020 visas, "
-            f"{period_phrase(XLSX)} release. Sheet Data_Occ_D02 "
+            f"{home_office_period(XLSX)} release. Sheet Data_Occ_D02 "
             "(grants of entry clearance work visas)."
         ),
-        "lastUpdated": "2026-05-27",
-        "release_date": "2026-05-21",
+        # Both read from the "Published:" line of the cover sheet.
+        "lastUpdated": published_date(XLSX).isoformat(),
+        "release_date": published_date(XLSX).isoformat(),
         "caveat": (
             "Work visa grants are issued at the entry-clearance stage; not "
             "every grant leads to long-term migration. The Health and Care "

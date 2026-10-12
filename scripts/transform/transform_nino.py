@@ -25,6 +25,10 @@ Outputs: src/data/live/nino-dashboard.json
 """
 from pathlib import Path
 import json
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import held_copy_date, rolling_year  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data/raw/supplementary/nino-statxplore-cube.json"
@@ -182,10 +186,15 @@ def main():
         }
 
     out = {
-        "source": "DWP National Insurance number allocations to adult overseas nationals (Stat-Xplore NINO database).",
+        "source": (
+            "DWP National Insurance number allocations to adult overseas nationals "
+            f"(Stat-Xplore NINO database), {rolling_year(cube)['phrase']}."
+        ),
         "methodology": "Per-LA NINo registrations summed over the four most-recent quarters in the cube (rolling year). Year-on-year is the rolling-year total vs the four quarters before that. Top nationalities by registrations over the recent rolling year. Counts are rounded to the nearest 10 in the Stat-Xplore output and small cells suppressed.",
-        "lastUpdated": "2026-04-28",
-        "caveat": "NINo registrations measure new arrivals into the National Insurance system, not total foreign-born population. A NINo is allocated when an overseas national requests one — usually to start work or claim benefits — so the figure misses students and dependants who never enter the labour market. Small (LA × nationality) cells are suppressed by Stat-Xplore for disclosure control.",
+        # The cube JSON carries no release date, so this is the retrieval date of the
+        # held copy (the date the file was written), not a DWP publication date.
+        "lastUpdated": held_copy_date(SRC).isoformat(),
+        "caveat": "NINo registrations measure new arrivals into the National Insurance system, not total foreign-born population. A NINo is allocated when an overseas national requests one, usually to start work or claim benefits, so the figure misses students and dependants who never enter the labour market. Small (LA × nationality) cells are suppressed by Stat-Xplore for disclosure control.",
         "areas": dict(sorted(areas.items())),
     }
     OUT.write_text(json.dumps(out, indent=2))

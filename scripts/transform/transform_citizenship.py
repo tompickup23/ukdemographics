@@ -9,7 +9,7 @@ the long-term stayers were a decade ago, which is useful counter-
 weight to current-year visa-grant churn.
 
 Input:
-  data/raw/ho_visas_extra/citizenship-datasets-mar-2026.xlsx
+  data/raw/ho_visas_extra/citizenship-datasets-<mon>-<yyyy>.xlsx (newest on disk)
 
 Output:
   src/data/live/citizenship.json
@@ -19,8 +19,8 @@ Sheets:
   Data_Cit_D02: Grants (Year, Quarter, App type group, App type, Region, Nationality, Sex, Age, Grants)
   Data_Cit_D03: Ceremonies attended (Year, UK Region, Local authority, Ceremonies attended)
 
-Source: Home Office Immigration Statistics, year ending March 2026
-release (21 May 2026).
+Source: Home Office Immigration Statistics. The period and publication date
+are read from the workbook's cover sheet (scripts/lib/source_dates.py).
 """
 import json
 from collections import defaultdict
@@ -33,7 +33,8 @@ import openpyxl
 # than written here. See scripts/lib/newest_release.py: a pinned filename keeps working
 # while reading an older release than the one published.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
-from newest_release import newest_release, period_phrase  # noqa: E402
+from newest_release import newest_release  # noqa: E402
+from source_dates import home_office_period, published_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 XLSX = newest_release(ROOT / "data/raw/ho_visas_extra", "citizenship-datasets")
@@ -136,11 +137,12 @@ def main():
     out = {
         "source": (
             "Home Office Immigration Statistics: Citizenship detailed datasets, "
-            f"{period_phrase(XLSX)} release. Sheets Cit_D01 "
+            f"{home_office_period(XLSX)} release. Sheets Cit_D01 "
             "(applications) and Cit_D02 (grants)."
         ),
-        "lastUpdated": "2026-05-27",
-        "release_date": "2026-05-21",
+        # Both read from the "Published:" line of the cover sheet.
+        "lastUpdated": published_date(XLSX).isoformat(),
+        "release_date": published_date(XLSX).isoformat(),
         "caveat": (
             "Citizenship grants are a lagging indicator of migration: most "
             "naturalisations are granted to people who arrived in the UK "

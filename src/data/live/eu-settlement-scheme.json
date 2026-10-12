@@ -1,7 +1,7 @@
 {
   "source": "Home Office Immigration Statistics: EU Settlement Scheme detailed datasets, year ending June 2026 release. Sheets Data_EUSS_D02 (outcomes by year) and Data_EUSS_D03 (outcomes by application type).",
-  "lastUpdated": "2026-05-27",
-  "release_date": "2026-05-21",
+  "lastUpdated": "2026-08-27",
+  "release_date": "2026-08-27",
   "caveat": "The EU Settlement Scheme grants confirmed status to EU and EEA nationals already living in the UK. It does NOT count as 'immigration' in ONS LTIM or Home Office visa-grant headlines. It still affects population denominators. The scheme officially closed for new applications on 30 June 2021 but late applications with valid reasons are still being processed, and existing pre-settled status holders apply for settled status after 5 years.",
   "headline": {
     "total_concluded_all_time": 8837667,

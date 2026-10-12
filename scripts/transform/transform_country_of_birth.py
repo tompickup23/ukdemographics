@@ -25,8 +25,12 @@ side by side, never combined into a single number.
 """
 import csv
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import held_copy_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 CSV_PATH = ROOT / "data/raw/census_country_of_birth/ts012_cob_la.csv"
@@ -146,7 +150,9 @@ def main():
             "nationals. Country-of-birth and self-declared nationality are "
             "different concepts; the join is by leaf country name only."
         ),
-        "lastUpdated": "2026-04-28",
+        # The Census extract carries no date of its own, so this is the retrieval date
+        # of the held copy (the date the file was written).
+        "lastUpdated": held_copy_date(CSV_PATH).isoformat(),
         "caveat": (
             "Stock and flow are not the same measure. Census 2021 country-"
             "of-birth counts everyone born outside the UK living here on "

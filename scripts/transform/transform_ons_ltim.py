@@ -19,11 +19,18 @@ successive publications - this is the most useful single thing in the
 release for telling readers how much the headline moves between
 provisional, revised, and completed estimates. Tables 6a and 6b are
 the ONS / Home Office / DWP triangulation.
+
+The release date, the publication title and the span of the series are read from
+the workbook's cover sheet (scripts/lib/source_dates.py), not typed here.
 """
 import json
+import sys
 from pathlib import Path
 
 import openpyxl
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import cover_match, date_phrase, published_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 XLSX = ROOT / "data/raw/ons_ltim/ltim-ye-dec-2025-may2026publication.xlsx"
@@ -262,7 +269,36 @@ def compute_headline(by_nationality_table_1, uncertainty_table_2):
     }
 
 
+_MONTH = "(January|February|March|April|May|June|July|August|September|October|November|December)"
+
+
+def cover_facts():
+    """Publication title, release date and series span, from the cover sheet.
+
+    The cover reads: "Long-term international migration: Year Ending June 2012 to
+    Year Ending December 2025", "The data tables in this spreadsheet were originally
+    published at 9:30 a.m. on 21 May 2026", and "This spreadsheet is published
+    alongside the Office for National Statistics' publication "Long-term
+    international migration, provisional: year ending December 2025"".
+    """
+    title = cover_match(
+        XLSX,
+        r"publication \W?(Long-term international migration, provisional: year ending "
+        + _MONTH + r" \d{4})",
+        "publication title",
+    ).group(1)
+    span = cover_match(
+        XLSX,
+        r"^Long-term international migration: Year Ending " + _MONTH + r" (\d{4}) to Year Ending "
+        + _MONTH + r" (\d{4})$",
+        "series span in the cover title",
+    )
+    period_covered = f"YE {span.group(1)[:3]} {span.group(2)} through YE {span.group(3)[:3]} {span.group(4)}"
+    return title, published_date(XLSX), period_covered
+
+
 def main():
+    title, released, period_covered = cover_facts()
     wb = openpyxl.load_workbook(XLSX, read_only=True, data_only=True)
 
     by_nationality = read_table_1(wb)
@@ -276,12 +312,13 @@ def main():
 
     out = {
         "source": (
-            "ONS Long-term international migration, provisional: year ending "
-            "December 2025 (released 21 May 2026). Tables 1, 2, 4a, 5, 6a, 6b, 8."
+            f"ONS {title} (released {date_phrase(released)}). "
+            "Tables 1, 2, 4a, 5, 6a, 6b, 8."
         ),
-        "lastUpdated": "2026-05-27",
-        "release_date": "2026-05-21",
-        "period_covered": "YE Jun 2012 through YE Dec 2025",
+        # Both read from the cover sheet's "originally published at ... on <date>".
+        "lastUpdated": released.isoformat(),
+        "release_date": released.isoformat(),
+        "period_covered": period_covered,
         "methodology": (
             "ONS replaced the International Passenger Survey (IPS) with the "
             "Home Office Borders and Immigration Data (HOBID) for visa-holder "
