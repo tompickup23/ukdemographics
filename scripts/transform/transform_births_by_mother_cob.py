@@ -1,147 +1,175 @@
 #!/usr/bin/env python3
 """
-ONS — Live births by country of birth of mother and area of usual
-residence, 2024 (Table 6a of `parentscountryofbirth`). Per-LA breakdown
-of all 2024 live births split into UK-born vs non-UK-born mother, with
-non-UK-born further broken into six regions.
+ONS live births by country of birth of mother and area of usual residence (Table 6a of
+the "Parents' country of birth" dataset), newest edition on disk.
 
-Pairs with NINo flow and Census 2021 country-of-birth stock as the
-"second-generation pipeline" — the births dimension that doesn't appear
-in either of the other two datasets.
+Per area: all live births registered in the year, split into UK-born and non-UK-born
+mothers, with the non-UK-born split into the regional groups ONS publishes at this level.
+
+Pairs with NINo flow and Census 2021 country-of-birth stock: births are a flow in one
+calendar year, Census country of birth is a stock of residents on one day. Do not set one
+against the other without saying so.
 
 Inputs:
-  data/raw/ons_births/2024birthsbyparentscountry.xlsx (Table_6a)
+  data/raw/ons_births/<year>birth(s)byparentscountry.xlsx, newest edition, resolved by
+  stem (scripts/fetch/fetch-ons-births-cob.mjs downloads it)
+  src/data/lookups/area-code-aliases.json
 
 Output:
   src/data/live/births-by-mother-cob.json
 
+What is read from the workbook rather than written here: the year (Table 6a's title), the
+release date (cover sheet), the publisher (the table's Source line), every column (by
+header text) and the geography of each row.
+
 Caveats:
-  - Geographic granularity in this ONS file is mixed: Country / Region /
-    Unitary Authority / Non-metropolitan District / London Borough /
-    Metropolitan District. We retain all rows but tag each with a
-    geographyType field so consumers can filter.
-  - Mother's country of birth is the SIX REGIONAL groups, not full
-    country detail. The full-country detail lives in Tables 1 / 2a / 5
-    of the same publication and is national/regional only — not LA.
-  - 2024 is the latest year published. Earlier years are in Table 1.
-  - A live birth here is a birth registered in 2024 with usual-resident
-    address in that LA. It is not the same as the place where the
-    mother lived at the moment of conception, nor where she is now.
+  - Geography mixes Country, Region, County, Unitary Authority, Metropolitan District,
+    Non-metropolitan District and London Borough rows. Each row keeps geographyType.
+  - "EU" in Table 6a is the whole European Union as constituted in 2020. "New EU" is a
+    subset of it, not an addition: EU, Rest of Europe, Africa, Middle East and Asia and
+    Rest of World sum to the non-UK-born total, and New EU is already inside EU.
+  - From the 2025 edition the rows are on February 2026 boundaries. Reissued codes are
+    filed under the code this site uses (src/data/lookups/area-code-aliases.json).
+  - Isles of Scilly is counted with Cornwall in the 2025 edition (ONS note 9).
 """
 import json
+import sys
 from pathlib import Path
 
-import pandas as pd
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+import ons_births_workbook as wbk  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / "data/raw/ons_births/2024birthsbyparentscountry.xlsx"
+RAW_DIR = ROOT / "data/raw/ons_births"
+ALIASES = ROOT / "src/data/lookups/area-code-aliases.json"
 OUT = ROOT / "src/data/live/births-by-mother-cob.json"
 
-REGION_COLS = {
-    7: "EU_pre2004",
-    8: "EU_post2004",
-    9: "RestOfEurope_nonEU",
-    10: "Africa",
-    11: "MiddleEastAndAsia",
-    12: "RestOfWorld",
+TITLE = r"Live births by country of birth of mother and area of usual residence, (\d{4})$"
+
+# Output key -> the region name that ends its header ("... Mother's country of birth EU").
+REGION_HEADERS = {
+    "EU": "eu",
+    "NewEU": "new eu",
+    "RestOfEurope_nonEU": "rest of europe (non eu)",
+    "Africa": "africa",
+    "MiddleEastAndAsia": "middle east and asia",
+    "RestOfWorld": "rest of world",
+}
+
+LA_GEOGRAPHIES = {
+    "Unitary Authority", "Non-metropolitan District",
+    "London Borough", "Metropolitan District",
 }
 
 
 def main():
-    df = pd.read_excel(SRC, engine="openpyxl", sheet_name="Table_6a", header=None)
-    # Data starts at row 6 (after row 5 header)
+    src = wbk.resolve(RAW_DIR)
+    wb = wbk.open_workbook(src)
+    ws, table_title, m = wbk.find_table(wb, TITLE, header_has="to UK-born mothers")
+    year = int(m.group(1))
+    released = wbk.release_date(wb)
+    table_rows = wbk.rows(ws)
+    publisher = wbk.publisher(table_rows)
+    h = wbk.header_index(table_rows, r"\bcode$")
+    headers = [wbk.norm(c) for c in table_rows[h]]
+
+    col = {
+        "code": wbk.column(headers, "code", lambda s: s.endswith("code")),
+        "name": wbk.column(headers, "name", lambda s: s.endswith("name")),
+        "geography": wbk.column(headers, "geography", lambda s: s.endswith("geography")),
+        "total": wbk.column(headers, "all live births", lambda s: s == "number of live births"),
+        "uk": wbk.column(headers, "UK-born mothers",
+                         lambda s: s.endswith("to uk-born mothers")),
+        "nonuk": wbk.column(headers, "non-UK-born mothers",
+                            lambda s: s.endswith("to non-uk-born mothers")),
+        "pct": wbk.column(headers, "non-UK-born percentage",
+                          lambda s: "non-uk-born mothers" in s and s.endswith("percentage of all live births")),
+    }
+    for key, region in REGION_HEADERS.items():
+        col[key] = wbk.column(
+            headers, f"mother's country of birth: {region}",
+            lambda s, region=region: "mother's country of birth" in s
+            and s.split("mother's country of birth")[-1].strip() == region,
+        )
+
+    aliases = json.loads(ALIASES.read_text())["aliases"]
+
     areas = {}
-    for _, row in df.iloc[6:].iterrows():
-        code = row.iloc[0]
-        name = row.iloc[1]
-        geog = row.iloc[2]
-        if not isinstance(code, str) or not code.strip():
+    skipped = []
+    for r in table_rows[h + 1:]:
+        code = wbk.norm(r[col["code"]] if len(r) > col["code"] else None)
+        if not code:
             continue
-        try:
-            total = int(row.iloc[3])
-            uk_born = int(row.iloc[4])
-            non_uk = int(row.iloc[5])
-        except (TypeError, ValueError):
+        total = wbk.as_int(r[col["total"]])
+        uk_born = wbk.as_int(r[col["uk"]])
+        non_uk = wbk.as_int(r[col["nonuk"]])
+        if total is None or uk_born is None or non_uk is None:
+            skipped.append(code)
             continue
-        non_uk_pct = float(row.iloc[6]) if not pd.isna(row.iloc[6]) else None
-
+        code = aliases.get(code, code)
+        if code in areas:
+            raise RuntimeError(f"{code} appears twice in {ws.title} after resolving aliases")
         regions = {}
-        for col_idx, label in REGION_COLS.items():
-            v = row.iloc[col_idx]
-            if pd.isna(v):
-                continue
-            try:
-                regions[label] = int(v)
-            except (TypeError, ValueError):
-                continue
-
+        for key in REGION_HEADERS:
+            v = wbk.as_int(r[col[key]])
+            if v is not None:
+                regions[key] = v
         areas[code] = {
-            "areaName": name,
-            "geographyType": geog,
-            "totalBirths2024": total,
+            "areaName": wbk.norm(r[col["name"]]),
+            "geographyType": wbk.norm(r[col["geography"]]),
+            "totalBirths": total,
             "ukBornMother": uk_born,
             "nonUkBornMother": non_uk,
-            "nonUkBornMotherPct": non_uk_pct,
-            "ukBornMotherPct": (
-                round(uk_born / total * 100, 1) if total else None
-            ),
+            "nonUkBornMotherPct": wbk.as_float(r[col["pct"]]),
+            "ukBornMotherPct": round(uk_born / total * 100, 1) if total else None,
             "byMotherRegion": regions,
         }
 
-    # Top-N highest non-UK-born-mother percentage (LAs only)
-    la_geographies = {
-        "Unitary Authority", "Non-metropolitan District",
-        "London Borough", "Metropolitan District",
-    }
+    if not areas:
+        raise RuntimeError(f"no data rows read from {src.name} {ws.title}")
+
     la_areas = [
         (c, a) for c, a in areas.items()
-        if a["geographyType"] in la_geographies and a["nonUkBornMotherPct"] is not None
+        if a["geographyType"] in LA_GEOGRAPHIES and a["nonUkBornMotherPct"] is not None
     ]
+    if not la_areas:
+        raise RuntimeError("no local authority rows; the geography labels have changed")
     top_pct = sorted(la_areas, key=lambda kv: -kv[1]["nonUkBornMotherPct"])[:15]
     bottom_pct = sorted(la_areas, key=lambda kv: kv[1]["nonUkBornMotherPct"])[:10]
 
+    def brief(c, a):
+        return {"code": c, "name": a["areaName"], "totalBirths": a["totalBirths"],
+                "nonUkBornMotherPct": a["nonUkBornMotherPct"]}
+
     out = {
-        "source": (
-            "Office for National Statistics — Births by parents' country of "
-            "birth, England and Wales, 2024 (Table 6a: Live births by "
-            "country of birth of mother and area of usual residence)."
+        "source": wbk.citation(publisher, year, released, table_title),
+        "sourceUrl": wbk.DATASET_PAGE,
+        "sourceFile": src.name,
+        "lastUpdated": released,
+        "year": year,
+        "measure": (
+            f"Live births registered in {year}, by the mother's area of usual residence "
+            "and the mother's country of birth as recorded at registration."
         ),
-        "lastUpdated": "2026-04-28",
-        "year": 2024,
         "caveat": (
-            "Mother's country of birth is reported in six regional groups "
-            "at LA level (full-country detail is national/regional only). "
-            "Geography mixes Country / Region / Unitary Authority / "
-            "Non-metropolitan District / London Borough / Metropolitan "
-            "District in one file — filter on geographyType when joining."
+            "Mother's country of birth is reported in regional groups at local authority "
+            "level; individual countries are published for England and Wales only. EU is "
+            "the whole European Union as constituted in 2020, and NewEU is a subset of it, "
+            "so EU, RestOfEurope_nonEU, Africa, MiddleEastAndAsia and RestOfWorld sum to "
+            "the non-UK-born total. Geography mixes Country, Region, County, Unitary "
+            "Authority, Metropolitan District, Non-metropolitan District and London Borough "
+            "rows in one file, so filter on geographyType when joining. Births are a flow "
+            "in one year, not a count of residents."
         ),
         "totalAreas": len(areas),
-        "topNonUkBornMotherLAs": [
-            {
-                "code": c, "name": a["areaName"],
-                "totalBirths": a["totalBirths2024"],
-                "nonUkBornMotherPct": a["nonUkBornMotherPct"],
-            }
-            for c, a in top_pct
-        ],
-        "bottomNonUkBornMotherLAs": [
-            {
-                "code": c, "name": a["areaName"],
-                "totalBirths": a["totalBirths2024"],
-                "nonUkBornMotherPct": a["nonUkBornMotherPct"],
-            }
-            for c, a in bottom_pct
-        ],
+        "topNonUkBornMotherLAs": [brief(c, a) for c, a in top_pct],
+        "bottomNonUkBornMotherLAs": [brief(c, a) for c, a in bottom_pct],
         "areas": areas,
     }
-    OUT.write_text(json.dumps(out, indent=2))
+    OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+    print(f"Read {src.name}, sheet {ws.title}: {table_title}")
+    print(f"Released {released}; {len(areas)} areas; rows without counts skipped: {skipped or 'none'}")
     print(f"Wrote {OUT}")
-    print(f"Areas covered: {len(areas)}")
-    print(f"\nTop 10 LAs by non-UK-born-mother share:")
-    for c, a in top_pct[:10]:
-        print(f"  {a['areaName']:30s} {a['nonUkBornMotherPct']:5.1f}%  ({a['totalBirths2024']:,} births)")
-    print(f"\nBurnley (E07000117):")
-    print(json.dumps(areas.get("E07000117", {}), indent=2))
 
 
 if __name__ == "__main__":

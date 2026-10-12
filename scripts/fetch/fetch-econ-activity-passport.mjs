@@ -13,6 +13,18 @@
  */
 import { mkdirSync, writeFileSync, statSync } from "node:fs";
 import path from "node:path";
+import { refuseNomisDatasetApi } from "../lib/nomis-guard.mjs";
+
+refuseNomisDatasetApi({
+  script: "scripts/fetch/fetch-econ-activity-passport.mjs",
+  tables: "Census 2021 RM021 Economic activity status by passports held (NM_2121_1)",
+  held: [
+    "data/raw/census_econ_passport/rm021_econ_passport_la.csv"
+  ],
+  ons: [
+    "https://www.ons.gov.uk/datasets/RM021/editions/2021/versions"
+  ],
+});
 
 const rawDir = path.resolve(process.cwd(), "data/raw/census_econ_passport");
 mkdirSync(rawDir, { recursive: true });

@@ -1,0 +1,30 @@
+{
+  "dataset": "ons_npp_england",
+  "publisher": "Office for National Statistics",
+  "cadence": "biennial (next: 2026-based, second half of 2028)",
+  "landing": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/z3zippedpopulationprojectionsdatafilesengland",
+  "note": "Edition, base year and variant are read from the zip's own file names and contents by scripts/model/build_control_totals.mjs.",
+  "current": {
+    "fileName": "en1.zip",
+    "fileSha256": "13637064194e0f0b94b1e4d2270ab32d84bda29442669799396802a313a26e19",
+    "sizeBytes": 16594553,
+    "sourceUrl": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/z3zippedpopulationprojectionsdatafilesengland/2024based/en1.zip",
+    "heldAt": "~/asylumstats/data/raw/snpp/control_totals_inputs"
+  },
+  "attempts": [
+    {
+      "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/z3zippedpopulationprojectionsdatafilesengland/2024based/en1.zip",
+      "attempted_at": "2026-10-12T08:38:39.490Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "etag": "\"06cd4d7f5dfc4ee17c56366d6ebcc1e9e7fd6386\"",
+      "last_modified": null,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "en1.zip",
+      "held_at": "~/asylumstats/data/raw/snpp/control_totals_inputs",
+      "blob_sha256": "13637064194e0f0b94b1e4d2270ab32d84bda29442669799396802a313a26e19",
+      "bytes": 16594553
+    }
+  ]
+}

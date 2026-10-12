@@ -27,6 +27,22 @@
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import { applySuccessorAggregates } from "../build/derive-census-english-successors.mjs";
+import { refuseNomisDatasetApi } from "../lib/nomis-guard.mjs";
+
+refuseNomisDatasetApi({
+  script: "scripts/fetch/fetch-nomis-census.mjs",
+  tables: "Census 2021 TS029 Proficiency in English (NM_2048_1), RM043 General health by ethnic group by age (NM_2143_1), RM134 Tenure by ethnic group (NM_2234_1)",
+  held: [
+    "src/data/live/census-english-proficiency.json, census-tenure-ethnic.json and census-health-ethnic.json (committed outputs)",
+    "~/asylumstats/data/raw/census_base/ts029_english_proficiency_2021.csv, rm043_health_ethnicity_2021.csv and rm134_tenure_ethnicity_2021.csv"
+  ],
+  ons: [
+    "TS029: https://www.ons.gov.uk/datasets/TS029/editions/2021/versions",
+    "RM043: https://www.ons.gov.uk/datasets/RM043/editions/2021/versions",
+    "RM134: https://www.ons.gov.uk/datasets/RM134/editions/2021/versions"
+  ],
+  note: "To patch the April 2023 unitaries without a fetch, run scripts/build/derive-census-english-successors.mjs on the committed JSON.",
+});
 
 const BASE = "https://www.nomisweb.co.uk/api/v01/dataset";
 const OUT_DIR = "src/data/live";

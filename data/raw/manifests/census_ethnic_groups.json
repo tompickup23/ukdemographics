@@ -1,0 +1,132 @@
+{
+  "generatedBy": "scripts/build/rebase-census-groups.mjs",
+  "generatedOn": "2026-10-12",
+  "publisher": "Office for National Statistics",
+  "description": "Census ethnic group extracts by local authority that the Census fields of ethnic-projections.json are rebased on. The files are gitignored; their hashes are recorded here so the inputs can be identified. National totals are summed over the file's own area codes, each authority once.",
+  "files": [
+    {
+      "year": 2021,
+      "table": "Census 2021 TS021 Ethnic group",
+      "nomisDataset": "NM_2041_1",
+      "fileName": "census_2021_ethnicity.csv",
+      "sizeBytes": 594499,
+      "fileModified": "2026-04-10",
+      "sha256": "4a834e018bc2522cb1935b5ed4213469de979022cc39c419427929f4206eefea",
+      "rows": 7950,
+      "areaCodes": 318
+    },
+    {
+      "year": 2011,
+      "table": "Census 2011 KS201EW Ethnic group",
+      "nomisDataset": "NM_608_1",
+      "fileName": "census_2011_ethnicity.csv",
+      "sizeBytes": 458247,
+      "fileModified": "2026-04-10",
+      "sha256": "b8d41f29ad8889de88a9832ce6467b8cef8ebcfe7a6e3106876e490838ee8a40",
+      "rows": 6612,
+      "areaCodes": 348
+    }
+  ],
+  "lookups": {
+    "aliases": {
+      "file": "area-code-aliases.json",
+      "sha256": "3bc8fbc277e9679e441dcabaa6bebfc8bce4e373730aeb824dc19815be295f03"
+    },
+    "successors": {
+      "file": "lad22-to-lad23.json",
+      "sha256": "cc4c930d230c5a2db9259798c4eee35953f828bafa07c3cd16151c21d6f728cf"
+    }
+  },
+  "target": {
+    "file": "ethnic-projections.json",
+    "areas": 318
+  },
+  "resolution": {
+    "current2021": {
+      "direct": 318,
+      "alias": [],
+      "predecessors": []
+    },
+    "baseline2011": {
+      "direct": 307,
+      "alias": [],
+      "predecessors": []
+    },
+    "baseline2021": {
+      "direct": 11,
+      "alias": [],
+      "predecessors": []
+    }
+  },
+  "unresolved": {
+    "current": [],
+    "baseline": []
+  },
+  "modelledShareCheck": {
+    "areas": 269,
+    "tolerancePp": 0.05,
+    "maxDeviationPp": 0.051,
+    "maxDeviationArea": "E07000173 Gedling white_british",
+    "outsideTolerance": [
+      {
+        "area": "E07000173 Gedling",
+        "group": "white_british",
+        "deviationPp": 0.051,
+        "stored": 85.54,
+        "ts021": 85.59
+      }
+    ]
+  },
+  "national": {
+    "2011": {
+      "areas": 307,
+      "total": 52096122,
+      "groups": {
+        "white_british": 41525180,
+        "white_other": 2912012,
+        "asian": 4108287,
+        "black": 1827130,
+        "mixed": 1170687,
+        "other": 552826
+      }
+    },
+    "2021": {
+      "areas": 318,
+      "total": 59597569,
+      "groups": {
+        "white_british": 44355040,
+        "white_other": 4344189,
+        "asian": 5515452,
+        "black": 2409281,
+        "mixed": 1717973,
+        "other": 1255634
+      }
+    }
+  },
+  "englandAndWales": {
+    "2011": {
+      "areas": 348,
+      "total": 56075912,
+      "groups": {
+        "white_british": 45134686,
+        "white_other": 3074709,
+        "asian": 4213531,
+        "black": 1864890,
+        "mixed": 1224400,
+        "other": 563696
+      }
+    },
+    "2021": {
+      "areas": 318,
+      "total": 59597569,
+      "groups": {
+        "white_british": 44355040,
+        "white_other": 4344189,
+        "asian": 5515452,
+        "black": 2409281,
+        "mixed": 1717973,
+        "other": 1255634
+      }
+    }
+  }
+}
