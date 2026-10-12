@@ -178,9 +178,9 @@ function fmtCompact(n: number) {
   </section>
 
   <section class="chart-section">
-    <h2>Births to non-UK-born mothers, 2008 to 2024 <span class="scope-tag">England and Wales</span></h2>
+    <h2>Births to non-UK-born mothers, {bhYears[0]} to {bhYears[bhLatestIdx]} <span class="scope-tag">England and Wales</span></h2>
     <p class="section-desc">{bhFirstPct?.toFixed(1)}% of England + Wales births in {bhYears[0]} were to mothers born outside the UK. That share is <strong>{bhLatestPct?.toFixed(1)}%</strong> in {bhYears[bhLatestIdx]}.</p>
-    <svg viewBox={`0 0 ${chartW} ${chartH}`} class="chart" role="img" aria-label="Births to non-UK-born mothers, percentage of total, 2008-2024">
+    <svg viewBox={`0 0 ${chartW} ${chartH}`} class="chart" role="img" aria-label={`Births to non-UK-born mothers, percentage of total, ${bhYears[0]} to ${bhYears[bhLatestIdx]}`}>
       <path d={bhPctPath} fill="none" stroke="var(--coral)" stroke-width="2.5" />
       {bhNonUkPct.map((v, i) =>
         v != null && (i === 0 || i === bhLatestIdx || v === Math.max(...bhNonUkPct)) ? (
@@ -196,7 +196,7 @@ function fmtCompact(n: number) {
       <text x={pad.left - 8} y={pad.top + 4} text-anchor="end" class="chart-tick">{bhPctMax.toFixed(0)}%</text>
       <text x={pad.left - 8} y={pad.top + innerH} text-anchor="end" class="chart-tick">0%</text>
     </svg>
-    <p class="section-note">Source: ONS Births by parents' country of birth, Table 1, England and Wales 2024 release. National figure only; place-page level uses Table 6a (per-LA 2024).</p>
+    <p class="section-note">Source: {bh.source} England and Wales figure only; local authority figures for {bhYears[bhLatestIdx]} come from Table 6a of the same edition.</p>
   </section>
 
   <section class="table-section">

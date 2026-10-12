@@ -55,6 +55,33 @@ jobs:
       - name: Transform stop-and-search
         run: python3 scripts/transform/transform_stop_and_search.py
 
+      # ONS births by parents' country of birth: one edition a year (May), no key.
+      # The fetch resolves the newest edition from the ONS dataset page; the transforms
+      # read the year, release date and columns from the workbook, and the history
+      # transform stops on a break in the series. Secondary ingest: a failure here
+      # restores the committed births files, lets the rest of the refresh carry on, and
+      # turns the run red at the end.
+      - name: Install the births transforms' Python package
+        run: python3 -m pip install --quiet openpyxl==3.1.5
+
+      - name: Fetch births by parents' country of birth (ONS, no auth)
+        id: births_fetch
+        continue-on-error: true
+        run: node scripts/fetch/fetch-ons-births-cob.mjs
+
+      - name: Transform births by parents' country of birth
+        id: births
+        if: steps.births_fetch.outcome == 'success'
+        continue-on-error: true
+        run: |
+          python3 scripts/transform/transform_births_by_mother_cob.py
+          python3 scripts/transform/transform_births_history.py
+
+      # Pure shell, no GitHub event data is interpolated here.
+      - name: Restore the births files if the births ingest failed
+        if: steps.births_fetch.outcome == 'failure' || steps.births.outcome == 'failure'
+        run: git checkout -- src/data/live/births-by-mother-cob.json src/data/live/births-history-national.json
+
       # Ignore run timestamps when deciding whether anything changed.
       #
       # A transform that stamps `generatedAt` or `lastUpdated` moves that line on every
@@ -105,7 +132,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git add src/data/live/
+          git add src/data/live/ data/raw/manifests/
           git commit -m "data: refresh that failed the tests $(date -u +%Y-%m-%d)"
           git push origin "$branch"
           gh label create refresh-failed --color B60205 --description "Refreshed data failed the tests" --force
@@ -124,7 +151,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/live/
+          # Fetch manifests (data/raw/manifests/) record each retrieval attempt. They go in
+          # with the data they describe; a run that changes no data commits neither.
+          git add src/data/live/ data/raw/manifests/
 
           # A refresh adds and updates. It does not delete. A fetch that half fails
           # leaves files unwritten, and `git add` would stage their absence as a
@@ -196,8 +225,16 @@ jobs:
         if: always()
         env:
           DATATESTS_OUTCOME: ${{ steps.datatests.outcome }}
+          BIRTHS_FETCH_OUTCOME: ${{ steps.births_fetch.outcome }}
+          BIRTHS_OUTCOME: ${{ steps.births.outcome }}
         run: |
+          failed=0
           if [ "$DATATESTS_OUTCOME" = "failure" ]; then
             echo "The refreshed data failed npm test and was NOT committed. See the refresh-failed issue."
-            exit 1
+            failed=1
           fi
+          if [ "$BIRTHS_FETCH_OUTCOME" = "failure" ] || [ "$BIRTHS_OUTCOME" = "failure" ]; then
+            echo "Births by parents' country of birth was skipped (fetch: $BIRTHS_FETCH_OUTCOME, transform: $BIRTHS_OUTCOME). The committed births files were kept."
+            failed=1
+          fi
+          exit "$failed"
