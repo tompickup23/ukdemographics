@@ -19,6 +19,15 @@
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { refuseNomisDatasetApi } from "../lib/nomis-guard.mjs";
+
+refuseNomisDatasetApi({
+  script: "scripts/fetch/fetch-census-2011-migration.mjs",
+  tables: "Census 2011 UKMIG003 Migration by ethnic group (NM_1282_1)",
+  held: [],
+  ons: [],
+  note: "The copy at ~/asylumstats/data/raw/census_2011_migration/ukmig003_net_migration_ethnicity_la.csv is 2 bytes: an empty response, not the table.",
+});
 
 const rawDir = path.resolve("data/raw/census_2011_migration");
 mkdirSync(rawDir, { recursive: true });

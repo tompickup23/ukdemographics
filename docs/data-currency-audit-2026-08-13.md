@@ -292,7 +292,7 @@ Checked against upstream as at 13 August 2026.
 |---|---|---|---|
 | `school-eal.json`, `school-eal-district.json`, `school-pressure.json`, `school-validation.json`, `school-fertility-proxy.json` | DfE 2024/25 | **2025/26**, Jan 2026 census | Also feeds the model's DfE calibration and the only out-of-sample validation. |
 | `send-dashboard.json` | DfE SEN 2024/25 | **2025/26**, pub 11 Jun 2026 | 1.8m pupils with SEN, up 5.2%; EHC plans 538,547. |
-| `crime-dashboard.json`, `crime-correlation.json`, `nino-crime-correlation.json` | YE Mar 2024 | **YE Mar 2026** | Two years behind. |
+| `crime-dashboard.json` | YE Mar 2024 | **YE Mar 2026** | Two years behind. (This row also listed two correlation files, retired on 12 October 2026 under decision D7 rather than refreshed.) |
 | `payroll-by-nationality.json`, `payroll-by-region-industry.json` | HMRC RTI to Dec 2024 | **to Dec 2025**, pub Apr 2026 | |
 | `tb-notifications.json` | UKHSA 2025 report, data to end-2024 | **2025 data**: 5,424 notifications, rate 9.4 per 100k | Editorially significant. The site's headline is "+13.0% in 2024"; 2025 was flat at -1.1%, so the current page tells readers TB is surging when the latest year is not. |
 | `births-by-mother-cob.json`, `births-history-national.json` | 2024 births | **2025**, pub 27 May 2026 (40.2% of births with one or both parents non-UK-born) | The standalone "Births by parents' country of birth" publication was discontinued on 1 Jul 2025 and folded into "Births in England and Wales". The source string needs updating as well as the data. |

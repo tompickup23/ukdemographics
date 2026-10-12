@@ -38,8 +38,9 @@ let bandsDropped = 0;
 const drift = { spread: [], band: [], uncovered: [] };
 
 // The forward model can only project an area present in both the 2011 and 2021
-// Censuses under one code. Welsh authorities are absent from the England-only
-// 2011 extract, and authorities created after 2011 have no 2011 base. 51 areas
+// Censuses under one code. Authorities created after 2011 have no 2011 base, and
+// Welsh authorities are dropped by the E-only filter in build_single_year_base.mjs
+// (the 2011 DC2101EW table holds all 22; the 2021 custom dataset 19). 51 areas
 // are in that position: they carry projections from an older run that the
 // current model cannot reproduce, and writing a fresh stochastic band beside
 // those stale projections produces a band describing a different model. 106 of

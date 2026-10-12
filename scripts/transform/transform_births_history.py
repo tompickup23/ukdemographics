@@ -1,125 +1,160 @@
 #!/usr/bin/env python3
 """
-Extract the 2008-2024 national time series of live births by mother's
-country of birth from the latest ONS publication (Table 1 of the 2024
-file). Provides a 17-year trend that the existing per-LA single-year
-file (births-by-mother-cob.json) lacks.
+National series of live births by mother's country of birth, England and Wales, from
+Table 1 of the newest "Parents' country of birth" workbook on disk.
 
 Inputs:
-  data/raw/ons_births/2024birthsbyparentscountry.xlsx (Table_1)
+  data/raw/ons_births/<year>birth(s)byparentscountry.xlsx, newest edition, resolved by
+  stem (scripts/fetch/fetch-ons-births-cob.mjs downloads it)
 
 Output:
   src/data/live/births-history-national.json
 
+The years, the categories, the release date and the publisher are all read from the
+workbook. Categories are matched by their row label and the years by their column header.
+
+Consistency across editions: each edition restates the whole series, and ONS revises
+back years (the 2025 edition moved 2023's total by one birth). Before overwriting, the
+series being replaced is compared with the new one for every year both hold. Small
+revisions are printed for the change record. A revision larger than REVISION_LIMIT in
+the total, UK-born or non-UK-born series stops the run, because at that size it is a
+break in the series (a definition or coverage change), not a revision, and needs a
+person to decide how to show it.
+
 Caveats:
-  - National (England + Wales) only. ONS publishes per-LA data only in
-    Table 6a of each annual file; per-LA multi-year reconstruction
-    would require year-by-year file harmonisation (sheet names and
-    structures vary across 2018-2024 publications) and is not done
-    here.
+  - England and Wales only. ONS publishes local authority figures only in Table 6a of
+    each edition; see births-by-mother-cob.json for the newest year.
   - "Mother's country of birth" is what is recorded at registration.
 """
 import json
+import sys
 from pathlib import Path
 
-import pandas as pd
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+import ons_births_workbook as wbk  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / "data/raw/ons_births/2024birthsbyparentscountry.xlsx"
+RAW_DIR = ROOT / "data/raw/ons_births"
 OUT = ROOT / "src/data/live/births-history-national.json"
+
+TITLE = r"Live births by country of birth of mother, (\d{4}) to (\d{4})$"
+HEADLINE = {"totalBirths": "Total", "ukBornMother": "UK", "nonUkBornMother": "Total outside United Kingdom"}
+REVISION_LIMIT = 0.01
+
+
+def read_series(src: Path):
+    wb = wbk.open_workbook(src)
+    ws, table_title, m = wbk.find_table(wb, TITLE)
+    table_rows = wbk.rows(ws)
+    h = wbk.header_index(table_rows, r"^country of birth of mother$")
+    header = table_rows[h]
+    year_cols = []
+    for j, cell in enumerate(header[1:], start=1):
+        y = wbk.as_int(cell)
+        if y is not None and 1900 < y < 2100:
+            year_cols.append((y, j))
+    if not year_cols:
+        raise RuntimeError(f"{src.name} {ws.title}: no year columns in the header row")
+    first, last = int(m.group(1)), int(m.group(2))
+    years = sorted(y for y, _ in year_cols)
+    if years[0] != first or years[-1] != last or len(years) != last - first + 1:
+        raise RuntimeError(
+            f"{src.name} {ws.title}: title says {first} to {last}, header holds {years}"
+        )
+    order = sorted(year_cols)
+    series = {}
+    for r in table_rows[h + 1:]:
+        label = wbk.norm(r[0] if r else None)
+        if not label:
+            continue
+        values = [wbk.as_int(r[j]) if j < len(r) else None for _, j in order]
+        if all(v is None for v in values):
+            continue
+        if label in series:
+            raise RuntimeError(f"{src.name} {ws.title}: row label '{label}' appears twice")
+        series[label] = values
+    for label in HEADLINE.values():
+        if label not in series:
+            raise RuntimeError(f"{src.name} {ws.title}: no '{label}' row")
+    return {
+        "years": years,
+        "series": series,
+        "tableTitle": table_title,
+        "publisher": wbk.publisher(table_rows),
+        "released": wbk.release_date(wb),
+        "sheet": ws.title,
+    }
+
+
+def compare_with_previous(previous: dict, years: list[int], new_headline: dict) -> list[dict]:
+    """Revisions in the headline series for every year held by both the old and new output."""
+    old_years = previous.get("years") or []
+    revisions = []
+    for key in HEADLINE:
+        old_vals = dict(zip(old_years, previous.get(key) or []))
+        new_vals = dict(zip(years, new_headline[key]))
+        for y in sorted(set(old_vals) & set(new_vals)):
+            o, n = old_vals[y], new_vals[y]
+            if o is None or n is None or o == n:
+                continue
+            revisions.append({"series": key, "year": y, "previous": o, "current": n,
+                              "relative": round((n - o) / o, 6) if o else None})
+    return revisions
 
 
 def main():
-    df = pd.read_excel(SRC, engine="openpyxl", sheet_name="Table_1", header=None)
-    # Find the header row (contains "Country of birth of mother" + year columns)
-    header_row = None
-    for i, row in df.iterrows():
-        if "Country of birth of mother" in str(row.iloc[0]):
-            header_row = i
-            break
-    if header_row is None:
-        raise RuntimeError("Could not find header row in Table_1")
+    src = wbk.resolve(RAW_DIR)
+    read = read_series(src)
+    years, series = read["years"], read["series"]
+    headline = {key: series[label] for key, label in HEADLINE.items()}
 
-    header_cells = df.iloc[header_row].tolist()
-    years = []
-    year_cols = []
-    for j, c in enumerate(header_cells[1:], start=1):
-        try:
-            yr = int(float(c))
-            years.append(yr)
-            year_cols.append(j)
-        except (TypeError, ValueError):
-            continue
+    non_uk_pct = [
+        round(n / t * 100, 1) if (t and n is not None) else None
+        for t, n in zip(headline["totalBirths"], headline["nonUkBornMother"])
+    ]
 
-    # Build per-category time series from rows after header
-    series = {}
-    for i in range(header_row + 1, len(df)):
-        row = df.iloc[i]
-        cat = str(row.iloc[0]).strip()
-        if not cat or cat in {"nan", ""}:
-            continue
-        values = []
-        for col in year_cols:
-            v = row.iloc[col]
-            try:
-                values.append(int(v))
-            except (TypeError, ValueError):
-                values.append(None)
-        if all(v is None for v in values):
-            continue
-        series[cat] = values
+    previous = json.loads(OUT.read_text()) if OUT.exists() else {}
+    overlap = sorted(set(previous.get("years") or []) & set(years))
+    revisions = compare_with_previous(previous, years, headline)
+    breaks = [r for r in revisions if r["relative"] is None or abs(r["relative"]) > REVISION_LIMIT]
+    if breaks:
+        raise RuntimeError(
+            "the new edition differs from the series it replaces by more than "
+            f"{REVISION_LIMIT:.0%} in an overlapping year; check for a definition change "
+            f"before publishing: {breaks}"
+        )
 
-    # Sort years ascending and reorder values to match
-    sorted_years_with_idx = sorted(enumerate(years), key=lambda kv: kv[1])
-    sorted_years = [yr for _, yr in sorted_years_with_idx]
-    sorted_indices = [idx for idx, _ in sorted_years_with_idx]
-    for cat, vals in series.items():
-        series[cat] = [vals[i] for i in sorted_indices]
-
-    # Headline computations
-    total_series = series.get("Total", [])
-    uk_series = series.get("UK", [])
-    non_uk_series = series.get("Total outside United Kingdom", [])
-    non_uk_pct = []
-    for t, n in zip(total_series, non_uk_series):
-        if t and n is not None:
-            non_uk_pct.append(round(n / t * 100, 1))
-        else:
-            non_uk_pct.append(None)
-
+    first, last = years[0], years[-1]
     out = {
-        "source": (
-            "ONS Births by parents' country of birth, England and Wales, "
-            "2024 release. Table 1: Live births by country of birth of "
-            "mother, 2008 to 2024. National only (England + Wales)."
-        ),
-        "lastUpdated": "2026-04-29",
-        "years": sorted_years,
-        "totalBirths": total_series,
-        "ukBornMother": uk_series,
-        "nonUkBornMother": non_uk_series,
+        "source": wbk.citation(read["publisher"], last, read["released"], read["tableTitle"]),
+        "sourceUrl": wbk.DATASET_PAGE,
+        "sourceFile": src.name,
+        "lastUpdated": read["released"],
+        "years": years,
+        "totalBirths": headline["totalBirths"],
+        "ukBornMother": headline["ukBornMother"],
+        "nonUkBornMother": headline["nonUkBornMother"],
         "nonUkBornMotherPct": non_uk_pct,
         "byCategoryTimeSeries": series,
         "caveat": (
-            "England + Wales national totals only. Per-LA multi-year "
-            "reconstruction is not done here because ONS sheet names "
-            "and structures vary across the 2018-2024 publications. "
-            "The single-year per-LA breakdown is in births-by-mother-"
-            "cob.json (2024 only)."
+            f"England and Wales, live births registered in each year from {first} to {last}, "
+            "by the mother's country of birth as recorded at registration. The whole series "
+            f"is taken from the {last} edition, which restates earlier years with any "
+            "revisions ONS has made. Local authority figures are published for the latest "
+            "year only; see births-by-mother-cob.json."
         ),
     }
-    OUT.write_text(json.dumps(out, indent=2))
+    OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+    print(f"Read {src.name}, sheet {read['sheet']}: {read['tableTitle']} (released {read['released']})")
+    print(f"Years {first} to {last}; {len(series)} categories")
+    if overlap:
+        print(f"Checked against the series it replaces for {overlap[0]} to {overlap[-1]}: "
+              f"{len(revisions)} revision(s) within {REVISION_LIMIT:.0%}")
+        for r in revisions:
+            print(f"  {r['series']} {r['year']}: {r['previous']} -> {r['current']}")
+    else:
+        print("No earlier series to check against")
     print(f"Wrote {OUT}")
-    print(f"Years: {sorted_years[0]}-{sorted_years[-1]} ({len(sorted_years)} years)")
-    print(f"Categories: {len(series)}")
-    print(f"\nTotal births and non-UK-born mother share by year:")
-    print(f"  {'Year':<6}{'Total':>10}{'UK':>10}{'NonUK':>10}{'NonUK%':>8}")
-    for i, yr in enumerate(sorted_years):
-        t = total_series[i] if i < len(total_series) else None
-        u = uk_series[i] if i < len(uk_series) else None
-        n = non_uk_series[i] if i < len(non_uk_series) else None
-        p = non_uk_pct[i] if i < len(non_uk_pct) else None
-        print(f"  {yr:<6}{t or '-':>10}{u or '-':>10}{n or '-':>10}{p or '-':>8}")
 
 
 if __name__ == "__main__":

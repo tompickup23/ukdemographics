@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # refresh-data.yml dispatches this after committing refreshed data, because its
+  # push with the default token raises no push event. Keep this trigger.
   workflow_dispatch:
 
 permissions:
@@ -62,7 +64,31 @@ jobs:
           node-version: 22
       # Submit only URLs whose sitemap lastmod identifies a real same-day
       # content revision. The key file is part of the deployed artifact above.
+      #
+      # continue-on-error because telling a search engine about a change is an
+      # optimisation and the deploy is not. On 4 October 2026 (run 37166838543)
+      # Pages deployed and the site went live, then this step failed and marked
+      # the whole run red, which hid whether the deploy had worked. The outcome is
+      # reported in the job summary by the next step instead.
+      # Pure shell, no GitHub event data is interpolated here.
       - name: Notify IndexNow of changed canonical URLs
+        id: indexnow
+        continue-on-error: true
         env:
           INDEXNOW_SUBMIT: "1"
         run: node scripts/indexnow-submit.mjs --sitemap
+      # Reads a step outcome only; no GitHub event data is interpolated here.
+      - name: Report IndexNow outcome
+        if: always()
+        env:
+          INDEXNOW_OUTCOME: ${{ steps.indexnow.outcome }}
+        run: |
+          case "$INDEXNOW_OUTCOME" in
+            success)
+              echo "IndexNow: notified (or nothing changed today)." >> "$GITHUB_STEP_SUMMARY" ;;
+            failure)
+              echo "::warning title=IndexNow failed::The site deployed, but IndexNow was not notified. See the Notify IndexNow step log."
+              echo "IndexNow: **failed**. Pages deployed; search engines were not notified of changed URLs. See the Notify IndexNow step log." >> "$GITHUB_STEP_SUMMARY" ;;
+            *)
+              echo "IndexNow: not run (outcome: ${INDEXNOW_OUTCOME:-none})." >> "$GITHUB_STEP_SUMMARY" ;;
+          esac

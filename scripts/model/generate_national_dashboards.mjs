@@ -16,7 +16,10 @@
  *   - dependency-ratios.json (employment rate as a working-age proxy)
  *   - language-projections.json (Census 2021 English proficiency)
  *   - fiscal-resilience.json (demographic change and service exposure scoring)
- *   - crime-correlation.json (correlation for areas with both crime + asylum data)
+ *
+ * It no longer computes a correlation of area asylum rates against area crime
+ * rates. This site does not set nationality or immigration data against crime
+ * (decision D7, 12 October 2026); tests/no-crime-correlation.test.ts keeps it so.
  *
  * Run: node scripts/model/generate_national_dashboards.mjs
  */
@@ -44,7 +47,6 @@ const ep = readJSON('ethnic-projections.json');
 const scenarioSummaries = readJSON('scenario-summaries.json');
 const schoolValidation = readJSON('school-validation.json');
 const localRoute = readJSON('local-route-latest.json');
-const existingCrime = readJSON('crime-dashboard.json');
 const existingSend = readJSON('send-dashboard.json');
 const existingAsc = readJSON('asc-dashboard.json');
 const censusEnglish = readJSON('census-english-proficiency.json');
@@ -478,51 +480,6 @@ console.log('6. Generating fiscal-resilience.json...');
     moderatePressureAreas: ranked.filter(([_, d]) => d.category === 'Moderate Pressure').length,
     top10: ranked.slice(0, 10).map(([code, d]) => ({ code, name: d.areaName, score: d.serviceDemandPressureScore })),
     areas
-  });
-}
-
-// ─── 7. Crime Correlation ───
-console.log('7. Generating crime-correlation.json...');
-{
-  // Build correlation between asylum dispersal rate and crime data
-  const crimeAreas = existingCrime?.areas || {};
-  const pairs = [];
-
-  for (const [code, crimeData] of Object.entries(crimeAreas)) {
-    const asylum = asylumLookup.get(code);
-    if (!asylum || !crimeData.totalCrimeRate) continue;
-
-    pairs.push({
-      areaCode: code,
-      areaName: crimeData.areaName,
-      totalCrimeRate: crimeData.totalCrimeRate,
-      violentCrimeRate: crimeData.violentCrimeRate ?? null,
-      asylumRate: asylum.supportedAsylumRate,
-      supportedAsylum: asylum.supportedAsylum,
-    });
-  }
-
-  // Simple correlation coefficient
-  const n = pairs.length;
-  let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0, sumY2 = 0;
-  for (const p of pairs) {
-    sumX += p.asylumRate;
-    sumY += p.totalCrimeRate;
-    sumXY += p.asylumRate * p.totalCrimeRate;
-    sumX2 += p.asylumRate * p.asylumRate;
-    sumY2 += p.totalCrimeRate * p.totalCrimeRate;
-  }
-  const correlation = n > 2 ?
-    (n * sumXY - sumX * sumY) / Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY)) : null;
-
-  writeJSON('crime-correlation.json', {
-    source: 'crime-dashboard.json + local-route-latest.json',
-    methodology: 'Ecological correlation between asylum support rate per 10,000 and total crime rate per 1,000 across local authorities with both datasets',
-    lastUpdated: NOW,
-    caveat: 'ECOLOGICAL FALLACY WARNING: Correlation between area-level asylum rates and area-level crime rates does NOT prove that asylum seekers commit more crime. Many confounding factors (deprivation, age structure, urbanisation) affect both variables. This analysis cannot and should not be used to draw conclusions about individual behaviour.',
-    pairsAnalysed: n,
-    correlationCoefficient: correlation != null ? Math.round(correlation * 1000) / 1000 : null,
-    pairs
   });
 }
 
