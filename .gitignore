@@ -51,6 +51,7 @@ data/raw/ons_ltim/
 data/raw/ho_visas_extra/
 data/raw/dft_evci/
 data/raw/hmrc_child_benefit/
+data/raw/ons_mye/
 
 # Environment and credential files
 *.env
