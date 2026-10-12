@@ -1,4 +1,5 @@
 import rawSend from "../data/live/send-dashboard.json";
+import { percentileRank, type PercentileRank } from "./percentile";
 
 export interface PrimaryNeed {
   need: string;
@@ -47,13 +48,9 @@ export function getSendCaveat(): string {
   return data.caveat;
 }
 
-export function getSendGrowthPercentile(areaCode: string): number | null {
+/** Rank among areas with a growth figure; describeRank() in percentile.ts words it. */
+export function getSendGrowthPercentile(areaCode: string): PercentileRank | null {
   const area = data.areas[areaCode];
-  if (!area || area.fiveYearGrowthPct == null) return null;
-  const growth = area.fiveYearGrowthPct;
-  const rates = Object.values(data.areas)
-    .map((a) => a.fiveYearGrowthPct)
-    .filter((r): r is number => r != null);
-  const below = rates.filter((r) => r < growth).length;
-  return Math.round((below / rates.length) * 100);
+  if (!area) return null;
+  return percentileRank(Object.values(data.areas).map((a) => a.fiveYearGrowthPct), area.fiveYearGrowthPct);
 }
