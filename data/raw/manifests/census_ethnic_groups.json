@@ -102,5 +102,31 @@
         "other": 1255634
       }
     }
+  },
+  "englandAndWales": {
+    "2011": {
+      "areas": 348,
+      "total": 56075912,
+      "groups": {
+        "white_british": 45134686,
+        "white_other": 3074709,
+        "asian": 4213531,
+        "black": 1864890,
+        "mixed": 1224400,
+        "other": 563696
+      }
+    },
+    "2021": {
+      "areas": 318,
+      "total": 59597569,
+      "groups": {
+        "white_british": 44355040,
+        "white_other": 4344189,
+        "asian": 5515452,
+        "black": 2409281,
+        "mixed": 1717973,
+        "other": 1255634
+      }
+    }
   }
 }
