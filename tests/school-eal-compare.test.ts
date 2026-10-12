@@ -10,13 +10,16 @@ import { describe, expect, it } from "vitest";
 import district from "../src/data/live/school-eal-district.json";
 import upperTier from "../src/data/live/school-eal.json";
 import { compareCountyEal, SIMILAR_WITHIN_PP } from "../src/lib/school-eal-compare";
+import { getParentUtla } from "../src/lib/area-hierarchy";
 
 const districts = (district as any).areas as Record<string, any>;
 const counties = (upperTier as any).areas as Record<string, any>;
 const year = (district as any).academicYear as string;
-const shown = Object.entries(districts).filter(
-  ([code, d]) => d.totalPupils > 0 && d.parentUtlaName && d.parentUtlaName !== d.areaName && d.parentUtlaCode !== code,
-);
+// Pages that carry the comparison: non-metropolitan districts, with the county
+// from the ONS lookup (the school file's own parentUtlaCode is wrong for some areas).
+const shown = Object.entries(districts)
+  .filter(([code, d]) => d.totalPupils > 0 && getParentUtla(code))
+  .map(([code, d]) => [code, { ...d, parentUtlaCode: getParentUtla(code)!.countyCode }] as [string, any]);
 
 describe("county comparison rule", () => {
   it("calls a difference under the threshold similar, on the printed one-decimal figures", () => {
@@ -55,8 +58,16 @@ describe("county comparison on district pages", () => {
     expect(tally.lower).toBeLessThan(shown.length);
   });
 
-  it("no longer types the comparison into the page", () => {
+  it("no longer types the comparison into the page, and takes the county from the lookup", () => {
     const page = fs.readFileSync(path.resolve("src/pages/places/[slug].astro"), "utf8");
+    const section = page.slice(page.indexOf('id="schools-eal"'), page.indexOf("</section>", page.indexOf('id="schools-eal"')));
     expect(page).not.toMatch(/much lower/);
+    expect(section).not.toMatch(/parentUtlaName/);
+  });
+
+  it("covers districts whose school file names the wrong parent", () => {
+    // Hertsmere's school record names Somerset; the page must still compare with Hertfordshire.
+    const wrong = shown.filter(([code]) => districts[code].parentUtlaCode !== getParentUtla(code)!.countyCode);
+    for (const [code, d] of wrong) expect(counties[d.parentUtlaCode], `${code} ${d.areaName}`).toBeTruthy();
   });
 });
