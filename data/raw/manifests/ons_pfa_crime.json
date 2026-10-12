@@ -1,0 +1,33 @@
+{
+  "dataset": "ons_pfa_crime",
+  "publisher": "Office for National Statistics",
+  "title": "Crime in England and Wales: Police Force Area data tables",
+  "cadence": "quarterly",
+  "landing": "https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables",
+  "note": "Tables C1, C2 and C5 hold the Community Safety Partnership and local authority rows. The period is read from the workbook's table titles by scripts/transform/transform_crime.py, never from this manifest or the file name. page_release_date is what the dataset page showed when the file was fetched.",
+  "current": {
+    "fileName": "pfatablesyemarch2026.xlsx",
+    "fileSha256": "27d7884ef0e07dad01e602e48a430871ea2db1f558dbaa496e1f1f22e06c307f",
+    "sizeBytes": 656967,
+    "sourceUrl": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables/yearendingmarch2026/pfatablesyemarch2026.xlsx",
+    "pageReleaseDate": "23 July 2026"
+  },
+  "attempts": [
+    {
+      "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables/yearendingmarch2026/pfatablesyemarch2026.xlsx",
+      "attempted_at": "2026-10-12T08:18:39.793Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "etag": "\"70cdb66bf9a6d20ed0ad073d8edbfff222482b39--gzip\"",
+      "last_modified": null,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "pfatablesyemarch2026.xlsx",
+      "edition_slug": "yearendingmarch2026",
+      "page_release_date": "23 July 2026",
+      "page_next_release": "22 October 2026",
+      "blob_sha256": "27d7884ef0e07dad01e602e48a430871ea2db1f558dbaa496e1f1f22e06c307f",
+      "bytes": 656967
+    }
+  ]
+}
