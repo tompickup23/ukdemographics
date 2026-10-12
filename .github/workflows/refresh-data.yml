@@ -47,6 +47,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      # The spreadsheet transforms (births, TB and the other publisher ingests) read
+      # .ods and .xlsx through pandas and openpyxl.
+      - name: Python packages for the spreadsheet transforms
+        run: python3 -m pip install --quiet pandas==2.2.3 odfpy==1.4.1 openpyxl==3.1.5
       - run: npm ci
 
       - name: Fetch stop-and-search (data.police.uk, no auth)
@@ -61,9 +65,6 @@ jobs:
       # transform stops on a break in the series. Secondary ingest: a failure here
       # restores the committed births files, lets the rest of the refresh carry on, and
       # turns the run red at the end.
-      - name: Install the births transforms' Python package
-        run: python3 -m pip install --quiet openpyxl==3.1.5
-
       - name: Fetch births by parents' country of birth (ONS, no auth)
         id: births_fetch
         continue-on-error: true
@@ -81,6 +82,46 @@ jobs:
       - name: Restore the births files if the births ingest failed
         if: steps.births_fetch.outcome == 'failure' || steps.births.outcome == 'failure'
         run: git checkout -- src/data/live/births-by-mother-cob.json src/data/live/births-history-national.json
+
+      # UKHSA TB surveillance tables, found on GOV.UK by title, no key. Annual: most
+      # weeks record an "unchanged" attempt in the manifest and rewrite the same file.
+      # Secondary ingest, as births above: a failure restores the committed file, lets
+      # the rest of the refresh carry on, and turns the run red at the end.
+      - name: Fetch UKHSA TB (GOV.UK, no auth)
+        id: tb_fetch
+        continue-on-error: true
+        run: node scripts/fetch/fetch-ukhsa-tb.mjs
+
+      - name: Transform UKHSA TB
+        id: tb
+        if: steps.tb_fetch.outcome == 'success'
+        continue-on-error: true
+        run: python3 scripts/transform/transform_tb.py
+
+      # Pure shell, no GitHub event data is interpolated here.
+      - name: Restore the TB file if the TB ingest failed
+        if: steps.tb_fetch.outcome == 'failure' || steps.tb.outcome == 'failure'
+        run: git checkout -- src/data/live/tb-notifications.json
+
+      # MHCLG Council Taxbase, found on GOV.UK by title, no key. Annual (November);
+      # other weeks record an "unchanged" attempt and rewrite the same file.
+      # Secondary ingest, as births above: a failure restores the committed file, lets
+      # the rest of the refresh carry on, and turns the run red at the end.
+      - name: Fetch MHCLG Council Taxbase (GOV.UK, no auth)
+        id: ctb_fetch
+        continue-on-error: true
+        run: node scripts/fetch/fetch-council-taxbase.mjs
+
+      - name: Transform MHCLG Council Taxbase
+        id: ctb
+        if: steps.ctb_fetch.outcome == 'success'
+        continue-on-error: true
+        run: python3 scripts/transform/transform_council_tax_spd.py
+
+      # Pure shell, no GitHub event data is interpolated here.
+      - name: Restore the MHCLG Council Taxbase file if its ingest failed
+        if: steps.ctb_fetch.outcome == 'failure' || steps.ctb.outcome == 'failure'
+        run: git checkout -- src/data/live/council-tax-spd.json
 
       # Ignore run timestamps when deciding whether anything changed.
       #
@@ -227,6 +268,10 @@ jobs:
           DATATESTS_OUTCOME: ${{ steps.datatests.outcome }}
           BIRTHS_FETCH_OUTCOME: ${{ steps.births_fetch.outcome }}
           BIRTHS_OUTCOME: ${{ steps.births.outcome }}
+          TB_FETCH_OUTCOME: ${{ steps.tb_fetch.outcome }}
+          TB_OUTCOME: ${{ steps.tb.outcome }}
+          CTB_FETCH_OUTCOME: ${{ steps.ctb_fetch.outcome }}
+          CTB_OUTCOME: ${{ steps.ctb.outcome }}
         run: |
           failed=0
           if [ "$DATATESTS_OUTCOME" = "failure" ]; then
@@ -235,6 +280,14 @@ jobs:
           fi
           if [ "$BIRTHS_FETCH_OUTCOME" = "failure" ] || [ "$BIRTHS_OUTCOME" = "failure" ]; then
             echo "Births by parents' country of birth was skipped (fetch: $BIRTHS_FETCH_OUTCOME, transform: $BIRTHS_OUTCOME). The committed births files were kept."
+            failed=1
+          fi
+          if [ "$TB_FETCH_OUTCOME" = "failure" ] || [ "$TB_OUTCOME" = "failure" ]; then
+            echo "UKHSA TB was skipped (fetch: $TB_FETCH_OUTCOME, transform: $TB_OUTCOME). The committed tb-notifications.json was kept."
+            failed=1
+          fi
+          if [ "$CTB_FETCH_OUTCOME" = "failure" ] || [ "$CTB_OUTCOME" = "failure" ]; then
+            echo "MHCLG Council Taxbase was skipped (fetch: $CTB_FETCH_OUTCOME, transform: $CTB_OUTCOME). The committed council-tax-spd.json was kept."
             failed=1
           fi
           exit "$failed"
