@@ -13,13 +13,16 @@ node scripts/model/link_inputs.mjs --check    # verify only
 
 On 12 October 2026 all 32 inputs verified, and `run_hp_single_year.mjs` on main, run with `HP_OUTPUT` pointing at a scratch file, reproduced every field it writes for all 318 published areas exactly (41,841 values compared, none differ). The only difference in the file is the top-level `methodology` string, to which `run_stochastic_hp.mjs` appends its own sentence after the forward model has run.
 
-**Warning about symlinks.** A script that writes to a path the link step has symlinked writes through the link into the store. `build_single_year_base.mjs` writes `data/model/base_single_year_2021.json`, which is linked to the held copy other repos read. Do not run it in a linked checkout until it takes an output path (planned in the base rebuild PR).
+**Warning about symlinks.** A script that writes to a path the link step has symlinked writes through the link into the store. `build_single_year_base.mjs` and `run_hp_single_year.mjs` refuse to; give `build_single_year_base.mjs` an `--out` path. Other scripts have no such guard, so never point them at a linked path.
+
+For the v8.1 run (base options, control totals, cap mode) see `docs/model/V81_READINESS.md`.
 
 ## 1. Build the base
 
 | Step | Script | Reads | Writes |
 |---|---|---|---|
-| 1.1 | `build_single_year_base.mjs` | Census 2021 custom dataset (single year of age by 20 groups by sex) | `data/model/base_single_year_2021.json`, `_12group.json` |
+| 1.1 | `build_single_year_base.mjs` | Census 2021 custom dataset (single year of age by 20 groups by sex); with `--fallback rm032`, RM032 and TS009 | `data/model/base_single_year_2021.json`, `_12group.json`, or `--out` |
+| 1.2 | `build_control_totals.mjs` (v8.1) | MYE2, MYEB1, SNPP migration category variant, NPP England, Welsh Government projections, 3596 | `data/model/control_totals_v81.json`, `control_totals_3596.json` |
 
 ## 2. School calibration input
 
