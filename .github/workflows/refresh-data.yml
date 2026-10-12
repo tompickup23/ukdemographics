@@ -47,7 +47,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      # The spreadsheet transforms read .ods and .xlsx through pandas.
+      - name: Python packages for the spreadsheet transforms
+        run: python -m pip install --quiet pandas==2.2.3 odfpy==1.4.1 openpyxl==3.1.5
       - run: npm ci
+
+      # MHCLG Council Taxbase, found on GOV.UK by title, no key. Annual (November);
+      # other weeks record an "unchanged" attempt and rewrite the same file.
+      - name: Fetch and transform MHCLG Council Taxbase (GOV.UK, no auth)
+        run: |
+          node scripts/fetch/fetch-council-taxbase.mjs && python3 scripts/transform/transform_council_tax_spd.py \
+            || { echo "MHCLG Council Taxbase (council-tax-spd.json)" >> "$RUNNER_TEMP/skipped-ingests.txt"; echo "::warning::Council Taxbase ingest failed; council-tax-spd.json keeps its last data"; }
 
       - name: Fetch stop-and-search (data.police.uk, no auth)
         run: node scripts/fetch/fetch-stop-and-search.mjs
@@ -105,7 +115,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git add src/data/live/
+          git add src/data/live/ data/raw/manifests/
           git commit -m "data: refresh that failed the tests $(date -u +%Y-%m-%d)"
           git push origin "$branch"
           gh label create refresh-failed --color B60205 --description "Refreshed data failed the tests" --force
@@ -124,7 +134,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/live/
+          git add src/data/live/ data/raw/manifests/
 
           # A refresh adds and updates. It does not delete. A fetch that half fails
           # leaves files unwritten, and `git add` would stage their absence as a
@@ -199,5 +209,18 @@ jobs:
         run: |
           if [ "$DATATESTS_OUTCOME" = "failure" ]; then
             echo "The refreshed data failed npm test and was NOT committed. See the refresh-failed issue."
+            exit 1
+          fi
+
+      # Each publisher ingest records its own failure instead of stopping the run, so
+      # one publisher's format change cannot hold back the others, and the dataset it
+      # feeds keeps its last committed data. This ends the run red, naming each one.
+      # Reads a runner file only; no GitHub event data is interpolated here.
+      - name: Fail if any ingest was skipped
+        if: always()
+        run: |
+          if [ -s "$RUNNER_TEMP/skipped-ingests.txt" ]; then
+            echo "These ingests failed and kept their last committed data:"
+            cat "$RUNNER_TEMP/skipped-ingests.txt"
             exit 1
           fi
