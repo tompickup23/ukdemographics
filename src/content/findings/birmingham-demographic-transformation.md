@@ -1,7 +1,7 @@
 ---
 headline: "Birmingham: 43% White British today, projected under 15% by 2051"
 date: "2026-04-14"
-updated: "2026-09-07"
+updated: "2026-10-12"
 model_version: "v8.0"
 category: demographics
 stat_value: "43% → 15%"
@@ -11,6 +11,12 @@ source_url: "https://www.ons.gov.uk/census"
 source_label: "Census 2021 + Hamilton-Perry v8.0 projection model"
 summary: "Birmingham's White British population fell from 53% (2011) to 43% (2021). Ten percentage points gone in a single decade. Hamilton-Perry projects 14.9% by 2051. Pakistani fertility (TFR 2.52) against White British fertility (TFR 1.31) does the rest."
 ---
+
+> **Correction, 12 October 2026.** This piece said the cohort-component model
+> projects **21.7%** White British for Birmingham in 2051. That run read each
+> area's ONS population projection twice, adding the single years of age to the
+> all-ages total. Re-run without that error it projects **20.6%**. The
+> Hamilton-Perry figure, 14.9%, is unchanged.
 
 > **Correction, 7 September 2026.** Three rows of the projection table were
 > pre-recalibration output and are now re-derived from the projection data:
@@ -56,7 +62,7 @@ Four things drive this.
 
 **International settlement.** Birmingham is a major settlement city. 1.2% of the population had moved to it from outside the UK in the year before Census 2021. South Asian and African countries dominate the recent flow: Pakistan and India together account for 42.3% of National Insurance registrations to overseas nationals in Birmingham, with Nigeria, Bangladesh, China and Eritrea behind them.
 
-**The models agree on direction.** The Hamilton-Perry model projects 14.9% White British by 2051, revised up from 10.7% when the model was recalibrated on 13 August 2026: the settings it used before were projecting change too fast. The cohort-component model, which assumes ethnic fertility rates converge partway to the national mean, projects 21.7% on the same year. The true outcome sits between them. Both agree Birmingham passed majority non-White-British years ago; the question is how fast it continues.
+**The models agree on direction.** The Hamilton-Perry model projects 14.9% White British by 2051, revised up from 10.7% when the model was recalibrated on 13 August 2026: the settings it used before were projecting change too fast. The cohort-component model, which assumes ethnic fertility rates converge partway to the national mean, projects 20.6% on the same year. The true outcome sits between them. Both agree Birmingham passed majority non-White-British years ago; the question is how fast it continues.
 
 **Religion.** Birmingham's Muslim population: 31.8% in 2021. Christian: 36.2%. Both are Census 2021 TS030 shares of the residents who answered the religion question, which is the scaling the place page uses. The projection puts Muslim at 47.5% in 2041 and 53.5% in 2051, so the crossing falls in the middle of the 2040s. First major English city.
 
