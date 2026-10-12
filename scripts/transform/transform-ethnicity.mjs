@@ -8,9 +8,18 @@
  *
  * Method: Linear extrapolation of 2011→2021 decadal percentage-point change
  * rates per ethnic group, projected to 2030/2040/2050.
+ *
+ * Do not run this over the published file. It rebuilds ethnic-projections.json
+ * from scratch, which discards the model output and every enrichment added
+ * since, and it keys on the Home Office route codes, so Barnsley and Sheffield
+ * drop out. To correct the Census fields alone, use
+ * scripts/build/rebase-census-groups.mjs in the UK Demographics repo
+ * (ukdemographics), which takes the file to rebase as --file. This transform
+ * is kept byte-identical in both repos.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { mapEthnicGroup } from "../lib/census-ethnic-groups.mjs";
 
 const routeDataPath = path.resolve("src/data/live/local-route-latest.json");
 const csv2021Path = path.resolve("data/raw/census_ethnicity/census_2021_ethnicity.csv");
@@ -22,59 +31,11 @@ const routeData = JSON.parse(readFileSync(routeDataPath, "utf8"));
 const areaLookup = new Map(routeData.areas.map((a) => [a.areaCode, a.areaName]));
 
 /**
- * Map detailed ONS ethnic group names to our 6 simplified categories.
- * Census 2021 uses TS021 categories; Census 2011 uses KS201/QS211 categories.
+ * Detailed ONS ethnic group names map to our 6 simplified categories through
+ * scripts/lib/census-ethnic-groups.mjs, which classifies by the high-level
+ * group before the colon. Census 2021 uses TS021 categories; Census 2011 uses
+ * KS201 categories, whose all-persons row is "All usual residents".
  */
-function mapEthnicGroup(groupName) {
-  const name = groupName.toLowerCase().trim();
-
-  // Total / all categories
-  if (name === "total" || name === "total: all usual residents" || name.includes("all categories")) return "total";
-
-  // Skip parent/summary rows (Census 2021 has both parent + child rows)
-  // Parent rows are exact matches — children have ": subcategory" suffix
-  const PARENT_ROWS = new Set([
-    "white",
-    "asian",
-    "black",
-    "mixed or multiple ethnic groups",
-    "other ethnic group",
-    "asian, asian british or asian welsh",
-    "black, black british, black welsh, caribbean or african",
-    // 2011 parent rows
-    "mixed/multiple ethnic groups",
-    "asian/asian british",
-    "black/african/caribbean/black british"
-  ]);
-  if (PARENT_ROWS.has(name)) return null;
-
-  // White British (the specific detailed row)
-  if (name.includes("english") || name.includes("welsh, scottish") ||
-      name.includes("northern irish") ||
-      name === "white: english/welsh/scottish/northern irish/british") return "white_british";
-
-  // White Other (Irish, Gypsy, Roma, Other White)
-  if (name.includes("irish") || name.includes("gypsy") || name.includes("roma") ||
-      name.includes("other white")) return "white_other";
-
-  // Asian (Indian, Pakistani, Bangladeshi, Chinese, Other Asian)
-  if (name.includes("indian") || name.includes("pakistani") || name.includes("bangladeshi") ||
-      name.includes("chinese") || name.includes("other asian")) return "asian";
-
-  // Black (African, Caribbean, Other Black)
-  if (name.includes("african") || name.includes("caribbean") ||
-      name.includes("other black")) return "black";
-
-  // Mixed (all mixed sub-categories)
-  if (name.includes("white and black") || name.includes("white and asian") ||
-      name.includes("other mixed")) return "mixed";
-
-  // Other
-  if (name.includes("arab") || name.includes("any other ethnic")) return "other";
-
-  // Unrecognized
-  return null;
-}
 
 /**
  * Parse CSV with proper quoted-field handling (fields containing commas).
