@@ -1697,7 +1697,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   {overlappingPcons.length > 0 && (
     <section class="section" id="constituencies">
       <h2>Westminster constituencies</h2>
-      <p class="section-desc">Parliamentary constituencies overlapping {area.areaName}, sorted by share of LA postcodes the constituency covers.</p>
+      <p class="section-desc">Parliamentary constituencies overlapping {area.areaName}, largest first by the share of each constituency's postcodes that fall in {area.areaName}.</p>
       <div class="pcon-overlap-grid">
         {overlappingPcons.map((p) => (
           <a class="pcon-overlap-card" href={`/constituencies/${p.slug}/`}>
