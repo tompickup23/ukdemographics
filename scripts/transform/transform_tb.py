@@ -1,210 +1,293 @@
 #!/usr/bin/env python3
 """
-UKHSA Tuberculosis in England 2025 report (data through end-2024) —
-per-LA 3-year-average TB notifications and national time series of TB
-notifications by country of birth (non-UK-born population only).
+UKHSA TB surveillance official statistics -> src/data/live/tb-notifications.json.
 
-Health-system-burden indicator for the immigration analysis. TB is the
-single infectious-disease metric where country-of-birth composition
-matters most: ~75% of UK TB notifications are non-UK-born and the
-nationality mix of cases tracks the entry-from-high-incidence-country
-flow with a multi-year lag.
+Reads the newest England supplementary data tables workbook on disk, found by its stable
+stem (scripts/lib/newest_release.py), as fetched by scripts/fetch/fetch-ukhsa-tb.mjs.
+Every figure, the edition title, the publication date and the period come from the
+workbook itself. Nothing about a release is typed here except the citation for its
+status (provisional), which UKHSA states in its quality and methodology report rather
+than in the workbook.
 
-Inputs:
-  data/raw/ukhsa_tb/tb-incidence-2025.xlsx
-    Supplementary_Table_8: per-LA 3-year average notifications
-    Supplementary_Table_14: time series of notifications by COB
+Tables read, each located by its title text and its header row by column text:
+  Supplementary Table 3: three-year average number of people notified with TB and
+    three-year average notification rate per 100,000, by UKHSA region, upper tier and
+    lower tier local authority, England.
+  Supplementary Table 1: number of people notified with TB and rate per 100,000 by
+    country and year, UK.
 
-Output:
-  src/data/live/tb-notifications.json
+What the figures count: people notified with TB disease, by area of residence and
+calendar year of notification. Local rates are three-year averages because annual
+counts in many districts are small. They are not arrivals data.
 
-Caveats:
-  - 3-year average smooths small-district volatility. Burnley's rate
-    14.7 per 100k is averaged over 2022-2024.
-  - Country of birth is reported only at the national level for the
-    full nationality breakdown. The per-LA data does not break down
-    by COB.
-  - "TB rate" here is per 100,000 population; the England average for
-    2024 is 9.5 per 100,000.
+    python3 scripts/transform/transform_tb.py
 """
+from __future__ import annotations
+
+import hashlib
 import json
+import math
+import re
+import sys
+from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / "data/raw/ukhsa_tb/tb-incidence-2025.xlsx"
+sys.path.insert(0, str(ROOT / "scripts" / "lib"))
+from newest_release import newest_release  # noqa: E402
+
+RAW_DIR = ROOT / "data/raw/ukhsa_tb"
+STEM = "cases-of-tuberculosis-reported-to-enhanced-TB-surveillance-systems-England-"
+MANIFEST = ROOT / "data/raw/manifests/ukhsa_tb.json"
+AREAS = ROOT / "src/data/live/ethnic-projections.json"
 OUT = ROOT / "src/data/live/tb-notifications.json"
 
-# Burnley needs LAD24-friendly area codes. The UKHSA report uses LA NAMES,
-# not codes. We'll match to the existing nino-dashboard areas by name.
-NAME_TO_CODE_PATH = ROOT / "src/data/live/nino-dashboard.json"
+# Release status. The workbook does not say; UKHSA's quality and methodology report does.
+STATUS = {
+    "status": "provisional",
+    "quote": "The data in the statistics is provisional and is subject to revision.",
+    "source": (
+        "UKHSA, Reports of cases of TB to UK enhanced tuberculosis surveillance systems: "
+        "quality and methodology information, 4 September 2025"
+    ),
+    "url": (
+        "https://www.gov.uk/government/publications/reports-of-cases-of-tb-to-uk-enhanced-"
+        "tuberculosis-surveillance-systems-quality-and-methodology-information/tb-notifications-"
+        "reported-to-enhanced-surveillance-systems-quality-and-methodology-information-report"
+    ),
+}
+
+# UKHSA writes some unitary names in short form ("Bristol", "St. Helens"); norm() drops
+# the ", City of" and ", County of" suffixes and full stops so they meet the site's names.
+# Published as one area. Neither half can be given the combined rate as its own.
+COMBINED = {"hackney and city of london", "cornwall and isles of scilly"}
 
 
-def load_la_table():
-    df = pd.read_excel(SRC, engine="openpyxl", sheet_name="Supplementary_Table_8", header=3)
-    rows = []
-    for _, row in df.iterrows():
-        utla = str(row.iloc[1]) if not pd.isna(row.iloc[1]) else None
-        ltla = str(row.iloc[2]) if not pd.isna(row.iloc[2]) else None
-        if not utla or utla == "nan":
+def norm(name: str) -> str:
+    n = str(name).strip().lower().replace("&", "and").replace(".", "")
+    n = re.sub(r",\s*(city|county) of$", "", n)
+    return re.sub(r"\s+", " ", n)
+
+
+def fail(msg: str):
+    raise SystemExit(f"transform_tb: {msg}")
+
+
+def find_sheet(book: dict, title_pattern: str):
+    """The one sheet whose first cell matches `title_pattern`; fails on none or several."""
+    hits = [(name, df) for name, df in book.items()
+            if len(df) and re.search(title_pattern, str(df.iat[0, 0]), re.I)]
+    if len(hits) != 1:
+        fail(f"expected one sheet titled /{title_pattern}/, found {[h[0] for h in hits]}")
+    return hits[0]
+
+
+def header_map(df, required: dict[str, str]):
+    """Locate the header row and map each required key to a column by header text.
+
+    `required` maps an output key to a regex matched against the header cell. Fails,
+    naming the missing headers, rather than guessing a column position.
+    """
+    for i in range(min(len(df), 30)):
+        cells = [str(v).strip() for v in df.iloc[i].tolist()]
+        found = {}
+        for key, pattern in required.items():
+            cols = [j for j, c in enumerate(cells) if re.fullmatch(pattern, c, re.I)]
+            if len(cols) == 1:
+                found[key] = cols[0]
+        if len(found) == len(required):
+            return i, found
+    fail(f"no header row carries all of {list(required.values())} in sheet starting {df.iat[0, 0]!r}")
+
+
+def num(v):
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return None
+    return None if math.isnan(f) else f
+
+
+def table_subject(title: str) -> str:
+    """'Supplementary Table 3. Three-year average ...' -> 'Three-year average ...'."""
+    return re.sub(r"^Supplementary Table \d+\.\s*", "", title.strip()).rstrip(".")
+
+
+def notes(df, header_row: int) -> list[str]:
+    return [str(df.iat[i, 0]).strip() for i in range(header_row)
+            if str(df.iat[i, 0]).strip().lower().startswith("note ")]
+
+
+def main() -> None:
+    src = newest_release(RAW_DIR, STEM, exts=(".ods", ".xlsx"), by="year")
+    raw = src.read_bytes()
+    sha = hashlib.sha256(raw).hexdigest()
+    manifest = json.loads(MANIFEST.read_text())
+    held = [a for a in manifest["attempts"] if a.get("blob_sha256") == sha]
+    if not held:
+        fail(f"{src.name} (sha256 {sha}) is not in {MANIFEST.name}; fetch it with fetch-ukhsa-tb.mjs")
+    source_url = held[-1]["url"]
+    landing = held[-1].get("landing_page")
+
+    engine = "odf" if src.suffix.lower() == ".ods" else "openpyxl"
+    book = pd.read_excel(src, engine=engine, sheet_name=None, header=None)
+
+    # Cover: edition title and publication date, by label text.
+    cover = book.get("Cover")
+    if cover is None:
+        fail("no Cover sheet")
+    cover_cells = [str(v).strip() for v in cover.iloc[:, 0].tolist()]
+    edition = cover_cells[0].rstrip(", ").strip()
+    if not re.search(r"tuberculosis", edition, re.I):
+        fail(f"cover title does not name TB: {edition!r}")
+    try:
+        pub_text = cover_cells[cover_cells.index("Publication date") + 1]
+    except (ValueError, IndexError):
+        fail("cover has no 'Publication date' label")
+    published = datetime.strptime(pub_text, "%d %B %Y").date().isoformat()
+
+    # Supplementary Table 3: LTLA three-year averages.
+    t3_name, t3 = find_sheet(book, r"three-year average number of people notified with TB")
+    t3_title = str(t3.iat[0, 0]).strip()
+    m = re.search(r"(\d{4}) to (\d{4})\s*$", t3_title)
+    if not m:
+        fail(f"cannot read the period from {t3_name} title {t3_title!r}")
+    la_first, la_last = int(m.group(1)), int(m.group(2))
+    h3, c3 = header_map(t3, {
+        "region": r"UKHSA region",
+        "utla": r"Upper tier local authority.*",
+        "ltla": r"Lower tier local authority.*",
+        "count": r"Number of people notified with TB",
+        "rate": r"Rate per 100,000",
+        "lci": r"Lower CI",
+        "uci": r"Upper CI",
+    })
+
+    site = json.loads(AREAS.read_text())["areas"]
+    by_name = {norm(a["areaName"]): code for code, a in site.items() if code.startswith("E")}
+
+    areas, unmatched, combined = {}, [], []
+    regions = set()
+    for i in range(h3 + 1, len(t3)):
+        row = t3.iloc[i]
+        region, utla, ltla = (str(row.iloc[c3[k]]).strip() for k in ("region", "utla", "ltla"))
+        if ltla in ("", "nan"):
             continue
-        try:
-            pop = float(row.iloc[3])
-            count = float(row.iloc[4])
-            rate = float(row.iloc[5])
-            lci = float(row.iloc[6])
-            uci = float(row.iloc[7])
-        except (TypeError, ValueError):
+        rate, count = num(row.iloc[c3["rate"]]), num(row.iloc[c3["count"]])
+        if ltla == region and utla == region:
+            regions.add(region)
             continue
-        rows.append({
-            "ukhsa_region": str(row.iloc[0]),
-            "utla": utla,
-            "ltla": ltla,
-            "population_3yr_avg": pop,
-            "notifications_3yr_avg": count,
-            "rate_per_100k": rate,
-            "lower_CI": lci,
-            "upper_CI": uci,
-        })
-    return rows
-
-
-def load_cob_timeseries():
-    df = pd.read_excel(SRC, engine="openpyxl", sheet_name="Supplementary_Table_14", header=3)
-    columns = df.columns.tolist()
-    # Columns alternate (number, percentage) for each country
-    # First column is Year
-    countries = []
-    for i in range(1, len(columns), 2):
-        col = str(columns[i])
-        if col.endswith(" (number)"):
-            countries.append(col.replace(" (number)", "").strip())
-        elif "(number)" in col:
-            countries.append(col.split(" (number)")[0].strip())
-    series = {}
-    for _, row in df.iterrows():
-        try:
-            year = int(row.iloc[0])
-        except (TypeError, ValueError):
+        key = norm(ltla)
+        if key in COMBINED:
+            combined.append(ltla)
             continue
-        for i, country in enumerate(countries):
-            num_col = 1 + (i * 2)
-            pct_col = 2 + (i * 2)
-            if num_col >= len(row) or pct_col >= len(row):
-                continue
-            try:
-                n = int(row.iloc[num_col])
-                pct = round(float(row.iloc[pct_col]), 2)
-            except (TypeError, ValueError):
-                continue
-            series.setdefault(country, []).append({
-                "year": year, "notifications": n, "pctOfNonUkBorn": pct
-            })
-    return series, countries
-
-
-def main():
-    la_rows = load_la_table()
-    cob_series, countries = load_cob_timeseries()
-
-    # Match LA names to ONS codes via existing nino-dashboard
-    nino = json.loads(NAME_TO_CODE_PATH.read_text())["areas"]
-    name_to_code = {a["areaName"]: code for code, a in nino.items()}
-
-    # Latest year by COB (just the latest row for each country)
-    latest_by_cob = {}
-    for country, ts in cob_series.items():
-        if ts:
-            latest = max(ts, key=lambda x: x["year"])
-            latest_by_cob[country] = latest
-
-    # Build areas: keyed by district code, with district + parent UTLA TB rates
-    # The UKHSA table includes both UTLA and LTLA rows. For two-tier counties,
-    # LTLA = the district name. For unitaries, LTLA = UTLA.
-    areas = {}
-    for r in la_rows:
-        # Use LTLA (lower-tier) if it differs from UTLA — that's the district
-        name = r["ltla"] if r["ltla"] != r["utla"] else r["utla"]
-        code = name_to_code.get(name)
+        code = by_name.get(key)
         if not code:
+            unmatched.append(ltla)
             continue
+        if rate is None or count is None:
+            fail(f"{t3_name} row {i + 1} ({ltla}) has no rate or count")
+        if code in areas:
+            fail(f"{ltla} appears twice in {t3_name}")
         areas[code] = {
-            "areaName": name,
-            "ukhsaRegion": r["ukhsa_region"],
-            "parentUtla": r["utla"],
-            "population3yrAvg": r["population_3yr_avg"],
-            "notifications3yrAvg": r["notifications_3yr_avg"],
-            "ratePer100k": r["rate_per_100k"],
-            "lowerCI": r["lower_CI"],
-            "upperCI": r["upper_CI"],
-            "vsEnglandAvgPct": (
-                round((r["rate_per_100k"] / 9.5 - 1) * 100, 1)
-                if r["rate_per_100k"] else None
-            ),
+            "areaName": site[code]["areaName"],
+            "ukhsaRegion": region,
+            "parentUtla": utla,
+            "notifications3yrAvg": round(count, 1),
+            "ratePer100k": round(rate, 1),
+            "lowerCI": round(num(row.iloc[c3["lci"]]), 1),
+            "upperCI": round(num(row.iloc[c3["uci"]]), 1),
+            "period": f"{la_first} to {la_last}",
+            "locator": f"v1:ods:sheet={t3_name};row={i + 1}",
         }
+    if unmatched:
+        fail(f"{len(unmatched)} {t3_name} areas match no site area: {unmatched}")
 
-    # Top LAs by rate
-    top_rate = sorted(
-        [(c, a) for c, a in areas.items() if a["notifications3yrAvg"] >= 5],
-        key=lambda kv: -kv[1]["ratePer100k"],
-    )[:15]
+    # Supplementary Table 1: England annual counts and rates.
+    t1_name, t1 = find_sheet(book, r"Number of individuals notified with TB and rates by country")
+    h1, c1 = header_map(t1, {
+        "year": r"Year",
+        "count": r"Number of cases \(England\)",
+        "rate": r"Rate per 100,000 \(England\)",
+        "lci": r"Lower 95% CI \(England\)",
+        "uci": r"Upper 95% CI \(England\)",
+    })
+    series = []
+    for i in range(h1 + 1, len(t1)):
+        year = num(t1.iat[i, c1["year"]])
+        count = num(t1.iat[i, c1["count"]])
+        if year is None or count is None:
+            continue
+        series.append({
+            "year": int(year),
+            "notifications": int(count),
+            "ratePer100k": num(t1.iat[i, c1["rate"]]),
+            "lowerCI": num(t1.iat[i, c1["lci"]]),
+            "upperCI": num(t1.iat[i, c1["uci"]]),
+            "locator": f"v1:ods:sheet={t1_name};row={i + 1}",
+        })
+    series.sort(key=lambda r: r["year"])
+    if len(series) < 2:
+        fail(f"{t1_name} has fewer than two England years")
+    latest, previous = series[-1], series[-2]
+    if latest["year"] != la_last or previous["year"] != latest["year"] - 1:
+        fail(f"{t1_name} ends {latest['year']} but {t3_name} ends {la_last}")
+    change_pct = round((latest["notifications"] - previous["notifications"]) / previous["notifications"] * 100, 1)
 
-    # Top COBs by latest year notifications
-    top_cob = sorted(
-        latest_by_cob.items(),
-        key=lambda kv: -kv[1]["notifications"],
-    )[:15]
+    top = sorted(((c, a) for c, a in areas.items() if a["notifications3yrAvg"] >= 5),
+                 key=lambda kv: -kv[1]["ratePer100k"])[:15]
 
     out = {
         "source": (
-            "UKHSA — Tuberculosis in England 2025 report (data through end-"
-            "2024). Supplementary Table 8 (per-LA 3-year-average rates) and "
-            "Supplementary Table 14 (time series of notifications by country "
-            "of birth in the non-UK-born population)."
+            f"UKHSA, {edition}. Supplementary Table 3: {table_subject(t3_title)}; England notifications "
+            f"and rates by year from Supplementary Table 1. Published {datetime.fromisoformat(published):%-d %B %Y}."
         ),
-        "lastUpdated": "2026-04-28",
-        "englandAverageRatePer100k_2024": 9.5,
-        "totalNotifications2024": 5480,
-        "totalNotifications2023": 4850,
-        "totalChange2024Pct": 13.0,
+        "sourceUrl": source_url,
+        "landingPage": landing,
+        "fileName": src.name,
+        "fileSha256": sha,
+        "lastUpdated": published,
+        "releaseStatus": STATUS,
+        "measure": (
+            "People notified with TB disease, by area of residence and calendar year of notification. "
+            "Local figures are three-year averages of the annual count and of the rate per 100,000."
+        ),
+        "denominatorNotes": notes(t1, h1) + notes(t3, h3),
+        "laPeriod": {"firstYear": la_first, "lastYear": la_last, "label": f"{la_first} to {la_last}"},
+        "england": {
+            "latestYear": latest["year"],
+            "notifications": latest["notifications"],
+            "ratePer100k": latest["ratePer100k"],
+            "lowerCI": latest["lowerCI"],
+            "upperCI": latest["upperCI"],
+            "previousYear": previous["year"],
+            "previousNotifications": previous["notifications"],
+            "notificationsChangePct": change_pct,
+            "changeLabel": f"{previous['year']} to {latest['year']}",
+            "series": series,
+        },
         "caveat": (
-            "TB notifications are not arrivals data — they reflect a "
-            "multi-year mix of cumulative country-of-birth composition. "
-            "Roughly 75% of UK TB cases are in non-UK-born people. The "
-            "per-LA data is a 3-year average (2022-2024) which smooths "
-            "small-district volatility. Country-of-birth detail is "
-            "national only — there is no published per-LA × COB "
-            "crosstab for TB notifications."
+            "TB notifications are not arrivals data. Local rates are averages over "
+            f"{la_first} to {la_last}, so they are not comparable with England's single-year rate. "
+            "England only: Welsh areas have no rate here. UKHSA publishes Hackney with the City of "
+            "London, and Cornwall with the Isles of Scilly, as combined areas, so neither half is "
+            "shown with a rate of its own. Areas absent from UKHSA's table have no rate."
         ),
+        "excludedCombinedAreas": combined,
         "topLaByRate": [
             {"code": c, "name": a["areaName"], "ratePer100k": a["ratePer100k"],
-             "notifications3yrAvg": a["notifications3yrAvg"],
-             "vsEnglandAvgPct": a["vsEnglandAvgPct"]}
-            for c, a in top_rate
+             "notifications3yrAvg": a["notifications3yrAvg"]}
+            for c, a in top
         ],
-        "topCountriesOfBirth_latestYear": [
-            {"country": c, "year": v["year"], "notifications": v["notifications"],
-             "pctOfNonUkBorn": v["pctOfNonUkBorn"]}
-            for c, v in top_cob
-        ],
-        "areas": areas,
-        "countryOfBirthTimeSeries": cob_series,
+        "areas": dict(sorted(areas.items())),
     }
-    OUT.write_text(json.dumps(out, indent=2))
-    print(f"Wrote {OUT}")
-    print(f"LA areas: {len(areas)}")
-    print(f"Countries in COB time series: {len(cob_series)}")
-    print(f"\nTop 10 LAs by TB rate per 100k:")
-    for c, a in top_rate[:10]:
-        print(f"  {a['areaName']:25s} {a['ratePer100k']:5.1f}/100k  ({a['vsEnglandAvgPct']:+.0f}% vs England)")
-    print(f"\nTop 10 countries of birth (latest year):")
-    for c, v in top_cob[:10]:
-        print(f"  {c:20s} {v['notifications']:>4} notifications  ({v['pctOfNonUkBorn']}% of non-UK-born)")
-    print(f"\nBurnley:")
-    burn = areas.get("E07000117")
-    if burn:
-        print(json.dumps(burn, indent=2))
+    OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+    print(f"Wrote {OUT.relative_to(ROOT)} from {src.name}")
+    print(f"  {len(areas)} areas, LA period {la_first} to {la_last}, regions skipped {len(regions)}, combined skipped {combined}")
+    print(f"  England {latest['year']}: {latest['notifications']} notified, rate {latest['ratePer100k']}; "
+          f"{previous['year']}: {previous['notifications']}; change {change_pct}%")
 
 
 if __name__ == "__main__":

@@ -1593,7 +1593,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
             )}
           </div>
           <p class="section-note">
-            Sources: MHCLG Council Taxbase 2024 (CTB1, snapshot 7 October 2024) for single-person discount; ONS Census 2021 RM192 for HMO dwellings. HMO Census numbers reflect dwellings classified as HMO on Census Day; current licensing registers held by individual councils are not centrally published.
+            Sources: {(councilTaxSpd as any).sourceShort} for single-person discount; ONS Census 2021 RM192 for HMO dwellings. HMO Census numbers reflect dwellings classified as HMO on Census Day; current licensing registers held by individual councils are not centrally published.
           </p>
         </>
       )}
