@@ -24,6 +24,7 @@ import { getCensusEnglish } from "../../lib/census-english";
 import { getTopEthnicGroupsByTenure } from "../../lib/census-tenure";
 import { getTopEthnicGroupsByHealth } from "../../lib/census-health";
 import { getPconsForLa } from "../../lib/pcon-data";
+import { describePostcodeShare, pipConstituenciesForArea, pipEnglandAndWalesRate, pipMonthLabel } from "../../lib/pip-data";
 import { getNinoProfile, getNinoTotalPercentile, getNinoSource, getNinoCaveat } from "../../lib/nino-data";
 import { getVisaRouteMix, getVisaRoutesSource, getVisaRoutesCaveat, getVisaRoutesYear } from "../../lib/visa-routes-data";
 import { getNinoHistorical, getNinoHistoricalYears, getNinoHistoricalNational, getNinoHistoricalSource, getNinoHistoricalCaveat } from "../../lib/nino-historical-data";
@@ -189,22 +190,15 @@ const ctSpd = (councilTaxSpd as any).areas?.[area.areaCode];
 // Census 2011 → Census 2021 country-of-birth stock change
 const cobChange = (cobChange1121 as any).areas?.[area.areaCode];
 
-// PIP claimants, by best-match Westminster constituency
+// PIP claimants. The section shows on the authorities with a best-match
+// constituency, as before, so the listing flag below is unchanged; the figures
+// shown are each overlapping constituency's own count (see src/lib/pip-data.ts).
 const pipMatch = (pipPcon as any).laToPconBestMatch?.[area.areaName] as
   | { code: string; name: string; claimants: number }
   | undefined;
-const pipPopulation = (healthDemand as any).areas?.[area.areaCode]?.population as number | undefined;
-const pipRatePct = pipMatch && pipPopulation
-  ? +(pipMatch.claimants / pipPopulation * 100).toFixed(1)
-  : null;
-const pipNationalRatePct = (() => {
-  const tot = (pipPcon as any).totalClaimants as number;
-  // National rate using ONS England + Wales population estimate ~60M working-age + over;
-  // approximate using 67M (E+W mid-2023 estimate ~60M, with Scotland 5.4M, NI 1.9M).
-  // For PIP (England + Wales only), use 60M as the rough denominator.
-  return tot ? +(tot / 60_000_000 * 100).toFixed(1) : null;
-})();
-const pipLatestMonth = (pipPcon as any).latestMonth as string;
+const pipConstituencies = pipMatch ? pipConstituenciesForArea(area.areaCode) : [];
+const pipNational = pipEnglandAndWalesRate();
+const pipMonth = pipMonthLabel() ?? (pipPcon as any).latestMonth;
 
 // NHS funding context (national, hand-curated)
 const nhsCtx = nhsFundingContext as any;
@@ -1511,37 +1505,35 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   )}
 
   <!-- Personal Independence Payment (PIP) -->
-  {pipMatch && (
+  {pipMatch && pipConstituencies.length > 0 && (
     <section class="section" id="pip">
       <h2>Personal Independence Payment (PIP)</h2>
       <p class="section-desc">
-        PIP is the working-age disability benefit. Claimant count is residence-based, by Westminster Parliamentary Constituency 2024.
-        {pipMatch.name !== area.areaName && (
-          <> {area.areaName} (the local authority) is mapped to the <strong>{pipMatch.name}</strong> constituency for this figure.</>
-        )}
+        PIP is the working-age disability benefit. The count held here is DWP's figure by Westminster constituency, where claimants live.
+        {pipConstituencies.length === 1
+          ? <> {area.areaName} lies within the <strong>{pipConstituencies[0].name}</strong> constituency, and the count below is for the whole constituency{pipConstituencies[0].shareInArea < 1 ? ", including the parts outside " + area.areaName : ""}. Claimants in {pipMonth}.</>
+          : <> {pipConstituencies.length} constituencies overlap {area.areaName}. Each count below is for the whole constituency, including any part outside {area.areaName}, so the counts are not added up and no rate is given for {area.areaName}. Claimants in {pipMonth}.</>}
       </p>
       <div class="data-grid">
-        <div class="data-item">
-          <span class="data-label">PIP claimants ({pipLatestMonth})</span>
-          <span class="data-value">{pipMatch.claimants.toLocaleString()}</span>
-        </div>
-        {pipRatePct != null && (
+        {pipConstituencies.map((p) => (
           <div class="data-item">
-            <span class="data-label">PIP claimants as % of population</span>
-            <span class="data-value">{pipRatePct.toFixed(1)}%</span>
+            <span class="data-label">{p.name} constituency ({describePostcodeShare(p.shareInArea)} in {area.areaName})</span>
+            <span class="data-value">{p.claimants.toLocaleString()}</span>
           </div>
-        )}
-        {pipNationalRatePct != null && pipRatePct != null && (
+        ))}
+        {pipNational && (
           <div class="data-item">
-            <span class="data-label">vs England + Wales rate ({pipNationalRatePct.toFixed(1)}%)</span>
-            <span class="data-value" style={`color: ${pipRatePct > pipNationalRatePct ? 'var(--accent-3)' : 'var(--accent-2)'}`}>
-              {pipRatePct > pipNationalRatePct ? '+' : ''}{(pipRatePct - pipNationalRatePct).toFixed(1)}pp
-            </span>
+            <span class="data-label">England and Wales, PIP claimants per 100 residents</span>
+            <span class="data-value">{pipNational.per100.toFixed(1)}</span>
           </div>
         )}
       </div>
       <p class="section-note">
-        Source: DWP Stat-Xplore PIP_Monthly_new (Westminster Parliamentary Constituency 2024). PIP figures are NOT broken down by nationality at any geography on the public Stat-Xplore API; this is the closest local figure available. Population denominator from Census 2021. Constituency boundaries do not align perfectly with LA boundaries.
+        Source: DWP Stat-Xplore PIP_Monthly_new, {pipMonth}, Westminster Parliamentary Constituency 2024. Postcode shares from the ONS postcode lookup of constituencies to local authorities. PIP figures are NOT broken down by nationality at any geography on the public Stat-Xplore API.
+        {pipNational && (
+          <> The England and Wales figure is {pipNational.claimants.toLocaleString()} claimants in the {pipNational.constituencies} English and Welsh constituencies, over the ONS mid-{pipNational.populationYear} population estimate for England and Wales of {pipNational.population.toLocaleString()}; claimants in Scotland, abroad or at an unknown address are left out.</>
+        )}
+        {" "}No rate is given for {area.areaName}: that needs DWP's count by local authority, which this site does not yet hold, and splitting constituency counts between council areas by postcode share would be an estimate.
       </p>
     </section>
   )}
