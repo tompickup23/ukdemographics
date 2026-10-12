@@ -1,7 +1,7 @@
 ---
 headline: "86 local authorities projected minority White British by 2051"
 date: "2026-04-14"
-updated: "2026-09-07"
+updated: "2026-10-12"
 model_version: "v8.0"
 category: demographics
 stat_value: "86"
@@ -11,6 +11,18 @@ source_url: "https://www.ons.gov.uk/census"
 source_label: "Census 2021 + Hamilton-Perry v8.0 projection model"
 summary: "86 English local authorities are projected to have a White British population below 50% by 2051. 59 of those have a White British majority today. This is not a London story: Bolton, Pendle, Oldham, Thurrock and Broxbourne all cross the threshold. Recomputed 13 August 2026 on a model recalibrated against an out-of-sample test, replacing an earlier count of 109."
 ---
+
+> **Correction, 12 October 2026.** This piece said the cohort-component model
+> gives **55.9%** White British by 2051 on the same weighting and the same 312
+> areas, and that the two models agreeing to within half a point was a check on
+> the recalibration. The cohort-component run had read each area's ONS
+> population projection twice, adding the single years of age to the all-ages
+> total, so every population target was doubled. Re-run without that error it
+> gives **54.7%** on the same 312 areas. The
+> Hamilton-Perry figure is unchanged at 56.3%, so the two models are now 1.6
+> points apart, and the half-point agreement this piece pointed to no longer
+> holds. Nothing in the Hamilton-Perry count of 86, or the 59 majority-today
+> areas, changes.
 
 > **Correction, 7 September 2026.** The national-picture paragraph was stale and
 > named a denominator no subset of the dataset has. Recomputed with the function
@@ -77,13 +89,13 @@ publishable, which is the figure the homepage carries. The 2051 share is not all
 one model: 49 of those areas carry projections from an earlier run the current
 code cannot reproduce, 15.4% of the weighted population, and across the 263 areas
 the current model produces 2051 is **54.3%**. The cohort-component model, which
-assumes ethnic fertility rates converge partway to the national mean, gives 55.9%
+assumes ethnic fertility rates converge partway to the national mean, gives 54.7%
 on the same weighting and the same 312 areas.
 
-The two models agreeing to within half a point is worth noting, because they did
-not before. Under the settings replaced in August 2026 the Hamilton-Perry model
-ran several points below the cohort-component one. Two methods with different
-assumptions converging is a check on the recalibration, not a coincidence.
+The two models are 1.6 points apart on this weighting, 56.3% against 54.7%. This
+piece previously said they agreed to within half a point and called that a check
+on the recalibration; that agreement came from a cohort-component run with an
+error in it, and it does not hold on the corrected run.
 
 Three things drive it. Fertility: White British TFR 1.31, below replacement. Age
 structure: the White British population is older, dying faster than it replaces
