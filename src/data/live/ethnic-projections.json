@@ -135,14 +135,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 21.7,
-        "highDiversity": 20.5,
-        "lowDiversity": 23.4
+        "central": 20.6,
+        "highDiversity": 19,
+        "lowDiversity": 23
       },
       "modelSpread2051": {
         "hamiltonPerry": 14.93,
-        "cohortComponent": 21.7,
-        "spreadPp": 6.8
+        "cohortComponent": 20.6,
+        "spreadPp": 5.7
       },
       "religion": {
         "2021": {
@@ -720,14 +720,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 64.2,
-        "highDiversity": 61,
-        "lowDiversity": 68.1
+        "central": 60.8,
+        "highDiversity": 56.3,
+        "lowDiversity": 67.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 49.07,
-        "cohortComponent": 64.2,
-        "spreadPp": 15.1
+        "cohortComponent": 60.8,
+        "spreadPp": 11.7
       },
       "religion": {
         "2021": {
@@ -1299,14 +1299,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 14.2,
-        "highDiversity": 13.4,
+        "central": 13.7,
+        "highDiversity": 12.8,
         "lowDiversity": 15.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 9.09,
-        "cohortComponent": 14.2,
-        "spreadPp": 5.1
+        "cohortComponent": 13.7,
+        "spreadPp": 4.6
       },
       "religion": {
         "2021": {
@@ -1873,14 +1873,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 17.7,
-        "highDiversity": 16.8,
+        "central": 17.4,
+        "highDiversity": 16,
         "lowDiversity": 19.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 16.07,
-        "cohortComponent": 17.7,
-        "spreadPp": 1.6
+        "cohortComponent": 17.4,
+        "spreadPp": 1.3
       },
       "religion": {
         "2021": {
@@ -2458,14 +2458,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 50.5,
-        "highDiversity": 48.3,
-        "lowDiversity": 55.3
+        "central": 48.4,
+        "highDiversity": 44.2,
+        "lowDiversity": 54.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 45.07,
-        "cohortComponent": 50.5,
-        "spreadPp": 5.4
+        "cohortComponent": 48.4,
+        "spreadPp": 3.3
       },
       "religion": {
         "2021": {
@@ -3037,14 +3037,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 9.4,
-        "highDiversity": 9.1,
-        "lowDiversity": 10.1
+        "central": 9.2,
+        "highDiversity": 8.6,
+        "lowDiversity": 10
       },
       "modelSpread2051": {
         "hamiltonPerry": 10.18,
-        "cohortComponent": 9.4,
-        "spreadPp": 0.8
+        "cohortComponent": 9.2,
+        "spreadPp": 1
       },
       "religion": {
         "2021": {
@@ -3617,14 +3617,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 30.9,
-        "highDiversity": 29.4,
-        "lowDiversity": 33.7
+        "central": 30.2,
+        "highDiversity": 27.9,
+        "lowDiversity": 33.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 24.64,
-        "cohortComponent": 30.9,
-        "spreadPp": 6.3
+        "cohortComponent": 30.2,
+        "spreadPp": 5.6
       },
       "religion": {
         "2021": {
@@ -3743,7 +3743,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": 1,
         "localEffectPp": -6.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend and local migration, equally"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 82.5,
@@ -4202,14 +4202,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 22.4,
-        "highDiversity": 21.2,
-        "lowDiversity": 24.7
+        "central": 21.9,
+        "highDiversity": 20,
+        "lowDiversity": 24.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 25.5,
-        "cohortComponent": 22.4,
-        "spreadPp": 3.1
+        "cohortComponent": 21.9,
+        "spreadPp": 3.6
       },
       "religion": {
         "2021": {
@@ -4787,14 +4787,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 34.6,
-        "highDiversity": 32.7,
-        "lowDiversity": 37.2
+        "central": 32.8,
+        "highDiversity": 30.2,
+        "lowDiversity": 36.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 17.75,
-        "cohortComponent": 34.6,
-        "spreadPp": 16.9
+        "cohortComponent": 32.8,
+        "spreadPp": 15
       },
       "religion": {
         "2021": {
@@ -5361,14 +5361,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 10.5,
-        "highDiversity": 10,
-        "lowDiversity": 11.2
+        "central": 10.1,
+        "highDiversity": 9.4,
+        "lowDiversity": 11
       },
       "modelSpread2051": {
         "hamiltonPerry": 9.3,
-        "cohortComponent": 10.5,
-        "spreadPp": 1.2
+        "cohortComponent": 10.1,
+        "spreadPp": 0.8
       },
       "religion": {
         "2021": {
@@ -5935,14 +5935,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 14.5,
-        "highDiversity": 13.7,
-        "lowDiversity": 15.5
+        "central": 13.8,
+        "highDiversity": 12.8,
+        "lowDiversity": 15.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 14.36,
-        "cohortComponent": 14.5,
-        "spreadPp": 0.1
+        "cohortComponent": 13.8,
+        "spreadPp": 0.6
       },
       "religion": {
         "2021": {
@@ -6061,7 +6061,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": 2.5,
         "localEffectPp": -6.2,
-        "dominantDriver": "national trend"
+        "dominantDriver": "national trend and local migration, equally"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 84,
@@ -6483,14 +6483,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 55.9,
-        "highDiversity": 53.1,
-        "lowDiversity": 59.7
+        "central": 51.6,
+        "highDiversity": 47.5,
+        "lowDiversity": 57.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 55.9,
-        "cohortComponent": 55.9,
-        "spreadPp": 0
+        "cohortComponent": 51.6,
+        "spreadPp": 4.3
       },
       "religion": {
         "2021": {
@@ -6924,14 +6924,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 17.2,
-        "highDiversity": 16.5,
+        "central": 16.6,
+        "highDiversity": 15.3,
         "lowDiversity": 18.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 15.54,
-        "cohortComponent": 17.2,
-        "spreadPp": 1.7
+        "cohortComponent": 16.6,
+        "spreadPp": 1.1
       },
       "religion": {
         "2021": {
@@ -7504,14 +7504,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 34.9,
-        "highDiversity": 32.7,
-        "lowDiversity": 37.8
+        "central": 33,
+        "highDiversity": 30.2,
+        "lowDiversity": 37.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 30.58,
-        "cohortComponent": 34.9,
-        "spreadPp": 4.3
+        "cohortComponent": 33,
+        "spreadPp": 2.4
       },
       "religion": {
         "2021": {
@@ -8084,14 +8084,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 36.8,
-        "highDiversity": 34.8,
-        "lowDiversity": 39.3
+        "central": 34.8,
+        "highDiversity": 32.1,
+        "lowDiversity": 38.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 23.81,
-        "cohortComponent": 36.8,
-        "spreadPp": 13
+        "cohortComponent": 34.8,
+        "spreadPp": 11
       },
       "religion": {
         "2021": {
@@ -8664,14 +8664,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 65.4,
-        "highDiversity": 62.1,
-        "lowDiversity": 69.8
+        "central": 61.8,
+        "highDiversity": 57.1,
+        "lowDiversity": 68.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 46.13,
-        "cohortComponent": 65.4,
-        "spreadPp": 19.3
+        "cohortComponent": 61.8,
+        "spreadPp": 15.7
       },
       "religion": {
         "2021": {
@@ -9238,14 +9238,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 8.6,
-        "highDiversity": 8.2,
-        "lowDiversity": 9.1
+        "central": 8.3,
+        "highDiversity": 7.8,
+        "lowDiversity": 9
       },
       "modelSpread2051": {
         "hamiltonPerry": 10.6,
-        "cohortComponent": 8.6,
-        "spreadPp": 2
+        "cohortComponent": 8.3,
+        "spreadPp": 2.3
       },
       "religion": {
         "2021": {
@@ -9818,14 +9818,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 43.9,
-        "highDiversity": 41.2,
-        "lowDiversity": 47.4
+        "central": 41.3,
+        "highDiversity": 37.8,
+        "lowDiversity": 46.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 34.44,
-        "cohortComponent": 43.9,
-        "spreadPp": 9.5
+        "cohortComponent": 41.3,
+        "spreadPp": 6.9
       },
       "religion": {
         "2021": {
@@ -10397,14 +10397,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 83.4,
-        "highDiversity": 79.7,
-        "lowDiversity": 88.3
+        "central": 79.1,
+        "highDiversity": 73.6,
+        "lowDiversity": 86.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.4,
-        "cohortComponent": 83.4,
-        "spreadPp": 7
+        "cohortComponent": 79.1,
+        "spreadPp": 2.7
       },
       "religion": {
         "2021": {
@@ -11550,14 +11550,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 40.1,
-        "highDiversity": 36.3,
-        "lowDiversity": 46.3
+        "central": 41.5,
+        "highDiversity": 37.7,
+        "lowDiversity": 47
       },
       "modelSpread2051": {
         "hamiltonPerry": 43.3,
-        "cohortComponent": 40.1,
-        "spreadPp": 3.2
+        "cohortComponent": 41.5,
+        "spreadPp": 1.8
       },
       "religion": {
         "2021": {
@@ -12130,14 +12130,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 41.6,
-        "highDiversity": 39.5,
-        "lowDiversity": 45.4
+        "central": 40.6,
+        "highDiversity": 37.1,
+        "lowDiversity": 45.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 51.1,
-        "cohortComponent": 41.6,
-        "spreadPp": 9.5
+        "cohortComponent": 40.6,
+        "spreadPp": 10.5
       },
       "religion": {
         "2021": {
@@ -12695,14 +12695,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 50.7,
-        "highDiversity": 47.7,
-        "lowDiversity": 54.6
+        "central": 47.8,
+        "highDiversity": 43.8,
+        "lowDiversity": 53.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 26.89,
-        "cohortComponent": 50.7,
-        "spreadPp": 23.8
+        "cohortComponent": 47.8,
+        "spreadPp": 20.9
       },
       "religion": {
         "2021": {
@@ -13269,14 +13269,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 5.2,
-        "highDiversity": 5,
-        "lowDiversity": 5.4
+        "central": 5.1,
+        "highDiversity": 4.9,
+        "lowDiversity": 5.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 9.26,
-        "cohortComponent": 5.2,
-        "spreadPp": 4.1
+        "cohortComponent": 5.1,
+        "spreadPp": 4.2
       },
       "religion": {
         "2021": {
@@ -13843,14 +13843,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 71.4,
-        "highDiversity": 67.7,
-        "lowDiversity": 76
+        "central": 67.4,
+        "highDiversity": 62.2,
+        "lowDiversity": 74.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 62.24,
-        "cohortComponent": 71.4,
-        "spreadPp": 9.2
+        "cohortComponent": 67.4,
+        "spreadPp": 5.2
       },
       "religion": {
         "2021": {
@@ -14417,14 +14417,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 81.9,
-        "highDiversity": 78,
-        "lowDiversity": 87.2
+        "central": 77.4,
+        "highDiversity": 71.6,
+        "lowDiversity": 85.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 74.16,
-        "cohortComponent": 81.9,
-        "spreadPp": 7.7
+        "cohortComponent": 77.4,
+        "spreadPp": 3.2
       },
       "religion": {
         "2021": {
@@ -14990,14 +14990,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 85,
-        "highDiversity": 81.3,
-        "lowDiversity": 90
+        "central": 80.5,
+        "highDiversity": 74.9,
+        "lowDiversity": 88.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 81.31,
-        "cohortComponent": 85,
-        "spreadPp": 3.7
+        "cohortComponent": 80.5,
+        "spreadPp": 0.8
       },
       "religion": {
         "2021": {
@@ -15569,14 +15569,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 49.4,
-        "highDiversity": 46.7,
-        "lowDiversity": 52.9
+        "central": 46.9,
+        "highDiversity": 43.3,
+        "lowDiversity": 51.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 29.9,
-        "cohortComponent": 49.4,
-        "spreadPp": 19.5
+        "cohortComponent": 46.9,
+        "spreadPp": 17
       },
       "religion": {
         "2021": {
@@ -16143,14 +16143,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 83.5,
-        "highDiversity": 79.6,
-        "lowDiversity": 88.7
+        "central": 79,
+        "highDiversity": 73.2,
+        "lowDiversity": 87
       },
       "modelSpread2051": {
         "hamiltonPerry": 81.74,
-        "cohortComponent": 83.5,
-        "spreadPp": 1.8
+        "cohortComponent": 79,
+        "spreadPp": 2.7
       },
       "religion": {
         "2021": {
@@ -16722,14 +16722,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 71.9,
-        "highDiversity": 68.4,
-        "lowDiversity": 76.5
+        "central": 67.9,
+        "highDiversity": 62.8,
+        "lowDiversity": 75
       },
       "modelSpread2051": {
         "hamiltonPerry": 59.91,
-        "cohortComponent": 71.9,
-        "spreadPp": 12
+        "cohortComponent": 67.9,
+        "spreadPp": 8
       },
       "religion": {
         "2021": {
@@ -17292,14 +17292,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 35.1,
-        "highDiversity": 33.1,
-        "lowDiversity": 37.9
+        "central": 33.2,
+        "highDiversity": 30.5,
+        "lowDiversity": 37.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 24.63,
-        "cohortComponent": 35.1,
-        "spreadPp": 10.5
+        "cohortComponent": 33.2,
+        "spreadPp": 8.6
       },
       "religion": {
         "2021": {
@@ -17872,14 +17872,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 48,
-        "highDiversity": 44.8,
-        "lowDiversity": 53.7
+        "central": 47.3,
+        "highDiversity": 42.8,
+        "lowDiversity": 54
       },
       "modelSpread2051": {
         "hamiltonPerry": 54.2,
-        "cohortComponent": 48,
-        "spreadPp": 6.2
+        "cohortComponent": 47.3,
+        "spreadPp": 6.9
       },
       "religion": {
         "2021": {
@@ -18456,14 +18456,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 26,
-        "highDiversity": 23.6,
-        "lowDiversity": 29.9
+        "central": 26.5,
+        "highDiversity": 24.1,
+        "lowDiversity": 30.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 26.42,
-        "cohortComponent": 26,
-        "spreadPp": 0.4
+        "cohortComponent": 26.5,
+        "spreadPp": 0.1
       },
       "religion": {
         "2021": {
@@ -19036,14 +19036,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 51.9,
-        "highDiversity": 48.9,
-        "lowDiversity": 55.9
+        "central": 49,
+        "highDiversity": 44.9,
+        "lowDiversity": 54.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 44.63,
-        "cohortComponent": 51.9,
-        "spreadPp": 7.3
+        "cohortComponent": 49,
+        "spreadPp": 4.4
       },
       "religion": {
         "2021": {
@@ -19616,14 +19616,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 54.3,
-        "highDiversity": 51.2,
-        "lowDiversity": 58.3
+        "central": 51.4,
+        "highDiversity": 47.2,
+        "lowDiversity": 57.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 37.68,
-        "cohortComponent": 54.3,
-        "spreadPp": 16.6
+        "cohortComponent": 51.4,
+        "spreadPp": 13.7
       },
       "religion": {
         "2021": {
@@ -20196,14 +20196,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 70.9,
-        "highDiversity": 67.5,
-        "lowDiversity": 75.4
+        "central": 67.2,
+        "highDiversity": 62.3,
+        "lowDiversity": 74
       },
       "modelSpread2051": {
         "hamiltonPerry": 56.77,
-        "cohortComponent": 70.9,
-        "spreadPp": 14.1
+        "cohortComponent": 67.2,
+        "spreadPp": 10.4
       },
       "religion": {
         "2021": {
@@ -20770,14 +20770,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 76.3,
-        "highDiversity": 72.6,
-        "lowDiversity": 81.3
+        "central": 72.3,
+        "highDiversity": 67,
+        "lowDiversity": 79.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 70.15,
-        "cohortComponent": 76.3,
-        "spreadPp": 6.1
+        "cohortComponent": 72.3,
+        "spreadPp": 2.1
       },
       "religion": {
         "2021": {
@@ -21343,14 +21343,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 11.4,
-        "highDiversity": 10.8,
-        "lowDiversity": 12.2
+        "central": 11,
+        "highDiversity": 10.2,
+        "lowDiversity": 12
       },
       "modelSpread2051": {
         "hamiltonPerry": 7.82,
-        "cohortComponent": 11.4,
-        "spreadPp": 3.6
+        "cohortComponent": 11,
+        "spreadPp": 3.2
       },
       "religion": {
         "2021": {
@@ -21923,14 +21923,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 67.4,
-        "highDiversity": 63.8,
-        "lowDiversity": 71.9
+        "central": 63.7,
+        "highDiversity": 58.7,
+        "lowDiversity": 70.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 59.58,
-        "cohortComponent": 67.4,
-        "spreadPp": 7.8
+        "cohortComponent": 63.7,
+        "spreadPp": 4.1
       },
       "religion": {
         "2021": {
@@ -22507,14 +22507,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 58.6,
-        "highDiversity": 57,
-        "lowDiversity": 64.6
+        "central": 59.1,
+        "highDiversity": 55,
+        "lowDiversity": 65
       },
       "modelSpread2051": {
         "hamiltonPerry": 47.54,
-        "cohortComponent": 58.6,
-        "spreadPp": 11.1
+        "cohortComponent": 59.1,
+        "spreadPp": 11.6
       },
       "religion": {
         "2021": {
@@ -23055,14 +23055,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 69.5,
-        "highDiversity": 65.6,
-        "lowDiversity": 75.1
+        "central": 63.2,
+        "highDiversity": 57.3,
+        "lowDiversity": 72.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 69.5,
-        "cohortComponent": 69.5,
-        "spreadPp": 0
+        "cohortComponent": 63.2,
+        "spreadPp": 6.3
       },
       "religion": {
         "2021": {
@@ -23501,14 +23501,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 62.8,
-        "highDiversity": 59.6,
-        "lowDiversity": 68.4
+        "central": 62,
+        "highDiversity": 57.2,
+        "lowDiversity": 68.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 51.8,
-        "cohortComponent": 62.8,
-        "spreadPp": 11
+        "cohortComponent": 62,
+        "spreadPp": 10.2
       },
       "religion": {
         "2021": {
@@ -24075,14 +24075,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73,
-        "highDiversity": 70.2,
-        "lowDiversity": 81
+        "central": 72,
+        "highDiversity": 65.5,
+        "lowDiversity": 81.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.57,
-        "cohortComponent": 73,
-        "spreadPp": 7.6
+        "cohortComponent": 72,
+        "spreadPp": 8.6
       },
       "religion": {
         "2021": {
@@ -24608,14 +24608,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 70.8,
-        "highDiversity": 63.1,
-        "lowDiversity": 83.8
+        "central": 73.8,
+        "highDiversity": 66.1,
+        "lowDiversity": 85.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 70.9,
-        "cohortComponent": 70.8,
-        "spreadPp": 0.1
+        "cohortComponent": 73.8,
+        "spreadPp": 2.9
       },
       "religion": {
         "2021": {
@@ -24684,7 +24684,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.4,
         "localEffectPp": 6.4,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.9,
@@ -25068,14 +25068,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 49.9,
-        "highDiversity": 47,
-        "lowDiversity": 53.8
+        "central": 47.1,
+        "highDiversity": 43.2,
+        "lowDiversity": 52.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 34.87,
-        "cohortComponent": 49.9,
-        "spreadPp": 15
+        "cohortComponent": 47.1,
+        "spreadPp": 12.2
       },
       "religion": {
         "2021": {
@@ -25642,14 +25642,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 82.5,
-        "highDiversity": 78.2,
-        "lowDiversity": 88.3
+        "central": 77.7,
+        "highDiversity": 71.5,
+        "lowDiversity": 86.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 83.82,
-        "cohortComponent": 82.5,
-        "spreadPp": 1.3
+        "cohortComponent": 77.7,
+        "spreadPp": 6.1
       },
       "religion": {
         "2021": {
@@ -26215,14 +26215,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 78.7,
-        "highDiversity": 77.4,
-        "lowDiversity": 85.9
+        "central": 78.4,
+        "highDiversity": 72.9,
+        "lowDiversity": 86.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.31,
-        "cohortComponent": 78.7,
-        "spreadPp": 1.6
+        "cohortComponent": 78.4,
+        "spreadPp": 1.9
       },
       "religion": {
         "2021": {
@@ -26788,14 +26788,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 74,
-        "highDiversity": 70.3,
-        "lowDiversity": 79.2
+        "central": 69.8,
+        "highDiversity": 64.4,
+        "lowDiversity": 77.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 63.98,
-        "cohortComponent": 74,
-        "spreadPp": 10
+        "cohortComponent": 69.8,
+        "spreadPp": 5.8
       },
       "religion": {
         "2021": {
@@ -27335,14 +27335,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65.1,
-        "highDiversity": 60.8,
-        "lowDiversity": 75.3
+        "central": 66.1,
+        "highDiversity": 59.4,
+        "lowDiversity": 76.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 65.3,
-        "cohortComponent": 65.1,
-        "spreadPp": 0.2
+        "cohortComponent": 66.1,
+        "spreadPp": 0.8
       },
       "religion": {
         "2021": {
@@ -27789,14 +27789,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 83.3,
-        "highDiversity": 79.3,
-        "lowDiversity": 88.5
+        "central": 78.7,
+        "highDiversity": 73,
+        "lowDiversity": 86.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 82.48,
-        "cohortComponent": 83.3,
-        "spreadPp": 0.8
+        "cohortComponent": 78.7,
+        "spreadPp": 3.8
       },
       "religion": {
         "2021": {
@@ -28362,14 +28362,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 67.9,
-        "highDiversity": 64.1,
-        "lowDiversity": 73
+        "central": 64,
+        "highDiversity": 58.7,
+        "lowDiversity": 71.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 63.78,
-        "cohortComponent": 67.9,
-        "spreadPp": 4.1
+        "cohortComponent": 64,
+        "spreadPp": 0.2
       },
       "religion": {
         "2021": {
@@ -28941,14 +28941,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 83.3,
-        "highDiversity": 79.2,
-        "lowDiversity": 88.8
+        "central": 78.6,
+        "highDiversity": 72.7,
+        "lowDiversity": 86.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 84.29,
-        "cohortComponent": 83.3,
-        "spreadPp": 1
+        "cohortComponent": 78.6,
+        "spreadPp": 5.7
       },
       "religion": {
         "2021": {
@@ -29494,9 +29494,9 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 56.4,
-        "highDiversity": 51.1,
-        "lowDiversity": 64.7
+        "central": 57.5,
+        "highDiversity": 52.2,
+        "lowDiversity": 65.4
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 90.6,
@@ -29731,8 +29731,8 @@
       },
       "modelSpread2051": {
         "hamiltonPerry": 56.3,
-        "cohortComponent": 56.4,
-        "spreadPp": 0
+        "cohortComponent": 57.5,
+        "spreadPp": 1.2
       }
     },
     "E09000012": {
@@ -29867,14 +29867,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 13.9,
-        "highDiversity": 13.2,
-        "lowDiversity": 14.7
+        "central": 13.2,
+        "highDiversity": 12.3,
+        "lowDiversity": 14.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 21.44,
-        "cohortComponent": 13.9,
-        "spreadPp": 7.5
+        "cohortComponent": 13.2,
+        "spreadPp": 8.2
       },
       "religion": {
         "2021": {
@@ -30440,14 +30440,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73,
-        "highDiversity": 66.4,
-        "lowDiversity": 83.2
+        "central": 74.7,
+        "highDiversity": 68.2,
+        "lowDiversity": 84.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.19,
-        "cohortComponent": 73,
-        "spreadPp": 3.2
+        "cohortComponent": 74.7,
+        "spreadPp": 1.5
       },
       "religion": {
         "2021": {
@@ -31013,14 +31013,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 86,
-        "highDiversity": 82.2,
-        "lowDiversity": 91
+        "central": 81.5,
+        "highDiversity": 75.9,
+        "lowDiversity": 89.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 88.21,
-        "cohortComponent": 86,
-        "spreadPp": 2.2
+        "cohortComponent": 81.5,
+        "spreadPp": 6.7
       },
       "religion": {
         "2021": {
@@ -31592,14 +31592,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 51.9,
-        "highDiversity": 50,
-        "lowDiversity": 57.1
+        "central": 51.3,
+        "highDiversity": 47.1,
+        "lowDiversity": 57.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 50.94,
-        "cohortComponent": 51.9,
-        "spreadPp": 1
+        "cohortComponent": 51.3,
+        "spreadPp": 0.4
       },
       "religion": {
         "2021": {
@@ -32157,14 +32157,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 62.8,
-        "highDiversity": 59.7,
-        "lowDiversity": 67
+        "central": 59.4,
+        "highDiversity": 54.9,
+        "lowDiversity": 65.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 41.85,
-        "cohortComponent": 62.8,
-        "spreadPp": 20.9
+        "cohortComponent": 59.4,
+        "spreadPp": 17.5
       },
       "religion": {
         "2021": {
@@ -32710,9 +32710,9 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 57.2,
-        "highDiversity": 52.6,
-        "lowDiversity": 65.9
+        "central": 58.3,
+        "highDiversity": 52.7,
+        "lowDiversity": 66.6
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 91.7,
@@ -32933,8 +32933,8 @@
       },
       "modelSpread2051": {
         "hamiltonPerry": 56,
-        "cohortComponent": 57.2,
-        "spreadPp": 1.2
+        "cohortComponent": 58.3,
+        "spreadPp": 2.3
       }
     },
     "E09000028": {
@@ -33069,14 +33069,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 15,
-        "highDiversity": 14.4,
-        "lowDiversity": 16
+        "central": 14.7,
+        "highDiversity": 13.7,
+        "lowDiversity": 16.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 19.35,
-        "cohortComponent": 15,
-        "spreadPp": 4.4
+        "cohortComponent": 14.7,
+        "spreadPp": 4.7
       },
       "religion": {
         "2021": {
@@ -33617,9 +33617,9 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 79.3,
-        "highDiversity": 74.4,
-        "lowDiversity": 86.6
+        "central": 71.2,
+        "highDiversity": 64,
+        "lowDiversity": 83
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 97.9,
@@ -33854,8 +33854,8 @@
       },
       "modelSpread2051": {
         "hamiltonPerry": 79.3,
-        "cohortComponent": 79.3,
-        "spreadPp": 0
+        "cohortComponent": 71.2,
+        "spreadPp": 8.1
       }
     },
     "E06000026": {
@@ -33990,14 +33990,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73.4,
-        "highDiversity": 70.6,
-        "lowDiversity": 78.3
+        "central": 70.1,
+        "highDiversity": 64.5,
+        "lowDiversity": 78.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.68,
-        "cohortComponent": 73.4,
-        "spreadPp": 3.3
+        "cohortComponent": 70.1,
+        "spreadPp": 6.6
       },
       "religion": {
         "2021": {
@@ -34563,14 +34563,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 6.9,
-        "highDiversity": 6.6,
-        "lowDiversity": 7.3
+        "central": 6.7,
+        "highDiversity": 6.4,
+        "lowDiversity": 7.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 4.91,
-        "cohortComponent": 6.9,
-        "spreadPp": 2
+        "cohortComponent": 6.7,
+        "spreadPp": 1.8
       },
       "religion": {
         "2021": {
@@ -35143,14 +35143,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 35.5,
-        "highDiversity": 33.4,
-        "lowDiversity": 38.3
+        "central": 33.5,
+        "highDiversity": 30.7,
+        "lowDiversity": 37.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 30.12,
-        "cohortComponent": 35.5,
-        "spreadPp": 5.4
+        "cohortComponent": 33.5,
+        "spreadPp": 3.4
       },
       "religion": {
         "2021": {
@@ -35728,14 +35728,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 71.1,
-        "highDiversity": 67.5,
-        "lowDiversity": 76
+        "central": 67.2,
+        "highDiversity": 62.1,
+        "lowDiversity": 74.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 56.88,
-        "cohortComponent": 71.1,
-        "spreadPp": 14.2
+        "cohortComponent": 67.2,
+        "spreadPp": 10.3
       },
       "religion": {
         "2021": {
@@ -36302,14 +36302,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 8,
-        "highDiversity": 7.6,
+        "central": 7.9,
+        "highDiversity": 7.5,
         "lowDiversity": 8.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 6.72,
-        "cohortComponent": 8,
-        "spreadPp": 1.3
+        "cohortComponent": 7.9,
+        "spreadPp": 1.2
       },
       "religion": {
         "2021": {
@@ -36856,9 +36856,9 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 50.5,
-        "highDiversity": 47.5,
-        "lowDiversity": 57.6
+        "central": 51.3,
+        "highDiversity": 46.6,
+        "lowDiversity": 58.2
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 89.1,
@@ -37093,8 +37093,8 @@
       },
       "modelSpread2051": {
         "hamiltonPerry": 50.3,
-        "cohortComponent": 50.5,
-        "spreadPp": 0.2
+        "cohortComponent": 51.3,
+        "spreadPp": 1
       }
     },
     "E06000065": {
@@ -37203,9 +37203,9 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 76,
-        "highDiversity": 71.2,
-        "lowDiversity": 83.2
+        "central": 68,
+        "highDiversity": 61,
+        "lowDiversity": 79.7
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 97.4,
@@ -37440,8 +37440,8 @@
       },
       "modelSpread2051": {
         "hamiltonPerry": 76,
-        "cohortComponent": 76,
-        "spreadPp": 0
+        "cohortComponent": 68,
+        "spreadPp": 8
       }
     },
     "E06000049": {
@@ -37576,14 +37576,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 71.6,
+        "central": 72.6,
         "highDiversity": 67,
-        "lowDiversity": 80
+        "lowDiversity": 80.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.3,
-        "cohortComponent": 71.6,
-        "spreadPp": 4.7
+        "cohortComponent": 72.6,
+        "spreadPp": 3.7
       },
       "religion": {
         "2021": {
@@ -38155,14 +38155,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 57.6,
-        "highDiversity": 54.9,
-        "lowDiversity": 62.3
+        "central": 54.9,
+        "highDiversity": 49.6,
+        "lowDiversity": 62.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 55.41,
-        "cohortComponent": 57.6,
-        "spreadPp": 2.2
+        "cohortComponent": 54.9,
+        "spreadPp": 0.5
       },
       "religion": {
         "2021": {
@@ -38720,14 +38720,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 59.1,
-        "highDiversity": 55.7,
-        "lowDiversity": 63.8
+        "central": 55.8,
+        "highDiversity": 51,
+        "lowDiversity": 62.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 49.17,
-        "cohortComponent": 59.1,
-        "spreadPp": 9.9
+        "cohortComponent": 55.8,
+        "spreadPp": 6.6
       },
       "religion": {
         "2021": {
@@ -39280,14 +39280,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 75.5,
-        "highDiversity": 71.4,
-        "lowDiversity": 81.2
+        "central": 70.9,
+        "highDiversity": 65,
+        "lowDiversity": 79.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 69.98,
-        "cohortComponent": 75.5,
-        "spreadPp": 5.5
+        "cohortComponent": 70.9,
+        "spreadPp": 0.9
       },
       "religion": {
         "2021": {
@@ -39853,14 +39853,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65.1,
-        "highDiversity": 59,
-        "lowDiversity": 74.9
+        "central": 67,
+        "highDiversity": 60.9,
+        "lowDiversity": 76
       },
       "modelSpread2051": {
         "hamiltonPerry": 72.89,
-        "cohortComponent": 65.1,
-        "spreadPp": 7.8
+        "cohortComponent": 67,
+        "spreadPp": 5.9
       },
       "religion": {
         "2021": {
@@ -40418,14 +40418,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 41.5,
-        "highDiversity": 38.8,
-        "lowDiversity": 45.1
+        "central": 39.2,
+        "highDiversity": 35.6,
+        "lowDiversity": 44.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 28.72,
-        "cohortComponent": 41.5,
-        "spreadPp": 12.8
+        "cohortComponent": 39.2,
+        "spreadPp": 10.5
       },
       "religion": {
         "2021": {
@@ -40978,14 +40978,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 76.7,
-        "highDiversity": 72.9,
-        "lowDiversity": 81.8
+        "central": 72.5,
+        "highDiversity": 67,
+        "lowDiversity": 80.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 70.26,
-        "cohortComponent": 76.7,
-        "spreadPp": 6.4
+        "cohortComponent": 72.5,
+        "spreadPp": 2.2
       },
       "religion": {
         "2021": {
@@ -41551,14 +41551,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 84.2,
-        "highDiversity": 80.3,
-        "lowDiversity": 89.4
+        "central": 79.7,
+        "highDiversity": 74,
+        "lowDiversity": 87.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 82.11,
-        "cohortComponent": 84.2,
-        "spreadPp": 2.1
+        "cohortComponent": 79.7,
+        "spreadPp": 2.4
       },
       "religion": {
         "2021": {
@@ -42130,14 +42130,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 44.6,
-        "highDiversity": 40.2,
-        "lowDiversity": 51.5
+        "central": 46.2,
+        "highDiversity": 41.9,
+        "lowDiversity": 52.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 54.51,
-        "cohortComponent": 44.6,
-        "spreadPp": 9.9
+        "cohortComponent": 46.2,
+        "spreadPp": 8.3
       },
       "religion": {
         "2021": {
@@ -42689,14 +42689,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 81.8,
-        "highDiversity": 78,
-        "lowDiversity": 86.9
+        "central": 77.4,
+        "highDiversity": 71.9,
+        "lowDiversity": 85.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.69,
-        "cohortComponent": 81.8,
-        "spreadPp": 1.1
+        "cohortComponent": 77.4,
+        "spreadPp": 3.3
       },
       "religion": {
         "2021": {
@@ -43268,14 +43268,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 31.5,
-        "highDiversity": 29.2,
-        "lowDiversity": 35.6
+        "central": 32,
+        "highDiversity": 29.3,
+        "lowDiversity": 35.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 35.61,
-        "cohortComponent": 31.5,
-        "spreadPp": 4.1
+        "cohortComponent": 32,
+        "spreadPp": 3.6
       },
       "religion": {
         "2021": {
@@ -43828,14 +43828,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 18.3,
-        "highDiversity": 17.4,
-        "lowDiversity": 19.5
+        "central": 17.4,
+        "highDiversity": 16.2,
+        "lowDiversity": 19.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 17.75,
-        "cohortComponent": 18.3,
-        "spreadPp": 0.6
+        "cohortComponent": 17.4,
+        "spreadPp": 0.4
       },
       "religion": {
         "2021": {
@@ -44407,14 +44407,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 61,
-        "highDiversity": 57.5,
-        "lowDiversity": 65.7
+        "central": 57.6,
+        "highDiversity": 52.8,
+        "lowDiversity": 64.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 51.96,
-        "cohortComponent": 61,
-        "spreadPp": 9
+        "cohortComponent": 57.6,
+        "spreadPp": 5.6
       },
       "religion": {
         "2021": {
@@ -44967,14 +44967,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 76.1,
-        "highDiversity": 72.9,
-        "lowDiversity": 84.4
+        "central": 75.9,
+        "highDiversity": 69.7,
+        "lowDiversity": 84.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 84.91,
-        "cohortComponent": 76.1,
-        "spreadPp": 8.8
+        "cohortComponent": 75.9,
+        "spreadPp": 9
       },
       "religion": {
         "2021": {
@@ -45532,14 +45532,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 52.1,
-        "highDiversity": 50,
-        "lowDiversity": 55.6
+        "central": 49.9,
+        "highDiversity": 45.8,
+        "lowDiversity": 55.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 40.49,
-        "cohortComponent": 52.1,
-        "spreadPp": 11.6
+        "cohortComponent": 49.9,
+        "spreadPp": 9.4
       },
       "religion": {
         "2021": {
@@ -46106,14 +46106,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 84.5,
-        "highDiversity": 80.1,
-        "lowDiversity": 90.2
+        "central": 79.5,
+        "highDiversity": 73.3,
+        "lowDiversity": 88.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 87.16,
-        "cohortComponent": 84.5,
-        "spreadPp": 2.7
+        "cohortComponent": 79.5,
+        "spreadPp": 7.7
       },
       "religion": {
         "2021": {
@@ -46685,14 +46685,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 65.2,
-        "highDiversity": 61.8,
-        "lowDiversity": 69.9
+        "central": 61.6,
+        "highDiversity": 56.7,
+        "lowDiversity": 68.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 47.37,
-        "cohortComponent": 65.2,
-        "spreadPp": 17.8
+        "cohortComponent": 61.6,
+        "spreadPp": 14.2
       },
       "religion": {
         "2021": {
@@ -47265,14 +47265,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 42.3,
-        "highDiversity": 39.9,
-        "lowDiversity": 45.6
+        "central": 39.9,
+        "highDiversity": 36.6,
+        "lowDiversity": 44.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 35.31,
-        "cohortComponent": 42.3,
-        "spreadPp": 7
+        "cohortComponent": 39.9,
+        "spreadPp": 4.6
       },
       "religion": {
         "2021": {
@@ -47825,14 +47825,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 14.3,
-        "highDiversity": 13.6,
-        "lowDiversity": 15.3
+        "central": 13.6,
+        "highDiversity": 12.6,
+        "lowDiversity": 15
       },
       "modelSpread2051": {
         "hamiltonPerry": 9.87,
-        "cohortComponent": 14.3,
-        "spreadPp": 4.4
+        "cohortComponent": 13.6,
+        "spreadPp": 3.7
       },
       "religion": {
         "2021": {
@@ -48405,14 +48405,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 57,
-        "highDiversity": 53.7,
-        "lowDiversity": 60.8
+        "central": 53.5,
+        "highDiversity": 48.9,
+        "lowDiversity": 60.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 55.43,
-        "cohortComponent": 57,
-        "spreadPp": 1.6
+        "cohortComponent": 53.5,
+        "spreadPp": 1.9
       },
       "religion": {
         "2021": {
@@ -48970,14 +48970,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 45.5,
-        "highDiversity": 43,
-        "lowDiversity": 48.9
+        "central": 43,
+        "highDiversity": 39.6,
+        "lowDiversity": 47.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 31.17,
-        "cohortComponent": 45.5,
-        "spreadPp": 14.3
+        "cohortComponent": 43,
+        "spreadPp": 11.8
       },
       "religion": {
         "2021": {
@@ -49544,14 +49544,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 7.5,
-        "highDiversity": 7.2,
-        "lowDiversity": 7.9
+        "central": 7.3,
+        "highDiversity": 6.9,
+        "lowDiversity": 7.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 6.34,
-        "cohortComponent": 7.5,
-        "spreadPp": 1.2
+        "cohortComponent": 7.3,
+        "spreadPp": 1
       },
       "religion": {
         "2021": {
@@ -50118,14 +50118,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 82.1,
-        "highDiversity": 79.1,
-        "lowDiversity": 87.2
+        "central": 78.5,
+        "highDiversity": 72.1,
+        "lowDiversity": 87.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 83.74,
-        "cohortComponent": 82.1,
-        "spreadPp": 1.6
+        "cohortComponent": 78.5,
+        "spreadPp": 5.2
       },
       "religion": {
         "2021": {
@@ -50683,14 +50683,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 33.3,
-        "highDiversity": 29.7,
-        "lowDiversity": 39.2
+        "central": 34.2,
+        "highDiversity": 30.6,
+        "lowDiversity": 39.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 41.84,
-        "cohortComponent": 33.3,
-        "spreadPp": 8.5
+        "cohortComponent": 34.2,
+        "spreadPp": 7.6
       },
       "religion": {
         "2021": {
@@ -51263,14 +51263,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 63.9,
-        "highDiversity": 58.7,
-        "lowDiversity": 72.1
+        "central": 65,
+        "highDiversity": 59.6,
+        "lowDiversity": 72.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 59.76,
-        "cohortComponent": 63.9,
-        "spreadPp": 4.1
+        "cohortComponent": 65,
+        "spreadPp": 5.2
       },
       "religion": {
         "2021": {
@@ -51796,9 +51796,9 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73.8,
-        "highDiversity": 69.2,
-        "lowDiversity": 80.5
+        "central": 66.2,
+        "highDiversity": 59.6,
+        "lowDiversity": 77.1
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 95.9,
@@ -52033,8 +52033,8 @@
       },
       "modelSpread2051": {
         "hamiltonPerry": 73.8,
-        "cohortComponent": 73.8,
-        "spreadPp": 0
+        "cohortComponent": 66.2,
+        "spreadPp": 7.6
       }
     },
     "E09000013": {
@@ -52169,14 +52169,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 17,
-        "highDiversity": 16.7,
-        "lowDiversity": 19
+        "central": 17.2,
+        "highDiversity": 15.8,
+        "lowDiversity": 19.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 16.05,
-        "cohortComponent": 17,
-        "spreadPp": 0.9
+        "cohortComponent": 17.2,
+        "spreadPp": 1.1
       },
       "religion": {
         "2021": {
@@ -52743,14 +52743,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 75.3,
-        "highDiversity": 68,
-        "lowDiversity": 87
+        "central": 78.9,
+        "highDiversity": 72,
+        "lowDiversity": 88.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 92.09,
-        "cohortComponent": 75.3,
-        "spreadPp": 16.8
+        "cohortComponent": 78.9,
+        "spreadPp": 13.2
       },
       "religion": {
         "2021": {
@@ -52868,7 +52868,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.7,
@@ -53308,14 +53308,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 44.3,
-        "highDiversity": 41.5,
-        "lowDiversity": 48.3
+        "central": 41.4,
+        "highDiversity": 37.6,
+        "lowDiversity": 47.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 33.06,
-        "cohortComponent": 44.3,
-        "spreadPp": 11.2
+        "cohortComponent": 41.4,
+        "spreadPp": 8.3
       },
       "religion": {
         "2021": {
@@ -53868,14 +53868,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 6,
-        "highDiversity": 5.9,
+        "central": 5.9,
+        "highDiversity": 5.7,
         "lowDiversity": 6.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 4.84,
-        "cohortComponent": 6,
-        "spreadPp": 1.2
+        "cohortComponent": 5.9,
+        "spreadPp": 1.1
       },
       "religion": {
         "2021": {
@@ -54448,14 +54448,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 46.1,
-        "highDiversity": 41.5,
-        "lowDiversity": 53.7
+        "central": 47.8,
+        "highDiversity": 43.2,
+        "lowDiversity": 54.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 55.81,
-        "cohortComponent": 46.1,
-        "spreadPp": 9.7
+        "cohortComponent": 47.8,
+        "spreadPp": 8
       },
       "religion": {
         "2021": {
@@ -54981,14 +54981,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 61.5,
-        "highDiversity": 58.1,
-        "lowDiversity": 66.3
+        "central": 56.3,
+        "highDiversity": 51.3,
+        "lowDiversity": 64.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 61.5,
-        "cohortComponent": 61.5,
-        "spreadPp": 0
+        "cohortComponent": 56.3,
+        "spreadPp": 5.2
       },
       "religion": {
         "2021": {
@@ -55428,14 +55428,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 31.5,
-        "highDiversity": 28.5,
-        "lowDiversity": 36.5
+        "central": 32.3,
+        "highDiversity": 29.2,
+        "lowDiversity": 36.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 39.72,
-        "cohortComponent": 31.5,
-        "spreadPp": 8.2
+        "cohortComponent": 32.3,
+        "spreadPp": 7.4
       },
       "religion": {
         "2021": {
@@ -56012,14 +56012,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 55.4,
-        "highDiversity": 50.2,
-        "lowDiversity": 63.5
+        "central": 56.7,
+        "highDiversity": 51.5,
+        "lowDiversity": 64.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 54.03,
-        "cohortComponent": 55.4,
-        "spreadPp": 1.4
+        "cohortComponent": 56.7,
+        "spreadPp": 2.7
       },
       "religion": {
         "2021": {
@@ -56577,14 +56577,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 75.3,
-        "highDiversity": 71.9,
-        "lowDiversity": 79.8
+        "central": 71.3,
+        "highDiversity": 66.2,
+        "lowDiversity": 78.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 57.41,
-        "cohortComponent": 75.3,
-        "spreadPp": 17.9
+        "cohortComponent": 71.3,
+        "spreadPp": 13.9
       },
       "religion": {
         "2021": {
@@ -57110,14 +57110,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 55.6,
-        "highDiversity": 53,
-        "lowDiversity": 59.9
+        "central": 52.8,
+        "highDiversity": 47.8,
+        "lowDiversity": 60.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 56.4,
-        "cohortComponent": 55.6,
-        "spreadPp": 0.8
+        "cohortComponent": 52.8,
+        "spreadPp": 3.6
       },
       "religion": {
         "2021": {
@@ -57550,14 +57550,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 85.1,
-        "highDiversity": 81.6,
-        "lowDiversity": 89.3
+        "central": 81,
+        "highDiversity": 75.7,
+        "lowDiversity": 88.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.93,
-        "cohortComponent": 85.1,
-        "spreadPp": 4.2
+        "cohortComponent": 81,
+        "spreadPp": 0.1
       },
       "religion": {
         "2021": {
@@ -58123,14 +58123,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 61.3,
-        "highDiversity": 58.8,
-        "lowDiversity": 67.8
+        "central": 61.4,
+        "highDiversity": 56.5,
+        "lowDiversity": 68.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 61.54,
-        "cohortComponent": 61.3,
-        "spreadPp": 0.2
+        "cohortComponent": 61.4,
+        "spreadPp": 0.1
       },
       "religion": {
         "2021": {
@@ -58682,14 +58682,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 17.4,
-        "highDiversity": 17.1,
-        "lowDiversity": 19.7
+        "central": 17.6,
+        "highDiversity": 16.1,
+        "lowDiversity": 19.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 23,
-        "cohortComponent": 17.4,
-        "spreadPp": 5.6
+        "cohortComponent": 17.6,
+        "spreadPp": 5.4
       },
       "religion": {
         "2021": {
@@ -59256,14 +59256,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 17.2,
-        "highDiversity": 16.3,
-        "lowDiversity": 18.4
+        "central": 16.4,
+        "highDiversity": 15.2,
+        "lowDiversity": 18.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 4.94,
-        "cohortComponent": 17.2,
-        "spreadPp": 12.3
+        "cohortComponent": 16.4,
+        "spreadPp": 11.5
       },
       "religion": {
         "2021": {
@@ -59836,14 +59836,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 71.6,
-        "highDiversity": 68.1,
-        "lowDiversity": 76.3
+        "central": 67.7,
+        "highDiversity": 62.7,
+        "lowDiversity": 74.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 59.27,
-        "cohortComponent": 71.6,
-        "spreadPp": 12.3
+        "cohortComponent": 67.7,
+        "spreadPp": 8.4
       },
       "religion": {
         "2021": {
@@ -60401,14 +60401,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 56,
-        "highDiversity": 53.1,
-        "lowDiversity": 60.8
+        "central": 54.4,
+        "highDiversity": 49.7,
+        "lowDiversity": 61.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 48.66,
-        "cohortComponent": 56,
-        "spreadPp": 7.3
+        "cohortComponent": 54.4,
+        "spreadPp": 5.7
       },
       "religion": {
         "2021": {
@@ -60975,14 +60975,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 82.9,
-        "highDiversity": 79.2,
-        "lowDiversity": 88
+        "central": 78.4,
+        "highDiversity": 72.7,
+        "lowDiversity": 86.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.14,
-        "cohortComponent": 82.9,
-        "spreadPp": 4.8
+        "cohortComponent": 78.4,
+        "spreadPp": 0.3
       },
       "religion": {
         "2021": {
@@ -61554,14 +61554,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 32.6,
-        "highDiversity": 29.7,
-        "lowDiversity": 37.3
+        "central": 33.5,
+        "highDiversity": 30.6,
+        "lowDiversity": 37.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 23.67,
-        "cohortComponent": 32.6,
-        "spreadPp": 8.9
+        "cohortComponent": 33.5,
+        "spreadPp": 9.8
       },
       "religion": {
         "2021": {
@@ -62119,14 +62119,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 59.7,
-        "highDiversity": 55.9,
-        "lowDiversity": 68.7
+        "central": 60.6,
+        "highDiversity": 54.8,
+        "lowDiversity": 69.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.26,
-        "cohortComponent": 59.7,
-        "spreadPp": 16.6
+        "cohortComponent": 60.6,
+        "spreadPp": 15.7
       },
       "religion": {
         "2021": {
@@ -62697,14 +62697,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 87.6,
-        "highDiversity": 83.7,
-        "lowDiversity": 92.9
+        "central": 82.9,
+        "highDiversity": 76.9,
+        "lowDiversity": 91.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 90.99,
-        "cohortComponent": 87.6,
-        "spreadPp": 3.4
+        "cohortComponent": 82.9,
+        "spreadPp": 8.1
       },
       "religion": {
         "2021": {
@@ -62822,7 +62822,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.4,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.9,
@@ -63270,14 +63270,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 10.4,
-        "highDiversity": 10,
+        "central": 10.3,
+        "highDiversity": 9.6,
         "lowDiversity": 11.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 14.91,
-        "cohortComponent": 10.4,
-        "spreadPp": 4.5
+        "cohortComponent": 10.3,
+        "spreadPp": 4.6
       },
       "religion": {
         "2021": {
@@ -63844,14 +63844,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 14,
-        "highDiversity": 13.3,
-        "lowDiversity": 14.9
+        "central": 13.3,
+        "highDiversity": 12.4,
+        "lowDiversity": 14.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 24.54,
-        "cohortComponent": 14,
-        "spreadPp": 10.5
+        "cohortComponent": 13.3,
+        "spreadPp": 11.2
       },
       "religion": {
         "2021": {
@@ -64423,14 +64423,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 63.5,
-        "highDiversity": 60,
-        "lowDiversity": 68.3
+        "central": 59.8,
+        "highDiversity": 54.8,
+        "lowDiversity": 66.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 49.56,
-        "cohortComponent": 63.5,
-        "spreadPp": 13.9
+        "cohortComponent": 59.8,
+        "spreadPp": 10.2
       },
       "religion": {
         "2021": {
@@ -64996,14 +64996,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65.6,
-        "highDiversity": 61.7,
-        "lowDiversity": 70.9
+        "central": 61.4,
+        "highDiversity": 56.1,
+        "lowDiversity": 69.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 60.9,
-        "cohortComponent": 65.6,
-        "spreadPp": 4.7
+        "cohortComponent": 61.4,
+        "spreadPp": 0.5
       },
       "religion": {
         "2021": {
@@ -65569,14 +65569,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 59.2,
-        "highDiversity": 53.3,
-        "lowDiversity": 69.1
+        "central": 61.7,
+        "highDiversity": 55.9,
+        "lowDiversity": 70.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.99,
-        "cohortComponent": 59.2,
-        "spreadPp": 17.8
+        "cohortComponent": 61.7,
+        "spreadPp": 15.3
       },
       "religion": {
         "2021": {
@@ -66128,14 +66128,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.3,
-        "highDiversity": 72.5,
-        "lowDiversity": 81.7
+        "central": 72,
+        "highDiversity": 65.5,
+        "lowDiversity": 82.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.57,
-        "cohortComponent": 77.3,
-        "spreadPp": 3.3
+        "cohortComponent": 72,
+        "spreadPp": 8.6
       },
       "religion": {
         "2021": {
@@ -66687,14 +66687,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 43.4,
-        "highDiversity": 39,
-        "lowDiversity": 50.9
+        "central": 45.4,
+        "highDiversity": 41,
+        "lowDiversity": 52
       },
       "modelSpread2051": {
         "hamiltonPerry": 58.85,
-        "cohortComponent": 43.4,
-        "spreadPp": 15.5
+        "cohortComponent": 45.4,
+        "spreadPp": 13.5
       },
       "religion": {
         "2021": {
@@ -67220,9 +67220,9 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.6,
-        "highDiversity": 72.5,
-        "lowDiversity": 85.1
+        "central": 69.2,
+        "highDiversity": 61.9,
+        "lowDiversity": 81.4
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 97.8,
@@ -67457,8 +67457,8 @@
       },
       "modelSpread2051": {
         "hamiltonPerry": 77.6,
-        "cohortComponent": 77.6,
-        "spreadPp": 0
+        "cohortComponent": 69.2,
+        "spreadPp": 8.4
       }
     },
     "E09000007": {
@@ -67593,14 +67593,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 16.1,
-        "highDiversity": 14.8,
-        "lowDiversity": 18
+        "central": 16.4,
+        "highDiversity": 15.2,
+        "lowDiversity": 18.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 14.28,
-        "cohortComponent": 16.1,
-        "spreadPp": 1.8
+        "cohortComponent": 16.4,
+        "spreadPp": 2.1
       },
       "religion": {
         "2021": {
@@ -68167,14 +68167,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 81.7,
-        "highDiversity": 77.1,
-        "lowDiversity": 86.6
+        "central": 76.6,
+        "highDiversity": 70.2,
+        "lowDiversity": 86.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.91,
-        "cohortComponent": 81.7,
-        "spreadPp": 4.2
+        "cohortComponent": 76.6,
+        "spreadPp": 9.3
       },
       "religion": {
         "2021": {
@@ -68726,14 +68726,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 49.8,
-        "highDiversity": 44.3,
-        "lowDiversity": 59.2
+        "central": 53,
+        "highDiversity": 47.7,
+        "lowDiversity": 60.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 69.15,
-        "cohortComponent": 49.8,
-        "spreadPp": 19.4
+        "cohortComponent": 53,
+        "spreadPp": 16.2
       },
       "religion": {
         "2021": {
@@ -69285,14 +69285,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 81.4,
-        "highDiversity": 77.5,
-        "lowDiversity": 86.2
+        "central": 76.8,
+        "highDiversity": 71.2,
+        "lowDiversity": 84.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 74.91,
-        "cohortComponent": 81.4,
-        "spreadPp": 6.5
+        "cohortComponent": 76.8,
+        "spreadPp": 1.9
       },
       "religion": {
         "2021": {
@@ -69858,14 +69858,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 69.9,
-        "highDiversity": 62.1,
-        "lowDiversity": 82.8
+        "central": 74.1,
+        "highDiversity": 66.7,
+        "lowDiversity": 85.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 90.79,
-        "cohortComponent": 69.9,
-        "spreadPp": 20.9
+        "cohortComponent": 74.1,
+        "spreadPp": 16.7
       },
       "religion": {
         "2021": {
@@ -70428,14 +70428,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 35.1,
-        "highDiversity": 33.1,
-        "lowDiversity": 38.4
+        "central": 34.2,
+        "highDiversity": 31.2,
+        "lowDiversity": 38.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 42.79,
-        "cohortComponent": 35.1,
-        "spreadPp": 7.7
+        "cohortComponent": 34.2,
+        "spreadPp": 8.6
       },
       "religion": {
         "2021": {
@@ -71008,14 +71008,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 39.5,
-        "highDiversity": 35.3,
-        "lowDiversity": 46.5
+        "central": 42,
+        "highDiversity": 38,
+        "lowDiversity": 47.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 43.83,
-        "cohortComponent": 39.5,
-        "spreadPp": 4.3
+        "cohortComponent": 42,
+        "spreadPp": 1.8
       },
       "religion": {
         "2021": {
@@ -71582,14 +71582,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65.3,
-        "highDiversity": 59.2,
-        "lowDiversity": 74.9
+        "central": 66.6,
+        "highDiversity": 60.4,
+        "lowDiversity": 75.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.05,
-        "cohortComponent": 65.3,
-        "spreadPp": 14.8
+        "cohortComponent": 66.6,
+        "spreadPp": 13.5
       },
       "religion": {
         "2021": {
@@ -72141,14 +72141,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 83.3,
-        "highDiversity": 79,
-        "lowDiversity": 89.1
+        "central": 78.4,
+        "highDiversity": 72.2,
+        "lowDiversity": 87.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.37,
-        "cohortComponent": 83.3,
-        "spreadPp": 4.9
+        "cohortComponent": 78.4,
+        "spreadPp": 0
       },
       "religion": {
         "2021": {
@@ -72700,14 +72700,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.2,
-        "highDiversity": 72.9,
-        "lowDiversity": 81.9
+        "central": 72.5,
+        "highDiversity": 66.6,
+        "lowDiversity": 81.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.58,
-        "cohortComponent": 77.2,
-        "spreadPp": 1.4
+        "cohortComponent": 72.5,
+        "spreadPp": 6.1
       },
       "religion": {
         "2021": {
@@ -73273,14 +73273,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 66,
-        "highDiversity": 60.6,
-        "lowDiversity": 74.3
+        "central": 67.6,
+        "highDiversity": 62.3,
+        "lowDiversity": 75.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 66.41,
-        "cohortComponent": 66,
-        "spreadPp": 0.4
+        "cohortComponent": 67.6,
+        "spreadPp": 1.2
       },
       "religion": {
         "2021": {
@@ -73826,14 +73826,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 44.1,
-        "highDiversity": 41.6,
-        "lowDiversity": 49.9
+        "central": 44.7,
+        "highDiversity": 40.9,
+        "lowDiversity": 50.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 43.4,
-        "cohortComponent": 44.1,
-        "spreadPp": 0.7
+        "cohortComponent": 44.7,
+        "spreadPp": 1.3
       },
       "religion": {
         "2021": {
@@ -74266,14 +74266,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 76.8,
-        "highDiversity": 70.1,
-        "lowDiversity": 87.1
+        "central": 78.8,
+        "highDiversity": 72.2,
+        "lowDiversity": 88.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 88.34,
-        "cohortComponent": 76.8,
-        "spreadPp": 11.5
+        "cohortComponent": 78.8,
+        "spreadPp": 9.5
       },
       "religion": {
         "2021": {
@@ -74805,9 +74805,9 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 48.1,
-        "highDiversity": 43.6,
-        "lowDiversity": 55.3
+        "central": 49.1,
+        "highDiversity": 44.5,
+        "lowDiversity": 56
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 92.7,
@@ -75042,8 +75042,8 @@
       },
       "modelSpread2051": {
         "hamiltonPerry": 48.1,
-        "cohortComponent": 48.1,
-        "spreadPp": 0
+        "cohortComponent": 49.1,
+        "spreadPp": 1
       }
     },
     "E07000171": {
@@ -75178,14 +75178,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 80.5,
-        "highDiversity": 77.8,
-        "lowDiversity": 85.7
+        "central": 77.3,
+        "highDiversity": 71.6,
+        "lowDiversity": 85.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 82.97,
-        "cohortComponent": 80.5,
-        "spreadPp": 2.5
+        "cohortComponent": 77.3,
+        "spreadPp": 5.7
       },
       "religion": {
         "2021": {
@@ -75737,14 +75737,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 17.8,
-        "highDiversity": 16.9,
-        "lowDiversity": 19.1
+        "central": 17,
+        "highDiversity": 15.7,
+        "lowDiversity": 18.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 24.52,
-        "cohortComponent": 17.8,
-        "spreadPp": 6.7
+        "cohortComponent": 17,
+        "spreadPp": 7.5
       },
       "religion": {
         "2021": {
@@ -76311,14 +76311,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 13.8,
-        "highDiversity": 13.1,
-        "lowDiversity": 14.8
+        "central": 13.1,
+        "highDiversity": 12.2,
+        "lowDiversity": 14.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 20.34,
-        "cohortComponent": 13.8,
-        "spreadPp": 6.5
+        "cohortComponent": 13.1,
+        "spreadPp": 7.2
       },
       "religion": {
         "2021": {
@@ -76884,14 +76884,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 55.2,
-        "highDiversity": 48.4,
-        "lowDiversity": 67.1
+        "central": 59.8,
+        "highDiversity": 53.4,
+        "lowDiversity": 69.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 82.53,
-        "cohortComponent": 55.2,
-        "spreadPp": 27.3
+        "cohortComponent": 59.8,
+        "spreadPp": 22.7
       },
       "religion": {
         "2021": {
@@ -77449,14 +77449,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 50.9,
-        "highDiversity": 48.2,
-        "lowDiversity": 54.7
+        "central": 48.1,
+        "highDiversity": 44.2,
+        "lowDiversity": 53.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 24.76,
-        "cohortComponent": 50.9,
-        "spreadPp": 26.1
+        "cohortComponent": 48.1,
+        "spreadPp": 23.3
       },
       "religion": {
         "2021": {
@@ -78029,14 +78029,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 45,
-        "highDiversity": 44.4,
-        "lowDiversity": 49.8
+        "central": 44.3,
+        "highDiversity": 40.2,
+        "lowDiversity": 50.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 36.39,
-        "cohortComponent": 45,
-        "spreadPp": 8.6
+        "cohortComponent": 44.3,
+        "spreadPp": 7.9
       },
       "religion": {
         "2021": {
@@ -78608,14 +78608,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 49.6,
-        "highDiversity": 46.9,
-        "lowDiversity": 53.3
+        "central": 46.9,
+        "highDiversity": 43.1,
+        "lowDiversity": 52.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 29.33,
-        "cohortComponent": 49.6,
-        "spreadPp": 20.3
+        "cohortComponent": 46.9,
+        "spreadPp": 17.6
       },
       "religion": {
         "2021": {
@@ -79182,14 +79182,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 60.1,
-        "highDiversity": 54.1,
-        "lowDiversity": 70.1
+        "central": 62.6,
+        "highDiversity": 56.6,
+        "lowDiversity": 71.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 66.9,
-        "cohortComponent": 60.1,
-        "spreadPp": 6.8
+        "cohortComponent": 62.6,
+        "spreadPp": 4.3
       },
       "religion": {
         "2021": {
@@ -79747,14 +79747,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 50.2,
-        "highDiversity": 45.6,
-        "lowDiversity": 57.4
+        "central": 51.1,
+        "highDiversity": 46.4,
+        "lowDiversity": 58
       },
       "modelSpread2051": {
         "hamiltonPerry": 49.11,
-        "cohortComponent": 50.2,
-        "spreadPp": 1.1
+        "cohortComponent": 51.1,
+        "spreadPp": 2
       },
       "religion": {
         "2021": {
@@ -80307,14 +80307,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 72,
-        "highDiversity": 67.9,
-        "lowDiversity": 77.6
+        "central": 67.5,
+        "highDiversity": 61.8,
+        "lowDiversity": 75.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 68.23,
-        "cohortComponent": 72,
-        "spreadPp": 3.8
+        "cohortComponent": 67.5,
+        "spreadPp": 0.7
       },
       "religion": {
         "2021": {
@@ -80866,14 +80866,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65.2,
-        "highDiversity": 62,
-        "lowDiversity": 72.8
+        "central": 66,
+        "highDiversity": 60.8,
+        "lowDiversity": 73.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 62.86,
-        "cohortComponent": 65.2,
-        "spreadPp": 2.3
+        "cohortComponent": 66,
+        "spreadPp": 3.1
       },
       "religion": {
         "2021": {
@@ -81425,14 +81425,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 51.3,
-        "highDiversity": 45.5,
-        "lowDiversity": 61.1
+        "central": 53.6,
+        "highDiversity": 47.8,
+        "lowDiversity": 62.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 66.1,
-        "cohortComponent": 51.3,
-        "spreadPp": 14.8
+        "cohortComponent": 53.6,
+        "spreadPp": 12.5
       },
       "religion": {
         "2021": {
@@ -81984,14 +81984,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73.9,
-        "highDiversity": 67.8,
-        "lowDiversity": 83.4
+        "central": 75.4,
+        "highDiversity": 69.2,
+        "lowDiversity": 84.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 77.02,
-        "cohortComponent": 73.9,
-        "spreadPp": 3.1
+        "cohortComponent": 75.4,
+        "spreadPp": 1.6
       },
       "religion": {
         "2021": {
@@ -82543,14 +82543,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 55.9,
-        "highDiversity": 50.7,
-        "lowDiversity": 64.4
+        "central": 57.1,
+        "highDiversity": 51.7,
+        "lowDiversity": 65.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 67.29,
-        "cohortComponent": 55.9,
-        "spreadPp": 11.4
+        "cohortComponent": 57.1,
+        "spreadPp": 10.2
       },
       "religion": {
         "2021": {
@@ -83108,14 +83108,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 54.1,
-        "highDiversity": 51,
-        "lowDiversity": 58.2
+        "central": 50.7,
+        "highDiversity": 46.3,
+        "lowDiversity": 57.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 44.62,
-        "cohortComponent": 54.1,
-        "spreadPp": 9.5
+        "cohortComponent": 50.7,
+        "spreadPp": 6.1
       },
       "religion": {
         "2021": {
@@ -83641,14 +83641,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 80.6,
-        "highDiversity": 76,
-        "lowDiversity": 87.4
+        "central": 73,
+        "highDiversity": 66.2,
+        "lowDiversity": 84.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.6,
-        "cohortComponent": 80.6,
-        "spreadPp": 0
+        "cohortComponent": 73,
+        "spreadPp": 7.6
       },
       "religion": {
         "2021": {
@@ -83717,7 +83717,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.3,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.5,
@@ -84081,14 +84081,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65.1,
-        "highDiversity": 58.3,
-        "lowDiversity": 76.1
+        "central": 69.2,
+        "highDiversity": 63,
+        "lowDiversity": 78.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 81.99,
-        "cohortComponent": 65.1,
-        "spreadPp": 16.9
+        "cohortComponent": 69.2,
+        "spreadPp": 12.8
       },
       "religion": {
         "2021": {
@@ -84640,14 +84640,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 85.5,
-        "highDiversity": 81.7,
-        "lowDiversity": 90.6
+        "central": 80.9,
+        "highDiversity": 75.2,
+        "lowDiversity": 88.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.93,
-        "cohortComponent": 85.5,
-        "spreadPp": 8.6
+        "cohortComponent": 80.9,
+        "spreadPp": 4
       },
       "religion": {
         "2021": {
@@ -85199,14 +85199,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 62.2,
-        "highDiversity": 59.2,
-        "lowDiversity": 67.4
+        "central": 59,
+        "highDiversity": 53.3,
+        "lowDiversity": 67.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 60.16,
-        "cohortComponent": 62.2,
-        "spreadPp": 2
+        "cohortComponent": 59,
+        "spreadPp": 1.2
       },
       "religion": {
         "2021": {
@@ -85769,14 +85769,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 53.6,
-        "highDiversity": 49.1,
-        "lowDiversity": 60.4
+        "central": 54.4,
+        "highDiversity": 50,
+        "lowDiversity": 60.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 56.29,
-        "cohortComponent": 53.6,
-        "spreadPp": 2.7
+        "cohortComponent": 54.4,
+        "spreadPp": 1.9
       },
       "religion": {
         "2021": {
@@ -86328,14 +86328,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 79.8,
-        "highDiversity": 74.9,
-        "lowDiversity": 86.5
+        "central": 74.3,
+        "highDiversity": 67.6,
+        "lowDiversity": 84.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 82.43,
-        "cohortComponent": 79.8,
-        "spreadPp": 2.6
+        "cohortComponent": 74.3,
+        "spreadPp": 8.1
       },
       "religion": {
         "2021": {
@@ -86892,14 +86892,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 16.9,
-        "highDiversity": 15.9,
+        "central": 16.4,
+        "highDiversity": 15.2,
         "lowDiversity": 18
       },
       "modelSpread2051": {
         "hamiltonPerry": 18.81,
-        "cohortComponent": 16.9,
-        "spreadPp": 1.9
+        "cohortComponent": 16.4,
+        "spreadPp": 2.4
       },
       "religion": {
         "2021": {
@@ -87466,14 +87466,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 68.2,
-        "highDiversity": 62.6,
-        "lowDiversity": 77
+        "central": 70.3,
+        "highDiversity": 64.8,
+        "lowDiversity": 78.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 67.59,
-        "cohortComponent": 68.2,
-        "spreadPp": 0.6
+        "cohortComponent": 70.3,
+        "spreadPp": 2.7
       },
       "religion": {
         "2021": {
@@ -88045,14 +88045,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 60.1,
-        "highDiversity": 56.6,
-        "lowDiversity": 64.4
+        "central": 56.6,
+        "highDiversity": 51.9,
+        "lowDiversity": 63.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 50.58,
-        "cohortComponent": 60.1,
-        "spreadPp": 9.5
+        "cohortComponent": 56.6,
+        "spreadPp": 6
       },
       "religion": {
         "2021": {
@@ -88611,14 +88611,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 49.6,
-        "highDiversity": 46.7,
-        "lowDiversity": 53.5
+        "central": 46.6,
+        "highDiversity": 42.6,
+        "lowDiversity": 52.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 37.66,
-        "cohortComponent": 49.6,
-        "spreadPp": 11.9
+        "cohortComponent": 46.6,
+        "spreadPp": 8.9
       },
       "religion": {
         "2021": {
@@ -89170,14 +89170,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.3,
-        "highDiversity": 70.7,
-        "lowDiversity": 87.4
+        "central": 78.7,
+        "highDiversity": 71.8,
+        "lowDiversity": 88.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.2,
-        "cohortComponent": 77.3,
-        "spreadPp": 7.9
+        "cohortComponent": 78.7,
+        "spreadPp": 6.5
       },
       "religion": {
         "2021": {
@@ -89703,14 +89703,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 74.2,
-        "highDiversity": 69.9,
-        "lowDiversity": 80.6
+        "central": 67.2,
+        "highDiversity": 60.8,
+        "lowDiversity": 77.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 74.2,
-        "cohortComponent": 74.2,
-        "spreadPp": 0
+        "cohortComponent": 67.2,
+        "spreadPp": 7
       },
       "religion": {
         "2021": {
@@ -90143,14 +90143,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 69.3,
-        "highDiversity": 63.3,
-        "lowDiversity": 79
+        "central": 71,
+        "highDiversity": 64.8,
+        "lowDiversity": 79.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 79.85,
-        "cohortComponent": 69.3,
-        "spreadPp": 10.5
+        "cohortComponent": 71,
+        "spreadPp": 8.8
       },
       "religion": {
         "2021": {
@@ -90702,14 +90702,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.9,
-        "highDiversity": 74.1,
-        "lowDiversity": 82.8
+        "central": 73.6,
+        "highDiversity": 68.1,
+        "lowDiversity": 81.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 73.89,
-        "cohortComponent": 77.9,
-        "spreadPp": 4
+        "cohortComponent": 73.6,
+        "spreadPp": 0.3
       },
       "religion": {
         "2021": {
@@ -91267,14 +91267,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 52.7,
-        "highDiversity": 50.7,
-        "lowDiversity": 56.3
+        "central": 50.4,
+        "highDiversity": 46.5,
+        "lowDiversity": 56
       },
       "modelSpread2051": {
         "hamiltonPerry": 47,
-        "cohortComponent": 52.7,
-        "spreadPp": 5.7
+        "cohortComponent": 50.4,
+        "spreadPp": 3.4
       },
       "religion": {
         "2021": {
@@ -91826,14 +91826,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 72.3,
-        "highDiversity": 65.6,
-        "lowDiversity": 83.2
+        "central": 74.8,
+        "highDiversity": 68.1,
+        "lowDiversity": 84.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 86.58,
-        "cohortComponent": 72.3,
-        "spreadPp": 14.3
+        "cohortComponent": 74.8,
+        "spreadPp": 11.8
       },
       "religion": {
         "2021": {
@@ -92391,14 +92391,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 57.7,
-        "highDiversity": 54.7,
-        "lowDiversity": 61.8
+        "central": 54.3,
+        "highDiversity": 49.9,
+        "lowDiversity": 60.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 44.46,
-        "cohortComponent": 57.7,
-        "spreadPp": 13.2
+        "cohortComponent": 54.3,
+        "spreadPp": 9.8
       },
       "religion": {
         "2021": {
@@ -92950,14 +92950,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 61.7,
-        "highDiversity": 55.3,
-        "lowDiversity": 72.3
+        "central": 64.5,
+        "highDiversity": 58.2,
+        "lowDiversity": 73.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 82.98,
-        "cohortComponent": 61.7,
-        "spreadPp": 21.3
+        "cohortComponent": 64.5,
+        "spreadPp": 18.5
       },
       "religion": {
         "2021": {
@@ -93509,14 +93509,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 71.1,
-        "highDiversity": 63.2,
-        "lowDiversity": 84.4
+        "central": 74.8,
+        "highDiversity": 67,
+        "lowDiversity": 86.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 91.74,
-        "cohortComponent": 71.1,
-        "spreadPp": 20.6
+        "cohortComponent": 74.8,
+        "spreadPp": 16.9
       },
       "religion": {
         "2021": {
@@ -93634,7 +93634,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.5,
@@ -94074,14 +94074,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 45.5,
-        "highDiversity": 42.9,
-        "lowDiversity": 49
+        "central": 42.8,
+        "highDiversity": 39.3,
+        "lowDiversity": 47.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 28.47,
-        "cohortComponent": 45.5,
-        "spreadPp": 17
+        "cohortComponent": 42.8,
+        "spreadPp": 14.3
       },
       "religion": {
         "2021": {
@@ -94654,14 +94654,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 42,
-        "highDiversity": 39.6,
-        "lowDiversity": 47.7
+        "central": 42.6,
+        "highDiversity": 38.8,
+        "lowDiversity": 48.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 54.56,
-        "cohortComponent": 42,
-        "spreadPp": 12.6
+        "cohortComponent": 42.6,
+        "spreadPp": 12
       },
       "religion": {
         "2021": {
@@ -95227,14 +95227,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.4,
-        "highDiversity": 71.3,
-        "lowDiversity": 87
+        "central": 79.2,
+        "highDiversity": 73.1,
+        "lowDiversity": 87.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.33,
-        "cohortComponent": 77.4,
-        "spreadPp": 7.9
+        "cohortComponent": 79.2,
+        "spreadPp": 6.1
       },
       "religion": {
         "2021": {
@@ -95760,14 +95760,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 82.4,
-        "highDiversity": 77.5,
-        "lowDiversity": 89.3
+        "central": 74.3,
+        "highDiversity": 67.2,
+        "lowDiversity": 85.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 82.4,
-        "cohortComponent": 82.4,
-        "spreadPp": 0
+        "cohortComponent": 74.3,
+        "spreadPp": 8.1
       },
       "religion": {
         "2021": {
@@ -95836,7 +95836,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.4,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.8,
@@ -96200,14 +96200,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 61.9,
-        "highDiversity": 55.7,
-        "lowDiversity": 72.3
+        "central": 65.8,
+        "highDiversity": 60,
+        "lowDiversity": 74.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 67.81,
-        "cohortComponent": 61.9,
-        "spreadPp": 5.9
+        "cohortComponent": 65.8,
+        "spreadPp": 2
       },
       "religion": {
         "2021": {
@@ -96759,14 +96759,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65,
-        "highDiversity": 58.4,
-        "lowDiversity": 75.8
+        "central": 67.6,
+        "highDiversity": 61.2,
+        "lowDiversity": 77.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.11,
-        "cohortComponent": 65,
-        "spreadPp": 13.1
+        "cohortComponent": 67.6,
+        "spreadPp": 10.5
       },
       "religion": {
         "2021": {
@@ -97324,14 +97324,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 48.9,
-        "highDiversity": 46.4,
-        "lowDiversity": 55
+        "central": 49.4,
+        "highDiversity": 45.3,
+        "lowDiversity": 55.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 37.72,
-        "cohortComponent": 48.9,
-        "spreadPp": 11.2
+        "cohortComponent": 49.4,
+        "spreadPp": 11.7
       },
       "religion": {
         "2021": {
@@ -97890,14 +97890,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 47.5,
-        "highDiversity": 42.1,
-        "lowDiversity": 56.6
+        "central": 49.5,
+        "highDiversity": 44.1,
+        "lowDiversity": 57.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 55.1,
-        "cohortComponent": 47.5,
-        "spreadPp": 7.6
+        "cohortComponent": 49.5,
+        "spreadPp": 5.6
       },
       "religion": {
         "2021": {
@@ -98449,14 +98449,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 78.7,
-        "highDiversity": 77.9,
-        "lowDiversity": 87.4
+        "central": 77.5,
+        "highDiversity": 70.5,
+        "lowDiversity": 88
       },
       "modelSpread2051": {
         "hamiltonPerry": 89.38,
-        "cohortComponent": 78.7,
-        "spreadPp": 10.7
+        "cohortComponent": 77.5,
+        "spreadPp": 11.9
       },
       "religion": {
         "2021": {
@@ -99008,14 +99008,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 66.8,
-        "highDiversity": 60.8,
-        "lowDiversity": 76.4
+        "central": 68.1,
+        "highDiversity": 61.9,
+        "lowDiversity": 77.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.58,
-        "cohortComponent": 66.8,
-        "spreadPp": 11.8
+        "cohortComponent": 68.1,
+        "spreadPp": 10.5
       },
       "religion": {
         "2021": {
@@ -99581,14 +99581,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 72.3,
-        "highDiversity": 66.8,
-        "lowDiversity": 82.6
+        "central": 73.5,
+        "highDiversity": 66.7,
+        "lowDiversity": 83.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 82.46,
-        "cohortComponent": 72.3,
-        "spreadPp": 10.2
+        "cohortComponent": 73.5,
+        "spreadPp": 9
       },
       "religion": {
         "2021": {
@@ -100140,14 +100140,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 76.6,
-        "highDiversity": 72.4,
-        "lowDiversity": 82.4
+        "central": 71.9,
+        "highDiversity": 65.9,
+        "lowDiversity": 80.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 70.63,
-        "cohortComponent": 76.6,
-        "spreadPp": 6
+        "cohortComponent": 71.9,
+        "spreadPp": 1.3
       },
       "religion": {
         "2021": {
@@ -100713,14 +100713,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 85.3,
-        "highDiversity": 81.3,
-        "lowDiversity": 90.8
+        "central": 80.4,
+        "highDiversity": 74.6,
+        "lowDiversity": 88.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.54,
-        "cohortComponent": 85.3,
-        "spreadPp": 0.2
+        "cohortComponent": 80.4,
+        "spreadPp": 5.1
       },
       "religion": {
         "2021": {
@@ -101272,14 +101272,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 62.8,
-        "highDiversity": 58.9,
-        "lowDiversity": 69.9
+        "central": 63,
+        "highDiversity": 57.8,
+        "lowDiversity": 70.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 67.9,
-        "cohortComponent": 62.8,
-        "spreadPp": 5.1
+        "cohortComponent": 63,
+        "spreadPp": 4.9
       },
       "religion": {
         "2021": {
@@ -101805,14 +101805,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 78.8,
-        "highDiversity": 73.9,
-        "lowDiversity": 86.1
+        "central": 70.8,
+        "highDiversity": 63.5,
+        "lowDiversity": 82.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.8,
-        "cohortComponent": 78.8,
-        "spreadPp": 0
+        "cohortComponent": 70.8,
+        "spreadPp": 8
       },
       "religion": {
         "2021": {
@@ -101881,7 +101881,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.2,
         "localEffectPp": 6.3,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.3,
@@ -102245,14 +102245,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 64,
-        "highDiversity": 56.3,
-        "lowDiversity": 77.2
+        "central": 68.2,
+        "highDiversity": 60.8,
+        "lowDiversity": 79.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 87.29,
-        "cohortComponent": 64,
-        "spreadPp": 23.3
+        "cohortComponent": 68.2,
+        "spreadPp": 19.1
       },
       "religion": {
         "2021": {
@@ -102804,14 +102804,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 69.1,
-        "highDiversity": 62.9,
-        "lowDiversity": 78.8
+        "central": 70.5,
+        "highDiversity": 64.2,
+        "lowDiversity": 79.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.5,
-        "cohortComponent": 69.1,
-        "spreadPp": 11.4
+        "cohortComponent": 70.5,
+        "spreadPp": 10
       },
       "religion": {
         "2021": {
@@ -103369,14 +103369,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 26,
-        "highDiversity": 23.5,
-        "lowDiversity": 30
+        "central": 26.7,
+        "highDiversity": 24.2,
+        "lowDiversity": 30.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 28.01,
-        "cohortComponent": 26,
-        "spreadPp": 2
+        "cohortComponent": 26.7,
+        "spreadPp": 1.3
       },
       "religion": {
         "2021": {
@@ -103943,14 +103943,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 22.8,
-        "highDiversity": 22.3,
-        "lowDiversity": 25.7
+        "central": 23,
+        "highDiversity": 21,
+        "lowDiversity": 25.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 23.42,
-        "cohortComponent": 22.8,
-        "spreadPp": 0.6
+        "cohortComponent": 23,
+        "spreadPp": 0.4
       },
       "religion": {
         "2021": {
@@ -104517,14 +104517,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 57.8,
-        "highDiversity": 50.8,
-        "lowDiversity": 70.3
+        "central": 63,
+        "highDiversity": 56.3,
+        "lowDiversity": 73.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.21,
-        "cohortComponent": 57.8,
-        "spreadPp": 18.4
+        "cohortComponent": 63,
+        "spreadPp": 13.2
       },
       "religion": {
         "2021": {
@@ -105076,14 +105076,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 78.6,
-        "highDiversity": 75.8,
-        "lowDiversity": 83.4
+        "central": 75.3,
+        "highDiversity": 69.5,
+        "lowDiversity": 83.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.1,
-        "cohortComponent": 78.6,
-        "spreadPp": 1.5
+        "cohortComponent": 75.3,
+        "spreadPp": 4.8
       },
       "religion": {
         "2021": {
@@ -105641,14 +105641,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 62.8,
-        "highDiversity": 59.5,
-        "lowDiversity": 67
+        "central": 59.2,
+        "highDiversity": 54.6,
+        "lowDiversity": 65.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 45.2,
-        "cohortComponent": 62.8,
-        "spreadPp": 17.6
+        "cohortComponent": 59.2,
+        "spreadPp": 14
       },
       "religion": {
         "2021": {
@@ -106202,8 +106202,8 @@
       "thresholds": [],
       "scenarioRange2051": {
         "central": 72.8,
-        "highDiversity": 71.1,
-        "lowDiversity": 81.4
+        "highDiversity": 66.4,
+        "lowDiversity": 82
       },
       "modelSpread2051": {
         "hamiltonPerry": 79.4,
@@ -106734,14 +106734,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 80,
-        "highDiversity": 75.2,
-        "lowDiversity": 86.9
+        "central": 72.2,
+        "highDiversity": 65.2,
+        "lowDiversity": 83.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 80,
-        "cohortComponent": 80,
-        "spreadPp": 0
+        "cohortComponent": 72.2,
+        "spreadPp": 7.8
       },
       "religion": {
         "2021": {
@@ -107174,14 +107174,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 68.7,
-        "highDiversity": 62.7,
-        "lowDiversity": 78.1
+        "central": 70.1,
+        "highDiversity": 64,
+        "lowDiversity": 78.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 66.98,
-        "cohortComponent": 68.7,
-        "spreadPp": 1.7
+        "cohortComponent": 70.1,
+        "spreadPp": 3.1
       },
       "religion": {
         "2021": {
@@ -107733,14 +107733,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 80.7,
-        "highDiversity": 77,
-        "lowDiversity": 85.3
+        "central": 76.5,
+        "highDiversity": 71,
+        "lowDiversity": 84.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 75.86,
-        "cohortComponent": 80.7,
-        "spreadPp": 4.8
+        "cohortComponent": 76.5,
+        "spreadPp": 0.6
       },
       "religion": {
         "2021": {
@@ -108266,14 +108266,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.3,
-        "highDiversity": 72.6,
-        "lowDiversity": 84
+        "central": 69.6,
+        "highDiversity": 62.8,
+        "lowDiversity": 80.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 77.3,
-        "cohortComponent": 77.3,
-        "spreadPp": 0
+        "cohortComponent": 69.6,
+        "spreadPp": 7.7
       },
       "religion": {
         "2021": {
@@ -108706,14 +108706,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 61.5,
-        "highDiversity": 54.5,
-        "lowDiversity": 73.4
+        "central": 65.2,
+        "highDiversity": 58.4,
+        "lowDiversity": 75.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 81.11,
-        "cohortComponent": 61.5,
-        "spreadPp": 19.6
+        "cohortComponent": 65.2,
+        "spreadPp": 15.9
       },
       "religion": {
         "2021": {
@@ -109265,14 +109265,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 71.5,
-        "highDiversity": 67.6,
-        "lowDiversity": 76.9
+        "central": 67,
+        "highDiversity": 61.5,
+        "lowDiversity": 75
       },
       "modelSpread2051": {
         "hamiltonPerry": 68.14,
-        "cohortComponent": 71.5,
-        "spreadPp": 3.4
+        "cohortComponent": 67,
+        "spreadPp": 1.1
       },
       "religion": {
         "2021": {
@@ -109798,14 +109798,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 78.2,
-        "highDiversity": 73.2,
-        "lowDiversity": 85.3
+        "central": 70.1,
+        "highDiversity": 63,
+        "lowDiversity": 81.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.2,
-        "cohortComponent": 78.2,
-        "spreadPp": 0
+        "cohortComponent": 70.1,
+        "spreadPp": 8.1
       },
       "religion": {
         "2021": {
@@ -110238,14 +110238,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 70.8,
-        "highDiversity": 64.2,
-        "lowDiversity": 81.3
+        "central": 72.5,
+        "highDiversity": 65.7,
+        "lowDiversity": 82.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.09,
-        "cohortComponent": 70.8,
-        "spreadPp": 14.3
+        "cohortComponent": 72.5,
+        "spreadPp": 12.6
       },
       "religion": {
         "2021": {
@@ -110811,14 +110811,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 75.1,
-        "highDiversity": 68,
-        "lowDiversity": 86.4
+        "central": 76.9,
+        "highDiversity": 69.7,
+        "lowDiversity": 87.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 91.28,
-        "cohortComponent": 75.1,
-        "spreadPp": 16.2
+        "cohortComponent": 76.9,
+        "spreadPp": 14.4
       },
       "religion": {
         "2021": {
@@ -110936,7 +110936,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.4,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.9,
@@ -111370,14 +111370,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 75.8,
-        "highDiversity": 69.5,
-        "lowDiversity": 85.8
+        "central": 77.4,
+        "highDiversity": 71,
+        "lowDiversity": 86.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 87.76,
-        "cohortComponent": 75.8,
-        "spreadPp": 12
+        "cohortComponent": 77.4,
+        "spreadPp": 10.4
       },
       "religion": {
         "2021": {
@@ -111923,14 +111923,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 51,
-        "highDiversity": 49,
-        "lowDiversity": 58.5
+        "central": 51.7,
+        "highDiversity": 46.8,
+        "lowDiversity": 58.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 51.1,
-        "cohortComponent": 51,
-        "spreadPp": 0.1
+        "cohortComponent": 51.7,
+        "spreadPp": 0.6
       },
       "religion": {
         "2021": {
@@ -112363,14 +112363,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73.3,
-        "highDiversity": 66.1,
-        "lowDiversity": 84.7
+        "central": 75.3,
+        "highDiversity": 68.2,
+        "lowDiversity": 86.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.07,
-        "cohortComponent": 73.3,
-        "spreadPp": 11.8
+        "cohortComponent": 75.3,
+        "spreadPp": 9.8
       },
       "religion": {
         "2021": {
@@ -112896,14 +112896,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.3,
-        "highDiversity": 72.7,
-        "lowDiversity": 84
+        "central": 69.7,
+        "highDiversity": 62.9,
+        "lowDiversity": 80.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 77.3,
-        "cohortComponent": 77.3,
-        "spreadPp": 0
+        "cohortComponent": 69.7,
+        "spreadPp": 7.6
       },
       "religion": {
         "2021": {
@@ -112972,7 +112972,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.1,
         "localEffectPp": 6.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 97.5,
@@ -113336,14 +113336,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 19.6,
-        "highDiversity": 18.1,
-        "lowDiversity": 21.8
+        "central": 19.9,
+        "highDiversity": 18.4,
+        "lowDiversity": 22
       },
       "modelSpread2051": {
         "hamiltonPerry": 17.43,
-        "cohortComponent": 19.6,
-        "spreadPp": 2.2
+        "cohortComponent": 19.9,
+        "spreadPp": 2.5
       },
       "religion": {
         "2021": {
@@ -113916,14 +113916,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 33.9,
-        "highDiversity": 31.6,
-        "lowDiversity": 39.2
+        "central": 34.5,
+        "highDiversity": 31.1,
+        "lowDiversity": 39.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 30.72,
-        "cohortComponent": 33.9,
-        "spreadPp": 3.2
+        "cohortComponent": 34.5,
+        "spreadPp": 3.8
       },
       "religion": {
         "2021": {
@@ -114476,14 +114476,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 78.5,
-        "highDiversity": 73.8,
-        "lowDiversity": 83.9
+        "central": 73.2,
+        "highDiversity": 66.7,
+        "lowDiversity": 82.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 83.07,
-        "cohortComponent": 78.5,
-        "spreadPp": 4.6
+        "cohortComponent": 73.2,
+        "spreadPp": 9.9
       },
       "religion": {
         "2021": {
@@ -115009,14 +115009,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 81.2,
-        "highDiversity": 76.5,
-        "lowDiversity": 88.3
+        "central": 73.3,
+        "highDiversity": 66.1,
+        "lowDiversity": 84.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 81.2,
-        "cohortComponent": 81.2,
-        "spreadPp": 0
+        "cohortComponent": 73.3,
+        "spreadPp": 7.9
       },
       "religion": {
         "2021": {
@@ -115449,14 +115449,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 62.1,
-        "highDiversity": 57.1,
-        "lowDiversity": 69.9
+        "central": 63.6,
+        "highDiversity": 58.7,
+        "lowDiversity": 70.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 62.31,
-        "cohortComponent": 62.1,
-        "spreadPp": 0.2
+        "cohortComponent": 63.6,
+        "spreadPp": 1.3
       },
       "religion": {
         "2021": {
@@ -115982,14 +115982,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 80.1,
-        "highDiversity": 75.3,
-        "lowDiversity": 87
+        "central": 72.2,
+        "highDiversity": 65.2,
+        "lowDiversity": 83.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.1,
-        "cohortComponent": 80.1,
-        "spreadPp": 0
+        "cohortComponent": 72.2,
+        "spreadPp": 7.9
       },
       "religion": {
         "2021": {
@@ -116422,14 +116422,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 67.7,
-        "highDiversity": 60.1,
-        "lowDiversity": 80.8
+        "central": 71,
+        "highDiversity": 63.4,
+        "lowDiversity": 82.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 87.61,
-        "cohortComponent": 67.7,
-        "spreadPp": 19.9
+        "cohortComponent": 71,
+        "spreadPp": 16.6
       },
       "religion": {
         "2021": {
@@ -116981,14 +116981,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 71.5,
-        "highDiversity": 63.7,
-        "lowDiversity": 84.5
+        "central": 74.9,
+        "highDiversity": 67.3,
+        "lowDiversity": 86.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 91.67,
-        "cohortComponent": 71.5,
-        "spreadPp": 20.2
+        "cohortComponent": 74.9,
+        "spreadPp": 16.8
       },
       "religion": {
         "2021": {
@@ -117106,7 +117106,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.6,
@@ -117514,9 +117514,9 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 67.2,
-        "highDiversity": 59.9,
-        "lowDiversity": 79.5
+        "central": 70,
+        "highDiversity": 62.7,
+        "lowDiversity": 81.1
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 97.9,
@@ -117737,8 +117737,8 @@
       },
       "modelSpread2051": {
         "hamiltonPerry": 66.7,
-        "cohortComponent": 67.2,
-        "spreadPp": 0.5
+        "cohortComponent": 70,
+        "spreadPp": 3.3
       }
     },
     "E07000061": {
@@ -117873,14 +117873,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 56.3,
-        "highDiversity": 51.3,
-        "lowDiversity": 64.4
+        "central": 57.6,
+        "highDiversity": 52.6,
+        "lowDiversity": 65.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 64.77,
-        "cohortComponent": 56.3,
-        "spreadPp": 8.5
+        "cohortComponent": 57.6,
+        "spreadPp": 7.2
       },
       "religion": {
         "2021": {
@@ -118432,14 +118432,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 53.1,
-        "highDiversity": 46.7,
-        "lowDiversity": 64.3
+        "central": 57.6,
+        "highDiversity": 51.6,
+        "lowDiversity": 66.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 71.36,
-        "cohortComponent": 53.1,
-        "spreadPp": 18.3
+        "cohortComponent": 57.6,
+        "spreadPp": 13.8
       },
       "religion": {
         "2021": {
@@ -118991,14 +118991,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 67.4,
-        "highDiversity": 61.4,
-        "lowDiversity": 76.8
+        "central": 68.9,
+        "highDiversity": 62.8,
+        "lowDiversity": 77.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 68.94,
-        "cohortComponent": 67.4,
-        "spreadPp": 1.5
+        "cohortComponent": 68.9,
+        "spreadPp": 0
       },
       "religion": {
         "2021": {
@@ -119570,14 +119570,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 24.8,
-        "highDiversity": 22.7,
-        "lowDiversity": 28.1
+        "central": 25.5,
+        "highDiversity": 23.5,
+        "lowDiversity": 28.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 27.8,
-        "cohortComponent": 24.8,
-        "spreadPp": 3
+        "cohortComponent": 25.5,
+        "spreadPp": 2.3
       },
       "religion": {
         "2021": {
@@ -120130,14 +120130,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 59.9,
-        "highDiversity": 54.8,
-        "lowDiversity": 67.8
+        "central": 60.9,
+        "highDiversity": 55.8,
+        "lowDiversity": 68.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 62.55,
-        "cohortComponent": 59.9,
-        "spreadPp": 2.6
+        "cohortComponent": 60.9,
+        "spreadPp": 1.6
       },
       "religion": {
         "2021": {
@@ -120663,14 +120663,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 78.6,
-        "highDiversity": 74.1,
-        "lowDiversity": 85.1
+        "central": 71.3,
+        "highDiversity": 64.5,
+        "lowDiversity": 81.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.6,
-        "cohortComponent": 78.6,
-        "spreadPp": 0
+        "cohortComponent": 71.3,
+        "spreadPp": 7.3
       },
       "religion": {
         "2021": {
@@ -121103,14 +121103,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 10.5,
-        "highDiversity": 10.1,
+        "central": 10.6,
+        "highDiversity": 9.9,
         "lowDiversity": 11.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 11.16,
-        "cohortComponent": 10.5,
-        "spreadPp": 0.7
+        "cohortComponent": 10.6,
+        "spreadPp": 0.6
       },
       "religion": {
         "2021": {
@@ -121677,14 +121677,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 85.5,
-        "highDiversity": 81.3,
-        "lowDiversity": 91.2
+        "central": 80.7,
+        "highDiversity": 74.5,
+        "lowDiversity": 89.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 88.13,
-        "cohortComponent": 85.5,
-        "spreadPp": 2.6
+        "cohortComponent": 80.7,
+        "spreadPp": 7.4
       },
       "religion": {
         "2021": {
@@ -122236,14 +122236,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73.4,
-        "highDiversity": 70.8,
-        "lowDiversity": 80.6
+        "central": 72.4,
+        "highDiversity": 66.3,
+        "lowDiversity": 81.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 77.34,
-        "cohortComponent": 73.4,
-        "spreadPp": 3.9
+        "cohortComponent": 72.4,
+        "spreadPp": 4.9
       },
       "religion": {
         "2021": {
@@ -122769,14 +122769,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 69.6,
-        "highDiversity": 61.9,
-        "lowDiversity": 83
+        "central": 73.9,
+        "highDiversity": 66.5,
+        "lowDiversity": 85.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 68.3,
-        "cohortComponent": 69.6,
-        "spreadPp": 1.4
+        "cohortComponent": 73.9,
+        "spreadPp": 5.6
       },
       "religion": {
         "2021": {
@@ -123209,14 +123209,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 69,
-        "highDiversity": 62.9,
-        "lowDiversity": 78.5
+        "central": 70.2,
+        "highDiversity": 64,
+        "lowDiversity": 79.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.3,
-        "cohortComponent": 69,
-        "spreadPp": 9.3
+        "cohortComponent": 70.2,
+        "spreadPp": 8.1
       },
       "religion": {
         "2021": {
@@ -123768,14 +123768,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 67.2,
-        "highDiversity": 59.8,
-        "lowDiversity": 79.4
+        "central": 69.9,
+        "highDiversity": 62.4,
+        "lowDiversity": 81
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.45,
-        "cohortComponent": 67.2,
-        "spreadPp": 18.3
+        "cohortComponent": 69.9,
+        "spreadPp": 15.5
       },
       "religion": {
         "2021": {
@@ -124301,14 +124301,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 83.3,
-        "highDiversity": 78,
-        "lowDiversity": 88.7
+        "central": 77.6,
+        "highDiversity": 70.1,
+        "lowDiversity": 88.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 71.7,
-        "cohortComponent": 83.3,
-        "spreadPp": 11.6
+        "cohortComponent": 77.6,
+        "spreadPp": 5.9
       },
       "religion": {
         "2021": {
@@ -124377,7 +124377,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.4,
         "localEffectPp": 6.7,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 99.1,
@@ -124747,14 +124747,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 38.1,
-        "highDiversity": 36,
-        "lowDiversity": 40.1
+        "central": 35.9,
+        "highDiversity": 33,
+        "lowDiversity": 40.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 24.19,
-        "cohortComponent": 38.1,
-        "spreadPp": 13.9
+        "cohortComponent": 35.9,
+        "spreadPp": 11.7
       },
       "religion": {
         "2021": {
@@ -125295,14 +125295,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 81.3,
-        "highDiversity": 76,
-        "lowDiversity": 89.1
+        "central": 72.5,
+        "highDiversity": 64.9,
+        "lowDiversity": 85.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 81.3,
-        "cohortComponent": 81.3,
-        "spreadPp": 0
+        "cohortComponent": 72.5,
+        "spreadPp": 8.8
       },
       "religion": {
         "2021": {
@@ -125371,7 +125371,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 7.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 99.1,
@@ -125735,14 +125735,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 83.5,
-        "highDiversity": 80.9,
+        "central": 80.3,
+        "highDiversity": 74.7,
         "lowDiversity": 88.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.84,
-        "cohortComponent": 83.5,
-        "spreadPp": 2.3
+        "cohortComponent": 80.3,
+        "spreadPp": 5.5
       },
       "religion": {
         "2021": {
@@ -126308,14 +126308,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 74.3,
-        "highDiversity": 71.6,
-        "lowDiversity": 84.7
+        "central": 75.1,
+        "highDiversity": 68.1,
+        "lowDiversity": 85.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 83.1,
-        "cohortComponent": 74.3,
-        "spreadPp": 8.8
+        "cohortComponent": 75.1,
+        "spreadPp": 8
       },
       "religion": {
         "2021": {
@@ -126873,14 +126873,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 39.9,
-        "highDiversity": 35.7,
-        "lowDiversity": 47
+        "central": 41.6,
+        "highDiversity": 37.4,
+        "lowDiversity": 48
       },
       "modelSpread2051": {
         "hamiltonPerry": 56.27,
-        "cohortComponent": 39.9,
-        "spreadPp": 16.4
+        "cohortComponent": 41.6,
+        "spreadPp": 14.7
       },
       "religion": {
         "2021": {
@@ -127432,14 +127432,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 67.6,
-        "highDiversity": 63.8,
-        "lowDiversity": 76.6
+        "central": 68.6,
+        "highDiversity": 62.7,
+        "lowDiversity": 77.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.55,
-        "cohortComponent": 67.6,
-        "spreadPp": 13
+        "cohortComponent": 68.6,
+        "spreadPp": 12
       },
       "religion": {
         "2021": {
@@ -127991,14 +127991,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 56.6,
-        "highDiversity": 51.1,
-        "lowDiversity": 65.6
+        "central": 58.3,
+        "highDiversity": 52.6,
+        "lowDiversity": 66.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 63.58,
-        "cohortComponent": 56.6,
-        "spreadPp": 7
+        "cohortComponent": 58.3,
+        "spreadPp": 5.3
       },
       "religion": {
         "2021": {
@@ -128550,14 +128550,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 70.8,
-        "highDiversity": 63.6,
-        "lowDiversity": 82.6
+        "central": 73.4,
+        "highDiversity": 66.3,
+        "lowDiversity": 84.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 88.23,
-        "cohortComponent": 70.8,
-        "spreadPp": 17.4
+        "cohortComponent": 73.4,
+        "spreadPp": 14.8
       },
       "religion": {
         "2021": {
@@ -129109,14 +129109,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 60.1,
-        "highDiversity": 53.5,
-        "lowDiversity": 71.2
+        "central": 64.2,
+        "highDiversity": 57.9,
+        "lowDiversity": 73.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 72.65,
-        "cohortComponent": 60.1,
-        "spreadPp": 12.6
+        "cohortComponent": 64.2,
+        "spreadPp": 8.5
       },
       "religion": {
         "2021": {
@@ -129668,14 +129668,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 80.2,
-        "highDiversity": 75.6,
-        "lowDiversity": 86.4
+        "central": 74.8,
+        "highDiversity": 68.4,
+        "lowDiversity": 84.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 81,
-        "cohortComponent": 80.2,
-        "spreadPp": 0.8
+        "cohortComponent": 74.8,
+        "spreadPp": 6.2
       },
       "religion": {
         "2021": {
@@ -130227,14 +130227,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 66.8,
-        "highDiversity": 63.1,
-        "lowDiversity": 70.8
+        "central": 62.8,
+        "highDiversity": 57.6,
+        "lowDiversity": 70.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 63.57,
-        "cohortComponent": 66.8,
-        "spreadPp": 3.2
+        "cohortComponent": 62.8,
+        "spreadPp": 0.8
       },
       "religion": {
         "2021": {
@@ -130760,14 +130760,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.9,
-        "highDiversity": 72.7,
-        "lowDiversity": 85.4
+        "central": 69.3,
+        "highDiversity": 62,
+        "lowDiversity": 81.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 77.9,
-        "cohortComponent": 77.9,
-        "spreadPp": 0
+        "cohortComponent": 69.3,
+        "spreadPp": 8.6
       },
       "religion": {
         "2021": {
@@ -131200,14 +131200,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 49.2,
-        "highDiversity": 44,
-        "lowDiversity": 57.9
+        "central": 51.8,
+        "highDiversity": 46.8,
+        "lowDiversity": 59.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 64.77,
-        "cohortComponent": 49.2,
-        "spreadPp": 15.6
+        "cohortComponent": 51.8,
+        "spreadPp": 13
       },
       "religion": {
         "2021": {
@@ -131759,14 +131759,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.5,
-        "highDiversity": 75.8,
-        "lowDiversity": 82.9
+        "central": 75.2,
+        "highDiversity": 69.6,
+        "lowDiversity": 83.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.06,
-        "cohortComponent": 77.5,
-        "spreadPp": 2.6
+        "cohortComponent": 75.2,
+        "spreadPp": 4.9
       },
       "religion": {
         "2021": {
@@ -132323,14 +132323,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 59.4,
-        "highDiversity": 52.8,
-        "lowDiversity": 70.4
+        "central": 62.6,
+        "highDiversity": 56.2,
+        "lowDiversity": 72.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 65.53,
-        "cohortComponent": 59.4,
-        "spreadPp": 6.1
+        "cohortComponent": 62.6,
+        "spreadPp": 2.9
       },
       "religion": {
         "2021": {
@@ -132882,14 +132882,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 79.6,
-        "highDiversity": 77.3,
-        "lowDiversity": 86
+        "central": 78.4,
+        "highDiversity": 72.8,
+        "lowDiversity": 86.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.97,
-        "cohortComponent": 79.6,
-        "spreadPp": 6.4
+        "cohortComponent": 78.4,
+        "spreadPp": 7.6
       },
       "religion": {
         "2021": {
@@ -133435,9 +133435,9 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 56.3,
-        "highDiversity": 51,
-        "lowDiversity": 65
+        "central": 57.7,
+        "highDiversity": 52.3,
+        "lowDiversity": 65.8
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 94.4,
@@ -133658,8 +133658,8 @@
       },
       "modelSpread2051": {
         "hamiltonPerry": 56.3,
-        "cohortComponent": 56.3,
-        "spreadPp": 0.1
+        "cohortComponent": 57.7,
+        "spreadPp": 1.4
       }
     },
     "E07000090": {
@@ -133794,14 +133794,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 74,
-        "highDiversity": 67.5,
-        "lowDiversity": 84.6
+        "central": 75.5,
+        "highDiversity": 68.7,
+        "lowDiversity": 85.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.29,
-        "cohortComponent": 74,
-        "spreadPp": 11.3
+        "cohortComponent": 75.5,
+        "spreadPp": 9.8
       },
       "religion": {
         "2021": {
@@ -134353,14 +134353,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 62.2,
-        "highDiversity": 59.7,
-        "lowDiversity": 70.8
+        "central": 63,
+        "highDiversity": 57.2,
+        "lowDiversity": 71.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 69.95,
-        "cohortComponent": 62.2,
-        "spreadPp": 7.8
+        "cohortComponent": 63,
+        "spreadPp": 7
       },
       "religion": {
         "2021": {
@@ -134912,14 +134912,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 69.1,
-        "highDiversity": 62.8,
-        "lowDiversity": 79.2
+        "central": 71.6,
+        "highDiversity": 65.4,
+        "lowDiversity": 80.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.42,
-        "cohortComponent": 69.1,
-        "spreadPp": 11.3
+        "cohortComponent": 71.6,
+        "spreadPp": 8.8
       },
       "religion": {
         "2021": {
@@ -135445,14 +135445,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 76.4,
-        "highDiversity": 71.7,
-        "lowDiversity": 83
+        "central": 68.9,
+        "highDiversity": 62.1,
+        "lowDiversity": 79.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.4,
-        "cohortComponent": 76.4,
-        "spreadPp": 0
+        "cohortComponent": 68.9,
+        "spreadPp": 7.5
       },
       "religion": {
         "2021": {
@@ -135892,8 +135892,8 @@
       ],
       "scenarioRange2051": {
         "central": 47.9,
-        "highDiversity": 45.7,
-        "lowDiversity": 53.2
+        "highDiversity": 44,
+        "lowDiversity": 53.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 33.08,
@@ -136451,14 +136451,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 59.4,
-        "highDiversity": 50.7,
-        "lowDiversity": 76.1
+        "central": 66.5,
+        "highDiversity": 58,
+        "lowDiversity": 80.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 91.71,
-        "cohortComponent": 59.4,
-        "spreadPp": 32.3
+        "cohortComponent": 66.5,
+        "spreadPp": 25.2
       },
       "religion": {
         "2021": {
@@ -137010,14 +137010,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65,
-        "highDiversity": 63,
-        "lowDiversity": 73.1
+        "central": 65.8,
+        "highDiversity": 60.3,
+        "lowDiversity": 73.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 71.47,
-        "cohortComponent": 65,
-        "spreadPp": 6.5
+        "cohortComponent": 65.8,
+        "spreadPp": 5.7
       },
       "religion": {
         "2021": {
@@ -137575,14 +137575,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 32.7,
-        "highDiversity": 29.3,
-        "lowDiversity": 38.4
+        "central": 34,
+        "highDiversity": 30.5,
+        "lowDiversity": 39.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 37.5,
-        "cohortComponent": 32.7,
-        "spreadPp": 4.8
+        "cohortComponent": 34,
+        "spreadPp": 3.5
       },
       "religion": {
         "2021": {
@@ -138148,14 +138148,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 18.8,
-        "highDiversity": 17.7,
-        "lowDiversity": 20.2
+        "central": 17.8,
+        "highDiversity": 16.4,
+        "lowDiversity": 20
       },
       "modelSpread2051": {
         "hamiltonPerry": 15.37,
-        "cohortComponent": 18.8,
-        "spreadPp": 3.4
+        "cohortComponent": 17.8,
+        "spreadPp": 2.4
       },
       "religion": {
         "2021": {
@@ -138682,14 +138682,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73.4,
-        "highDiversity": 68.9,
-        "lowDiversity": 83.9
+        "central": 74.5,
+        "highDiversity": 67.4,
+        "lowDiversity": 84.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 68,
-        "cohortComponent": 73.4,
-        "spreadPp": 5.4
+        "cohortComponent": 74.5,
+        "spreadPp": 6.5
       },
       "religion": {
         "2021": {
@@ -139122,14 +139122,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65.9,
-        "highDiversity": 58.5,
-        "lowDiversity": 78.5
+        "central": 70.4,
+        "highDiversity": 63.4,
+        "lowDiversity": 80.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 84.02,
-        "cohortComponent": 65.9,
-        "spreadPp": 18.1
+        "cohortComponent": 70.4,
+        "spreadPp": 13.6
       },
       "religion": {
         "2021": {
@@ -139687,14 +139687,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 31.3,
-        "highDiversity": 28.6,
-        "lowDiversity": 35.7
+        "central": 32.4,
+        "highDiversity": 29.8,
+        "lowDiversity": 36.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 26.56,
-        "cohortComponent": 31.3,
-        "spreadPp": 4.7
+        "cohortComponent": 32.4,
+        "spreadPp": 5.8
       },
       "religion": {
         "2021": {
@@ -140225,14 +140225,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 81,
-        "highDiversity": 76.3,
-        "lowDiversity": 87.6
+        "central": 73.1,
+        "highDiversity": 66.1,
+        "lowDiversity": 84.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 81,
-        "cohortComponent": 81,
-        "spreadPp": 0
+        "cohortComponent": 73.1,
+        "spreadPp": 7.9
       },
       "religion": {
         "2021": {
@@ -140665,14 +140665,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 79.5,
-        "highDiversity": 75.6,
-        "lowDiversity": 84.1
+        "central": 74.8,
+        "highDiversity": 69.1,
+        "lowDiversity": 83.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 74.13,
-        "cohortComponent": 79.5,
-        "spreadPp": 5.4
+        "cohortComponent": 74.8,
+        "spreadPp": 0.7
       },
       "religion": {
         "2021": {
@@ -141224,14 +141224,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 62.5,
-        "highDiversity": 56.2,
-        "lowDiversity": 72.8
+        "central": 64.9,
+        "highDiversity": 58.7,
+        "lowDiversity": 74.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 75.92,
-        "cohortComponent": 62.5,
-        "spreadPp": 13.4
+        "cohortComponent": 64.9,
+        "spreadPp": 11
       },
       "religion": {
         "2021": {
@@ -141783,14 +141783,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 57.5,
-        "highDiversity": 50.9,
-        "lowDiversity": 68.8
+        "central": 61.9,
+        "highDiversity": 55.6,
+        "lowDiversity": 71.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 75.41,
-        "cohortComponent": 57.5,
-        "spreadPp": 17.9
+        "cohortComponent": 61.9,
+        "spreadPp": 13.5
       },
       "religion": {
         "2021": {
@@ -142361,14 +142361,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 57.5,
-        "highDiversity": 52.4,
-        "lowDiversity": 65.3
+        "central": 58.6,
+        "highDiversity": 53.6,
+        "lowDiversity": 66
       },
       "modelSpread2051": {
         "hamiltonPerry": 58.74,
-        "cohortComponent": 57.5,
-        "spreadPp": 1.2
+        "cohortComponent": 58.6,
+        "spreadPp": 0.1
       },
       "religion": {
         "2021": {
@@ -142908,14 +142908,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 78.2,
-        "highDiversity": 72.8,
-        "lowDiversity": 86
+        "central": 69.5,
+        "highDiversity": 62,
+        "lowDiversity": 82.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.2,
-        "cohortComponent": 78.2,
-        "spreadPp": 0
+        "cohortComponent": 69.5,
+        "spreadPp": 8.7
       },
       "religion": {
         "2021": {
@@ -142984,7 +142984,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.1,
@@ -143348,14 +143348,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 71.6,
-        "highDiversity": 64.2,
-        "lowDiversity": 83.7
+        "central": 75.4,
+        "highDiversity": 68.3,
+        "lowDiversity": 85.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 87.22,
-        "cohortComponent": 71.6,
-        "spreadPp": 15.6
+        "cohortComponent": 75.4,
+        "spreadPp": 11.8
       },
       "religion": {
         "2021": {
@@ -143862,14 +143862,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73.7,
-        "highDiversity": 71.1,
-        "lowDiversity": 78.7
+        "central": 70.6,
+        "highDiversity": 65.1,
+        "lowDiversity": 78.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.67,
-        "cohortComponent": 73.7,
-        "spreadPp": 3
+        "cohortComponent": 70.6,
+        "spreadPp": 6.1
       },
       "religion": {
         "2021": {
@@ -144376,14 +144376,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 70.7,
-        "highDiversity": 63.4,
-        "lowDiversity": 82.9
+        "central": 72.5,
+        "highDiversity": 65,
+        "lowDiversity": 83.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 89.51,
-        "cohortComponent": 70.7,
-        "spreadPp": 18.8
+        "cohortComponent": 72.5,
+        "spreadPp": 17
       },
       "religion": {
         "2021": {
@@ -144890,14 +144890,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65,
-        "highDiversity": 58,
-        "lowDiversity": 76.7
+        "central": 68.5,
+        "highDiversity": 61.7,
+        "lowDiversity": 78.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 83.69,
-        "cohortComponent": 65,
-        "spreadPp": 18.7
+        "cohortComponent": 68.5,
+        "spreadPp": 15.2
       },
       "religion": {
         "2021": {
@@ -145410,14 +145410,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 37.7,
-        "highDiversity": 33.7,
-        "lowDiversity": 44.2
+        "central": 38.9,
+        "highDiversity": 34.8,
+        "lowDiversity": 44.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 42.49,
-        "cohortComponent": 37.7,
-        "spreadPp": 4.8
+        "cohortComponent": 38.9,
+        "spreadPp": 3.6
       },
       "religion": {
         "2021": {
@@ -145925,14 +145925,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 82.3,
-        "highDiversity": 77.3,
-        "lowDiversity": 86.9
+        "central": 76.8,
+        "highDiversity": 69.8,
+        "lowDiversity": 87.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 90.18,
-        "cohortComponent": 82.3,
-        "spreadPp": 7.9
+        "cohortComponent": 76.8,
+        "spreadPp": 13.4
       },
       "religion": {
         "2021": {
@@ -146050,7 +146050,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.3,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.7,
@@ -146439,14 +146439,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 71.4,
-        "highDiversity": 64.4,
-        "lowDiversity": 82.9
+        "central": 73.9,
+        "highDiversity": 67,
+        "lowDiversity": 84.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 84.46,
-        "cohortComponent": 71.4,
-        "spreadPp": 13.1
+        "cohortComponent": 73.9,
+        "spreadPp": 10.6
       },
       "religion": {
         "2021": {
@@ -146953,14 +146953,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 67,
-        "highDiversity": 59.2,
-        "lowDiversity": 79.9
+        "central": 70.5,
+        "highDiversity": 63.1,
+        "lowDiversity": 82.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 87.26,
-        "cohortComponent": 67,
-        "spreadPp": 20.3
+        "cohortComponent": 70.5,
+        "spreadPp": 16.8
       },
       "religion": {
         "2021": {
@@ -147467,14 +147467,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 69.8,
-        "highDiversity": 63.5,
-        "lowDiversity": 80.1
+        "central": 71.7,
+        "highDiversity": 65.3,
+        "lowDiversity": 81.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.89,
-        "cohortComponent": 69.8,
-        "spreadPp": 11.1
+        "cohortComponent": 71.7,
+        "spreadPp": 9.2
       },
       "religion": {
         "2021": {
@@ -147981,14 +147981,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 72.8,
-        "highDiversity": 65.5,
-        "lowDiversity": 84.8
+        "central": 74.8,
+        "highDiversity": 67.3,
+        "lowDiversity": 86.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 89.05,
-        "cohortComponent": 72.8,
-        "spreadPp": 16.3
+        "cohortComponent": 74.8,
+        "spreadPp": 14.3
       },
       "religion": {
         "2021": {
@@ -148469,14 +148469,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 78.9,
-        "highDiversity": 73.8,
-        "lowDiversity": 86.5
+        "central": 70.5,
+        "highDiversity": 63.2,
+        "lowDiversity": 82.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 78.9,
-        "cohortComponent": 78.9,
-        "spreadPp": 0
+        "cohortComponent": 70.5,
+        "spreadPp": 8.4
       },
       "religion": {
         "2021": {
@@ -148545,7 +148545,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.2,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.6,
@@ -148864,14 +148864,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 68.3,
-        "highDiversity": 64.6,
-        "lowDiversity": 73.2
+        "central": 64.3,
+        "highDiversity": 59,
+        "lowDiversity": 71.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 65.32,
-        "cohortComponent": 68.3,
-        "spreadPp": 3
+        "cohortComponent": 64.3,
+        "spreadPp": 1
       },
       "religion": {
         "2021": {
@@ -149378,14 +149378,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 65.7,
-        "highDiversity": 59,
-        "lowDiversity": 76.7
+        "central": 68.8,
+        "highDiversity": 62.3,
+        "lowDiversity": 78.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 75.64,
-        "cohortComponent": 65.7,
-        "spreadPp": 9.9
+        "cohortComponent": 68.8,
+        "spreadPp": 6.8
       },
       "religion": {
         "2021": {
@@ -149866,14 +149866,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 69.2,
-        "highDiversity": 60.9,
-        "lowDiversity": 83.8
+        "central": 73,
+        "highDiversity": 64.4,
+        "lowDiversity": 86.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 70.1,
-        "cohortComponent": 69.2,
-        "spreadPp": 0.9
+        "cohortComponent": 73,
+        "spreadPp": 2.9
       },
       "religion": {
         "2021": {
@@ -149942,7 +149942,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 99,
@@ -150261,14 +150261,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 58.2,
-        "highDiversity": 51.2,
-        "lowDiversity": 70.8
+        "central": 63.7,
+        "highDiversity": 56.9,
+        "lowDiversity": 73.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 75.75,
-        "cohortComponent": 58.2,
-        "spreadPp": 17.5
+        "cohortComponent": 63.7,
+        "spreadPp": 12
       },
       "religion": {
         "2021": {
@@ -150749,9 +150749,9 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 67,
-        "highDiversity": 59.5,
-        "lowDiversity": 80
+        "central": 70.3,
+        "highDiversity": 62.8,
+        "lowDiversity": 81.8
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.2,
@@ -150941,8 +150941,8 @@
       "kaufmannMixingNote": "Intermarriage acceleration applied to ethnic projections only. NOT applied to religion projections. Muslim out-marriage <5% (Census 2021 TS023). See Kaufmann (2018) Ch.12 on endogamy.",
       "modelSpread2051": {
         "hamiltonPerry": 66.2,
-        "cohortComponent": 67,
-        "spreadPp": 0.8
+        "cohortComponent": 70.3,
+        "spreadPp": 4.1
       }
     },
     "E07000086": {
@@ -151077,14 +151077,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 71.9,
-        "highDiversity": 65.8,
-        "lowDiversity": 81.3
+        "central": 74,
+        "highDiversity": 68,
+        "lowDiversity": 82.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 76.61,
-        "cohortComponent": 71.9,
-        "spreadPp": 4.7
+        "cohortComponent": 74,
+        "spreadPp": 2.6
       },
       "religion": {
         "2021": {
@@ -151591,14 +151591,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 68.4,
-        "highDiversity": 61.7,
-        "lowDiversity": 79.7
+        "central": 71.3,
+        "highDiversity": 64.7,
+        "lowDiversity": 81.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 77.47,
-        "cohortComponent": 68.4,
-        "spreadPp": 9.1
+        "cohortComponent": 71.3,
+        "spreadPp": 6.2
       },
       "religion": {
         "2021": {
@@ -152079,14 +152079,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 63.8,
-        "highDiversity": 56.4,
-        "lowDiversity": 76.3
+        "central": 66.7,
+        "highDiversity": 59.3,
+        "lowDiversity": 78.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 64.2,
-        "cohortComponent": 63.8,
-        "spreadPp": 0.4
+        "cohortComponent": 66.7,
+        "spreadPp": 2.5
       },
       "religion": {
         "2021": {
@@ -152488,14 +152488,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 58.3,
-        "highDiversity": 51.6,
-        "lowDiversity": 69.8
+        "central": 61.5,
+        "highDiversity": 55,
+        "lowDiversity": 71.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 66.54,
-        "cohortComponent": 58.3,
-        "spreadPp": 8.2
+        "cohortComponent": 61.5,
+        "spreadPp": 5
       },
       "religion": {
         "2021": {
@@ -153008,14 +153008,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 40,
-        "highDiversity": 36.4,
-        "lowDiversity": 45.5
+        "central": 40.7,
+        "highDiversity": 37,
+        "lowDiversity": 46
       },
       "modelSpread2051": {
         "hamiltonPerry": 36.07,
-        "cohortComponent": 40,
-        "spreadPp": 3.9
+        "cohortComponent": 40.7,
+        "spreadPp": 4.6
       },
       "religion": {
         "2021": {
@@ -153522,14 +153522,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 61.2,
-        "highDiversity": 55.5,
-        "lowDiversity": 70.5
+        "central": 62.8,
+        "highDiversity": 56.9,
+        "lowDiversity": 71.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 75.03,
-        "cohortComponent": 61.2,
-        "spreadPp": 13.8
+        "cohortComponent": 62.8,
+        "spreadPp": 12.2
       },
       "religion": {
         "2021": {
@@ -154036,14 +154036,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73.2,
-        "highDiversity": 66.8,
-        "lowDiversity": 83.6
+        "central": 75,
+        "highDiversity": 68.4,
+        "lowDiversity": 84.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 83.56,
-        "cohortComponent": 73.2,
-        "spreadPp": 10.4
+        "cohortComponent": 75,
+        "spreadPp": 8.6
       },
       "religion": {
         "2021": {
@@ -154550,14 +154550,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 52.8,
-        "highDiversity": 47.6,
-        "lowDiversity": 61.3
+        "central": 54.4,
+        "highDiversity": 49.1,
+        "lowDiversity": 62.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 60.45,
-        "cohortComponent": 52.8,
-        "spreadPp": 7.7
+        "cohortComponent": 54.4,
+        "spreadPp": 6.1
       },
       "religion": {
         "2021": {
@@ -155064,14 +155064,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 62.4,
-        "highDiversity": 56.2,
-        "lowDiversity": 72.4
+        "central": 64.3,
+        "highDiversity": 58,
+        "lowDiversity": 73.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.72,
-        "cohortComponent": 62.4,
-        "spreadPp": 18.3
+        "cohortComponent": 64.3,
+        "spreadPp": 16.4
       },
       "religion": {
         "2021": {
@@ -155578,14 +155578,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 64,
-        "highDiversity": 61.6,
-        "lowDiversity": 72.6
+        "central": 64.7,
+        "highDiversity": 58.9,
+        "lowDiversity": 73.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 70.23,
-        "cohortComponent": 64,
-        "spreadPp": 6.2
+        "cohortComponent": 64.7,
+        "spreadPp": 5.5
       },
       "religion": {
         "2021": {
@@ -156092,14 +156092,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 45.9,
-        "highDiversity": 41,
-        "lowDiversity": 54.3
+        "central": 48.6,
+        "highDiversity": 43.7,
+        "lowDiversity": 55.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 59.87,
-        "cohortComponent": 45.9,
-        "spreadPp": 14
+        "cohortComponent": 48.6,
+        "spreadPp": 11.3
       },
       "religion": {
         "2021": {
@@ -156606,14 +156606,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 66.8,
-        "highDiversity": 59.5,
-        "lowDiversity": 79.4
+        "central": 69.6,
+        "highDiversity": 62.1,
+        "lowDiversity": 81
       },
       "modelSpread2051": {
         "hamiltonPerry": 89.78,
-        "cohortComponent": 66.8,
-        "spreadPp": 23
+        "cohortComponent": 69.6,
+        "spreadPp": 20.2
       },
       "religion": {
         "2021": {
@@ -157120,14 +157120,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 70.9,
-        "highDiversity": 64,
-        "lowDiversity": 82
+        "central": 72.7,
+        "highDiversity": 65.8,
+        "lowDiversity": 83.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.73,
-        "cohortComponent": 70.9,
-        "spreadPp": 14.8
+        "cohortComponent": 72.7,
+        "spreadPp": 13
       },
       "religion": {
         "2021": {
@@ -157634,14 +157634,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 76.4,
-        "highDiversity": 69.8,
-        "lowDiversity": 86.9
+        "central": 78.6,
+        "highDiversity": 72.1,
+        "lowDiversity": 88.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 88.69,
-        "cohortComponent": 76.4,
-        "spreadPp": 12.3
+        "cohortComponent": 78.6,
+        "spreadPp": 10.1
       },
       "religion": {
         "2021": {
@@ -158148,14 +158148,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 66.3,
-        "highDiversity": 59.7,
-        "lowDiversity": 77.4
+        "central": 68.5,
+        "highDiversity": 61.8,
+        "lowDiversity": 78.8
       },
       "modelSpread2051": {
         "hamiltonPerry": 75.96,
-        "cohortComponent": 66.3,
-        "spreadPp": 9.7
+        "cohortComponent": 68.5,
+        "spreadPp": 7.5
       },
       "religion": {
         "2021": {
@@ -158662,14 +158662,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 63.5,
-        "highDiversity": 57.5,
-        "lowDiversity": 73.6
+        "central": 66.3,
+        "highDiversity": 60.4,
+        "lowDiversity": 75
       },
       "modelSpread2051": {
         "hamiltonPerry": 73.99,
-        "cohortComponent": 63.5,
-        "spreadPp": 10.5
+        "cohortComponent": 66.3,
+        "spreadPp": 7.7
       },
       "religion": {
         "2021": {
@@ -159176,14 +159176,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 55.4,
-        "highDiversity": 48.4,
-        "lowDiversity": 67.6
+        "central": 59.2,
+        "highDiversity": 52.3,
+        "lowDiversity": 70
       },
       "modelSpread2051": {
         "hamiltonPerry": 71.46,
-        "cohortComponent": 55.4,
-        "spreadPp": 16.1
+        "cohortComponent": 59.2,
+        "spreadPp": 12.3
       },
       "religion": {
         "2021": {
@@ -159690,14 +159690,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 62.7,
-        "highDiversity": 54.6,
-        "lowDiversity": 76.8
+        "central": 68.5,
+        "highDiversity": 60.8,
+        "lowDiversity": 80.3
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.17,
-        "cohortComponent": 62.7,
-        "spreadPp": 22.5
+        "cohortComponent": 68.5,
+        "spreadPp": 16.7
       },
       "religion": {
         "2021": {
@@ -160210,14 +160210,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 55,
-        "highDiversity": 49.2,
-        "lowDiversity": 64.6
+        "central": 58.7,
+        "highDiversity": 53.3,
+        "lowDiversity": 66.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 55.39,
-        "cohortComponent": 55,
-        "spreadPp": 0.4
+        "cohortComponent": 58.7,
+        "spreadPp": 3.3
       },
       "religion": {
         "2021": {
@@ -160724,14 +160724,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 68.6,
-        "highDiversity": 61.1,
-        "lowDiversity": 81.2
+        "central": 73.3,
+        "highDiversity": 66.1,
+        "lowDiversity": 83.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 84.89,
-        "cohortComponent": 68.6,
-        "spreadPp": 16.3
+        "cohortComponent": 73.3,
+        "spreadPp": 11.6
       },
       "religion": {
         "2021": {
@@ -161212,14 +161212,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 64.7,
-        "highDiversity": 56.3,
-        "lowDiversity": 79.7
+        "central": 69.3,
+        "highDiversity": 61,
+        "lowDiversity": 82.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 67.8,
-        "cohortComponent": 64.7,
-        "spreadPp": 3.2
+        "cohortComponent": 69.3,
+        "spreadPp": 1.5
       },
       "religion": {
         "2021": {
@@ -161613,14 +161613,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 37.7,
-        "highDiversity": 35.9,
-        "lowDiversity": 43.4
+        "central": 38.1,
+        "highDiversity": 34.3,
+        "lowDiversity": 43.9
       },
       "modelSpread2051": {
         "hamiltonPerry": 41.97,
-        "cohortComponent": 37.7,
-        "spreadPp": 4.3
+        "cohortComponent": 38.1,
+        "spreadPp": 3.9
       },
       "religion": {
         "2021": {
@@ -162102,14 +162102,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 74,
-        "highDiversity": 69.5,
-        "lowDiversity": 80.8
+        "central": 66.7,
+        "highDiversity": 60.1,
+        "lowDiversity": 77.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 74,
-        "cohortComponent": 74,
-        "spreadPp": 0
+        "cohortComponent": 66.7,
+        "spreadPp": 7.3
       },
       "religion": {
         "2021": {
@@ -162471,14 +162471,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 15.4,
-        "highDiversity": 13.7,
-        "lowDiversity": 18.1
+        "central": 16.7,
+        "highDiversity": 15.5,
+        "lowDiversity": 18.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 19.9,
-        "cohortComponent": 15.4,
-        "spreadPp": 4.6
+        "cohortComponent": 16.7,
+        "spreadPp": 3.2
       },
       "religion": {
         "2021": {
@@ -162880,14 +162880,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 56.5,
-        "highDiversity": 48.4,
-        "lowDiversity": 71.8
+        "central": 63,
+        "highDiversity": 55.2,
+        "lowDiversity": 75.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 85.75,
-        "cohortComponent": 56.5,
-        "spreadPp": 29.3
+        "cohortComponent": 63,
+        "spreadPp": 22.8
       },
       "religion": {
         "2021": {
@@ -163368,14 +163368,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 70.9,
-        "highDiversity": 62.7,
-        "lowDiversity": 84.6
+        "central": 74.2,
+        "highDiversity": 66.1,
+        "lowDiversity": 86.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 68.9,
-        "cohortComponent": 70.9,
-        "spreadPp": 2
+        "cohortComponent": 74.2,
+        "spreadPp": 5.3
       },
       "religion": {
         "2021": {
@@ -163444,7 +163444,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 99.1,
@@ -163737,14 +163737,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 61.1,
-        "highDiversity": 55.2,
-        "lowDiversity": 70.5
+        "central": 62.6,
+        "highDiversity": 56.6,
+        "lowDiversity": 71.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 60.6,
-        "cohortComponent": 61.1,
-        "spreadPp": 0.5
+        "cohortComponent": 62.6,
+        "spreadPp": 2
       },
       "religion": {
         "2021": {
@@ -164132,14 +164132,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 51.9,
-        "highDiversity": 46.1,
-        "lowDiversity": 61.9
+        "central": 54.2,
+        "highDiversity": 48.4,
+        "lowDiversity": 63.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 75.54,
-        "cohortComponent": 51.9,
-        "spreadPp": 23.6
+        "cohortComponent": 54.2,
+        "spreadPp": 21.3
       },
       "religion": {
         "2021": {
@@ -164646,14 +164646,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 83.1,
-        "highDiversity": 78.7,
-        "lowDiversity": 88.5
+        "central": 78.2,
+        "highDiversity": 71.9,
+        "lowDiversity": 87.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 89.49,
-        "cohortComponent": 83.1,
-        "spreadPp": 6.4
+        "cohortComponent": 78.2,
+        "spreadPp": 11.3
       },
       "religion": {
         "2021": {
@@ -164771,7 +164771,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.2,
         "localEffectPp": 6.3,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.1,
@@ -165148,14 +165148,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 78.5,
-        "highDiversity": 73.3,
-        "lowDiversity": 90.2
+        "central": 78.3,
+        "highDiversity": 70.8,
+        "lowDiversity": 91.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 71.7,
-        "cohortComponent": 78.5,
-        "spreadPp": 6.9
+        "cohortComponent": 78.3,
+        "spreadPp": 6.6
       },
       "religion": {
         "2021": {
@@ -165224,7 +165224,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.2,
         "localEffectPp": 6.3,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 97.7,
@@ -165557,14 +165557,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 59.1,
-        "highDiversity": 50.8,
-        "lowDiversity": 74.3
+        "central": 64.9,
+        "highDiversity": 56.9,
+        "lowDiversity": 77.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 86.91,
-        "cohortComponent": 59.1,
-        "spreadPp": 27.8
+        "cohortComponent": 64.9,
+        "spreadPp": 22
       },
       "religion": {
         "2021": {
@@ -166045,14 +166045,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 70,
-        "highDiversity": 62.2,
-        "lowDiversity": 83.2
+        "central": 73.8,
+        "highDiversity": 66.2,
+        "lowDiversity": 85.5
       },
       "modelSpread2051": {
         "hamiltonPerry": 68.4,
-        "cohortComponent": 70,
-        "spreadPp": 1.5
+        "cohortComponent": 73.8,
+        "spreadPp": 5.4
       },
       "religion": {
         "2021": {
@@ -166414,14 +166414,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 77.8,
-        "highDiversity": 72.6,
-        "lowDiversity": 85.3
+        "central": 69.3,
+        "highDiversity": 62,
+        "lowDiversity": 81.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 77.8,
-        "cohortComponent": 77.8,
-        "spreadPp": 0
+        "cohortComponent": 69.3,
+        "spreadPp": 8.5
       },
       "religion": {
         "2021": {
@@ -166809,14 +166809,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 73.3,
-        "highDiversity": 65.4,
-        "lowDiversity": 86.2
+        "central": 76.2,
+        "highDiversity": 68.5,
+        "lowDiversity": 88.1
       },
       "modelSpread2051": {
         "hamiltonPerry": 92.3,
-        "cohortComponent": 73.3,
-        "spreadPp": 19
+        "cohortComponent": 76.2,
+        "spreadPp": 16.1
       },
       "religion": {
         "2021": {
@@ -166934,7 +166934,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.7,
@@ -167329,14 +167329,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 42.4,
-        "highDiversity": 37.9,
-        "lowDiversity": 49.9
+        "central": 44.7,
+        "highDiversity": 40.4,
+        "lowDiversity": 51.2
       },
       "modelSpread2051": {
         "hamiltonPerry": 53.18,
-        "cohortComponent": 42.4,
-        "spreadPp": 10.8
+        "cohortComponent": 44.7,
+        "spreadPp": 8.5
       },
       "religion": {
         "2021": {
@@ -167843,14 +167843,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 63.6,
-        "highDiversity": 56.3,
-        "lowDiversity": 76.3
+        "central": 68,
+        "highDiversity": 61,
+        "lowDiversity": 78.7
       },
       "modelSpread2051": {
         "hamiltonPerry": 82.28,
-        "cohortComponent": 63.6,
-        "spreadPp": 18.7
+        "cohortComponent": 68,
+        "spreadPp": 14.3
       },
       "religion": {
         "2021": {
@@ -168357,14 +168357,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 62,
-        "highDiversity": 56,
-        "lowDiversity": 71.7
+        "central": 64.2,
+        "highDiversity": 58.3,
+        "lowDiversity": 73
       },
       "modelSpread2051": {
         "hamiltonPerry": 62.86,
-        "cohortComponent": 62,
-        "spreadPp": 0.9
+        "cohortComponent": 64.2,
+        "spreadPp": 1.3
       },
       "religion": {
         "2021": {
@@ -168871,14 +168871,14 @@
       },
       "thresholds": [],
       "scenarioRange2051": {
-        "central": 82.1,
-        "highDiversity": 78.3,
-        "lowDiversity": 87.1
+        "central": 77.7,
+        "highDiversity": 72.1,
+        "lowDiversity": 85.4
       },
       "modelSpread2051": {
         "hamiltonPerry": 80.8,
-        "cohortComponent": 82.1,
-        "spreadPp": 1.3
+        "cohortComponent": 77.7,
+        "spreadPp": 3.1
       },
       "projections_detail": {
         "2031": {
@@ -169242,14 +169242,14 @@
         }
       ],
       "scenarioRange2051": {
-        "central": 49.7,
-        "highDiversity": 46.3,
-        "lowDiversity": 54.1
+        "central": 47.6,
+        "highDiversity": 43.5,
+        "lowDiversity": 53.6
       },
       "modelSpread2051": {
         "hamiltonPerry": 46.69,
-        "cohortComponent": 49.7,
-        "spreadPp": 3
+        "cohortComponent": 47.6,
+        "spreadPp": 0.9
       },
       "projections_detail": {
         "2031": {

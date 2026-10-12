@@ -165,6 +165,11 @@ node scripts/seo/ctr-by-arm.mjs docs/seo/after-2026-11/pages-28d.csv
   every page, equally across arms, but no title, meta description or direct answer. Compare
   the arms with each other, not with the September baseline alone, and note any crawl jump
   after 12 October.
+- Two-model spread (12 October 2026): the cohort-component re-run changed the spread in the
+  two-model comparison's body text on 260 place pages and removed the comparison from the 49
+  pages whose projections come from an earlier run (20 control, 10 arm A, 19 arm B). No title,
+  meta description or direct answer changed on any of the 318 pages (checked against a build of
+  main).
 - Decide on clicks per impression, not clicks. Record average position by arm too, because a
   listing change can move ranking.
 - If one arm wins, roll it to every place in a follow-up PR and record the result here.

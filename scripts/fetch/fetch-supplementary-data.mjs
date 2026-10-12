@@ -1,5 +1,5 @@
 /**
- * Fetch official supplementary data files for ASC.
+ * Formerly fetched the supplementary crime, SEND and ASC files. All three have moved:
  *
  * Crime moved out on 12 Oct 2026: ONS discontinued "Recorded crime data by Community
  * Safety Partnership area" on 24 Oct 2024, and scripts/fetch/fetch-ons-pfa-crime.mjs
@@ -8,10 +8,10 @@
  * SEND moved to scripts/fetch/fetch-dfe-sen.mjs (12 Oct 2026), which finds the newest
  * release through the DfE statistics API instead of naming one release id.
  *
- * ASC: NHS Digital "Adult Social Care Activity and Finance Report" (XLSX)
+ * ASC moved to scripts/fetch/fetch-dhsc-asc.mjs (12 Oct 2026), which finds the newest
+ * DHSC edition on GOV.UK itself.
  *
- * These are direct downloads from GOV.UK and ONS — no API parsing needed.
- * The transform scripts will parse the XLSX files.
+ * The download list is empty; the loop below is kept for any future direct download.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
@@ -20,12 +20,8 @@ const rawDir = path.resolve(process.cwd(), "data/raw/supplementary");
 mkdirSync(rawDir, { recursive: true });
 
 const downloads = [
-  {
-    id: "asc",
-    fileName: "nhs-asc-ascfr-salt-2023-24.xlsx",
-    // NHS Digital ASCFR & SALT 2023/24 (CASSR-level, ~153 upper-tier authorities)
-    url: "https://files.digital.nhs.uk/21/38468F/ASCFR%20and%20SALT%20Data%20Tables%202023-24.xlsx"
-  }
+  // Adult social care moved to DHSC on GOV.UK from 2024-25 and is fetched by
+  // scripts/fetch/fetch-dhsc-asc.mjs, which finds the newest edition itself.
 ];
 
 for (const dl of downloads) {
