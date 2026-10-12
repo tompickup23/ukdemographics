@@ -1,8 +1,9 @@
 /**
- * Fetch official supplementary data files for crime, SEND, and ASC.
+ * Fetch official supplementary data files for crime and ASC.
  *
  * Crime: ONS "Recorded crime data at Community Safety Partnership area" (XLSX)
- * SEND: DfE "Special educational needs in England" SEN2 return (XLSX)
+ * SEND moved to scripts/fetch/fetch-dfe-sen.mjs (12 Oct 2026), which finds the newest
+ * release through the DfE statistics API instead of naming one release id.
  * ASC: NHS Digital "Adult Social Care Activity and Finance Report" (XLSX)
  *
  * These are direct downloads from GOV.UK and ONS — no API parsing needed.
@@ -20,12 +21,6 @@ const downloads = [
     fileName: "ons-recorded-crime-csp.xlsx",
     // ONS recorded crime by CSP area, year ending March 2024
     url: "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea/yearendingmarch2024/csptablesyemar24correction.xlsx"
-  },
-  {
-    id: "send",
-    fileName: "dfe-sen-2024-25.zip",
-    // DfE SEN in England 2024/25 release ZIP. Re-resolve via /api/publications/special-educational-needs-in-england/releases/latest if this UUID rotates.
-    url: "https://content.explore-education-statistics.service.gov.uk/api/releases/f7330b25-398d-477d-80c7-9b33bc10316f/files?fromPage=ReleaseDownloads"
   },
   {
     id: "asc",
