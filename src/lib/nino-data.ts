@@ -1,4 +1,5 @@
 import rawNino from "../data/live/nino-dashboard.json";
+import { percentileRank, type PercentileRank } from "./percentile";
 
 export interface NinoNationalityShare {
   nationality: string;
@@ -36,10 +37,9 @@ export function getNinoCaveat(): string {
   return data.caveat;
 }
 
-export function getNinoTotalPercentile(areaCode: string): number | null {
+/** Rank among areas with a total; describeRank() in percentile.ts words it. */
+export function getNinoTotalPercentile(areaCode: string): PercentileRank | null {
   const area = data.areas?.[areaCode];
   if (!area) return null;
-  const totals = Object.values(data.areas).map((a) => a.totalRollingYear);
-  const below = totals.filter((t) => t < area.totalRollingYear).length;
-  return Math.round((below / totals.length) * 100);
+  return percentileRank(Object.values(data.areas).map((a) => a.totalRollingYear), area.totalRollingYear);
 }

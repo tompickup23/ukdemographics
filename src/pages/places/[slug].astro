@@ -59,7 +59,7 @@ import {
   profileUpdatedDate,
 } from "../../lib/search-listing";
 import { consistentBandSeries } from "../../lib/projection-consistency";
-import { ordinal } from "../../lib/ordinal";
+import { describeRank } from "../../lib/percentile";
 import {
   plausibleThrough,
   isTruncated,
@@ -996,7 +996,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Adults from overseas registering for a National Insurance number, rolling year ending {nino.periodEnd}.
         {ninoPercentile != null && (
-          <> {area.areaName} ranks at the <strong>{ordinal(ninoPercentile)} percentile</strong> nationally for total NINo registrations.</>
+          <> {area.areaName} ranks {describeRank(ninoPercentile).lead}<strong>{describeRank(ninoPercentile).emphasis}</strong> nationally for total NINo registrations.</>
         )}
       </p>
       <div class="data-grid">
@@ -1358,7 +1358,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Police-recorded crime rates per 1,000 population, {crime.period}.
         {crimePercentile != null && (
-          <> {area.areaName} ranks at the <strong>{ordinal(crimePercentile)} percentile</strong> nationally for total crime rate.</>
+          <> {area.areaName} ranks {describeRank(crimePercentile).lead}<strong>{describeRank(crimePercentile).emphasis}</strong> nationally for total crime rate.</>
         )}
       </p>
       {crime.suppressed && crime.suppressionNote && (
@@ -1419,7 +1419,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         Council spending on adult social care ({asc.grossSpendPeriod}) and residential care for people aged 65 and over ({asc.residentialPeriod}), against each age group's population in the ONS mid-2025 estimates.
         {ascPercentile != null && (
-          <> Spend per adult sits at the <strong>{ordinal(ascPercentile)} percentile</strong> of English councils.</>
+          <> Spend per adult ranks {describeRank(ascPercentile).lead}<strong>{describeRank(ascPercentile).emphasis}</strong> nationally.</>
         )}
       </p>
       <div class="data-grid">
@@ -1474,7 +1474,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-desc">
         EHCPs and primary need breakdown, {send.period}.
         {sendGrowthPercentile != null && (
-          <> 5-year EHCP growth at the <strong>{ordinal(sendGrowthPercentile)} percentile</strong> nationally.</>
+          <> 5-year EHCP growth ranks {describeRank(sendGrowthPercentile).lead}<strong>{describeRank(sendGrowthPercentile).emphasis}</strong> nationally.</>
         )}
       </p>
       <div class="data-grid">

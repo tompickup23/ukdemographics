@@ -1,4 +1,5 @@
 import rawAsc from "../data/live/asc-dashboard.json";
+import { percentileRank, type PercentileRank } from "./percentile";
 
 /**
  * Adult social care, by council with adult social services responsibilities (upper tier).
@@ -56,13 +57,12 @@ export function getAscMeasure(key: keyof AscDashboard["measures"]): AscMeasure {
   return data.measures[key];
 }
 
-/** Share of councils with lower spend per adult, as a whole percentage; null when there is no figure. */
-export function getAscSpendPercentile(areaCode: string): number | null {
-  const own = data.areas[areaCode]?.grossSpendPerCapita;
-  if (own == null) return null;
-  const spends = Object.values(data.areas)
-    .map((a) => a.grossSpendPerCapita)
-    .filter((s): s is number => s != null);
-  const below = spends.filter((s) => s < own).length;
-  return Math.round((below / spends.length) * 100);
+/**
+ * Rank on spend per adult among councils with a spend figure; null when there is
+ * no figure. describeRank() in percentile.ts words it.
+ */
+export function getAscSpendPercentile(areaCode: string): PercentileRank | null {
+  const area = data.areas[areaCode];
+  if (!area) return null;
+  return percentileRank(Object.values(data.areas).map((a) => a.grossSpendPerCapita), area.grossSpendPerCapita);
 }
