@@ -103,6 +103,26 @@ jobs:
         if: steps.tb_fetch.outcome == 'failure' || steps.tb.outcome == 'failure'
         run: git checkout -- src/data/live/tb-notifications.json
 
+      # MHCLG Council Taxbase, found on GOV.UK by title, no key. Annual (November);
+      # other weeks record an "unchanged" attempt and rewrite the same file.
+      # Secondary ingest, as births above: a failure restores the committed file, lets
+      # the rest of the refresh carry on, and turns the run red at the end.
+      - name: Fetch MHCLG Council Taxbase (GOV.UK, no auth)
+        id: ctb_fetch
+        continue-on-error: true
+        run: node scripts/fetch/fetch-council-taxbase.mjs
+
+      - name: Transform MHCLG Council Taxbase
+        id: ctb
+        if: steps.ctb_fetch.outcome == 'success'
+        continue-on-error: true
+        run: python3 scripts/transform/transform_council_tax_spd.py
+
+      # Pure shell, no GitHub event data is interpolated here.
+      - name: Restore the MHCLG Council Taxbase file if its ingest failed
+        if: steps.ctb_fetch.outcome == 'failure' || steps.ctb.outcome == 'failure'
+        run: git checkout -- src/data/live/council-tax-spd.json
+
       # Ignore run timestamps when deciding whether anything changed.
       #
       # A transform that stamps `generatedAt` or `lastUpdated` moves that line on every
@@ -250,6 +270,8 @@ jobs:
           BIRTHS_OUTCOME: ${{ steps.births.outcome }}
           TB_FETCH_OUTCOME: ${{ steps.tb_fetch.outcome }}
           TB_OUTCOME: ${{ steps.tb.outcome }}
+          CTB_FETCH_OUTCOME: ${{ steps.ctb_fetch.outcome }}
+          CTB_OUTCOME: ${{ steps.ctb.outcome }}
         run: |
           failed=0
           if [ "$DATATESTS_OUTCOME" = "failure" ]; then
@@ -262,6 +284,10 @@ jobs:
           fi
           if [ "$TB_FETCH_OUTCOME" = "failure" ] || [ "$TB_OUTCOME" = "failure" ]; then
             echo "UKHSA TB was skipped (fetch: $TB_FETCH_OUTCOME, transform: $TB_OUTCOME). The committed tb-notifications.json was kept."
+            failed=1
+          fi
+          if [ "$CTB_FETCH_OUTCOME" = "failure" ] || [ "$CTB_OUTCOME" = "failure" ]; then
+            echo "MHCLG Council Taxbase was skipped (fetch: $CTB_FETCH_OUTCOME, transform: $CTB_OUTCOME). The committed council-tax-spd.json was kept."
             failed=1
           fi
           exit "$failed"
