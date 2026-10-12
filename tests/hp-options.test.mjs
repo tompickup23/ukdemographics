@@ -16,7 +16,9 @@ describe("forward model options", () => {
     expect(o.format).toBe("site");
     expect(o.output).toBe(path.resolve(DEFAULTS.siteInput));
     expect(o.modelVersion).toBe("8.0-out-of-sample-calibrated");
+    expect(o.successors2011).toBe(false);
     expect(isV80Configuration(o)).toBe(true);
+    expect(isV80Configuration(parseHpOptions(["--successors-2011", "on"], {}))).toBe(false);
   });
 
   it("keeps the environment variables that already existed", () => {

@@ -1,0 +1,107 @@
+{
+  "description": "English local authorities whose code changed between the 2011 Census and April 2023, each with the 2011 districts it is made of. Most are whole-district mergers. Northumberland, Gateshead and four Hertfordshire districts kept their area but were reissued codes after small boundary changes, so for them the 2011 sum is close to, not exactly, the current area. The April 2023 changes are not repeated here: they come from src/data/lookups/lad22-to-lad23.json (ONS LAD22_LAD23_UK_LU_v1), and a 2022 district listed there that was itself created after 2011 (Somerset West and Taunton) is expanded through this file.",
+  "verification": "tests/lad11-successors.test.mjs checks each entry against ONS data: the summed Census 2011 DC2101EW counts of the predecessors must be within 1% of the successor's mid-2011 estimate in ONS MYEB1 (detailed time series, April 2023 boundaries, 29 July 2026), and every successor code must be a current authority in MYEB1.",
+  "successors": {
+    "E06000057": {
+      "name": "Northumberland",
+      "predecessors2011": [
+        "E06000048"
+      ]
+    },
+    "E08000037": {
+      "name": "Gateshead",
+      "predecessors2011": [
+        "E08000020"
+      ]
+    },
+    "E07000240": {
+      "name": "St Albans",
+      "predecessors2011": [
+        "E07000100"
+      ]
+    },
+    "E07000241": {
+      "name": "Welwyn Hatfield",
+      "predecessors2011": [
+        "E07000104"
+      ]
+    },
+    "E07000242": {
+      "name": "East Hertfordshire",
+      "predecessors2011": [
+        "E07000097"
+      ]
+    },
+    "E07000243": {
+      "name": "Stevenage",
+      "predecessors2011": [
+        "E07000101"
+      ]
+    },
+    "E06000058": {
+      "name": "Bournemouth, Christchurch and Poole",
+      "predecessors2011": [
+        "E06000028",
+        "E06000029",
+        "E07000048"
+      ]
+    },
+    "E06000059": {
+      "name": "Dorset",
+      "predecessors2011": [
+        "E07000049",
+        "E07000050",
+        "E07000051",
+        "E07000052",
+        "E07000053"
+      ]
+    },
+    "E06000060": {
+      "name": "Buckinghamshire",
+      "predecessors2011": [
+        "E07000004",
+        "E07000005",
+        "E07000006",
+        "E07000007"
+      ]
+    },
+    "E06000061": {
+      "name": "North Northamptonshire",
+      "predecessors2011": [
+        "E07000150",
+        "E07000152",
+        "E07000153",
+        "E07000156"
+      ]
+    },
+    "E06000062": {
+      "name": "West Northamptonshire",
+      "predecessors2011": [
+        "E07000151",
+        "E07000154",
+        "E07000155"
+      ]
+    },
+    "E07000244": {
+      "name": "East Suffolk",
+      "predecessors2011": [
+        "E07000205",
+        "E07000206"
+      ]
+    },
+    "E07000245": {
+      "name": "West Suffolk",
+      "predecessors2011": [
+        "E07000201",
+        "E07000204"
+      ]
+    },
+    "E07000246": {
+      "name": "Somerset West and Taunton",
+      "predecessors2011": [
+        "E07000190",
+        "E07000191"
+      ]
+    }
+  }
+}

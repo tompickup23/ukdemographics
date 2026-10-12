@@ -33,6 +33,7 @@ import path from "node:path";
 import { loadBase2011 } from "./lib/census-2011-base.mjs";
 import { loadControlTotals } from "./lib/control-totals.mjs";
 import { isV80Configuration, parseHpOptions } from "./lib/hp-options.mjs";
+import { successors2011 } from "./lib/geography.mjs";
 
 let OPTS;
 try {
@@ -71,6 +72,7 @@ const { pop2011, areas2011 } = loadBase2011(base2021, ETHNIC_GROUPS, SEXES, {
   dc2101ewPath: OPTS.dc2101ew,
   newethpopPath: OPTS.newethpop2011,
   countries: OPTS.countries2011,
+  successors: OPTS.successors2011 ? successors2011() : undefined,
 });
 
 // All-persons mode: one group, the sum of the twenty, in both censuses. The

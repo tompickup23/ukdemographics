@@ -17,6 +17,8 @@
  *   --dc2101ew <file>               HP_DC2101EW            data/raw/census_2011_ethnicity_age/dc2101ew_ethnicity_sex_age_la.csv
  *   --newethpop-2011 <file>         HP_NEWETHPOP_2011      data/raw/newethpop/.../Population2011_LEEDS2.csv
  *   --countries-2011 E[,W]          HP_COUNTRIES_2011      E
+ *   --successors-2011 on|off        HP_SUCCESSORS_2011     off (on: authorities whose code changed
+ *                                                          since 2011 take summed 2011 counts)
  *   --school-validation <file>      HP_SCHOOL_VALIDATION   src/data/live/school-validation.json
  *   --site-input <file>             HP_SITE_INPUT          src/data/live/ethnic-projections.json
  *   --output <file>                 HP_OUTPUT              the site input file
@@ -66,7 +68,7 @@ export function parseHpOptions(argv = process.argv.slice(2), env = process.env) 
   }
   const known = new Set([
     "groups", "snpp-cap", "cap-mode", "control-totals", "brexit-damp", "school-calibration",
-    "base", "dc2101ew", "newethpop-2011", "countries-2011", "school-validation", "site-input",
+    "base", "dc2101ew", "newethpop-2011", "countries-2011", "successors-2011", "school-validation", "site-input",
     "output", "format", "model-version", "run-record",
   ]);
   for (const k of Object.keys(flags)) if (!known.has(k)) throw new Error(`unknown flag --${k}`);
@@ -114,6 +116,8 @@ export function parseHpOptions(argv = process.argv.slice(2), env = process.env) 
     dc2101ew: resolve(pick("dc2101ew", "HP_DC2101EW", DEFAULTS.dc2101ew)),
     newethpop2011: resolve(pick("newethpop-2011", "HP_NEWETHPOP_2011", DEFAULTS.newethpop2011)),
     countries2011,
+    successors2011:
+      onOff(flags["successors-2011"], "--successors-2011") ?? onOff(env.HP_SUCCESSORS_2011, "HP_SUCCESSORS_2011") ?? false,
     schoolValidation: resolve(pick("school-validation", "HP_SCHOOL_VALIDATION", DEFAULTS.schoolValidation)),
     siteInput,
     output,
@@ -139,6 +143,7 @@ export function isV80Configuration(opts) {
     opts.brexitDamp === true &&
     opts.schoolCalibration === true &&
     opts.base === path.resolve(DEFAULTS.base) &&
-    opts.countries2011.join(",") === DEFAULTS.countries2011.join(",")
+    opts.countries2011.join(",") === DEFAULTS.countries2011.join(",") &&
+    opts.successors2011 === false
   );
 }
