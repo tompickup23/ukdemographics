@@ -279,6 +279,16 @@ def iso_from_page_date(text: str) -> str:
     return datetime.strptime(text, "%d %B %Y").date().isoformat()
 
 
+def months_index(month_year: str) -> int:
+    d = datetime.strptime(month_year, "%B %Y")
+    return d.year * 12 + d.month
+
+
+def years_overlap(a: str, b: str) -> bool:
+    """Whether two 12-month periods named by their 'year ending' month overlap."""
+    return abs(months_index(a) - months_index(b)) < 12
+
+
 def rate(count, denominator):
     if count is None or not denominator:
         return None
@@ -320,9 +330,12 @@ def main() -> None:
     city_note = note_matching(notes, r"not presented for City of London")
     # The Derbyshire note names a year; read it rather than assume it.
     m = re.search(r"year ending (\w+ \d{4})", derbyshire_note[1], re.I)
-    derbyshire_year = m.group(1) if m else None
-    derbyshire_hits_prev = derbyshire_year is not None and derbyshire_year.lower() == prev_period.lower()
-    derbyshire_hits_curr = derbyshire_year is not None and derbyshire_year.lower() == period.lower()
+    if not m:
+        fail(f"Derbyshire note {derbyshire_note[0]} names no 'year ending' period")
+    derbyshire_year = m.group(1)
+    # Quarterly editions cover rolling years, so test for any overlap, not an exact match.
+    derbyshire_hits_prev = years_overlap(m.group(1), prev_period)
+    derbyshire_hits_curr = years_overlap(m.group(1), period)
 
     pop_file = json.loads(POP.read_text())
     pop = {code: a["population"] for code, a in pop_file["areas"].items()}
@@ -570,8 +583,8 @@ def main() -> None:
             yoy_note = "Withheld with the rate."
         elif a["force"]["name"].lower() == "derbyshire" and derbyshire_hits_prev:
             yoy_note = (f"Withheld: ONS note {derbyshire_note[0]} says some Derbyshire areas were recorded under an "
-                        f"unassigned group in the year ending {prev_period} without naming them, so the change "
-                        f"from that year is not a like-for-like comparison.")
+                        f"unassigned group in the year ending {derbyshire_year} without naming them, so the change "
+                        f"from the year ending {prev_period} is not a like-for-like comparison.")
         elif a["prevMissing"]:
             yoy_note = f"Withheld: Table C5 has no year ending {prev_period} row for this area."
         elif a["prevTotal"] < MIN_BASE_FOR_CHANGE:
