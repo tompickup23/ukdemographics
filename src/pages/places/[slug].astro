@@ -15,6 +15,7 @@ import {
   getShiftShareData, getDiversityIndex,
   getStochasticData, getEthnicCompositionTimeline,
 } from "../../lib/ethnic-projections";
+import { shiftShareDriver } from "../../lib/shift-share-driver";
 import { getCrimeProfile, getCrimeRatePercentile, getCrimeSource, getCrimeCaveat } from "../../lib/crime-data";
 import { getAscProfile, getAscSpendPercentile, getAscSource, getAscCaveat, getAscMeasure } from "../../lib/asc-data";
 import { getSendProfile, getSendGrowthPercentile, getSendSource, getSendCaveat } from "../../lib/send-data";
@@ -830,7 +831,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <h2>What&rsquo;s driving change</h2>
       <p class="section-desc">
         Shift-share splits the change in White British share into national trend,
-        age structure, and local factors. Dominant driver: <strong>{shiftShareData.dominantDriver}</strong>.
+        age structure, and local factors. Dominant driver: <strong>{shiftShareDriver(shiftShareData)}</strong>.
       </p>
       <div class="chart-holder">
         <ShiftShareChart

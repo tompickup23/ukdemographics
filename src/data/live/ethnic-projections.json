@@ -3743,7 +3743,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": 1,
         "localEffectPp": -6.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend and local migration, equally"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 82.5,
@@ -6061,7 +6061,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": 2.5,
         "localEffectPp": -6.2,
-        "dominantDriver": "national trend"
+        "dominantDriver": "national trend and local migration, equally"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 84,
@@ -24684,7 +24684,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.4,
         "localEffectPp": 6.4,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.9,
@@ -52868,7 +52868,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.7,
@@ -62822,7 +62822,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.4,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.9,
@@ -83717,7 +83717,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.3,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.5,
@@ -93634,7 +93634,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.5,
@@ -95836,7 +95836,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.4,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.8,
@@ -101881,7 +101881,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.2,
         "localEffectPp": 6.3,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.3,
@@ -110936,7 +110936,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.4,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.9,
@@ -112972,7 +112972,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.1,
         "localEffectPp": 6.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 97.5,
@@ -117106,7 +117106,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.6,
@@ -124377,7 +124377,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.4,
         "localEffectPp": 6.7,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 99.1,
@@ -125371,7 +125371,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 7.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 99.1,
@@ -142984,7 +142984,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.1,
@@ -146050,7 +146050,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.3,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.7,
@@ -148545,7 +148545,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.2,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.6,
@@ -149942,7 +149942,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 99,
@@ -163444,7 +163444,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.2,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 99.1,
@@ -164771,7 +164771,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.2,
         "localEffectPp": 6.3,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.1,
@@ -165224,7 +165224,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.2,
         "localEffectPp": 6.3,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 97.7,
@@ -166934,7 +166934,7 @@
         "nationalEffectPp": -6.2,
         "structuralEffectPp": -1.3,
         "localEffectPp": 6.5,
-        "dominantDriver": "local migration"
+        "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.7,

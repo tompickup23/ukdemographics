@@ -61,6 +61,32 @@ const natWBI_change = natWBI_pct_2021 - natWBI_pct_2011; // negative = national 
 console.log(`National base: ${natAreas} areas with a 2011 baseline; ${natTotal_2011} residents in 2011, ${natTotal_2021} in 2021`);
 console.log(`National WBI: ${natWBI_pct_2011.toFixed(1)}% → ${natWBI_pct_2021.toFixed(1)}% (${natWBI_change.toFixed(1)}pp)`);
 
+// The same rule as src/lib/shift-share-driver.ts, which the place page prints
+// from; tests/shift-share.test.ts checks the stored label against it. The driver
+// is the largest component with the sign of the total change, so a component
+// working against the change is never named as its driver. Until October 2026
+// the largest component in size was named whatever its sign, and 20 areas where
+// the local effect raised the White British share were labelled "local migration".
+function dominantDriver(s) {
+  const sign = Math.sign(s.totalChangePp);
+  const none = "none, the components cancel out";
+  if (sign === 0) return none;
+  const parts = [
+    { name: "national trend", value: s.nationalEffectPp },
+    { name: "age structure", value: s.structuralEffectPp },
+    { name: "local migration", value: s.localEffectPp },
+  ];
+  const bySize = (a, b) => Math.abs(b.value) - Math.abs(a.value);
+  const same = parts.filter((p) => Math.sign(p.value) === sign).sort(bySize);
+  if (same.length === 0) return none;
+  const size = Math.abs(same[0].value);
+  const leaders = same.filter((p) => Math.abs(p.value) === size).map((p) => p.name);
+  let label = leaders.length > 1 ? `${leaders.join(" and ")}, equally` : leaders[0];
+  const opposing = parts.filter((p) => Math.sign(p.value) === -sign).sort(bySize);
+  if (opposing.length > 0 && Math.abs(opposing[0].value) >= size) label += `, offset by ${opposing[0].name}`;
+  return label;
+}
+
 let count = 0;
 for (const [code, area] of Object.entries(existing.areas)) {
   if (!area.baseline || !area.current || area.baseline.year === area.current.year) continue;
@@ -80,17 +106,13 @@ for (const [code, area] of Object.entries(existing.areas)) {
   // Local effect: residual (migration, local factors)
   const localEffect = totalChange - nationalEffect - structuralEffect;
 
-  area.shiftShare = {
+  const rounded = {
     totalChangePp: Math.round(totalChange * 10) / 10,
     nationalEffectPp: Math.round(nationalEffect * 10) / 10,
     structuralEffectPp: Math.round(structuralEffect * 10) / 10,
     localEffectPp: Math.round(localEffect * 10) / 10,
-    dominantDriver: Math.abs(nationalEffect) >= Math.abs(localEffect) && Math.abs(nationalEffect) >= Math.abs(structuralEffect)
-      ? "national trend"
-      : Math.abs(localEffect) >= Math.abs(structuralEffect)
-        ? "local migration"
-        : "age structure"
   };
+  area.shiftShare = { ...rounded, dominantDriver: dominantDriver(rounded) };
   count++;
 }
 
