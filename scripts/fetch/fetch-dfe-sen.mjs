@@ -63,6 +63,14 @@ const pubs = await politeGet(`${API}/publications?search=${encodeURIComponent("s
 const publication = (pubs.results ?? []).find((p) => p.slug === SLUG);
 if (!publication) die(`no publication with slug ${SLUG} in the API list`);
 
+// Ids, versions and the edition label come from API responses and go into URLs and
+// raw file names, so each must have the shape the API documents before it is used.
+// download() separately refuses any file name that is not a bare name in rawDir.
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const VERSION = /^\d{1,3}(\.\d{1,3}){0,2}$/;
+const EDITION = /^\d{4}\/\d{2}$/;
+if (!UUID.test(publication.id)) die(`publication id ${JSON.stringify(publication.id)} is not a UUID`);
+
 // 2. Data sets by title.
 const listUrl = `${API}/publications/${publication.id}/data-sets?pageSize=20`;
 const list = await politeGet(listUrl, { as: "json" });
@@ -72,6 +80,11 @@ for (const [key, pattern] of Object.entries(DATA_SETS)) {
   const hits = (list.results ?? []).filter((d) => pattern.test(d.title));
   if (hits.length !== 1) die(`expected one data set titled ${pattern}, found ${hits.length}`);
   chosen[key] = hits[0];
+}
+for (const d of Object.values(chosen)) {
+  if (!UUID.test(d.id)) die(`data set id ${JSON.stringify(d.id)} is not a UUID`);
+  if (!VERSION.test(d.latestVersion?.version ?? "")) die(`data set version ${JSON.stringify(d.latestVersion?.version)} is not numeric`);
+  if (!EDITION.test(d.latestVersion?.timePeriods?.end ?? "")) die(`edition ${JSON.stringify(d.latestVersion?.timePeriods?.end)} is not an academic year like 2025/26`);
 }
 const ends = new Set(Object.values(chosen).map((d) => d.latestVersion.timePeriods.end));
 if (ends.size !== 1) die(`data sets end in different years: ${[...ends].join(", ")}`);

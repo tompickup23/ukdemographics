@@ -98,6 +98,28 @@ export function loadManifest(manifestPath) {
 }
 
 /**
+ * The path a raw file is written to, refusing any name that could land outside `rawDir`.
+ *
+ * File names are built from publisher responses (a URL's last segment, an edition label,
+ * a data set id), so a hostile or malformed value such as "../x" or "a%2F..%2Fb" must
+ * never reach the filesystem. Only a bare name of letters, digits, dot, underscore and
+ * hyphen is accepted, and the resolved path must sit directly inside `rawDir`.
+ */
+export function safeTarget(rawDir, fileName) {
+  const root = path.resolve(rawDir);
+  const ok =
+    typeof fileName === "string" &&
+    /^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(fileName) &&
+    !fileName.includes("..") &&
+    path.basename(fileName) === fileName;
+  const target = ok ? path.resolve(root, fileName) : null;
+  if (!target || path.dirname(target) !== root) {
+    throw new Error(`refusing unsafe raw file name ${JSON.stringify(fileName)} for ${root}`);
+  }
+  return target;
+}
+
+/**
  * Download one file into `rawDir` under `fileName`, returning the attempt record.
  * Never overwrites a held file with different bytes under the same name: a publisher
  * replacing a file in place is recorded as "replaced_upstream" and the new bytes are kept
@@ -107,6 +129,8 @@ export function loadManifest(manifestPath) {
  * statistics API); the body is recorded in the attempt so the query can be repeated.
  */
 export async function download(url, rawDir, fileName, extra = {}, request = {}) {
+  // Checked before any request is made, so a bad name costs nothing and writes nothing.
+  const target = safeTarget(rawDir, fileName);
   const u = new URL(url);
   const attempt = {
     url,
@@ -149,7 +173,6 @@ export async function download(url, rawDir, fileName, extra = {}, request = {}) 
   attempt.blob_sha256 = sha256(bytes);
   attempt.bytes = bytes.length;
   mkdirSync(rawDir, { recursive: true });
-  const target = path.join(rawDir, fileName);
   if (existsSync(target)) {
     if (sha256(readFileSync(target)) === attempt.blob_sha256) {
       attempt.outcome = "unchanged";
@@ -158,7 +181,7 @@ export async function download(url, rawDir, fileName, extra = {}, request = {}) 
     const ext = path.extname(fileName);
     attempt.file_name = `${path.basename(fileName, ext)}.${attempt.blob_sha256.slice(0, 12)}${ext}`;
     attempt.outcome = "replaced_upstream";
-    writeFileSync(path.join(rawDir, attempt.file_name), bytes);
+    writeFileSync(safeTarget(rawDir, attempt.file_name), bytes);
     return attempt;
   }
   writeFileSync(target, bytes);
