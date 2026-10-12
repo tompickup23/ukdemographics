@@ -1,0 +1,37 @@
+{
+  "dataset": "council_taxbase",
+  "publisher": "Ministry of Housing, Communities and Local Government",
+  "cadence": "annual",
+  "landing": "https://www.gov.uk/government/collections/council-taxbase-statistics",
+  "discovery": "https://www.gov.uk/api/search.json?filter_organisations=ministry-of-housing-communities-local-government&filter_content_store_document_type=official_statistics&q=council+taxbase&count=50&fields=title,link,public_timestamp",
+  "note": "Stored under a stable stem; the publisher's file name is published_file_name. Edition, snapshot date and figures are read from the workbook by scripts/transform/transform_council_tax_spd.py.",
+  "current": {
+    "fileName": "council-taxbase-la-level_2025.xlsx",
+    "fileSha256": "9fd74444f25278b53f7666dc23ff060d1996adcfe27e74caf63aef2b5b19af06",
+    "sizeBytes": 1800242,
+    "sourceUrl": "https://assets.publishing.service.gov.uk/media/696f605ff6aa424b452e3359/2025_Local_Authority_Drop_Down.xlsx",
+    "edition": "Council Taxbase 2025 in England",
+    "landingPage": "https://www.gov.uk/government/statistics/council-taxbase-2025-in-england"
+  },
+  "attempts": [
+    {
+      "url": "https://assets.publishing.service.gov.uk/media/696f605ff6aa424b452e3359/2025_Local_Authority_Drop_Down.xlsx",
+      "attempted_at": "2026-10-12T08:34:11.458Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "9fd74444f25278b53f7666dc23ff060d1996adcfe27e74caf63aef2b5b19af06",
+      "bytes": 1800242,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "council-taxbase-la-level_2025.xlsx",
+      "published_file_name": "2025_Local_Authority_Drop_Down.xlsx",
+      "attachment_title": "Council Taxbase: Local authority level data for 2025 (revised)",
+      "landing_page": "https://www.gov.uk/government/statistics/council-taxbase-2025-in-england",
+      "edition": "Council Taxbase 2025 in England",
+      "edition_first_published_at": "2025-11-06T00:00:00+00:00",
+      "edition_updated_at": "2026-01-21T09:30:00+00:00",
+      "etag": "\"696f605f-1b7832\"",
+      "last_modified": "Tue, 20 Jan 2026 11:00:47 GMT"
+    }
+  ]
+}
