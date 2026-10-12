@@ -28,12 +28,23 @@ Caveats encoded in the output:
   - Adjectival to country mapping: MOJ uses adjectival forms (Pakistani,
     Eritrean, Polish). NINo uses country names (Pakistan, Eritrea,
     Poland). Mapping is deterministic and listed below.
+
+Dates: the snapshot date and the publication date are read from the MoJ cover
+sheet, and the NINo period from the cube's quarter labels
+(scripts/lib/source_dates.py). lastUpdated is the newest of the inputs' dates.
 """
+import datetime as dt
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import (  # noqa: E402
+    MONTHS, cover_match, date_phrase, held_copy_date, newest, published_date, rolling_year,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 ODS = ROOT / "data/raw/moj_fno/prison-population-2025-12-31.ods"
@@ -192,7 +203,22 @@ def aggregate_nino_uk_by_nationality():
     return totals
 
 
+def snapshot_date():
+    """The cover sheet's title, "Prison Population: as at 31 December 2025"."""
+    m = cover_match(
+        ODS,
+        r"^Prison Population: as at (\d{1,2}) (" + "|".join(MONTHS) + r") (\d{4})$",
+        "'Prison Population: as at <date>' title",
+    )
+    return dt.date(int(m.group(3)), MONTHS.index(m.group(2)) + 1, int(m.group(1)))
+
+
 def main():
+    snapshot = snapshot_date()
+    released = published_date(ODS)
+    nino_period = rolling_year(json.loads(NINO_CUBE.read_text()))["phrase"]
+    # Key name carries the snapshot date, e.g. ..._31Dec2025.
+    fno_key = f"fnoPrisonPopulation_EnglandAndWales_{snapshot.day}{MONTHS[snapshot.month - 1][:3]}{snapshot.year}"
     fno_rows = load_fno()
     nino_totals = aggregate_nino_uk_by_nationality()
 
@@ -234,16 +260,22 @@ def main():
         bridge.append({
             "country": country,
             "ninoFlowRollingYear_UK": nino_totals.get(country, 0),
-            "fnoPrisonPopulation_EnglandAndWales_31Dec2025": fno_by_country.get(country, 0),
+            fno_key: fno_by_country.get(country, 0),
         })
-    bridge.sort(key=lambda r: -r["fnoPrisonPopulation_EnglandAndWales_31Dec2025"])
+    bridge.sort(key=lambda r: -r[fno_key])
 
     out = {
-        "source": "Ministry of Justice, Offender Management Statistics Quarterly (July to September 2025), Table 1.Q.12 (snapshot 31 Dec 2025) + DWP Stat-Xplore NINo registrations (rolling year ending Q4 2025)",
-        "lastUpdated": "2026-04-28",
+        "source": (
+            "Ministry of Justice, Offender Management Statistics Quarterly, Prison "
+            f"Population: as at {date_phrase(snapshot)} (published {date_phrase(released)}), "
+            f"Table 1.Q.12 + DWP Stat-Xplore NINo registrations ({nino_period})"
+        ),
+        # Newest of: the MoJ cover sheet's publication date, and the retrieval date of
+        # the held NINo cube (the cube carries no release date).
+        "lastUpdated": newest(released, held_copy_date(NINO_CUBE)),
         "caveat": (
             "Stock vs flow, never combined into a ratio: prison population "
-            "is a snapshot on 31 December 2025; NINo flow is one rolling "
+            f"is a snapshot on {date_phrase(snapshot)}; NINo flow is one rolling "
             "year of new registrations. Geographic scope differs: FNO is "
             "England and Wales only, NINo is UK-wide. Concept differs: "
             "MOJ records nationality of the prisoner; NINo records "
@@ -279,7 +311,7 @@ def main():
     }
     OUT.write_text(json.dumps(out, indent=2))
     print(f"Wrote {OUT}")
-    print(f"\nFNO total prison population (E&W, 31 Dec 2025): {out['totals']['fno_prisonPopulation_total']:,}")
+    print(f"\nFNO total prison population (E&W, {date_phrase(snapshot)}): {out['totals']['fno_prisonPopulation_total']:,}")
     print(f"  British:                {fno_total_uk:,}")
     print(f"  Foreign nationals:      {fno_total_foreign:,}  ({out['totals']['fno_foreignSharePct']}%)")
     print(f"  Nationality not recorded: {fno_total_not_recorded:,}")
@@ -287,7 +319,7 @@ def main():
     print(f"\nTop 10 FNO countries (E&W prison population):")
     for c, n in top_fno[:10]:
         print(f"  {c:30s} {n:>6,}")
-    print(f"\nTop 10 NINo arriving countries (UK rolling year 2025):")
+    print(f"\nTop 10 NINo arriving countries (UK, {nino_period}):")
     for c, n in top_nino[:10]:
         print(f"  {c:30s} {n:>7,}")
     print(f"\nUnmapped MOJ adjectival rows ({len(fno_unmapped)}):")

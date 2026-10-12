@@ -23,8 +23,12 @@ Caveats:
 """
 import csv
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import held_copy_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data/raw/census_hmo/rm192_hmo_la.csv"
@@ -75,11 +79,13 @@ def main():
 
     out = {
         "source": (
-            "ONS Census 2021 RM192 — Number of dwellings that are houses "
+            "ONS Census 2021 RM192, Number of dwellings that are houses "
             "in multiple occupation, by local authority. NOMIS NM_2292_1. "
             "Population denominator from health-demand.json (Census 2021)."
         ),
-        "lastUpdated": "2026-04-29",
+        # The Census extract carries no date of its own, so this is the retrieval date
+        # of the held copy (the date the file was written).
+        "lastUpdated": held_copy_date(SRC).isoformat(),
         "caveat": (
             "Census 2021 RM192 counts dwellings classified as HMO on "
             "Census Day (21 March 2021). NOT a current licensing register; "

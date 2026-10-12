@@ -25,8 +25,12 @@ Caveats:
 """
 import csv
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import held_copy_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data/raw/census_econ_passport/rm021_econ_passport_la.csv"
@@ -147,11 +151,13 @@ def main():
 
     out = {
         "source": (
-            "ONS Census 2021 RM021 — Economic activity status by "
+            "ONS Census 2021 RM021, Economic activity status by "
             "passports held, by local authority district. NOMIS "
             "NM_2121_1."
         ),
-        "lastUpdated": "2026-04-29",
+        # The Census extract carries no date of its own, so this is the retrieval date
+        # of the held copy (the date the file was written).
+        "lastUpdated": held_copy_date(SRC).isoformat(),
         "caveat": (
             "Stock measure on Census Day (21 March 2021). Passports-held "
             "is a proxy for nationality (UK = UK passport holder). "

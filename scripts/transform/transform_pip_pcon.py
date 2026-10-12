@@ -19,7 +19,11 @@ the (LA name -> matched PCON) approximation for convenience on the
 place page.
 """
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import held_copy_date, month_label  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data/raw/supplementary/pip-pcon-latest.json"
@@ -83,11 +87,14 @@ def main():
 
     out = {
         "source": (
-            "DWP Stat-Xplore PIP_Monthly_new dataset, latest published "
-            "month. Geography: Westminster Parliamentary Constituency "
-            "2024 boundaries."
+            "DWP Stat-Xplore PIP_Monthly_new dataset, "
+            f"{month_label(latest_month_label)} (the latest month when the cube was "
+            "retrieved). Geography: Westminster Parliamentary Constituency 2024 "
+            "boundaries."
         ),
-        "lastUpdated": "2026-04-29",
+        # The cube JSON carries no release date, so this is the retrieval date of the
+        # held copy (the date the file was written), not a DWP publication date.
+        "lastUpdated": held_copy_date(SRC).isoformat(),
         "latestMonth": latest_month_label,
         "totalConstituencies": len(by_pcon_name),
         "totalClaimants": total,

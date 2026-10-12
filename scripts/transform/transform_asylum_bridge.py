@@ -11,16 +11,18 @@ For each top-N NINo arriving nationality, surface:
     refused-entry / port-refusal categories (Ret_D01)
 
 Inputs:
-  /Users/tompickup/asylumstats/data/raw/uk_routes/asylum-claims-datasets-dec-2025.xlsx
-    (sheet Data_Asy_D01)
-  /Users/tompickup/asylumstats/data/raw/uk_routes/returns-datasets-dec-2025.xlsx
-    (sheet Data_Ret_D01)
+  data/raw/uk_routes/asylum-claims-datasets-<mon>-<yyyy>.xlsx (sheet Data_Asy_D01)
+  data/raw/uk_routes/returns-datasets-<mon>-<yyyy>.xlsx (sheet Data_Ret_D01)
   src/data/live/asylum-grant-rates.json (already lifted)
   data/raw/supplementary/nino-statxplore-cube.json (NINo flow summed
     across LAs)
 
 Output:
   src/data/live/asylum-bridge.json
+
+Dates: the Home Office period and publication dates are read from each workbook's
+cover sheet, and the NINo period from the cube's quarter labels
+(scripts/lib/source_dates.py). lastUpdated is the newest of the inputs' dates.
 
 Caveats encoded in the output:
   - The four numbers come from different concepts and should not be
@@ -49,7 +51,8 @@ import pandas as pd
 # than written here. See scripts/lib/newest_release.py: a pinned filename keeps working
 # while reading an older release than the one published.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
-from newest_release import newest_release, period_phrase  # noqa: E402
+from newest_release import newest_release  # noqa: E402
+from source_dates import held_copy_date, home_office_period, newest, published_date, rolling_year  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 ASY_XLSX = newest_release(ROOT / "data/raw/uk_routes", "asylum-claims-datasets")
@@ -134,6 +137,7 @@ NINO_TO_HO = {
 
 
 def main():
+    nino_period = rolling_year(json.loads(NINO_CUBE.read_text()))["phrase"]
     claims = load_claims_2025()
     returns = load_returns_2025()
     grant_rates = load_grant_rates()
@@ -178,13 +182,15 @@ def main():
 
     out = {
         "source": (
-            f"Home Office Immigration Statistics, {period_phrase(ASY_XLSX)}: "
+            f"Home Office Immigration Statistics, {home_office_period(ASY_XLSX)}: "
             "Asy_D01 (claims), Ret_D01 (returns), and asylum-grant-rates.json "
             "(lifted from asylumstats, derived from Asy_D02 with appeal uplift "
             "from FT-IAC outcomes). Joined with DWP Stat-Xplore NINo flow "
-            "rolling year ending Q4 2025."
+            f"{nino_period}."
         ),
-        "lastUpdated": "2026-05-27",
+        # Newest of: the two Home Office workbooks' cover-sheet publication dates, and
+        # the retrieval date of the held NINo cube (the cube carries no release date).
+        "lastUpdated": newest(published_date(ASY_XLSX), published_date(RET_XLSX), held_copy_date(NINO_CUBE)),
         "caveat": (
             "Each metric comes from a different concept and they cannot be "
             "summed or netted. NINo flow is who registered to work or claim. "

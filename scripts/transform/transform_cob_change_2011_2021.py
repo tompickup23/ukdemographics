@@ -25,8 +25,12 @@ Caveats:
 """
 import csv
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from source_dates import held_copy_date  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC_2011 = ROOT / "data/raw/census_cob_2011/ks204ew.csv"
@@ -211,7 +215,9 @@ def main():
             "birth groups: UK, Ireland, EU pre-2001, EU 2001-2011 "
             "accession, Rest of World."
         ),
-        "lastUpdated": "2026-04-29",
+        # The Census extracts carry no date of their own, so this is the retrieval date
+        # of the newest held copy read (the date the file was written).
+        "lastUpdated": held_copy_date(SRC_2011, *([raw_ts012] if raw_ts012.exists() else [])).isoformat(),
         "caveat": (
             "Census-to-Census comparison is mostly stable for districts "
             "and unitary authorities whose ONS codes were unchanged "

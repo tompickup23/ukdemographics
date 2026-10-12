@@ -6,8 +6,8 @@ that joins each top-N NINo arriving nationality to its 2025 visa-route
 composition.
 
 Inputs:
-  data/raw/ho_visas/entry-clearance-visa-outcomes-datasets-dec-2025.xlsx
-  data/raw/ho_visas/safe-legal-routes-summary-tables-dec-2025.ods (used
+  data/raw/ho_visas/entry-clearance-visa-outcomes-datasets-<mon>-<yyyy>.xlsx
+  data/raw/ho_visas/safe-legal-routes-summary-tables-<mon>-<yyyy>.ods (used
     only to surface humanitarian-route national totals — these are NOT
     nationality-disaggregated in this transform)
   data/raw/supplementary/nino-statxplore-cube.json (UK NINo flow summed
@@ -15,6 +15,10 @@ Inputs:
 
 Output:
   src/data/live/visa-routes.json
+
+Dates: the Home Office period and publication dates are read from each workbook's
+cover sheet, and the NINo period from the cube's quarter labels
+(scripts/lib/source_dates.py). lastUpdated is the newest of the inputs' dates.
 
 Logic:
   Visa type groups in Vis_D02: Family, Visitor, Study, Work, Other.
@@ -51,7 +55,8 @@ import pandas as pd
 # than written here. See scripts/lib/newest_release.py: a pinned filename keeps working
 # while reading an older release than the one published.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
-from newest_release import newest_release, period_phrase  # noqa: E402
+from newest_release import newest_release  # noqa: E402
+from source_dates import held_copy_date, home_office_period, newest, published_date, rolling_year  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 XLSX = newest_release(ROOT / "data/raw/ho_visas", "entry-clearance-visa-outcomes-datasets")
@@ -159,6 +164,7 @@ NINO_TO_VISA_NAME = {
 
 
 def main():
+    nino_period = rolling_year(json.loads(NINO_CUBE.read_text()))["phrase"]
     visa_by_nat = load_visa_grants()
     nino = load_nino_uk_totals()
     hum_totals = load_humanitarian_totals()
@@ -218,12 +224,13 @@ def main():
 
     out = {
         "source": (
-            f"Home Office, Immigration system statistics, {period_phrase(XLSX)}; "
+            f"Home Office, Immigration system statistics, {home_office_period(XLSX)}; "
             "Vis_D02 (Entry clearance visa outcomes by nationality, visa type, and "
-            "outcome). Joined with DWP Stat-Xplore NINo registrations rolling year "
-            "ending Q4 2025."
+            f"outcome). Joined with DWP Stat-Xplore NINo registrations {nino_period}."
         ),
-        "lastUpdated": "2026-05-27",
+        # Newest of: the two Home Office workbooks' cover-sheet publication dates, and
+        # the retrieval date of the held NINo cube (the cube carries no release date).
+        "lastUpdated": newest(published_date(XLSX), published_date(HUM_ODS), held_copy_date(NINO_CUBE)),
         "caveat": (
             "Visa grants are issued at the point of entry-clearance application "
             "and are NOT the same population as NINo registrations. Visitor visas "

@@ -5,7 +5,14 @@ force, by self-defined ethnicity broad group, by outcome, by object of
 search.
 
 Inputs:
+  data/raw/police_stops/_window.json (written by fetch-stop-and-search.mjs: the
+    months chosen, the forces data.police.uk listed for each, and when the list
+    was read)
   data/raw/police_stops/{force}-{YYYY-MM}.json (one file per force-month)
+
+Only the force-month files for the window's months are read; the folder keeps
+older months from earlier runs. The coverage count in the source line and
+lastUpdated both come from the window file, never from this script.
 
 Output:
   src/data/live/stop-and-search.json
@@ -23,12 +30,15 @@ Caveats:
   - Not all forces publish every month. The 3-month window catches the
     latest data each force has uploaded.
 """
+import datetime as dt
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC_DIR = ROOT / "data/raw/police_stops"
+WINDOW = SRC_DIR / "_window.json"
 OUT = ROOT / "src/data/live/stop-and-search.json"
 
 # Self-defined ethnicity strings → broad group
@@ -51,11 +61,36 @@ def broad_group(self_defined):
     return "Other"
 
 
+def load_window():
+    """The window the fetch chose. Missing or malformed stops the transform."""
+    if not WINDOW.exists():
+        sys.exit(
+            f"ERROR: {WINDOW} not found. Run scripts/fetch/fetch-stop-and-search.mjs, "
+            "which writes it; without it the transform cannot tell which months on "
+            "disk are current or how many forces were listed."
+        )
+    w = json.loads(WINDOW.read_text())
+    months = [m["date"] for m in w.get("months", [])]
+    listed = w.get("forcesListed") or []
+    if not months or not listed or not w.get("readAt"):
+        sys.exit(f"ERROR: {WINDOW} lacks months, forcesListed or readAt")
+    read_at = dt.datetime.fromisoformat(w["readAt"].replace("Z", "+00:00"))
+    return w, months, listed, read_at.astimezone(dt.timezone.utc).date()
+
+
 def main():
-    files = sorted(SRC_DIR.glob("*.json"))
+    window, window_months, forces_listed, read_on = load_window()
+    files = []
+    missing = []
+    for m in window["months"]:
+        for force in m["forces"]:
+            f = SRC_DIR / f"{force}-{m['date']}.json"
+            (files if f.exists() else missing).append(f)
     if not files:
-        print(f"ERROR: no files in {SRC_DIR}")
+        print(f"ERROR: no force-month files in {SRC_DIR} for {', '.join(window_months)}")
         return 2
+    if missing:
+        print(f"WARNING: {len(missing)} listed force-months have no file, e.g. {missing[0].name}")
 
     # by_force[force][group] = count, plus metadata
     by_force = defaultdict(lambda: {
@@ -156,13 +191,17 @@ def main():
         key=lambda fa: -fa[1]["ethnicityBroad"].get("Black", {"pct": 0})["pct"],
     )[:10]
 
+    forces_with_records = sum(1 for a in forces.values() if a["totalSearches"] > 0)
     out = {
         "source": (
-            "data.police.uk Stop and Search API, latest 3 months published "
-            "by each force (force coverage 36 of 45 forces in window). "
-            "Self-defined ethnicity bucketed into broad groups."
+            f"data.police.uk Stop and Search API, latest {len(window_months)} months "
+            f"with stop-and-search data ({min(window_months)} to {max(window_months)}); "
+            f"{forces_with_records} of {len(forces_listed)} forces listed by "
+            "data.police.uk for the window. Self-defined ethnicity bucketed into "
+            "broad groups."
         ),
-        "lastUpdated": "2026-04-28",
+        # The date the window was read from /crimes-street-dates (the fetch writes it).
+        "lastUpdated": read_on.isoformat(),
         "monthsCovered": sorted({m for f in forces.values() for m in f["monthsCovered"]}),
         "totalRecords": grand_total,
         "totalForces": len(forces),

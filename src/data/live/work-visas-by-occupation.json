@@ -1,7 +1,7 @@
 {
   "source": "Home Office Immigration Statistics: Occupation by SOC2020 visas, year ending June 2026 release. Sheet Data_Occ_D02 (grants of entry clearance work visas).",
-  "lastUpdated": "2026-05-27",
-  "release_date": "2026-05-21",
+  "lastUpdated": "2026-08-27",
+  "release_date": "2026-08-27",
   "caveat": "Work visa grants are issued at the entry-clearance stage; not every grant leads to long-term migration. The Health and Care Worker route's near-collapse (108,000 main applicants in Caring Personal Service roles fell to 1,400 between YE Dec 2023 and YE Mar 2026) is the single biggest driver of the work-visa fall. Skilled Worker visas overall fell 76 percent from their YE Dec 2023 peak. Dependants are included unless filtered by visa type.",
   "headline": {
     "total_grants_2025": 115847,

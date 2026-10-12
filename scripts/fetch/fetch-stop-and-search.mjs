@@ -7,13 +7,21 @@
  * outcome, object_of_search.
  *
  * Output: data/raw/police_stops/{force}-{YYYY-MM}.json
+ *         data/raw/police_stops/_window.json (the window this run chose)
+ *
+ * The window file records the three months chosen, the forces data.police.uk
+ * listed for each of them, and when that list was read. The transform reads it
+ * to know which of the month files on disk belong to this window (the folder
+ * keeps older months), how many forces were listed, and the date to stamp as
+ * lastUpdated. It is written from the /crimes-street-dates response this
+ * script already reads; it costs no extra request.
  *
  * The API caps responses at 2,000 records per force-month. Met and West
  * Midlands sometimes truncate. The cap is documented; for our purposes
  * (composition signal) it doesn't materially distort the per-force
  * ethnic mix because the cap is stratified.
  */
-import { mkdirSync, writeFileSync, existsSync } from "node:fs";
+import { mkdirSync, writeFileSync, existsSync, renameSync } from "node:fs";
 import path from "node:path";
 
 const outDir = path.resolve("data/raw/police_stops");
@@ -34,6 +42,7 @@ async function fetchJSON(url) {
 
 console.log("Fetching available dates...");
 const dates = await fetchJSON("https://data.police.uk/api/crimes-street-dates");
+const datesReadAt = new Date().toISOString();
 if (!dates) {
   console.error("ERROR: could not load /crimes-street-dates");
   process.exit(1);
@@ -53,6 +62,30 @@ for (const m of monthsWithStops) {
   for (const f of m["stop-and-search"]) allForces.add(f);
 }
 console.log(`Forces with data in this window: ${allForces.size}`);
+
+if (monthsWithStops.length === 0) {
+  console.error("ERROR: /crimes-street-dates listed no month with stop-and-search data");
+  process.exit(1);
+}
+
+// Record the window before fetching, written to a temporary name and moved into
+// place so a reader never sees half a file.
+const windowPath = path.join(outDir, "_window.json");
+writeFileSync(
+  `${windowPath}.tmp`,
+  JSON.stringify(
+    {
+      source: "https://data.police.uk/api/crimes-street-dates",
+      readAt: datesReadAt,
+      months: monthsWithStops.map((m) => ({ date: m.date, forces: [...m["stop-and-search"]].sort() })),
+      forcesListed: [...allForces].sort()
+    },
+    null,
+    2
+  )
+);
+renameSync(`${windowPath}.tmp`, windowPath);
+console.log(`Wrote ${windowPath}`);
 
 let totalRecords = 0;
 let fetched = 0;
