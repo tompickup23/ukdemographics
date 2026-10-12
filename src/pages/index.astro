@@ -9,6 +9,7 @@ import rawProjections from "../data/live/ethnic-projections.json";
 import { slugifyAreaName, SITE_URL, getPublicPlaceAreas } from "../lib/site";
 import { PLACE_COUNT, PCON_COUNT } from "../lib/coverage";
 import { plausibleThrough } from "../lib/projection-plausibility";
+import { census2011WhiteBritish, census2021WhiteBritish } from "../lib/census-national";
 import { getCollection } from "astro:content";
 
 const projData = rawProjections as any;
@@ -52,8 +53,9 @@ const foreignBornMajority2051 = allAreaCodes.filter(code => {
   return fb && fb > 50;
 }).length;
 
-// National population-weighted White British shares, computed from projData
-// (weighted by 2021 LA population throughout for consistency).
+// National population-weighted White British shares for the projected years,
+// computed from projData and weighted by 2021 LA population. The Census years
+// are observed counts and are summed separately (natWb2011, natWb2021 below).
 // Population-weighted White British share, on two rules.
 //
 // Each year divides by the population of the areas that year covers, which sounds
@@ -73,15 +75,13 @@ const foreignBornMajority2051 = allAreaCodes.filter(code => {
 // the two cover different countries. On constant geography the step is 56.0 to 48.8.
 const natAgg = (() => {
   let totalPop = 0, pop2051 = 0, pop2061 = 0, popCurrent = 0, legacyPop = 0;
-  let wb2011 = 0, wb2021 = 0, wb2051 = 0, wb2061 = 0, wb2051on2061Geo = 0, wb2051Current = 0;
+  let wb2051 = 0, wb2061 = 0, wb2051on2061Geo = 0, wb2051Current = 0;
   let n2051 = 0, n2061 = 0, nLegacy = 0;
   for (const code of allAreaCodes) {
     const a = projData.areas[code];
     const pop = a?.current?.total_population ?? 0;
     if (!pop) continue;
     totalPop += pop;
-    wb2011 += (a?.baseline?.groups?.white_british ?? 0) * pop;
-    wb2021 += (a?.current?.groups?.white_british ?? 0) * pop;
 
     const through = plausibleThrough(a);
     const p51 = through != null && through >= 2051 ? a?.projections?.["2051"]?.white_british : null;
@@ -102,8 +102,6 @@ const natAgg = (() => {
   }
   return {
     pop: totalPop,
-    wb2011: totalPop > 0 ? wb2011 / totalPop : 0,
-    wb2021: totalPop > 0 ? wb2021 / totalPop : 0,
     wb2051: pop2051 > 0 ? wb2051 / pop2051 : 0,
     wb2061: pop2061 > 0 ? wb2061 / pop2061 : 0,
     wb2051on2061Geo: pop2061 > 0 ? wb2051on2061Geo / pop2061 : 0,
@@ -115,8 +113,14 @@ const natAgg = (() => {
     n2061,
   };
 })();
-const natWb2011 = natAgg.wb2011;
-const natWb2021 = natAgg.wb2021;
+// Census years are observed, so each is weighted by its own population: 2011 is
+// Census 2011 KS201EW for England and Wales on 2011 boundaries, 2021 the 318
+// areas' Census 2021 TS021 counts. See src/lib/census-national.ts.
+const census2011 = census2011WhiteBritish();
+const census2021 = census2021WhiteBritish(allAreaCodes);
+if (!census2011 || !census2021) throw new Error("Census White British totals missing; run scripts/build/rebase-census-groups.mjs");
+const natWb2011 = census2011.pct;
+const natWb2021 = census2021.pct;
 const natWb2051 = natAgg.wb2051;
 const natWb2061 = natAgg.wb2061;
 
@@ -280,7 +284,9 @@ function findingColor(verdict: string): string {
           <span><i class="hero-key-sw hero-key-sw--proj"></i>Projected</span>
         </div>
         <p class="hero-panel-note">
-          Census years cover all {fmtInt(totalAreas)} areas. 2051 covers the {natAgg.n2051} where
+          Census years are England and Wales as a whole, each weighted by its own population:
+          2011 from Census table KS201EW across {fmtInt(census2011.areas)} authorities on 2011
+          boundaries, 2021 from TS021 across all {fmtInt(census2021.areas)} areas. 2051 covers the {natAgg.n2051} where
           the model is still projecting demography rather than running away from it, and 2061 the
           {natAgg.n2061} it reaches at all, so a 2061 bar would not be measuring the same country
           as the three above it. On those {natAgg.n2061} areas alone the share runs

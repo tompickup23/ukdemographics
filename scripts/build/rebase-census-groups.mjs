@@ -292,6 +292,21 @@ function national(field, year) {
   return out;
 }
 
+// England and Wales as a whole, on each Census's own boundaries: every local
+// authority row in the extract, whatever the site's area codes. The 2011
+// figure covers the authorities that have no 2011 record in the site's file
+// (the eleven created since), so it is the one to quote for the whole country.
+function englandAndWales(year) {
+  const out = { areas: 0, total: 0, groups: Object.fromEntries(GROUP_KEYS.map((g) => [g, 0])) };
+  for (const [code, r] of census[year].byCode) {
+    if (!/^(E0[6-9]|W06)/.test(code)) throw new Error(`${INPUTS[year].fileName}: ${code} is not a local authority code`);
+    out.areas++;
+    out.total += r.total;
+    for (const g of GROUP_KEYS) out.groups[g] += r.groups[g];
+  }
+  return out;
+}
+
 const manifest = {
   generatedBy: "scripts/build/rebase-census-groups.mjs",
   generatedOn: new Date().toISOString().slice(0, 10),
@@ -313,7 +328,8 @@ const manifest = {
     maxDeviationArea: log.modelled.maxDeviationArea,
     outsideTolerance: log.modelled.outside
   },
-  national: { 2021: national("current", 2021), 2011: national("baseline", 2011) }
+  national: { 2021: national("current", 2021), 2011: national("baseline", 2011) },
+  englandAndWales: { 2021: englandAndWales(2021), 2011: englandAndWales(2011) }
 };
 
 console.log(`Inputs:`);
