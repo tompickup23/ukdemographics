@@ -29,6 +29,22 @@
       "edition_published_at": "2026-07-30T09:30:00+01:00",
       "etag": "\"6a82c6bb-dce1\"",
       "last_modified": "Mon, 17 Aug 2026 08:30:51 GMT"
+    },
+    {
+      "url": "https://assets.publishing.service.gov.uk/media/6a82c6bb03b4fe14b1e7dedb/cases-of-tuberculosis-reported-to-enhanced-TB-surveillance-systems-England-2025-supplementary-data-tables.ods",
+      "attempted_at": "2026-10-12T17:41:46.481Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "284d9a31f9731f5a4b846d72751a146b42100646fbf4577e1c4c8bd3bdc74aa5",
+      "bytes": 56545,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "cases-of-tuberculosis-reported-to-enhanced-TB-surveillance-systems-England-2025-supplementary-data-tables.ods",
+      "landing_page": "https://www.gov.uk/government/statistics/reports-of-cases-of-tb-to-uk-enhanced-tuberculosis-surveillance-systems-2000-to-2025",
+      "edition": "Reports of cases of TB to UK enhanced tuberculosis surveillance systems, 2000 to 2025",
+      "edition_published_at": "2026-07-30T09:30:00+01:00",
+      "etag": "\"6a82c6bb-dce1\"",
+      "last_modified": "Mon, 17 Aug 2026 08:30:51 GMT"
     }
   ]
 }

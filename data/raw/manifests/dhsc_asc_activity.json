@@ -45,6 +45,38 @@
       ],
       "etag": "\"6a2a7598-75f72\"",
       "last_modified": "Thu, 11 Jun 2026 08:45:12 GMT"
+    },
+    {
+      "url": "https://assets.publishing.service.gov.uk/media/6a2a759815f2a70fac7e5d4d/asc-activity-report-england-2024-to-2025-data-tables-updated-june-2026.ods",
+      "attempted_at": "2026-10-12T17:41:55.239Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "2a51d6d6859f6fcee6063caeeea5f9d989ec538a87caf45225a1e59da2683e5f",
+      "bytes": 483186,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "asc-activity-report-england-2024-to-2025-data-tables-updated-june-2026.ods",
+      "landing_page": "https://www.gov.uk/government/statistics/adult-social-care-activity-report-england-2024-to-2025",
+      "edition": "Adult social care activity report, England: 2024 to 2025",
+      "edition_published_at": "2025-10-23T09:30:00+01:00",
+      "edition_updated_at": "2026-10-07T11:21:26+01:00",
+      "attachment_title": "Adult social care activity report 2024 to 2025: data tables",
+      "change_notes": [
+        {
+          "note": "Added notice of planned corrections to the 2024 to 2025 activity report, affecting data submitted by some local authorities. Updated figures will be published alongside the 2025 to 2026 activity report.",
+          "public_timestamp": "2026-10-07T10:21:26Z"
+        },
+        {
+          "note": "Updated to amend the methodology and data quality statement, and to upload 3 corrected files - LTS004 CSV, STS001 CSV and ODS data tables files. See the correction notice for details.",
+          "public_timestamp": "2026-06-16T14:53:46Z"
+        },
+        {
+          "note": "First published.",
+          "public_timestamp": "2025-10-23T08:30:00Z"
+        }
+      ],
+      "etag": "\"6a2a7598-75f72\"",
+      "last_modified": "Thu, 11 Jun 2026 08:45:12 GMT"
     }
   ]
 }

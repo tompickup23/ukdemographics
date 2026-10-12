@@ -32,6 +32,25 @@
       "edition_updated_at": "2026-01-21T09:30:00+00:00",
       "etag": "\"696f605f-1b7832\"",
       "last_modified": "Tue, 20 Jan 2026 11:00:47 GMT"
+    },
+    {
+      "url": "https://assets.publishing.service.gov.uk/media/696f605ff6aa424b452e3359/2025_Local_Authority_Drop_Down.xlsx",
+      "attempted_at": "2026-10-12T17:41:49.153Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "9fd74444f25278b53f7666dc23ff060d1996adcfe27e74caf63aef2b5b19af06",
+      "bytes": 1800242,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "council-taxbase-la-level_2025.xlsx",
+      "published_file_name": "2025_Local_Authority_Drop_Down.xlsx",
+      "attachment_title": "Council Taxbase: Local authority level data for 2025 (revised)",
+      "landing_page": "https://www.gov.uk/government/statistics/council-taxbase-2025-in-england",
+      "edition": "Council Taxbase 2025 in England",
+      "edition_first_published_at": "2025-11-06T00:00:00+00:00",
+      "edition_updated_at": "2026-01-21T09:30:00+00:00",
+      "etag": "\"696f605f-1b7832\"",
+      "last_modified": "Tue, 20 Jan 2026 11:00:47 GMT"
     }
   ]
 }
