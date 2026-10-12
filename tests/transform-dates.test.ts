@@ -13,9 +13,6 @@ import { describe, expect, it } from "vitest";
  * into a string.
  */
 const EXCLUDED: Record<string, string> = {
-  // PR #79 rewrites this transform and derives its snapshot date; still typed on main
-  // until it merges. Remove this line when it does.
-  "transform_crime.py": "separate PR (crime, #79)",
   // No raw input: hand-curated from cited reports, so its date is the curation date.
   "transform_nhs_funding_context.py": "hand-curated, no file to read a date from"
 };
