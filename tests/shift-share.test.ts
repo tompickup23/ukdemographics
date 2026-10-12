@@ -7,6 +7,7 @@
  */
 import { describe, expect, it } from "vitest";
 import rawProjections from "../src/data/live/ethnic-projections.json";
+import { NO_DRIVER, SHIFT_SHARE_COMPONENT_NAMES, shiftShareDriver } from "../src/lib/shift-share-driver";
 
 interface Point {
   year: number;
@@ -75,5 +76,64 @@ describe("shift-share decomposition", () => {
       })
       .map(([c, a]) => `${c} ${a.areaName}`);
     expect(wrong).toEqual([]);
+  });
+});
+
+describe("shift-share dominant driver label", () => {
+  const withShare = compared.filter(([, a]) => a.shiftShare);
+  const nameToKey = new Map(SHIFT_SHARE_COMPONENT_NAMES.map(([k, n]) => [n, k]));
+
+  it("never names a component that works against the total change as its driver", () => {
+    const wrong = withShare
+      .filter(([, a]) => {
+        const s = a.shiftShare!;
+        const label = shiftShareDriver(s);
+        if (label === NO_DRIVER) return s.totalChangePp !== 0;
+        const drivers = label.split(", offset by ")[0].replace(/, equally$/, "").split(" and ");
+        return drivers.some((d) => Math.sign(s[nameToKey.get(d)!] as number) !== Math.sign(s.totalChangePp));
+      })
+      .map(([c, a]) => `${c} ${a.areaName}: ${shiftShareDriver(a.shiftShare!)}`);
+    expect(wrong).toEqual([]);
+  });
+
+  it("names a component offsetting the change wherever one is at least as large as the driver", () => {
+    const wrong = withShare
+      .filter(([, a]) => {
+        const s = a.shiftShare!;
+        const sign = Math.sign(s.totalChangePp);
+        const values = SHIFT_SHARE_COMPONENT_NAMES.map(([k]) => s[k] as number);
+        const driver = Math.max(...values.filter((v) => Math.sign(v) === sign).map(Math.abs));
+        const against = Math.max(0, ...values.filter((v) => Math.sign(v) === -sign).map(Math.abs));
+        return (against >= driver) !== shiftShareDriver(s).includes(", offset by ");
+      })
+      .map(([c, a]) => `${c} ${a.areaName}`);
+    expect(wrong).toEqual([]);
+  });
+
+  it("is the label stored in the data file", () => {
+    const wrong = withShare
+      .filter(([, a]) => a.shiftShare!.dominantDriver !== shiftShareDriver(a.shiftShare!))
+      .map(([c, a]) => `${c} ${a.areaName}: stored "${a.shiftShare!.dominantDriver}", rule "${shiftShareDriver(a.shiftShare!)}"`);
+    expect(wrong).toEqual([]);
+  });
+
+  it("handles the cases the data does not currently hold", () => {
+    const base = { totalChangePp: -7.6, nationalEffectPp: -6.2, structuralEffectPp: -0.5, localEffectPp: -1 };
+    expect(shiftShareDriver(base)).toBe("national trend");
+    // A local effect raising the share by more than the national trend lowered it.
+    expect(shiftShareDriver({ totalChangePp: -0.2, nationalEffectPp: -6.2, structuralEffectPp: -1.2, localEffectPp: 7.2 }))
+      .toBe("national trend, offset by local migration");
+    // A local effect leading the fall.
+    expect(shiftShareDriver({ totalChangePp: -20, nationalEffectPp: -6.2, structuralEffectPp: 2, localEffectPp: -15.8 }))
+      .toBe("local migration");
+    // Age structure leading.
+    expect(shiftShareDriver({ totalChangePp: -4, nationalEffectPp: -1, structuralEffectPp: -2.5, localEffectPp: -0.5 }))
+      .toBe("age structure");
+    // A rise in the share is driven by whatever raised it.
+    expect(shiftShareDriver({ totalChangePp: 1.5, nationalEffectPp: -6.2, structuralEffectPp: 0.7, localEffectPp: 7 }))
+      .toBe("local migration");
+    expect(shiftShareDriver({ totalChangePp: -11.3, nationalEffectPp: -6.2, structuralEffectPp: 1, localEffectPp: -6.2 }))
+      .toBe("national trend and local migration, equally");
+    expect(shiftShareDriver({ totalChangePp: 0, nationalEffectPp: -6.2, structuralEffectPp: 0, localEffectPp: 6.2 })).toBe(NO_DRIVER);
   });
 });
