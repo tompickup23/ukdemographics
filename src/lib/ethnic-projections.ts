@@ -185,7 +185,13 @@ export function getSignificantDemographicShifts(cutoffYear = 2070): Array<{
 }
 
 /**
- * Format projection data for a simple bar chart display.
+ * Format projection data for a simple bar chart display: one point per year.
+ *
+ * Eleven areas formed after 2011 (Buckinghamshire, Dorset, North Yorkshire and
+ * others) have no 2011 Census figure of their own, so their baseline is the 2021
+ * Census itself. For those the baseline and current points share a year, and the
+ * chart showed 2021 twice. Where two points fall in the same year, the observed
+ * point is kept over a projection, and the current Census over the baseline.
  */
 export function getEthnicCompositionTimeline(areaCode: string): Array<{
   year: string;
@@ -195,16 +201,18 @@ export function getEthnicCompositionTimeline(areaCode: string): Array<{
   const area = data.areas[areaCode];
   if (!area) return null;
 
-  const timeline = [
-    { year: String(area.baseline.year), groups: area.baseline.groups, isProjection: false },
-    { year: String(area.current.year), groups: area.current.groups, isProjection: false }
-  ];
-
+  const byYear = new Map<string, { year: string; groups: EthnicGroup; isProjection: boolean }>();
   for (const [year, groups] of Object.entries(area.projections)) {
-    timeline.push({ year, groups, isProjection: true });
+    byYear.set(year, { year, groups, isProjection: true });
+  }
+  // Later writes win: the baseline replaces a projection, the current Census
+  // replaces the baseline.
+  for (const point of [area.baseline, area.current]) {
+    const year = String(point.year);
+    byYear.set(year, { year, groups: point.groups, isProjection: false });
   }
 
-  return timeline.sort((a, b) => Number(a.year) - Number(b.year));
+  return [...byYear.values()].sort((a, b) => Number(a.year) - Number(b.year));
 }
 
 /**
