@@ -7,19 +7,29 @@ export interface PrimaryNeed {
 
 export interface AreaSendProfile {
   areaName: string;
-  ehcpRatePer10k: number;
-  asdPrevalencePct: number;
-  fiveYearGrowthPct: number;
-  totalEhcps: number;
+  /** Pupils with an EHC plan on the January school census, all schools. */
+  ehcpPupils: number;
+  /** DfE's own percentage: pupils with an EHC plan as a share of pupils on roll. */
+  ehcpPctOfPupils: number | null;
+  pupilsOnRoll: number | null;
+  /** Autism as the primary need, as a share of pupils with an EHC plan. */
+  asdPrevalencePct: number | null;
+  fiveYearGrowthPct: number | null;
+  ehcpPupilsFiveYearsEarlier: number | null;
   primaryNeeds: PrimaryNeed[];
+  primaryNeedBase: number | null;
   period: string;
 }
 
 interface SendDashboard {
   source: string;
+  sourceUrl: string;
   methodology: string;
   lastUpdated: string;
+  edition: string;
+  growthBasePeriod: string;
   caveat: string;
+  england: AreaSendProfile | null;
   areas: Record<string, AreaSendProfile>;
 }
 
@@ -39,8 +49,11 @@ export function getSendCaveat(): string {
 
 export function getSendGrowthPercentile(areaCode: string): number | null {
   const area = data.areas[areaCode];
-  if (!area) return null;
-  const rates = Object.values(data.areas).map((a) => a.fiveYearGrowthPct);
-  const below = rates.filter((r) => r < area.fiveYearGrowthPct).length;
+  if (!area || area.fiveYearGrowthPct == null) return null;
+  const growth = area.fiveYearGrowthPct;
+  const rates = Object.values(data.areas)
+    .map((a) => a.fiveYearGrowthPct)
+    .filter((r): r is number => r != null);
+  const below = rates.filter((r) => r < growth).length;
   return Math.round((below / rates.length) * 100);
 }

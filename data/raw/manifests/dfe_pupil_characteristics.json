@@ -1,0 +1,70 @@
+{
+  "dataset": "dfe_pupil_characteristics",
+  "publisher": "Department for Education",
+  "cadence": "annual (June), with in-place updates",
+  "landing": "https://explore-education-statistics.service.gov.uk/find-statistics/school-pupils-and-their-characteristics",
+  "note": "The academic year and census date are read from the files' time_period column by the transforms, not from this manifest. The ethnicity and language file is stored with the academic year in its name so that the model's calibration input (the unsuffixed file read by validate_schools.mjs) is never overwritten.",
+  "release": {
+    "publication": "Schools, pupils and their characteristics",
+    "title": "Academic year 2025/26",
+    "yearTitle": "2025/26",
+    "releaseVersionId": "420ab305-b770-4dfa-89a0-ac899f34ac46",
+    "published": "2026-06-04",
+    "lastUpdated": "2026-07-14",
+    "updateCount": 4,
+    "page": "https://explore-education-statistics.service.gov.uk/find-statistics/school-pupils-and-their-characteristics/2025-26"
+  },
+  "current": {
+    "pupils_ethnicity_language": {
+      "fileName": "spc_pupils_ethnicity_and_language_2025-26.csv",
+      "fileSha256": "7d64ef841b0fcc1e770145206a8be5c153632977b546ad2f04ed3525ef1876d3",
+      "sizeBytes": 60703845,
+      "sourceUrl": "https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/fa1b1709-09cf-4ab4-a510-f5bdab7d97aa/csv"
+    },
+    "school_level": {
+      "fileName": "spc_school_level_underlying_data_2026.csv",
+      "fileSha256": "14fd1d59157b3495da7d5caabbcb28ecd2f8048525b25b47ebc93ac57c058c93",
+      "sizeBytes": 23590236,
+      "sourceUrl": "https://content.explore-education-statistics.service.gov.uk/api/releases/420ab305-b770-4dfa-89a0-ac899f34ac46/files/3d6359e3-0733-4a4c-a829-66aec003966d"
+    }
+  },
+  "attempts": [
+    {
+      "url": "https://content.explore-education-statistics.service.gov.uk/api/releases/420ab305-b770-4dfa-89a0-ac899f34ac46/files/1933c1e0-75f6-4271-f79a-08deb4e064b9",
+      "attempted_at": "2026-10-12T08:35:33.196Z",
+      "outcome": "not_expected_csv",
+      "http_status": 200,
+      "robots_status": "absent",
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "spc_pupils_ethnicity_and_language_2025-26.csv",
+      "title": "Pupil characteristics - number of pupils by ethnicity and language",
+      "release_version_id": "420ab305-b770-4dfa-89a0-ac899f34ac46"
+    },
+    {
+      "url": "https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/fa1b1709-09cf-4ab4-a510-f5bdab7d97aa/csv",
+      "attempted_at": "2026-10-12T08:35:55.874Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "allowed",
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "spc_pupils_ethnicity_and_language_2025-26.csv",
+      "title": "Pupil characteristics - number of pupils by ethnicity and language",
+      "release_version_id": "420ab305-b770-4dfa-89a0-ac899f34ac46",
+      "blob_sha256": "7d64ef841b0fcc1e770145206a8be5c153632977b546ad2f04ed3525ef1876d3",
+      "bytes": 60703845
+    },
+    {
+      "url": "https://content.explore-education-statistics.service.gov.uk/api/releases/420ab305-b770-4dfa-89a0-ac899f34ac46/files/3d6359e3-0733-4a4c-a829-66aec003966d",
+      "attempted_at": "2026-10-12T08:35:56.923Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "spc_school_level_underlying_data_2026.csv",
+      "title": "School level underlying data 2026",
+      "release_version_id": "420ab305-b770-4dfa-89a0-ac899f34ac46",
+      "blob_sha256": "14fd1d59157b3495da7d5caabbcb28ecd2f8048525b25b47ebc93ac57c058c93",
+      "bytes": 23590236
+    }
+  ]
+}
