@@ -161,6 +161,8 @@ export interface Frame {
   /** For a county: unitaries in the ceremonial county, drawn with their own figures, never in the total. */
   extras: string[];
   focus?: string;
+  /** Focus frames: whether the other councils border the focus or, for an island, are nearest to it. */
+  relation?: "bordering" | "nearby";
   subtitle: string;
   /** A line for the footer, when the frame needs one (the unitaries on a county map). */
   note?: string;
@@ -175,14 +177,52 @@ const byName = (a: string, b: string) => areaName(a).localeCompare(areaName(b));
 const joinNames = (names: string[]): string =>
   names.length <= 1 ? names.join("") : `${names.slice(0, -1).join(", ")} and ${names.at(-1)}`;
 
-/** A council and the councils with a place page that border it. */
+/** Islands reach this far for "nearby" councils. Scilly to Cornwall is about 45 km. */
+export const NEARBY_KM = 60;
+
+/**
+ * Councils with a place page nearest to an island council with no land border: the
+ * nearest within NEARBY_KM and any others within 15 km of it, up to three: Gwynedd across the Menai Strait, the Solent councils from the
+ * Isle of Wight, Cornwall from Scilly. Distance is the closest pair of boundary vertices.
+ */
+export function nearbyCouncils(code: string, max = 3): string[] {
+  const geo = loadCouncils();
+  const verts = (c: string) => polygonsOf(geo.get(c)!).flat().flat() as unknown as number[][];
+  const own = verts(code);
+  const lat0 = own.reduce((a, p) => a + p[1], 0) / own.length, kx = 111.32 * Math.cos((lat0 * Math.PI) / 180), ky = 110.57;
+  const [x0, y0, x1, y1] = bboxOf(geo.get(code)!), padX = NEARBY_KM / kx, padY = NEARBY_KM / ky;
+  const found: Array<[string, number]> = [];
+  for (const c of placeCodes()) {
+    if (c === code || !geo.has(c)) continue;
+    const b = bboxOf(geo.get(c)!);
+    if (b[0] > x1 + padX || b[2] < x0 - padX || b[1] > y1 + padY || b[3] < y0 - padY) continue;
+    let best = Infinity;
+    const theirs = verts(c);
+    for (let i = 0; i < own.length; i += 2) for (let j = 0; j < theirs.length; j += 2) {
+      const d = Math.hypot((own[i][0] - theirs[j][0]) * kx, (own[i][1] - theirs[j][1]) * ky);
+      if (d < best) best = d;
+    }
+    if (best <= NEARBY_KM) found.push([c, best]);
+  }
+  found.sort((a, b) => a[1] - b[1]);
+  // The nearest, and any others within 15 km of it: a ferry crossing, not a bay away.
+  return found.filter(([, d]) => d <= found[0][1] + 15).slice(0, max).map(([c]) => c);
+}
+
+/**
+ * A council and the councils with a place page that border it. An island with no land
+ * border gets its nearest councils instead, and says so ("nearby", not "border").
+ */
 export function focusFrame(code: string): Frame {
   if (!isPlace(code)) throw new Error(`${code} has no place page`);
-  const nb = [...neighbours(code)].sort(byName);
+  const bordering = neighbours(code);
+  const nearby = bordering.length ? [] : nearbyCouncils(code);
+  const nb = [...bordering, ...nearby].sort(byName);
   const name = areaName(code);
   return {
     id: slugify(name), type: "focus", name, focus: code, members: [code, ...nb], core: [code], extras: [],
-    subtitle: nb.length ? `${name} and the councils that border it` : name
+    relation: nearby.length ? "nearby" : "bordering",
+    subtitle: bordering.length ? `${name} and the councils that border it` : nearby.length ? `${name} and the nearest councils` : name
   };
 }
 

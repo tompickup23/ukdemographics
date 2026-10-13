@@ -169,6 +169,74 @@ export const tagSize = (t: Template) => {
 const splitName = (name: string, size: number, max: number, font: FontKey): string[] =>
   measure(name, size, font) <= max || !name.includes(" ") ? [name] : wrap(name, size, Math.max(max, measure(name, size, font) / 2 + size), font);
 
+// ---------- Paths ----------
+/** Douglas-Peucker on a projected ring, keeping both ends. */
+function simplify(pts: Pt[], tol: number): Pt[] {
+  if (pts.length < 4) return pts;
+  const keep = new Uint8Array(pts.length);
+  keep[0] = keep[pts.length - 1] = 1;
+  const stack: Array<[number, number]> = [[0, pts.length - 1]];
+  while (stack.length) {
+    const [i, j] = stack.pop()!;
+    const [ax, ay] = pts[i], [bx, by] = pts[j], dx = bx - ax, dy = by - ay, L = Math.hypot(dx, dy);
+    let max = -1, at = -1;
+    for (let k = i + 1; k < j; k++) {
+      const d = L ? Math.abs(dy * pts[k][0] - dx * pts[k][1] + bx * ay - by * ax) / L : Math.hypot(pts[k][0] - ax, pts[k][1] - ay);
+      if (d > max) { max = d; at = k; }
+    }
+    if (max > tol) { keep[at] = 1; stack.push([i, at], [at, j]); }
+  }
+  return pts.filter((_, k) => keep[k]);
+}
+
+/**
+ * A council as an SVG path: projected, simplified to `tol` units, one decimal place, rings
+ * smaller than a unit dropped. Neighbours are simplified separately, so a shared line may
+ * differ by up to `tol` between them; the boundary stroke is wider than that.
+ */
+/** Sutherland-Hodgman: a ring cut to a rectangle. Anything beyond the panel is masked anyway. */
+function clipRing(pts: Pt[], b: Box): Pt[] {
+  const edges: Array<[(p: Pt) => boolean, (p: Pt, q: Pt) => Pt]> = [
+    [(p) => p[0] >= b.x, (p, q) => [b.x, p[1] + ((q[1] - p[1]) * (b.x - p[0])) / (q[0] - p[0])]],
+    [(p) => p[0] <= b.x + b.w, (p, q) => [b.x + b.w, p[1] + ((q[1] - p[1]) * (b.x + b.w - p[0])) / (q[0] - p[0])]],
+    [(p) => p[1] >= b.y, (p, q) => [p[0] + ((q[0] - p[0]) * (b.y - p[1])) / (q[1] - p[1]), b.y]],
+    [(p) => p[1] <= b.y + b.h, (p, q) => [p[0] + ((q[0] - p[0]) * (b.y + b.h - p[1])) / (q[1] - p[1]), b.y + b.h]]
+  ];
+  let out = pts;
+  for (const [inside, cut] of edges) {
+    const input = out; out = [];
+    if (!input.length) break;
+    for (let i = 0; i < input.length; i++) {
+      const p = input[i], q = input[(i + 1) % input.length];
+      if (inside(p)) { out.push(p); if (!inside(q)) out.push(cut(p, q)); }
+      else if (inside(q)) out.push(cut(p, q));
+    }
+  }
+  if (out.length) out.push(out[0]);
+  return out;
+}
+
+export function svgPath(f: CouncilFeature, proj: GeoProjection, tol: number, clip?: Box): string {
+  let d = "";
+  for (const ring of polygonsOf(f).flat()) {
+    let projected = ring.map((c) => proj(c as [number, number])! as Pt);
+    if (clip) projected = clipRing(projected.slice(0, -1), clip);
+    const pts = simplify(projected, tol);
+    let area = 0;
+    for (let i = 0; i < pts.length - 1; i++) area += pts[i][0] * pts[i + 1][1] - pts[i + 1][0] * pts[i][1];
+    if (pts.length < 4 || Math.abs(area / 2) < 1) continue;
+    let last = "";
+    pts.forEach(([x, y], i) => {
+      const p = `${x.toFixed(1)},${y.toFixed(1)}`;
+      if (p === last) return;
+      d += (i === 0 ? "M" : "L") + p;
+      last = p;
+    });
+    d += "Z";
+  }
+  return d;
+}
+
 const layoutCache = new Map<string, Layout>();
 const bboxCache = new Map<string, BBox>();
 const cachedBBox = (code: string, f: CouncilFeature): BBox => {
@@ -270,8 +338,11 @@ export function buildLayout(frame: Frame, tk: TemplateKey, ind: Indicator): Layo
   const target = (isFocus ? geo.get(frame.focus!)! : { type: "FeatureCollection", features: feats }) as GeoPermissibleObjects;
   const proj = geoMercator().fitExtent([[panel.x + ix, panel.y + iy], [panel.x + panel.w - ix, panel.y + panel.h - iy]], target);
   const path = geoPath(proj);
-  const r2 = (d: string | null) => (d ?? "").replace(/(\d+\.\d{2})\d+/g, "$1");
-  const shapes = feats.map((f) => ({ code: f.properties.code, d: r2(path(f)) }));
+  // Simplify in screen space: under half a CSS pixel on a phone, two thirds of a pixel on cards.
+  const tol = tk === "inline" ? 0.75 : 0.66;
+  // Paths are cut a little outside the panel (the camera push in clips zooms in, never out).
+  const clip: Box = { x: panel.x - 8, y: panel.y - 8, w: panel.w + 16, h: panel.h + 16 };
+  const shapes = feats.map((f) => ({ code: f.properties.code, d: svgPath(f, proj, tol, clip) }));
   const context: string[] = [];
   if (isFocus) {
     // Only councils whose box reaches the panel: the panel corners, unprojected, bound the view.
@@ -282,7 +353,7 @@ export function buildLayout(frame: Frame, tk: TemplateKey, ind: Indicator): Layo
       if (b[0] > lonE || b[2] < lonW || b[1] > latN || b[3] < latS) continue;
       const [[x0, y0], [x1, y1]] = path.bounds(f);
       if (x1 < panel.x || x0 > panel.x + panel.w || y1 < panel.y || y0 > panel.y + panel.h) continue;
-      context.push(r2(path(f)));
+      context.push(svgPath(f, proj, tol * 1.6, clip));
     }
   }
 

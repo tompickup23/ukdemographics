@@ -14,11 +14,12 @@
 import rawProjections from "../../data/live/ethnic-projections.json";
 import rawMye from "../../data/live/population-estimates.json";
 import rawCensusTotals from "../../../data/raw/manifests/census_ethnic_groups.json";
+import rawSuccessors2011 from "../../data/live/census-2011-successors.json";
 
 export type Kind = "census" | "estimate" | "projection";
 /**
  * ok: a value is shown. absent: the source has no value for this council and year.
- * formed_since: a council formed after 2011, whose 2011 figure the dataset does not hold.
+ * formed_since: a council formed after 2011 with no 2011 figure in any held file.
  * older_run: a projected year for a council still on the older model run.
  */
 export type Status = "ok" | "absent" | "formed_since" | "older_run";
@@ -75,6 +76,11 @@ const mye = rawMye as unknown as {
   source: { title: string; published: string; fileName: string };
   areas: Record<string, { name: string; series?: Record<string, number> }>;
 };
+/** 2011 counts for councils formed since 2011: exact sums of their whole 2011 districts. */
+const successors2011 = (rawSuccessors2011 as unknown as {
+  areas: Record<string, { total_population: number; groups_absolute: Record<string, number>; predecessors: Array<{ name: string }> }>;
+}).areas;
+export const isSummed2011 = (code: string): boolean => code in successors2011;
 const censusTotals = rawCensusTotals as unknown as {
   englandAndWales: Record<string, { total: number; groups: Record<string, number> }>;
 };
@@ -100,7 +106,10 @@ const count = (v: number) => v.toLocaleString("en-GB");
  * a "White British" measure would carry a meaning of its own. No red for any group.
  */
 export const SEQUENTIAL = ["#25233e", "#2e2b5c", "#39357b", "#46419c", "#5751be", "#6d66de", "#8c86f5"];
-export const DIVERGING = ["#b0703a", "#7a5636", "#3d434b", "#3b3878", "#524dad", "#7b74f2", "#b9b5f9"];
+// The neutral class (about no change) is a mid grey: the darker #3d434b it replaced was
+// 0.032 from the first indigo class in OKLab under tritanopia; #6e747a keeps every adjacent
+// pair at least 0.09 apart under protan, deutan and tritan simulation (tests/map.test.ts).
+export const DIVERGING = ["#b0703a", "#7a5636", "#6e747a", "#3b3878", "#524dad", "#7b74f2", "#b9b5f9"];
 
 const PUBLISHED = /(\d{1,2} [A-Z][a-z]+ \d{4})/.exec(mye.source.published)?.[1];
 const MYE_SOURCE = `ONS, ${mye.source.title}, table MYE4${PUBLISHED ? ` (published ${PUBLISHED})` : ""}`;
@@ -115,7 +124,7 @@ function whiteBritishShare(projections: boolean): Indicator {
   const status = (code: string, y: number): Status => {
     const a = model.areas[code];
     if (!a) return "absent";
-    if (y === 2011) return a.baseline?.year === 2011 ? "ok" : "formed_since";
+    if (y === 2011) return a.baseline?.year === 2011 || successors2011[code] ? "ok" : "formed_since";
     if (y === 2021) return a.current?.year === 2021 ? "ok" : "absent";
     if (!projections) return "absent";
     if (!a.stochastic?.[String(y)]) return "older_run";
@@ -124,7 +133,11 @@ function whiteBritishShare(projections: boolean): Indicator {
   const value = (code: string, y: number): number | null => {
     if (status(code, y) !== "ok") return null;
     const a = model.areas[code];
-    if (y === 2011) return a.baseline.groups.white_british;
+    if (y === 2011) {
+      if (a.baseline.year === 2011) return a.baseline.groups.white_british;
+      const d = successors2011[code];
+      return Number(((d.groups_absolute.white_british / d.total_population) * 100).toFixed(2));
+    }
     if (y === 2021) return a.current.groups.white_british;
     return a.projections![String(y)].white_british;
   };
@@ -163,6 +176,9 @@ function whiteBritishShare(projections: boolean): Indicator {
           : `UK Demographics model ${MODEL_VERSION} (Hamilton-Perry, 2021 base, ONS SNPP 2022-based totals), updated ${model.lastUpdated}`,
     notes: (y, codes) => {
       const out: string[] = [];
+      const summed = codes.filter((c) => successors2011[c] && model.areas[c]?.baseline.year !== 2011).map((c) => model.areas[c].areaName).sort();
+      if (y <= 2021 && summed.length)
+        out.push(`2011 ${summed.length > 1 ? "figures" : "figure"} summed from the 2011 districts now in ${summed.length > 1 ? "each council" : "the council"}: ${summed.join("; ")}.`);
       if (y === 2011 && codes.some((c) => status(c, 2011) === "formed_since"))
         out.push("n/a in 2011: councils formed since 2011 have no 2011 figure in this dataset.");
       if (isProjected(y)) out.push("Projection, not a count.");

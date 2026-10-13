@@ -28,6 +28,7 @@ export const C = {
   panel: "#12171c",
   context: "#1b2229",
   na: "#2a3038",
+  naStripe: "#4b535c",
   plateName: "#cfd6db",
   plateSub: "#c3cbd1",
   estimatePill: "#262d35",
@@ -105,7 +106,8 @@ class Canvas {
 }
 
 const val = (ind: Indicator, c: string, y: number) => (ind.status(c, y) === "ok" ? ind.value(c, y) : null);
-const fillAt = (ind: Indicator, c: string, y: number) => { const v = val(ind, c, y); return v == null ? C.na : colourFor(ind, v); };
+/** The base colour behind a council: its class, or the n/a grey (which the map hatches). */
+const baseFill = (ind: Indicator, c: string, y: number) => { const v = val(ind, c, y); return v == null ? C.na : colourFor(ind, v); };
 const display = (ind: Indicator, c: string, y: number) => { const v = val(ind, c, y); return v == null ? "n/a" : ind.format(v); };
 const subText = (ind: Indicator, c: string, y: number) => {
   const st = ind.status(c, y);
@@ -174,7 +176,7 @@ function legend(cv: Canvas, L: Layout, year: number, hasNA: boolean): string {
   }
   if (hasNA) {
     const nx = x + w + 18 * Math.max(L.t.s, 0.6);
-    o += `<rect x="${n2(nx)}" y="${n2(y)}" width="${n2(bw * 0.7)}" height="${n2(barH)}" rx="3" fill="${C.na}" stroke="${C.muted}" stroke-opacity="0.35"/>`;
+    o += `<rect x="${n2(nx)}" y="${n2(y)}" width="${n2(bw * 0.7)}" height="${n2(barH)}" rx="3" fill="${mapIds(L).na}" stroke="${C.muted}" stroke-opacity="0.35"/>`;
     o += cv.txt({ x: nx, y: y + barH + F.legend * 1.25, size: F.legend, fill: C.muted, bg: C.ground, content: "n/a" });
   }
   return o;
@@ -200,7 +202,15 @@ function timeline(cv: Canvas, L: Layout, pos: number): string {
 const perYear = (L: Layout, attr: "f" | "t", fn: (y: number) => string | null) =>
   L.tk !== "inline" ? "" : L.ind.years.map((y) => { const v = fn(y); return v == null ? "" : ` data-${attr}-${y}="${esc(v)}"`; }).join("");
 
+/** Ids for one map's patterns, unique per frame and template. */
+function mapIds(L: Layout) {
+  const hatchId = `ukd-hatch-${L.frame.id}-${L.tk}`, naId = `ukd-na-${L.frame.id}-${L.tk}`;
+  return { hatchId, naId, na: `url(#${naId})` };
+}
+
 export function render(L: Layout, st: FrameState): RenderResult {
+  const ids = mapIds(L);
+  const fillAt = (ind: Indicator, c: string, y: number) => (val(ind, c, y) == null ? ids.na : colourFor(ind, val(ind, c, y)!));
   const { t, ind, frame, panel, W, H } = L, s = t.s, F = t.font, cv = new Canvas(), tk = L.tk;
   const isFocus = frame.type === "focus";
   const year = st.labelYear, kind = ind.kind(year);
@@ -212,7 +222,9 @@ export function render(L: Layout, st: FrameState): RenderResult {
   let o = `<svg xmlns="http://www.w3.org/2000/svg"${inline ? ` class="ukd-map" data-years="${ind.years.join(" ")}" data-year="${year}"` : ` width="${W}" height="${H}"`} viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="ukd-map-title-${frame.id}-${tk}">`;
   const altText = alt(L, year);
   o += `<title id="ukd-map-title-${frame.id}-${tk}">${esc(altText)}</title>`;
-  o += `<defs><pattern id="ukd-hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4.5" height="12" fill="${C.ground}" opacity="0.5"/></pattern></defs>`;
+  // Pattern ids carry the frame and template, so two maps on one page never share one.
+  o += `<defs><pattern id="${ids.hatchId}" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4.5" height="12" fill="${C.ground}" opacity="0.5"/></pattern>` +
+    `<pattern id="${ids.naId}" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="${C.na}"/><rect width="2.5" height="8" fill="${C.naStripe}"/></pattern></defs>`;
   o += `<rect width="${W}" height="${H}" fill="${C.ground}"/>`;
 
   // ---- Map, with a slow camera push for video ----
@@ -222,16 +234,25 @@ export function render(L: Layout, st: FrameState): RenderResult {
   for (const d of L.context) o += `<path d="${d}" fill="${C.context}" stroke="${C.ground}" stroke-width="${n2(1.5 * s)}"/>`;
   const projectedNow = ind.kind(st.t >= 0.5 ? st.toYear : st.fromYear) === "projection";
   for (const sh of L.shapes) {
-    const a = fillAt(ind, sh.code, st.fromYear), b = fillAt(ind, sh.code, st.toYear);
-    const f = st.t > 0 && a !== b ? mix(a, b, ease(st.t)) : st.t >= 1 ? b : a;
+    const a = baseFill(ind, sh.code, st.fromYear), b = baseFill(ind, sh.code, st.toYear);
+    // Between years the colours blend; on a year, n/a is hatched, because the grey alone
+    // sits close to the darkest class.
+    const settled = st.t === 0 || st.t >= 1 || a === b, at = st.t >= 1 ? b : a;
+    const f = !settled ? mix(a, b, ease(st.t)) : at === C.na ? ids.na : at;
     fills[sh.code] = f;
     const name = esc(areaName(sh.code));
-    o += `<path d="${sh.d}" fill="${f}" stroke="${C.ground}" stroke-width="${n2(2 * s)}" stroke-linejoin="round" data-code="${sh.code}"${perYear(L, "f", (y) => fillAt(ind, sh.code, y))}><title>${name}: ${esc(display(ind, sh.code, year))}</title></path>`;
-    if (projectedNow) o += `<path d="${sh.d}" fill="url(#ukd-hatch)"/>`;
+    // The focus council's geometry sits in defs once, unpainted, and is drawn twice by
+    // reference: filled here, outlined below. A use cannot repaint a painted original.
+    const isF = isFocus && sh.code === frame.focus;
+    const attrs = `fill="${f}" stroke="${C.ground}" stroke-width="${n2(2 * s)}" stroke-linejoin="round" data-code="${sh.code}"${perYear(L, "f", (y) => fillAt(ind, sh.code, y))}`;
+    const title = `<title>${name}: ${esc(display(ind, sh.code, year))}</title>`;
+    o += isF
+      ? `<defs><path id="ukd-focus-${frame.id}-${tk}" d="${sh.d}"/></defs><use href="#ukd-focus-${frame.id}-${tk}" ${attrs}>${title}</use>`
+      : `<path d="${sh.d}" ${attrs}>${title}</path>`;
+    if (projectedNow) o += `<path d="${sh.d}" fill="url(#${ids.hatchId})"/>`;
   }
   if (isFocus) {
-    const f = L.shapes.find((x) => x.code === frame.focus)!;
-    o += `<path d="${f.d}" fill="none" stroke="${C.text}" stroke-width="${n2(4 * s)}" stroke-linejoin="round" pointer-events="none"/>`;
+    o += `<use href="#ukd-focus-${frame.id}-${tk}" fill="none" stroke="${C.text}" stroke-width="${n2(4 * s)}" stroke-linejoin="round" pointer-events="none"/>`;
   }
 
   // ---- Labels: every leader first, then every plate, so no line crosses a plate ----
@@ -242,7 +263,7 @@ export function render(L: Layout, st: FrameState): RenderResult {
     const M = plateMetrics(lb.nameLines.length, lb.type, lb.showSub, lb.pad);
     const y0 = lb.y - lb.h / 2, x0 = lb.x - lb.w / 2;
     const plate = lb.mode === "plate";
-    const bg = plate ? plateBg(fillAt(ind, lb.code, year)) : C.ground;
+    const bg = plate ? plateBg(baseFill(ind, lb.code, year)) : C.ground;
     const tx = plate ? lb.x : lb.side === "L" ? x0 + lb.pad : x0 + lb.w - lb.pad;
     const anc = plate ? "middle" : lb.side === "L" ? "start" : "end";
     if (!plate) {
@@ -304,7 +325,7 @@ export function render(L: Layout, st: FrameState): RenderResult {
   if (isFocus && t.table && tableRows.length) {
     const rows = tableRows;
     const cols = 2, colW = (W - 96) / cols, rh = 34 * s, yb = L.tableY;
-    o += cv.txt({ x: 48, y: yb + 38 * s, size: F.tableHead, weight: 600, fill: C.muted, bg: C.ground, content: "BORDERING COUNCILS, A TO Z", ls: 1.5 * s });
+    o += cv.txt({ x: 48, y: yb + 38 * s, size: F.tableHead, weight: 600, fill: C.muted, bg: C.ground, content: frame.relation === "nearby" ? "NEAREST COUNCILS, A TO Z" : "BORDERING COUNCILS, A TO Z", ls: 1.5 * s });
     rows.forEach((c, i) => {
       const x = 48 + (i % cols) * colW, y = yb + 70 * s + Math.floor(i / cols) * rh;
       o += `<rect x="${n2(x)}" y="${n2(y - 16 * s)}" width="${n2(16 * s)}" height="${n2(16 * s)}" rx="3" fill="${fillAt(ind, c, year)}" stroke="${C.muted}" stroke-opacity="0.4"/>`;
@@ -365,7 +386,11 @@ export function renderStill(frame: Frame, ind: Indicator, tk: TemplateKey, year:
 }
 
 // ---------- QA gates: fail loudly rather than ship an unreadable or unsourced card ----------
-export const DASHES = /[–—]| - |&mdash;|&ndash;/;
+export const DASHES = /[\u2013\u2014]| - |&mdash;|&ndash;/;
+/** No ranking language: areas are never ordered by a value. */
+export const RANKING_WORDS = /\b(highest|lowest|fastest|slowest|most|least|top|bottom|largest|smallest|biggest|ranked|ranking|rank|league)\b/i;
+/** Neutral verbs for population and ethnicity: a share "fell" or "rose", nothing more. */
+export const LOADED_WORDS = /\b(spread|spreading|replaced|replacement|influx|flood|swamp\w*|invasion|takeover|overrun|surge|plummet\w*|soar\w*)\b/i;
 
 const boxesOverlap = (a: Box, b: Box) => a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
 
@@ -377,6 +402,8 @@ export function qa(res: RenderResult): string[] {
     const c = contrast(tx.fill, tx.bg);
     if (c < need) errs.push(`contrast ${c.toFixed(2)} < ${need} for "${tx.content}" (${tx.fill} on ${tx.bg})`);
     if (DASHES.test(tx.content)) errs.push(`dash in "${tx.content}"`);
+    if (RANKING_WORDS.test(tx.content)) errs.push(`ranking word in "${tx.content}"`);
+    if (LOADED_WORDS.test(tx.content)) errs.push(`loaded word in "${tx.content}"`);
     if (L.tk === "story" && tx.content && (tx.y - tx.size < t.safeTop || tx.y > L.H - t.safeBottom))
       errs.push(`text in the story safe zone: "${tx.content}" at y ${tx.y.toFixed(0)}`);
     if (L.tk === "inline" && tx.role === "value" && tx.size < 26) errs.push(`inline value "${tx.content}" at ${tx.size} units, under 26`);
@@ -392,6 +419,7 @@ export function qa(res: RenderResult): string[] {
     if (boxes[i].tx.plate && boxes[i].tx.plate === boxes[j].tx.plate) continue;
     if (boxesOverlap(boxes[i], boxes[j])) errs.push(`text overlaps: "${boxes[i].tx.content}" and "${boxes[j].tx.content}"`);
   }
+  if (RANKING_WORDS.test(res.alt) || LOADED_WORDS.test(res.alt)) errs.push("ranking or loaded word in the alt text");
   if (res.brand < 4 || res.brandInPanel < 2) errs.push(`branding: ${res.brand} marks, ${res.brandInPanel} inside the map`);
   const Ls = ind.scale.colours.map(oklabLightness);
   if (ind.scale.type === "sequential" && !Ls.every((l, i) => i === 0 || l > Ls[i - 1])) errs.push("sequential ramp not rising in lightness");

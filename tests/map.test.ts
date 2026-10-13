@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import fs from "node:fs";
+import { gzipSync } from "node:zlib";
 import { afterEach, describe, expect, it } from "vitest";
 
 import { PLACE_COUNT } from "../src/lib/coverage";
@@ -7,11 +8,14 @@ import {
   BOUNDARY_FILE,
   BOUNDARY_SOURCE_FILE,
   DASHES,
+  LOADED_WORDS,
+  RANKING_WORDS,
   MARK_SHADE,
   MARK_SVG,
   PROJECTED_YEARS,
   SEQUENTIAL,
   TEMPLATE_KEYS,
+  VISIONS,
   areaName,
   colourFor,
   contrast,
@@ -28,6 +32,7 @@ import {
   regionFrame,
   regionSlugs,
   renderStill,
+  seenDistance,
   type Frame,
   type RenderResult
 } from "../src/lib/map";
@@ -47,7 +52,7 @@ const sampleFrames = (): Frame[] => [
   focusFrame(BURNLEY),
   focusFrame("E09000001"), // City of London: tiny focus, large neighbours
   focusFrame("W06000015"), // Cardiff
-  focusFrame("E06000046"), // Isle of Wight: no neighbour
+  focusFrame("E06000046"), // Isle of Wight: no land border, nearest councils instead
   focusFrame("E06000063"), // Cumberland: borders Scotland, formed 2023
   countyFrame(LANCASHIRE),
   regionFrame("london")
@@ -69,11 +74,13 @@ function expectedPopulation(code: string, year: number): string {
   const v = Number(((s[String(year)] / s["2011"] - 1) * 100).toFixed(1));
   return `${v > 0 ? "+" : v < 0 ? MINUS : ""}${Math.abs(v).toFixed(1)}%`;
 }
+const successors2011 = readJson("src/data/live/census-2011-successors.json").areas;
 function expectedWhiteBritish(code: string, year: number): string {
   const a = projections.areas[code];
   const side = year === 2011 ? a.baseline : a.current;
-  if (side.year !== year) return "n/a";
-  return `${side.groups.white_british.toFixed(1)}%`;
+  if (side.year === year) return `${side.groups.white_british.toFixed(1)}%`;
+  const d = year === 2011 ? successors2011[code] : null;
+  return d ? `${((d.groups_absolute.white_british / d.total_population) * 100).toFixed(1)}%` : "n/a";
 }
 
 describe("map geometry", () => {
@@ -155,14 +162,23 @@ describe("map indicators", () => {
     expect(qa(res)).toEqual([]);
   });
 
-  it("shows n/a for 2011 where the dataset holds no 2011 figure, never the 2021 one", () => {
+  it("gives councils formed since 2011 their summed 2011 figure, never the 2021 one", () => {
     const formed = Object.entries<{ baseline: { year: number } }>(projections.areas).filter(([, a]) => a.baseline.year !== 2011).map(([c]) => c);
-    expect(formed.length).toBeGreaterThan(0);
+    expect(formed).toHaveLength(11);
+    const derived = readJson("src/data/live/census-2011-successors.json");
+    expect(derived.checks.siteAreas2011Total).toBe(derived.checks.englandAndWales2011Total);
     for (const code of formed) {
-      expect(wb.value(code, 2011)).toBeNull();
-      expect(wb.status(code, 2011)).toBe("formed_since");
-      expect(wb.sub(code, 2021)).toBeNull();
+      const d = derived.areas[code];
+      const share = Number(((d.groups_absolute.white_british / d.total_population) * 100).toFixed(2));
+      expect(wb.status(code, 2011)).toBe("ok");
+      expect(wb.value(code, 2011)).toBe(share);
+      expect(wb.value(code, 2011)).not.toBe(projections.areas[code].current.groups.white_british);
+      expect(wb.sub(code, 2021)).toMatch(/pts from 2011|no change/);
     }
+    // Cumberland: Allerdale 96,422 + Carlisle 107,524 + Copeland 70,603 (Census 2011 usual residents).
+    expect(derived.areas.E06000063.total_population).toBe(274549);
+    const res = renderStill(focusFrame("E06000063"), wb, "portrait", 2011);
+    expect(res.texts.map((t) => t.content).join(" ")).toContain("summed from the 2011 districts now in each council: Cumberland; Westmorland and Furness.");
   });
 
   it("keeps the sequential ramp rising in lightness and short of white", () => {
@@ -170,6 +186,22 @@ describe("map indicators", () => {
     for (let i = 1; i < L.length; i++) expect(L[i]).toBeGreaterThan(L[i - 1]);
     expect(Math.max(...L)).toBeLessThan(0.8);
     expect(wb.scale.type).toBe("sequential");
+  });
+
+  it("keeps adjacent classes apart for normal, protan, deutan and tritan vision", () => {
+    // 0.045 in OKLab is about twice a just-noticeable difference.
+    for (const ind of [pop, wb]) for (const v of VISIONS) {
+      const r = ind.scale.colours;
+      for (let i = 1; i < r.length; i++) expect(seenDistance(r[i - 1], r[i], v), `${ind.id} ${v} ${r[i - 1]} ${r[i]}`).toBeGreaterThan(0.045);
+    }
+  });
+
+  it("hatches n/a, so it never reads as the darkest class", () => {
+    const res = renderStill(focusFrame("E06000063"), getIndicator("white_british_share", { projections: true }), "portrait", 2031);
+    const na = res.drawn.filter((d) => d.display === "n/a");
+    expect(na.length).toBeGreaterThan(0);
+    for (const d of na) expect(res.fills[d.code]).toMatch(/^url\(#ukd-na-/);
+    expect(res.svg).toMatch(/<pattern id="ukd-na-cumberland-portrait"/);
   });
 
   it("uses no red for any group", () => {
@@ -197,8 +229,17 @@ describe("map renderer", () => {
       const text = [...res.svg.matchAll(/>([^<>]+)</g)].map((m) => m[1]).join("\n");
       expect(DASHES.test(text)).toBe(false);
       expect(DASHES.test(res.alt)).toBe(false);
-      expect(res.svg).not.toMatch(/–|—/);
+      expect(res.svg).not.toMatch(/\u2013|\u2014/);
     }
+  });
+
+  it("uses no ranking language and only neutral verbs", () => {
+    for (const res of getSamples()) for (const t of [...res.texts.map((x) => x.content), res.alt]) {
+      expect(RANKING_WORDS.test(t), t).toBe(false);
+      expect(LOADED_WORDS.test(t), t).toBe(false);
+    }
+    expect(RANKING_WORDS.test("the highest share")).toBe(true);
+    expect(LOADED_WORDS.test("diversity spread")).toBe(true);
   });
 
   it("carries at least four brand marks, two inside the map panel", () => {
@@ -253,9 +294,16 @@ describe("map renderer", () => {
     }
   });
 
-  it("draws no bordering-councils table for a council with no neighbour", () => {
-    expect(renderStill(focusFrame("E06000053"), pop, "portrait", 2025).svg).not.toContain("BORDERING COUNCILS");
-    expect(renderStill(focusFrame(BURNLEY), pop, "portrait", 2025).svg).toContain("BORDERING COUNCILS, A TO Z");
+  it("gives an island its nearest councils, called nearest, not bordering", () => {
+    const wight = focusFrame("E06000046"), scilly = focusFrame("E06000053"), anglesey = focusFrame("W06000001");
+    expect(wight.relation).toBe("nearby");
+    expect(anglesey.members.slice(1).map(areaName)).toContain("Gwynedd");
+    expect(scilly.members.slice(1).map(areaName)).toEqual(["Cornwall"]);
+    expect(wight.members.length).toBeGreaterThan(1);
+    const svg = renderStill(scilly, pop, "portrait", 2025).svg;
+    expect(svg).toContain("NEAREST COUNCILS, A TO Z");
+    expect(svg).not.toContain("BORDERING");
+    expect(focusFrame(BURNLEY).relation).toBe("bordering");
   });
 
   it("shares the mark with the Open Graph cards unchanged", () => {
@@ -268,6 +316,17 @@ describe("map renderer", () => {
       '<rect x="4" y="52" width="26" height="9" fill="#7b74f2"/><rect x="34" y="52" width="28" height="9" fill="#574fa8"/>' +
       "</svg>"
     );
+  });
+
+  it("keeps every council's web map within its page-weight budget", { timeout: 120_000 }, () => {
+    // Stage 2 puts one map per page, both measures on it: 25 KB gzipped per measure at most.
+    const over: string[] = [];
+    for (const code of placeCodes()) for (const ind of [pop, wb]) {
+      const svg = renderStill(focusFrame(code), ind, "inline", latestYear(ind)).svg;
+      const gz = gzipSync(svg).length;
+      if (gz > 25 * 1024) over.push(`${areaName(code)} ${ind.id}: ${(gz / 1024).toFixed(1)} KB`);
+    }
+    expect(over).toEqual([]);
   });
 
   it("renders every council's latest card in every template without a QA failure", { timeout: 240_000 }, () => {
