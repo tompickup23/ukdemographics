@@ -1,0 +1,158 @@
+{
+  "source": "Lieutenancies Act 1997, Schedule 1, paragraph 3 (Table), as revised on legislation.gov.uk (Statute Law Database, revised to 27 June 2022)",
+  "sourceUrl": "https://www.legislation.gov.uk/ukpga/1997/23/schedule/1",
+  "retrieved": "2026-10-13",
+  "description": "Unitary councils inside each of this site's 21 two-tier counties for ceremonial purposes. The map module draws them on a county map with their own figures, labelled, and never adds them into the county total, which covers the county council area only (the districts in district-to-utla.json). Counties absent here (Hertfordshire, Norfolk, Oxfordshire, Suffolk, Surrey, Warwickshire, West Sussex, Worcestershire) are counties under paragraph 2(c) and contain no unitary council. legislationText is the Table entry verbatim; codes are matched by name to ethnic-projections.json and checked by tests/map.test.ts.",
+  "counties": {
+    "E10000003": {
+      "countyName": "Cambridgeshire",
+      "legislationText": "Cambridgeshire and Peterborough",
+      "unitaries": [
+        {
+          "code": "E06000031",
+          "name": "Peterborough"
+        }
+      ]
+    },
+    "E10000007": {
+      "countyName": "Derbyshire",
+      "legislationText": "Derbyshire and Derby",
+      "unitaries": [
+        {
+          "code": "E06000015",
+          "name": "Derby"
+        }
+      ]
+    },
+    "E10000008": {
+      "countyName": "Devon",
+      "legislationText": "Devon, Plymouth and Torbay",
+      "unitaries": [
+        {
+          "code": "E06000026",
+          "name": "Plymouth"
+        },
+        {
+          "code": "E06000027",
+          "name": "Torbay"
+        }
+      ]
+    },
+    "E10000011": {
+      "countyName": "East Sussex",
+      "legislationText": "East Sussex and Brighton and Hove",
+      "unitaries": [
+        {
+          "code": "E06000043",
+          "name": "Brighton and Hove"
+        }
+      ]
+    },
+    "E10000012": {
+      "countyName": "Essex",
+      "legislationText": "Essex, Southend-on-Sea and Thurrock",
+      "unitaries": [
+        {
+          "code": "E06000033",
+          "name": "Southend-on-Sea"
+        },
+        {
+          "code": "E06000034",
+          "name": "Thurrock"
+        }
+      ]
+    },
+    "E10000013": {
+      "countyName": "Gloucestershire",
+      "legislationText": "Gloucestershire and South Gloucestershire",
+      "unitaries": [
+        {
+          "code": "E06000025",
+          "name": "South Gloucestershire"
+        }
+      ]
+    },
+    "E10000014": {
+      "countyName": "Hampshire",
+      "legislationText": "Hampshire, Portsmouth and Southampton",
+      "unitaries": [
+        {
+          "code": "E06000044",
+          "name": "Portsmouth"
+        },
+        {
+          "code": "E06000045",
+          "name": "Southampton"
+        }
+      ]
+    },
+    "E10000016": {
+      "countyName": "Kent",
+      "legislationText": "Kent and the Medway Towns",
+      "unitaries": [
+        {
+          "code": "E06000035",
+          "name": "Medway"
+        }
+      ]
+    },
+    "E10000017": {
+      "countyName": "Lancashire",
+      "legislationText": "Lancashire, Blackburn and Blackpool",
+      "unitaries": [
+        {
+          "code": "E06000008",
+          "name": "Blackburn with Darwen"
+        },
+        {
+          "code": "E06000009",
+          "name": "Blackpool"
+        }
+      ]
+    },
+    "E10000018": {
+      "countyName": "Leicestershire",
+      "legislationText": "Leicestershire and Leicester",
+      "unitaries": [
+        {
+          "code": "E06000016",
+          "name": "Leicester"
+        }
+      ]
+    },
+    "E10000019": {
+      "countyName": "Lincolnshire",
+      "legislationText": "Lincolnshire, North Lincolnshire and North East Lincolnshire",
+      "unitaries": [
+        {
+          "code": "E06000013",
+          "name": "North Lincolnshire"
+        },
+        {
+          "code": "E06000012",
+          "name": "North East Lincolnshire"
+        }
+      ]
+    },
+    "E10000024": {
+      "countyName": "Nottinghamshire",
+      "legislationText": "Nottinghamshire and Nottingham",
+      "unitaries": [
+        {
+          "code": "E06000018",
+          "name": "Nottingham"
+        }
+      ]
+    },
+    "E10000028": {
+      "countyName": "Staffordshire",
+      "legislationText": "Staffordshire and Stoke-on-Trent",
+      "unitaries": [
+        {
+          "code": "E06000021",
+          "name": "Stoke-on-Trent"
+        }
+      ]
+    }
+  }
+}

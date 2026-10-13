@@ -17,50 +17,29 @@
 import type { APIRoute, GetStaticPaths } from "astro";
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { getCollection } from "astro:content";
 import { getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
 import { getAllPcons } from "../../lib/pcon-data";
 import { generalElectionYear } from "../../lib/search-listing";
+import {
+  BRAND_NAME,
+  BRAND_SOURCED,
+  BRAND_TAGLINE,
+  COLORS,
+  FONT_SANS,
+  FONT_SERIF,
+  MARK_URI,
+  SITE_DOMAIN,
+  loadSatoriFont
+} from "../../lib/map/brand";
 
 const BUILD_OG = process.env.BUILD_OG === "1";
 
 const OG_WIDTH = 1200;
 const OG_HEIGHT = 630;
 
-// The estate ground, shared by every social and Open Graph surface on all five sites.
-// The accent here is the BRIGHT value of the ukdemographics triple, not the deep one:
-// deep is for links and rules on white, bright is the mark and the URL on the ground,
-// and #4338ca does not clear 4.5:1 against #0f1317 while #7b74f2 does at 4.99.
-// The three verdict colours are the same lightened set Asylum Stats validated, all
-// above 7:1 on the ground.
-const COLORS = {
-  bg: "#0f1317",
-  surface: "#0f1317",
-  accent: "#7b74f2",
-  accentLight: "#a9a4f7",
-  text: "#f4f6f7",
-  muted: "#98a3ac",
-  alert: "#e8b661",
-  critical: "#e8897c",
-  resolved: "#7fc9a8"
-};
-
-// The mark, as a data URI because Satori takes SVG through an img rather than as
-// elements. The population pyramid from the site header and the favicon, on the same
-// 64 unit grid. It replaced rising bars with a trend line, which collided with the food
-// hygiene steps at thumbnail size and whose opacity ramp made the tallest bar faintest.
-const MARK_SVG =
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">' +
-  '<rect x="20" y="8" width="10" height="9" fill="#7b74f2"/><rect x="34" y="8" width="12" height="9" fill="#574fa8"/>' +
-  '<rect x="16" y="19" width="14" height="9" fill="#7b74f2"/><rect x="34" y="19" width="16" height="9" fill="#574fa8"/>' +
-  '<rect x="12" y="30" width="18" height="9" fill="#7b74f2"/><rect x="34" y="30" width="20" height="9" fill="#574fa8"/>' +
-  '<rect x="8" y="41" width="22" height="9" fill="#7b74f2"/><rect x="34" y="41" width="24" height="9" fill="#574fa8"/>' +
-  '<rect x="4" y="52" width="26" height="9" fill="#7b74f2"/><rect x="34" y="52" width="28" height="9" fill="#574fa8"/>' +
-  '</svg>';
-const MARK_URI = `data:image/svg+xml;base64,${Buffer.from(MARK_SVG).toString("base64")}`;
-
+// Colours, the mark, the wording and the fonts are shared with the maps in src/lib/map/,
+// so a card and a map can never drift apart.
 const verdictColor: Record<string, string> = {
   alert: COLORS.alert,
   critical: COLORS.critical,
@@ -68,22 +47,14 @@ const verdictColor: Record<string, string> = {
   info: COLORS.accent
 };
 
-// Source Serif 4 for display, Source Sans 3 for everything else, matching the site and
-// the other estate cards. woff rather than woff2: Satori reads ttf, otf and woff, and
-// silently falls back on woff2, which would render these cards in a font nobody chose.
 let displaySemiBold: ArrayBuffer | null = null;
 let sansRegular: ArrayBuffer | null = null;
 let sansSemiBold: ArrayBuffer | null = null;
 
-function loadFont(fontFile: string): ArrayBuffer {
-  const fontPath = join(process.cwd(), "src", "assets", "fonts", fontFile);
-  return readFileSync(fontPath).buffer as ArrayBuffer;
-}
-
 function ensureFonts() {
-  if (!displaySemiBold) displaySemiBold = loadFont("SourceSerif4-SemiBold.woff");
-  if (!sansRegular) sansRegular = loadFont("SourceSans3-Regular.woff");
-  if (!sansSemiBold) sansSemiBold = loadFont("SourceSans3-SemiBold.woff");
+  if (!displaySemiBold) displaySemiBold = loadSatoriFont("SourceSerif4-SemiBold.woff");
+  if (!sansRegular) sansRegular = loadSatoriFont("SourceSans3-Regular.woff");
+  if (!sansSemiBold) sansSemiBold = loadSatoriFont("SourceSans3-SemiBold.woff");
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -176,7 +147,7 @@ export const GET: APIRoute = async ({ props }) => {
           justifyContent: "space-between",
           padding: "60px 70px",
           background: COLORS.bg,
-          fontFamily: "Source Sans 3"
+          fontFamily: FONT_SANS
         },
         children: [
           // Brand row, shared standard across UKD / UKE / AS.
@@ -205,12 +176,12 @@ export const GET: APIRoute = async ({ props }) => {
                         type: "span",
                         props: {
                           style: {
-                            fontFamily: "Source Serif 4",
+                            fontFamily: FONT_SERIF,
                             fontWeight: 600,
                             fontSize: "16px",
                             color: COLORS.text
                           },
-                          children: "UK Demographics"
+                          children: BRAND_NAME
                         }
                       },
                       {
@@ -221,7 +192,7 @@ export const GET: APIRoute = async ({ props }) => {
                             color: COLORS.muted,
                             letterSpacing: "0.05em"
                           },
-                          children: "Population data for every community"
+                          children: BRAND_TAGLINE
                         }
                       }
                     ]
@@ -246,7 +217,7 @@ export const GET: APIRoute = async ({ props }) => {
                   type: "div",
                   props: {
                     style: {
-                      fontFamily: "Source Serif 4",
+                      fontFamily: FONT_SERIF,
                       fontSize: "96px",
                       fontWeight: 600,
                       color: statColor,
@@ -272,7 +243,7 @@ export const GET: APIRoute = async ({ props }) => {
                   type: "div",
                   props: {
                     style: {
-                      fontFamily: "Source Serif 4",
+                      fontFamily: FONT_SERIF,
                       fontSize: "36px",
                       fontWeight: 600,
                       color: COLORS.text,
@@ -305,7 +276,7 @@ export const GET: APIRoute = async ({ props }) => {
                       color: COLORS.accent,
                       fontWeight: 600
                     },
-                    children: "ukdemographics.co.uk"
+                    children: SITE_DOMAIN
                   }
                 },
                 {
@@ -315,7 +286,7 @@ export const GET: APIRoute = async ({ props }) => {
                       fontSize: "12px",
                       color: COLORS.muted
                     },
-                    children: "Every figure sourced."
+                    children: BRAND_SOURCED
                   }
                 }
               ]
@@ -328,9 +299,9 @@ export const GET: APIRoute = async ({ props }) => {
       width: OG_WIDTH,
       height: OG_HEIGHT,
       fonts: [
-        { name: "Source Sans 3", data: sansRegular!, weight: 400, style: "normal" },
-        { name: "Source Sans 3", data: sansSemiBold!, weight: 600, style: "normal" },
-        { name: "Source Serif 4", data: displaySemiBold!, weight: 600, style: "normal" }
+        { name: FONT_SANS, data: sansRegular!, weight: 400, style: "normal" },
+        { name: FONT_SANS, data: sansSemiBold!, weight: 600, style: "normal" },
+        { name: FONT_SERIF, data: displaySemiBold!, weight: 600, style: "normal" }
       ]
     }
   );

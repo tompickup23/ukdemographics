@@ -20,6 +20,10 @@ Population data for every community. Ethnic projections, school data, housing de
 - `/findings/` — 16 Tom-voice pieces. Schema enum: `demographics | projections | fertility | schools | housing | health | migration | validation | crime | social-care | send` ("economy" is NOT valid).
 - Dashboards: `/regional/` `/your-area/` `/pressure/` `/schools/` `/housing/` `/compare/`.
 
+## Map module (`src/lib/map/`, Oct 2026)
+
+One SVG renderer for the web map (`inline`, 600-unit viewBox), share cards (`portrait`, `story`, `og`) and clip frames. `indicators.ts` is the registry (population change from MYE4, White British share from Census 2011 and 2021); projected years stay off unless `MAPS_PROJECTIONS=1`, which waits for model v8.1. `geo.ts` reads `data/geography/lad26-uk-bsc.geojson` (fetch script and source record beside it). `brand.ts` is shared with the OG route. `tests/map.test.ts` holds the QA gates (contrast, dashes, brand marks, values re-read from source, fixed classes). `node scripts/media/build-cards.mjs [--png --sheet]` sweeps every frame and template into `.cache/media/` (never committed). The plan and staging live in the Reports repo, `ukd-maps-2026-10-13/HANDOFF_UKD_Maps_Execution.md`.
+
 ## CI / deploy
 
 - GH Actions on Node 22. `actions/checkout@v4`, `actions/setup-node@v4`.
