@@ -11,6 +11,7 @@ export interface CountyRow { published: CountyCounts; districtSum: CountyCounts;
 export interface County { name: string; districts: string[]; census: Record<'2011'|'2021', CountyRow> }
 export const countyRecords = rawCensus.counties as Record<string, County>;
 export const countySources = rawCensus.sources;
+export const countyPopulationSource = rawPopulation.source;
 export const countyPopulation = rawPopulation.counties as Record<string, {series: Record<string,number>}>;
 export function countyShares(code: string, year: 2011|2021): Record<CountyGroup,number> {
   const counts = countyRecords[code].census[year].published;
