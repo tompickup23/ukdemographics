@@ -5,7 +5,7 @@
  * whatever its sign. In 20 mostly rural areas (Isle of Anglesey, Staffordshire
  * Moorlands, North Norfolk and others) the local component raised the White
  * British share by more than the national trend lowered it, so a fall in the
- * share was put down to "local migration", the component working against it.
+ * share was put down to "local residual", the component working against it.
  *
  * The rule now, applied to the components as the page prints them (one decimal
  * place, so the label always agrees with the bars beside it):
@@ -29,8 +29,8 @@ export interface ShiftShareComponents {
 
 export const SHIFT_SHARE_COMPONENT_NAMES: ReadonlyArray<[keyof ShiftShareComponents, string]> = [
   ["nationalEffectPp", "national trend"],
-  ["structuralEffectPp", "age structure"],
-  ["localEffectPp", "local migration"],
+  ["structuralEffectPp", "composition adjustment"],
+  ["localEffectPp", "local residual"],
 ];
 
 export const NO_DRIVER = "none, the components cancel out";
