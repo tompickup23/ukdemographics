@@ -13,7 +13,6 @@
  */
 import rawMye from "../../data/live/population-estimates.json";
 import rawProjections from "../../data/live/ethnic-projections.json";
-import rawSuccessors2011 from "../../data/live/census-2011-successors.json";
 import { areaName, focusFrame, type Frame } from "./geo";
 import { getIndicator, latestYear, type Indicator, type IndicatorId } from "./indicators";
 import { renderStill, yearPhrase, type RenderResult } from "./render";
@@ -36,24 +35,19 @@ export type GroupKey = (typeof GROUPS)[number]["key"];
 
 interface CensusSide { year: number; total_population: number; groups: Record<string, number>; groups_absolute: Record<string, number> }
 const model = rawProjections as unknown as { areas: Record<string, { areaName: string; baseline: CensusSide; current: CensusSide }> };
-const successors2011 = (rawSuccessors2011 as unknown as { areas: Record<string, { total_population: number; groups_absolute: Record<string, number> }> }).areas;
 const mye = rawMye as unknown as { areas: Record<string, { series?: Record<string, number> }> };
 
-const pct2 = (n: number, d: number) => Number(((n / d) * 100).toFixed(2));
-
 /**
- * Census shares for the six groups, as the place page and the map read them. The councils
- * formed since 2011 take the summed 2011 districts (census-2011-successors.json) until
- * ethnic-projections.json carries them itself (Stage 2a).
+ * Census shares for the six groups, as the place page and the map read them. Every area's
+ * baseline is the 2011 Census (Stage 2a): the councils formed since 2011 carry the sum of
+ * their 2011 districts, checked cell for cell against census-2011-successors.json in
+ * tests/map.test.ts.
  */
 export function censusShares(code: string, year: 2011 | 2021): Record<GroupKey, number> | null {
   const a = model.areas[code];
-  if (!a) return null;
-  const side = year === 2011 ? a.baseline : a.current;
-  if (side?.year === year) return Object.fromEntries(GROUPS.map((g) => [g.key, side.groups[g.key]])) as Record<GroupKey, number>;
-  const d = year === 2011 ? successors2011[code] : null;
-  if (!d) return null;
-  return Object.fromEntries(GROUPS.map((g) => [g.key, pct2(d.groups_absolute[g.key], d.total_population)])) as Record<GroupKey, number>;
+  const side = year === 2011 ? a?.baseline : a?.current;
+  if (side?.year !== year) return null;
+  return Object.fromEntries(GROUPS.map((g) => [g.key, side.groups[g.key]])) as Record<GroupKey, number>;
 }
 
 export const populationCount = (code: string, year: number): number | null => mye.areas[code]?.series?.[String(year)] ?? null;
