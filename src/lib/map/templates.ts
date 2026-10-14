@@ -55,7 +55,7 @@ const scaled = (k: number) => ({
 
 export const TEMPLATES: Record<TemplateKey, Template> = {
   wide: { key: "wide", W: 1000, H: 0, s: 0.85, safeTop: 0, safeBottom: 0, gutter: 180, panel: null, inlinePanelH: 680,
-    table: false, timeline: false, ...scaled(0.85) },
+    table: false, timeline: false, ...scaled(0.85), font: { ...scaled(0.85).font, year: 46 } },
   portrait: { key: "portrait", W: 1080, H: 1350, s: 1, safeTop: 40, safeBottom: 30, gutter: 205, panel: null, table: true, timeline: true, ...scaled(1) },
   story: { key: "story", W: 1080, H: 1920, s: 1.05, safeTop: 230, safeBottom: 400, gutter: 210, panel: null, table: true, timeline: true, ...scaled(1.05) },
   og: {

@@ -530,6 +530,10 @@ export function qa(res: RenderResult): string[] {
     const left = x.anchor === "middle" ? x.x - w / 2 : x.anchor === "end" ? x.x - w : x.x;
     return { x: left, y: x.y - x.size * 0.78, w, h: x.size * 0.98, tx: x };
   });
+  if (L.tk === "wide") for (const box of boxes) {
+    if (box.x < -0.5 || box.y < -0.5 || box.x + box.w > L.W + 0.5 || box.y + box.h > L.H + 0.5)
+      errs.push(`text outside the wide canvas: "${box.tx.content}"`);
+  }
   for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
     if (boxes[i].tx.plate && boxes[i].tx.plate === boxes[j].tx.plate) continue;
     if (boxesOverlap(boxes[i], boxes[j])) errs.push(`text overlaps: "${boxes[i].tx.content}" and "${boxes[j].tx.content}"`);
