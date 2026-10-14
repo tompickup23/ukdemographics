@@ -166,6 +166,13 @@ const countries = Object.fromEntries(
   ["K04000001", "E92000001", "W92000004"].map((c) => [c, record(c)]).filter(([, r]) => r)
 );
 
+const countyCodes = [...new Set(Object.values(JSON.parse(readFileSync(path.resolve("src/data/lookups/district-to-utla.json"), "utf8")).districts).map(d => d.countyCode))].sort();
+const counties = Object.fromEntries(countyCodes.map(code => {
+  const row = record(code);
+  if (!row) throw new Error(`county missing from MYE4: ${code}`);
+  return [code, row];
+}));
+
 const out = {
   source: {
     publisher: "Office for National Statistics",
@@ -184,6 +191,7 @@ const out = {
   counts,
   latestYear,
   countries,
+  counties,
   areas
 };
 
