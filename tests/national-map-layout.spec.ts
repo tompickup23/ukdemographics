@@ -48,6 +48,7 @@ for (const scheme of ['light','dark'] as const) {
     async function check() {
       await expect(page.locator('#timeline')).not.toHaveAttribute('aria-busy','true');
       expect((await new AxeBuilder({ page }).include('#timeline').analyze()).violations).toEqual([]);
+      expect((await page.locator('#map-legend i').first().boundingBox())?.width).toBeGreaterThan(10);
       expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(2);
     }
     for (const year of [2011,2025]) {
