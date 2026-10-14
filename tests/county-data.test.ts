@@ -49,7 +49,7 @@ describe('county source records and publication gate', () => {
             if (!column.startsWith('Ethnic group: ')) continue;
             const classified = classifyCensusEthnicLabel(column.slice('Ethnic group: '.length));
             if (classified.kind === 'total') values.total = Number(cell);
-            else if (classified.kind === 'group') values[classified.group] += Number(cell);
+            else if (classified.kind === 'group' && classified.group) values[classified.group] += Number(cell);
           }
         }
         expect(row.published, code).toEqual(values);
