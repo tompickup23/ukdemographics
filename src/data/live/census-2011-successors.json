@@ -1,0 +1,347 @@
+{
+  "source": {
+    "publisher": "Office for National Statistics",
+    "table": "Census 2011 KS201EW Ethnic group",
+    "nomisDataset": "NM_608_1",
+    "fileName": "census_2011_ethnicity.csv",
+    "sha256": "b8d41f29ad8889de88a9832ce6467b8cef8ebcfe7a6e3106876e490838ee8a40"
+  },
+  "method": "Each council's 2011 counts are the sum of its 2011 districts' KS201EW counts. Every council here is a merger of whole districts, so the sums are exact. Groups as in scripts/lib/census-ethnic-groups.mjs.",
+  "checks": {
+    "areas": 11,
+    "districtsSummed": 41,
+    "siteAreas2011Total": 56075912,
+    "englandAndWales2011Total": 56075912
+  },
+  "areas": {
+    "E06000058": {
+      "areaName": "Bournemouth, Christchurch and Poole",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E06000028",
+          "name": "Bournemouth"
+        },
+        {
+          "code": "E06000029",
+          "name": "Poole"
+        },
+        {
+          "code": "E07000048",
+          "name": "Christchurch"
+        }
+      ],
+      "total_population": 378888,
+      "groups_absolute": {
+        "white_british": 334864,
+        "white_other": 22047,
+        "asian": 10837,
+        "black": 2367,
+        "mixed": 6612,
+        "other": 2161
+      }
+    },
+    "E06000059": {
+      "areaName": "Dorset",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E07000049",
+          "name": "East Dorset"
+        },
+        {
+          "code": "E07000050",
+          "name": "North Dorset"
+        },
+        {
+          "code": "E07000051",
+          "name": "Purbeck"
+        },
+        {
+          "code": "E07000052",
+          "name": "West Dorset"
+        },
+        {
+          "code": "E07000053",
+          "name": "Weymouth and Portland"
+        }
+      ],
+      "total_population": 365153,
+      "groups_absolute": {
+        "white_british": 348936,
+        "white_other": 8790,
+        "asian": 3338,
+        "black": 841,
+        "mixed": 2895,
+        "other": 353
+      }
+    },
+    "E06000060": {
+      "areaName": "Buckinghamshire",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E07000004",
+          "name": "Aylesbury Vale"
+        },
+        {
+          "code": "E07000005",
+          "name": "Chiltern"
+        },
+        {
+          "code": "E07000006",
+          "name": "South Bucks"
+        },
+        {
+          "code": "E07000007",
+          "name": "Wycombe"
+        }
+      ],
+      "total_population": 505283,
+      "groups_absolute": {
+        "white_british": 409793,
+        "white_other": 26877,
+        "asian": 43269,
+        "black": 10490,
+        "mixed": 12360,
+        "other": 2494
+      }
+    },
+    "E06000061": {
+      "areaName": "North Northamptonshire",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E07000150",
+          "name": "Corby"
+        },
+        {
+          "code": "E07000152",
+          "name": "East Northamptonshire"
+        },
+        {
+          "code": "E07000153",
+          "name": "Kettering"
+        },
+        {
+          "code": "E07000156",
+          "name": "Wellingborough"
+        }
+      ],
+      "total_population": 316851,
+      "groups_absolute": {
+        "white_british": 277831,
+        "white_other": 18058,
+        "asian": 9364,
+        "black": 5325,
+        "mixed": 5359,
+        "other": 914
+      }
+    },
+    "E06000062": {
+      "areaName": "West Northamptonshire",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E07000151",
+          "name": "Daventry"
+        },
+        {
+          "code": "E07000154",
+          "name": "Northampton"
+        },
+        {
+          "code": "E07000155",
+          "name": "South Northamptonshire"
+        }
+      ],
+      "total_population": 375101,
+      "groups_absolute": {
+        "white_british": 314924,
+        "white_other": 22009,
+        "asian": 16063,
+        "black": 11598,
+        "mixed": 8823,
+        "other": 1684
+      }
+    },
+    "E06000063": {
+      "areaName": "Cumberland",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E07000026",
+          "name": "Allerdale"
+        },
+        {
+          "code": "E07000028",
+          "name": "Carlisle"
+        },
+        {
+          "code": "E07000029",
+          "name": "Copeland"
+        }
+      ],
+      "total_population": 274549,
+      "groups_absolute": {
+        "white_british": 264953,
+        "white_other": 5403,
+        "asian": 2354,
+        "black": 304,
+        "mixed": 1300,
+        "other": 235
+      }
+    },
+    "E06000064": {
+      "areaName": "Westmorland and Furness",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E07000027",
+          "name": "Barrow-in-Furness"
+        },
+        {
+          "code": "E07000030",
+          "name": "Eden"
+        },
+        {
+          "code": "E07000031",
+          "name": "South Lakeland"
+        }
+      ],
+      "total_population": 225309,
+      "groups_absolute": {
+        "white_british": 217171,
+        "white_other": 4730,
+        "asian": 1712,
+        "black": 275,
+        "mixed": 1204,
+        "other": 217
+      }
+    },
+    "E06000065": {
+      "areaName": "North Yorkshire",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E07000163",
+          "name": "Craven"
+        },
+        {
+          "code": "E07000164",
+          "name": "Hambleton"
+        },
+        {
+          "code": "E07000165",
+          "name": "Harrogate"
+        },
+        {
+          "code": "E07000166",
+          "name": "Richmondshire"
+        },
+        {
+          "code": "E07000167",
+          "name": "Ryedale"
+        },
+        {
+          "code": "E07000168",
+          "name": "Scarborough"
+        },
+        {
+          "code": "E07000169",
+          "name": "Selby"
+        }
+      ],
+      "total_population": 598376,
+      "groups_absolute": {
+        "white_british": 565055,
+        "white_other": 17420,
+        "asian": 7356,
+        "black": 2424,
+        "mixed": 5043,
+        "other": 1078
+      }
+    },
+    "E06000066": {
+      "areaName": "Somerset",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E07000187",
+          "name": "Mendip"
+        },
+        {
+          "code": "E07000188",
+          "name": "Sedgemoor"
+        },
+        {
+          "code": "E07000189",
+          "name": "South Somerset"
+        },
+        {
+          "code": "E07000190",
+          "name": "Taunton Deane"
+        },
+        {
+          "code": "E07000191",
+          "name": "West Somerset"
+        }
+      ],
+      "total_population": 529972,
+      "groups_absolute": {
+        "white_british": 501558,
+        "white_other": 17697,
+        "asian": 4873,
+        "black": 1013,
+        "mixed": 4241,
+        "other": 590
+      }
+    },
+    "E07000244": {
+      "areaName": "East Suffolk",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E07000205",
+          "name": "Suffolk Coastal"
+        },
+        {
+          "code": "E07000206",
+          "name": "Waveney"
+        }
+      ],
+      "total_population": 239552,
+      "groups_absolute": {
+        "white_british": 227040,
+        "white_other": 5525,
+        "asian": 2991,
+        "black": 925,
+        "mixed": 2728,
+        "other": 343
+      }
+    },
+    "E07000245": {
+      "areaName": "West Suffolk",
+      "year": 2011,
+      "predecessors": [
+        {
+          "code": "E07000201",
+          "name": "Forest Heath"
+        },
+        {
+          "code": "E07000204",
+          "name": "St Edmundsbury"
+        }
+      ],
+      "total_population": 170756,
+      "groups_absolute": {
+        "white_british": 147381,
+        "white_other": 14141,
+        "asian": 3087,
+        "black": 2198,
+        "mixed": 3148,
+        "other": 801
+      }
+    }
+  }
+}

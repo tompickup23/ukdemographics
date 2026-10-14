@@ -71,3 +71,6 @@ data/raw/dhsc_asc/
 **/.env
 **/.env.*
 .stochastic-run.lock
+
+# Rendered media (map cards, clips): written locally, never committed
+.cache/
