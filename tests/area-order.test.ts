@@ -4,7 +4,7 @@ import ts from 'typescript';
 import { describe, expect, it } from 'vitest';
 
 const compact = (s: string) => s.replace(/\s+/g, '');
-// These comparisons order dates, chart years, industries or parties, never areas.
+// These comparisons order dates, chart years, label positions, industries or parties, never areas.
 // Exact expressions are reviewed exceptions, not file-wide exclusions.
 const exceptions: Record<string, string[]> = {
   'src/pages/index.astro': ['(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()'],
@@ -17,7 +17,8 @@ const exceptions: Record<string, string[]> = {
   'src/pages/constituencies/index.astro': ['([, a], [, b]) => b - a'],
   'src/pages/constituencies/[slug].astro': ['([, a], [, b]) => b - a', '(a, b) => a.area!.areaName.localeCompare(b.area!.areaName)'],
   'src/components/NinoHistoricalChart.astro': ['(a, b) => a - b'],
-  'src/components/ProjectionChart.astro': ['(a, b) => a - b'],
+  // The y comparison separates ethnic-group line-end labels to prevent overlap.
+  'src/components/ProjectionChart.astro': ['(a, b) => a - b', '(a, b) => a.y - b.y'],
   'src/pages/places/index.astro': ['(a, b) => (key === "region" ? (a.dataset.region ?? "").localeCompare(b.dataset.region ?? "") : 0) || (a.dataset.name ?? "").localeCompare(b.dataset.name ?? "")'],
 };
 function comparisons(source: string): string[] {
@@ -55,7 +56,7 @@ describe('area ordering', () => {
     expect(failures).toEqual([]);
   });
   it('catches shares, changes, years, counts, scores and indirect comparators', () => {
-    for (const field of ['share', 'change', 'year', 'count', 'pop', 'score', 'crossSort']) {
+    for (const field of ['share', 'change', 'year', 'count', 'pop', 'score', 'crossSort', 'y']) {
       for (const method of ['sort', 'toSorted']) {
         const [c] = comparisons(`areas.${method}((a,b) => b.${field} - a.${field})`);
         expect(allowed('src/pages/new.astro', c)).toBe(false);
