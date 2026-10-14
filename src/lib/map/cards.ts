@@ -12,6 +12,7 @@
  * QA gates (contrast, dashes, ranking and loaded words, branding, plates) run on each
  * one, and a card whose focus council has no plate fails the build (I6).
  */
+import { CARD_LICENCE_URL, CARD_USAGE_TERMS } from "./card-licence";
 import { createRequire } from "node:module";
 import { availableParallelism } from "node:os";
 import { join } from "node:path";
@@ -127,8 +128,8 @@ const xmlEsc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").rep
 
 /**
  * Rights metadata embedded in every card (IPTC Core in XMP), so a reposted download still
- * credits its source: creator and credit are the site, never a person; no licence and no
- * digital source type are claimed (image SEO research, 14 October 2026).
+ * credits its source: creator and credit are the site, never a person. The card reuse
+ * terms travel with the file. No digital source type is claimed.
  */
 export function cardXmp(code: string, spec: CardSpec): string {
   const year = new Date().getFullYear();
@@ -141,7 +142,8 @@ export function cardXmp(code: string, spec: CardSpec): string {
     `<dc:creator><rdf:Seq><rdf:li>ukdemographics.co.uk</rdf:li></rdf:Seq></dc:creator>` +
     `<dc:rights><rdf:Alt><rdf:li xml:lang="x-default">${xmlEsc(rights)}</rdf:li></rdf:Alt></dc:rights>` +
     `<photoshop:Credit>ukdemographics.co.uk</photoshop:Credit>` +
-    `<xmpRights:WebStatement>https://ukdemographics.co.uk/terms/</xmpRights:WebStatement>` +
+    `<xmpRights:WebStatement>${CARD_LICENCE_URL}</xmpRights:WebStatement>` +
+    `<xmpRights:UsageTerms><rdf:Alt><rdf:li xml:lang="x-default">${xmlEsc(CARD_USAGE_TERMS)}</rdf:li></rdf:Alt></xmpRights:UsageTerms>` +
     `</rdf:Description></rdf:RDF></x:xmpmeta><?xpacket end="w"?>`;
 }
 

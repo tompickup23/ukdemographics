@@ -1,4 +1,5 @@
 ---
+import { CARD_LICENCE_METADATA } from "../../lib/map/card-licence";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import DataFreshness from "../../components/DataFreshness.astro";
@@ -530,7 +531,8 @@ const popPortraitNode = {
   caption: renderCard(area.areaCode, "population_change", "portrait").alt,
   creator: { "@id": `${SITE_URL}/#organization` },
   creditText: "ukdemographics.co.uk",
-  copyrightNotice: cardCopyright
+  copyrightNotice: cardCopyright,
+  ...CARD_LICENCE_METADATA
 };
 const structuredData = buildPlaceStructuredData(area, {
   canonicalUrl,
