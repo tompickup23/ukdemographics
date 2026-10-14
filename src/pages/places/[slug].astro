@@ -7,6 +7,7 @@ import StatCard from "../../components/StatCard.astro";
 import MiniMap from "../../components/MiniMap.astro";
 import PlaceMap from "../../components/PlaceMap.astro";
 import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
+import { ETHNIC_GROUP_KEYS } from "../../lib/ethnic-palette";
 import ProjectionChart from "../../components/ProjectionChart.astro";
 import ShiftShareChart from "../../components/ShiftShareChart.astro";
 import ScenarioSelector from "../../components/ScenarioSelector.astro";
@@ -341,14 +342,10 @@ const wbi2051 = publishableValue(
 const ethnicTimeline = getEthnicCompositionTimeline(area.areaCode);
 const stochasticData = getStochasticData(area.areaCode);
 
-const GROUP_COLORS: Record<string, string> = {
-  white_british: "var(--accent)",
-  white_other: "#8b9cb3",
-  asian: "var(--warning)",
-  black: "#a78bfa",
-  mixed: "var(--positive)",
-  other: "#6b7280",
-};
+// Line strokes per scheme from the site palette: --eth-line-<key> in global.css.
+const GROUP_COLORS: Record<string, string> = Object.fromEntries(
+  ETHNIC_GROUP_KEYS.map((k) => [k, `var(--eth-line-${k.replace("_", "-")})`])
+);
 const GROUP_LABELS: Record<string, string> = {
   white_british: "White British",
   white_other: "White Other",

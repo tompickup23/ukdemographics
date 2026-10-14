@@ -159,9 +159,26 @@
   --on-fill-dark: #ffffff;
   --on-accent: #ffffff;
 }
+/* Line chart strokes for the six ethnic groups (src/lib/ethnic-palette.ts): darker
+   shades on the light page, 3:1 or more on white; the fills themselves on the dark page.
+   tests/ethnic-palette.test.ts checks these against the module. */
+:root {
+  --eth-line-white-british: #4338ca;
+  --eth-line-white-other: #3c4f62;
+  --eth-line-asian: #8a5a10;
+  --eth-line-black: #0b7f64;
+  --eth-line-mixed: #2f7d1f;
+  --eth-line-other: #696e81;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --on-accent: var(--ground);
+    --eth-line-white-british: #7b74f2;
+    --eth-line-white-other: #a7bedc;
+    --eth-line-asian: #f0b03e;
+    --eth-line-black: #21b58f;
+    --eth-line-mixed: #67edad;
+    --eth-line-other: #546a73;
   }
 }
 

@@ -83,6 +83,23 @@ function projectedPoints(points: LineData["points"]) {
 
 const hasProjection = lines.some((l) => l.points.some((p) => p.year > nowYear));
 
+// End labels are spread vertically so two lines ending close together (White British
+// and Asian both at 39%, say) never print over each other; a label moved off its dot
+// gets a short leader in the line's colour.
+const LABEL_GAP = 12;
+const endLabelY = new Map<LineData, number>();
+{
+  const ends = lines
+    .filter((l) => l.points.length > 0)
+    .map((l) => ({ l, y: y(l.points[l.points.length - 1].value) + 4 }))
+    .sort((a, b) => a.y - b.y);
+  for (let i = 1; i < ends.length; i++) ends[i].y = Math.max(ends[i].y, ends[i - 1].y + LABEL_GAP);
+  const over = ends.length ? ends[ends.length - 1].y - (height - pad.bottom) : 0;
+  if (over > 0) for (const e of ends) e.y -= over;
+  for (let i = ends.length - 2; i >= 0; i--) ends[i].y = Math.min(ends[i].y, ends[i + 1].y - LABEL_GAP);
+  for (const e of ends) endLabelY.set(e.l, e.y);
+}
+
 // Table twin. A third of readers have low graph literacy, and the values are
 // the product here, so they get a real table rather than a hover.
 const tableYears = Array.from(new Set(lines.flatMap((l) => l.points.map((p) => p.year)))).sort(
@@ -104,7 +121,7 @@ function buildBandPath(band: BandPoint[]): string {
 }
 
 // Year labels
-const labelYears = [minYear, nowYear, ...([2031, 2041, 2051].filter(yr => yr <= maxYear && yr > nowYear))].filter((v, i, a) => a.indexOf(v) === i);
+const labelYears = [minYear, nowYear, ...([2031, 2041, 2051, 2061].filter(yr => yr <= maxYear && yr > nowYear))].filter((v, i, a) => a.indexOf(v) === i);
 ---
 
 <figure class="viz-card projection-chart">
@@ -157,11 +174,18 @@ const labelYears = [minYear, nowYear, ...([2031, 2041, 2051].filter(yr => yr <= 
         )}
         {/* End label */}
         {line.points.length > 0 && (
-          <text x={x(line.points[line.points.length - 1].year) + 4}
-                y={y(line.points[line.points.length - 1].value) + 4}
-                class="proj-line-label" fill={line.color}>
+          <>
+          {Math.abs(endLabelY.get(line)! - 4 - y(line.points[line.points.length - 1].value)) > 2 && (
+            <line x1={x(line.points[line.points.length - 1].year) + 3} y1={y(line.points[line.points.length - 1].value)}
+                  x2={x(line.points[line.points.length - 1].year) + 9} y2={endLabelY.get(line)! - 4}
+                  stroke={line.color} stroke-width="1" />
+          )}
+          <text x={x(line.points[line.points.length - 1].year) + 11}
+                y={endLabelY.get(line)}
+                class="proj-line-label">
             {line.label} {line.points[line.points.length - 1].value.toFixed(0)}%
           </text>
+          </>
         )}
         {/* End dot */}
         {line.points.length > 0 && (
@@ -231,7 +255,8 @@ const labelYears = [minYear, nowYear, ...([2031, 2041, 2051].filter(yr => yr <= 
   .proj-tick { font-size: 11px; fill: var(--text-faint); font-family: var(--font-display); }
   .proj-axis-label { font-size: 10px; fill: var(--text-faint); font-family: var(--font-display); }
   .proj-now-label { font-size: 10px; fill: var(--text-faint); font-family: var(--font-display); }
-  .proj-line-label { font-size: 10px; font-family: var(--font-display); font-weight: 600; }
+  /* The body text colour, not the line's: a 10 px label needs 4.5:1, and it names its line. */
+  .proj-line-label { font-size: 10px; font-family: var(--font-display); font-weight: 600; fill: var(--text); }
   .proj-year-label { font-size: 11px; fill: var(--text-muted); font-family: var(--font-display); }
   .proj-legend { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
   .proj-legend-item { display: flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; color: var(--muted); }

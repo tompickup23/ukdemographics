@@ -16,6 +16,7 @@ import rawProjections from "../../data/live/ethnic-projections.json";
 import { areaName, focusFrame, type Frame } from "./geo";
 import { getIndicator, latestYear, type Indicator, type IndicatorId } from "./indicators";
 import { renderStill, yearPhrase, type RenderResult } from "./render";
+import { ETHNIC_PALETTE } from "../ethnic-palette";
 
 /** Measure keys used in the SVG's data- attributes and by public/scripts/place-map.js. */
 export const MEASURES: Array<{ key: "p" | "e"; id: IndicatorId; tab: string }> = [
@@ -23,15 +24,9 @@ export const MEASURES: Array<{ key: "p" | "e"; id: IndicatorId; tab: string }> =
   { key: "e", id: "white_british_share", tab: "Ethnic groups" }
 ];
 
-export const GROUPS = [
-  { key: "white_british", label: "White British", colour: "#7b74f2" },
-  { key: "white_other", label: "White Other", colour: "#8b9cb3" },
-  { key: "asian", label: "Asian", colour: "#f0b03e" },
-  { key: "black", label: "Black", colour: "#a78bfa" },
-  { key: "mixed", label: "Mixed", colour: "#6fcf9a" },
-  { key: "other", label: "Other", colour: "#6b7280" }
-] as const;
-export type GroupKey = (typeof GROUPS)[number]["key"];
+/** The six groups in fixed order, coloured from the one site palette (src/lib/ethnic-palette.ts). */
+export const GROUPS = ETHNIC_PALETTE.map((g) => ({ key: g.key, label: g.label, colour: g.fill }));
+export type GroupKey = (typeof ETHNIC_PALETTE)[number]["key"];
 
 interface CensusSide { year: number; total_population: number; groups: Record<string, number>; groups_absolute: Record<string, number> }
 const model = rawProjections as unknown as { areas: Record<string, { areaName: string; baseline: CensusSide; current: CensusSide }> };
