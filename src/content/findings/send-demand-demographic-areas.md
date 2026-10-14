@@ -1,7 +1,7 @@
 ---
 headline: "Pupils with an EHC plan rose 65% in five years in England, with no link to demographic change"
 date: "2026-04-10"
-updated: "2026-10-12"
+updated: "2026-10-14"
 category: send
 stat_value: "+65.4%"
 stat_label: "Pupils with an EHC plan, England, 2020/21 to 2025/26"
@@ -38,10 +38,17 @@ summary: "Corrected 12 October 2026. Pupils with an EHC plan in England rose by 
 > metropolitan and London authorities with both figures, five-year growth in
 > pupils with an EHC plan has no relationship with the change in the White
 > British share between the 2011 and 2021 Censuses: the rank correlation is
-> **-0.04**.
+> **-0.05**.
 >
 > The headline originally read: "EHCP demand grew fastest in areas with rapid demographic change". It now says what the published
 > figures show.
+>
+> **Update, 14 October 2026.** The rank correlation was given as -0.04. That
+> figure counted Bournemouth, Christchurch and Poole and Dorset as having no
+> change in the White British share, because the site then held no 2011 figure
+> for councils formed after 2011. Their 2011 figures are now the sums of the
+> districts they replaced (Census 2011 KS201EW), and across the same 123
+> authorities the rank correlation is -0.05. The conclusion does not change.
 
 **Pupils with an EHC plan in England rose by 65.4% in five years**, from 325,618
 in 2020/21 to 538,547 in 2025/26. In 2025/26 they are 6.0% of pupils.
@@ -56,7 +63,7 @@ The areas this piece first named:
 Growth is fast almost everywhere, and it does not track demographic change.
 Across the 123 unitary, metropolitan and London authorities with both figures,
 the rank correlation between five-year growth and the 2011 to 2021 change in the
-White British share is -0.04, which is no relationship at all.
+White British share is -0.05, which is no relationship at all.
 
 Rising EHC plan numbers reflect multiple factors: improved identification practices, changing diagnostic thresholds, increased parental awareness, and genuine prevalence changes. Language barriers in areas with higher non-English-speaking populations may also affect identification timing.
 

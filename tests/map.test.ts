@@ -23,6 +23,7 @@ import {
   countyFrame,
   focusFrame,
   getIndicator,
+  isSummed2011,
   latestYear,
   loadCouncils,
   neighbourIndex,
@@ -76,11 +77,12 @@ function expectedPopulation(code: string, year: number): string {
 }
 const successors2011 = readJson("src/data/live/census-2011-successors.json").areas;
 function expectedWhiteBritish(code: string, year: number): string {
+  // The 2011 sums for councils formed since 2011 are read from the separately derived file.
+  const d = year === 2011 ? successors2011[code] : null;
+  if (d) return `${((d.groups_absolute.white_british / d.total_population) * 100).toFixed(1)}%`;
   const a = projections.areas[code];
   const side = year === 2011 ? a.baseline : a.current;
-  if (side.year === year) return `${side.groups.white_british.toFixed(1)}%`;
-  const d = year === 2011 ? successors2011[code] : null;
-  return d ? `${((d.groups_absolute.white_british / d.total_population) * 100).toFixed(1)}%` : "n/a";
+  return side.year === year ? `${side.groups.white_british.toFixed(1)}%` : "n/a";
 }
 
 describe("map geometry", () => {
@@ -163,12 +165,18 @@ describe("map indicators", () => {
   });
 
   it("gives councils formed since 2011 their summed 2011 figure, never the 2021 one", () => {
-    const formed = Object.entries<{ baseline: { year: number } }>(projections.areas).filter(([, a]) => a.baseline.year !== 2011).map(([c]) => c);
-    expect(formed).toHaveLength(11);
     const derived = readJson("src/data/live/census-2011-successors.json");
+    const formed = Object.keys(derived.areas);
+    expect(formed).toHaveLength(11);
+    expect(formed.filter((c) => !isSummed2011(c))).toEqual([]);
     expect(derived.checks.siteAreas2011Total).toBe(derived.checks.englandAndWales2011Total);
     for (const code of formed) {
       const d = derived.areas[code];
+      // ethnic-projections.json and the separately derived sums agree, cell for cell.
+      const base = projections.areas[code].baseline;
+      expect(base.year).toBe(2011);
+      expect(base.total_population).toBe(d.total_population);
+      expect(base.groups_absolute).toEqual(d.groups_absolute);
       const share = Number(((d.groups_absolute.white_british / d.total_population) * 100).toFixed(2));
       expect(wb.status(code, 2011)).toBe("ok");
       expect(wb.value(code, 2011)).toBe(share);

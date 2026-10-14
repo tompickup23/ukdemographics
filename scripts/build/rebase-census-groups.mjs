@@ -23,8 +23,16 @@
  * extracts by local authority, in --census-dir. Codes are resolved in order:
  * the site's own code; its alias (Barnsley and Sheffield, see
  * src/data/lookups/area-code-aliases.json); the sum of its predecessors (the
- * April 2023 unitaries, src/data/lookups/lad22-to-lad23.json). Where none
- * resolves, the field is left as it is and listed. Nothing is estimated.
+ * April 2023 unitaries, src/data/lookups/lad22-to-lad23.json, and for 2011
+ * only the councils formed between 2011 and 2021,
+ * scripts/model/geography/lad11-successors.json, which also expands Somerset
+ * West and Taunton inside Somerset). Where none resolves, the field is left as
+ * it is and listed. Nothing is estimated.
+ *
+ * Baseline year: an area whose baseline is the 2021 Census because it was
+ * formed after 2011 is moved to a 2011 baseline when its 2011 districts all
+ * resolve. Every one of them is a merger of whole 2011 districts, so the 2011
+ * figure is an exact sum of published counts (October 2026, maps plan D9).
  *
  * Writes a provenance manifest with each input's SHA-256 and the national
  * totals the tests compare against.
@@ -34,6 +42,7 @@
  *     [--census-dir data/raw/census_ethnicity] \
  *     [--aliases src/data/lookups/area-code-aliases.json] \
  *     [--successors src/data/lookups/lad22-to-lad23.json] \
+ *     [--successors-2011 scripts/model/geography/lad11-successors.json] \
  *     [--manifest data/raw/manifests/census_ethnic_groups.json] [--dry-run]
  */
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
@@ -51,6 +60,7 @@ const FILE = path.resolve(arg("--file", "src/data/live/ethnic-projections.json")
 const CENSUS_DIR = path.resolve(arg("--census-dir", "data/raw/census_ethnicity"));
 const ALIASES = path.resolve(arg("--aliases", "src/data/lookups/area-code-aliases.json"));
 const SUCCESSORS = path.resolve(arg("--successors", "src/data/lookups/lad22-to-lad23.json"));
+const SUCCESSORS_2011 = path.resolve(arg("--successors-2011", "scripts/model/geography/lad11-successors.json"));
 const MANIFEST = path.resolve(arg("--manifest", "data/raw/manifests/census_ethnic_groups.json"));
 const DRY_RUN = process.argv.includes("--dry-run");
 
@@ -147,12 +157,23 @@ function loadCensus(year) {
 
 const aliases = existsSync(ALIASES) ? JSON.parse(readFileSync(ALIASES, "utf8")).aliases ?? {} : {};
 const successors = existsSync(SUCCESSORS) ? JSON.parse(readFileSync(SUCCESSORS, "utf8")).successors ?? {} : {};
+const successors2011 = existsSync(SUCCESSORS_2011) ? JSON.parse(readFileSync(SUCCESSORS_2011, "utf8")).successors ?? {} : {};
 
-function resolve(code, census) {
+// The 2011 districts a council is made of. The 2011 to 2021 lookup applies to
+// 2011 only; a predecessor with no row of its own (Somerset West and Taunton,
+// formed in 2019) is expanded through it again.
+function predecessorCodes(code, census, year) {
+  const expand = (c) => (census.has(c) || year !== 2011 || !successors2011[c] ? [c] : successors2011[c].predecessors2011.flatMap(expand));
+  const direct = (year === 2011 ? successors2011[code]?.predecessors2011 : null) ?? successors[code]?.predecessors?.map((p) => p.code) ?? [];
+  return direct.flatMap(expand);
+}
+
+function resolve(code, census, year) {
   if (census.has(code)) return { via: "direct", codes: [code], ...census.get(code) };
   const alias = aliases[code];
   if (alias && census.has(alias)) return { via: "alias", codes: [alias], ...census.get(alias) };
-  const preds = successors[code]?.predecessors?.map((p) => p.code) ?? [];
+  const preds = predecessorCodes(code, census, year);
+  if (new Set(preds).size !== preds.length) throw new Error(`${code}: a predecessor is listed twice`);
   if (preds.length && preds.every((p) => census.has(p))) {
     const groups = Object.fromEntries(GROUP_KEYS.map((g) => [g, 0]));
     let total = 0;
@@ -196,7 +217,8 @@ const log = {
   unresolved: { current: [], baseline: [] },
   changed: { currentCounts: 0, currentTotal: 0, currentShares: 0, baselineCounts: 0, baselineTotal: 0, baselineShares: 0 },
   modelled: { areas: 0, maxDeviationPp: 0, maxDeviationArea: null, outside: [] },
-  legacy: []
+  legacy: [],
+  movedTo2011: []
 };
 
 function note(key, code, r) {
@@ -213,7 +235,7 @@ for (const code of areaCodes) {
   const modelled = !!area.projections_detail;
 
   // Census 2021: counts and total for every area; shares only where no model output.
-  const r21 = resolve(code, census[2021].byCode);
+  const r21 = resolve(code, census[2021].byCode, 2021);
   if (!r21) {
     log.unresolved.current.push(`${code} ${area.areaName}`);
   } else {
@@ -245,12 +267,18 @@ for (const code of areaCodes) {
     }
   }
 
-  // Baseline: from the Census of its own year (2011 for 307 areas; the
-  // unitaries formed after 2011 carry a 2021 baseline).
+  // Baseline: from the 2011 Census wherever the area resolves in it, which
+  // moves the councils formed since 2011 from a 2021 baseline to their summed
+  // 2011 districts. An area that does not resolve keeps its own year.
   const base = area.baseline;
+  if (base.year !== 2011 && base.year !== 2021) throw new Error(`${code}: baseline.year ${base.year}`);
+  const r2011 = resolve(code, census[2011].byCode, 2011);
+  if (r2011 && base.year !== 2011) {
+    log.movedTo2011.push(`${code} ${area.areaName} from ${r2011.codes.join("+")}`);
+    base.year = 2011;
+  }
   const year = base.year;
-  if (year !== 2011 && year !== 2021) throw new Error(`${code}: baseline.year ${year}`);
-  const rb = resolve(code, census[year].byCode);
+  const rb = year === 2011 ? r2011 : resolve(code, census[year].byCode, year);
   if (!rb) {
     log.unresolved.baseline.push(`${code} ${area.areaName} (${year})`);
   } else {
@@ -283,7 +311,7 @@ function national(field, year) {
     if (aliases[code] && data.areas[aliases[code]]) continue;
     const p = area[field];
     if (p.year !== year) continue;
-    const r = resolve(code, census[year].byCode);
+    const r = resolve(code, census[year].byCode, year);
     if (!r) continue;
     out.areas++;
     out.total += r.total;
@@ -293,9 +321,9 @@ function national(field, year) {
 }
 
 // England and Wales as a whole, on each Census's own boundaries: every local
-// authority row in the extract, whatever the site's area codes. The 2011
-// figure covers the authorities that have no 2011 record in the site's file
-// (the eleven created since), so it is the one to quote for the whole country.
+// authority row in the extract, whatever the site's area codes. Since the
+// councils formed after 2011 carry their summed 2011 districts, the site's 318
+// areas add up to this total exactly; tests/census-national.test.ts checks it.
 function englandAndWales(year) {
   const out = { areas: 0, total: 0, groups: Object.fromEntries(GROUP_KEYS.map((g) => [g, 0])) };
   for (const [code, r] of census[year].byCode) {
@@ -316,11 +344,13 @@ const manifest = {
   files: [census[2021].provenance, census[2011].provenance],
   lookups: {
     aliases: existsSync(ALIASES) ? { file: path.basename(ALIASES), sha256: fileSha256(ALIASES) } : null,
-    successors: existsSync(SUCCESSORS) ? { file: path.basename(SUCCESSORS), sha256: fileSha256(SUCCESSORS) } : null
+    successors: existsSync(SUCCESSORS) ? { file: path.basename(SUCCESSORS), sha256: fileSha256(SUCCESSORS) } : null,
+    successors2011: existsSync(SUCCESSORS_2011) ? { file: path.basename(SUCCESSORS_2011), sha256: fileSha256(SUCCESSORS_2011) } : null
   },
   target: { file: path.basename(FILE), areas: areaCodes.length },
   resolution: log.resolution,
   unresolved: log.unresolved,
+  baselineMovedTo2011: log.movedTo2011,
   modelledShareCheck: {
     areas: log.modelled.areas,
     tolerancePp: MODELLED_TOLERANCE_PP,
@@ -339,6 +369,8 @@ for (const [key, r] of Object.entries(log.resolution)) {
   console.log(`Resolved ${key}: ${r.direct} direct, ${r.alias.length} by alias, ${r.predecessors.length} summed from predecessors`);
   for (const l of [...r.alias, ...r.predecessors]) console.log(`  ${l}`);
 }
+console.log(`Baseline moved from 2021 to 2011: ${log.movedTo2011.length}`);
+for (const l of log.movedTo2011) console.log(`  ${l}`);
 console.log(`Unresolved, left unchanged: current ${log.unresolved.current.length}, baseline ${log.unresolved.baseline.length}`);
 for (const l of [...log.unresolved.current, ...log.unresolved.baseline]) console.log(`  ${l}`);
 console.log(`Modelled 2021 shares: max ${manifest.modelledShareCheck.maxDeviationPp}pp from TS021 (${log.modelled.maxDeviationArea}); beyond ${MODELLED_TOLERANCE_PP}pp: ${log.modelled.outside.length}`);

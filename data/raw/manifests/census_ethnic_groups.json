@@ -1,6 +1,6 @@
 {
   "generatedBy": "scripts/build/rebase-census-groups.mjs",
-  "generatedOn": "2026-10-12",
+  "generatedOn": "2026-10-14",
   "publisher": "Office for National Statistics",
   "description": "Census ethnic group extracts by local authority that the Census fields of ethnic-projections.json are rebased on. The files are gitignored; their hashes are recorded here so the inputs can be identified. National totals are summed over the file's own area codes, each authority once.",
   "files": [
@@ -35,6 +35,10 @@
     "successors": {
       "file": "lad22-to-lad23.json",
       "sha256": "cc4c930d230c5a2db9259798c4eee35953f828bafa07c3cd16151c21d6f728cf"
+    },
+    "successors2011": {
+      "file": "lad11-successors.json",
+      "sha256": "61967e474c9239b8f7dcaae5c8f7bf46220a57e2ef438b62110443c9de3ec00a"
     }
   },
   "target": {
@@ -50,10 +54,22 @@
     "baseline2011": {
       "direct": 307,
       "alias": [],
-      "predecessors": []
+      "predecessors": [
+        "E06000061 from E07000150+E07000152+E07000153+E07000156",
+        "E06000058 from E06000028+E06000029+E07000048",
+        "E06000063 from E07000026+E07000028+E07000029",
+        "E06000062 from E07000151+E07000154+E07000155",
+        "E06000065 from E07000163+E07000164+E07000165+E07000166+E07000167+E07000168+E07000169",
+        "E06000066 from E07000187+E07000188+E07000189+E07000190+E07000191",
+        "E06000064 from E07000027+E07000030+E07000031",
+        "E06000060 from E07000004+E07000005+E07000006+E07000007",
+        "E07000244 from E07000205+E07000206",
+        "E07000245 from E07000201+E07000204",
+        "E06000059 from E07000049+E07000050+E07000051+E07000052+E07000053"
+      ]
     },
     "baseline2021": {
-      "direct": 11,
+      "direct": 0,
       "alias": [],
       "predecessors": []
     }
@@ -62,6 +78,19 @@
     "current": [],
     "baseline": []
   },
+  "baselineMovedTo2011": [
+    "E06000061 North Northamptonshire from E07000150+E07000152+E07000153+E07000156",
+    "E06000058 Bournemouth, Christchurch and Poole from E06000028+E06000029+E07000048",
+    "E06000063 Cumberland from E07000026+E07000028+E07000029",
+    "E06000062 West Northamptonshire from E07000151+E07000154+E07000155",
+    "E06000065 North Yorkshire from E07000163+E07000164+E07000165+E07000166+E07000167+E07000168+E07000169",
+    "E06000066 Somerset from E07000187+E07000188+E07000189+E07000190+E07000191",
+    "E06000064 Westmorland and Furness from E07000027+E07000030+E07000031",
+    "E06000060 Buckinghamshire from E07000004+E07000005+E07000006+E07000007",
+    "E07000244 East Suffolk from E07000205+E07000206",
+    "E07000245 West Suffolk from E07000201+E07000204",
+    "E06000059 Dorset from E07000049+E07000050+E07000051+E07000052+E07000053"
+  ],
   "modelledShareCheck": {
     "areas": 269,
     "tolerancePp": 0.05,
@@ -79,15 +108,15 @@
   },
   "national": {
     "2011": {
-      "areas": 307,
-      "total": 52096122,
+      "areas": 318,
+      "total": 56075912,
       "groups": {
-        "white_british": 41525180,
-        "white_other": 2912012,
-        "asian": 4108287,
-        "black": 1827130,
-        "mixed": 1170687,
-        "other": 552826
+        "white_british": 45134686,
+        "white_other": 3074709,
+        "asian": 4213531,
+        "black": 1864890,
+        "mixed": 1224400,
+        "other": 563696
       }
     },
     "2021": {
