@@ -39,14 +39,11 @@ describe("ethnic composition timeline", () => {
     }
   });
 
-  it("covers the areas whose baseline is the 2021 Census", () => {
-    // Guards against the data changing under the test: if no area shares a
-    // baseline and current year, the single-point checks above prove nothing.
-    const same = codes.filter((c) => areas[c].baseline.year === areas[c].current.year);
-    expect(same.length).toBeGreaterThan(0);
-    for (const code of same) {
-      const observed = getEthnicCompositionTimeline(code)!.filter((p) => !p.isProjection);
-      expect(observed.length, areas[code].areaName).toBe(1);
+  it("shows both Censuses for every area, the councils formed since 2011 included", () => {
+    // Until October 2026 eleven councils had a 2021 baseline and so one observed point.
+    for (const code of codes) {
+      const observed = getEthnicCompositionTimeline(code)!.filter((p) => !p.isProjection).map((p) => p.year);
+      expect(observed, areas[code].areaName).toEqual(["2011", "2021"]);
     }
   });
 

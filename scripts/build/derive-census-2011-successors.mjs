@@ -2,13 +2,13 @@
  * Census 2011 ethnic group counts for the councils formed since 2011, as exact sums of
  * their 2011 districts' published KS201EW counts.
  *
- * ethnic-projections.json holds no 2011 figure for eleven councils (its baseline for them
- * is the 2021 Census: baseline.year === 2021): Bournemouth, Christchurch and Poole; Dorset;
- * Buckinghamshire; North and West Northamptonshire; East and West Suffolk (2019 to 2021),
- * and Cumberland, Westmorland and Furness, North Yorkshire and Somerset (April 2023).
+ * Eleven councils have no KS201EW row of their own: Bournemouth, Christchurch and Poole;
+ * Dorset; Buckinghamshire; North and West Northamptonshire; East and West Suffolk (2019 to
+ * 2021), and Cumberland, Westmorland and Furness, North Yorkshire and Somerset (April 2023).
  * Each is a merger of whole 2011 districts, so summing their counts is a sum of published
- * figures, not an estimate. The map module reads this file; ethnic-projections.json is not
- * touched, because changing its baseline changes eleven place pages.
+ * figures, not an estimate. Since October 2026 scripts/build/rebase-census-groups.mjs writes
+ * the same sums into ethnic-projections.json as these councils' 2011 baseline; this file is
+ * derived separately so tests/map.test.ts can check the two agree cell for cell.
  *
  * Predecessors: scripts/model/geography/lad11-successors.json for the 2019 to 2021
  * mergers, src/data/lookups/lad22-to-lad23.json for April 2023, with Somerset West and
@@ -16,9 +16,9 @@
  * districts appear in either.
  *
  * Checks before writing: every predecessor has a row; every district's groups add up to its
- * all-persons row; no district is used twice; and the 318 site areas' 2011 totals (307 from
- * ethnic-projections.json, these 11) add up to the KS201EW England and Wales total exactly,
- * so no district is missing or counted twice anywhere.
+ * all-persons row; no district is used twice; and the 318 site areas' 2011 totals (307 with
+ * a KS201EW row of their own, these 11) add up to the KS201EW England and Wales total
+ * exactly, so no district is missing or counted twice anywhere.
  *
  *   node scripts/build/derive-census-2011-successors.mjs \
  *     [--census-dir data/raw/census_ethnicity] [--out src/data/live/census-2011-successors.json]
@@ -73,7 +73,7 @@ function predecessors(code) {
 }
 
 const projections = read("src/data/live/ethnic-projections.json").areas;
-const formed = Object.entries(projections).filter(([, a]) => a.baseline.year !== 2011).map(([c]) => c).sort();
+const formed = Object.keys(projections).filter((c) => !byCode.has(c)).sort();
 const used = new Set();
 const areas = {};
 for (const code of formed) {
@@ -97,7 +97,7 @@ for (const code of formed) {
 
 // ---- Partition check: every 2011 district once, across all 318 site areas ----
 let siteTotal = 0;
-for (const [code, a] of Object.entries(projections)) siteTotal += a.baseline.year === 2011 ? a.baseline.total_population : areas[code].total_population;
+for (const code of Object.keys(projections)) siteTotal += byCode.has(code) ? byCode.get(code).total : areas[code].total_population;
 const ewTotal = manifest.englandAndWales["2011"].total;
 if (siteTotal !== ewTotal) throw new Error(`site areas sum to ${siteTotal} in 2011, KS201EW England and Wales ${ewTotal}`);
 

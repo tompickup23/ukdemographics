@@ -29385,23 +29385,23 @@
     "E06000061": {
       "areaName": "North Northamptonshire",
       "baseline": {
-        "year": 2021,
-        "total_population": 359523,
+        "year": 2011,
+        "total_population": 316851,
         "groups": {
-          "white_british": 80.46,
-          "white_other": 9.84,
-          "asian": 3.54,
-          "black": 3.06,
-          "mixed": 2.27,
-          "other": 0.82
+          "white_british": 87.69,
+          "white_other": 5.7,
+          "asian": 2.96,
+          "black": 1.68,
+          "mixed": 1.69,
+          "other": 0.29
         },
         "groups_absolute": {
-          "white_british": 289274,
-          "white_other": 35390,
-          "asian": 12726,
-          "black": 11017,
-          "mixed": 8175,
-          "other": 2941
+          "white_british": 277831,
+          "white_other": 18058,
+          "asian": 9364,
+          "black": 5325,
+          "mixed": 5359,
+          "other": 914
         }
       },
       "current": {
@@ -32601,23 +32601,23 @@
     "E06000058": {
       "areaName": "Bournemouth, Christchurch and Poole",
       "baseline": {
-        "year": 2021,
-        "total_population": 400195,
+        "year": 2011,
+        "total_population": 378888,
         "groups": {
-          "white_british": 82.36,
-          "white_other": 8.97,
-          "asian": 3.39,
-          "black": 1.06,
-          "mixed": 2.77,
-          "other": 1.45
+          "white_british": 88.38,
+          "white_other": 5.82,
+          "asian": 2.86,
+          "black": 0.62,
+          "mixed": 1.75,
+          "other": 0.57
         },
         "groups_absolute": {
-          "white_british": 329609,
-          "white_other": 35901,
-          "asian": 13551,
-          "black": 4233,
-          "mixed": 11093,
-          "other": 5808
+          "white_british": 334864,
+          "white_other": 22047,
+          "asian": 10837,
+          "black": 2367,
+          "mixed": 6612,
+          "other": 2161
         }
       },
       "current": {
@@ -33514,23 +33514,23 @@
     "E06000063": {
       "areaName": "Cumberland",
       "baseline": {
-        "year": 2021,
-        "total_population": 273254,
+        "year": 2011,
+        "total_population": 274549,
         "groups": {
-          "white_british": 95.09,
-          "white_other": 2.58,
-          "asian": 0.99,
-          "black": 0.22,
-          "mixed": 0.75,
-          "other": 0.36
+          "white_british": 96.5,
+          "white_other": 1.97,
+          "asian": 0.86,
+          "black": 0.11,
+          "mixed": 0.47,
+          "other": 0.09
         },
         "groups_absolute": {
-          "white_british": 259836,
-          "white_other": 7053,
-          "asian": 2715,
-          "black": 606,
-          "mixed": 2050,
-          "other": 994
+          "white_british": 264953,
+          "white_other": 5403,
+          "asian": 2354,
+          "black": 304,
+          "mixed": 1300,
+          "other": 235
         }
       },
       "current": {
@@ -36747,23 +36747,23 @@
     "E06000062": {
       "areaName": "West Northamptonshire",
       "baseline": {
-        "year": 2021,
-        "total_population": 425723,
+        "year": 2011,
+        "total_population": 375101,
         "groups": {
-          "white_british": 75.05,
-          "white_other": 10.86,
-          "asian": 5.28,
-          "black": 4.85,
-          "mixed": 2.85,
-          "other": 1.11
+          "white_british": 83.96,
+          "white_other": 5.87,
+          "asian": 4.28,
+          "black": 3.09,
+          "mixed": 2.35,
+          "other": 0.45
         },
         "groups_absolute": {
-          "white_british": 319509,
-          "white_other": 46249,
-          "asian": 22463,
-          "black": 20661,
-          "mixed": 12116,
-          "other": 4725
+          "white_british": 314924,
+          "white_other": 22009,
+          "asian": 16063,
+          "black": 11598,
+          "mixed": 8823,
+          "other": 1684
         }
       },
       "current": {
@@ -37100,23 +37100,23 @@
     "E06000065": {
       "areaName": "North Yorkshire",
       "baseline": {
-        "year": 2021,
-        "total_population": 615490,
+        "year": 2011,
+        "total_population": 598376,
         "groups": {
-          "white_british": 93.27,
-          "white_other": 3.43,
-          "asian": 1.35,
-          "black": 0.4,
-          "mixed": 1.09,
-          "other": 0.46
+          "white_british": 94.43,
+          "white_other": 2.91,
+          "asian": 1.23,
+          "black": 0.41,
+          "mixed": 0.84,
+          "other": 0.18
         },
         "groups_absolute": {
-          "white_british": 574065,
-          "white_other": 21089,
-          "asian": 8317,
-          "black": 2456,
-          "mixed": 6720,
-          "other": 2843
+          "white_british": 565055,
+          "white_other": 17420,
+          "asian": 7356,
+          "black": 2424,
+          "mixed": 5043,
+          "other": 1078
         }
       },
       "current": {
@@ -51693,23 +51693,23 @@
     "E06000066": {
       "areaName": "Somerset",
       "baseline": {
-        "year": 2021,
-        "total_population": 571547,
+        "year": 2011,
+        "total_population": 529972,
         "groups": {
-          "white_british": 91.3,
-          "white_other": 5.08,
-          "asian": 1.51,
-          "black": 0.43,
-          "mixed": 1.25,
-          "other": 0.43
+          "white_british": 94.64,
+          "white_other": 3.34,
+          "asian": 0.92,
+          "black": 0.19,
+          "mixed": 0.8,
+          "other": 0.11
         },
         "groups_absolute": {
-          "white_british": 521829,
-          "white_other": 29018,
-          "asian": 8658,
-          "black": 2436,
-          "mixed": 7137,
-          "other": 2469
+          "white_british": 501558,
+          "white_other": 17697,
+          "asian": 4873,
+          "black": 1013,
+          "mixed": 4241,
+          "other": 590
         }
       },
       "current": {
@@ -67117,23 +67117,23 @@
     "E06000064": {
       "areaName": "Westmorland and Furness",
       "baseline": {
-        "year": 2021,
-        "total_population": 226593,
+        "year": 2011,
+        "total_population": 225309,
         "groups": {
-          "white_british": 94.59,
-          "white_other": 3,
-          "asian": 0.97,
-          "black": 0.26,
-          "mixed": 0.86,
-          "other": 0.32
+          "white_british": 96.39,
+          "white_other": 2.1,
+          "asian": 0.76,
+          "black": 0.12,
+          "mixed": 0.53,
+          "other": 0.1
         },
         "groups_absolute": {
-          "white_british": 214336,
-          "white_other": 6800,
-          "asian": 2196,
-          "black": 588,
-          "mixed": 1952,
-          "other": 721
+          "white_british": 217171,
+          "white_other": 4730,
+          "asian": 1712,
+          "black": 275,
+          "mixed": 1204,
+          "other": 217
         }
       },
       "current": {
@@ -74696,23 +74696,23 @@
     "E06000060": {
       "areaName": "Buckinghamshire",
       "baseline": {
-        "year": 2021,
-        "total_population": 553078,
+        "year": 2011,
+        "total_population": 505283,
         "groups": {
-          "white_british": 72.59,
-          "white_other": 7.35,
-          "asian": 12.35,
-          "black": 2.58,
-          "mixed": 3.54,
-          "other": 1.58
+          "white_british": 81.1,
+          "white_other": 5.32,
+          "asian": 8.56,
+          "black": 2.08,
+          "mixed": 2.45,
+          "other": 0.49
         },
         "groups_absolute": {
-          "white_british": 401489,
-          "white_other": 40675,
-          "asian": 68318,
-          "black": 14269,
-          "mixed": 19570,
-          "other": 8757
+          "white_british": 409793,
+          "white_other": 26877,
+          "asian": 43269,
+          "black": 10490,
+          "mixed": 12360,
+          "other": 2494
         }
       },
       "current": {
@@ -117411,23 +117411,23 @@
     "E07000244": {
       "areaName": "East Suffolk",
       "baseline": {
-        "year": 2021,
-        "total_population": 246060,
+        "year": 2011,
+        "total_population": 239552,
         "groups": {
-          "white_british": 93.09,
-          "white_other": 3.07,
-          "asian": 1.4,
-          "black": 0.55,
-          "mixed": 1.51,
-          "other": 0.37
+          "white_british": 94.78,
+          "white_other": 2.31,
+          "asian": 1.25,
+          "black": 0.39,
+          "mixed": 1.14,
+          "other": 0.14
         },
         "groups_absolute": {
-          "white_british": 229063,
-          "white_other": 7564,
-          "asian": 3447,
-          "black": 1357,
-          "mixed": 3707,
-          "other": 922
+          "white_british": 227040,
+          "white_other": 5525,
+          "asian": 2991,
+          "black": 925,
+          "mixed": 2728,
+          "other": 343
         }
       },
       "current": {
@@ -133326,23 +133326,23 @@
     "E07000245": {
       "areaName": "West Suffolk",
       "baseline": {
-        "year": 2021,
-        "total_population": 179948,
+        "year": 2011,
+        "total_population": 170756,
         "groups": {
-          "white_british": 82.21,
-          "white_other": 9.57,
-          "asian": 2.63,
-          "black": 1.6,
-          "mixed": 2.71,
-          "other": 1.28
+          "white_british": 86.31,
+          "white_other": 8.28,
+          "asian": 1.81,
+          "black": 1.29,
+          "mixed": 1.84,
+          "other": 0.47
         },
         "groups_absolute": {
-          "white_british": 147935,
-          "white_other": 17221,
-          "asian": 4731,
-          "black": 2873,
-          "mixed": 4880,
-          "other": 2308
+          "white_british": 147381,
+          "white_other": 14141,
+          "asian": 3087,
+          "black": 2198,
+          "mixed": 3148,
+          "other": 801
         }
       },
       "current": {
@@ -150646,23 +150646,23 @@
     "E06000059": {
       "areaName": "Dorset",
       "baseline": {
-        "year": 2021,
-        "total_population": 379580,
+        "year": 2011,
+        "total_population": 365153,
         "groups": {
-          "white_british": 93.86,
-          "white_other": 3.2,
-          "asian": 1.13,
-          "black": 0.29,
-          "mixed": 1.17,
-          "other": 0.35
+          "white_british": 95.56,
+          "white_other": 2.41,
+          "asian": 0.91,
+          "black": 0.23,
+          "mixed": 0.79,
+          "other": 0.1
         },
         "groups_absolute": {
-          "white_british": 356270,
-          "white_other": 12145,
-          "asian": 4305,
-          "black": 1082,
-          "mixed": 4436,
-          "other": 1342
+          "white_british": 348936,
+          "white_other": 8790,
+          "asian": 3338,
+          "black": 841,
+          "mixed": 2895,
+          "other": 353
         }
       },
       "current": {

@@ -14,7 +14,6 @@
 import rawProjections from "../../data/live/ethnic-projections.json";
 import rawMye from "../../data/live/population-estimates.json";
 import rawCensusTotals from "../../../data/raw/manifests/census_ethnic_groups.json";
-import rawSuccessors2011 from "../../data/live/census-2011-successors.json";
 
 export type Kind = "census" | "estimate" | "projection";
 /**
@@ -76,14 +75,18 @@ const mye = rawMye as unknown as {
   source: { title: string; published: string; fileName: string };
   areas: Record<string, { name: string; series?: Record<string, number> }>;
 };
-/** 2011 counts for councils formed since 2011: exact sums of their whole 2011 districts. */
-const successors2011 = (rawSuccessors2011 as unknown as {
-  areas: Record<string, { total_population: number; groups_absolute: Record<string, number>; predecessors: Array<{ name: string }> }>;
-}).areas;
-export const isSummed2011 = (code: string): boolean => code in successors2011;
 const censusTotals = rawCensusTotals as unknown as {
   englandAndWales: Record<string, { total: number; groups: Record<string, number> }>;
+  resolution: { baseline2011: { predecessors: string[] } };
 };
+/**
+ * Councils formed since 2011 whose 2011 figure in ethnic-projections.json is the exact sum
+ * of their whole 2011 districts (scripts/build/rebase-census-groups.mjs records them as
+ * "<code> from <districts>"). src/data/live/census-2011-successors.json holds the same sums,
+ * derived separately, and tests/map.test.ts checks the two agree cell for cell.
+ */
+const summed2011 = new Set(censusTotals.resolution.baseline2011.predecessors.map((line) => line.split(" ")[0]));
+export const isSummed2011 = (code: string): boolean => summed2011.has(code);
 
 export const MODEL_VERSION = model.modelVersion.split("-")[0];
 export const PROJECTED_YEARS = [2031, 2041, 2051];
@@ -124,7 +127,7 @@ function whiteBritishShare(projections: boolean): Indicator {
   const status = (code: string, y: number): Status => {
     const a = model.areas[code];
     if (!a) return "absent";
-    if (y === 2011) return a.baseline?.year === 2011 || successors2011[code] ? "ok" : "formed_since";
+    if (y === 2011) return a.baseline?.year === 2011 ? "ok" : "formed_since";
     if (y === 2021) return a.current?.year === 2021 ? "ok" : "absent";
     if (!projections) return "absent";
     if (!a.stochastic?.[String(y)]) return "older_run";
@@ -133,11 +136,7 @@ function whiteBritishShare(projections: boolean): Indicator {
   const value = (code: string, y: number): number | null => {
     if (status(code, y) !== "ok") return null;
     const a = model.areas[code];
-    if (y === 2011) {
-      if (a.baseline.year === 2011) return a.baseline.groups.white_british;
-      const d = successors2011[code];
-      return Number(((d.groups_absolute.white_british / d.total_population) * 100).toFixed(2));
-    }
+    if (y === 2011) return a.baseline.groups.white_british;
     if (y === 2021) return a.current.groups.white_british;
     return a.projections![String(y)].white_british;
   };
@@ -176,7 +175,7 @@ function whiteBritishShare(projections: boolean): Indicator {
           : `UK Demographics model ${MODEL_VERSION} (Hamilton-Perry, 2021 base, ONS SNPP 2022-based totals), updated ${model.lastUpdated}`,
     notes: (y, codes) => {
       const out: string[] = [];
-      const summed = codes.filter((c) => successors2011[c] && model.areas[c]?.baseline.year !== 2011).map((c) => model.areas[c].areaName).sort();
+      const summed = codes.filter(isSummed2011).map((c) => model.areas[c].areaName).sort();
       if (y <= 2021 && summed.length)
         out.push(`2011 ${summed.length > 1 ? "figures" : "figure"} summed from the 2011 districts now in ${summed.length > 1 ? "each council" : "the council"}: ${summed.join("; ")}.`);
       if (y === 2011 && codes.some((c) => status(c, 2011) === "formed_since"))
