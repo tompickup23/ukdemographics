@@ -9,6 +9,7 @@ import PlaceMap from "../../components/PlaceMap.astro";
 import { cardPath, placeCardSpecs, placeOgCard, renderCard } from "../../lib/map/cards";
 import { BOUNDARY_CREDIT } from "../../lib/map/geo";
 import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
+import { ETHNIC_GROUP_KEYS } from "../../lib/ethnic-palette";
 import ProjectionChart from "../../components/ProjectionChart.astro";
 import ShiftShareChart from "../../components/ShiftShareChart.astro";
 import ScenarioSelector from "../../components/ScenarioSelector.astro";
@@ -343,14 +344,10 @@ const wbi2051 = publishableValue(
 const ethnicTimeline = getEthnicCompositionTimeline(area.areaCode);
 const stochasticData = getStochasticData(area.areaCode);
 
-const GROUP_COLORS: Record<string, string> = {
-  white_british: "var(--accent)",
-  white_other: "#8b9cb3",
-  asian: "var(--warning)",
-  black: "#a78bfa",
-  mixed: "var(--positive)",
-  other: "#6b7280",
-};
+// Line strokes per scheme from the site palette: --eth-line-<key> in global.css.
+const GROUP_COLORS: Record<string, string> = Object.fromEntries(
+  ETHNIC_GROUP_KEYS.map((k) => [k, `var(--eth-line-${k.replace("_", "-")})`])
+);
 const GROUP_LABELS: Record<string, string> = {
   white_british: "White British",
   white_other: "White Other",
@@ -867,8 +864,9 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     <section class="section" id="shift-share">
       <h2>What&rsquo;s driving change</h2>
       <p class="section-desc">
-        Shift-share splits the change in White British share into national trend,
-        age structure, and local factors. Dominant driver: <strong>{shiftShareDriver(shiftShareData)}</strong>.
+        This descriptive calculation splits the change in White British share into national trend,
+        composition adjustment and a local residual. It does not measure age or migration effects.
+        Largest component in the direction of change: <strong>{shiftShareDriver(shiftShareData)}</strong>.
       </p>
       <div class="chart-holder">
         <ShiftShareChart
@@ -1910,7 +1908,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   .model-card { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.9rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-subtle); }
   .model-card-primary { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
   .model-card-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; display: flex; gap: 0.4rem; align-items: center; }
-  .model-card-tag { font-size: 0.65rem; background: var(--accent); color: #fff; padding: 0.05rem 0.4rem; border-radius: 999px; letter-spacing: 0.04em; }
+  .model-card-tag { font-size: 0.65rem; background: var(--accent); color: var(--on-accent); padding: 0.05rem 0.4rem; border-radius: 999px; letter-spacing: 0.04em; }
   .model-card-value { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--ink); }
   .model-card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
   .model-compare-note { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-top: 0.9rem; max-width: 700px; }
@@ -2026,6 +2024,10 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   .vr-study  { background: var(--positive); }   /* green */
   .vr-family { background: #c2410c; }   /* orange-red */
   .vr-other  { background: #6b7280; }   /* slate */
+  /* The dark scheme's green is light: white on it was 1.89:1 (issue I17). */
+  @media (prefers-color-scheme: dark) {
+    .vr-study { color: var(--on-fill-light); }
+  }
   .vr-meta {
     display: flex;
     justify-content: space-between;
