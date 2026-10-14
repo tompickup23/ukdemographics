@@ -82,8 +82,8 @@ const paths = hexPaths();
   #national-map { width:100%; max-height:44rem; background:#0f1317; }
   #national-map path { stroke:#0f1317; stroke-width:.5; }
   #map-legend { display:flex; flex-wrap:wrap; gap:.7rem; font-size:.85rem; }
-  #map-legend span { display:inline-flex; align-items:center; gap:.3rem; }
-  #map-legend i { display:inline-block; width:1rem; height:1rem; border:1px solid #a5a3b3; }
+  #map-legend :global(span) { display:inline-flex; align-items:center; gap:.3rem; }
+  #map-legend :global(i) { display:inline-block; width:1rem; height:1rem; border:1px solid #a5a3b3; }
   #map-table { width:100%; table-layout:fixed; }
   #map-table th, #map-table td { background:#0f1317; color:#f4f3ff; padding:.6rem; text-align:left; overflow-wrap:anywhere; }
   #map-table th:first-child { width:58%; }
