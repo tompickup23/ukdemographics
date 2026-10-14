@@ -77,8 +77,8 @@ describe("PIP section on place pages", () => {
         expect(p.shareInArea).toBeGreaterThan(0);
         expect(p.shareInArea).toBeLessThanOrEqual(1);
       }
-      const shares = listed.map((p) => p.shareInArea);
-      expect(shares).toEqual([...shares].sort((a, b) => b - a));
+      const names = listed.map((p) => p.name);
+      expect(names).toEqual([...names].sort((a, b) => a.localeCompare(b)));
     }
   });
 

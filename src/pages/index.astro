@@ -79,22 +79,10 @@ for (const area of publicAreas) {
   r.sumPop += area.population ?? 0;
   regionCounts.set(area.regionName, r);
 }
-const topRegions = [...regionCounts.entries()]
+const regionsByName = [...regionCounts.entries()]
   .map(([name, r]) => ({ name, count: r.count, avgWbi: r.sumPop > 0 ? (r.avgWbi2021 / r.sumPop) : 0, pop: r.sumPop }))
   .filter(r => r.name !== "Unknown")
-  .sort((a, b) => a.avgWbi - b.avgWbi)
-  .slice(0, 6);
-
-// Top areas by largest projected White British share decline 2021 to 2041.
-// Bars encode the projected change (in percentage points), not the level.
-const topChangingAreas = publicAreas
-  .filter((a) => a.wbiPct2021 != null && a.wbiPct2041 != null)
-  .map((a) => ({ ...a, changePp: a.wbiPct2041! - a.wbiPct2021! }))
-  .sort((a, b) => a.changePp - b.changePp)
-  .slice(0, 10);
-const topChangingMaxAbsPp = topChangingAreas.length > 0
-  ? Math.max(...topChangingAreas.map((a) => Math.abs(a.changePp)))
-  : 1;
+  .sort((a, b) => a.name.localeCompare(b.name));
 
 // When the published projection takes each area below a 50% White British share, as a
 // decade between two model years: never a year interpolated between them, and never a
@@ -380,14 +368,14 @@ function findingColor(verdict: string): string {
   </section>
 
   <!-- ═══ REGIONAL OVERVIEW ═══ -->
-  {topRegions.length > 0 && (
+  {regionsByName.length > 0 && (
     <section class="pressure-section shell" id="regional">
-      <h2 class="section-title">Most diverse regions</h2>
+      <h2 class="section-title">Regions A to Z</h2>
       <p class="section-desc">
-        Regional variation in ethnic composition. Sorted by lowest population-weighted White British share.
+        Regional variation in ethnic composition, listed A to Z.
       </p>
       <div class="region-grid">
-        {topRegions.map((region) => (
+        {regionsByName.map((region) => (
           <div class="region-card">
             <span class="region-name">{region.name}</span>
             <span class="region-stat">{region.avgWbi.toFixed(1)}%</span>
@@ -516,6 +504,7 @@ function findingColor(verdict: string): string {
 
       const matches = areas
         .filter((a) => a.areaName && a.areaName.toLowerCase().includes(queryLower))
+        .sort((a, b) => a.areaName.localeCompare(b.areaName))
         .slice(0, 8);
 
       if (matches.length === 0) {
@@ -573,6 +562,7 @@ function findingColor(verdict: string): string {
 
       const matches = futureAreas
         .filter((a: any) => a.areaName && a.areaName.toLowerCase().includes(query))
+        .sort((a, b) => a.areaName.localeCompare(b.areaName))
         .slice(0, 6);
 
       if (matches.length === 0) {

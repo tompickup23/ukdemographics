@@ -54,7 +54,7 @@ for (const a of publicAreas) codeToArea.set(a.areaCode, a);
 const constituentLasWithPages = pcon.constituentLas
   .map((l) => ({ ...l, area: codeToArea.get(l.ladCode) }))
   .filter((l) => l.area)
-  .slice(0, 10);
+  .sort((a, b) => a.area!.areaName.localeCompare(b.area!.areaName));
 
 const partyColors: Record<string, string> = {
   Labour: "#dc241f",

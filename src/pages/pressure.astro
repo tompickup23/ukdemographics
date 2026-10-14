@@ -5,12 +5,12 @@ import { slugifyAreaName } from "../lib/site";
 import fiscalResilience from "../data/live/fiscal-resilience.json";
 
 const fr = fiscalResilience as any;
-const ranked = Object.entries(fr.areas)
+const areasByName = Object.entries(fr.areas)
   .map(([code, d]: any) => ({ code, ...d }))
-  .sort((a, b) => b.serviceDemandPressureScore - a.serviceDemandPressureScore);
+  .sort((a, b) => a.areaName.localeCompare(b.areaName));
 
-const high = ranked.filter(a => a.category === 'High Pressure');
-const moderate = ranked.filter(a => a.category === 'Moderate Pressure');
+const high = areasByName.filter(a => a.category === 'High Pressure');
+const moderate = areasByName.filter(a => a.category === 'Moderate Pressure');
 
 // The stored category values are the generator's own field values and stay
 // unchanged in the JSON. Display uses "exposure" so the page does not assert
@@ -71,9 +71,9 @@ const COMPONENTS = [
 // A component whose input is missing is set to 0 by the generator, so a zero
 // here is either a genuine zero or an absent input. The file does not separate them.
 const zeroCounts: Record<string, number> = Object.fromEntries(
-  COMPONENTS.map(c => [c.key, ranked.filter(a => !a.components?.[c.key]).length])
+  COMPONENTS.map(c => [c.key, areasByName.filter(a => !a.components?.[c.key]).length])
 );
-const totalAreas = ranked.length;
+const totalAreas = areasByName.length;
 
 const CUTOFFS = [
   { label: 'High exposure', rule: 'Score 70 or above' },
@@ -96,16 +96,15 @@ const CUTOFFS = [
     <StatCard value={(totalAreas - high.length - moderate.length).toString()} label="Low / Stable" accent="var(--accent-2)" />
   </div>
 
-  <h2 class="section-title">Top 30 areas by exposure score</h2>
+  <h2 class="section-title">Exposure scores by area, A to Z</h2>
   <div class="area-table">
-    <div class="area-table-header"><span>#</span><span>Area</span><span>Score</span><span>Band</span><span>White British change</span></div>
-    {ranked.slice(0, 30).map((a, i) => (
+    <div class="area-table-header"><span>Area</span><span>Score</span><span>Band</span><span>White British change</span></div>
+    {areasByName.map((a) => (
       <a href={`/places/${slugifyAreaName(a.areaName)}/`} class="area-row">
-        <span class="rank">{i + 1}</span>
         <span class="name">{a.areaName}</span>
         <span class="score" style={`color: ${a.serviceDemandPressureScore >= 70 ? 'var(--coral)' : a.serviceDemandPressureScore >= 45 ? 'var(--accent-3)' : 'var(--accent)'}`}>{a.serviceDemandPressureScore}</span>
         <span class="category">{categoryLabel(a.category)}</span>
-        <span class="change" style={`color: ${a.wbiChange2021to2041 < -10 ? 'var(--coral)' : 'var(--muted)'}`}>{a.wbiChange2021to2041 > 0 ? '+' : ''}{a.wbiChange2021to2041}pp</span>
+        <span class="change" >{a.wbiChange2021to2041 > 0 ? '+' : ''}{a.wbiChange2021to2041}pp</span>
       </a>
     ))}
   </div>
@@ -179,8 +178,8 @@ const CUTOFFS = [
   .section-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin: 0 0 0.75rem; }
   .subhead { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin: 2rem 0 0.75rem; }
   .area-table { max-width: 800px; }
-  .area-table-header { display: grid; grid-template-columns: 32px 1fr 60px 120px 80px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
-  .area-row { display: grid; grid-template-columns: 32px 1fr 60px 120px 80px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
+  .area-table-header { display: grid; grid-template-columns: minmax(0, 1fr) 60px 120px 80px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
+  .area-row { display: grid; grid-template-columns: minmax(0, 1fr) 60px 120px 80px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
   .area-row:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
   .rank { font-size: 0.82rem; color: var(--muted); font-weight: 600; }
   .name { font-weight: 600; font-size: 0.88rem; }
@@ -201,5 +200,5 @@ const CUTOFFS = [
   .source-line { font-size: 0.82rem; }
   .source-line code { font-size: 0.78rem; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.05rem 0.3rem; }
   .source-line a { color: var(--accent); }
-  @media (max-width: 640px) { .area-table-header, .area-row { grid-template-columns: 28px 1fr 50px 80px; } .category { display: none; } }
+  @media (max-width: 640px) { .area-table-header, .area-row { grid-template-columns: minmax(0, 1fr) 50px 80px; } .category { display: none; } }
 </style>

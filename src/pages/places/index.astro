@@ -39,17 +39,12 @@ const rows = areas.map((area) => {
     w21,
     w41,
     change: w21 != null && w41 != null ? w41 - w21 : null,
-    cross,
-    // "already" sorts first, "not by 2061" last, everything else by year.
-    crossSort: cross.kind === "already" ? 0 : cross.kind === "decade" ? cross.to : 9999
+    cross
   };
 });
 
-// Default order is population, largest first. The previous default was White British
-// share ascending, which puts the lowest at the top of every visit. On a site whose value
-// is being read as neutral, the default sort is an editorial statement, and size is the
-// one ordering that makes no claim.
-rows.sort((a, b) => b.pop - a.pop);
+// Area lists stay alphabetical.
+rows.sort((a, b) => a.name.localeCompare(b.name));
 
 const regions = Array.from(new Set(rows.map((r) => r.region))).filter((r) => r !== "Unknown").sort();
 const maxAbsChange = Math.max(...rows.map((r) => Math.abs(r.change ?? 0)), 1);
@@ -58,12 +53,12 @@ const alreadyBelow = rows.filter((r) => r.cross.kind === "already").length;
 
 <BaseLayout
   title="Compare every area in England and Wales"
-  description={`Sort and filter ${areas.length} local authorities by projected change, current composition, the decade each is projected to cross 50%, or population.`}
+  description={`Browse ${areas.length} local authorities A to Z, with population, Census 2021 composition and projections. Filter by region or area name.`}
 >
   <span class="page-eyebrow">England and Wales, {areas.length} councils</span>
   <h1>Compare every area in England and Wales</h1>
   <p class="desc">
-    Sort by the decade an area is projected to cross 50%, by projected change, or by size.
+    Browse areas A to Z, or group them by region with names A to Z within each region.
     Filter to your region, or type a name to jump straight there. Each row opens a full
     profile with twenty three datasets behind it. {alreadyBelow} areas are already below a
     White British majority.
@@ -89,13 +84,13 @@ const alreadyBelow = rows.filter((r) => r.cross.kind === "already").length;
 
   <div class="pl-table" id="pl-table">
     <div class="pl-head" role="row">
-      <button type="button" class="pl-sort" data-sort="name" data-dir="asc">Area <span class="pl-mark"></span></button>
-      <span>Region</span>
-      <button type="button" class="pl-sort pl-num" data-sort="w21" data-dir="desc">2021 <span class="pl-mark"></span></button>
-      <button type="button" class="pl-sort pl-num" data-sort="w41" data-dir="desc">2041 <span class="pl-mark"></span></button>
-      <button type="button" class="pl-sort pl-num" data-sort="change" data-dir="asc">Change <span class="pl-mark"></span></button>
-      <button type="button" class="pl-sort pl-num" data-sort="crossSort" data-dir="asc">Crosses 50% <span class="pl-mark"></span></button>
-      <button type="button" class="pl-sort pl-num pl-active" data-sort="pop" data-dir="desc">Population <span class="pl-mark">&darr;</span></button>
+      <button type="button" class="pl-sort pl-active" data-sort="name" aria-pressed="true">Area A to Z</button>
+      <button type="button" class="pl-sort" data-sort="region" aria-pressed="false">Region A to Z</button>
+      <span class="pl-num">2021</span>
+      <span class="pl-num">2041</span>
+      <span class="pl-num">Change</span>
+      <span class="pl-num">Crossing decade</span>
+      <span class="pl-num">Population</span>
     </div>
 
     {rows.map((r) => (
@@ -107,7 +102,6 @@ const alreadyBelow = rows.filter((r) => r.cross.kind === "already").length;
         data-w21={r.w21 ?? ""}
         data-w41={r.w41 ?? ""}
         data-change={r.change ?? ""}
-        data-crosssort={r.crossSort}
         data-pop={r.pop}
       >
         <span class="pl-name">{r.name}</span>
@@ -163,38 +157,20 @@ const alreadyBelow = rows.filter((r) => r.cross.kind === "already").length;
     shown.textContent = String(visible);
   }
 
-  function sortBy(key: string, dir: string) {
-    const sorted = rows.slice().sort((a, b) => {
-      if (key === "name") {
-        const cmp = (a.dataset.name ?? "").localeCompare(b.dataset.name ?? "");
-        return dir === "asc" ? cmp : -cmp;
-      }
-      const av = a.dataset[key.toLowerCase()];
-      const bv = b.dataset[key.toLowerCase()];
-      // Rows with no value for this column sort last whichever way the column runs.
-      if (av === "" || av == null) return 1;
-      if (bv === "" || bv == null) return -1;
-      const cmp = Number(av) - Number(bv);
-      return dir === "asc" ? cmp : -cmp;
-    });
+  function sortBy(key: "name" | "region") {
+    const sorted = rows.slice().sort((a, b) =>
+      (key === "region" ? (a.dataset.region ?? "").localeCompare(b.dataset.region ?? "") : 0)
+      || (a.dataset.name ?? "").localeCompare(b.dataset.name ?? ""));
     for (const row of sorted) table.insertBefore(row, note);
   }
 
   for (const btn of Array.from(table.querySelectorAll<HTMLButtonElement>(".pl-sort"))) {
     btn.addEventListener("click", () => {
-      const key = btn.dataset.sort!;
-      const wasActive = btn.classList.contains("pl-active");
-      const dir = wasActive ? (btn.dataset.dir === "asc" ? "desc" : "asc") : btn.dataset.dir!;
-      btn.dataset.dir = dir;
       for (const other of Array.from(table.querySelectorAll(".pl-sort"))) {
-        other.classList.remove("pl-active");
-        const mark = other.querySelector(".pl-mark");
-        if (mark) mark.textContent = "";
+        other.classList.toggle("pl-active", other === btn);
+        other.setAttribute("aria-pressed", String(other === btn));
       }
-      btn.classList.add("pl-active");
-      const mark = btn.querySelector(".pl-mark");
-      if (mark) mark.textContent = dir === "asc" ? "↑" : "↓";
-      sortBy(key, dir);
+      sortBy(btn.dataset.sort === "region" ? "region" : "name");
     });
   }
 
@@ -307,7 +283,7 @@ const alreadyBelow = rows.filter((r) => r.cross.kind === "already").length;
   .pl-muted { color: var(--text-muted); }
   .pl-change { display: flex; align-items: center; justify-content: flex-end; gap: 0.5rem; }
   .pl-bar { height: 8px; border-radius: 999px; background: var(--accent-bright); flex-shrink: 1; }
-  .pl-change-val { color: var(--critical); min-width: 4rem; }
+  .pl-change-val { color: var(--text); min-width: 4rem; }
   .pl-cross { color: var(--text); }
   .pl-cross-now { color: var(--accent); }
   .pl-cross-none { color: var(--text-faint); font-family: var(--font-sans); font-weight: 400; font-size: 0.82rem; }
