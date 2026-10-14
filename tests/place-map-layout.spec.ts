@@ -66,7 +66,7 @@ test.describe("place map block", () => {
     await context.close();
   });
 
-  for (const path of [BURNLEY, "/places/regions/north-west/"]) {
+  for (const path of [BURNLEY, "/places/cardiff/", "/places/regions/north-west/"]) {
     test(`has no axe violations in the map block and none new on ${path}`, async ({ page }) => {
       const tags = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"];
       for (const colorScheme of ["light", "dark"] as const) {
@@ -87,7 +87,8 @@ test.describe("place map block", () => {
   }
 });
 
-// Failing on main on 14 October 2026, measured on /places/burnley/ before Stage 2: the
-// ethnicity timeline's segment labels and projection badges, the model card tag and the
-// visa-route bars (12 nodes in light mode, 21 in dark). Maps plan v2.1, issue I17.
-const KNOWN_ON_MAIN = new Set<string>(["color-contrast"]);
+// Rules failing on main outside the block. Empty since issue I17 (14 October 2026), which
+// fixed the colour contrast of the ethnicity timeline's labels and projection badges, the
+// model card tag, the visa-route bars and the cross-site buttons: 12 nodes in light mode
+// and 21 in dark on Burnley. A rule added here needs a register entry in the maps plan.
+const KNOWN_ON_MAIN = new Set<string>([]);

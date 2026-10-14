@@ -18,7 +18,7 @@ import type { APIRoute, GetStaticPaths } from "astro";
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
 import { getCollection } from "astro:content";
-import { getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
+import { getPublicPlaceAreas } from "../../lib/site";
 import { getAllPcons } from "../../lib/pcon-data";
 import { generalElectionYear } from "../../lib/search-listing";
 import {
@@ -72,24 +72,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
   }));
 
+  // Place pages take their Open Graph image from the map cards in /media/places/ (maps
+  // plan Stage 3, decision P2): the population change card, which replaced the text card
+  // that led with the White British share.
   const publicAreas = getPublicPlaceAreas();
-  const placePaths = publicAreas.map((area) => ({
-    params: { slug: `places/${slugifyAreaName(area.areaName)}` },
-    props: {
-      title: area.areaName,
-      stat: area.wbiPct2021 != null ? `${area.wbiPct2021.toFixed(1)}%` : "n/a",
-      statLabel: `White British 2021 · Population ${(area.population ?? 0).toLocaleString()}`,
-      // Always the brand accent. This previously graded the colour by the area's White
-      // British share: under 50 rendered in the critical red, under 70 in the alert
-      // amber. That is an editorial judgement encoded as colour, on 318 cards that are
-      // exactly what people see when a page is shared, and it says a lower share is a
-      // warning. The place page itself already made this correction for its stat cards
-      // ("escalating the hue encoded alarm rather than data"); the card had not.
-      // A verdict is something an editor assigns to a finding, not something a census
-      // share earns automatically.
-      verdict: "info"
-    }
-  }));
 
   // Constituency cards carry the election result, the one figure every seat has.
   // The winner's name sits in the label rather than as a coloured stat, so no
@@ -118,7 +104,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
       }
     },
     ...findingPaths,
-    ...placePaths,
     ...pconPaths
   ];
 };

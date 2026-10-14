@@ -1,5 +1,6 @@
 /** The map module: geometry, indicators, layout and one SVG renderer. See render.ts. */
 export * from "./brand";
+export * from "./cards";
 export * from "./colour";
 export * from "./geo";
 export * from "./indicators";

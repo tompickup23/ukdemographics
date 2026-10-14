@@ -60,12 +60,12 @@ export const TEMPLATES: Record<TemplateKey, Template> = {
     key: "og", W: 1200, H: 630, s: 0.62, safeTop: 20, safeBottom: 20, gutter: 120,
     panel: { x: 520, y: 20, w: 664, h: 590 }, table: false, timeline: false,
     font: {
-      brandName: 23, brandTag: 15, title: 40, subtitle: 22, year: 76, pill: 15, legend: 14, reference: 14,
+      brandName: 23, brandTag: 15, title: 40, subtitle: 22, year: 34, pill: 15, legend: 14, reference: 14,
       foot: 14, url: 20, sourced: 17, tag: 14, tableHead: 0, tableRow: 0, timeline: 0
     },
     plate: {
       group: { name: 14, val: 21, sub: 12 },
-      focus: { name: 20, val: 30, sub: 15 },
+      focus: { name: 20, val: 34, sub: 15 },
       neighbour: { name: 13, val: 18, sub: 0 }
     }
   },

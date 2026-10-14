@@ -184,7 +184,7 @@ describe("map indicators", () => {
       expect(wb.status(code, 2011)).toBe("ok");
       expect(wb.value(code, 2011)).toBe(share);
       expect(wb.value(code, 2011)).not.toBe(projections.areas[code].current.census_groups.white_british);
-      expect(wb.sub(code, 2021)).toMatch(/pts from 2011|no change/);
+      expect(wb.sub(code, 2021)).toMatch(/points from 2011|no change/);
     }
     // Cumberland: Allerdale 96,422 + Carlisle 107,524 + Copeland 70,603 (Census 2011 usual residents).
     expect(derived.areas.E06000063.total_population).toBe(274549);

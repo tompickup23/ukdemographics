@@ -13,8 +13,9 @@
 import { BRAND_NAME, BRAND_SOURCED, BRAND_TAGLINE, COLORS, FONT_SANS, FONT_SERIF, SITE_DOMAIN, markRects } from "./brand";
 import { contrast, mix, oklabLightness } from "./colour";
 import { areaName, type Frame } from "./geo";
-import { KIND_TAG, colourFor, projectionsEnabled, type Indicator, type Kind, type Status } from "./indicators";
-import { INLINE_PAD, buildLayout, footerLines, plateMetrics, tagSize, type Box, type Layout } from "./layout";
+import { KIND_TAG, censusGroupShares, colourFor, projectionsEnabled, type Indicator, type Kind, type Status } from "./indicators";
+import { ETHNIC_PALETTE, INK } from "../ethnic-palette";
+import { INLINE_PAD, buildLayout, footerLines, plateMetrics, plateRefText, showsComposition, tagSize, type Box, type Layout } from "./layout";
 import { esc, measure, wrap } from "./text";
 import type { TemplateKey } from "./templates";
 
@@ -218,6 +219,49 @@ function legend(cv: Canvas, L: Layout, year: number, hasNA: boolean): string {
   return o;
 }
 
+/**
+ * All six groups for the focus council at both Censuses, one 0 to 100 bar each, fixed
+ * order, from the Census counts: the full mix beside the White British map, never that
+ * share alone (maps plan v2.2, I27). Drawn on ethnicity cards in place of the timeline.
+ */
+function composition(cv: Canvas, L: Layout): string {
+  const { t, frame } = L, s = t.s, F = t.font, code = frame.focus!;
+  const x = 48, w = L.W - 96, labelW = 70 * s, barX = x + labelW, barW = w - labelW, barH = 30 * s;
+  let y = L.timelineY - 30 * s, o = "";
+  o += cv.txt({ x, y: y + 8 * s, size: F.tableHead, weight: 600, fill: C.muted, bg: C.ground, content: `ALL SIX GROUPS IN ${areaName(code).toUpperCase()}`, ls: 1.5 * s });
+  y += 26 * s;
+  for (const yr of [2011, 2021] as const) {
+    const sh = censusGroupShares(code, yr);
+    o += cv.txt({ x, y: y + barH * 0.7, size: F.tableRow, fill: C.muted, bg: C.ground, content: String(yr) });
+    if (!sh) {
+      o += cv.txt({ x: barX, y: y + barH * 0.7, size: F.tableRow, fill: C.muted, bg: C.ground, content: "n/a" });
+    } else {
+      const total = ETHNIC_PALETTE.reduce((a, g) => a + (sh[g.key] ?? 0), 0);
+      let cx = barX;
+      for (const g of ETHNIC_PALETTE) {
+        const sw = ((sh[g.key] ?? 0) / total) * barW;
+        if (sw <= 0) continue;
+        o += `<rect x="${n2(cx)}" y="${n2(y)}" width="${n2(sw)}" height="${n2(barH)}" fill="${g.fill}"/>`;
+        if (cx > barX) o += `<rect x="${n2(cx - 1)}" y="${n2(y)}" width="2" height="${n2(barH)}" fill="${C.ground}"/>`;
+        const label = `${Math.round(sh[g.key])}%`;
+        if (measure(label, F.tableRow * 0.85, "sansSemiBold") + 12 * s < sw)
+          o += cv.txt({ x: cx + sw / 2, y: y + barH * 0.7, size: F.tableRow * 0.85, weight: 600, fill: INK[g.ink], bg: g.fill, content: label, anchor: "middle" });
+        cx += sw;
+      }
+    }
+    y += barH + 10 * s;
+  }
+  // Legend, one row, fixed order.
+  y += 18 * s;
+  const itemW = w / ETHNIC_PALETTE.length;
+  ETHNIC_PALETTE.forEach((g, i) => {
+    const lx = x + i * itemW;
+    o += `<rect x="${n2(lx)}" y="${n2(y - 13 * s)}" width="${n2(14 * s)}" height="${n2(14 * s)}" rx="3" fill="${g.fill}"/>`;
+    o += cv.txt({ x: lx + 20 * s, y, size: F.legend, fill: C.text, bg: C.ground, content: g.label });
+  });
+  return o;
+}
+
 function timeline(cv: Canvas, L: Layout, pos: number): string {
   const { ind, t } = L, s = t.s, ys = ind.years, n = ys.length;
   const x = 72, w = L.W - 144, y = L.timelineY, step = w / Math.max(1, n - 1);
@@ -317,7 +361,7 @@ export function render(L: Layout, st: FrameState, opts: { measure?: string } = {
   let leaders = "", plates = "";
   for (const lb of L.labels) {
     if (a <= 0.01) continue;
-    const M = plateMetrics(lb.nameLines.length, lb.type, lb.showSub, lb.pad);
+    const M = plateMetrics(lb.nameLines.length, lb.type, lb.showSub, lb.pad, lb.refLine);
     const y0 = lb.y - lb.h / 2, x0 = lb.x - lb.w / 2;
     const plate = lb.mode === "plate";
     const bg = plate ? plateBg(baseFill(ind, lb.code, year)) : C.ground;
@@ -339,6 +383,9 @@ export function render(L: Layout, st: FrameState, opts: { measure?: string } = {
     if (lb.showSub) {
       const sub = subText(ind, lb.code, year);
       if (sub != null || inline) p += cv.txt({ x: tx, y: y0 + M.subBase, size: lb.type.sub, fill: C.plateSub, bg, content: sub ?? "", anchor: anc, role: "sub", plate: lb.code, attrs: perYear(L, "t", (y) => subText(ind, lb.code, y) ?? "", m) });
+    }
+    if (lb.refLine) {
+      p += cv.txt({ x: tx, y: y0 + M.refBase, size: lb.type.sub, fill: C.plateSub, bg, content: plateRefText(ind, tk)!, anchor: anc, role: "sub", plate: lb.code });
     }
     plates += p + "</g>";
   }
@@ -391,7 +438,8 @@ export function render(L: Layout, st: FrameState, opts: { measure?: string } = {
       o += cv.txt({ x: x + colW - 30, y, size: F.tableRow, weight: 600, fill: C.text, bg: C.ground, content: display(ind, c, year), anchor: "end" });
     });
   }
-  if (t.timeline) o += timeline(cv, L, st.pos);
+  if (showsComposition(ind, frame, t)) o += composition(cv, L);
+  else if (t.timeline) o += timeline(cv, L, st.pos);
 
   const footX = tk === "og" ? 40 : inline ? INLINE_PAD : 48;
   const footW = W - 2 * footX;
@@ -435,7 +483,14 @@ export function alt(L: Layout, year: number): string {
   const { ind, frame } = L;
   const rows = [...frame.members].sort((p, q) => areaName(p).localeCompare(areaName(q))).map((c) => `${areaName(c)} ${display(ind, c, year)}`);
   // The title keeps its capitals: "White British" is a name.
-  return `Map: ${ind.title}, ${yearPhrase(ind, year)}. ${frame.subtitle}. ${rows.join("; ")}.`;
+  const ref = ind.kind(year) !== "projection" ? ind.reference(year) : null;
+  let text = `Map: ${ind.title}, ${yearPhrase(ind, year)}. ${frame.subtitle}. ${rows.join("; ")}.`;
+  if (ref) text += ` ${ref.label}: ${ind.format(ref.value)}.`;
+  if (showsComposition(ind, frame, L.t) && (year === 2011 || year === 2021)) {
+    const sh = censusGroupShares(frame.focus!, year);
+    if (sh) text += ` All six groups in ${areaName(frame.focus!)}, Census ${year}: ${ETHNIC_PALETTE.map((g) => `${g.label} ${sh[g.key].toFixed(1)}%`).join(", ")}.`;
+  }
+  return text;
 }
 
 /** A still: one year, labels fully shown. */
@@ -491,6 +546,7 @@ export function qa(res: RenderResult): string[] {
     for (const tg of L.tags) if (boxesOverlap(p, tg)) errs.push(`plate for ${areaName(p.code)} covers a brand tag`);
     const textW = Math.max(...p.lb.nameLines.map((l) => measure(l, p.lb.type.name, p.lb.nameFont)),
       ...(p.lb.showSub ? [measure(res.drawn.find((d) => d.code === p.code)?.sub ?? "", p.lb.type.sub)] : []),
+      ...(p.lb.refLine ? [measure(plateRefText(L.ind, L.tk) ?? "", p.lb.type.sub)] : []),
       measure(res.drawn.find((d) => d.code === p.code)?.display ?? "", p.lb.type.val, "sansSemiBold"));
     if (textW > p.w - 2 * p.lb.pad + 0.5) errs.push(`text wider than the plate for ${areaName(p.code)}`);
   }
