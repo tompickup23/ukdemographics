@@ -89,17 +89,35 @@ export const PLATE_PAD = 8;
 export const INLINE_PAD = 12;
 export type Role = "focus" | "neighbour" | "group";
 
-export interface PlateMetrics { base: number[]; valBase: number; subBase: number; h: number }
-/** One definition of plate geometry, used for sizing and drawing, so text never spills out. */
-export function plateMetrics(lines: number, t: PlateType, showSub: boolean, pad: number): PlateMetrics {
+export interface PlateMetrics { base: number[]; valBase: number; subBase: number; refBase: number; h: number }
+/**
+ * One definition of plate geometry, used for sizing and drawing, so text never spills out.
+ * `refLine` adds a second sub line under the first: the England and Wales comparison on a
+ * card's focus plate, so a cropped plate still carries its context (v2.2, I26).
+ */
+export function plateMetrics(lines: number, t: PlateType, showSub: boolean, pad: number, refLine = false): PlateMetrics {
   const base: number[] = [];
   let y = pad + t.name * 0.8;
   for (let i = 0; i < lines; i++) { base.push(y); y += t.name * 1.12; }
   const valBase = base[base.length - 1] + t.val * 1.0;
   const subBase = valBase + t.sub * 1.3;
-  const h = (showSub ? subBase + t.sub * 0.3 : valBase + t.val * 0.22) + pad;
-  return { base, valBase, subBase, h };
+  const refBase = subBase + t.sub * 1.25;
+  const h = (showSub ? (refLine ? refBase : subBase) + t.sub * 0.3 : valBase + t.val * 0.22) + pad;
+  return { base, valBase, subBase, refBase, h };
 }
+
+/** The England and Wales comparison drawn on a card's focus plate, or null. */
+export function plateRefText(ind: Indicator, tk: TemplateKey): string | null {
+  if (tk === "inline") return null;
+  const ref = ind.reference(ind.years.filter((y) => ind.kind(y) !== "projection").pop()!);
+  return ref ? `England and Wales ${ind.format(ref.value)}` : null;
+}
+
+/** Ethnicity cards show all six groups for the focus council in place of the timeline (I27). */
+export const showsComposition = (ind: Indicator, frame: Frame, t: Template) =>
+  ind.id === "white_british_share" && frame.type === "focus" && t.timeline;
+/** Height kept below the table for the composition bars. */
+export const COMPOSITION_H = 172;
 
 export interface Label {
   code: string;
@@ -108,6 +126,8 @@ export interface Label {
   nameLines: string[];
   nameFont: FontKey;
   showSub: boolean;
+  /** The focus plate on a card also carries the England and Wales comparison. */
+  refLine: boolean;
   w: number;
   h: number;
   pad: number;
@@ -275,9 +295,11 @@ export function buildLayout(frame: Frame, tk: TemplateKey, ind: Indicator): Layo
     header.subtitleLines = wrap(frame.subtitle, F.subtitle, 440);
     header.subtitleBase = header.subtitleLines.map((_, i) => sy + 34 + i * 27);
     const sb = header.subtitleBase[header.subtitleBase.length - 1];
-    header.yearBase = sb + 82;
-    header.pill = { y: sb + 98, h: 30 };
-    header.legend = { x: 40, y: sb + 182, w: 400, barH: 15 };
+    // The year is a stamp, not the figure: at thumbnail size a 76 px "2025" read as the
+    // value (maps plan v2.2, I26). The focus plate carries the figure.
+    header.yearBase = sb + 62;
+    header.pill = { y: sb + 78, h: 30 };
+    header.legend = { x: 40, y: sb + 162, w: 400, barH: 15 };
     urlY = t.H - 26;
     footY = urlY - 30 - (footN - 1) * footLineH;
   } else if (tk === "inline") {
@@ -312,11 +334,13 @@ export function buildLayout(frame: Frame, tk: TemplateKey, ind: Indicator): Layo
     header.legend = { x: 48, y: py - 76 * s, w: 520 * s, barH: 20 * s };
     const bottom = t.H - t.safeBottom;
     urlY = bottom - 4;
-    const below = (t.timeline ? 92 * s : 40 * s) + (footN - 1) * 24 * s + 16 * s + 50 * s;
+    const comp = showsComposition(ind, frame, t);
+    const belowTable = comp ? COMPOSITION_H * s : t.timeline ? 92 * s : 40 * s;
+    const below = belowTable + (footN - 1) * 24 * s + 16 * s + 50 * s;
     panel = { x: 24, y: py, w: W - 48, h: bottom - below - tableH - py };
     tableY = panel.y + panel.h;
     timelineY = tableY + tableH + 30 * s;
-    footY = tableY + tableH + (t.timeline ? 92 * s : 40 * s);
+    footY = tableY + tableH + belowTable;
   }
 
   // ---- Brand tags inside the panel, opposite corners. Plates keep clear of them. ----
@@ -401,10 +425,11 @@ export function buildLayout(frame: Frame, tk: TemplateKey, ind: Indicator): Layo
       const nameLines = splitName(areaName(code), type.name, (role === "focus" ? 210 : 145) * k, nameFont);
       const pad = PLATE_PAD * k;
       const wv = widest(type, showSub);
-      const w = Math.max(...nameLines.map((l) => measure(l, type.name, nameFont)), wv.val, showSub ? wv.sub : 0) + 2 * pad;
-      const h = plateMetrics(nameLines.length, type, showSub, pad).h;
+      const ref = role === "focus" && showSub ? plateRefText(ind, tk) : null;
+      const w = Math.max(...nameLines.map((l) => measure(l, type.name, nameFont)), wv.val, showSub ? wv.sub : 0, ref ? measure(ref, type.sub) : 0) + 2 * pad;
+      const h = plateMetrics(nameLines.length, type, showSub, pad, !!ref).h;
       const p = projectedPole(f, proj);
-      return { code, role, type, nameLines, nameFont, showSub, w, h, pad, anchor: { x: p.x, y: p.y }, r: p.r, mode: "plate", x: p.x, y: p.y };
+      return { code, role, type, nameLines, nameFont, showSub, refLine: !!ref, w, h, pad, anchor: { x: p.x, y: p.y }, r: p.r, mode: "plate", x: p.x, y: p.y };
     });
 
     const placed: Box[] = [...tags];

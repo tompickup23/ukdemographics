@@ -55,7 +55,9 @@ describe("place share cards", () => {
           bad.push(`${areaName} population ${tk}: card "${card.focus.display}" ${card.focus.year}, page "${pop.text}" ${pop.year}`);
         }
       }
-      const w21 = projections.areas[code].current.groups.white_british as number;
+      // Census 2021 as TS021 gives it: the counts, rounded to 2 places (maps plan v2.2, I22).
+      const cur = projections.areas[code].current;
+      const w21 = Math.round((cur.groups_absolute.white_british / cur.total_population) * 10000) / 100;
       const eth = renderCard(code, "white_british_share", "portrait");
       if (!eth.focus.labelled || eth.focus.year !== 2021 || eth.focus.display !== `${w21.toFixed(1)}%`) {
         bad.push(`${areaName} White British portrait: card "${eth.focus.display}", page "${w21.toFixed(1)}%"`);
@@ -80,6 +82,46 @@ describe("place share cards", () => {
         expect(buf.subarray(8, 12).toString("latin1")).toBe("WEBP");
       }
       expect(buf.length, `${spec.name}.${spec.format}`).toBeLessThan(120 * 1024);
+    }
+  });
+});
+
+describe("ethnicity cards carry their context (maps plan v2.2, I26 and I27)", () => {
+  it("draws all six groups for the focus council beside the White British map, matching the plate", { timeout: 180_000 }, () => {
+    const bad: string[] = [];
+    for (const { areaCode: code, areaName } of areas) {
+      const svg = renderCard(code, "white_british_share", "portrait").svg;
+      if (!svg.includes(`ALL SIX GROUPS IN ${areaName.toUpperCase().replace(/&/g, "&amp;")}`)) bad.push(`${areaName}: no composition bars`);
+      if (!svg.includes("England and Wales 74.4%")) bad.push(`${areaName}: no England and Wales comparison on the plate`);
+      const card = renderCard(code, "white_british_share", "portrait");
+      const cur = projections.areas[code].current;
+      const w21 = (Math.round((cur.groups_absolute.white_british / cur.total_population) * 10000) / 100).toFixed(1);
+      if (!card.alt.includes(`White British ${w21}%`) || card.focus.display !== `${w21}%`) bad.push(`${areaName}: bars and plate disagree`);
+    }
+    expect(bad).toEqual([]);
+  });
+
+  it("keeps the population cards free of ethnicity", () => {
+    const svg = renderCard(BURNLEY, "population_change", "og").svg + renderCard(BURNLEY, "population_change", "portrait").svg;
+    expect(svg).not.toMatch(/White British|ALL SIX GROUPS|Asian/);
+  });
+
+  it("does not let the year outweigh the figure on the Open Graph card", () => {
+    const res = renderCard(BURNLEY, "population_change", "og");
+    const year = /font-size="([\d.]+)"[^>]*>2025</.exec(res.svg);
+    const value = new RegExp(`font-size="([\\d.]+)"[^>]*>${res.focus.display.replace("+", "\\+")}<`).exec(res.svg);
+    expect(Number(year![1])).toBeLessThanOrEqual(Number(value![1]));
+  });
+});
+
+describe("card rights metadata", () => {
+  it("embeds credit and rights in every file, naming the site and no person", async () => {
+    for (const spec of placeCardSpecs()) {
+      const buf = (await buildCard(BURNLEY, spec)).toString("latin1");
+      expect(buf, `${spec.name}.${spec.format}`).toContain("<rdf:li>ukdemographics.co.uk</rdf:li>");
+      expect(buf).toContain("Open Government Licence v3.0");
+      expect(buf).toContain("https://ukdemographics.co.uk/terms/");
+      expect(buf).not.toMatch(/Tom Pickup|DigitalSourceType|xmpRights:UsageTerms/);
     }
   });
 });

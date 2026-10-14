@@ -66,7 +66,7 @@ for (const slug of readdirSync(dir)) {
     if (!onCard || norm(onCard[1]) !== norm(change)) fail(`card says "${onCard?.[1]}" for ${name}, page says "${change}"`);
   }
 
-  const downloads = [...html.matchAll(/<a href="([^"]+\.png)" download>Download this card<\/a>/g)].map((m) => decode(m[1]));
+  const downloads = [...html.matchAll(/<a href="([^"]+\.png)" download="[^"]+\.png">Download this card<\/a>/g)].map((m) => decode(m[1]));
   if (downloads.length !== 2) fail(`${downloads.length} download links, expected 2`);
   for (const d of downloads) {
     try {
@@ -75,7 +75,7 @@ for (const slug of readdirSync(dir)) {
       else sizes.portrait.push(p.bytes);
     } catch { fail(`download missing: ${d}`); }
   }
-  const webps = [...html.matchAll(/<figure class="pm-share"[^>]*>\s*<img src="([^"]+\.webp)"/g)].map((m) => decode(m[1]));
+  const webps = [...html.matchAll(/<figure class="pm-share"[^>]*>\s*<picture[^>]*>\s*<source type="image\/webp" srcset="([^"]+\.webp)"/g)].map((m) => decode(m[1]));
   if (webps.length !== 2) fail(`${webps.length} card images, expected 2`);
   for (const w of webps) {
     try {

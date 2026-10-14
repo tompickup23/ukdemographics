@@ -6,7 +6,8 @@ import ShareButton from "../../components/ShareButton.astro";
 import StatCard from "../../components/StatCard.astro";
 import MiniMap from "../../components/MiniMap.astro";
 import PlaceMap from "../../components/PlaceMap.astro";
-import { placeOgCard, renderCard } from "../../lib/map/cards";
+import { cardPath, placeCardSpecs, placeOgCard, renderCard } from "../../lib/map/cards";
+import { BOUNDARY_CREDIT } from "../../lib/map/geo";
 import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
 import ProjectionChart from "../../components/ProjectionChart.astro";
 import ShiftShareChart from "../../components/ShiftShareChart.astro";
@@ -42,7 +43,7 @@ import { compareCountyEal, SIMILAR_WITHIN_PP } from "../../lib/school-eal-compar
 import payrollRegional from "../../data/live/payroll-by-region-industry.json";
 import hmoDensity from "../../data/live/hmo-density.json";
 import councilTaxSpd from "../../data/live/council-tax-spd.json";
-import { buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
+import { SITE_URL, buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
 import rawProjections from "../../data/live/ethnic-projections.json";
 import ukPlacesRegistry from "../../data/live/ukplaces-places.json";
 import economicProfile from "../../data/live/economic-profile.json";
@@ -518,6 +519,21 @@ const relatedFindings = findingsAll
 // The Open Graph image is the population change card (maps plan P2), never ethnicity.
 const ogCard = placeOgCard(area.areaCode);
 const ogCardAlt = renderCard(area.areaCode, ogCard.spec.indicator, "og").alt;
+// Rights for the card images: the site's own work on ONS and OS data, credited to the site.
+const cardCopyright = `© ukdemographics.co.uk ${new Date().getFullYear()}. Contains ONS data, Crown copyright, used under the Open Government Licence v3.0. ${BOUNDARY_CREDIT}`;
+// The population portrait shown on the page, for image search (never the ethnicity card: P2).
+const popPortrait = placeCardSpecs().find((c) => c.indicator === "population_change" && c.template === "portrait" && c.format === "png")!;
+const popPortraitNode = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  contentUrl: buildAbsoluteUrl(cardPath(area.areaCode, popPortrait)),
+  width: popPortrait.width,
+  height: popPortrait.height,
+  caption: renderCard(area.areaCode, "population_change", "portrait").alt,
+  creator: { "@id": `${SITE_URL}/#organization` },
+  creditText: "ukdemographics.co.uk",
+  copyrightNotice: cardCopyright
+};
 const structuredData = buildPlaceStructuredData(area, {
   canonicalUrl,
   description: metaDescription,
@@ -602,7 +618,8 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   description={metaDescription}
   image={ogCard.path}
   imageAlt={ogCardAlt}
-  structuredData={structuredData}
+  imageCopyright={cardCopyright}
+  structuredData={[...structuredData, popPortraitNode]}
 >
   <Breadcrumbs items={[
     { label: "Places", href: "/places/" },

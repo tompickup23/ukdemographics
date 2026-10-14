@@ -17,7 +17,7 @@ import { availableParallelism } from "node:os";
 import { join } from "node:path";
 import { slugifyAreaName } from "../site";
 import { FONT_SANS, RESVG_FONT_FILES } from "./brand";
-import { areaName, focusFrame } from "./geo";
+import { BOUNDARY_CREDIT, areaName, focusFrame } from "./geo";
 import { getIndicator, latestYear, type IndicatorId } from "./indicators";
 import { renderChecked, type DrawnValue } from "./render";
 import type { TemplateKey } from "./templates";
@@ -98,8 +98,10 @@ export function renderCard(code: string, indicator: IndicatorId, template: "og" 
 
 type ResvgModule = { renderAsync: (svg: string, opts: object) => Promise<{ asPng(): Uint8Array }> };
 type SharpModule = (input: Buffer) => {
-  png(o: object): { toBuffer(): Promise<Buffer> };
-  resize(w: number): { webp(o: object): { toBuffer(): Promise<Buffer> } };
+  withXmp(xmp: string): {
+    png(o: object): { toBuffer(): Promise<Buffer> };
+    resize(w: number): { webp(o: object): { toBuffer(): Promise<Buffer> } };
+  };
 };
 let resvg: ResvgModule | null = null;
 let sharp: SharpModule | null = null;
@@ -121,15 +123,38 @@ function raster(code: string, indicator: IndicatorId, template: "og" | "portrait
   return hit;
 }
 
+const xmlEsc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+/**
+ * Rights metadata embedded in every card (IPTC Core in XMP), so a reposted download still
+ * credits its source: creator and credit are the site, never a person; no licence and no
+ * digital source type are claimed (image SEO research, 14 October 2026).
+ */
+export function cardXmp(code: string, spec: CardSpec): string {
+  const year = new Date().getFullYear();
+  const rights = `© ukdemographics.co.uk ${year}. Contains ONS data, Crown copyright, used under the Open Government Licence v3.0. ${BOUNDARY_CREDIT}`;
+  const title = `${getIndicator(spec.indicator, { projections: false }).title}, ${areaName(code)}, ${spec.year}`;
+  return `<?xpacket begin="\uFEFF" id="W5M0MpCehiHzreSzNTczkc9d"?>` +
+    `<x:xmpmeta xmlns:x="adobe:ns:meta/"><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">` +
+    `<rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/">` +
+    `<dc:title><rdf:Alt><rdf:li xml:lang="x-default">${xmlEsc(title)}</rdf:li></rdf:Alt></dc:title>` +
+    `<dc:creator><rdf:Seq><rdf:li>ukdemographics.co.uk</rdf:li></rdf:Seq></dc:creator>` +
+    `<dc:rights><rdf:Alt><rdf:li xml:lang="x-default">${xmlEsc(rights)}</rdf:li></rdf:Alt></dc:rights>` +
+    `<photoshop:Credit>ukdemographics.co.uk</photoshop:Credit>` +
+    `<xmpRights:WebStatement>https://ukdemographics.co.uk/terms/</xmpRights:WebStatement>` +
+    `</rdf:Description></rdf:RDF></x:xmpmeta><?xpacket end="w"?>`;
+}
+
 /** Encode one card file. */
 export async function buildCard(code: string, spec: CardSpec): Promise<Buffer> {
   sharp ??= require("sharp") as SharpModule;
   const raw = await raster(code, spec.indicator, spec.template);
   // Both files for a raster are built one after the other, so drop it once its WebP is out.
   if (spec.format === "webp" || spec.template === "og") rasters.delete(`${code}/${spec.indicator}/${spec.template}`);
+  const xmp = cardXmp(code, spec);
   return spec.format === "png"
-    ? sharp(raw).png({ palette: true, colours: CARD_PALETTE_COLOURS, compressionLevel: 9, effort: 7 }).toBuffer()
-    : sharp(raw).resize(CARD_WEBP_WIDTH).webp({ quality: CARD_WEBP_QUALITY, effort: 4 }).toBuffer();
+    ? sharp(raw).withXmp(xmp).png({ palette: true, colours: CARD_PALETTE_COLOURS, dither: 0, compressionLevel: 9, effort: 7 }).toBuffer()
+    : sharp(raw).withXmp(xmp).resize(CARD_WEBP_WIDTH).webp({ quality: CARD_WEBP_QUALITY, effort: 4 }).toBuffer();
 }
 
 // ---------- The build pass: every place's cards, built ahead on a pool ----------

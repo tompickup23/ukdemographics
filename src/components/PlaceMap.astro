@@ -12,7 +12,7 @@
 import RaceBar from "./RaceBar.astro";
 import { areaName } from "../lib/map/geo";
 import { GROUPS, censusShares, placeMap, populationCount, summarySentences, yearLabel } from "../lib/map/place";
-import { cardPath, placeCardSpecs, renderCard } from "../lib/map/cards";
+import { cardPath, placeCardSpecs, placeSlug, renderCard } from "../lib/map/cards";
 import type { IndicatorId } from "../lib/map/indicators";
 
 interface Props {
@@ -71,7 +71,11 @@ const ethNotes = eth.ind.notes(2021, pm.frame.members);
 const cards = Object.fromEntries(pm.measures.map((m) => {
   const specs = placeCardSpecs().filter((c) => c.indicator === m.ind.id && c.template === "portrait");
   const png = specs.find((c) => c.format === "png")!, webp = specs.find((c) => c.format === "webp")!;
-  return [m.key, { png: cardPath(code, png), webp: cardPath(code, webp), w: webp.width, h: webp.height, alt: renderCard(code, m.ind.id as IndicatorId, "portrait").alt, year: png.year }];
+  const focus = renderCard(code, m.ind.id as IndicatorId, "portrait").focus;
+  // A short alt: the tables in this panel already list every council (image SEO research, 14 Oct).
+  const alt = `Share card: ${m.ind.title}, ${yearLabel(m.ind, png.year)}. ${name} ${focus.display}. Every council's figure is in the table above.`;
+  const file = `${placeSlug(code)}-${png.name.replace(/-portrait$/, "")}.png`;
+  return [m.key, { png: cardPath(code, png), webp: cardPath(code, webp), w: webp.width, h: webp.height, alt, year: png.year, file }];
 }));
 const popLabels = pop.years.map((y) => yearLabel(pop.ind, y));
 const ethLabels = eth.years.map((y) => yearLabel(eth.ind, y));
@@ -122,8 +126,11 @@ const ethLabels = eth.years.map((y) => yearLabel(eth.ind, y));
             </div>
           </details>
           <figure class="pm-share">
-            <img src={cards.p.webp} width={cards.p.w} height={cards.p.h} loading="lazy" decoding="async" alt={cards.p.alt} />
-            <figcaption><a href={cards.p.png} download>Download this card</a> (population change, {cards.p.year}; PNG, 1080 by 1350 pixels)</figcaption>
+            <picture>
+              <source type="image/webp" srcset={cards.p.webp} />
+              <img src={cards.p.png} width={cards.p.w} height={cards.p.h} loading="lazy" decoding="async" alt={cards.p.alt} />
+            </picture>
+            <figcaption><a href={cards.p.png} download={cards.p.file}>Download this card</a> (population change, {cards.p.year}; PNG, 1080 by 1350 pixels)</figcaption>
           </figure>
         </div>
 
@@ -181,8 +188,11 @@ const ethLabels = eth.years.map((y) => yearLabel(eth.ind, y));
             </div>
           </details>
           <figure class="pm-share">
-            <img src={cards.e.webp} width={cards.e.w} height={cards.e.h} loading="lazy" decoding="async" alt={cards.e.alt} />
-            <figcaption><a href={cards.e.png} download>Download this card</a> (White British share, {cards.e.year}; PNG, 1080 by 1350 pixels)</figcaption>
+            <picture>
+              <source type="image/webp" srcset={cards.e.webp} />
+              <img src={cards.e.png} width={cards.e.w} height={cards.e.h} loading="lazy" decoding="async" alt={cards.e.alt} />
+            </picture>
+            <figcaption><a href={cards.e.png} download={cards.e.file}>Download this card</a> (White British share, {cards.e.year}; PNG, 1080 by 1350 pixels)</figcaption>
           </figure>
         </div>
       </div>

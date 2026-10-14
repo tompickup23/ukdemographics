@@ -16,6 +16,8 @@ interface Props {
   image?: string;
   /** Alt text for the social image; defaults to the page title. */
   imageAlt?: string;
+  /** Copyright notice for the social image's metadata; defaults to the site's own. */
+  imageCopyright?: string;
   noIndex?: boolean;
   structuredData?: StructuredDataNode[];
   bodyClass?: string;
@@ -28,6 +30,7 @@ const {
   description = DEFAULT_DESCRIPTION,
   image = DEFAULT_SOCIAL_IMAGE_PATH,
   imageAlt,
+  imageCopyright = `© ukdemographics.co.uk ${new Date().getFullYear()}`,
   noIndex = false,
   structuredData: pageStructuredData = [],
   bodyClass,
@@ -37,7 +40,8 @@ const {
 const siteOrigin = Astro.site ?? new URL(SITE_URL);
 const pathname = Astro.url.pathname || "/";
 const pageTitle = normalisePageTitle(title);
-const socialImageAlt = imageAlt ?? `${pageTitle} - ukdemographics.co.uk`;
+// The default card shows the page title on the brand ground (maps plan v2.2, I25: no pseudo-dash).
+const socialImageAlt = imageAlt ?? `Share card: ${pageTitle}`;
 const canonicalUrl = new URL(pathname, siteOrigin).toString();
 const socialImageUrl = /^https?:\/\//.test(image) ? image : new URL(image, siteOrigin).toString();
 const robotsContent = noIndex ? "noindex,follow,max-image-preview:large" : "index,follow,max-image-preview:large";
@@ -59,9 +63,18 @@ const structuredData = [
     isPartOf: {
       "@id": `${SITE_URL}/#website`
     },
+    // Image metadata credits the site, never a person (Google image licence metadata).
+    // No licence field: the terms allow quoting with attribution, not reposting.
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: socialImageUrl
+      url: socialImageUrl,
+      contentUrl: socialImageUrl,
+      width: 1200,
+      height: 630,
+      caption: socialImageAlt,
+      creator: { "@id": `${SITE_URL}/#organization` },
+      creditText: "ukdemographics.co.uk",
+      copyrightNotice: imageCopyright
     }
   },
   ...(pathname === "/"
