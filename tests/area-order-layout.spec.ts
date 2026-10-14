@@ -25,15 +25,15 @@ test('places offers only alphabetical ordering and keeps it when filtering', asy
   await alphabetical();
 });
 
-test('area directories render A to Z without JavaScript', async ({ browser }) => {
-  const context = await browser.newContext({ javaScriptEnabled: false });
+test('area directories render A to Z without JavaScript', async ({ browser, baseURL }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, baseURL });
   const page = await context.newPage();
   for (const [route, selector] of [
     ['/places/', '.pl-name'], ['/national/', '.area-row .name'],
     ['/schools/', '.area-row .name'], ['/housing/', '.area-row .name'],
     ['/pressure/', '.area-row .name'], ['/regional/', '.region-name'],
   ]) {
-    await page.goto(`http://127.0.0.1:4322${route}`);
+    await page.goto(route);
     const names = await page.locator(selector).allTextContents();
     expect(names.length).toBeGreaterThan(1);
     expect(names, route).toEqual([...names].sort((a,b) => a.localeCompare(b)));

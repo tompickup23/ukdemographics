@@ -16,9 +16,9 @@ for(const path of ['/places/counties/lancashire/','/places/counties/essex/','/pl
     await page.screenshot({path:`test-results/${path.split('/').filter(Boolean).at(-1)}-${test.info().project.name}.png`,fullPage:true});
   });
 }
-test('county counts, source notes and reconciliation remain usable without JavaScript',async({browser})=>{
- const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:812}});
- const page=await context.newPage();await page.goto('http://127.0.0.1:4322/places/counties/lancashire/');
+test('county counts, source notes and reconciliation remain usable without JavaScript',async({browser,baseURL})=>{
+ const context=await browser.newContext({javaScriptEnabled:false,baseURL,viewport:{width:375,height:812}});
+ const page=await context.newPage();await page.goto('/places/counties/lancashire/');
  await page.getByText('Reconciliation: every county and district-sum comparison',{exact:true}).click();
  await expect(page.getByRole('region',{name:'County census reconciliation'}).locator('tbody tr')).toHaveCount(14);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth)).toBeLessThanOrEqual(2);
