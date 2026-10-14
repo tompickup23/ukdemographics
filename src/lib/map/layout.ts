@@ -353,7 +353,9 @@ export function buildLayout(frame: Frame, tk: TemplateKey, ind: Indicator): Layo
       if (b[0] > lonE || b[2] < lonW || b[1] > latN || b[3] < latS) continue;
       const [[x0, y0], [x1, y1]] = path.bounds(f);
       if (x1 < panel.x || x0 > panel.x + panel.w || y1 < panel.y || y0 > panel.y + panel.h) continue;
-      context.push(svgPath(f, proj, tol * 1.6, clip));
+      // Context councils carry no value: on the web map their outlines are simplified
+      // harder, which keeps the heaviest page (Powys, 52 context councils) inside budget.
+      context.push(svgPath(f, proj, tol * (tk === "inline" ? 2.6 : 1.6), clip));
     }
   }
 

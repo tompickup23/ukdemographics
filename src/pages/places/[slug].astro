@@ -5,6 +5,7 @@ import DataFreshness from "../../components/DataFreshness.astro";
 import ShareButton from "../../components/ShareButton.astro";
 import StatCard from "../../components/StatCard.astro";
 import MiniMap from "../../components/MiniMap.astro";
+import PlaceMap from "../../components/PlaceMap.astro";
 import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
 import ProjectionChart from "../../components/ProjectionChart.astro";
 import ShiftShareChart from "../../components/ShiftShareChart.astro";
@@ -531,6 +532,7 @@ function fmtInt(n: number | undefined | null): string {
 // and the rail below hides any entry whose section did not render for this area.
 const SECTION_GROUPS: Array<{ title: string; items: Array<{ id: string; label: string }> }> = [
   { title: "Composition", items: [
+    { id: "map", label: "Map" },
     { id: "ethnic-composition", label: "Ethnic trajectory" },
     { id: "shift-share", label: "What is driving change" },
     { id: "diversity", label: "Diversity index" },
@@ -756,6 +758,10 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     </aside>
 
     <div class="place-sections">
+
+  <!-- place-map: the map block, maps plan Stage 2 -->
+  <PlaceMap code={area.areaCode} />
+  <!-- /place-map -->
 
   <!-- Ethnic composition, trajectory chart + timeline -->
   {ethnicProjection && ethChartLines.length > 0 && (
