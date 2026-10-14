@@ -24,19 +24,15 @@ function arg(name, fallback) {
 // authority is counted once. Skipped records still get their own shiftShare.
 const SITE_OUTPUT = path.resolve(arg("--file", "src/data/live/ethnic-projections.json"));
 const SKIP = new Set((arg("--skip", "") || "").split(",").filter(Boolean));
-// The councils formed since 2011 whose 2011 baseline is the sum of their 2011
-// districts (October 2026). Until the shift-share is recomputed over all 318
-// areas, in its own pull request, it stays on the 307 areas with a KS201EW row
-// of their own: they get no shiftShare and are left out of the national base.
-const CENSUS_MANIFEST = path.resolve(arg("--census-manifest", "data/raw/manifests/census_ethnic_groups.json"));
-const SUMMED_2011 = new Set(
-  (JSON.parse(readFileSync(CENSUS_MANIFEST, "utf8")).resolution?.baseline2011?.predecessors ?? []).map((line) => line.split(" ")[0])
-);
 const original = readFileSync(SITE_OUTPUT, "utf8");
 const existing = JSON.parse(original);
 
 // Compute national-level change, on constant geography: the areas with a 2011
-// baseline, each counted in both years. Until October 2026 every 2011 total
+// baseline, each counted in both years. Since October 2026 that is all 318:
+// the eleven councils formed since 2011 carry the sum of their 2011 districts
+// (scripts/build/rebase-census-groups.mjs), so the base is England and Wales,
+// 56,075,912 residents in 2011, and the national change matches ONS's 80.5% to
+// 74.4%. Until then they were left out and the base was 307 areas (-6.2pp). Until October 2026 every 2011 total
 // was 0 (the ethnicity transform missed the 2011 label "All usual residents"),
 // and the script fell back to a typed 80% for 2011 and 74% for 2021, so the
 // published national effect was not computed from the Census at all. There is
@@ -45,7 +41,7 @@ let natWBI_2011 = 0, natWBI_2021 = 0, natTotal_2011 = 0, natTotal_2021 = 0, natA
 const missing = [];
 for (const [code, area] of Object.entries(existing.areas)) {
   if (!area.baseline || !area.current || area.baseline.year === area.current.year) continue;
-  if (SKIP.has(code) || SUMMED_2011.has(code)) continue;
+  if (SKIP.has(code)) continue;
   const b = area.baseline, c = area.current;
   if (!(b.total_population > 0) || !(c.total_population > 0) ||
       b.groups_absolute?.white_british == null || c.groups_absolute?.white_british == null) {
@@ -98,7 +94,6 @@ function dominantDriver(s) {
 let count = 0;
 for (const [code, area] of Object.entries(existing.areas)) {
   if (!area.baseline || !area.current || area.baseline.year === area.current.year) continue;
-  if (SUMMED_2011.has(code)) continue;
   if (!area.baseline.groups || !area.current.groups) continue;
 
   const localWBI_2011 = area.baseline.groups.white_british || 0;

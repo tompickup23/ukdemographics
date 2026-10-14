@@ -7,7 +7,6 @@
  */
 import { describe, expect, it } from "vitest";
 import rawProjections from "../src/data/live/ethnic-projections.json";
-import censusManifest from "../data/raw/manifests/census_ethnic_groups.json";
 import { NO_DRIVER, SHIFT_SHARE_COMPONENT_NAMES, shiftShareDriver } from "../src/lib/shift-share-driver";
 
 interface Point {
@@ -30,11 +29,9 @@ interface Area {
 }
 
 const areas = (rawProjections as unknown as { areas: Record<string, Area> }).areas;
-// The councils formed since 2011, whose 2011 baseline is summed from their 2011
-// districts, are not decomposed yet: the shift-share stays on the 307 areas with
-// a KS201EW row of their own until it is recomputed in its own pull request.
-const summed2011 = new Set(censusManifest.resolution.baseline2011.predecessors.map((line) => line.split(" ")[0]));
-const compared = Object.entries(areas).filter(([c, a]) => a.baseline.year !== a.current.year && !summed2011.has(c));
+// Every area with a 2011 baseline is decomposed, the eleven councils formed
+// since 2011 included: their 2011 figure is the sum of their 2011 districts.
+const compared = Object.entries(areas).filter(([, a]) => a.baseline.year !== a.current.year);
 
 function nationalChange(): number {
   let wb11 = 0, wb21 = 0, t11 = 0, t21 = 0;

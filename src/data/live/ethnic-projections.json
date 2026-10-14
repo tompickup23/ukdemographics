@@ -258,10 +258,10 @@
       },
       "shiftShare": {
         "totalChangePp": -10.2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.1,
-        "localEffectPp": -6.1,
-        "dominantDriver": "national trend"
+        "localEffectPp": -6.2,
+        "dominantDriver": "local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 84.4,
@@ -843,9 +843,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.4,
-        "localEffectPp": -0.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": -1.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -1422,9 +1422,9 @@
       },
       "shiftShare": {
         "totalChangePp": -15.1,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.1,
-        "localEffectPp": -11.1,
+        "localEffectPp": -11.2,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -1996,10 +1996,10 @@
       },
       "shiftShare": {
         "totalChangePp": -10.6,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.6,
-        "localEffectPp": -6,
-        "dominantDriver": "national trend"
+        "localEffectPp": -6.2,
+        "dominantDriver": "local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 81.7,
@@ -2581,9 +2581,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.1,
-        "localEffectPp": -1.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0,
+        "localEffectPp": -1.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -3160,9 +3160,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.5,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.2,
-        "localEffectPp": -6.5,
+        "localEffectPp": -6.6,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -3740,10 +3740,10 @@
       },
       "shiftShare": {
         "totalChangePp": -11.3,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 1,
-        "localEffectPp": -6.2,
-        "dominantDriver": "national trend and local migration, equally"
+        "localEffectPp": -6.3,
+        "dominantDriver": "local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 82.5,
@@ -4325,9 +4325,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.1,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.1,
-        "localEffectPp": -3,
+        "localEffectPp": -3.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -4910,9 +4910,9 @@
       },
       "shiftShare": {
         "totalChangePp": -13.8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.1,
-        "localEffectPp": -8.7,
+        "localEffectPp": -8.8,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -5484,9 +5484,9 @@
       },
       "shiftShare": {
         "totalChangePp": -11.9,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.7,
-        "localEffectPp": -8.4,
+        "localEffectPp": -8.5,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -6058,10 +6058,10 @@
       },
       "shiftShare": {
         "totalChangePp": -9.8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.5,
-        "localEffectPp": -6.2,
-        "dominantDriver": "national trend and local migration, equally"
+        "localEffectPp": -6.3,
+        "dominantDriver": "local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 84,
@@ -6557,9 +6557,9 @@
       "foreignBornPct2051": 47.8,
       "shiftShare": {
         "totalChangePp": -6.7,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0,
-        "localEffectPp": -0.5,
+        "localEffectPp": -0.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -7047,9 +7047,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 2.7,
-        "localEffectPp": -5.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 2.6,
+        "localEffectPp": -5.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -7627,9 +7627,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 1.2,
-        "localEffectPp": -2.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 1.3,
+        "localEffectPp": -2.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -8207,9 +8207,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.2,
-        "localEffectPp": -4.8,
+        "localEffectPp": -4.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -8787,9 +8787,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.5,
-        "localEffectPp": -1.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.4,
+        "localEffectPp": -1.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -9361,7 +9361,7 @@
       },
       "shiftShare": {
         "totalChangePp": -6.1,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.8,
         "localEffectPp": -3.8,
         "dominantDriver": "national trend"
@@ -9941,9 +9941,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.3,
-        "localEffectPp": -3.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.4,
+        "localEffectPp": -3.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -10519,9 +10519,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 3.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 3.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -11093,8 +11093,8 @@
       },
       "shiftShare": {
         "totalChangePp": -2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 4.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 4.8,
         "localEffectPp": -0.7,
         "dominantDriver": "national trend"
       },
@@ -11673,9 +11673,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.2,
-        "localEffectPp": -1.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.1,
+        "localEffectPp": -1.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -12252,9 +12252,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.1,
-        "localEffectPp": -0.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.2,
+        "localEffectPp": -0.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -12818,9 +12818,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0,
-        "localEffectPp": -4.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.1,
+        "localEffectPp": -4.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -13392,8 +13392,8 @@
       },
       "shiftShare": {
         "totalChangePp": -2.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 4.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 4.7,
         "localEffectPp": -1.4,
         "dominantDriver": "national trend"
       },
@@ -13966,9 +13966,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.7,
-        "localEffectPp": 1.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": 1.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -14539,9 +14539,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 4.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -15112,9 +15112,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -15692,9 +15692,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.3,
-        "localEffectPp": -4.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.4,
+        "localEffectPp": -4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -16265,9 +16265,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -16844,9 +16844,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 1.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -17415,9 +17415,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 1,
-        "localEffectPp": -4.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 1.1,
+        "localEffectPp": -4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -17994,9 +17994,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.3,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.3,
-        "localEffectPp": 0.2,
+        "localEffectPp": 0,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -18579,9 +18579,9 @@
       },
       "shiftShare": {
         "totalChangePp": -11.9,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.1,
-        "localEffectPp": -6.8,
+        "localEffectPp": -6.9,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -19159,9 +19159,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.2,
-        "localEffectPp": -0.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.3,
+        "localEffectPp": -0.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -19739,9 +19739,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.6,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.1,
-        "localEffectPp": -2.5,
+        "localEffectPp": -2.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -20319,9 +20319,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.7,
-        "localEffectPp": 0.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": 0.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -20892,9 +20892,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 2.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 2.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -21466,9 +21466,9 @@
       },
       "shiftShare": {
         "totalChangePp": -12.8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.7,
-        "localEffectPp": -9.3,
+        "localEffectPp": -9.4,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -22045,9 +22045,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 0.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 0.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -22630,9 +22630,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.4,
-        "localEffectPp": -3.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": -4.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -23128,9 +23128,9 @@
       "foreignBornPct2051": 32.5,
       "shiftShare": {
         "totalChangePp": -4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.9,
-        "localEffectPp": 3.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.8,
+        "localEffectPp": 2.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -23624,9 +23624,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.5,
-        "localEffectPp": 0.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.4,
+        "localEffectPp": 0,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -24197,9 +24197,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
-        "localEffectPp": 4.4,
+        "localEffectPp": 4.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -24681,9 +24681,9 @@
       "foreignBornPct2051": 14.4,
       "shiftShare": {
         "totalChangePp": -1.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.4,
-        "localEffectPp": 6.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.3,
+        "localEffectPp": 6.2,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -25191,9 +25191,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.2,
-        "localEffectPp": -3.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.3,
+        "localEffectPp": -3.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -25764,9 +25764,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 4.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 4.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -26337,9 +26337,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 3.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 3.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -26910,9 +26910,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.9,
-        "localEffectPp": 1.9,
+        "localEffectPp": 1.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -27408,9 +27408,9 @@
       "foreignBornPct2051": 39.1,
       "shiftShare": {
         "totalChangePp": -3.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 3.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -27911,9 +27911,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -28485,9 +28485,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.9,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.5,
-        "localEffectPp": 2.8,
+        "localEffectPp": 2.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -29063,9 +29063,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 4.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 4.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -29733,6 +29733,13 @@
         "hamiltonPerry": 56.3,
         "cohortComponent": 57.5,
         "spreadPp": 1.2
+      },
+      "shiftShare": {
+        "totalChangePp": -7.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.5,
+        "localEffectPp": -0.6,
+        "dominantDriver": "national trend"
       }
     },
     "E09000012": {
@@ -29989,9 +29996,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 3.4,
-        "localEffectPp": 0.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 3.3,
+        "localEffectPp": 0.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -30562,9 +30569,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -31135,9 +31142,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -31714,9 +31721,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.3,
-        "localEffectPp": -2.7,
+        "localEffectPp": -2.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -32279,9 +32286,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.4,
-        "localEffectPp": -3.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": -4.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -32935,6 +32942,13 @@
         "hamiltonPerry": 56,
         "cohortComponent": 58.3,
         "spreadPp": 2.3
+      },
+      "shiftShare": {
+        "totalChangePp": -6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": 0.6,
+        "dominantDriver": "national trend"
       }
     },
     "E09000028": {
@@ -33192,9 +33206,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.1,
-        "localEffectPp": -1.1,
+        "localEffectPp": -1.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -33856,6 +33870,13 @@
         "hamiltonPerry": 79.3,
         "cohortComponent": 71.2,
         "spreadPp": 8.1
+      },
+      "shiftShare": {
+        "totalChangePp": -1.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.9,
+        "dominantDriver": "national trend"
       }
     },
     "E06000026": {
@@ -34112,9 +34133,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 3.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -34686,9 +34707,9 @@
       },
       "shiftShare": {
         "totalChangePp": -11.4,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.5,
-        "localEffectPp": -8.7,
+        "localEffectPp": -8.8,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -35266,10 +35287,10 @@
       },
       "shiftShare": {
         "totalChangePp": -11.4,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.7,
-        "localEffectPp": -5.9,
-        "dominantDriver": "national trend"
+        "localEffectPp": -6.1,
+        "dominantDriver": "national trend and local migration, equally"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 80,
@@ -35851,9 +35872,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.7,
-        "localEffectPp": 0.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": 0.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -36425,9 +36446,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 3.8,
-        "localEffectPp": -5.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 3.7,
+        "localEffectPp": -5.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -37095,6 +37116,13 @@
         "hamiltonPerry": 50.3,
         "cohortComponent": 51.3,
         "spreadPp": 1
+      },
+      "shiftShare": {
+        "totalChangePp": -8.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": -2.6,
+        "dominantDriver": "national trend"
       }
     },
     "E06000065": {
@@ -37442,6 +37470,13 @@
         "hamiltonPerry": 76,
         "cohortComponent": 68,
         "spreadPp": 8
+      },
+      "shiftShare": {
+        "totalChangePp": -1.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 6,
+        "dominantDriver": "national trend"
       }
     },
     "E06000049": {
@@ -37698,9 +37733,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 3.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -38277,9 +38312,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.5,
-        "localEffectPp": -0.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.4,
+        "localEffectPp": -0.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -38843,9 +38878,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.5,
-        "localEffectPp": -1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.4,
+        "localEffectPp": -1.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -39402,9 +39437,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 2.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 2.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -39975,9 +40010,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 2.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 2.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -40541,9 +40576,9 @@
       },
       "shiftShare": {
         "totalChangePp": -11.1,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.2,
-        "localEffectPp": -5.1,
+        "localEffectPp": -5.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -41100,9 +41135,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.7,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.9,
-        "localEffectPp": 3.5,
+        "localEffectPp": 3.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -41673,9 +41708,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -42252,9 +42287,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.3,
-        "localEffectPp": -1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.2,
+        "localEffectPp": -1.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -42811,9 +42846,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -43391,9 +43426,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.3,
-        "localEffectPp": -3.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.4,
+        "localEffectPp": -4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -43950,9 +43985,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 3.2,
-        "localEffectPp": 1.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 3.1,
+        "localEffectPp": 1.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -44530,9 +44565,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.6,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.4,
-        "localEffectPp": 1,
+        "localEffectPp": 0.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -45089,9 +45124,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -45655,9 +45690,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.1,
-        "localEffectPp": -2.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0,
+        "localEffectPp": -2.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -46228,9 +46263,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -46808,9 +46843,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.1,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.4,
-        "localEffectPp": -0.5,
+        "localEffectPp": -0.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -47388,9 +47423,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.4,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.6,
-        "localEffectPp": -4.8,
+        "localEffectPp": -4.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -47947,10 +47982,10 @@
       },
       "shiftShare": {
         "totalChangePp": -9.2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 3,
-        "localEffectPp": -6.1,
-        "dominantDriver": "national trend"
+        "localEffectPp": -6.2,
+        "dominantDriver": "local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 76.5,
@@ -48527,9 +48562,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.4,
-        "localEffectPp": 0,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": -0.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -49093,10 +49128,10 @@
       },
       "shiftShare": {
         "totalChangePp": -11.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.4,
-        "localEffectPp": -6,
-        "dominantDriver": "national trend"
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.5,
+        "localEffectPp": -6.1,
+        "dominantDriver": "national trend and local migration, equally"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 87.4,
@@ -49667,9 +49702,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.5,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.5,
-        "localEffectPp": -7.8,
+        "localEffectPp": -7.9,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -50240,9 +50275,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -50806,9 +50841,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.5,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.2,
-        "localEffectPp": -2.5,
+        "localEffectPp": -2.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -51385,9 +51420,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": -0.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": -0.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -52035,6 +52070,13 @@
         "hamiltonPerry": 73.8,
         "cohortComponent": 66.2,
         "spreadPp": 7.6
+      },
+      "shiftShare": {
+        "totalChangePp": -3.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 3.8,
+        "dominantDriver": "national trend"
       }
     },
     "E09000013": {
@@ -52292,9 +52334,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.7,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.7,
-        "localEffectPp": -3.2,
+        "localEffectPp": -3.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -52865,9 +52907,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 6.2,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -53430,10 +53472,10 @@
       },
       "shiftShare": {
         "totalChangePp": -12.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.1,
-        "localEffectPp": -6,
-        "dominantDriver": "national trend"
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0,
+        "localEffectPp": -6.2,
+        "dominantDriver": "local migration"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 91,
@@ -53991,8 +54033,8 @@
       },
       "shiftShare": {
         "totalChangePp": -10.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 3.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 3.7,
         "localEffectPp": -8,
         "dominantDriver": "local migration"
       },
@@ -54570,9 +54612,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.4,
-        "localEffectPp": -0.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": -0.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -55055,9 +55097,9 @@
       "foreignBornPct2051": 39.1,
       "shiftShare": {
         "totalChangePp": -6.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.6,
-        "localEffectPp": 0.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.5,
+        "localEffectPp": -0.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -55550,9 +55592,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.6,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.2,
-        "localEffectPp": -3.6,
+        "localEffectPp": -3.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -56134,9 +56176,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.4,
-        "localEffectPp": -1.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": -1.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -56699,9 +56741,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": -0.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": -0.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -57183,9 +57225,9 @@
       "foreignBornPct2051": 61.2,
       "shiftShare": {
         "totalChangePp": -7.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.3,
-        "localEffectPp": -1.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.2,
+        "localEffectPp": -1.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -57672,9 +57714,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 3.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 3.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -58245,9 +58287,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.6,
-        "localEffectPp": 0,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.5,
+        "localEffectPp": -0.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -58805,9 +58847,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.4,
-        "localEffectPp": -3.4,
+        "localEffectPp": -3.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -59379,9 +59421,9 @@
       },
       "shiftShare": {
         "totalChangePp": -18.6,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.3,
-        "localEffectPp": -14.8,
+        "localEffectPp": -14.9,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -59958,9 +60000,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.7,
-        "localEffectPp": -0.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": -0.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -60524,9 +60566,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.5,
-        "localEffectPp": -1.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.4,
+        "localEffectPp": -1.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -61097,9 +61139,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -61677,9 +61719,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 1.2,
-        "localEffectPp": -5.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 1.3,
+        "localEffectPp": -5.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -62241,9 +62283,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 3.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -62819,9 +62861,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.4,
-        "localEffectPp": 6.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.3,
+        "localEffectPp": 6.3,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -63393,9 +63435,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.6,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.1,
-        "localEffectPp": -3.5,
+        "localEffectPp": -3.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -63966,9 +64008,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 3,
-        "localEffectPp": -1.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 2.9,
+        "localEffectPp": -1.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -64545,9 +64587,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.4,
-        "localEffectPp": -0.6,
+        "localEffectPp": -0.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -65118,9 +65160,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.6,
-        "localEffectPp": 1.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.5,
+        "localEffectPp": 1.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -65691,9 +65733,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.9,
-        "localEffectPp": 3.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.8,
+        "localEffectPp": 3.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -66250,9 +66292,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.5,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.9,
-        "localEffectPp": 5.6,
+        "localEffectPp": 5.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -66809,9 +66851,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.4,
-        "localEffectPp": 0.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": 0,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -67459,6 +67501,13 @@
         "hamiltonPerry": 77.6,
         "cohortComponent": 69.2,
         "spreadPp": 8.4
+      },
+      "shiftShare": {
+        "totalChangePp": -1.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.5,
+        "dominantDriver": "national trend"
       }
     },
     "E09000007": {
@@ -67716,9 +67765,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 2.8,
-        "localEffectPp": -5.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 2.7,
+        "localEffectPp": -5.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -68289,9 +68338,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -68848,9 +68897,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.6,
-        "localEffectPp": 1.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.5,
+        "localEffectPp": 1.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -69407,9 +69456,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 3.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -69980,9 +70029,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -70551,9 +70600,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.6,
-        "localEffectPp": -1.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.7,
+        "localEffectPp": -2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -71131,9 +71180,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.3,
-        "localEffectPp": -4.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.2,
+        "localEffectPp": -4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -71704,9 +71753,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 4.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -72263,9 +72312,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 3.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -72822,9 +72871,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 3.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -73395,9 +73444,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 0.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 0.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -73899,9 +73948,9 @@
       "foreignBornPct2051": 69.3,
       "shiftShare": {
         "totalChangePp": -9.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.2,
-        "localEffectPp": -3.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.3,
+        "localEffectPp": -3.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -74388,9 +74437,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -75044,6 +75093,13 @@
         "hamiltonPerry": 48.1,
         "cohortComponent": 49.1,
         "spreadPp": 1
+      },
+      "shiftShare": {
+        "totalChangePp": -8.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0,
+        "localEffectPp": -2.4,
+        "dominantDriver": "national trend"
       }
     },
     "E07000171": {
@@ -75300,9 +75356,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.5,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.1,
-        "localEffectPp": 4.8,
+        "localEffectPp": 4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -75860,9 +75916,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.4,
-        "localEffectPp": 0.8,
+        "localEffectPp": 0.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -76433,9 +76489,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.5,
-        "localEffectPp": -0.1,
+        "localEffectPp": -0.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -77006,9 +77062,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 4.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 4.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -77572,9 +77628,9 @@
       },
       "shiftShare": {
         "totalChangePp": -16.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.3,
-        "localEffectPp": -10.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.2,
+        "localEffectPp": -10.5,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -78151,9 +78207,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.9,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.2,
-        "localEffectPp": -4.9,
+        "localEffectPp": -5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -78731,9 +78787,9 @@
       },
       "shiftShare": {
         "totalChangePp": -14.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.1,
-        "localEffectPp": -8.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0,
+        "localEffectPp": -8.7,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -79304,9 +79360,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 1.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 1.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -79870,9 +79926,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.7,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.4,
-        "localEffectPp": -3.1,
+        "localEffectPp": -3.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -80429,9 +80485,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.9,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
-        "localEffectPp": 1.3,
+        "localEffectPp": 1.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -80988,9 +81044,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 0.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": -0.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -81547,9 +81603,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.7,
-        "localEffectPp": 1.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": 1.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -82106,9 +82162,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
-        "localEffectPp": 4,
+        "localEffectPp": 3.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -82665,9 +82721,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.4,
-        "localEffectPp": 3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": 2.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -83230,9 +83286,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.1,
-        "localEffectPp": -3.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0,
+        "localEffectPp": -3.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -83714,9 +83770,9 @@
       "foreignBornPct2051": 15.3,
       "shiftShare": {
         "totalChangePp": -1.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 6.1,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -84203,9 +84259,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 3.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -84762,9 +84818,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 3.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -85321,9 +85377,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.7,
-        "localEffectPp": 0.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": 0.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -85891,9 +85947,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.5,
-        "localEffectPp": -1.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.4,
+        "localEffectPp": -2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -86450,9 +86506,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -87015,9 +87071,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.9,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.1,
-        "localEffectPp": -6.8,
+        "localEffectPp": -7,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -87588,9 +87644,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.9,
-        "localEffectPp": 1,
+        "localEffectPp": 0.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -88168,9 +88224,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.5,
-        "localEffectPp": -1.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.4,
+        "localEffectPp": -1.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -88733,9 +88789,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.2,
-        "localEffectPp": -2.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.3,
+        "localEffectPp": -3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -89292,9 +89348,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 4.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 4.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -89776,9 +89832,9 @@
       "foreignBornPct2051": 28.4,
       "shiftShare": {
         "totalChangePp": -2.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 4.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 4.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -90265,9 +90321,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 3.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -90824,9 +90880,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 3.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 3.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -91389,9 +91445,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.4,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.3,
-        "localEffectPp": -2.9,
+        "localEffectPp": -3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -91948,9 +92004,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -92513,9 +92569,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.3,
-        "localEffectPp": -1.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.2,
+        "localEffectPp": -2.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -93072,9 +93128,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -93631,9 +93687,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 6.3,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -94197,9 +94253,9 @@
       },
       "shiftShare": {
         "totalChangePp": -12.8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.2,
-        "localEffectPp": -6.8,
+        "localEffectPp": -7,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -94776,9 +94832,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.1,
-        "localEffectPp": -0.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0,
+        "localEffectPp": -0.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -95349,9 +95405,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 3.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -95833,9 +95889,9 @@
       "foreignBornPct2051": 12.3,
       "shiftShare": {
         "totalChangePp": -1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.4,
-        "localEffectPp": 6.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.3,
+        "localEffectPp": 6.3,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -96322,9 +96378,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 0.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 0.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -96881,9 +96937,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 2.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -97447,9 +97503,9 @@
       },
       "shiftShare": {
         "totalChangePp": -11.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.1,
-        "localEffectPp": -5.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0,
+        "localEffectPp": -5.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -98012,9 +98068,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.4,
-        "localEffectPp": -0.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": -0.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -98571,9 +98627,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -99130,9 +99186,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 3.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -99703,9 +99759,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -100262,9 +100318,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 3.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -100835,9 +100891,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -101394,9 +101450,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 1.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -101878,9 +101934,9 @@
       "foreignBornPct2051": 18.6,
       "shiftShare": {
         "totalChangePp": -1.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 6.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 6.1,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -102367,9 +102423,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -102926,9 +102982,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 4.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -103492,9 +103548,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.4,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.3,
-        "localEffectPp": -4.5,
+        "localEffectPp": -4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -104066,9 +104122,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.4,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2,
-        "localEffectPp": -1.2,
+        "localEffectPp": -1.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -104639,9 +104695,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.7,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.9,
-        "localEffectPp": 3.4,
+        "localEffectPp": 3.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -105198,9 +105254,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 4.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 4.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -105764,9 +105820,9 @@
       },
       "shiftShare": {
         "totalChangePp": -11,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.3,
-        "localEffectPp": -4.5,
+        "localEffectPp": -4.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -106323,9 +106379,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 3.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 3.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -106807,9 +106863,9 @@
       "foreignBornPct2051": 23.2,
       "shiftShare": {
         "totalChangePp": -1.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -107296,9 +107352,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 2.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -107855,9 +107911,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 2.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -108339,9 +108395,9 @@
       "foreignBornPct2051": 24.2,
       "shiftShare": {
         "totalChangePp": -2.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 4.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 4.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -108828,9 +108884,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 3.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -109387,9 +109443,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.3,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.7,
-        "localEffectPp": 2.7,
+        "localEffectPp": 2.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -109871,9 +109927,9 @@
       "foreignBornPct2051": 19.8,
       "shiftShare": {
         "totalChangePp": -1.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -110360,9 +110416,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -110933,9 +110989,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 6.1,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -111492,9 +111548,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -111996,9 +112052,9 @@
       "foreignBornPct2051": 62.1,
       "shiftShare": {
         "totalChangePp": -7.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.1,
-        "localEffectPp": -1.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0,
+        "localEffectPp": -1.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -112485,9 +112541,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 4.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 4.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -112969,10 +113025,10 @@
       "foreignBornPct2051": 21,
       "shiftShare": {
         "totalChangePp": -1.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 6.2,
-        "dominantDriver": "national trend, offset by local migration"
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 6,
+        "dominantDriver": "national trend"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 97.5,
@@ -113459,9 +113515,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.5,
-        "localEffectPp": -4.3,
+        "localEffectPp": -4.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -114039,9 +114095,9 @@
       },
       "shiftShare": {
         "totalChangePp": -12.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.3,
-        "localEffectPp": -6.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.4,
+        "localEffectPp": -6.9,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -114598,9 +114654,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -115082,9 +115138,9 @@
       "foreignBornPct2051": 13.3,
       "shiftShare": {
         "totalChangePp": -1.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.4,
-        "localEffectPp": 5.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.3,
+        "localEffectPp": 5.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -115571,9 +115627,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.7,
-        "localEffectPp": -0.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": -0.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -116055,9 +116111,9 @@
       "foreignBornPct2051": 17.2,
       "shiftShare": {
         "totalChangePp": -1.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -116544,9 +116600,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -117103,10 +117159,10 @@
       },
       "shiftShare": {
         "totalChangePp": -1.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6.2,
-        "dominantDriver": "national trend, offset by local migration"
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 6,
+        "dominantDriver": "national trend"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.6,
@@ -117739,6 +117795,13 @@
         "hamiltonPerry": 66.7,
         "cohortComponent": 70,
         "spreadPp": 3.3
+      },
+      "shiftShare": {
+        "totalChangePp": -1.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.5,
+        "dominantDriver": "national trend"
       }
     },
     "E07000061": {
@@ -117995,9 +118058,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.6,
-        "localEffectPp": 1.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.5,
+        "localEffectPp": 1.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -118554,9 +118617,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 2.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 2.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -119113,9 +119176,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 2.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 2.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -119693,9 +119756,9 @@
       },
       "shiftShare": {
         "totalChangePp": -10.8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.7,
-        "localEffectPp": -5.4,
+        "localEffectPp": -5.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -120252,9 +120315,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.7,
-        "localEffectPp": 0.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": 0.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -120736,9 +120799,9 @@
       "foreignBornPct2051": 29.9,
       "shiftShare": {
         "totalChangePp": -1.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 6.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -121226,9 +121289,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.3,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.4,
-        "localEffectPp": -4.5,
+        "localEffectPp": -4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -121799,9 +121862,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -122358,9 +122421,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.9,
-        "localEffectPp": 4.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.8,
+        "localEffectPp": 4.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -122842,9 +122905,9 @@
       "foreignBornPct2051": 26,
       "shiftShare": {
         "totalChangePp": -1.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -123331,9 +123394,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 4.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 4.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -123890,9 +123953,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -124374,9 +124437,9 @@
       "foreignBornPct2051": 17.4,
       "shiftShare": {
         "totalChangePp": -0.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.4,
-        "localEffectPp": 6.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.3,
+        "localEffectPp": 6.4,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -124870,9 +124933,9 @@
       },
       "shiftShare": {
         "totalChangePp": -13.7,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.7,
-        "localEffectPp": -8.2,
+        "localEffectPp": -8.3,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -125368,9 +125431,9 @@
       "foreignBornPct2051": 12.6,
       "shiftShare": {
         "totalChangePp": -0.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 7.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 7,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -125857,9 +125920,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -126430,9 +126493,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -126995,9 +127058,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.7,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0,
-        "localEffectPp": 0.5,
+        "localEffectPp": 0.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -127554,9 +127617,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.9,
-        "localEffectPp": 4.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.8,
+        "localEffectPp": 4.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -128113,9 +128176,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.6,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.7,
-        "localEffectPp": 0.3,
+        "localEffectPp": 0.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -128672,9 +128735,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -129231,9 +129294,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.9,
-        "localEffectPp": 1.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.8,
+        "localEffectPp": 1.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -129790,9 +129853,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 5.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 5.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -130349,9 +130412,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.7,
-        "localEffectPp": 0.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": 0.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -130833,9 +130896,9 @@
       "foreignBornPct2051": 20.2,
       "shiftShare": {
         "totalChangePp": -1.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 6.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -131322,9 +131385,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.7,
-        "localEffectPp": 1.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.6,
+        "localEffectPp": 1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -131881,9 +131944,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 4.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 4.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -132445,9 +132508,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.7,
-        "localEffectPp": 1.1,
+        "localEffectPp": 1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -133004,9 +133067,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -133660,6 +133723,13 @@
         "hamiltonPerry": 56.3,
         "cohortComponent": 57.7,
         "spreadPp": 1.4
+      },
+      "shiftShare": {
+        "totalChangePp": -4.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.4,
+        "localEffectPp": 2.4,
+        "dominantDriver": "national trend"
       }
     },
     "E07000090": {
@@ -133916,9 +133986,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -134475,9 +134545,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 2.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 2.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -135034,9 +135104,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 3.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -135518,9 +135588,9 @@
       "foreignBornPct2051": 22.1,
       "shiftShare": {
         "totalChangePp": -2.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 4.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 4.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -136014,9 +136084,9 @@
       },
       "shiftShare": {
         "totalChangePp": -15.4,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.2,
-        "localEffectPp": -9,
+        "localEffectPp": -9.2,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -136573,9 +136643,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -137132,9 +137202,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 2.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 2.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -137697,9 +137767,9 @@
       },
       "shiftShare": {
         "totalChangePp": -8.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0.6,
-        "localEffectPp": -2.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.7,
+        "localEffectPp": -3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -138271,9 +138341,9 @@
       },
       "shiftShare": {
         "totalChangePp": -16.1,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.4,
-        "localEffectPp": -11.3,
+        "localEffectPp": -11.4,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -138755,9 +138825,9 @@
       "foreignBornPct2051": 34.8,
       "shiftShare": {
         "totalChangePp": -2.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -139244,9 +139314,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 3.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -139809,9 +139879,9 @@
       },
       "shiftShare": {
         "totalChangePp": -13,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.1,
-        "localEffectPp": -7.9,
+        "localEffectPp": -8,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -140298,9 +140368,9 @@
       "foreignBornPct2051": 14.6,
       "shiftShare": {
         "totalChangePp": -1.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -140787,9 +140857,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 3.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -141346,9 +141416,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 2.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 2.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -141905,9 +141975,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 2.4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 2.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -142483,9 +142553,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.4,
-        "localEffectPp": -0.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.3,
+        "localEffectPp": -0.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -142981,10 +143051,10 @@
       "foreignBornPct2051": 19.1,
       "shiftShare": {
         "totalChangePp": -1.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6.2,
-        "dominantDriver": "national trend, offset by local migration"
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 6,
+        "dominantDriver": "national trend"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 98.1,
@@ -143470,9 +143540,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 4.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -143984,9 +144054,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 3.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -144498,9 +144568,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -145012,9 +145082,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 4.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 4.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -145533,9 +145603,9 @@
       },
       "shiftShare": {
         "totalChangePp": -9.3,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.1,
-        "localEffectPp": -3.2,
+        "localEffectPp": -3.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -146047,9 +146117,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 6.1,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -146561,9 +146631,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -147075,9 +147145,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -147589,9 +147659,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 4.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -148103,9 +148173,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -148542,9 +148612,9 @@
       "foreignBornPct2051": 19,
       "shiftShare": {
         "totalChangePp": -0.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 6.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 6.3,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -148986,9 +149056,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.6,
-        "localEffectPp": 1.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.5,
+        "localEffectPp": 1.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -149500,9 +149570,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 2.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -149939,9 +150009,9 @@
       "foreignBornPct2051": 25,
       "shiftShare": {
         "totalChangePp": -1,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.3,
-        "localEffectPp": 6.5,
+        "localEffectPp": 6.3,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -150383,9 +150453,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.8,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.8,
-        "localEffectPp": 3.2,
+        "localEffectPp": 3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -150943,6 +151013,13 @@
         "hamiltonPerry": 66.2,
         "cohortComponent": 70.3,
         "spreadPp": 4.1
+      },
+      "shiftShare": {
+        "totalChangePp": -1.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.5,
+        "dominantDriver": "national trend"
       }
     },
     "E07000086": {
@@ -151199,9 +151276,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.9,
-        "localEffectPp": 3.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.8,
+        "localEffectPp": 3.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -151713,9 +151790,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 3.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -152152,9 +152229,9 @@
       "foreignBornPct2051": 41.9,
       "shiftShare": {
         "totalChangePp": -3.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -152610,9 +152687,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.9,
-        "localEffectPp": 1.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.8,
+        "localEffectPp": 1.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -153130,9 +153207,9 @@
       },
       "shiftShare": {
         "totalChangePp": -11.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": 0,
-        "localEffectPp": -5.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0.1,
+        "localEffectPp": -5.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -153644,9 +153721,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.2,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 3.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 3.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -154158,9 +154235,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 4.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 4.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -154672,9 +154749,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 0.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 0,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -155186,9 +155263,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.9,
-        "localEffectPp": 4.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.8,
+        "localEffectPp": 3.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -155700,9 +155777,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 2.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 2.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -156214,9 +156291,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.3,
-        "localEffectPp": 0.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.2,
+        "localEffectPp": 0.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -156728,9 +156805,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -157242,9 +157319,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -157756,9 +157833,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.8,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -158270,9 +158347,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 3.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -158784,9 +158861,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1,
-        "localEffectPp": 1.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.9,
+        "localEffectPp": 1.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -159298,9 +159375,9 @@
       },
       "shiftShare": {
         "totalChangePp": -4.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 2.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 2.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -159812,9 +159889,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 4.9,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 4.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -160332,9 +160409,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.7,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.6,
-        "localEffectPp": -1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.5,
+        "localEffectPp": -1.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -160846,9 +160923,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 5.2,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -161285,9 +161362,9 @@
       "foreignBornPct2051": 31.5,
       "shiftShare": {
         "totalChangePp": -1.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -161736,9 +161813,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.7,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.4,
-        "localEffectPp": -1.9,
+        "localEffectPp": -2.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -162175,9 +162252,9 @@
       "foreignBornPct2051": 26,
       "shiftShare": {
         "totalChangePp": -1.2,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
-        "localEffectPp": 6,
+        "localEffectPp": 5.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -162544,9 +162621,9 @@
       "foreignBornPct2051": 88.7,
       "shiftShare": {
         "totalChangePp": -15,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.7,
-        "localEffectPp": -10.6,
+        "localEffectPp": -10.7,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -163002,9 +163079,9 @@
       },
       "shiftShare": {
         "totalChangePp": -2.5,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.1,
-        "localEffectPp": 4.8,
+        "localEffectPp": 4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -163441,10 +163518,10 @@
       "foreignBornPct2051": 23.8,
       "shiftShare": {
         "totalChangePp": -1.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6.2,
-        "dominantDriver": "national trend, offset by local migration"
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 6,
+        "dominantDriver": "national trend"
       },
       "englishProficiency": {
         "mainLanguageEnglishPct": 99.1,
@@ -163810,9 +163887,9 @@
       "foreignBornPct2051": 49.3,
       "shiftShare": {
         "totalChangePp": -5.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 1.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 1.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -164254,9 +164331,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.7,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.8,
-        "localEffectPp": 3.3,
+        "localEffectPp": 3.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -164768,9 +164845,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 6.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 6.1,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -165221,9 +165298,9 @@
       "foreignBornPct2051": 26,
       "shiftShare": {
         "totalChangePp": -1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 6.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 6.1,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -165679,9 +165756,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1.8,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.2,
-        "localEffectPp": 5.6,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.1,
+        "localEffectPp": 5.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -166118,9 +166195,9 @@
       "foreignBornPct2051": 34.8,
       "shiftShare": {
         "totalChangePp": -2.1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.3,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -166487,9 +166564,9 @@
       "foreignBornPct2051": 21.2,
       "shiftShare": {
         "totalChangePp": -1.9,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 5.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 5.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -166931,9 +167008,9 @@
       },
       "shiftShare": {
         "totalChangePp": -1,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 6.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 6.3,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -167451,9 +167528,9 @@
       },
       "shiftShare": {
         "totalChangePp": -7.4,
-        "nationalEffectPp": -6.2,
+        "nationalEffectPp": -6.1,
         "structuralEffectPp": 0,
-        "localEffectPp": -1.2,
+        "localEffectPp": -1.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -167965,9 +168042,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.6,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.1,
-        "localEffectPp": 3.7,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1,
+        "localEffectPp": 3.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -168479,9 +168556,9 @@
       },
       "shiftShare": {
         "totalChangePp": -5.4,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.8,
-        "localEffectPp": 1.5,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -0.7,
+        "localEffectPp": 1.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -169017,9 +169094,9 @@
       },
       "shiftShare": {
         "totalChangePp": -3.5,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -1.3,
-        "localEffectPp": 4,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": -1.2,
+        "localEffectPp": 3.8,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -169388,9 +169465,9 @@
       },
       "shiftShare": {
         "totalChangePp": -6.3,
-        "nationalEffectPp": -6.2,
-        "structuralEffectPp": -0.1,
-        "localEffectPp": -0.1,
+        "nationalEffectPp": -6.1,
+        "structuralEffectPp": 0,
+        "localEffectPp": -0.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
