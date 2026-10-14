@@ -32,15 +32,16 @@ describe("Census national White British share", () => {
     expect(Math.abs(fromAreas!.pct - (ew!.groups.white_british / ew!.total) * 100)).toBeLessThan(0.005);
   });
 
-  it("2011 covers more than the areas the file holds a 2011 record for", () => {
-    // The eleven authorities created after 2011 have no 2011 record in the file;
-    // KS201EW for England and Wales still counts their residents.
+  it("every area has a 2011 baseline, and the areas add up to England and Wales exactly", () => {
+    // Since October 2026 the eleven councils formed after 2011 carry the sum of
+    // their whole 2011 districts, so each 2011 district is counted once.
+    const notIn2011 = Object.entries(areas).filter(([, a]) => a.baseline.year !== 2011).map(([c]) => c);
+    expect(notIn2011).toEqual([]);
     const census2011 = census2011WhiteBritish();
     expect(census2011).not.toBeNull();
-    const fileTotal = Object.values(areas)
-      .filter((a) => a.baseline.year === 2011)
-      .reduce((s, a) => s + a.baseline.total_population, 0);
-    expect(census2011!.residents).toBeGreaterThan(fileTotal);
+    const fileTotal = Object.values(areas).reduce((s, a) => s + a.baseline.total_population, 0);
+    expect(fileTotal).toBe(56075912);
+    expect(census2011!.residents).toBe(fileTotal);
   });
 
   it("the homepage takes its Census years from these helpers, not from baseline shares", () => {
