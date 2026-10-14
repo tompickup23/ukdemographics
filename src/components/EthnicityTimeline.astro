@@ -1,4 +1,6 @@
 ---
+import { ETHNIC_PALETTE, ETHNIC_GROUP_KEYS } from "../lib/ethnic-palette";
+
 /**
  * Animated stacked bar chart showing ethnic composition change over decades.
  * Shows absolute or percentage breakdown for each census/projection year.
@@ -22,26 +24,14 @@ interface Props {
 }
 
 const { timeline, areaName } = Astro.props;
+// The caption names the last year drawn: the bars stop at each council's own horizon.
+const lastProjected = timeline.filter((t) => t.isProjection).map((t) => t.year).pop();
 
-const groupLabels: Record<string, string> = {
-  white_british: "White British",
-  white_other: "White Other",
-  asian: "Asian",
-  black: "Black",
-  mixed: "Mixed",
-  other: "Other"
-};
+const groupLabels = Object.fromEntries(ETHNIC_PALETTE.map((g) => [g.key, g.label])) as Record<string, string>;
+const groupColors = Object.fromEntries(ETHNIC_PALETTE.map((g) => [g.key, g.fill])) as Record<string, string>;
+const groupInk = Object.fromEntries(ETHNIC_PALETTE.map((g) => [g.key, g.ink])) as Record<string, "dark" | "light">;
 
-const groupColors: Record<string, string> = {
-  white_british: "var(--accent-bright)",
-  white_other: "#8b9cb3",
-  asian: "var(--warning)",
-  black: "#a78bfa",
-  mixed: "var(--positive)",
-  other: "#6b7280"
-};
-
-const groupKeys = ["white_british", "white_other", "asian", "black", "mixed", "other"] as const;
+const groupKeys = ETHNIC_GROUP_KEYS;
 
 // Build bar data
 const barData = timeline.map(snap => {
@@ -63,7 +53,7 @@ const barData = timeline.map(snap => {
 <figure class="eth-timeline">
   <div class="eth-timeline-head">
     <h3>Ethnic composition: {areaName}</h3>
-    <p class="tiny">Census 2011, Census 2021, then Hamilton-Perry projections to 2051. Percentages.</p>
+    <p class="tiny">{lastProjected ? `Census 2011, Census 2021, then Hamilton-Perry projections to ${lastProjected}. Percentages.` : "Census 2011 and Census 2021. Percentages."}</p>
   </div>
 
   <div class="eth-bars">
@@ -76,7 +66,7 @@ const barData = timeline.map(snap => {
         <div class="eth-bar-track">
           {bar.segments.map(seg => (
             <div
-              class="eth-segment"
+              class={`eth-segment eth-ink-${groupInk[seg.key]}`}
               style={`width: ${seg.pct}%; background: ${seg.color};`}
               title={`${seg.label}: ${seg.pct.toFixed(1)}%`}
             >
@@ -140,8 +130,8 @@ const barData = timeline.map(snap => {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--accent-3);
-    background: color-mix(in srgb, var(--warning) 10%, transparent);
+    color: var(--warning);
+    background: color-mix(in srgb, var(--warning) 10%, var(--panel));
     padding: 0.1rem 0.3rem;
     border-radius: 4px;
   }
@@ -151,6 +141,7 @@ const barData = timeline.map(snap => {
     border-radius: 6px;
     overflow: hidden;
     background: var(--bg-subtle);
+    outline: 1px solid var(--border);
   }
   .eth-segment {
     display: flex;
@@ -160,15 +151,26 @@ const barData = timeline.map(snap => {
     transition: width 400ms ease;
     position: relative;
   }
+  /* Each label takes the ink that passes on its own segment, 4.5:1 or more in both
+     schemes (src/lib/ethnic-palette.ts; maps plan v2.2, issues I17 and I24). */
   .eth-seg-label {
     font-size: 0.7rem;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.7);
-    text-shadow: 0 0 3px var(--bg);
+    color: var(--on-fill-light);
     pointer-events: none;
   }
-  .eth-projected {
-    opacity: 0.85;
+  .eth-ink-light .eth-seg-label {
+    color: var(--on-fill-dark);
+  }
+  /* A hairline of the panel between segments, so neighbouring groups never merge. */
+  .eth-segment + .eth-segment {
+    box-shadow: inset 1px 0 0 var(--panel);
+  }
+  /* Projected rows are marked by the badge and a dashed outline. They were faded
+     with opacity, which took every label in them below 4.5:1. */
+  .eth-projected .eth-bar-track {
+    outline: 1px dashed var(--border-strong);
+    outline-offset: 2px;
   }
   .eth-legend {
     display: flex;

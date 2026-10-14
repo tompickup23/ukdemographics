@@ -10,8 +10,10 @@ import PlaceMap from "../../components/PlaceMap.astro";
 import { cardPath, placeCardSpecs, placeOgCard, renderCard } from "../../lib/map/cards";
 import { BOUNDARY_CREDIT } from "../../lib/map/geo";
 import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
+import { ETHNIC_GROUP_KEYS } from "../../lib/ethnic-palette";
 import ProjectionChart from "../../components/ProjectionChart.astro";
 import ShiftShareChart from "../../components/ShiftShareChart.astro";
+import { crossingDecade, decadePhrase } from "../../lib/crossing";
 import ScenarioSelector from "../../components/ScenarioSelector.astro";
 import {
   getEthnicProjection,
@@ -142,8 +144,8 @@ const censusEnglish = getCensusEnglish(area.areaCode);
 const topTenureByEthnic = getTopEthnicGroupsByTenure(area.areaCode, 3);
 const topHealthByEthnic = getTopEthnicGroupsByHealth(area.areaCode, 3);
 
-// Constituencies that overlap this LA, sorted by postcode share desc.
-const overlappingPcons = getPconsForLa(area.areaCode).slice(0, 8);
+// Constituencies that overlap this LA, listed A to Z.
+const overlappingPcons = getPconsForLa(area.areaCode);
 
 // Top NINo nationalities for this area, joined with national 2025 visa-route mix
 const visaRouteRows = nino?.byNationality
@@ -344,14 +346,10 @@ const wbi2051 = publishableValue(
 const ethnicTimeline = getEthnicCompositionTimeline(area.areaCode);
 const stochasticData = getStochasticData(area.areaCode);
 
-const GROUP_COLORS: Record<string, string> = {
-  white_british: "var(--accent)",
-  white_other: "#8b9cb3",
-  asian: "var(--warning)",
-  black: "#a78bfa",
-  mixed: "var(--positive)",
-  other: "#6b7280",
-};
+// Line strokes per scheme from the site palette: --eth-line-<key> in global.css.
+const GROUP_COLORS: Record<string, string> = Object.fromEntries(
+  ETHNIC_GROUP_KEYS.map((k) => [k, `var(--eth-line-${k.replace("_", "-")})`])
+);
 const GROUP_LABELS: Record<string, string> = {
   white_british: "White British",
   white_other: "White Other",
@@ -598,19 +596,12 @@ const SECTION_GROUPS: Array<{ title: string; items: Array<{ id: string; label: s
 // does not, and keeps the share based headline instead.
 const wbi2031 = publishableValue(projData as any, 2031, projData?.projections?.["2031"]?.white_british);
 const wbi2061 = publishableValue(projData as any, 2061, projData?.projections?.["2061"]?.white_british);
-const crossingSeries: Array<[number, number]> = [];
-if (wbi2021 != null) crossingSeries.push([2021, wbi2021]);
-for (const pair of [[2031, wbi2031], [2041, wbi2041], [2051, wbi2051], [2061, wbi2061]] as Array<[number, number | null]>) {
-  if (pair[1] != null) crossingSeries.push([pair[0], pair[1]]);
-}
-let crossingYear: number | null = null;
-for (let ci = 0; ci < crossingSeries.length - 1; ci++) {
-  const [y1, v1] = crossingSeries[ci];
-  const [y2, v2] = crossingSeries[ci + 1];
-  if (v1 >= 50 && v2 < 50) { crossingYear = Math.round(y1 + ((v1 - 50) / (v1 - v2)) * (y2 - y1)); break; }
-}
+// The decade the published projection takes the share below half: two model years,
+// never a year interpolated between them (maps plan v2.2, I28).
+const crossing = crossingDecade(projData as any);
+const crossingSpan = crossing && crossing !== "already" ? crossing : null;
 const CROSSING_MIN_BASE_PCT = 53;
-const showCrossing = crossingYear != null && wbi2021 != null && wbi2021 >= CROSSING_MIN_BASE_PCT;
+const showCrossing = crossingSpan != null && wbi2021 != null && wbi2021 >= CROSSING_MIN_BASE_PCT;
 const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
 
 ---
@@ -641,7 +632,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         <p class="place-summary">
           <strong>{fmtInt(population)}</strong> people at the 2021 Census.
           {showCrossing
-            ? ` The White British majority here is projected to end around ${crossingYear}.`
+            ? ` The projection takes the White British share below half ${decadePhrase(crossingSpan!)}.`
             : wbi2021 != null && wbi2021 < 50
               ? " Already below a White British majority at the 2021 Census."
               : ""}
@@ -685,7 +676,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   {placeListing && (showCrossing || (wbi2021 != null && wbi2021 < 50)) && (
     <p class="place-trajectory">
       {showCrossing
-        ? `The White British majority here is projected to end around ${crossingYear}.`
+        ? `The projection takes the White British share below half ${decadePhrase(crossingSpan!)}.`
         : "Already below a White British majority at the 2021 Census."}
     </p>
   )}
@@ -694,16 +685,17 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     <div class="place-crossing">
       <div class="place-crossing-main">
         <span class="place-crossing-eyebrow">Projected</span>
-        <span class="place-crossing-label">Falls below half around</span>
-        <span class="place-crossing-year">{crossingYear}</span>
+        <span class="place-crossing-label">Falls below half between</span>
+        <span class="place-crossing-year">{crossingSpan!.from} and {crossingSpan!.to}</span>
       </div>
       <p class="place-crossing-body">
         {wbiHeadcount != null && (
           <><strong>{fmtInt(wbiHeadcount)}</strong> of {area.areaName}&rsquo;s {fmtInt(population)} residents
           identified as White British at the 2021 Census. </>
         )}
-        The projection takes that share from {fmtPct(wbi2021)} to {fmtPct(wbi2051)} by 2051.
-        Interpolated between projection decades, so the year is approximate.
+        The projection takes that share from {fmtPct(wbi2021)} at the 2021 Census to
+        {fmtPct(projData?.projections?.[String(crossingSpan!.to)]?.white_british)} in {crossingSpan!.to}.
+        The model projects 2031, 2041, 2051 and 2061 only, so a decade is as precise as it can be.
       </p>
     </div>
   )}
@@ -869,8 +861,9 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     <section class="section" id="shift-share">
       <h2>What&rsquo;s driving change</h2>
       <p class="section-desc">
-        Shift-share splits the change in White British share into national trend,
-        age structure, and local factors. Dominant driver: <strong>{shiftShareDriver(shiftShareData)}</strong>.
+        This descriptive calculation splits the change in White British share into national trend,
+        composition adjustment and a local residual. It does not measure age or migration effects.
+        Largest component in the direction of change: <strong>{shiftShareDriver(shiftShareData)}</strong>.
       </p>
       <div class="chart-holder">
         <ShiftShareChart
@@ -1727,7 +1720,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   {overlappingPcons.length > 0 && (
     <section class="section" id="constituencies">
       <h2>Westminster constituencies</h2>
-      <p class="section-desc">Parliamentary constituencies overlapping {area.areaName}, largest first by the share of each constituency's postcodes that fall in {area.areaName}.</p>
+      <p class="section-desc">Parliamentary constituencies overlapping {area.areaName}, listed A to Z. The percentage shown is the share of each constituency's postcodes that fall in {area.areaName}.</p>
       <div class="pcon-overlap-grid">
         {overlappingPcons.map((p) => (
           <a class="pcon-overlap-card" href={`/constituencies/${p.slug}/`}>
@@ -1912,7 +1905,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   .model-card { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.9rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-subtle); }
   .model-card-primary { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
   .model-card-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; display: flex; gap: 0.4rem; align-items: center; }
-  .model-card-tag { font-size: 0.65rem; background: var(--accent); color: #fff; padding: 0.05rem 0.4rem; border-radius: 999px; letter-spacing: 0.04em; }
+  .model-card-tag { font-size: 0.65rem; background: var(--accent); color: var(--on-accent); padding: 0.05rem 0.4rem; border-radius: 999px; letter-spacing: 0.04em; }
   .model-card-value { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--ink); }
   .model-card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
   .model-compare-note { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-top: 0.9rem; max-width: 700px; }
@@ -2028,6 +2021,10 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   .vr-study  { background: var(--positive); }   /* green */
   .vr-family { background: #c2410c; }   /* orange-red */
   .vr-other  { background: #6b7280; }   /* slate */
+  /* The dark scheme's green is light: white on it was 1.89:1 (issue I17). */
+  @media (prefers-color-scheme: dark) {
+    .vr-study { color: var(--on-fill-light); }
+  }
   .vr-meta {
     display: flex;
     justify-content: space-between;

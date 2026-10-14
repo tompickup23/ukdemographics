@@ -78,8 +78,7 @@ export function getPconBySlug(slug: string): PconEntry | null {
   return null;
 }
 
-// Inverse lookup: which constituencies overlap a given LA, sorted by the
-// share of each constituency's own postcodes that fall in that LA (descending).
+// Inverse lookup: constituencies overlapping a given LA, listed A to Z.
 // postcodeShare comes from the ONS PCON24 to LAD25 postcode lookup and sums to 1
 // across each constituency's authorities, not across each authority's constituencies.
 export function getPconsForLa(ladCode: string): PconEntry[] {
@@ -88,7 +87,7 @@ export function getPconsForLa(ladCode: string): PconEntry[] {
     const la = p.constituentLas.find((l) => l.ladCode === ladCode);
     if (la) matches.push({ pcon: p, share: la.postcodeShare });
   }
-  return matches.sort((a, b) => b.share - a.share).map((m) => m.pcon);
+  return matches.sort((a, b) => a.pcon.name.localeCompare(b.pcon.name)).map((m) => m.pcon);
 }
 
 export function getMpForPcon(name: string): MpRow | null {

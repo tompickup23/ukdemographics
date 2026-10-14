@@ -150,6 +150,38 @@
 }
 /* estate-tokens:end */
 
+/* Ink for text drawn on a filled shape (chart segments, tags, buttons). Site level,
+   outside the shared block. Each pairing is computed, not eyeballed: --on-fill-light
+   on --accent-bright is 4.99 light and 5.38 dark; --on-fill-dark on #6b7280 is 4.83;
+   --on-accent on --accent is 7.90 light and 4.99 dark. Maps plan v2.1, issue I17. */
+:root {
+  --on-fill-light: var(--ground);
+  --on-fill-dark: #ffffff;
+  --on-accent: #ffffff;
+}
+/* Line chart strokes for the six ethnic groups (src/lib/ethnic-palette.ts): darker
+   shades on the light page, 3:1 or more on white; the fills themselves on the dark page.
+   tests/ethnic-palette.test.ts checks these against the module. */
+:root {
+  --eth-line-white-british: #4338ca;
+  --eth-line-white-other: #3c4f62;
+  --eth-line-asian: #8a5a10;
+  --eth-line-black: #0b7f64;
+  --eth-line-mixed: #2f7d1f;
+  --eth-line-other: #696e81;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --on-accent: var(--ground);
+    --eth-line-white-british: #7b74f2;
+    --eth-line-white-other: #a7bedc;
+    --eth-line-asian: #f0b03e;
+    --eth-line-black: #21b58f;
+    --eth-line-mixed: #67edad;
+    --eth-line-other: #546a73;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -4542,7 +4574,7 @@ tr:last-child td {
 .as-cross-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
 .as-cross-btn {
   display: inline-block; margin-top: 0.25rem; padding: 0.5rem 1rem;
-  font-size: 0.85rem; font-weight: 600; color: var(--text);
+  font-size: 0.85rem; font-weight: 600; color: var(--on-fill-light);
   background: var(--accent-bright); border-radius: 8px; text-decoration: none;
   transition: background 180ms;
   width: fit-content;
