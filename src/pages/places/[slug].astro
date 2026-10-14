@@ -140,8 +140,8 @@ const censusEnglish = getCensusEnglish(area.areaCode);
 const topTenureByEthnic = getTopEthnicGroupsByTenure(area.areaCode, 3);
 const topHealthByEthnic = getTopEthnicGroupsByHealth(area.areaCode, 3);
 
-// Constituencies that overlap this LA, sorted by postcode share desc.
-const overlappingPcons = getPconsForLa(area.areaCode).slice(0, 8);
+// Constituencies that overlap this LA, listed A to Z.
+const overlappingPcons = getPconsForLa(area.areaCode);
 
 // Top NINo nationalities for this area, joined with national 2025 visa-route mix
 const visaRouteRows = nino?.byNationality
@@ -1698,7 +1698,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   {overlappingPcons.length > 0 && (
     <section class="section" id="constituencies">
       <h2>Westminster constituencies</h2>
-      <p class="section-desc">Parliamentary constituencies overlapping {area.areaName}, largest first by the share of each constituency's postcodes that fall in {area.areaName}.</p>
+      <p class="section-desc">Parliamentary constituencies overlapping {area.areaName}, listed A to Z. The percentage shown is the share of each constituency's postcodes that fall in {area.areaName}.</p>
       <div class="pcon-overlap-grid">
         {overlappingPcons.map((p) => (
           <a class="pcon-overlap-card" href={`/constituencies/${p.slug}/`}>

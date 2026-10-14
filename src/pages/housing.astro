@@ -8,7 +8,7 @@ const hd = housingDemand as any;
 const areasWithData = Object.entries(hd.areas)
   .filter(([_, d]: any) => d.dataAvailable)
   .map(([code, d]: any) => ({ code, ...d }))
-  .sort((a, b) => (b.socialRentChangePp ?? 0) - (a.socialRentChangePp ?? 0));
+  .sort((a, b) => a.areaName.localeCompare(b.areaName));
 
 const risingDemand = areasWithData.filter(a => (a.socialRentChangePp ?? 0) > 0).length;
 ---
@@ -27,7 +27,7 @@ const risingDemand = areasWithData.filter(a => (a.socialRentChangePp ?? 0) > 0).
 
   <div class="area-table">
     <div class="area-table-header"><span>Area</span><span>Owner 2021</span><span>Social 2021</span><span>Social 2041</span><span>Change</span></div>
-    {areasWithData.slice(0, 50).map((a) => (
+    {areasWithData.map((a) => (
       <a href={`/places/${slugifyAreaName(a.areaName)}/`} class="area-row">
         <span class="name">{a.areaName}</span>
         <span class="val">{a.currentTenure?.ownershipPct?.toFixed(1) ?? "-"}%</span>

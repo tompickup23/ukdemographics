@@ -18,7 +18,7 @@ export function getStaticPaths() {
 const { regionName } = Astro.props;
 const regionAreas = allAreas
   .filter(a => a.regionName === regionName)
-  .sort((a, b) => (a.wbiPct2021 ?? 100) - (b.wbiPct2021 ?? 100));
+  .sort((a, b) => a.areaName.localeCompare(b.areaName));
 const totalPop = regionAreas.reduce((s, a) => s + (a.population ?? 0), 0);
 
 // Same treatment as arm A of the place listing test (src/lib/listing-arm.ts):

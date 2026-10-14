@@ -5,6 +5,12 @@ import { buildAbsoluteUrl, buildReleaseCollectionStructuredData } from "../lib/s
 const releases = [
   {
     date: "2026-10-14",
+    title: "Area lists shown A to Z",
+    summary: "Area lists now use alphabetical order across the homepage, places index, national, regional, schools, housing and exposure pages. The places index keeps its figures and filters, with ordering by area name or region only. Constituencies on place pages also appear A to Z. The national, schools, housing and exposure lists include every area with data instead of a selection ordered by a figure. The underlying figures are unchanged.",
+    sourceUrl: "https://ukdemographics.co.uk/places/"
+  },
+  {
+    date: "2026-10-14",
     title: "Crossing below half given as a decade, not a year",
     summary: "Place pages, the homepage and the places index gave a single year in which the White British share was projected to fall below half, such as \"around 2044\". The model projects 2031, 2041, 2051 and 2061 only, and the year was drawn in a straight line between two of them, so it was an assumption rather than model output. Each is now given as the decade between two projection years, such as \"between 2041 and 2051\", and only where both years are inside the area's plausibility horizon. The homepage listed the eight areas soonest to cross, which read as a ranking; it now groups the areas by decade, A to Z. The places index had shown \"not by 2061\" for areas within two model errors of the line and for areas whose later projection years are withheld; those now read n/a or \"not by\" the area's last published year.",
     sourceUrl: "https://ukdemographics.co.uk/places/"
