@@ -4,6 +4,7 @@
  * on it is the figure the page prints, re-derived here from the source files. The raster
  * checks build one council's cards and read the files' own headers.
  */
+import { CARD_LICENCE_METADATA, CARD_LICENCE_URL, CARD_USAGE_TERMS } from "../src/lib/map/card-licence";
 import fs from "node:fs";
 import { describe, expect, it } from "vitest";
 import { getPublicPlaceAreas, slugifyAreaName } from "../src/lib/site";
@@ -120,8 +121,16 @@ describe("card rights metadata", () => {
       const buf = (await buildCard(BURNLEY, spec)).toString("latin1");
       expect(buf, `${spec.name}.${spec.format}`).toContain("<rdf:li>ukdemographics.co.uk</rdf:li>");
       expect(buf).toContain("Open Government Licence v3.0");
-      expect(buf).toContain("https://ukdemographics.co.uk/terms/");
-      expect(buf).not.toMatch(/Tom Pickup|DigitalSourceType|xmpRights:UsageTerms/);
+      expect(buf).toContain(CARD_LICENCE_URL);
+      expect(buf).toContain(`<xmpRights:UsageTerms><rdf:Alt><rdf:li xml:lang="x-default">${CARD_USAGE_TERMS}</rdf:li></rdf:Alt></xmpRights:UsageTerms>`);
+      expect(buf).not.toMatch(/Tom Pickup|DigitalSourceType/);
     }
   });
+});
+
+
+it("links the card licence to the exact reuse wording on terms", () => {
+  expect(CARD_USAGE_TERMS).toBe("The map cards on place pages may be shared and reposted unaltered, with the credit ukdemographics.co.uk kept visible. Please do not crop the source line or alter the figures. The underlying data remains Crown copyright under the Open Government Licence v3.0.");
+  expect(CARD_LICENCE_METADATA).toEqual({ license: CARD_LICENCE_URL, acquireLicensePage: CARD_LICENCE_URL });
+  expect(fs.readFileSync("src/pages/terms.astro", "utf8")).toContain('<p id="cards">{CARD_USAGE_TERMS}</p>');
 });
