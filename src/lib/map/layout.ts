@@ -383,6 +383,11 @@ export function buildLayout(frame: Frame, tk: TemplateKey, ind: Indicator): Layo
   }
   const labels = result!.labels.filter((l) => !result!.clashes.has(l.code));
   const unlabelled = [...result!.unlabelled, ...result!.clashes];
+  // The focus council's plate is never dropped (issue I6): a card or map that cannot draw
+  // it fails here, rather than shipping a share card without the page's own figure.
+  if (isFocus && !labels.some((l) => l.code === frame.focus)) {
+    throw new Error(`${frame.id}/${tk}: no room for the focus plate of ${areaName(frame.focus!)}`);
+  }
 
   function placeLabels(scale: number) {
     const cands: Label[] = feats.map((f) => {

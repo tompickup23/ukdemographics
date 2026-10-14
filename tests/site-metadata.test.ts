@@ -78,7 +78,7 @@ describe("site metadata helpers", () => {
       {
         canonicalUrl: buildAbsoluteUrl("/places/birmingham/"),
         description: "Birmingham demographic profile.",
-        socialImageUrl: buildAbsoluteUrl("/og/places/birmingham.png"),
+        socialImageUrl: buildAbsoluteUrl("/media/places/birmingham/population-2025-og.png"),
         snapshotDate: "2026-08-14"
       }
     );

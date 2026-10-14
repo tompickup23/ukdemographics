@@ -6,6 +6,7 @@ import ShareButton from "../../components/ShareButton.astro";
 import StatCard from "../../components/StatCard.astro";
 import MiniMap from "../../components/MiniMap.astro";
 import PlaceMap from "../../components/PlaceMap.astro";
+import { placeOgCard, renderCard } from "../../lib/map/cards";
 import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
 import ProjectionChart from "../../components/ProjectionChart.astro";
 import ShiftShareChart from "../../components/ShiftShareChart.astro";
@@ -514,10 +515,13 @@ const relatedFindings = findingsAll
   .slice(0, 3)
   .map((r) => ({ href: `/findings/${r.f.id.replace(/\.md$/, "")}/`, headline: r.f.data.headline }));
 
+// The Open Graph image is the population change card (maps plan P2), never ethnicity.
+const ogCard = placeOgCard(area.areaCode);
+const ogCardAlt = renderCard(area.areaCode, ogCard.spec.indicator, "og").alt;
 const structuredData = buildPlaceStructuredData(area, {
   canonicalUrl,
   description: metaDescription,
-  socialImageUrl: buildAbsoluteUrl(`/og/places/${slugifyAreaName(area.areaName)}.png`),
+  socialImageUrl: buildAbsoluteUrl(ogCard.path),
   snapshotDate: (rawProjections as any).lastUpdated ?? "2026-04-14",
 });
 
@@ -596,7 +600,8 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
 <BaseLayout
   title={pageTitle}
   description={metaDescription}
-  image={`/og/places/${slugifyAreaName(area.areaName)}.png`}
+  image={ogCard.path}
+  imageAlt={ogCardAlt}
   structuredData={structuredData}
 >
   <Breadcrumbs items={[
