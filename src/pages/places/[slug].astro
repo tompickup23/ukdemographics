@@ -9,6 +9,7 @@ import PlaceMap from "../../components/PlaceMap.astro";
 import EthnicityTimeline from "../../components/EthnicityTimeline.astro";
 import ProjectionChart from "../../components/ProjectionChart.astro";
 import ShiftShareChart from "../../components/ShiftShareChart.astro";
+import { crossingDecade, decadePhrase } from "../../lib/crossing";
 import ScenarioSelector from "../../components/ScenarioSelector.astro";
 import {
   getEthnicProjection,
@@ -576,19 +577,12 @@ const SECTION_GROUPS: Array<{ title: string; items: Array<{ id: string; label: s
 // does not, and keeps the share based headline instead.
 const wbi2031 = publishableValue(projData as any, 2031, projData?.projections?.["2031"]?.white_british);
 const wbi2061 = publishableValue(projData as any, 2061, projData?.projections?.["2061"]?.white_british);
-const crossingSeries: Array<[number, number]> = [];
-if (wbi2021 != null) crossingSeries.push([2021, wbi2021]);
-for (const pair of [[2031, wbi2031], [2041, wbi2041], [2051, wbi2051], [2061, wbi2061]] as Array<[number, number | null]>) {
-  if (pair[1] != null) crossingSeries.push([pair[0], pair[1]]);
-}
-let crossingYear: number | null = null;
-for (let ci = 0; ci < crossingSeries.length - 1; ci++) {
-  const [y1, v1] = crossingSeries[ci];
-  const [y2, v2] = crossingSeries[ci + 1];
-  if (v1 >= 50 && v2 < 50) { crossingYear = Math.round(y1 + ((v1 - 50) / (v1 - v2)) * (y2 - y1)); break; }
-}
+// The decade the published projection takes the share below half: two model years,
+// never a year interpolated between them (maps plan v2.2, I28).
+const crossing = crossingDecade(projData as any);
+const crossingSpan = crossing && crossing !== "already" ? crossing : null;
 const CROSSING_MIN_BASE_PCT = 53;
-const showCrossing = crossingYear != null && wbi2021 != null && wbi2021 >= CROSSING_MIN_BASE_PCT;
+const showCrossing = crossingSpan != null && wbi2021 != null && wbi2021 >= CROSSING_MIN_BASE_PCT;
 const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
 
 ---
@@ -617,7 +611,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         <p class="place-summary">
           <strong>{fmtInt(population)}</strong> people at the 2021 Census.
           {showCrossing
-            ? ` The White British majority here is projected to end around ${crossingYear}.`
+            ? ` The projection takes the White British share below half ${decadePhrase(crossingSpan!)}.`
             : wbi2021 != null && wbi2021 < 50
               ? " Already below a White British majority at the 2021 Census."
               : ""}
@@ -661,7 +655,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   {placeListing && (showCrossing || (wbi2021 != null && wbi2021 < 50)) && (
     <p class="place-trajectory">
       {showCrossing
-        ? `The White British majority here is projected to end around ${crossingYear}.`
+        ? `The projection takes the White British share below half ${decadePhrase(crossingSpan!)}.`
         : "Already below a White British majority at the 2021 Census."}
     </p>
   )}
@@ -670,16 +664,17 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     <div class="place-crossing">
       <div class="place-crossing-main">
         <span class="place-crossing-eyebrow">Projected</span>
-        <span class="place-crossing-label">Falls below half around</span>
-        <span class="place-crossing-year">{crossingYear}</span>
+        <span class="place-crossing-label">Falls below half between</span>
+        <span class="place-crossing-year">{crossingSpan!.from} and {crossingSpan!.to}</span>
       </div>
       <p class="place-crossing-body">
         {wbiHeadcount != null && (
           <><strong>{fmtInt(wbiHeadcount)}</strong> of {area.areaName}&rsquo;s {fmtInt(population)} residents
           identified as White British at the 2021 Census. </>
         )}
-        The projection takes that share from {fmtPct(wbi2021)} to {fmtPct(wbi2051)} by 2051.
-        Interpolated between projection decades, so the year is approximate.
+        The projection takes that share from {fmtPct(wbi2021)} at the 2021 Census to
+        {fmtPct(projData?.projections?.[String(crossingSpan!.to)]?.white_british)} in {crossingSpan!.to}.
+        The model projects 2031, 2041, 2051 and 2061 only, so a decade is as precise as it can be.
       </p>
     </div>
   )}
