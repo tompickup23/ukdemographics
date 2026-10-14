@@ -178,7 +178,7 @@ const STATIC_PAGE_ENTRIES: SiteSearchEntry[] = [
 export function getPublicSearchEntries(): SiteSearchEntry[] {
   const placeEntries = getPublicPlaceAreas().map((area) => {
     const ep = getEthnicProjection(area.areaCode);
-    const wbiNow = ep?.current?.groups?.white_british ?? area.wbiPct2021 ?? null;
+    const wbiNow = (ep?.current?.census_groups ?? ep?.current?.groups)?.white_british ?? area.wbiPct2021 ?? null;
     const wbi2051 = ep?.projections?.["2051"]?.white_british ?? null;
     return {
       href: `/places/${slugifyAreaName(area.areaName)}/`,

@@ -35,7 +35,7 @@ describe("ethnic composition timeline", () => {
       const a = areas[code];
       const point = getEthnicCompositionTimeline(code)!.find((p) => p.year === String(a.current.year))!;
       expect(point.isProjection, a.areaName).toBe(false);
-      expect(point.groups, a.areaName).toEqual(a.current.groups);
+      expect(point.groups, a.areaName).toEqual(a.current.census_groups);
     }
   });
 

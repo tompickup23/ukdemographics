@@ -319,7 +319,7 @@ const heroTrendLabel = (headlineStat?.trend ?? "")
   .replace(/\bWBI\b/g, "White British")
   .trim();
 const population = projData?.current?.total_population ?? area.population ?? 0;
-const wbi2021 = projData?.current?.groups?.white_british ?? area.wbiPct2021;
+const wbi2021 = (projData?.current?.census_groups ?? projData?.current?.groups)?.white_british ?? area.wbiPct2021;
 // Withhold projection years where the model diverged rather than projected. See
 // src/lib/projection-plausibility.ts. 14 of 318 areas lose part of their horizon;
 // 304 are unaffected. A further 49 carry a short horizon in the data itself and

@@ -15,6 +15,8 @@ export interface EthnicSnapshot {
   total_population: number;
   groups: EthnicGroup;
   groups_absolute?: Record<string, number>;
+  /** Census 2021 shares as TS021 gives them (current only). current.groups is the model base. */
+  census_groups?: EthnicGroup;
 }
 
 export interface EthnicThreshold {
@@ -174,7 +176,7 @@ export function getSignificantDemographicShifts(cutoffYear = 2070): Array<{
         areaCode,
         areaName: area.areaName,
         thresholdYear: wbThreshold.year,
-        currentWbPct: area.current.groups.white_british,
+        currentWbPct: (area.current.census_groups ?? area.current.groups).white_british,
         baselineWbPct: area.baseline.groups.white_british,
         annualDeclinePp: Math.abs(area.annualChangePp.white_british),
         confidence: wbThreshold.confidence
@@ -207,9 +209,10 @@ export function getEthnicCompositionTimeline(areaCode: string): Array<{
   }
   // Later writes win: the baseline replaces a projection, the current Census
   // replaces the baseline.
+  // The Census 2021 point is TS021 as published (census_groups), not the model base.
   for (const point of [area.baseline, area.current]) {
     const year = String(point.year);
-    byYear.set(year, { year, groups: point.groups, isProjection: false });
+    byYear.set(year, { year, groups: point.census_groups ?? point.groups, isProjection: false });
   }
 
   return [...byYear.values()].sort((a, b) => Number(a.year) - Number(b.year));

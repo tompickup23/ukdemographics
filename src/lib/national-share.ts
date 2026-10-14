@@ -58,7 +58,7 @@ export function nationalWhiteBritishAggregate(
     if (!pop) continue;
     totalPop += pop;
     wb2011 += (a?.baseline?.groups?.white_british ?? 0) * pop;
-    wb2021 += (a?.current?.groups?.white_british ?? 0) * pop;
+    wb2021 += ((a?.current?.census_groups ?? a?.current?.groups)?.white_british ?? 0) * pop;
 
     const through = plausibleThrough(a);
     const p51 = through != null && through >= 2051 ? a?.projections?.["2051"]?.white_british : null;

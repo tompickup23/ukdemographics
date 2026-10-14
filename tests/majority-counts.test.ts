@@ -23,7 +23,7 @@ import rawProjections from "../src/data/live/ethnic-projections.json";
 
 const areas = (rawProjections as any).areas as Record<string, any>;
 const wb = (a: any, year: number) => a?.projections?.[String(year)]?.white_british;
-const wbNow = (a: any) => a?.current?.groups?.white_british;
+const wbNow = (a: any) => a?.current?.census_groups?.white_british;
 
 const publishable = (a: any, year: number) => {
   const through = plausibleThrough(a);

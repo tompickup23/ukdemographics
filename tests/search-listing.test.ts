@@ -38,7 +38,7 @@ function allowedNumbers(code: string): Set<string> {
   add(a.current.total_population);
   add(a.current.year);
   add(a.baseline?.year);
-  for (const v of Object.values(a.current.groups ?? {})) add(v as number, 1);
+  for (const v of Object.values(a.current.census_groups ?? {})) add(v as number, 1);
   for (const [y, g] of Object.entries(a.projections ?? {})) {
     add(Number(y));
     for (const v of Object.values(g as Record<string, number>)) add(v, 1);
