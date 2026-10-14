@@ -5,6 +5,7 @@
  * page published a national effect of -6.4pp that the data did not support.
  * Nothing here pins a figure: each check recomputes from the file.
  */
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import rawProjections from "../src/data/live/ethnic-projections.json";
 import { NO_DRIVER, SHIFT_SHARE_COMPONENT_NAMES, shiftShareDriver } from "../src/lib/shift-share-driver";
@@ -125,18 +126,25 @@ describe("shift-share dominant driver label", () => {
     expect(shiftShareDriver(base)).toBe("national trend");
     // A local effect raising the share by more than the national trend lowered it.
     expect(shiftShareDriver({ totalChangePp: -0.2, nationalEffectPp: -6.2, structuralEffectPp: -1.2, localEffectPp: 7.2 }))
-      .toBe("national trend, offset by local migration");
+      .toBe("national trend, offset by local residual");
     // A local effect leading the fall.
     expect(shiftShareDriver({ totalChangePp: -20, nationalEffectPp: -6.2, structuralEffectPp: 2, localEffectPp: -15.8 }))
-      .toBe("local migration");
-    // Age structure leading.
+      .toBe("local residual");
+    // Composition adjustment leading.
     expect(shiftShareDriver({ totalChangePp: -4, nationalEffectPp: -1, structuralEffectPp: -2.5, localEffectPp: -0.5 }))
-      .toBe("age structure");
+      .toBe("composition adjustment");
     // A rise in the share is driven by whatever raised it.
     expect(shiftShareDriver({ totalChangePp: 1.5, nationalEffectPp: -6.2, structuralEffectPp: 0.7, localEffectPp: 7 }))
-      .toBe("local migration");
+      .toBe("local residual");
     expect(shiftShareDriver({ totalChangePp: -11.3, nationalEffectPp: -6.2, structuralEffectPp: 1, localEffectPp: -6.2 }))
-      .toBe("national trend and local migration, equally");
+      .toBe("national trend and local residual, equally");
     expect(shiftShareDriver({ totalChangePp: 0, nationalEffectPp: -6.2, structuralEffectPp: 0, localEffectPp: 6.2 })).toBe(NO_DRIVER);
   });
+});
+
+it("describes components without attributing them to unmeasured age or migration effects", () => {
+  expect(SHIFT_SHARE_COMPONENT_NAMES.map(([, name]) => name)).toEqual(["national trend", "composition adjustment", "local residual"]);
+  const page = readFileSync("src/pages/places/[slug].astro", "utf8");
+  expect(page).toContain("It does not measure age or migration effects");
+  expect(page).not.toContain("What's driving change");
 });

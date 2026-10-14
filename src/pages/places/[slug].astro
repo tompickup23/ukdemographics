@@ -845,8 +845,9 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     <section class="section" id="shift-share">
       <h2>What&rsquo;s driving change</h2>
       <p class="section-desc">
-        Shift-share splits the change in White British share into national trend,
-        age structure, and local factors. Dominant driver: <strong>{shiftShareDriver(shiftShareData)}</strong>.
+        This descriptive calculation splits the change in White British share into national trend,
+        composition adjustment and a local residual. It does not measure age or migration effects.
+        Largest component in the direction of change: <strong>{shiftShareDriver(shiftShareData)}</strong>.
       </p>
       <div class="chart-holder">
         <ShiftShareChart
