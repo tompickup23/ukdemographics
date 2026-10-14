@@ -48,9 +48,9 @@ const STATIC_PAGE_ENTRIES: SiteSearchEntry[] = [
     title: "National",
     kind: "page",
     kicker: "National outlook",
-    description: "England and Wales demographic projections, UK-wide NINo arc, and fastest-changing areas.",
+    description: "England and Wales demographic projections, UK-wide NINo arc, and areas listed A to Z.",
     priority: 116,
-    searchText: "national england wales uk projections white british ethnic change fastest nino births"
+    searchText: "national england wales uk projections white british ethnic change nino births"
   },
   {
     href: "/compare/",
@@ -191,7 +191,7 @@ export function getPublicSearchEntries(): SiteSearchEntry[] {
       kind: "place" as const,
       kicker: `${area.regionName} | ${area.countryName}`,
       description: `Population ${(area.population ?? 0).toLocaleString()}, WBI ${wbiNow?.toFixed(1) ?? "?"}% (2021)`,
-      priority: Math.min(99, Math.max(20, Math.round((area.population ?? 0) / 10000))),
+      priority: 99,
       areaCode: area.areaCode,
       areaName: area.areaName,
       regionName: area.regionName,
