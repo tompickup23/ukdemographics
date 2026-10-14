@@ -21,6 +21,11 @@ export interface SiteSearchEntry {
 
 const STATIC_PAGE_ENTRIES: SiteSearchEntry[] = [
   {
+    href: "/maps/", title: "Population and census maps", kind: "page", kicker: "Maps",
+    description: "Population change since 2011 by year and census ethnic groups with an A to Z table.",
+    priority: 117, searchText: "maps timeline population census ethnic groups hex geography"
+  },
+  {
     href: "/",
     title: "Home",
     kind: "page",
