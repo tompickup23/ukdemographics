@@ -1,0 +1,1643 @@
+{
+  "sources": [
+    {
+      "year": 2011,
+      "table": "KS201EW",
+      "publisher": "Office for National Statistics",
+      "fileName": "ks201ew_2011_ward.zip",
+      "sha256": "768edff9247f2bd39c7998f49e7c4f27a2bce8f44146909fd0b960abfa5b0be1",
+      "sourceUrl": "https://www.nomisweb.co.uk/output/census/2011/ks201ew_2011_ward.zip",
+      "member": "KS201EW_2011WARDH_NAT_WD_REL_1.3.3_20121203-1112-20949/KS201EWDATA.CSV",
+      "extract": "ks201ew-counties.csv",
+      "extractSha256": "6d63090b86928ac1cc9013463f3974843f3621b1e1d3f9184db7f21a8ff2abea"
+    },
+    {
+      "year": 2021,
+      "table": "TS021",
+      "publisher": "Office for National Statistics",
+      "fileName": "census2021-ts021.zip",
+      "sha256": "ca2301d72a2de7e91c495695b6dceddb4dd318b580ae530b61582f851144fc78",
+      "sourceUrl": "https://www.nomisweb.co.uk/output/census/2021/census2021-ts021.zip",
+      "member": "census2021-ts021-utla.csv",
+      "extract": "ts021-counties.csv",
+      "extractSha256": "a380ba0c973f1a520b07a7f708a324a163f720b60462b633922dad62e221fcb7"
+    }
+  ],
+  "usage": "Source records for county reconciliation. County pages remain blocked while any exact comparison fails.",
+  "counties": {
+    "E10000003": {
+      "name": "Cambridgeshire",
+      "districts": [
+        "E07000008",
+        "E07000009",
+        "E07000010",
+        "E07000011",
+        "E07000012"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 621210,
+            "white_british": 524617,
+            "white_other": 50370,
+            "asian": 25638,
+            "black": 6010,
+            "mixed": 11081,
+            "other": 3494
+          },
+          "districtSum": {
+            "total": 621210,
+            "white_british": 524617,
+            "white_other": 50370,
+            "asian": 25638,
+            "black": 6010,
+            "mixed": 11081,
+            "other": 3494
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 71
+        },
+        "2021": {
+          "published": {
+            "total": 678849,
+            "white_british": 524194,
+            "white_other": 76972,
+            "asian": 39689,
+            "black": 9745,
+            "mixed": 19354,
+            "other": 8895
+          },
+          "districtSum": {
+            "total": 678847,
+            "white_british": 524194,
+            "white_other": 76969,
+            "asian": 39690,
+            "black": 9745,
+            "mixed": 19353,
+            "other": 8896
+          },
+          "difference": {
+            "total": -2,
+            "white_british": 0,
+            "white_other": -3,
+            "asian": 1,
+            "black": 0,
+            "mixed": -1,
+            "other": 1
+          },
+          "exact": false,
+          "sourceRow": 130
+        }
+      }
+    },
+    "E10000007": {
+      "name": "Derbyshire",
+      "districts": [
+        "E07000032",
+        "E07000033",
+        "E07000034",
+        "E07000035",
+        "E07000036",
+        "E07000037",
+        "E07000038",
+        "E07000039"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 769686,
+            "white_british": 737034,
+            "white_other": 13060,
+            "asian": 8795,
+            "black": 2770,
+            "mixed": 7119,
+            "other": 908
+          },
+          "districtSum": {
+            "total": 769686,
+            "white_british": 737034,
+            "white_other": 13060,
+            "asian": 8795,
+            "black": 2770,
+            "mixed": 7119,
+            "other": 908
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 73
+        },
+        "2021": {
+          "published": {
+            "total": 794634,
+            "white_british": 744378,
+            "white_other": 20918,
+            "asian": 11670,
+            "black": 4085,
+            "mixed": 10851,
+            "other": 2732
+          },
+          "districtSum": {
+            "total": 794629,
+            "white_british": 744378,
+            "white_other": 20915,
+            "asian": 11673,
+            "black": 4081,
+            "mixed": 10850,
+            "other": 2732
+          },
+          "difference": {
+            "total": -5,
+            "white_british": 0,
+            "white_other": -3,
+            "asian": 3,
+            "black": -4,
+            "mixed": -1,
+            "other": 0
+          },
+          "exact": false,
+          "sourceRow": 132
+        }
+      }
+    },
+    "E10000008": {
+      "name": "Devon",
+      "districts": [
+        "E07000040",
+        "E07000041",
+        "E07000042",
+        "E07000043",
+        "E07000044",
+        "E07000045",
+        "E07000046",
+        "E07000047"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 746399,
+            "white_british": 708590,
+            "white_other": 19483,
+            "asian": 8710,
+            "black": 1413,
+            "mixed": 6520,
+            "other": 1683
+          },
+          "districtSum": {
+            "total": 746399,
+            "white_british": 708590,
+            "white_other": 19483,
+            "asian": 8710,
+            "black": 1413,
+            "mixed": 6520,
+            "other": 1683
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 74
+        },
+        "2021": {
+          "published": {
+            "total": 811642,
+            "white_british": 751816,
+            "white_other": 30639,
+            "asian": 11845,
+            "black": 2474,
+            "mixed": 10967,
+            "other": 3901
+          },
+          "districtSum": {
+            "total": 811633,
+            "white_british": 751815,
+            "white_other": 30635,
+            "asian": 11842,
+            "black": 2473,
+            "mixed": 10969,
+            "other": 3899
+          },
+          "difference": {
+            "total": -9,
+            "white_british": -1,
+            "white_other": -4,
+            "asian": -3,
+            "black": -1,
+            "mixed": 2,
+            "other": -2
+          },
+          "exact": false,
+          "sourceRow": 133
+        }
+      }
+    },
+    "E10000011": {
+      "name": "East Sussex",
+      "districts": [
+        "E07000061",
+        "E07000062",
+        "E07000063",
+        "E07000064",
+        "E07000065"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 526671,
+            "white_british": 482769,
+            "white_other": 22653,
+            "asian": 9143,
+            "black": 2912,
+            "mixed": 7473,
+            "other": 1721
+          },
+          "districtSum": {
+            "total": 526671,
+            "white_british": 482769,
+            "white_other": 22653,
+            "asian": 9143,
+            "black": 2912,
+            "mixed": 7473,
+            "other": 1721
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 76
+        },
+        "2021": {
+          "published": {
+            "total": 545847,
+            "white_british": 482043,
+            "white_other": 30394,
+            "asian": 11618,
+            "black": 4497,
+            "mixed": 12313,
+            "other": 4982
+          },
+          "districtSum": {
+            "total": 545850,
+            "white_british": 482043,
+            "white_other": 30393,
+            "asian": 11619,
+            "black": 4499,
+            "mixed": 12313,
+            "other": 4983
+          },
+          "difference": {
+            "total": 3,
+            "white_british": 0,
+            "white_other": -1,
+            "asian": 1,
+            "black": 2,
+            "mixed": 0,
+            "other": 1
+          },
+          "exact": false,
+          "sourceRow": 134
+        }
+      }
+    },
+    "E10000012": {
+      "name": "Essex",
+      "districts": [
+        "E07000066",
+        "E07000067",
+        "E07000068",
+        "E07000069",
+        "E07000070",
+        "E07000071",
+        "E07000072",
+        "E07000073",
+        "E07000074",
+        "E07000075",
+        "E07000076",
+        "E07000077"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 1393587,
+            "white_british": 1264877,
+            "white_other": 48979,
+            "asian": 34860,
+            "black": 18709,
+            "mixed": 20885,
+            "other": 5277
+          },
+          "districtSum": {
+            "total": 1393587,
+            "white_british": 1264877,
+            "white_other": 48979,
+            "asian": 34860,
+            "black": 18709,
+            "mixed": 20885,
+            "other": 5277
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 77
+        },
+        "2021": {
+          "published": {
+            "total": 1503521,
+            "white_british": 1279711,
+            "white_other": 78841,
+            "asian": 56253,
+            "black": 37393,
+            "mixed": 36774,
+            "other": 14549
+          },
+          "districtSum": {
+            "total": 1503521,
+            "white_british": 1279710,
+            "white_other": 78844,
+            "asian": 56252,
+            "black": 37392,
+            "mixed": 36774,
+            "other": 14549
+          },
+          "difference": {
+            "total": 0,
+            "white_british": -1,
+            "white_other": 3,
+            "asian": -1,
+            "black": -1,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": false,
+          "sourceRow": 135
+        }
+      }
+    },
+    "E10000013": {
+      "name": "Gloucestershire",
+      "districts": [
+        "E07000078",
+        "E07000079",
+        "E07000080",
+        "E07000081",
+        "E07000082",
+        "E07000083"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 596984,
+            "white_british": 546599,
+            "white_other": 23048,
+            "asian": 12433,
+            "black": 5150,
+            "mixed": 8661,
+            "other": 1093
+          },
+          "districtSum": {
+            "total": 596984,
+            "white_british": 546599,
+            "white_other": 23048,
+            "asian": 12433,
+            "black": 5150,
+            "mixed": 8661,
+            "other": 1093
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 78
+        },
+        "2021": {
+          "published": {
+            "total": 645079,
+            "white_british": 565811,
+            "white_other": 34503,
+            "asian": 18464,
+            "black": 7777,
+            "mixed": 14149,
+            "other": 4375
+          },
+          "districtSum": {
+            "total": 645070,
+            "white_british": 565811,
+            "white_other": 34495,
+            "asian": 18465,
+            "black": 7774,
+            "mixed": 14151,
+            "other": 4374
+          },
+          "difference": {
+            "total": -9,
+            "white_british": 0,
+            "white_other": -8,
+            "asian": 1,
+            "black": -3,
+            "mixed": 2,
+            "other": -1
+          },
+          "exact": false,
+          "sourceRow": 136
+        }
+      }
+    },
+    "E10000014": {
+      "name": "Hampshire",
+      "districts": [
+        "E07000084",
+        "E07000085",
+        "E07000086",
+        "E07000087",
+        "E07000088",
+        "E07000089",
+        "E07000090",
+        "E07000091",
+        "E07000092",
+        "E07000093",
+        "E07000094"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 1317788,
+            "white_british": 1209405,
+            "white_other": 42718,
+            "asian": 35356,
+            "black": 8298,
+            "mixed": 18051,
+            "other": 3960
+          },
+          "districtSum": {
+            "total": 1317788,
+            "white_british": 1209405,
+            "white_other": 42718,
+            "asian": 35356,
+            "black": 8298,
+            "mixed": 18051,
+            "other": 3960
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 79
+        },
+        "2021": {
+          "published": {
+            "total": 1400899,
+            "white_british": 1231690,
+            "white_other": 65043,
+            "asian": 52542,
+            "black": 14305,
+            "mixed": 26198,
+            "other": 11121
+          },
+          "districtSum": {
+            "total": 1400891,
+            "white_british": 1231690,
+            "white_other": 65039,
+            "asian": 52540,
+            "black": 14300,
+            "mixed": 26195,
+            "other": 11127
+          },
+          "difference": {
+            "total": -8,
+            "white_british": 0,
+            "white_other": -4,
+            "asian": -2,
+            "black": -5,
+            "mixed": -3,
+            "other": 6
+          },
+          "exact": false,
+          "sourceRow": 137
+        }
+      }
+    },
+    "E10000015": {
+      "name": "Hertfordshire",
+      "districts": [
+        "E07000095",
+        "E07000096",
+        "E07000098",
+        "E07000099",
+        "E07000102",
+        "E07000103",
+        "E07000240",
+        "E07000241",
+        "E07000242",
+        "E07000243"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 1116062,
+            "white_british": 902006,
+            "white_other": 75489,
+            "asian": 72581,
+            "black": 31401,
+            "mixed": 27497,
+            "other": 7088
+          },
+          "districtSum": {
+            "total": 1116062,
+            "white_british": 902006,
+            "white_other": 75489,
+            "asian": 72581,
+            "black": 31401,
+            "mixed": 27497,
+            "other": 7088
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 80
+        },
+        "2021": {
+          "published": {
+            "total": 1198798,
+            "white_british": 861006,
+            "white_other": 119055,
+            "asian": 103668,
+            "black": 44894,
+            "mixed": 45126,
+            "other": 25049
+          },
+          "districtSum": {
+            "total": 1198803,
+            "white_british": 861006,
+            "white_other": 119055,
+            "asian": 103673,
+            "black": 44893,
+            "mixed": 45127,
+            "other": 25049
+          },
+          "difference": {
+            "total": 5,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 5,
+            "black": -1,
+            "mixed": 1,
+            "other": 0
+          },
+          "exact": false,
+          "sourceRow": 138
+        }
+      }
+    },
+    "E10000016": {
+      "name": "Kent",
+      "districts": [
+        "E07000105",
+        "E07000106",
+        "E07000107",
+        "E07000108",
+        "E07000109",
+        "E07000110",
+        "E07000111",
+        "E07000112",
+        "E07000113",
+        "E07000114",
+        "E07000115",
+        "E07000116"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 1463740,
+            "white_british": 1303558,
+            "white_other": 67544,
+            "asian": 47614,
+            "black": 16216,
+            "mixed": 22107,
+            "other": 6701
+          },
+          "districtSum": {
+            "total": 1463740,
+            "white_british": 1303558,
+            "white_other": 67544,
+            "asian": 47614,
+            "black": 16216,
+            "mixed": 22107,
+            "other": 6701
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 81
+        },
+        "2021": {
+          "published": {
+            "total": 1576069,
+            "white_british": 1311093,
+            "white_other": 97913,
+            "asian": 69939,
+            "black": 41036,
+            "mixed": 36766,
+            "other": 19322
+          },
+          "districtSum": {
+            "total": 1576077,
+            "white_british": 1311095,
+            "white_other": 97914,
+            "asian": 69940,
+            "black": 41034,
+            "mixed": 36768,
+            "other": 19326
+          },
+          "difference": {
+            "total": 8,
+            "white_british": 2,
+            "white_other": 1,
+            "asian": 1,
+            "black": -2,
+            "mixed": 2,
+            "other": 4
+          },
+          "exact": false,
+          "sourceRow": 139
+        }
+      }
+    },
+    "E10000017": {
+      "name": "Lancashire",
+      "districts": [
+        "E07000117",
+        "E07000118",
+        "E07000119",
+        "E07000120",
+        "E07000121",
+        "E07000122",
+        "E07000123",
+        "E07000124",
+        "E07000125",
+        "E07000126",
+        "E07000127",
+        "E07000128"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 1171339,
+            "white_british": 1050340,
+            "white_other": 30347,
+            "asian": 71054,
+            "black": 4098,
+            "mixed": 12724,
+            "other": 2776
+          },
+          "districtSum": {
+            "total": 1171339,
+            "white_british": 1050340,
+            "white_other": 30347,
+            "asian": 71054,
+            "black": 4098,
+            "mixed": 12724,
+            "other": 2776
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 82
+        },
+        "2021": {
+          "published": {
+            "total": 1235351,
+            "white_british": 1052299,
+            "white_other": 46296,
+            "asian": 100031,
+            "black": 7979,
+            "mixed": 19947,
+            "other": 8799
+          },
+          "districtSum": {
+            "total": 1235370,
+            "white_british": 1052299,
+            "white_other": 46297,
+            "asian": 100040,
+            "black": 7979,
+            "mixed": 19955,
+            "other": 8800
+          },
+          "difference": {
+            "total": 19,
+            "white_british": 0,
+            "white_other": 1,
+            "asian": 9,
+            "black": 0,
+            "mixed": 8,
+            "other": 1
+          },
+          "exact": false,
+          "sourceRow": 140
+        }
+      }
+    },
+    "E10000018": {
+      "name": "Leicestershire",
+      "districts": [
+        "E07000129",
+        "E07000130",
+        "E07000131",
+        "E07000132",
+        "E07000133",
+        "E07000134",
+        "E07000135"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 650489,
+            "white_british": 578432,
+            "white_other": 16335,
+            "asian": 40777,
+            "black": 3787,
+            "mixed": 8551,
+            "other": 2607
+          },
+          "districtSum": {
+            "total": 650489,
+            "white_british": 578432,
+            "white_other": 16335,
+            "asian": 40777,
+            "black": 3787,
+            "mixed": 8551,
+            "other": 2607
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 83
+        },
+        "2021": {
+          "published": {
+            "total": 712366,
+            "white_british": 595796,
+            "white_other": 27633,
+            "asian": 58066,
+            "black": 7913,
+            "mixed": 15543,
+            "other": 7415
+          },
+          "districtSum": {
+            "total": 712364,
+            "white_british": 595796,
+            "white_other": 27630,
+            "asian": 58068,
+            "black": 7913,
+            "mixed": 15542,
+            "other": 7415
+          },
+          "difference": {
+            "total": -2,
+            "white_british": 0,
+            "white_other": -3,
+            "asian": 2,
+            "black": 0,
+            "mixed": -1,
+            "other": 0
+          },
+          "exact": false,
+          "sourceRow": 141
+        }
+      }
+    },
+    "E10000019": {
+      "name": "Lincolnshire",
+      "districts": [
+        "E07000136",
+        "E07000137",
+        "E07000138",
+        "E07000139",
+        "E07000140",
+        "E07000141",
+        "E07000142"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 713653,
+            "white_british": 663741,
+            "white_other": 32743,
+            "asian": 7316,
+            "black": 2561,
+            "mixed": 6190,
+            "other": 1102
+          },
+          "districtSum": {
+            "total": 713653,
+            "white_british": 663741,
+            "white_other": 32743,
+            "asian": 7316,
+            "black": 2561,
+            "mixed": 6190,
+            "other": 1102
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 84
+        },
+        "2021": {
+          "published": {
+            "total": 768366,
+            "white_british": 685720,
+            "white_other": 51812,
+            "asian": 11927,
+            "black": 4365,
+            "mixed": 10191,
+            "other": 4351
+          },
+          "districtSum": {
+            "total": 768366,
+            "white_british": 685720,
+            "white_other": 51812,
+            "asian": 11925,
+            "black": 4366,
+            "mixed": 10192,
+            "other": 4351
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": -2,
+            "black": 1,
+            "mixed": 1,
+            "other": 0
+          },
+          "exact": false,
+          "sourceRow": 142
+        }
+      }
+    },
+    "E10000020": {
+      "name": "Norfolk",
+      "districts": [
+        "E07000143",
+        "E07000144",
+        "E07000145",
+        "E07000146",
+        "E07000147",
+        "E07000148",
+        "E07000149"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 857888,
+            "white_british": 793086,
+            "white_other": 34932,
+            "asian": 13017,
+            "black": 4609,
+            "mixed": 10027,
+            "other": 2217
+          },
+          "districtSum": {
+            "total": 857888,
+            "white_british": 793086,
+            "white_other": 34932,
+            "asian": 13017,
+            "black": 4609,
+            "mixed": 10027,
+            "other": 2217
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 85
+        },
+        "2021": {
+          "published": {
+            "total": 916120,
+            "white_british": 814728,
+            "white_other": 52423,
+            "asian": 18992,
+            "black": 8369,
+            "mixed": 15080,
+            "other": 6528
+          },
+          "districtSum": {
+            "total": 916126,
+            "white_british": 814728,
+            "white_other": 52424,
+            "asian": 18987,
+            "black": 8376,
+            "mixed": 15081,
+            "other": 6530
+          },
+          "difference": {
+            "total": 6,
+            "white_british": 0,
+            "white_other": 1,
+            "asian": -5,
+            "black": 7,
+            "mixed": 1,
+            "other": 2
+          },
+          "exact": false,
+          "sourceRow": 143
+        }
+      }
+    },
+    "E10000024": {
+      "name": "Nottinghamshire",
+      "districts": [
+        "E07000170",
+        "E07000171",
+        "E07000172",
+        "E07000173",
+        "E07000174",
+        "E07000175",
+        "E07000176"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 785802,
+            "white_british": 727938,
+            "white_other": 22865,
+            "asian": 17139,
+            "black": 5102,
+            "mixed": 10716,
+            "other": 2042
+          },
+          "districtSum": {
+            "total": 785802,
+            "white_british": 727938,
+            "white_other": 22865,
+            "asian": 17139,
+            "black": 5102,
+            "mixed": 10716,
+            "other": 2042
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 88
+        },
+        "2021": {
+          "published": {
+            "total": 824820,
+            "white_british": 729289,
+            "white_other": 37935,
+            "asian": 24523,
+            "black": 9932,
+            "mixed": 17103,
+            "other": 6038
+          },
+          "districtSum": {
+            "total": 824824,
+            "white_british": 729288,
+            "white_other": 37938,
+            "asian": 24527,
+            "black": 9926,
+            "mixed": 17104,
+            "other": 6041
+          },
+          "difference": {
+            "total": 4,
+            "white_british": -1,
+            "white_other": 3,
+            "asian": 4,
+            "black": -6,
+            "mixed": 1,
+            "other": 3
+          },
+          "exact": false,
+          "sourceRow": 145
+        }
+      }
+    },
+    "E10000025": {
+      "name": "Oxfordshire",
+      "districts": [
+        "E07000177",
+        "E07000178",
+        "E07000179",
+        "E07000180",
+        "E07000181"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 653798,
+            "white_british": 546801,
+            "white_other": 47203,
+            "asian": 31657,
+            "black": 11424,
+            "mixed": 13233,
+            "other": 3480
+          },
+          "districtSum": {
+            "total": 653798,
+            "white_british": 546801,
+            "white_other": 47203,
+            "asian": 31657,
+            "black": 11424,
+            "mixed": 13233,
+            "other": 3480
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 89
+        },
+        "2021": {
+          "published": {
+            "total": 725294,
+            "white_british": 557149,
+            "white_other": 72905,
+            "asian": 46389,
+            "black": 14883,
+            "mixed": 22611,
+            "other": 11357
+          },
+          "districtSum": {
+            "total": 725292,
+            "white_british": 557149,
+            "white_other": 72905,
+            "asian": 46386,
+            "black": 14884,
+            "mixed": 22614,
+            "other": 11354
+          },
+          "difference": {
+            "total": -2,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": -3,
+            "black": 1,
+            "mixed": 3,
+            "other": -3
+          },
+          "exact": false,
+          "sourceRow": 146
+        }
+      }
+    },
+    "E10000028": {
+      "name": "Staffordshire",
+      "districts": [
+        "E07000192",
+        "E07000193",
+        "E07000194",
+        "E07000195",
+        "E07000196",
+        "E07000197",
+        "E07000198",
+        "E07000199"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 848489,
+            "white_british": 793809,
+            "white_other": 17806,
+            "asian": 20656,
+            "black": 4810,
+            "mixed": 9604,
+            "other": 1804
+          },
+          "districtSum": {
+            "total": 848489,
+            "white_british": 793809,
+            "white_other": 17806,
+            "asian": 20656,
+            "black": 4810,
+            "mixed": 9604,
+            "other": 1804
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 91
+        },
+        "2021": {
+          "published": {
+            "total": 876104,
+            "white_british": 789993,
+            "white_other": 30240,
+            "asian": 28910,
+            "black": 6889,
+            "mixed": 15288,
+            "other": 4784
+          },
+          "districtSum": {
+            "total": 876110,
+            "white_british": 789995,
+            "white_other": 30242,
+            "asian": 28910,
+            "black": 6889,
+            "mixed": 15288,
+            "other": 4786
+          },
+          "difference": {
+            "total": 6,
+            "white_british": 2,
+            "white_other": 2,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 2
+          },
+          "exact": false,
+          "sourceRow": 148
+        }
+      }
+    },
+    "E10000029": {
+      "name": "Suffolk",
+      "districts": [
+        "E07000200",
+        "E07000202",
+        "E07000203",
+        "E07000244",
+        "E07000245"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 728163,
+            "white_british": 661458,
+            "white_other": 31737,
+            "asian": 13131,
+            "black": 6854,
+            "mixed": 12472,
+            "other": 2511
+          },
+          "districtSum": {
+            "total": 728163,
+            "white_british": 661458,
+            "white_other": 31737,
+            "asian": 13131,
+            "black": 6854,
+            "mixed": 12472,
+            "other": 2511
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 92
+        },
+        "2021": {
+          "published": {
+            "total": 760687,
+            "white_british": 664205,
+            "white_other": 44066,
+            "asian": 17483,
+            "black": 10168,
+            "mixed": 17807,
+            "other": 6958
+          },
+          "districtSum": {
+            "total": 760694,
+            "white_british": 664205,
+            "white_other": 44067,
+            "asian": 17485,
+            "black": 10168,
+            "mixed": 17810,
+            "other": 6959
+          },
+          "difference": {
+            "total": 7,
+            "white_british": 0,
+            "white_other": 1,
+            "asian": 2,
+            "black": 0,
+            "mixed": 3,
+            "other": 1
+          },
+          "exact": false,
+          "sourceRow": 149
+        }
+      }
+    },
+    "E10000030": {
+      "name": "Surrey",
+      "districts": [
+        "E07000207",
+        "E07000208",
+        "E07000209",
+        "E07000210",
+        "E07000211",
+        "E07000212",
+        "E07000213",
+        "E07000214",
+        "E07000215",
+        "E07000216",
+        "E07000217"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 1132390,
+            "white_british": 945673,
+            "white_other": 78009,
+            "asian": 63498,
+            "black": 12430,
+            "mixed": 23554,
+            "other": 9226
+          },
+          "districtSum": {
+            "total": 1132390,
+            "white_british": 945673,
+            "white_other": 78009,
+            "asian": 63498,
+            "black": 12430,
+            "mixed": 23554,
+            "other": 9226
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 93
+        },
+        "2021": {
+          "published": {
+            "total": 1203105,
+            "white_british": 921285,
+            "white_other": 107351,
+            "asian": 92911,
+            "black": 20834,
+            "mixed": 40483,
+            "other": 20241
+          },
+          "districtSum": {
+            "total": 1203113,
+            "white_british": 921285,
+            "white_other": 107354,
+            "asian": 92915,
+            "black": 20832,
+            "mixed": 40486,
+            "other": 20241
+          },
+          "difference": {
+            "total": 8,
+            "white_british": 0,
+            "white_other": 3,
+            "asian": 4,
+            "black": -2,
+            "mixed": 3,
+            "other": 0
+          },
+          "exact": false,
+          "sourceRow": 150
+        }
+      }
+    },
+    "E10000031": {
+      "name": "Warwickshire",
+      "districts": [
+        "E07000218",
+        "E07000219",
+        "E07000220",
+        "E07000221",
+        "E07000222"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 545474,
+            "white_british": 482607,
+            "white_other": 23081,
+            "asian": 25096,
+            "black": 4443,
+            "mixed": 7949,
+            "other": 2298
+          },
+          "districtSum": {
+            "total": 545474,
+            "white_british": 482607,
+            "white_other": 23081,
+            "asian": 25096,
+            "black": 4443,
+            "mixed": 7949,
+            "other": 2298
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 94
+        },
+        "2021": {
+          "published": {
+            "total": 596773,
+            "white_british": 490070,
+            "white_other": 41604,
+            "asian": 37321,
+            "black": 8016,
+            "mixed": 13533,
+            "other": 6229
+          },
+          "districtSum": {
+            "total": 596775,
+            "white_british": 490069,
+            "white_other": 41603,
+            "asian": 37323,
+            "black": 8018,
+            "mixed": 13531,
+            "other": 6231
+          },
+          "difference": {
+            "total": 2,
+            "white_british": -1,
+            "white_other": -1,
+            "asian": 2,
+            "black": 2,
+            "mixed": -2,
+            "other": 2
+          },
+          "exact": false,
+          "sourceRow": 151
+        }
+      }
+    },
+    "E10000032": {
+      "name": "West Sussex",
+      "districts": [
+        "E07000223",
+        "E07000224",
+        "E07000225",
+        "E07000226",
+        "E07000227",
+        "E07000228",
+        "E07000229"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 806892,
+            "white_british": 717551,
+            "white_other": 38948,
+            "asian": 28334,
+            "black": 7146,
+            "mixed": 12155,
+            "other": 2758
+          },
+          "districtSum": {
+            "total": 806892,
+            "white_british": 717551,
+            "white_other": 38948,
+            "asian": 28334,
+            "black": 7146,
+            "mixed": 12155,
+            "other": 2758
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 95
+        },
+        "2021": {
+          "published": {
+            "total": 882670,
+            "white_british": 743568,
+            "white_other": 59948,
+            "asian": 38288,
+            "black": 11429,
+            "mixed": 20811,
+            "other": 8626
+          },
+          "districtSum": {
+            "total": 882673,
+            "white_british": 743567,
+            "white_other": 59947,
+            "asian": 38295,
+            "black": 11431,
+            "mixed": 20807,
+            "other": 8626
+          },
+          "difference": {
+            "total": 3,
+            "white_british": -1,
+            "white_other": -1,
+            "asian": 7,
+            "black": 2,
+            "mixed": -4,
+            "other": 0
+          },
+          "exact": false,
+          "sourceRow": 152
+        }
+      }
+    },
+    "E10000034": {
+      "name": "Worcestershire",
+      "districts": [
+        "E07000234",
+        "E07000235",
+        "E07000236",
+        "E07000237",
+        "E07000238",
+        "E07000239"
+      ],
+      "census": {
+        "2011": {
+          "published": {
+            "total": 566169,
+            "white_british": 522922,
+            "white_other": 19136,
+            "asian": 13741,
+            "black": 2372,
+            "mixed": 7045,
+            "other": 953
+          },
+          "districtSum": {
+            "total": 566169,
+            "white_british": 522922,
+            "white_other": 19136,
+            "asian": 13741,
+            "black": 2372,
+            "mixed": 7045,
+            "other": 953
+          },
+          "difference": {
+            "total": 0,
+            "white_british": 0,
+            "white_other": 0,
+            "asian": 0,
+            "black": 0,
+            "mixed": 0,
+            "other": 0
+          },
+          "exact": true,
+          "sourceRow": 96
+        },
+        "2021": {
+          "published": {
+            "total": 603676,
+            "white_british": 535492,
+            "white_other": 30992,
+            "asian": 18511,
+            "black": 4151,
+            "mixed": 11173,
+            "other": 3357
+          },
+          "districtSum": {
+            "total": 603677,
+            "white_british": 535492,
+            "white_other": 30995,
+            "asian": 18514,
+            "black": 4150,
+            "mixed": 11169,
+            "other": 3357
+          },
+          "difference": {
+            "total": 1,
+            "white_british": 0,
+            "white_other": 3,
+            "asian": 3,
+            "black": -1,
+            "mixed": -4,
+            "other": 0
+          },
+          "exact": false,
+          "sourceRow": 153
+        }
+      }
+    }
+  },
+  "publicationReady": false
+}

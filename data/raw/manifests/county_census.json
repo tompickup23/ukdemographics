@@ -1,0 +1,27 @@
+{
+  "retrieved": "2026-10-14",
+  "sources": [
+    {
+      "year": 2011,
+      "table": "KS201EW",
+      "publisher": "Office for National Statistics",
+      "fileName": "ks201ew_2011_ward.zip",
+      "sha256": "768edff9247f2bd39c7998f49e7c4f27a2bce8f44146909fd0b960abfa5b0be1",
+      "sourceUrl": "https://www.nomisweb.co.uk/output/census/2011/ks201ew_2011_ward.zip",
+      "member": "KS201EW_2011WARDH_NAT_WD_REL_1.3.3_20121203-1112-20949/KS201EWDATA.CSV",
+      "extract": "ks201ew-counties.csv",
+      "extractSha256": "6d63090b86928ac1cc9013463f3974843f3621b1e1d3f9184db7f21a8ff2abea"
+    },
+    {
+      "year": 2021,
+      "table": "TS021",
+      "publisher": "Office for National Statistics",
+      "fileName": "census2021-ts021.zip",
+      "sha256": "ca2301d72a2de7e91c495695b6dceddb4dd318b580ae530b61582f851144fc78",
+      "sourceUrl": "https://www.nomisweb.co.uk/output/census/2021/census2021-ts021.zip",
+      "member": "census2021-ts021-utla.csv",
+      "extract": "ts021-counties.csv",
+      "extractSha256": "a380ba0c973f1a520b07a7f708a324a163f720b60462b633922dad62e221fcb7"
+    }
+  ]
+}

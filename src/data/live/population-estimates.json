@@ -193,6 +193,1205 @@
    }
   }
  },
+ "counties": {
+  "E10000003": {
+   "name": "Cambridgeshire",
+   "geography": "County",
+   "population": 716983,
+   "ci95": null,
+   "allAgesCheck": 716983,
+   "ageBands": {
+    "0-17": 139938,
+    "18-64": 438896,
+    "65+": 138149
+   },
+   "medianAge": 40.9,
+   "components": {
+    "births": 6197,
+    "deaths": 5984,
+    "internalMigrationNet": 2764,
+    "internationalMigrationNet": 1242,
+    "other": -454
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 690139,
+     "revisedJuly2026": 691686
+    },
+    "2023": {
+     "publishedJuly2025": 700296,
+     "revisedJuly2026": 703197
+    },
+    "2024": {
+     "publishedJuly2025": 710317,
+     "revisedJuly2026": 713218
+    }
+   },
+   "series": {
+    "2011": 622312,
+    "2012": 628779,
+    "2013": 634996,
+    "2014": 643025,
+    "2015": 651011,
+    "2016": 657286,
+    "2017": 661465,
+    "2018": 665676,
+    "2019": 668649,
+    "2020": 671281,
+    "2021": 680747,
+    "2022": 691686,
+    "2023": 703197,
+    "2024": 713218,
+    "2025": 716983
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=164",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=164",
+    "components": "v1:xlsx:sheet=MYE3;row=164"
+   }
+  },
+  "E10000007": {
+   "name": "Derbyshire",
+   "geography": "County",
+   "population": 827217,
+   "ci95": null,
+   "allAgesCheck": 827217,
+   "ageBands": {
+    "0-17": 155628,
+    "18-64": 481654,
+    "65+": 189935
+   },
+   "medianAge": 45.5,
+   "components": {
+    "births": 6930,
+    "deaths": 9193,
+    "internalMigrationNet": 8135,
+    "internationalMigrationNet": 378,
+    "other": 54
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 803678,
+     "revisedJuly2026": 803202
+    },
+    "2023": {
+     "publishedJuly2025": 813633,
+     "revisedJuly2026": 813152
+    },
+    "2024": {
+     "publishedJuly2025": 822377,
+     "revisedJuly2026": 820913
+    }
+   },
+   "series": {
+    "2011": 770688,
+    "2012": 772590,
+    "2013": 774002,
+    "2014": 776326,
+    "2015": 777373,
+    "2016": 779957,
+    "2017": 782882,
+    "2018": 784926,
+    "2019": 788880,
+    "2020": 790833,
+    "2021": 796710,
+    "2022": 803202,
+    "2023": 813152,
+    "2024": 820913,
+    "2025": 827217
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=89",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=89",
+    "components": "v1:xlsx:sheet=MYE3;row=89"
+   }
+  },
+  "E10000008": {
+   "name": "Devon",
+   "geography": "County",
+   "population": 845541,
+   "ci95": null,
+   "allAgesCheck": 845541,
+   "ageBands": {
+    "0-17": 146558,
+    "18-64": 472197,
+    "65+": 226786
+   },
+   "medianAge": 48,
+   "components": {
+    "births": 5763,
+    "deaths": 9481,
+    "internalMigrationNet": 6786,
+    "internationalMigrationNet": 321,
+    "other": 109
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 825809,
+     "revisedJuly2026": 825600
+    },
+    "2023": {
+     "publishedJuly2025": 833527,
+     "revisedJuly2026": 833930
+    },
+    "2024": {
+     "publishedJuly2025": 842313,
+     "revisedJuly2026": 842043
+    }
+   },
+   "series": {
+    "2011": 747709,
+    "2012": 751136,
+    "2013": 754431,
+    "2014": 760234,
+    "2015": 766810,
+    "2016": 773800,
+    "2017": 783352,
+    "2018": 789834,
+    "2019": 796542,
+    "2020": 800796,
+    "2021": 814435,
+    "2022": 825600,
+    "2023": 833930,
+    "2024": 842043,
+    "2025": 845541
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=327",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=327",
+    "components": "v1:xlsx:sheet=MYE3;row=327"
+   }
+  },
+  "E10000011": {
+   "name": "East Sussex",
+   "geography": "County",
+   "population": 561855,
+   "ci95": null,
+   "allAgesCheck": 561855,
+   "ageBands": {
+    "0-17": 102623,
+    "18-64": 306925,
+    "65+": 152307
+   },
+   "medianAge": 48.7,
+   "components": {
+    "births": 4125,
+    "deaths": 7147,
+    "internalMigrationNet": 4073,
+    "internationalMigrationNet": 501,
+    "other": -31
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 551145,
+     "revisedJuly2026": 550876
+    },
+    "2023": {
+     "publishedJuly2025": 556638,
+     "revisedJuly2026": 556481
+    },
+    "2024": {
+     "publishedJuly2025": 560882,
+     "revisedJuly2026": 560334
+    }
+   },
+   "series": {
+    "2011": 527209,
+    "2012": 530358,
+    "2013": 533183,
+    "2014": 537577,
+    "2015": 540620,
+    "2016": 543389,
+    "2017": 544697,
+    "2018": 544719,
+    "2019": 545261,
+    "2020": 544582,
+    "2021": 546861,
+    "2022": 550876,
+    "2023": 556481,
+    "2024": 560334,
+    "2025": 561855
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=256",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=256",
+    "components": "v1:xlsx:sheet=MYE3;row=256"
+   }
+  },
+  "E10000012": {
+   "name": "Essex",
+   "geography": "County",
+   "population": 1576125,
+   "ci95": null,
+   "allAgesCheck": 1576125,
+   "ageBands": {
+    "0-17": 329317,
+    "18-64": 913894,
+    "65+": 332914
+   },
+   "medianAge": 42.6,
+   "components": {
+    "births": 14795,
+    "deaths": 15655,
+    "internalMigrationNet": 13590,
+    "internationalMigrationNet": 4419,
+    "other": 48
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 1519902,
+     "revisedJuly2026": 1519798
+    },
+    "2023": {
+     "publishedJuly2025": 1542488,
+     "revisedJuly2026": 1541131
+    },
+    "2024": {
+     "publishedJuly2025": 1563365,
+     "revisedJuly2026": 1558928
+    }
+   },
+   "series": {
+    "2011": 1396599,
+    "2012": 1407607,
+    "2013": 1418900,
+    "2014": 1436516,
+    "2015": 1447710,
+    "2016": 1460525,
+    "2017": 1469674,
+    "2018": 1478385,
+    "2019": 1489341,
+    "2020": 1495515,
+    "2021": 1506726,
+    "2022": 1519798,
+    "2023": 1541131,
+    "2024": 1558928,
+    "2025": 1576125
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=170",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=170",
+    "components": "v1:xlsx:sheet=MYE3;row=170"
+   }
+  },
+  "E10000013": {
+   "name": "Gloucestershire",
+   "geography": "County",
+   "population": 671908,
+   "ci95": null,
+   "allAgesCheck": 671908,
+   "ageBands": {
+    "0-17": 131779,
+    "18-64": 388390,
+    "65+": 151739
+   },
+   "medianAge": 44.2,
+   "components": {
+    "births": 5794,
+    "deaths": 6748,
+    "internalMigrationNet": 3080,
+    "internationalMigrationNet": 1631,
+    "other": 42
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 652938,
+     "revisedJuly2026": 652645
+    },
+    "2023": {
+     "publishedJuly2025": 661724,
+     "revisedJuly2026": 661406
+    },
+    "2024": {
+     "publishedJuly2025": 669380,
+     "revisedJuly2026": 668109
+    }
+   },
+   "series": {
+    "2011": 598289,
+    "2012": 601301,
+    "2013": 605213,
+    "2014": 611331,
+    "2015": 617671,
+    "2016": 624076,
+    "2017": 629712,
+    "2018": 634653,
+    "2019": 638676,
+    "2020": 640572,
+    "2021": 646485,
+    "2022": 652645,
+    "2023": 661406,
+    "2024": 668109,
+    "2025": 671908
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=336",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=336",
+    "components": "v1:xlsx:sheet=MYE3;row=336"
+   }
+  },
+  "E10000014": {
+   "name": "Hampshire",
+   "geography": "County",
+   "population": 1451703,
+   "ci95": null,
+   "allAgesCheck": 1451703,
+   "ageBands": {
+    "0-17": 285702,
+    "18-64": 833313,
+    "65+": 332688
+   },
+   "medianAge": 44.6,
+   "components": {
+    "births": 12095,
+    "deaths": 14124,
+    "internalMigrationNet": 7562,
+    "internationalMigrationNet": 1026,
+    "other": -26
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 1417953,
+     "revisedJuly2026": 1417419
+    },
+    "2023": {
+     "publishedJuly2025": 1433542,
+     "revisedJuly2026": 1432948
+    },
+    "2024": {
+     "publishedJuly2025": 1447214,
+     "revisedJuly2026": 1445170
+    }
+   },
+   "series": {
+    "2011": 1322118,
+    "2012": 1331572,
+    "2013": 1339946,
+    "2014": 1349948,
+    "2015": 1358341,
+    "2016": 1368397,
+    "2017": 1373783,
+    "2018": 1378177,
+    "2019": 1384378,
+    "2020": 1391311,
+    "2021": 1406110,
+    "2022": 1417419,
+    "2023": 1432948,
+    "2024": 1445170,
+    "2025": 1451703
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=262",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=262",
+    "components": "v1:xlsx:sheet=MYE3;row=262"
+   }
+  },
+  "E10000015": {
+   "name": "Hertfordshire",
+   "geography": "County",
+   "population": 1239398,
+   "ci95": null,
+   "allAgesCheck": 1239398,
+   "ageBands": {
+    "0-17": 273958,
+    "18-64": 744135,
+    "65+": 221305
+   },
+   "medianAge": 41,
+   "components": {
+    "births": 12177,
+    "deaths": 10229,
+    "internalMigrationNet": -163,
+    "internationalMigrationNet": 3572,
+    "other": 58
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 1205558,
+     "revisedJuly2026": 1206101
+    },
+    "2023": {
+     "publishedJuly2025": 1220951,
+     "revisedJuly2026": 1220700
+    },
+    "2024": {
+     "publishedJuly2025": 1236191,
+     "revisedJuly2026": 1233983
+    }
+   },
+   "series": {
+    "2011": 1119824,
+    "2012": 1131536,
+    "2013": 1143681,
+    "2014": 1156321,
+    "2015": 1167308,
+    "2016": 1180234,
+    "2017": 1185014,
+    "2018": 1188182,
+    "2019": 1193394,
+    "2020": 1198052,
+    "2021": 1200899,
+    "2022": 1206101,
+    "2023": 1220700,
+    "2024": 1233983,
+    "2025": 1239398
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=183",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=183",
+    "components": "v1:xlsx:sheet=MYE3;row=183"
+   }
+  },
+  "E10000016": {
+   "name": "Kent",
+   "geography": "County",
+   "population": 1652769,
+   "ci95": null,
+   "allAgesCheck": 1652769,
+   "ageBands": {
+    "0-17": 352898,
+    "18-64": 956891,
+    "65+": 342980
+   },
+   "medianAge": 42.4,
+   "components": {
+    "births": 15709,
+    "deaths": 16099,
+    "internalMigrationNet": 10750,
+    "internationalMigrationNet": 3329,
+    "other": 3
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 1594860,
+     "revisedJuly2026": 1595912
+    },
+    "2023": {
+     "publishedJuly2025": 1617585,
+     "revisedJuly2026": 1619302
+    },
+    "2024": {
+     "publishedJuly2025": 1639029,
+     "revisedJuly2026": 1639077
+    }
+   },
+   "series": {
+    "2011": 1466466,
+    "2012": 1478262,
+    "2013": 1490021,
+    "2014": 1506187,
+    "2015": 1517016,
+    "2016": 1531022,
+    "2017": 1542707,
+    "2018": 1552853,
+    "2019": 1562840,
+    "2020": 1567971,
+    "2021": 1578552,
+    "2022": 1595912,
+    "2023": 1619302,
+    "2024": 1639077,
+    "2025": 1652769
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=274",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=274",
+    "components": "v1:xlsx:sheet=MYE3;row=274"
+   }
+  },
+  "E10000017": {
+   "name": "Lancashire",
+   "geography": "County",
+   "population": 1308567,
+   "ci95": null,
+   "allAgesCheck": 1308567,
+   "ageBands": {
+    "0-17": 260514,
+    "18-64": 768005,
+    "65+": 280048
+   },
+   "medianAge": 42.5,
+   "components": {
+    "births": 11604,
+    "deaths": 13602,
+    "internalMigrationNet": 12556,
+    "internationalMigrationNet": 5274,
+    "other": 296
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 1255669,
+     "revisedJuly2026": 1255035
+    },
+    "2023": {
+     "publishedJuly2025": 1275103,
+     "revisedJuly2026": 1274073
+    },
+    "2024": {
+     "publishedJuly2025": 1294914,
+     "revisedJuly2026": 1292439
+    }
+   },
+   "series": {
+    "2011": 1171558,
+    "2012": 1174321,
+    "2013": 1178586,
+    "2014": 1183512,
+    "2015": 1189153,
+    "2016": 1195310,
+    "2017": 1202420,
+    "2018": 1208672,
+    "2019": 1217384,
+    "2020": 1224128,
+    "2021": 1236228,
+    "2022": 1255035,
+    "2023": 1274073,
+    "2024": 1292439,
+    "2025": 1308567
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=45",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=45",
+    "components": "v1:xlsx:sheet=MYE3;row=45"
+   }
+  },
+  "E10000018": {
+   "name": "Leicestershire",
+   "geography": "County",
+   "population": 752448,
+   "ci95": null,
+   "allAgesCheck": 752448,
+   "ageBands": {
+    "0-17": 146940,
+    "18-64": 444659,
+    "65+": 160849
+   },
+   "medianAge": 42.9,
+   "components": {
+    "births": 6281,
+    "deaths": 7034,
+    "internalMigrationNet": 7999,
+    "internationalMigrationNet": 780,
+    "other": -55
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 723185,
+     "revisedJuly2026": 722843
+    },
+    "2023": {
+     "publishedJuly2025": 734236,
+     "revisedJuly2026": 733723
+    },
+    "2024": {
+     "publishedJuly2025": 745573,
+     "revisedJuly2026": 744477
+    }
+   },
+   "series": {
+    "2011": 651179,
+    "2012": 655098,
+    "2013": 658881,
+    "2014": 665412,
+    "2015": 671115,
+    "2016": 678088,
+    "2017": 687456,
+    "2018": 695090,
+    "2019": 700817,
+    "2020": 705536,
+    "2021": 712632,
+    "2022": 722843,
+    "2023": 733723,
+    "2024": 744477,
+    "2025": 752448
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=98",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=98",
+    "components": "v1:xlsx:sheet=MYE3;row=98"
+   }
+  },
+  "E10000019": {
+   "name": "Lincolnshire",
+   "geography": "County",
+   "population": 794009,
+   "ci95": null,
+   "allAgesCheck": 794009,
+   "ageBands": {
+    "0-17": 146096,
+    "18-64": 452511,
+    "65+": 195402
+   },
+   "medianAge": 46.1,
+   "components": {
+    "births": 5936,
+    "deaths": 9320,
+    "internalMigrationNet": 6898,
+    "internationalMigrationNet": 63,
+    "other": -101
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 776038,
+     "revisedJuly2026": 777140
+    },
+    "2023": {
+     "publishedJuly2025": 783984,
+     "revisedJuly2026": 785707
+    },
+    "2024": {
+     "publishedJuly2025": 789502,
+     "revisedJuly2026": 790533
+    }
+   },
+   "series": {
+    "2011": 714768,
+    "2012": 719807,
+    "2013": 725901,
+    "2014": 732981,
+    "2015": 738351,
+    "2016": 746141,
+    "2017": 753031,
+    "2018": 757281,
+    "2019": 761263,
+    "2020": 763610,
+    "2021": 769440,
+    "2022": 777140,
+    "2023": 785707,
+    "2024": 790533,
+    "2025": 794009
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=106",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=106",
+    "components": "v1:xlsx:sheet=MYE3;row=106"
+   }
+  },
+  "E10000020": {
+   "name": "Norfolk",
+   "geography": "County",
+   "population": 945427,
+   "ci95": null,
+   "allAgesCheck": 945427,
+   "ageBands": {
+    "0-17": 169567,
+    "18-64": 536160,
+    "65+": 239700
+   },
+   "medianAge": 46.2,
+   "components": {
+    "births": 6963,
+    "deaths": 10875,
+    "internalMigrationNet": 8172,
+    "internationalMigrationNet": 834,
+    "other": -135
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 925499,
+     "revisedJuly2026": 925745
+    },
+    "2023": {
+     "publishedJuly2025": 933670,
+     "revisedJuly2026": 934300
+    },
+    "2024": {
+     "publishedJuly2025": 940359,
+     "revisedJuly2026": 940468
+    }
+   },
+   "series": {
+    "2011": 859426,
+    "2012": 864776,
+    "2013": 870771,
+    "2014": 876986,
+    "2015": 882938,
+    "2016": 891150,
+    "2017": 898548,
+    "2018": 903527,
+    "2019": 906964,
+    "2020": 909883,
+    "2021": 918462,
+    "2022": 925745,
+    "2023": 934300,
+    "2024": 940468,
+    "2025": 945427
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=194",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=194",
+    "components": "v1:xlsx:sheet=MYE3;row=194"
+   }
+  },
+  "E10000024": {
+   "name": "Nottinghamshire",
+   "geography": "County",
+   "population": 862326,
+   "ci95": null,
+   "allAgesCheck": 862326,
+   "ageBands": {
+    "0-17": 170325,
+    "18-64": 503149,
+    "65+": 188852
+   },
+   "medianAge": 43.6,
+   "components": {
+    "births": 7239,
+    "deaths": 8953,
+    "internalMigrationNet": 8084,
+    "internationalMigrationNet": 627,
+    "other": -21
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 835376,
+     "revisedJuly2026": 835059
+    },
+    "2023": {
+     "publishedJuly2025": 846728,
+     "revisedJuly2026": 846144
+    },
+    "2024": {
+     "publishedJuly2025": 857013,
+     "revisedJuly2026": 855350
+    }
+   },
+   "series": {
+    "2011": 786796,
+    "2012": 789611,
+    "2013": 795119,
+    "2014": 799367,
+    "2015": 802650,
+    "2016": 807422,
+    "2017": 812333,
+    "2018": 816749,
+    "2019": 819900,
+    "2020": 822118,
+    "2021": 826132,
+    "2022": 835059,
+    "2023": 846144,
+    "2024": 855350,
+    "2025": 862326
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=114",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=114",
+    "components": "v1:xlsx:sheet=MYE3;row=114"
+   }
+  },
+  "E10000025": {
+   "name": "Oxfordshire",
+   "geography": "County",
+   "population": 769831,
+   "ci95": null,
+   "allAgesCheck": 769831,
+   "ageBands": {
+    "0-17": 153214,
+    "18-64": 472219,
+    "65+": 144398
+   },
+   "medianAge": 40.2,
+   "components": {
+    "births": 7083,
+    "deaths": 6144,
+    "internalMigrationNet": 2187,
+    "internationalMigrationNet": 1974,
+    "other": -392
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 738911,
+     "revisedJuly2026": 740061
+    },
+    "2023": {
+     "publishedJuly2025": 751883,
+     "revisedJuly2026": 754028
+    },
+    "2024": {
+     "publishedJuly2025": 763218,
+     "revisedJuly2026": 765123
+    }
+   },
+   "series": {
+    "2011": 654791,
+    "2012": 662243,
+    "2013": 669390,
+    "2014": 676621,
+    "2015": 682571,
+    "2016": 690541,
+    "2017": 696188,
+    "2018": 702259,
+    "2019": 708513,
+    "2020": 714766,
+    "2021": 726727,
+    "2022": 740061,
+    "2023": 754028,
+    "2024": 765123,
+    "2025": 769831
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=287",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=287",
+    "components": "v1:xlsx:sheet=MYE3;row=287"
+   }
+  },
+  "E10000028": {
+   "name": "Staffordshire",
+   "geography": "County",
+   "population": 913073,
+   "ci95": null,
+   "allAgesCheck": 913073,
+   "ageBands": {
+    "0-17": 173955,
+    "18-64": 530436,
+    "65+": 208682
+   },
+   "medianAge": 44.5,
+   "components": {
+    "births": 7640,
+    "deaths": 9666,
+    "internalMigrationNet": 8039,
+    "internationalMigrationNet": 667,
+    "other": -4
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 886508,
+     "revisedJuly2026": 886397
+    },
+    "2023": {
+     "publishedJuly2025": 897866,
+     "revisedJuly2026": 897673
+    },
+    "2024": {
+     "publishedJuly2025": 907153,
+     "revisedJuly2026": 906397
+    }
+   },
+   "series": {
+    "2011": 849546,
+    "2012": 850682,
+    "2013": 854573,
+    "2014": 856391,
+    "2015": 857167,
+    "2016": 861230,
+    "2017": 863528,
+    "2018": 866810,
+    "2019": 870117,
+    "2020": 872087,
+    "2021": 877808,
+    "2022": 886397,
+    "2023": 897673,
+    "2024": 906397,
+    "2025": 913073
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=127",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=127",
+    "components": "v1:xlsx:sheet=MYE3;row=127"
+   }
+  },
+  "E10000029": {
+   "name": "Suffolk",
+   "geography": "County",
+   "population": 789850,
+   "ci95": null,
+   "allAgesCheck": 789850,
+   "ageBands": {
+    "0-17": 150353,
+    "18-64": 444790,
+    "65+": 194707
+   },
+   "medianAge": 45.6,
+   "components": {
+    "births": 6584,
+    "deaths": 8370,
+    "internalMigrationNet": 6049,
+    "internationalMigrationNet": -188,
+    "other": 274
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 768812,
+     "revisedJuly2026": 769034
+    },
+    "2023": {
+     "publishedJuly2025": 778012,
+     "revisedJuly2026": 778217
+    },
+    "2024": {
+     "publishedJuly2025": 786231,
+     "revisedJuly2026": 785501
+    }
+   },
+   "series": {
+    "2011": 730133,
+    "2012": 732697,
+    "2013": 734875,
+    "2014": 740175,
+    "2015": 744501,
+    "2016": 747783,
+    "2017": 753590,
+    "2018": 755345,
+    "2019": 757321,
+    "2020": 756668,
+    "2021": 763349,
+    "2022": 769034,
+    "2023": 778217,
+    "2024": 785501,
+    "2025": 789850
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=202",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=202",
+    "components": "v1:xlsx:sheet=MYE3;row=202"
+   }
+  },
+  "E10000030": {
+   "name": "Surrey",
+   "geography": "County",
+   "population": 1255255,
+   "ci95": null,
+   "allAgesCheck": 1255255,
+   "ageBands": {
+    "0-17": 265572,
+    "18-64": 744661,
+    "65+": 245022
+   },
+   "medianAge": 42.6,
+   "components": {
+    "births": 11235,
+    "deaths": 10548,
+    "internalMigrationNet": 4755,
+    "internationalMigrationNet": 2012,
+    "other": 9
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 1217915,
+     "revisedJuly2026": 1218503
+    },
+    "2023": {
+     "publishedJuly2025": 1235134,
+     "revisedJuly2026": 1236445
+    },
+    "2024": {
+     "publishedJuly2025": 1248649,
+     "revisedJuly2026": 1247792
+    }
+   },
+   "series": {
+    "2011": 1135367,
+    "2012": 1145011,
+    "2013": 1156631,
+    "2014": 1166995,
+    "2015": 1174418,
+    "2016": 1182180,
+    "2017": 1185103,
+    "2018": 1186752,
+    "2019": 1192224,
+    "2020": 1195847,
+    "2021": 1205994,
+    "2022": 1218503,
+    "2023": 1236445,
+    "2024": 1247792,
+    "2025": 1255255
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=293",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=293",
+    "components": "v1:xlsx:sheet=MYE3;row=293"
+   }
+  },
+  "E10000031": {
+   "name": "Warwickshire",
+   "geography": "County",
+   "population": 644021,
+   "ci95": null,
+   "allAgesCheck": 644021,
+   "ageBands": {
+    "0-17": 130309,
+    "18-64": 380594,
+    "65+": 133118
+   },
+   "medianAge": 42.2,
+   "components": {
+    "births": 5684,
+    "deaths": 6303,
+    "internalMigrationNet": 10211,
+    "internationalMigrationNet": 1405,
+    "other": 22
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 608712,
+     "revisedJuly2026": 609185
+    },
+    "2023": {
+     "publishedJuly2025": 620371,
+     "revisedJuly2026": 621265
+    },
+    "2024": {
+     "publishedJuly2025": 632207,
+     "revisedJuly2026": 633002
+    }
+   },
+   "series": {
+    "2011": 546554,
+    "2012": 550276,
+    "2013": 553178,
+    "2014": 557454,
+    "2015": 561471,
+    "2016": 566625,
+    "2017": 572303,
+    "2018": 578389,
+    "2019": 584155,
+    "2020": 589253,
+    "2021": 599115,
+    "2022": 609185,
+    "2023": 621265,
+    "2024": 633002,
+    "2025": 644021
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=136",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=136",
+    "components": "v1:xlsx:sheet=MYE3;row=136"
+   }
+  },
+  "E10000032": {
+   "name": "West Sussex",
+   "geography": "County",
+   "population": 921240,
+   "ci95": null,
+   "allAgesCheck": 921240,
+   "ageBands": {
+    "0-17": 179786,
+    "18-64": 523470,
+    "65+": 217984
+   },
+   "medianAge": 45.1,
+   "components": {
+    "births": 7618,
+    "deaths": 9913,
+    "internalMigrationNet": 7613,
+    "internationalMigrationNet": 1797,
+    "other": 25
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 893198,
+     "revisedJuly2026": 893408
+    },
+    "2023": {
+     "publishedJuly2025": 904033,
+     "revisedJuly2026": 904579
+    },
+    "2024": {
+     "publishedJuly2025": 915037,
+     "revisedJuly2026": 914100
+    }
+   },
+   "series": {
+    "2011": 808919,
+    "2012": 817521,
+    "2013": 825301,
+    "2014": 833969,
+    "2015": 842534,
+    "2016": 851868,
+    "2017": 859537,
+    "2018": 866248,
+    "2019": 871740,
+    "2020": 875354,
+    "2021": 885048,
+    "2022": 893408,
+    "2023": 904579,
+    "2024": 914100,
+    "2025": 921240
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=305",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=305",
+    "components": "v1:xlsx:sheet=MYE3;row=305"
+   }
+  },
+  "E10000034": {
+   "name": "Worcestershire",
+   "geography": "County",
+   "population": 624209,
+   "ci95": null,
+   "allAgesCheck": 624209,
+   "ageBands": {
+    "0-17": 118395,
+    "18-64": 357095,
+    "65+": 148719
+   },
+   "medianAge": 45.4,
+   "components": {
+    "births": 5056,
+    "deaths": 6860,
+    "internalMigrationNet": 4625,
+    "internationalMigrationNet": 687,
+    "other": -13
+   },
+   "revisions": {
+    "2022": {
+     "publishedJuly2025": 609554,
+     "revisedJuly2026": 609487
+    },
+    "2023": {
+     "publishedJuly2025": 615661,
+     "revisedJuly2026": 615797
+    },
+    "2024": {
+     "publishedJuly2025": 621360,
+     "revisedJuly2026": 620714
+    }
+   },
+   "series": {
+    "2011": 566557,
+    "2012": 570119,
+    "2013": 573870,
+    "2014": 578732,
+    "2015": 582465,
+    "2016": 587962,
+    "2017": 592040,
+    "2018": 594992,
+    "2019": 598250,
+    "2020": 599819,
+    "2021": 604902,
+    "2022": 609487,
+    "2023": 615797,
+    "2024": 620714,
+    "2025": 624209
+   },
+   "locators": {
+    "population": "v1:xlsx:sheet=MYE4;row=150",
+    "ci95": null,
+    "ageBands": "v1:xlsx:sheet=MYE2 - Persons;row=150",
+    "components": "v1:xlsx:sheet=MYE3;row=150"
+   }
+  }
+ },
  "areas": {
   "E08000025": {
    "name": "Birmingham",
