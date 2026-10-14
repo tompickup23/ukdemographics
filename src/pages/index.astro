@@ -101,7 +101,7 @@ const topChangingMaxAbsPp = topChangingAreas.length > 0
 // does not take across the line inside its horizon.
 function crossingYear(a: any): number | null {
   const pts: Array<[number, number]> = [];
-  const now = a?.current?.groups?.white_british;
+  const now = (a?.current?.census_groups ?? a?.current?.groups)?.white_british;
   if (now == null) return null;
   pts.push([2021, now]);
   for (const y of [2031, 2041, 2051, 2061]) {
@@ -126,7 +126,7 @@ const CROSSING_MIN_BASE_PCT = 60;
 const crossingSoon = publicAreas
   .map((area) => {
     const rec = projData.areas[area.areaCode];
-    return { area, year: crossingYear(rec), now: rec?.current?.groups?.white_british ?? null };
+    return { area, year: crossingYear(rec), now: (rec?.current?.census_groups ?? rec?.current?.groups)?.white_british ?? null };
   })
   .filter((r) => r.year !== null && r.now != null && r.now >= CROSSING_MIN_BASE_PCT)
   .sort((a, b) => (a.year as number) - (b.year as number))

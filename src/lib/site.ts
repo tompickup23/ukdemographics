@@ -123,7 +123,7 @@ export function getPublicPlaceAreas(): DemographicAreaSummary[] {
         regionName: region?.regionName ?? "Unknown",
         countryName: region?.countryName ?? "England",
         population: data.current?.total_population,
-        wbiPct2021: data.current?.groups?.white_british,
+        wbiPct2021: (data.current?.census_groups ?? data.current?.groups)?.white_british,
         wbiPct2041: data.projections?.["2041"]?.white_british,
         diversityIndex2021: data.diversityIndex?.entropy,
         diversityIndex2041: undefined,

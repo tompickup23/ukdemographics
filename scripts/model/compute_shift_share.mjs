@@ -97,7 +97,8 @@ for (const [code, area] of Object.entries(existing.areas)) {
   if (!area.baseline.groups || !area.current.groups) continue;
 
   const localWBI_2011 = area.baseline.groups.white_british || 0;
-  const localWBI_2021 = area.current.groups.white_british || 0;
+  // 2021 as TS021 gives it (census_groups), the figure the page prints, not the model base.
+  const localWBI_2021 = (area.current.census_groups ?? area.current.groups).white_british || 0;
   const totalChange = localWBI_2021 - localWBI_2011;
 
   // National effect: how much change is explained by national-level WBI decline

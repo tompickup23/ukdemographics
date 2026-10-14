@@ -14,6 +14,7 @@ interface Point {
   total_population: number;
   groups: Record<string, number>;
   groups_absolute?: Record<string, number>;
+  census_groups?: Record<string, number>;
 }
 interface Area {
   areaName: string;
@@ -62,7 +63,7 @@ describe("shift-share decomposition", () => {
     const wrong = compared
       .filter(([, a]) => a.shiftShare)
       .filter(([, a]) => {
-        const change = a.current.groups.white_british - a.baseline.groups.white_british;
+        const change = a.current.census_groups!.white_british - a.baseline.groups.white_british;
         return Math.abs(a.shiftShare!.totalChangePp - change) > 0.051;
       })
       .map(([c, a]) => `${c} ${a.areaName}: ${a.shiftShare!.totalChangePp}`);

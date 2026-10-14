@@ -85,6 +85,14 @@
           "OBL": 14207,
           "ARB": 19190,
           "OOT": 32755
+        },
+        "census_groups": {
+          "white_british": 42.9,
+          "white_other": 5.71,
+          "asian": 31.04,
+          "black": 10.98,
+          "mixed": 4.82,
+          "other": 4.54
         }
       },
       "annualChangePp": {
@@ -664,6 +672,14 @@
           "OBL": 2766,
           "ARB": 8305,
           "OOT": 7727
+        },
+        "census_groups": {
+          "white_british": 77.31,
+          "white_other": 6.72,
+          "asian": 5.71,
+          "black": 3.49,
+          "mixed": 3.47,
+          "other": 3.3
         }
       },
       "annualChangePp": {
@@ -1249,6 +1265,14 @@
           "OBL": 2354,
           "ARB": 4460,
           "OOT": 14804
+        },
+        "census_groups": {
+          "white_british": 37.06,
+          "white_other": 11.12,
+          "asian": 33.32,
+          "black": 7.83,
+          "mixed": 4.37,
+          "other": 6.3
         }
       },
       "annualChangePp": {
@@ -1823,6 +1847,14 @@
           "OBL": 7558,
           "ARB": 15032,
           "OOT": 13243
+        },
+        "census_groups": {
+          "white_british": 48.66,
+          "white_other": 8.16,
+          "asian": 20.86,
+          "black": 11.94,
+          "mixed": 5.26,
+          "other": 5.12
         }
       },
       "annualChangePp": {
@@ -2402,6 +2434,14 @@
           "OBL": 5277,
           "ARB": 5985,
           "OOT": 12903
+        },
+        "census_groups": {
+          "white_british": 73.37,
+          "white_other": 5.67,
+          "asian": 9.67,
+          "black": 5.59,
+          "mixed": 3.37,
+          "other": 2.33
         }
       },
       "annualChangePp": {
@@ -2987,6 +3027,14 @@
           "OBL": 2343,
           "ARB": 5465,
           "OOT": 15470
+        },
+        "census_groups": {
+          "white_british": 28.43,
+          "white_other": 15.67,
+          "asian": 36.73,
+          "black": 7.22,
+          "mixed": 4.69,
+          "other": 7.26
         }
       },
       "annualChangePp": {
@@ -3561,6 +3609,14 @@
           "OBL": 3156,
           "ARB": 2482,
           "OOT": 10223
+        },
+        "census_groups": {
+          "white_british": 55.28,
+          "white_other": 10.24,
+          "asian": 18.51,
+          "black": 8.9,
+          "mixed": 3.4,
+          "other": 3.68
         }
       },
       "annualChangePp": {
@@ -4146,6 +4202,14 @@
           "OBL": 4135,
           "ARB": 3673,
           "OOT": 7040
+        },
+        "census_groups": {
+          "white_british": 57.34,
+          "white_other": 8.61,
+          "asian": 14.9,
+          "black": 9.95,
+          "mixed": 5.89,
+          "other": 3.31
         }
       },
       "annualChangePp": {
@@ -4327,7 +4391,7 @@
         "totalChangePp": -8.1,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.1,
-        "localEffectPp": -3.1,
+        "localEffectPp": -3.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -4731,6 +4795,14 @@
           "OBL": 4005,
           "ARB": 2018,
           "OOT": 11705
+        },
+        "census_groups": {
+          "white_british": 52.05,
+          "white_other": 5.18,
+          "asian": 25.75,
+          "black": 8.71,
+          "mixed": 4.29,
+          "other": 4.02
         }
       },
       "annualChangePp": {
@@ -5311,6 +5383,14 @@
           "OBL": 2744,
           "ARB": 3402,
           "OOT": 11864
+        },
+        "census_groups": {
+          "white_british": 33.21,
+          "white_other": 7.67,
+          "asian": 43.4,
+          "black": 7.8,
+          "mixed": 3.77,
+          "other": 4.14
         }
       },
       "annualChangePp": {
@@ -5885,6 +5965,14 @@
           "OBL": 12108,
           "ARB": 2260,
           "OOT": 12810
+        },
+        "census_groups": {
+          "white_british": 37.44,
+          "white_other": 10.93,
+          "asian": 17.53,
+          "black": 22.64,
+          "mixed": 7.61,
+          "other": 3.86
         }
       },
       "annualChangePp": {
@@ -6417,6 +6505,14 @@
           "black": 13896,
           "mixed": 14506,
           "other": 11994
+        },
+        "census_groups": {
+          "white_british": 73.56,
+          "white_other": 5.63,
+          "asian": 9.66,
+          "black": 3.84,
+          "mixed": 4,
+          "other": 3.31
         }
       },
       "annualChangePp": {
@@ -6874,6 +6970,14 @@
           "OBL": 3036,
           "ARB": 7378,
           "OOT": 30688
+        },
+        "census_groups": {
+          "white_british": 36.16,
+          "white_other": 21.57,
+          "asian": 19.26,
+          "black": 7.87,
+          "mixed": 5.37,
+          "other": 9.78
         }
       },
       "annualChangePp": {
@@ -7448,6 +7552,14 @@
           "OBL": 1301,
           "ARB": 2733,
           "OOT": 8038
+        },
+        "census_groups": {
+          "white_british": 56.72,
+          "white_other": 4.41,
+          "asian": 32.15,
+          "black": 2.01,
+          "mixed": 2.75,
+          "other": 1.97
         }
       },
       "annualChangePp": {
@@ -8028,6 +8140,14 @@
           "OBL": 3570,
           "ARB": 961,
           "OOT": 8464
+        },
+        "census_groups": {
+          "white_british": 54.72,
+          "white_other": 5.84,
+          "asian": 21.2,
+          "black": 9.34,
+          "mixed": 5.33,
+          "other": 3.57
         }
       },
       "annualChangePp": {
@@ -8608,6 +8728,14 @@
           "OBL": 919,
           "ARB": 695,
           "OOT": 3641
+        },
+        "census_groups": {
+          "white_british": 78.53,
+          "white_other": 4.95,
+          "asian": 9.91,
+          "black": 2.66,
+          "mixed": 2.27,
+          "other": 1.68
         }
       },
       "annualChangePp": {
@@ -9188,6 +9316,14 @@
           "OBL": 4012,
           "ARB": 16107,
           "OOT": 22650
+        },
+        "census_groups": {
+          "white_british": 24.32,
+          "white_other": 18.85,
+          "asian": 30.3,
+          "black": 10.76,
+          "mixed": 5.22,
+          "other": 10.56
         }
       },
       "annualChangePp": {
@@ -9762,6 +9898,14 @@
           "OBL": 1319,
           "ARB": 1029,
           "OOT": 6524
+        },
+        "census_groups": {
+          "white_british": 66.22,
+          "white_other": 7.57,
+          "asian": 15.65,
+          "black": 4.01,
+          "mixed": 3.66,
+          "other": 2.89
         }
       },
       "annualChangePp": {
@@ -10347,6 +10491,14 @@
           "OBL": 492,
           "ARB": 709,
           "OOT": 1566
+        },
+        "census_groups": {
+          "white_british": 91.85,
+          "white_other": 3.18,
+          "asian": 1.77,
+          "black": 1.19,
+          "mixed": 1.32,
+          "other": 0.7
         }
       },
       "annualChangePp": {
@@ -10920,6 +11072,14 @@
           "OBL": 6849,
           "ARB": 3531,
           "OOT": 13645
+        },
+        "census_groups": {
+          "white_british": 14.76,
+          "white_other": 15.99,
+          "asian": 42.21,
+          "black": 17.46,
+          "mixed": 4.68,
+          "other": 4.89
         }
       },
       "annualChangePp": {
@@ -11494,6 +11654,14 @@
           "OBL": 1032,
           "ARB": 4176,
           "OOT": 4994
+        },
+        "census_groups": {
+          "white_british": 74.49,
+          "white_other": 5.48,
+          "asian": 11.37,
+          "black": 3.31,
+          "mixed": 2.31,
+          "other": 3.05
         }
       },
       "annualChangePp": {
@@ -12074,6 +12242,14 @@
           "OBL": 2939,
           "ARB": 2546,
           "OOT": 6509
+        },
+        "census_groups": {
+          "white_british": 71.64,
+          "white_other": 9.46,
+          "asian": 6.62,
+          "black": 5.9,
+          "mixed": 4.47,
+          "other": 1.92
         }
       },
       "annualChangePp": {
@@ -12639,6 +12815,14 @@
           "OBL": 1333,
           "ARB": 1819,
           "OOT": 3722
+        },
+        "census_groups": {
+          "white_british": 68.75,
+          "white_other": 3.19,
+          "asian": 20.14,
+          "black": 3.8,
+          "mixed": 2.24,
+          "other": 1.87
         }
       },
       "annualChangePp": {
@@ -13219,6 +13403,14 @@
           "OBL": 7166,
           "ARB": 17919,
           "OOT": 15943
+        },
+        "census_groups": {
+          "white_british": 15.19,
+          "white_other": 19.45,
+          "asian": 32.82,
+          "black": 17.51,
+          "mixed": 5.08,
+          "other": 9.96
         }
       },
       "annualChangePp": {
@@ -13793,6 +13985,14 @@
           "OBL": 486,
           "ARB": 1498,
           "OOT": 3175
+        },
+        "census_groups": {
+          "white_british": 83.4,
+          "white_other": 3.97,
+          "asian": 7.28,
+          "black": 1.16,
+          "mixed": 2.6,
+          "other": 1.59
         }
       },
       "annualChangePp": {
@@ -14367,6 +14567,14 @@
           "OBL": 254,
           "ARB": 568,
           "OOT": 1096
+        },
+        "census_groups": {
+          "white_british": 90.3,
+          "white_other": 1.74,
+          "asian": 4.6,
+          "black": 1.12,
+          "mixed": 1.39,
+          "other": 0.85
         }
       },
       "annualChangePp": {
@@ -14541,7 +14749,7 @@
         "totalChangePp": -3.1,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
-        "localEffectPp": 4,
+        "localEffectPp": 3.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -14940,6 +15148,14 @@
           "OBL": 224,
           "ARB": 416,
           "OOT": 1016
+        },
+        "census_groups": {
+          "white_british": 92.88,
+          "white_other": 1.72,
+          "asian": 2.99,
+          "black": 0.97,
+          "mixed": 0.91,
+          "other": 0.52
         }
       },
       "annualChangePp": {
@@ -15513,6 +15729,14 @@
           "OBL": 1261,
           "ARB": 526,
           "OOT": 2780
+        },
+        "census_groups": {
+          "white_british": 65.23,
+          "white_other": 2.88,
+          "asian": 24.6,
+          "black": 3.39,
+          "mixed": 2.53,
+          "other": 1.36
         }
       },
       "annualChangePp": {
@@ -16093,6 +16317,14 @@
           "OBL": 205,
           "ARB": 586,
           "OOT": 1301
+        },
+        "census_groups": {
+          "white_british": 92.43,
+          "white_other": 2.72,
+          "asian": 2.28,
+          "black": 0.43,
+          "mixed": 1.54,
+          "other": 0.59
         }
       },
       "annualChangePp": {
@@ -16666,6 +16898,14 @@
           "OBL": 540,
           "ARB": 1440,
           "OOT": 3497
+        },
+        "census_groups": {
+          "white_british": 83.88,
+          "white_other": 7.87,
+          "asian": 2.81,
+          "black": 1.9,
+          "mixed": 1.69,
+          "other": 1.85
         }
       },
       "annualChangePp": {
@@ -17236,6 +17476,14 @@
           "OBL": 170,
           "ARB": 829,
           "OOT": 1326
+        },
+        "census_groups": {
+          "white_british": 56.87,
+          "white_other": 3.49,
+          "asian": 35.66,
+          "black": 0.91,
+          "mixed": 1.68,
+          "other": 1.4
         }
       },
       "annualChangePp": {
@@ -17417,7 +17665,7 @@
         "totalChangePp": -9.7,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 1.1,
-        "localEffectPp": -4.6,
+        "localEffectPp": -4.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -17816,6 +18064,14 @@
           "OBL": 760,
           "ARB": 1012,
           "OOT": 2802
+        },
+        "census_groups": {
+          "white_british": 77.72,
+          "white_other": 7.51,
+          "asian": 6.91,
+          "black": 3.4,
+          "mixed": 2.64,
+          "other": 1.83
         }
       },
       "annualChangePp": {
@@ -18400,6 +18656,14 @@
           "OBL": 1574,
           "ARB": 1286,
           "OOT": 3712
+        },
+        "census_groups": {
+          "white_british": 53.48,
+          "white_other": 13.61,
+          "asian": 17.7,
+          "black": 7.19,
+          "mixed": 5.14,
+          "other": 2.87
         }
       },
       "annualChangePp": {
@@ -18980,6 +19244,14 @@
           "OBL": 1460,
           "ARB": 1905,
           "OOT": 4595
+        },
+        "census_groups": {
+          "white_british": 70.54,
+          "white_other": 3.09,
+          "asian": 19.44,
+          "black": 2.3,
+          "mixed": 3.14,
+          "other": 1.5
         }
       },
       "annualChangePp": {
@@ -19560,6 +19832,14 @@
           "OBL": 1014,
           "ARB": 801,
           "OOT": 2870
+        },
+        "census_groups": {
+          "white_british": 70.01,
+          "white_other": 3.94,
+          "asian": 18.5,
+          "black": 3.54,
+          "mixed": 2.36,
+          "other": 1.64
         }
       },
       "annualChangePp": {
@@ -20140,6 +20420,14 @@
           "OBL": 1044,
           "ARB": 2036,
           "OOT": 2455
+        },
+        "census_groups": {
+          "white_british": 82.4,
+          "white_other": 2.48,
+          "asian": 8.36,
+          "black": 2.53,
+          "mixed": 2.84,
+          "other": 1.39
         }
       },
       "annualChangePp": {
@@ -20720,6 +21008,14 @@
           "OBL": 562,
           "ARB": 565,
           "OOT": 1980
+        },
+        "census_groups": {
+          "white_british": 88.19,
+          "white_other": 4.84,
+          "asian": 3.58,
+          "black": 1.28,
+          "mixed": 1.4,
+          "other": 0.72
         }
       },
       "annualChangePp": {
@@ -21293,6 +21589,14 @@
           "OBL": 2746,
           "ARB": 2101,
           "OOT": 5680
+        },
+        "census_groups": {
+          "white_british": 31.76,
+          "white_other": 13.44,
+          "asian": 36.99,
+          "black": 10.09,
+          "mixed": 4.27,
+          "other": 3.46
         }
       },
       "annualChangePp": {
@@ -21867,6 +22171,14 @@
           "OBL": 649,
           "ARB": 251,
           "OOT": 1406
+        },
+        "census_groups": {
+          "white_british": 82.97,
+          "white_other": 5.23,
+          "asian": 5.43,
+          "black": 2.88,
+          "mixed": 2.61,
+          "other": 0.89
         }
       },
       "annualChangePp": {
@@ -22451,6 +22763,14 @@
           "OBL": 1663,
           "ARB": 3224,
           "OOT": 4534
+        },
+        "census_groups": {
+          "white_british": 73.95,
+          "white_other": 8.39,
+          "asian": 5.53,
+          "black": 6.1,
+          "mixed": 3.15,
+          "other": 2.88
         }
       },
       "annualChangePp": {
@@ -22629,7 +22949,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -10.4,
+        "totalChangePp": -10.5,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.3,
         "localEffectPp": -4.1,
@@ -22989,6 +23309,14 @@
           "black": 2797,
           "mixed": 3808,
           "other": 3383
+        },
+        "census_groups": {
+          "white_british": 87.51,
+          "white_other": 3.92,
+          "asian": 4.38,
+          "black": 1.17,
+          "mixed": 1.6,
+          "other": 1.42
         }
       },
       "annualChangePp": {
@@ -23445,6 +23773,14 @@
           "OBL": 314,
           "ARB": 1453,
           "OOT": 2021
+        },
+        "census_groups": {
+          "white_british": 79.5,
+          "white_other": 2.87,
+          "asian": 10.48,
+          "black": 2.65,
+          "mixed": 2.09,
+          "other": 2.41
         }
       },
       "annualChangePp": {
@@ -23626,7 +23962,7 @@
         "totalChangePp": -6.5,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.4,
-        "localEffectPp": 0,
+        "localEffectPp": -0.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -24025,6 +24361,14 @@
           "OBL": 235,
           "ARB": 104,
           "OOT": 701
+        },
+        "census_groups": {
+          "white_british": 90.35,
+          "white_other": 4.31,
+          "asian": 1.65,
+          "black": 1.22,
+          "mixed": 1.94,
+          "other": 0.52
         }
       },
       "annualChangePp": {
@@ -24542,6 +24886,14 @@
           "black": 598,
           "mixed": 2557,
           "other": 1010
+        },
+        "census_groups": {
+          "white_british": 96.08,
+          "white_other": 1.56,
+          "asian": 1.05,
+          "black": 0.19,
+          "mixed": 0.8,
+          "other": 0.32
         }
       },
       "annualChangePp": {
@@ -25012,6 +25364,14 @@
           "OBL": 1693,
           "ARB": 510,
           "OOT": 5357
+        },
+        "census_groups": {
+          "white_british": 67.41,
+          "white_other": 3.94,
+          "asian": 18.72,
+          "black": 4.58,
+          "mixed": 3.28,
+          "other": 2.06
         }
       },
       "annualChangePp": {
@@ -25592,6 +25952,14 @@
           "OBL": 110,
           "ARB": 374,
           "OOT": 666
+        },
+        "census_groups": {
+          "white_british": 93.61,
+          "white_other": 2.92,
+          "asian": 1.41,
+          "black": 0.42,
+          "mixed": 1.08,
+          "other": 0.56
         }
       },
       "annualChangePp": {
@@ -26165,6 +26533,14 @@
           "OBL": 215,
           "ARB": 587,
           "OOT": 1566
+        },
+        "census_groups": {
+          "white_british": 91.17,
+          "white_other": 4.13,
+          "asian": 2.02,
+          "black": 0.59,
+          "mixed": 1.48,
+          "other": 0.6
         }
       },
       "annualChangePp": {
@@ -26738,6 +27114,14 @@
           "OBL": 547,
           "ARB": 425,
           "OOT": 3303
+        },
+        "census_groups": {
+          "white_british": 86.62,
+          "white_other": 6.52,
+          "asian": 2.95,
+          "black": 1.21,
+          "mixed": 1.49,
+          "other": 1.21
         }
       },
       "annualChangePp": {
@@ -27269,6 +27653,14 @@
           "black": 2214,
           "mixed": 2393,
           "other": 3128
+        },
+        "census_groups": {
+          "white_british": 90.3,
+          "white_other": 3.24,
+          "asian": 2.51,
+          "black": 1.13,
+          "mixed": 1.22,
+          "other": 1.59
         }
       },
       "annualChangePp": {
@@ -27739,6 +28131,14 @@
           "OBL": 99,
           "ARB": 509,
           "OOT": 681
+        },
+        "census_groups": {
+          "white_british": 93,
+          "white_other": 1.39,
+          "asian": 2.92,
+          "black": 0.53,
+          "mixed": 1.35,
+          "other": 0.81
         }
       },
       "annualChangePp": {
@@ -28312,6 +28712,14 @@
           "OBL": 197,
           "ARB": 333,
           "OOT": 1263
+        },
+        "census_groups": {
+          "white_british": 82.75,
+          "white_other": 3.32,
+          "asian": 10.51,
+          "black": 0.7,
+          "mixed": 1.95,
+          "other": 0.78
         }
       },
       "annualChangePp": {
@@ -28484,7 +28892,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -3.9,
+        "totalChangePp": -4,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.5,
         "localEffectPp": 2.6,
@@ -28891,6 +29299,14 @@
           "OBL": 136,
           "ARB": 239,
           "OOT": 528
+        },
+        "census_groups": {
+          "white_british": 93.64,
+          "white_other": 2.86,
+          "asian": 1.12,
+          "black": 0.4,
+          "mixed": 1.39,
+          "other": 0.59
         }
       },
       "annualChangePp": {
@@ -29062,7 +29478,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -2.8,
+        "totalChangePp": -2.7,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.2,
         "localEffectPp": 4.5,
@@ -29422,6 +29838,14 @@
           "black": 11017,
           "mixed": 8175,
           "other": 2941
+        },
+        "census_groups": {
+          "white_british": 80.46,
+          "white_other": 9.84,
+          "asian": 3.54,
+          "black": 3.06,
+          "mixed": 2.27,
+          "other": 0.82
         }
       },
       "annualChangePp": {
@@ -29824,6 +30248,14 @@
           "OBL": 7250,
           "ARB": 2333,
           "OOT": 20083
+        },
+        "census_groups": {
+          "white_british": 33.93,
+          "white_other": 19.21,
+          "asian": 10.37,
+          "black": 21.09,
+          "mixed": 6.75,
+          "other": 8.65
         }
       },
       "annualChangePp": {
@@ -30397,6 +30829,14 @@
           "OBL": 86,
           "ARB": 222,
           "OOT": 679
+        },
+        "census_groups": {
+          "white_british": 90.36,
+          "white_other": 4.33,
+          "asian": 2.61,
+          "black": 0.5,
+          "mixed": 1.57,
+          "other": 0.63
         }
       },
       "annualChangePp": {
@@ -30970,6 +31410,14 @@
           "OBL": 260,
           "ARB": 823,
           "OOT": 1248
+        },
+        "census_groups": {
+          "white_british": 94.75,
+          "white_other": 2.08,
+          "asian": 1.5,
+          "black": 0.33,
+          "mixed": 0.95,
+          "other": 0.4
         }
       },
       "annualChangePp": {
@@ -31543,6 +31991,14 @@
           "OBL": 426,
           "ARB": 140,
           "OOT": 1172
+        },
+        "census_groups": {
+          "white_british": 74.92,
+          "white_other": 10.78,
+          "asian": 7.63,
+          "black": 2.72,
+          "mixed": 2.8,
+          "other": 1.15
         }
       },
       "annualChangePp": {
@@ -32108,6 +32564,14 @@
           "OBL": 938,
           "ARB": 348,
           "OOT": 3130
+        },
+        "census_groups": {
+          "white_british": 74.22,
+          "white_other": 7.25,
+          "asian": 11.64,
+          "black": 2.62,
+          "mixed": 2.78,
+          "other": 1.49
         }
       },
       "annualChangePp": {
@@ -32288,7 +32752,7 @@
         "totalChangePp": -10.4,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.3,
-        "localEffectPp": -4.1,
+        "localEffectPp": -4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -32645,6 +33109,14 @@
           "black": 4233,
           "mixed": 11093,
           "other": 5808
+        },
+        "census_groups": {
+          "white_british": 82.36,
+          "white_other": 8.97,
+          "asian": 3.39,
+          "black": 1.06,
+          "mixed": 2.77,
+          "other": 1.45
         }
       },
       "annualChangePp": {
@@ -33033,6 +33505,14 @@
           "OBL": 10810,
           "ARB": 3129,
           "OOT": 16311
+        },
+        "census_groups": {
+          "white_british": 35.51,
+          "white_other": 15.92,
+          "asian": 9.93,
+          "black": 25.13,
+          "mixed": 7.2,
+          "other": 6.32
         }
       },
       "annualChangePp": {
@@ -33565,6 +34045,14 @@
           "black": 606,
           "mixed": 2050,
           "other": 994
+        },
+        "census_groups": {
+          "white_british": 95.09,
+          "white_other": 2.58,
+          "asian": 0.99,
+          "black": 0.22,
+          "mixed": 0.75,
+          "other": 0.36
         }
       },
       "annualChangePp": {
@@ -33961,6 +34449,14 @@
           "OBL": 302,
           "ARB": 678,
           "OOT": 1905
+        },
+        "census_groups": {
+          "white_british": 89.46,
+          "white_other": 4.51,
+          "asian": 2.25,
+          "black": 1.05,
+          "mixed": 1.76,
+          "other": 0.97
         }
       },
       "annualChangePp": {
@@ -34534,6 +35030,14 @@
           "OBL": 3073,
           "ARB": 2262,
           "OOT": 14355
+        },
+        "census_groups": {
+          "white_british": 23.16,
+          "white_other": 11.65,
+          "asian": 47.33,
+          "black": 8.41,
+          "mixed": 4.1,
+          "other": 5.36
         }
       },
       "annualChangePp": {
@@ -34706,10 +35210,10 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -11.4,
+        "totalChangePp": -11.3,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.5,
-        "localEffectPp": -8.8,
+        "localEffectPp": -8.7,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -35108,6 +35612,14 @@
           "OBL": 1099,
           "ARB": 908,
           "OOT": 5031
+        },
+        "census_groups": {
+          "white_british": 59.51,
+          "white_other": 15.87,
+          "asian": 14.28,
+          "black": 4.06,
+          "mixed": 3.53,
+          "other": 2.74
         }
       },
       "annualChangePp": {
@@ -35693,6 +36205,14 @@
           "OBL": 544,
           "ARB": 543,
           "OOT": 1418
+        },
+        "census_groups": {
+          "white_british": 82.36,
+          "white_other": 3.19,
+          "asian": 9.17,
+          "black": 2.28,
+          "mixed": 2.15,
+          "other": 0.85
         }
       },
       "annualChangePp": {
@@ -36273,6 +36793,14 @@
           "OBL": 2396,
           "ARB": 3577,
           "OOT": 8503
+        },
+        "census_groups": {
+          "white_british": 22.94,
+          "white_other": 16.46,
+          "asian": 44.43,
+          "black": 7.31,
+          "mixed": 4.97,
+          "other": 3.89
         }
       },
       "annualChangePp": {
@@ -36805,6 +37333,14 @@
           "black": 20661,
           "mixed": 12116,
           "other": 4725
+        },
+        "census_groups": {
+          "white_british": 75.05,
+          "white_other": 10.86,
+          "asian": 5.28,
+          "black": 4.85,
+          "mixed": 2.85,
+          "other": 1.11
         }
       },
       "annualChangePp": {
@@ -37165,6 +37701,14 @@
           "black": 2456,
           "mixed": 6720,
           "other": 2843
+        },
+        "census_groups": {
+          "white_british": 93.27,
+          "white_other": 3.43,
+          "asian": 1.35,
+          "black": 0.4,
+          "mixed": 1.09,
+          "other": 0.46
         }
       },
       "annualChangePp": {
@@ -37561,6 +38105,14 @@
           "OBL": 347,
           "ARB": 709,
           "OOT": 2513
+        },
+        "census_groups": {
+          "white_british": 89.61,
+          "white_other": 4.82,
+          "asian": 2.39,
+          "black": 0.61,
+          "mixed": 1.77,
+          "other": 0.81
         }
       },
       "annualChangePp": {
@@ -38134,6 +38686,14 @@
           "OBL": 566,
           "ARB": 397,
           "OOT": 1458
+        },
+        "census_groups": {
+          "white_british": 78.74,
+          "white_other": 8.06,
+          "asian": 5.77,
+          "black": 2.84,
+          "mixed": 3.4,
+          "other": 1.2
         }
       },
       "annualChangePp": {
@@ -38699,6 +39259,14 @@
           "OBL": 55,
           "ARB": 158,
           "OOT": 625
+        },
+        "census_groups": {
+          "white_british": 77.92,
+          "white_other": 4.61,
+          "asian": 14.72,
+          "black": 0.34,
+          "mixed": 1.59,
+          "other": 0.82
         }
       },
       "annualChangePp": {
@@ -39265,6 +39833,14 @@
           "OBL": 221,
           "ARB": 400,
           "OOT": 1418
+        },
+        "census_groups": {
+          "white_british": 88.13,
+          "white_other": 5.39,
+          "asian": 3.3,
+          "black": 0.75,
+          "mixed": 1.58,
+          "other": 0.85
         }
       },
       "annualChangePp": {
@@ -39838,6 +40414,14 @@
           "OBL": 161,
           "ARB": 204,
           "OOT": 966
+        },
+        "census_groups": {
+          "white_british": 85.85,
+          "white_other": 6.39,
+          "asian": 3.61,
+          "black": 0.88,
+          "mixed": 2.51,
+          "other": 0.77
         }
       },
       "annualChangePp": {
@@ -40397,6 +40981,14 @@
           "OBL": 19,
           "ARB": 229,
           "OOT": 636
+        },
+        "census_groups": {
+          "white_british": 66.13,
+          "white_other": 4.45,
+          "asian": 26.71,
+          "black": 0.25,
+          "mixed": 1.55,
+          "other": 0.91
         }
       },
       "annualChangePp": {
@@ -40963,6 +41555,14 @@
           "OBL": 422,
           "ARB": 783,
           "OOT": 2039
+        },
+        "census_groups": {
+          "white_british": 88.26,
+          "white_other": 2.76,
+          "asian": 5.33,
+          "black": 1.13,
+          "mixed": 1.45,
+          "other": 1.06
         }
       },
       "annualChangePp": {
@@ -41134,7 +41734,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -3.7,
+        "totalChangePp": -3.6,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.9,
         "localEffectPp": 3.3,
@@ -41536,6 +42136,14 @@
           "OBL": 159,
           "ARB": 358,
           "OOT": 851
+        },
+        "census_groups": {
+          "white_british": 92.5,
+          "white_other": 2.35,
+          "asian": 2.58,
+          "black": 0.61,
+          "mixed": 1.38,
+          "other": 0.58
         }
       },
       "annualChangePp": {
@@ -42109,6 +42717,14 @@
           "OBL": 166,
           "ARB": 293,
           "OOT": 2113
+        },
+        "census_groups": {
+          "white_british": 75.88,
+          "white_other": 8.68,
+          "asian": 9.7,
+          "black": 1.09,
+          "mixed": 3.02,
+          "other": 1.63
         }
       },
       "annualChangePp": {
@@ -42674,6 +43290,14 @@
           "OBL": 201,
           "ARB": 524,
           "OOT": 1301
+        },
+        "census_groups": {
+          "white_british": 91.8,
+          "white_other": 4.02,
+          "asian": 1.54,
+          "black": 0.54,
+          "mixed": 1.45,
+          "other": 0.66
         }
       },
       "annualChangePp": {
@@ -43247,6 +43871,14 @@
           "OBL": 302,
           "ARB": 1171,
           "OOT": 1684
+        },
+        "census_groups": {
+          "white_british": 66.1,
+          "white_other": 6.5,
+          "asian": 20.17,
+          "black": 2.36,
+          "mixed": 2.95,
+          "other": 1.92
         }
       },
       "annualChangePp": {
@@ -43813,6 +44445,14 @@
           "OBL": 9796,
           "ARB": 2656,
           "OOT": 15399
+        },
+        "census_groups": {
+          "white_british": 37.59,
+          "white_other": 17.44,
+          "asian": 7.26,
+          "black": 23.97,
+          "mixed": 8.07,
+          "other": 5.68
         }
       },
       "annualChangePp": {
@@ -44386,6 +45026,14 @@
           "OBL": 23,
           "ARB": 163,
           "OOT": 372
+        },
+        "census_groups": {
+          "white_british": 79.61,
+          "white_other": 3.06,
+          "asian": 15.08,
+          "black": 0.27,
+          "mixed": 1.33,
+          "other": 0.65
         }
       },
       "annualChangePp": {
@@ -44564,7 +45212,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -5.6,
+        "totalChangePp": -5.7,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.4,
         "localEffectPp": 0.8,
@@ -44952,6 +45600,14 @@
           "OBL": 45,
           "ARB": 146,
           "OOT": 322
+        },
+        "census_groups": {
+          "white_british": 92.82,
+          "white_other": 4.09,
+          "asian": 1.05,
+          "black": 0.33,
+          "mixed": 1.32,
+          "other": 0.4
         }
       },
       "annualChangePp": {
@@ -45511,6 +46167,14 @@
           "OBL": 1028,
           "ARB": 2461,
           "OOT": 3323
+        },
+        "census_groups": {
+          "white_british": 72.13,
+          "white_other": 5.62,
+          "asian": 12.59,
+          "black": 3.44,
+          "mixed": 3.76,
+          "other": 2.46
         }
       },
       "annualChangePp": {
@@ -46091,6 +46755,14 @@
           "OBL": 58,
           "ARB": 266,
           "OOT": 283
+        },
+        "census_groups": {
+          "white_british": 95.04,
+          "white_other": 1.42,
+          "asian": 1.73,
+          "black": 0.48,
+          "mixed": 0.73,
+          "other": 0.6
         }
       },
       "annualChangePp": {
@@ -46664,6 +47336,14 @@
           "OBL": 478,
           "ARB": 709,
           "OOT": 3005
+        },
+        "census_groups": {
+          "white_british": 78.17,
+          "white_other": 4.74,
+          "asian": 10.62,
+          "black": 1.9,
+          "mixed": 2.64,
+          "other": 1.92
         }
       },
       "annualChangePp": {
@@ -47244,6 +47924,14 @@
           "OBL": 1354,
           "ARB": 681,
           "OOT": 2469
+        },
+        "census_groups": {
+          "white_british": 61.76,
+          "white_other": 11.61,
+          "asian": 15.39,
+          "black": 4.5,
+          "mixed": 4.08,
+          "other": 2.66
         }
       },
       "annualChangePp": {
@@ -47810,6 +48498,14 @@
           "OBL": 7064,
           "ARB": 2537,
           "OOT": 37522
+        },
+        "census_groups": {
+          "white_british": 31.26,
+          "white_other": 20.83,
+          "asian": 11.51,
+          "black": 18.34,
+          "mixed": 5.93,
+          "other": 12.14
         }
       },
       "annualChangePp": {
@@ -48384,6 +49080,14 @@
           "OBL": 760,
           "ARB": 335,
           "OOT": 1234
+        },
+        "census_groups": {
+          "white_british": 78.03,
+          "white_other": 6.91,
+          "asian": 6.45,
+          "black": 3.64,
+          "mixed": 3.79,
+          "other": 1.19
         }
       },
       "annualChangePp": {
@@ -48949,6 +49653,14 @@
           "OBL": 3373,
           "ARB": 1346,
           "OOT": 4366
+        },
+        "census_groups": {
+          "white_british": 62.21,
+          "white_other": 9.6,
+          "asian": 12.42,
+          "black": 9.7,
+          "mixed": 4.08,
+          "other": 1.99
         }
       },
       "annualChangePp": {
@@ -49529,6 +50241,14 @@
           "OBL": 1408,
           "ARB": 1827,
           "OOT": 7149
+        },
+        "census_groups": {
+          "white_british": 24.04,
+          "white_other": 12.01,
+          "asian": 46.75,
+          "black": 7.57,
+          "mixed": 3.98,
+          "other": 5.66
         }
       },
       "annualChangePp": {
@@ -50103,6 +50823,14 @@
           "OBL": 65,
           "ARB": 99,
           "OOT": 268
+        },
+        "census_groups": {
+          "white_british": 92.84,
+          "white_other": 2.55,
+          "asian": 2.08,
+          "black": 0.49,
+          "mixed": 1.72,
+          "other": 0.33
         }
       },
       "annualChangePp": {
@@ -50662,6 +51390,14 @@
           "OBL": 305,
           "ARB": 820,
           "OOT": 2459
+        },
+        "census_groups": {
+          "white_british": 69.05,
+          "white_other": 10.79,
+          "asian": 13.08,
+          "black": 1.54,
+          "mixed": 3.41,
+          "other": 2.14
         }
       },
       "annualChangePp": {
@@ -51242,6 +51978,14 @@
           "OBL": 591,
           "ARB": 381,
           "OOT": 1329
+        },
+        "census_groups": {
+          "white_british": 83.05,
+          "white_other": 5.48,
+          "asian": 5.31,
+          "black": 2.62,
+          "mixed": 2.6,
+          "other": 0.93
         }
       },
       "annualChangePp": {
@@ -51765,6 +52509,14 @@
           "black": 2436,
           "mixed": 7137,
           "other": 2469
+        },
+        "census_groups": {
+          "white_british": 91.3,
+          "white_other": 5.08,
+          "asian": 1.51,
+          "black": 0.43,
+          "mixed": 1.25,
+          "other": 0.43
         }
       },
       "annualChangePp": {
@@ -52161,6 +52913,14 @@
           "OBL": 2574,
           "ARB": 5544,
           "OOT": 7866
+        },
+        "census_groups": {
+          "white_british": 38.28,
+          "white_other": 24.88,
+          "asian": 10.54,
+          "black": 12.26,
+          "mixed": 6.73,
+          "other": 7.32
         }
       },
       "annualChangePp": {
@@ -52333,7 +53093,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -6.7,
+        "totalChangePp": -6.6,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 2.7,
         "localEffectPp": -3.3,
@@ -52735,6 +53495,14 @@
           "OBL": 36,
           "ARB": 99,
           "OOT": 194
+        },
+        "census_groups": {
+          "white_british": 95.73,
+          "white_other": 1.76,
+          "asian": 0.99,
+          "black": 0.24,
+          "mixed": 1.01,
+          "other": 0.26
         }
       },
       "annualChangePp": {
@@ -52909,7 +53677,7 @@
         "totalChangePp": -1,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.2,
-        "localEffectPp": 6.2,
+        "localEffectPp": 6.3,
         "dominantDriver": "national trend, offset by local migration"
       },
       "englishProficiency": {
@@ -53294,6 +54062,14 @@
           "OBL": 824,
           "ARB": 199,
           "OOT": 4331
+        },
+        "census_groups": {
+          "white_british": 68.57,
+          "white_other": 12.53,
+          "asian": 3.69,
+          "black": 6.65,
+          "mixed": 3.97,
+          "other": 4.58
         }
       },
       "annualChangePp": {
@@ -53471,7 +54247,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -12.3,
+        "totalChangePp": -12.2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 0,
         "localEffectPp": -6.2,
@@ -53860,6 +54636,14 @@
           "OBL": 2049,
           "ARB": 6234,
           "OOT": 12604
+        },
+        "census_groups": {
+          "white_british": 20.51,
+          "white_other": 15.95,
+          "asian": 45.23,
+          "black": 7.33,
+          "mixed": 3.76,
+          "other": 7.21
         }
       },
       "annualChangePp": {
@@ -54434,6 +55218,14 @@
           "OBL": 380,
           "ARB": 902,
           "OOT": 1653
+        },
+        "census_groups": {
+          "white_british": 77.56,
+          "white_other": 9.59,
+          "asian": 5.47,
+          "black": 2.49,
+          "mixed": 3.14,
+          "other": 1.76
         }
       },
       "annualChangePp": {
@@ -54611,7 +55403,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -7.2,
+        "totalChangePp": -7.1,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.3,
         "localEffectPp": -0.8,
@@ -54957,6 +55749,14 @@
           "black": 3737,
           "mixed": 4451,
           "other": 2737
+        },
+        "census_groups": {
+          "white_british": 80.36,
+          "white_other": 5.16,
+          "asian": 7.64,
+          "black": 2.34,
+          "mixed": 2.79,
+          "other": 1.71
         }
       },
       "annualChangePp": {
@@ -55414,6 +56214,14 @@
           "OBL": 816,
           "ARB": 1317,
           "OOT": 4511
+        },
+        "census_groups": {
+          "white_british": 68.09,
+          "white_other": 12.59,
+          "asian": 10.61,
+          "black": 3.03,
+          "mixed": 3.34,
+          "other": 2.34
         }
       },
       "annualChangePp": {
@@ -55998,6 +56806,14 @@
           "OBL": 542,
           "ARB": 452,
           "OOT": 1715
+        },
+        "census_groups": {
+          "white_british": 76.87,
+          "white_other": 7.55,
+          "asian": 7.55,
+          "black": 2.93,
+          "mixed": 3.67,
+          "other": 1.44
         }
       },
       "annualChangePp": {
@@ -56563,6 +57379,14 @@
           "OBL": 1225,
           "ARB": 234,
           "OOT": 1373
+        },
+        "census_groups": {
+          "white_british": 82.13,
+          "white_other": 5.37,
+          "asian": 4.26,
+          "black": 4.75,
+          "mixed": 2.63,
+          "other": 0.86
         }
       },
       "annualChangePp": {
@@ -57086,6 +57910,14 @@
           "black": 4340,
           "mixed": 3216,
           "other": 1143
+        },
+        "census_groups": {
+          "white_british": 75.3,
+          "white_other": 7.49,
+          "asian": 7.49,
+          "black": 4.85,
+          "mixed": 3.59,
+          "other": 1.28
         }
       },
       "annualChangePp": {
@@ -57542,6 +58374,14 @@
           "OBL": 163,
           "ARB": 290,
           "OOT": 559
+        },
+        "census_groups": {
+          "white_british": 92.35,
+          "white_other": 2.94,
+          "asian": 1.62,
+          "black": 0.82,
+          "mixed": 1.72,
+          "other": 0.55
         }
       },
       "annualChangePp": {
@@ -58115,6 +58955,14 @@
           "OBL": 800,
           "ARB": 718,
           "OOT": 2120
+        },
+        "census_groups": {
+          "white_british": 80.68,
+          "white_other": 6.34,
+          "asian": 5.14,
+          "black": 3.46,
+          "mixed": 2.91,
+          "other": 1.48
         }
       },
       "annualChangePp": {
@@ -58674,6 +59522,14 @@
           "OBL": 3042,
           "ARB": 1920,
           "OOT": 7977
+        },
+        "census_groups": {
+          "white_british": 41.21,
+          "white_other": 19.03,
+          "asian": 18.6,
+          "black": 10.64,
+          "mixed": 5.93,
+          "other": 4.6
         }
       },
       "annualChangePp": {
@@ -59248,6 +60104,14 @@
           "OBL": 5878,
           "ARB": 1502,
           "OOT": 6400
+        },
+        "census_groups": {
+          "white_british": 30.86,
+          "white_other": 14.04,
+          "asian": 25.85,
+          "black": 21.39,
+          "mixed": 4.26,
+          "other": 3.6
         }
       },
       "annualChangePp": {
@@ -59822,6 +60686,14 @@
           "OBL": 330,
           "ARB": 173,
           "OOT": 1404
+        },
+        "census_groups": {
+          "white_british": 81.82,
+          "white_other": 5.31,
+          "asian": 8.03,
+          "black": 1.82,
+          "mixed": 1.82,
+          "other": 1.18
         }
       },
       "annualChangePp": {
@@ -60387,6 +61259,14 @@
           "OBL": 587,
           "ARB": 879,
           "OOT": 2388
+        },
+        "census_groups": {
+          "white_british": 77.88,
+          "white_other": 4.29,
+          "asian": 11.03,
+          "black": 1.83,
+          "mixed": 3.47,
+          "other": 1.51
         }
       },
       "annualChangePp": {
@@ -60967,6 +61847,14 @@
           "OBL": 105,
           "ARB": 363,
           "OOT": 665
+        },
+        "census_groups": {
+          "white_british": 92.61,
+          "white_other": 3.61,
+          "asian": 1.55,
+          "black": 0.54,
+          "mixed": 1.03,
+          "other": 0.66
         }
       },
       "annualChangePp": {
@@ -61540,6 +62428,14 @@
           "OBL": 844,
           "ARB": 1444,
           "OOT": 4501
+        },
+        "census_groups": {
+          "white_british": 53.49,
+          "white_other": 17.21,
+          "asian": 15.42,
+          "black": 4.65,
+          "mixed": 5.56,
+          "other": 3.67
         }
       },
       "annualChangePp": {
@@ -62111,6 +63007,14 @@
           "OBL": 136,
           "ARB": 622,
           "OOT": 1334
+        },
+        "census_groups": {
+          "white_british": 87.25,
+          "white_other": 5.52,
+          "asian": 3.76,
+          "black": 0.65,
+          "mixed": 1.84,
+          "other": 0.96
         }
       },
       "annualChangePp": {
@@ -62689,6 +63593,14 @@
           "OBL": 34,
           "ARB": 323,
           "OOT": 221
+        },
+        "census_groups": {
+          "white_british": 96.53,
+          "white_other": 1.17,
+          "asian": 0.85,
+          "black": 0.19,
+          "mixed": 0.87,
+          "other": 0.39
         }
       },
       "annualChangePp": {
@@ -63262,6 +64174,14 @@
           "OBL": 1101,
           "ARB": 6369,
           "OOT": 7767
+        },
+        "census_groups": {
+          "white_british": 32.7,
+          "white_other": 31.05,
+          "asian": 11.87,
+          "black": 7.87,
+          "mixed": 6.64,
+          "other": 9.87
         }
       },
       "annualChangePp": {
@@ -63434,7 +64354,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -6.6,
+        "totalChangePp": -6.5,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 3.1,
         "localEffectPp": -3.6,
@@ -63836,6 +64756,14 @@
           "OBL": 10745,
           "ARB": 1673,
           "OOT": 12475
+        },
+        "census_groups": {
+          "white_british": 37.17,
+          "white_other": 14.31,
+          "asian": 8.96,
+          "black": 26.77,
+          "mixed": 8.07,
+          "other": 4.71
         }
       },
       "annualChangePp": {
@@ -64409,6 +65337,14 @@
           "OBL": 1910,
           "ARB": 436,
           "OOT": 3515
+        },
+        "census_groups": {
+          "white_british": 78.26,
+          "white_other": 6,
+          "asian": 5.89,
+          "black": 5.62,
+          "mixed": 2.81,
+          "other": 1.42
         }
       },
       "annualChangePp": {
@@ -64988,6 +65924,14 @@
           "OBL": 722,
           "ARB": 404,
           "OOT": 1627
+        },
+        "census_groups": {
+          "white_british": 81.6,
+          "white_other": 5.89,
+          "asian": 5.46,
+          "black": 2.85,
+          "mixed": 3.07,
+          "other": 1.13
         }
       },
       "annualChangePp": {
@@ -65561,6 +66505,14 @@
           "OBL": 69,
           "ARB": 474,
           "OOT": 823
+        },
+        "census_groups": {
+          "white_british": 87.84,
+          "white_other": 5.25,
+          "asian": 3.61,
+          "black": 0.85,
+          "mixed": 1.54,
+          "other": 0.91
         }
       },
       "annualChangePp": {
@@ -66120,6 +67072,14 @@
           "OBL": 26,
           "ARB": 73,
           "OOT": 183
+        },
+        "census_groups": {
+          "white_british": 90.41,
+          "white_other": 2.03,
+          "asian": 5.47,
+          "black": 0.24,
+          "mixed": 1.47,
+          "other": 0.38
         }
       },
       "annualChangePp": {
@@ -66679,6 +67639,14 @@
           "OBL": 243,
           "ARB": 609,
           "OOT": 1548
+        },
+        "census_groups": {
+          "white_british": 77.92,
+          "white_other": 4.41,
+          "asian": 12.42,
+          "black": 1.54,
+          "mixed": 2.53,
+          "other": 1.17
         }
       },
       "annualChangePp": {
@@ -66850,7 +67818,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -6.4,
+        "totalChangePp": -6.3,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.3,
         "localEffectPp": 0,
@@ -67196,6 +68164,14 @@
           "black": 588,
           "mixed": 1952,
           "other": 721
+        },
+        "census_groups": {
+          "white_british": 94.59,
+          "white_other": 3,
+          "asian": 0.97,
+          "black": 0.26,
+          "mixed": 0.86,
+          "other": 0.32
         }
       },
       "annualChangePp": {
@@ -67592,6 +68568,14 @@
           "OBL": 1998,
           "ARB": 4408,
           "OOT": 9784
+        },
+        "census_groups": {
+          "white_british": 35.38,
+          "white_other": 24.13,
+          "asian": 18.1,
+          "black": 8.99,
+          "mixed": 6.63,
+          "other": 6.76
         }
       },
       "annualChangePp": {
@@ -68166,6 +69150,14 @@
           "OBL": 97,
           "ARB": 230,
           "OOT": 280
+        },
+        "census_groups": {
+          "white_british": 92.96,
+          "white_other": 2.67,
+          "asian": 1.87,
+          "black": 0.55,
+          "mixed": 1.51,
+          "other": 0.44
         }
       },
       "annualChangePp": {
@@ -68337,7 +69329,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -2.2,
+        "totalChangePp": -2.1,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.1,
         "localEffectPp": 5,
@@ -68725,6 +69717,14 @@
           "OBL": 334,
           "ARB": 680,
           "OOT": 1675
+        },
+        "census_groups": {
+          "white_british": 82.51,
+          "white_other": 6.72,
+          "asian": 4.05,
+          "black": 2.48,
+          "mixed": 2.74,
+          "other": 1.5
         }
       },
       "annualChangePp": {
@@ -69284,6 +70284,14 @@
           "OBL": 112,
           "ARB": 325,
           "OOT": 600
+        },
+        "census_groups": {
+          "white_british": 90.28,
+          "white_other": 4.09,
+          "asian": 2.75,
+          "black": 0.65,
+          "mixed": 1.37,
+          "other": 0.86
         }
       },
       "annualChangePp": {
@@ -69458,7 +70466,7 @@
         "totalChangePp": -3.4,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
-        "localEffectPp": 3.7,
+        "localEffectPp": 3.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -69857,6 +70865,14 @@
           "OBL": 47,
           "ARB": 91,
           "OOT": 352
+        },
+        "census_groups": {
+          "white_british": 94.16,
+          "white_other": 3.21,
+          "asian": 0.97,
+          "black": 0.23,
+          "mixed": 1.14,
+          "other": 0.3
         }
       },
       "annualChangePp": {
@@ -70028,7 +71044,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -2.1,
+        "totalChangePp": -2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.2,
         "localEffectPp": 5.2,
@@ -70421,6 +71437,14 @@
           "OBL": 1173,
           "ARB": 564,
           "OOT": 2794
+        },
+        "census_groups": {
+          "white_british": 64.13,
+          "white_other": 11.55,
+          "asian": 12.56,
+          "black": 5.32,
+          "mixed": 4.64,
+          "other": 1.81
         }
       },
       "annualChangePp": {
@@ -71001,6 +72025,14 @@
           "OBL": 534,
           "ARB": 937,
           "OOT": 1946
+        },
+        "census_groups": {
+          "white_british": 72.72,
+          "white_other": 7.19,
+          "asian": 12.88,
+          "black": 2.43,
+          "mixed": 3.14,
+          "other": 1.64
         }
       },
       "annualChangePp": {
@@ -71581,6 +72613,14 @@
           "OBL": 98,
           "ARB": 101,
           "OOT": 528
+        },
+        "census_groups": {
+          "white_british": 90.47,
+          "white_other": 5.36,
+          "asian": 1.76,
+          "black": 0.61,
+          "mixed": 1.36,
+          "other": 0.44
         }
       },
       "annualChangePp": {
@@ -71752,7 +72792,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -3.1,
+        "totalChangePp": -3.2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
         "localEffectPp": 3.9,
@@ -72140,6 +73180,14 @@
           "OBL": 86,
           "ARB": 55,
           "OOT": 238
+        },
+        "census_groups": {
+          "white_british": 90.86,
+          "white_other": 4.9,
+          "asian": 1.37,
+          "black": 0.63,
+          "mixed": 1.87,
+          "other": 0.37
         }
       },
       "annualChangePp": {
@@ -72699,6 +73747,14 @@
           "OBL": 1199,
           "ARB": 641,
           "OOT": 2908
+        },
+        "census_groups": {
+          "white_british": 90.06,
+          "white_other": 4.28,
+          "asian": 2.13,
+          "black": 1.13,
+          "mixed": 1.71,
+          "other": 0.7
         }
       },
       "annualChangePp": {
@@ -73272,6 +74328,14 @@
           "OBL": 928,
           "ARB": 486,
           "OOT": 1974
+        },
+        "census_groups": {
+          "white_british": 83.52,
+          "white_other": 6.72,
+          "asian": 3.51,
+          "black": 2.39,
+          "mixed": 3.02,
+          "other": 0.84
         }
       },
       "annualChangePp": {
@@ -73803,6 +74867,14 @@
           "black": 7307,
           "mixed": 4931,
           "other": 2704
+        },
+        "census_groups": {
+          "white_british": 67.22,
+          "white_other": 11.47,
+          "asian": 8.84,
+          "black": 6.1,
+          "mixed": 4.11,
+          "other": 2.26
         }
       },
       "annualChangePp": {
@@ -74265,6 +75337,14 @@
           "OBL": 131,
           "ARB": 76,
           "OOT": 468
+        },
+        "census_groups": {
+          "white_british": 93.47,
+          "white_other": 2.73,
+          "asian": 1.21,
+          "black": 0.61,
+          "mixed": 1.61,
+          "other": 0.36
         }
       },
       "annualChangePp": {
@@ -74782,6 +75862,14 @@
           "black": 14269,
           "mixed": 19570,
           "other": 8757
+        },
+        "census_groups": {
+          "white_british": 72.59,
+          "white_other": 7.35,
+          "asian": 12.35,
+          "black": 2.58,
+          "mixed": 3.54,
+          "other": 1.58
         }
       },
       "annualChangePp": {
@@ -75184,6 +76272,14 @@
           "OBL": 157,
           "ARB": 91,
           "OOT": 480
+        },
+        "census_groups": {
+          "white_british": 91.97,
+          "white_other": 4.48,
+          "asian": 1.24,
+          "black": 0.62,
+          "mixed": 1.19,
+          "other": 0.5
         }
       },
       "annualChangePp": {
@@ -75743,6 +76839,14 @@
           "OBL": 5297,
           "ARB": 2880,
           "OOT": 13332
+        },
+        "census_groups": {
+          "white_british": 34.04,
+          "white_other": 18.77,
+          "asian": 19.95,
+          "black": 14.96,
+          "mixed": 6.46,
+          "other": 5.83
         }
       },
       "annualChangePp": {
@@ -76317,6 +77421,14 @@
           "OBL": 5271,
           "ARB": 2528,
           "OOT": 23026
+        },
+        "census_groups": {
+          "white_british": 31.9,
+          "white_other": 25.08,
+          "asian": 8.73,
+          "black": 17.58,
+          "mixed": 7.02,
+          "other": 9.67
         }
       },
       "annualChangePp": {
@@ -76890,6 +78002,14 @@
           "OBL": 111,
           "ARB": 144,
           "OOT": 521
+        },
+        "census_groups": {
+          "white_british": 90.13,
+          "white_other": 5.31,
+          "asian": 1.75,
+          "black": 0.63,
+          "mixed": 1.65,
+          "other": 0.54
         }
       },
       "annualChangePp": {
@@ -77449,6 +78569,14 @@
           "OBL": 2596,
           "ARB": 809,
           "OOT": 4458
+        },
+        "census_groups": {
+          "white_british": 66.49,
+          "white_other": 8.81,
+          "asian": 10.74,
+          "black": 8.23,
+          "mixed": 3.72,
+          "other": 2.01
         }
       },
       "annualChangePp": {
@@ -78029,6 +79157,14 @@
           "OBL": 3784,
           "ARB": 1202,
           "OOT": 6289
+        },
+        "census_groups": {
+          "white_british": 66.51,
+          "white_other": 9.94,
+          "asian": 8.28,
+          "black": 7.62,
+          "mixed": 5.38,
+          "other": 2.27
         }
       },
       "annualChangePp": {
@@ -78209,7 +79345,7 @@
         "totalChangePp": -10.9,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.2,
-        "localEffectPp": -5,
+        "localEffectPp": -5.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -78608,6 +79744,14 @@
           "OBL": 2537,
           "ARB": 368,
           "OOT": 2316
+        },
+        "census_groups": {
+          "white_british": 66.16,
+          "white_other": 10.54,
+          "asian": 6.93,
+          "black": 11.86,
+          "mixed": 2.98,
+          "other": 1.52
         }
       },
       "annualChangePp": {
@@ -78789,7 +79933,7 @@
         "totalChangePp": -14.7,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 0,
-        "localEffectPp": -8.7,
+        "localEffectPp": -8.6,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -79188,6 +80332,14 @@
           "OBL": 217,
           "ARB": 496,
           "OOT": 968
+        },
+        "census_groups": {
+          "white_british": 84.48,
+          "white_other": 4.43,
+          "asian": 5.55,
+          "black": 1.68,
+          "mixed": 2.54,
+          "other": 1.32
         }
       },
       "annualChangePp": {
@@ -79747,6 +80899,14 @@
           "OBL": 549,
           "ARB": 325,
           "OOT": 2689
+        },
+        "census_groups": {
+          "white_british": 75.56,
+          "white_other": 8.5,
+          "asian": 7.17,
+          "black": 2.91,
+          "mixed": 3.63,
+          "other": 2.23
         }
       },
       "annualChangePp": {
@@ -80313,6 +81473,14 @@
           "OBL": 157,
           "ARB": 189,
           "OOT": 628
+        },
+        "census_groups": {
+          "white_british": 87.32,
+          "white_other": 7.46,
+          "asian": 2.02,
+          "black": 1.06,
+          "mixed": 1.4,
+          "other": 0.74
         }
       },
       "annualChangePp": {
@@ -80872,6 +82040,14 @@
           "OBL": 338,
           "ARB": 293,
           "OOT": 1582
+        },
+        "census_groups": {
+          "white_british": 82.62,
+          "white_other": 5.44,
+          "asian": 5.78,
+          "black": 2.58,
+          "mixed": 2.17,
+          "other": 1.42
         }
       },
       "annualChangePp": {
@@ -81431,6 +82607,14 @@
           "OBL": 153,
           "ARB": 326,
           "OOT": 903
+        },
+        "census_groups": {
+          "white_british": 83.25,
+          "white_other": 8.1,
+          "asian": 4.14,
+          "black": 0.99,
+          "mixed": 2.48,
+          "other": 1.03
         }
       },
       "annualChangePp": {
@@ -81990,6 +83174,14 @@
           "OBL": 133,
           "ARB": 193,
           "OOT": 660
+        },
+        "census_groups": {
+          "white_british": 89.98,
+          "white_other": 2.9,
+          "asian": 3.76,
+          "black": 1.05,
+          "mixed": 1.61,
+          "other": 0.7
         }
       },
       "annualChangePp": {
@@ -82161,7 +83353,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -3.2,
+        "totalChangePp": -3.3,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
         "localEffectPp": 3.8,
@@ -82549,6 +83741,14 @@
           "OBL": 450,
           "ARB": 289,
           "OOT": 1193
+        },
+        "census_groups": {
+          "white_british": 81.3,
+          "white_other": 6.25,
+          "asian": 5.22,
+          "black": 2.43,
+          "mixed": 3.69,
+          "other": 1.12
         }
       },
       "annualChangePp": {
@@ -83108,6 +84308,14 @@
           "OBL": 432,
           "ARB": 179,
           "OOT": 2606
+        },
+        "census_groups": {
+          "white_british": 71.09,
+          "white_other": 6.32,
+          "asian": 14.69,
+          "black": 2.54,
+          "mixed": 2.58,
+          "other": 2.78
         }
       },
       "annualChangePp": {
@@ -83631,6 +84839,14 @@
           "black": 997,
           "mixed": 2469,
           "other": 758
+        },
+        "census_groups": {
+          "white_british": 95.15,
+          "white_other": 1.6,
+          "asian": 1.48,
+          "black": 0.42,
+          "mixed": 1.04,
+          "other": 0.32
         }
       },
       "annualChangePp": {
@@ -84087,6 +85303,14 @@
           "OBL": 59,
           "ARB": 133,
           "OOT": 588
+        },
+        "census_groups": {
+          "white_british": 90.06,
+          "white_other": 5.45,
+          "asian": 1.9,
+          "black": 0.36,
+          "mixed": 1.7,
+          "other": 0.53
         }
       },
       "annualChangePp": {
@@ -84646,6 +85870,14 @@
           "OBL": 230,
           "ARB": 98,
           "OOT": 447
+        },
+        "census_groups": {
+          "white_british": 91.82,
+          "white_other": 3.31,
+          "asian": 1.56,
+          "black": 1.25,
+          "mixed": 1.63,
+          "other": 0.44
         }
       },
       "annualChangePp": {
@@ -85205,6 +86437,14 @@
           "OBL": 139,
           "ARB": 163,
           "OOT": 869
+        },
+        "census_groups": {
+          "white_british": 82.67,
+          "white_other": 7.33,
+          "asian": 5.64,
+          "black": 1.17,
+          "mixed": 2.2,
+          "other": 1
         }
       },
       "annualChangePp": {
@@ -85376,7 +86616,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -6.5,
+        "totalChangePp": -6.4,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.6,
         "localEffectPp": 0.3,
@@ -85769,6 +87009,14 @@
           "OBL": 429,
           "ARB": 382,
           "OOT": 1646
+        },
+        "census_groups": {
+          "white_british": 77.89,
+          "white_other": 10.19,
+          "asian": 6.03,
+          "black": 1.77,
+          "mixed": 2.87,
+          "other": 1.25
         }
       },
       "annualChangePp": {
@@ -85949,7 +87197,7 @@
         "totalChangePp": -8.5,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.4,
-        "localEffectPp": -2,
+        "localEffectPp": -1.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -86334,6 +87582,14 @@
           "OBL": 112,
           "ARB": 63,
           "OOT": 367
+        },
+        "census_groups": {
+          "white_british": 92.46,
+          "white_other": 2.98,
+          "asian": 1.58,
+          "black": 0.77,
+          "mixed": 1.81,
+          "other": 0.38
         }
       },
       "annualChangePp": {
@@ -86898,6 +88154,14 @@
           "OBL": 7703,
           "ARB": 1466,
           "OOT": 10682
+        },
+        "census_groups": {
+          "white_british": 41.4,
+          "white_other": 14.3,
+          "asian": 13.16,
+          "black": 20.96,
+          "mixed": 5.98,
+          "other": 4.2
         }
       },
       "annualChangePp": {
@@ -87472,6 +88736,14 @@
           "OBL": 519,
           "ARB": 750,
           "OOT": 1899
+        },
+        "census_groups": {
+          "white_british": 85.79,
+          "white_other": 5.4,
+          "asian": 3.82,
+          "black": 1.56,
+          "mixed": 2.51,
+          "other": 0.91
         }
       },
       "annualChangePp": {
@@ -88045,6 +89317,14 @@
           "OBL": 181,
           "ARB": 193,
           "OOT": 1134
+        },
+        "census_groups": {
+          "white_british": 78.23,
+          "white_other": 8.09,
+          "asian": 9.31,
+          "black": 1.11,
+          "mixed": 2.2,
+          "other": 1.06
         }
       },
       "annualChangePp": {
@@ -88611,6 +89891,14 @@
           "OBL": 859,
           "ARB": 124,
           "OOT": 3103
+        },
+        "census_groups": {
+          "white_british": 68.31,
+          "white_other": 8.29,
+          "asian": 11.22,
+          "black": 6.5,
+          "mixed": 2.65,
+          "other": 3.02
         }
       },
       "annualChangePp": {
@@ -89176,6 +90464,14 @@
           "OBL": 59,
           "ARB": 36,
           "OOT": 195
+        },
+        "census_groups": {
+          "white_british": 93.25,
+          "white_other": 4.1,
+          "asian": 0.9,
+          "black": 0.52,
+          "mixed": 0.93,
+          "other": 0.3
         }
       },
       "annualChangePp": {
@@ -89693,6 +90989,14 @@
           "black": 878,
           "mixed": 1558,
           "other": 763
+        },
+        "census_groups": {
+          "white_british": 90.69,
+          "white_other": 5.28,
+          "asian": 1.66,
+          "black": 0.65,
+          "mixed": 1.15,
+          "other": 0.56
         }
       },
       "annualChangePp": {
@@ -90149,6 +91453,14 @@
           "OBL": 87,
           "ARB": 137,
           "OOT": 531
+        },
+        "census_groups": {
+          "white_british": 88.98,
+          "white_other": 6.24,
+          "asian": 1.69,
+          "black": 0.63,
+          "mixed": 1.87,
+          "other": 0.58
         }
       },
       "annualChangePp": {
@@ -90708,6 +92020,14 @@
           "OBL": 162,
           "ARB": 248,
           "OOT": 1451
+        },
+        "census_groups": {
+          "white_british": 87.35,
+          "white_other": 5.64,
+          "asian": 2.32,
+          "black": 1.05,
+          "mixed": 2.43,
+          "other": 1.21
         }
       },
       "annualChangePp": {
@@ -91267,6 +92587,14 @@
           "OBL": 55,
           "ARB": 119,
           "OOT": 731
+        },
+        "census_groups": {
+          "white_british": 74.52,
+          "white_other": 20.13,
+          "asian": 2.05,
+          "black": 0.66,
+          "mixed": 1.44,
+          "other": 1.2
         }
       },
       "annualChangePp": {
@@ -91832,6 +93160,14 @@
           "OBL": 94,
           "ARB": 37,
           "OOT": 260
+        },
+        "census_groups": {
+          "white_british": 93.79,
+          "white_other": 2.07,
+          "asian": 1.38,
+          "black": 0.74,
+          "mixed": 1.67,
+          "other": 0.35
         }
       },
       "annualChangePp": {
@@ -92391,6 +93727,14 @@
           "OBL": 892,
           "ARB": 353,
           "OOT": 2634
+        },
+        "census_groups": {
+          "white_british": 74.62,
+          "white_other": 9.7,
+          "asian": 5.45,
+          "black": 3.5,
+          "mixed": 4.59,
+          "other": 2.14
         }
       },
       "annualChangePp": {
@@ -92956,6 +94300,14 @@
           "OBL": 73,
           "ARB": 94,
           "OOT": 516
+        },
+        "census_groups": {
+          "white_british": 90.61,
+          "white_other": 6.25,
+          "asian": 1.14,
+          "black": 0.35,
+          "mixed": 1.21,
+          "other": 0.45
         }
       },
       "annualChangePp": {
@@ -93515,6 +94867,14 @@
           "OBL": 36,
           "ARB": 57,
           "OOT": 243
+        },
+        "census_groups": {
+          "white_british": 95.6,
+          "white_other": 2.15,
+          "asian": 0.8,
+          "black": 0.21,
+          "mixed": 1.04,
+          "other": 0.2
         }
       },
       "annualChangePp": {
@@ -94074,6 +95434,14 @@
           "OBL": 3586,
           "ARB": 521,
           "OOT": 5552
+        },
+        "census_groups": {
+          "white_british": 64.45,
+          "white_other": 7.43,
+          "asian": 9.91,
+          "black": 12.2,
+          "mixed": 3.55,
+          "other": 2.46
         }
       },
       "annualChangePp": {
@@ -94654,6 +96022,14 @@
           "OBL": 516,
           "ARB": 3048,
           "OOT": 5584
+        },
+        "census_groups": {
+          "white_british": 73.92,
+          "white_other": 11.45,
+          "asian": 4.77,
+          "black": 1.97,
+          "mixed": 4.77,
+          "other": 3.11
         }
       },
       "annualChangePp": {
@@ -94831,7 +96207,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -6.5,
+        "totalChangePp": -6.6,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 0,
         "localEffectPp": -0.5,
@@ -95233,6 +96609,14 @@
           "OBL": 80,
           "ARB": 65,
           "OOT": 427
+        },
+        "census_groups": {
+          "white_british": 92.1,
+          "white_other": 3.84,
+          "asian": 1.47,
+          "black": 0.61,
+          "mixed": 1.52,
+          "other": 0.46
         }
       },
       "annualChangePp": {
@@ -95404,7 +96788,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -3.3,
+        "totalChangePp": -3.2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.1,
         "localEffectPp": 3.9,
@@ -95750,6 +97134,14 @@
           "black": 283,
           "mixed": 1754,
           "other": 379
+        },
+        "census_groups": {
+          "white_british": 96.25,
+          "white_other": 1.48,
+          "asian": 0.9,
+          "black": 0.16,
+          "mixed": 1,
+          "other": 0.22
         }
       },
       "annualChangePp": {
@@ -96206,6 +97598,14 @@
           "OBL": 359,
           "ARB": 358,
           "OOT": 1198
+        },
+        "census_groups": {
+          "white_british": 83.16,
+          "white_other": 7.62,
+          "asian": 3.95,
+          "black": 1.67,
+          "mixed": 2.49,
+          "other": 1.12
         }
       },
       "annualChangePp": {
@@ -96765,6 +98165,14 @@
           "OBL": 162,
           "ARB": 210,
           "OOT": 702
+        },
+        "census_groups": {
+          "white_british": 88.13,
+          "white_other": 5.51,
+          "asian": 2.71,
+          "black": 0.89,
+          "mixed": 2.13,
+          "other": 0.63
         }
       },
       "annualChangePp": {
@@ -97324,6 +98732,14 @@
           "OBL": 255,
           "ARB": 523,
           "OOT": 1975
+        },
+        "census_groups": {
+          "white_british": 69.21,
+          "white_other": 9.46,
+          "asian": 12.77,
+          "black": 2.47,
+          "mixed": 3.65,
+          "other": 2.43
         }
       },
       "annualChangePp": {
@@ -97890,6 +99306,14 @@
           "OBL": 183,
           "ARB": 364,
           "OOT": 1266
+        },
+        "census_groups": {
+          "white_british": 77.91,
+          "white_other": 7.11,
+          "asian": 8.91,
+          "black": 1.58,
+          "mixed": 2.72,
+          "other": 1.78
         }
       },
       "annualChangePp": {
@@ -98067,10 +99491,10 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -7.1,
+        "totalChangePp": -7,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.3,
-        "localEffectPp": -0.7,
+        "localEffectPp": -0.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -98455,6 +99879,14 @@
           "OBL": 54,
           "ARB": 29,
           "OOT": 272
+        },
+        "census_groups": {
+          "white_british": 95.03,
+          "white_other": 2.24,
+          "asian": 0.96,
+          "black": 0.3,
+          "mixed": 1.23,
+          "other": 0.24
         }
       },
       "annualChangePp": {
@@ -99014,6 +100446,14 @@
           "OBL": 158,
           "ARB": 240,
           "OOT": 954
+        },
+        "census_groups": {
+          "white_british": 90.4,
+          "white_other": 5.31,
+          "asian": 1.53,
+          "black": 0.53,
+          "mixed": 1.68,
+          "other": 0.56
         }
       },
       "annualChangePp": {
@@ -99587,6 +101027,14 @@
           "OBL": 176,
           "ARB": 58,
           "OOT": 471
+        },
+        "census_groups": {
+          "white_british": 92.18,
+          "white_other": 1.57,
+          "asian": 2.81,
+          "black": 0.93,
+          "mixed": 2.03,
+          "other": 0.47
         }
       },
       "annualChangePp": {
@@ -99761,7 +101209,7 @@
         "totalChangePp": -2.5,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.1,
-        "localEffectPp": 4.6,
+        "localEffectPp": 4.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -100146,6 +101594,14 @@
           "OBL": 70,
           "ARB": 220,
           "OOT": 1155
+        },
+        "census_groups": {
+          "white_british": 88.73,
+          "white_other": 5.6,
+          "asian": 3.31,
+          "black": 0.48,
+          "mixed": 1.07,
+          "other": 0.81
         }
       },
       "annualChangePp": {
@@ -100317,7 +101773,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -3.6,
+        "totalChangePp": -3.5,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.9,
         "localEffectPp": 3.4,
@@ -100719,6 +102175,14 @@
           "OBL": 136,
           "ARB": 82,
           "OOT": 343
+        },
+        "census_groups": {
+          "white_british": 93.07,
+          "white_other": 2.38,
+          "asian": 1.88,
+          "black": 0.81,
+          "mixed": 1.45,
+          "other": 0.41
         }
       },
       "annualChangePp": {
@@ -100893,7 +102357,7 @@
         "totalChangePp": -1.8,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.1,
-        "localEffectPp": 5.3,
+        "localEffectPp": 5.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -101278,6 +102742,14 @@
           "OBL": 73,
           "ARB": 52,
           "OOT": 524
+        },
+        "census_groups": {
+          "white_british": 84.36,
+          "white_other": 11.96,
+          "asian": 1.24,
+          "black": 0.54,
+          "mixed": 1.29,
+          "other": 0.61
         }
       },
       "annualChangePp": {
@@ -101795,6 +103267,14 @@
           "black": 268,
           "mixed": 1052,
           "other": 362
+        },
+        "census_groups": {
+          "white_british": 94.42,
+          "white_other": 2.11,
+          "asian": 1.72,
+          "black": 0.28,
+          "mixed": 1.1,
+          "other": 0.38
         }
       },
       "annualChangePp": {
@@ -102251,6 +103731,14 @@
           "OBL": 78,
           "ARB": 90,
           "OOT": 282
+        },
+        "census_groups": {
+          "white_british": 93.14,
+          "white_other": 3.12,
+          "asian": 1.44,
+          "black": 0.41,
+          "mixed": 1.42,
+          "other": 0.47
         }
       },
       "annualChangePp": {
@@ -102810,6 +104298,14 @@
           "OBL": 162,
           "ARB": 113,
           "OOT": 410
+        },
+        "census_groups": {
+          "white_british": 91.04,
+          "white_other": 5.23,
+          "asian": 1.15,
+          "black": 0.65,
+          "mixed": 1.5,
+          "other": 0.43
         }
       },
       "annualChangePp": {
@@ -103369,6 +104865,14 @@
           "OBL": 556,
           "ARB": 3587,
           "OOT": 5969
+        },
+        "census_groups": {
+          "white_british": 53.72,
+          "white_other": 14.6,
+          "asian": 17.81,
+          "black": 2.82,
+          "mixed": 5.35,
+          "other": 5.69
         }
       },
       "annualChangePp": {
@@ -103949,6 +105453,14 @@
           "OBL": 4363,
           "ARB": 3871,
           "OOT": 9589
+        },
+        "census_groups": {
+          "white_british": 47.95,
+          "white_other": 19.86,
+          "asian": 11.7,
+          "black": 10.1,
+          "mixed": 6.29,
+          "other": 4.1
         }
       },
       "annualChangePp": {
@@ -104523,6 +106035,14 @@
           "OBL": 89,
           "ARB": 185,
           "OOT": 649
+        },
+        "census_groups": {
+          "white_british": 88.12,
+          "white_other": 5.49,
+          "asian": 3.07,
+          "black": 0.62,
+          "mixed": 2.03,
+          "other": 0.66
         }
       },
       "annualChangePp": {
@@ -105082,6 +106602,14 @@
           "OBL": 116,
           "ARB": 131,
           "OOT": 863
+        },
+        "census_groups": {
+          "white_british": 90.29,
+          "white_other": 4.56,
+          "asian": 2.06,
+          "black": 0.72,
+          "mixed": 1.51,
+          "other": 0.86
         }
       },
       "annualChangePp": {
@@ -105641,6 +107169,14 @@
           "OBL": 751,
           "ARB": 309,
           "OOT": 1380
+        },
+        "census_groups": {
+          "white_british": 72.85,
+          "white_other": 9.88,
+          "asian": 5.95,
+          "black": 6.24,
+          "mixed": 3.27,
+          "other": 1.81
         }
       },
       "annualChangePp": {
@@ -106207,6 +107743,14 @@
           "OBL": 84,
           "ARB": 93,
           "OOT": 548
+        },
+        "census_groups": {
+          "white_british": 90.83,
+          "white_other": 3.48,
+          "asian": 2.77,
+          "black": 0.61,
+          "mixed": 1.75,
+          "other": 0.56
         }
       },
       "annualChangePp": {
@@ -106724,6 +108268,14 @@
           "black": 522,
           "mixed": 1583,
           "other": 421
+        },
+        "census_groups": {
+          "white_british": 94.95,
+          "white_other": 1.69,
+          "asian": 1.58,
+          "black": 0.37,
+          "mixed": 1.11,
+          "other": 0.3
         }
       },
       "annualChangePp": {
@@ -107180,6 +108732,14 @@
           "OBL": 394,
           "ARB": 190,
           "OOT": 828
+        },
+        "census_groups": {
+          "white_british": 85.59,
+          "white_other": 3.88,
+          "asian": 3.86,
+          "black": 2.28,
+          "mixed": 3.52,
+          "other": 0.86
         }
       },
       "annualChangePp": {
@@ -107351,10 +108911,10 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -4.8,
+        "totalChangePp": -4.7,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.7,
-        "localEffectPp": 2,
+        "localEffectPp": 2.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -107739,6 +109299,14 @@
           "OBL": 492,
           "ARB": 125,
           "OOT": 660
+        },
+        "census_groups": {
+          "white_british": 88.6,
+          "white_other": 5.25,
+          "asian": 1.52,
+          "black": 2.3,
+          "mixed": 1.81,
+          "other": 0.52
         }
       },
       "annualChangePp": {
@@ -107910,10 +109478,10 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -4.2,
+        "totalChangePp": -4.3,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.9,
-        "localEffectPp": 2.8,
+        "localEffectPp": 2.7,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -108256,6 +109824,14 @@
           "black": 292,
           "mixed": 1446,
           "other": 535
+        },
+        "census_groups": {
+          "white_british": 93.16,
+          "white_other": 4.44,
+          "asian": 0.94,
+          "black": 0.19,
+          "mixed": 0.93,
+          "other": 0.35
         }
       },
       "annualChangePp": {
@@ -108712,6 +110288,14 @@
           "OBL": 119,
           "ARB": 79,
           "OOT": 531
+        },
+        "census_groups": {
+          "white_british": 88.94,
+          "white_other": 5.53,
+          "asian": 1.89,
+          "black": 0.78,
+          "mixed": 2.21,
+          "other": 0.66
         }
       },
       "annualChangePp": {
@@ -109271,6 +110855,14 @@
           "OBL": 175,
           "ARB": 330,
           "OOT": 1044
+        },
+        "census_groups": {
+          "white_british": 85.08,
+          "white_other": 6.34,
+          "asian": 2.79,
+          "black": 1.39,
+          "mixed": 2.9,
+          "other": 1.5
         }
       },
       "annualChangePp": {
@@ -109442,7 +111034,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -4.3,
+        "totalChangePp": -4.2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.7,
         "localEffectPp": 2.5,
@@ -109788,6 +111380,14 @@
           "black": 455,
           "mixed": 1756,
           "other": 714
+        },
+        "census_groups": {
+          "white_british": 94.03,
+          "white_other": 3.18,
+          "asian": 1.24,
+          "black": 0.24,
+          "mixed": 0.93,
+          "other": 0.38
         }
       },
       "annualChangePp": {
@@ -110244,6 +111844,14 @@
           "OBL": 45,
           "ARB": 135,
           "OOT": 485
+        },
+        "census_groups": {
+          "white_british": 92.14,
+          "white_other": 3.98,
+          "asian": 1.62,
+          "black": 0.32,
+          "mixed": 1.5,
+          "other": 0.44
         }
       },
       "annualChangePp": {
@@ -110418,7 +112026,7 @@
         "totalChangePp": -2.7,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.1,
-        "localEffectPp": 4.4,
+        "localEffectPp": 4.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -110817,6 +112425,14 @@
           "OBL": 47,
           "ARB": 21,
           "OOT": 169
+        },
+        "census_groups": {
+          "white_british": 95.74,
+          "white_other": 1.68,
+          "asian": 0.93,
+          "black": 0.32,
+          "mixed": 1.15,
+          "other": 0.19
         }
       },
       "annualChangePp": {
@@ -111376,6 +112992,14 @@
           "OBL": 106,
           "ARB": 365,
           "OOT": 899
+        },
+        "census_groups": {
+          "white_british": 94.63,
+          "white_other": 2.72,
+          "asian": 1.08,
+          "black": 0.26,
+          "mixed": 0.93,
+          "other": 0.37
         }
       },
       "annualChangePp": {
@@ -111907,6 +113531,14 @@
           "black": 3159,
           "mixed": 6354,
           "other": 2615
+        },
+        "census_groups": {
+          "white_british": 73.54,
+          "white_other": 10.06,
+          "asian": 8.22,
+          "black": 2.13,
+          "mixed": 4.29,
+          "other": 1.76
         }
       },
       "annualChangePp": {
@@ -112369,6 +114001,14 @@
           "OBL": 56,
           "ARB": 34,
           "OOT": 165
+        },
+        "census_groups": {
+          "white_british": 93.18,
+          "white_other": 2.95,
+          "asian": 1.3,
+          "black": 0.56,
+          "mixed": 1.71,
+          "other": 0.31
         }
       },
       "annualChangePp": {
@@ -112886,6 +114526,14 @@
           "black": 513,
           "mixed": 1333,
           "other": 591
+        },
+        "census_groups": {
+          "white_british": 93.32,
+          "white_other": 2.93,
+          "asian": 1.68,
+          "black": 0.44,
+          "mixed": 1.14,
+          "other": 0.5
         }
       },
       "annualChangePp": {
@@ -113342,6 +114990,14 @@
           "OBL": 3285,
           "ARB": 3000,
           "OOT": 12349
+        },
+        "census_groups": {
+          "white_british": 39.75,
+          "white_other": 22.47,
+          "asian": 9.94,
+          "black": 13.27,
+          "mixed": 7.49,
+          "other": 7.08
         }
       },
       "annualChangePp": {
@@ -113916,6 +115572,14 @@
           "OBL": 583,
           "ARB": 374,
           "OOT": 3775
+        },
+        "census_groups": {
+          "white_british": 63.09,
+          "white_other": 14.02,
+          "asian": 10.5,
+          "black": 4.8,
+          "mixed": 3.74,
+          "other": 3.84
         }
       },
       "annualChangePp": {
@@ -114482,6 +116146,14 @@
           "OBL": 67,
           "ARB": 62,
           "OOT": 329
+        },
+        "census_groups": {
+          "white_british": 92.47,
+          "white_other": 3.41,
+          "asian": 1.91,
+          "black": 0.39,
+          "mixed": 1.45,
+          "other": 0.38
         }
       },
       "annualChangePp": {
@@ -114999,6 +116671,14 @@
           "black": 115,
           "mixed": 569,
           "other": 142
+        },
+        "census_groups": {
+          "white_british": 95.65,
+          "white_other": 2.19,
+          "asian": 0.93,
+          "black": 0.17,
+          "mixed": 0.85,
+          "other": 0.21
         }
       },
       "annualChangePp": {
@@ -115455,6 +117135,14 @@
           "OBL": 394,
           "ARB": 256,
           "OOT": 1835
+        },
+        "census_groups": {
+          "white_british": 81.98,
+          "white_other": 7.82,
+          "asian": 4.67,
+          "black": 2.05,
+          "mixed": 2.28,
+          "other": 1.19
         }
       },
       "annualChangePp": {
@@ -115972,6 +117660,14 @@
           "black": 429,
           "mixed": 1684,
           "other": 426
+        },
+        "census_groups": {
+          "white_british": 94.68,
+          "white_other": 2.09,
+          "asian": 1.48,
+          "black": 0.29,
+          "mixed": 1.16,
+          "other": 0.29
         }
       },
       "annualChangePp": {
@@ -116428,6 +118124,14 @@
           "OBL": 43,
           "ARB": 82,
           "OOT": 254
+        },
+        "census_groups": {
+          "white_british": 94.55,
+          "white_other": 2.41,
+          "asian": 1.19,
+          "black": 0.35,
+          "mixed": 1.14,
+          "other": 0.36
         }
       },
       "annualChangePp": {
@@ -116987,6 +118691,14 @@
           "OBL": 29,
           "ARB": 67,
           "OOT": 281
+        },
+        "census_groups": {
+          "white_british": 94.91,
+          "white_other": 2.77,
+          "asian": 0.74,
+          "black": 0.16,
+          "mixed": 1.16,
+          "other": 0.26
         }
       },
       "annualChangePp": {
@@ -117504,6 +119216,14 @@
           "black": 1357,
           "mixed": 3707,
           "other": 922
+        },
+        "census_groups": {
+          "white_british": 93.09,
+          "white_other": 3.07,
+          "asian": 1.4,
+          "black": 0.55,
+          "mixed": 1.51,
+          "other": 0.37
         }
       },
       "annualChangePp": {
@@ -117886,6 +119606,14 @@
           "OBL": 163,
           "ARB": 438,
           "OOT": 1249
+        },
+        "census_groups": {
+          "white_british": 82.09,
+          "white_other": 8.73,
+          "asian": 3.49,
+          "black": 1.29,
+          "mixed": 2.76,
+          "other": 1.66
         }
       },
       "annualChangePp": {
@@ -118060,7 +119788,7 @@
         "totalChangePp": -5.3,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.5,
-        "localEffectPp": 1.2,
+        "localEffectPp": 1.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -118445,6 +120173,14 @@
           "OBL": 113,
           "ARB": 370,
           "OOT": 709
+        },
+        "census_groups": {
+          "white_british": 86.06,
+          "white_other": 3.65,
+          "asian": 5.69,
+          "black": 0.92,
+          "mixed": 2.77,
+          "other": 0.9
         }
       },
       "annualChangePp": {
@@ -119004,6 +120740,14 @@
           "OBL": 322,
           "ARB": 286,
           "OOT": 907
+        },
+        "census_groups": {
+          "white_british": 85.63,
+          "white_other": 6.28,
+          "asian": 3.71,
+          "black": 1.26,
+          "mixed": 2.39,
+          "other": 0.73
         }
       },
       "annualChangePp": {
@@ -119577,6 +121321,14 @@
           "OBL": 137,
           "ARB": 383,
           "OOT": 1510
+        },
+        "census_groups": {
+          "white_british": 59.76,
+          "white_other": 3.6,
+          "asian": 27.93,
+          "black": 2.17,
+          "mixed": 3.24,
+          "other": 3.29
         }
       },
       "annualChangePp": {
@@ -120143,6 +121895,14 @@
           "OBL": 173,
           "ARB": 172,
           "OOT": 1156
+        },
+        "census_groups": {
+          "white_british": 82.34,
+          "white_other": 3.89,
+          "asian": 8.26,
+          "black": 1.55,
+          "mixed": 2.69,
+          "other": 1.28
         }
       },
       "annualChangePp": {
@@ -120314,10 +122074,10 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -6.3,
+        "totalChangePp": -6.2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.6,
-        "localEffectPp": 0.4,
+        "localEffectPp": 0.5,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -120660,6 +122420,14 @@
           "black": 91,
           "mixed": 510,
           "other": 227
+        },
+        "census_groups": {
+          "white_british": 93.33,
+          "white_other": 3.78,
+          "asian": 1.48,
+          "black": 0.15,
+          "mixed": 0.87,
+          "other": 0.39
         }
       },
       "annualChangePp": {
@@ -121116,6 +122884,14 @@
           "OBL": 1705,
           "ARB": 15429,
           "OOT": 12036
+        },
+        "census_groups": {
+          "white_british": 27.99,
+          "white_other": 27.21,
+          "asian": 16.77,
+          "black": 8.06,
+          "mixed": 6.53,
+          "other": 13.45
         }
       },
       "annualChangePp": {
@@ -121690,6 +123466,14 @@
           "OBL": 68,
           "ARB": 26,
           "OOT": 268
+        },
+        "census_groups": {
+          "white_british": 94.52,
+          "white_other": 2.1,
+          "asian": 1.2,
+          "black": 0.47,
+          "mixed": 1.41,
+          "other": 0.29
         }
       },
       "annualChangePp": {
@@ -121861,7 +123645,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -1.9,
+        "totalChangePp": -2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.2,
         "localEffectPp": 5.3,
@@ -122249,6 +124033,14 @@
           "OBL": 93,
           "ARB": 123,
           "OOT": 961
+        },
+        "census_groups": {
+          "white_british": 88,
+          "white_other": 4.58,
+          "asian": 3.89,
+          "black": 0.62,
+          "mixed": 1.92,
+          "other": 0.99
         }
       },
       "annualChangePp": {
@@ -122766,6 +124558,14 @@
           "black": 125,
           "mixed": 736,
           "other": 183
+        },
+        "census_groups": {
+          "white_british": 94.07,
+          "white_other": 2.18,
+          "asian": 2.05,
+          "black": 0.2,
+          "mixed": 1.2,
+          "other": 0.3
         }
       },
       "annualChangePp": {
@@ -123222,6 +125022,14 @@
           "OBL": 208,
           "ARB": 227,
           "OOT": 683
+        },
+        "census_groups": {
+          "white_british": 90.01,
+          "white_other": 3.36,
+          "asian": 3.04,
+          "black": 1.05,
+          "mixed": 1.86,
+          "other": 0.66
         }
       },
       "annualChangePp": {
@@ -123781,6 +125589,14 @@
           "OBL": 84,
           "ARB": 108,
           "OOT": 396
+        },
+        "census_groups": {
+          "white_british": 92.75,
+          "white_other": 2.87,
+          "asian": 1.85,
+          "black": 0.59,
+          "mixed": 1.51,
+          "other": 0.44
         }
       },
       "annualChangePp": {
@@ -123952,7 +125768,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -1.9,
+        "totalChangePp": -2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.1,
         "localEffectPp": 5.2,
@@ -124298,6 +126114,14 @@
           "black": 188,
           "mixed": 902,
           "other": 165
+        },
+        "census_groups": {
+          "white_british": 96.58,
+          "white_other": 1.42,
+          "asian": 0.69,
+          "black": 0.2,
+          "mixed": 0.94,
+          "other": 0.17
         }
       },
       "annualChangePp": {
@@ -124754,6 +126578,14 @@
           "OBL": 1574,
           "ARB": 1381,
           "OOT": 5697
+        },
+        "census_groups": {
+          "white_british": 57.25,
+          "white_other": 11.03,
+          "asian": 17.55,
+          "black": 5.95,
+          "mixed": 4.85,
+          "other": 3.38
         }
       },
       "annualChangePp": {
@@ -125292,6 +127124,14 @@
           "black": 104,
           "mixed": 598,
           "other": 160
+        },
+        "census_groups": {
+          "white_british": 96.31,
+          "white_other": 1.81,
+          "asian": 0.62,
+          "black": 0.15,
+          "mixed": 0.87,
+          "other": 0.23
         }
       },
       "annualChangePp": {
@@ -125748,6 +127588,14 @@
           "OBL": 238,
           "ARB": 383,
           "OOT": 1045
+        },
+        "census_groups": {
+          "white_british": 93.3,
+          "white_other": 3.39,
+          "asian": 1.34,
+          "black": 0.35,
+          "mixed": 1.19,
+          "other": 0.44
         }
       },
       "annualChangePp": {
@@ -126321,6 +128169,14 @@
           "OBL": 160,
           "ARB": 32,
           "OOT": 391
+        },
+        "census_groups": {
+          "white_british": 92.65,
+          "white_other": 2.21,
+          "asian": 1.73,
+          "black": 1.32,
+          "mixed": 1.61,
+          "other": 0.48
         }
       },
       "annualChangePp": {
@@ -126880,6 +128736,14 @@
           "OBL": 208,
           "ARB": 879,
           "OOT": 1908
+        },
+        "census_groups": {
+          "white_british": 74.14,
+          "white_other": 11.99,
+          "asian": 6.52,
+          "black": 1.25,
+          "mixed": 4.1,
+          "other": 2.01
         }
       },
       "annualChangePp": {
@@ -127445,6 +129309,14 @@
           "OBL": 205,
           "ARB": 33,
           "OOT": 775
+        },
+        "census_groups": {
+          "white_british": 88.72,
+          "white_other": 7.73,
+          "asian": 0.95,
+          "black": 0.58,
+          "mixed": 1.45,
+          "other": 0.57
         }
       },
       "annualChangePp": {
@@ -128004,6 +129876,14 @@
           "OBL": 209,
           "ARB": 163,
           "OOT": 650
+        },
+        "census_groups": {
+          "white_british": 82.67,
+          "white_other": 5.84,
+          "asian": 5.08,
+          "black": 2.27,
+          "mixed": 3.07,
+          "other": 1.07
         }
       },
       "annualChangePp": {
@@ -128563,6 +130443,14 @@
           "OBL": 108,
           "ARB": 42,
           "OOT": 362
+        },
+        "census_groups": {
+          "white_british": 94.04,
+          "white_other": 2.81,
+          "asian": 0.8,
+          "black": 0.54,
+          "mixed": 1.42,
+          "other": 0.39
         }
       },
       "annualChangePp": {
@@ -129122,6 +131010,14 @@
           "OBL": 225,
           "ARB": 203,
           "OOT": 971
+        },
+        "census_groups": {
+          "white_british": 85.78,
+          "white_other": 7.31,
+          "asian": 2.86,
+          "black": 0.98,
+          "mixed": 2.28,
+          "other": 0.79
         }
       },
       "annualChangePp": {
@@ -129293,7 +131189,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -5.1,
+        "totalChangePp": -5.2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.8,
         "localEffectPp": 1.7,
@@ -129681,6 +131577,14 @@
           "OBL": 143,
           "ARB": 44,
           "OOT": 400
+        },
+        "census_groups": {
+          "white_british": 92.45,
+          "white_other": 2.9,
+          "asian": 1.43,
+          "black": 1.2,
+          "mixed": 1.48,
+          "other": 0.55
         }
       },
       "annualChangePp": {
@@ -129855,7 +131759,7 @@
         "totalChangePp": -2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
-        "localEffectPp": 5.1,
+        "localEffectPp": 5.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -130240,6 +132144,14 @@
           "OBL": 420,
           "ARB": 348,
           "OOT": 1678
+        },
+        "census_groups": {
+          "white_british": 81.86,
+          "white_other": 6.63,
+          "asian": 5.92,
+          "black": 1.95,
+          "mixed": 2.55,
+          "other": 1.09
         }
       },
       "annualChangePp": {
@@ -130414,7 +132326,7 @@
         "totalChangePp": -6.4,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.6,
-        "localEffectPp": 0.2,
+        "localEffectPp": 0.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -130757,6 +132669,14 @@
           "black": 271,
           "mixed": 1254,
           "other": 391
+        },
+        "census_groups": {
+          "white_british": 94.06,
+          "white_other": 2.83,
+          "asian": 1.44,
+          "black": 0.24,
+          "mixed": 1.09,
+          "other": 0.34
         }
       },
       "annualChangePp": {
@@ -131213,6 +133133,14 @@
           "OBL": 110,
           "ARB": 808,
           "OOT": 1047
+        },
+        "census_groups": {
+          "white_british": 82.7,
+          "white_other": 7.6,
+          "asian": 4.88,
+          "black": 0.87,
+          "mixed": 2.53,
+          "other": 1.42
         }
       },
       "annualChangePp": {
@@ -131772,6 +133700,14 @@
           "OBL": 81,
           "ARB": 230,
           "OOT": 801
+        },
+        "census_groups": {
+          "white_british": 91.12,
+          "white_other": 5.79,
+          "asian": 1.19,
+          "black": 0.3,
+          "mixed": 1.06,
+          "other": 0.54
         }
       },
       "annualChangePp": {
@@ -132336,6 +134272,14 @@
           "OBL": 244,
           "ARB": 95,
           "OOT": 654
+        },
+        "census_groups": {
+          "white_british": 83.46,
+          "white_other": 5.96,
+          "asian": 3.72,
+          "black": 2.2,
+          "mixed": 3.79,
+          "other": 0.87
         }
       },
       "annualChangePp": {
@@ -132510,7 +134454,7 @@
         "totalChangePp": -5.8,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.7,
-        "localEffectPp": 1,
+        "localEffectPp": 0.9,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -132895,6 +134839,14 @@
           "OBL": 182,
           "ARB": 290,
           "OOT": 5765
+        },
+        "census_groups": {
+          "white_british": 93.61,
+          "white_other": 3.2,
+          "asian": 0.71,
+          "black": 0.19,
+          "mixed": 1.23,
+          "other": 1.06
         }
       },
       "annualChangePp": {
@@ -133426,6 +135378,14 @@
           "black": 2873,
           "mixed": 4880,
           "other": 2308
+        },
+        "census_groups": {
+          "white_british": 82.21,
+          "white_other": 9.57,
+          "asian": 2.63,
+          "black": 1.6,
+          "mixed": 2.71,
+          "other": 1.28
         }
       },
       "annualChangePp": {
@@ -133814,6 +135774,14 @@
           "OBL": 132,
           "ARB": 108,
           "OOT": 395
+        },
+        "census_groups": {
+          "white_british": 93.17,
+          "white_other": 2.73,
+          "asian": 1.7,
+          "black": 0.6,
+          "mixed": 1.38,
+          "other": 0.41
         }
       },
       "annualChangePp": {
@@ -133988,7 +135956,7 @@
         "totalChangePp": -2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.1,
-        "localEffectPp": 5.2,
+        "localEffectPp": 5.1,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -134373,6 +136341,14 @@
           "OBL": 395,
           "ARB": 167,
           "OOT": 1097
+        },
+        "census_groups": {
+          "white_british": 85.21,
+          "white_other": 7.2,
+          "asian": 3.18,
+          "black": 1.46,
+          "mixed": 2.24,
+          "other": 0.7
         }
       },
       "annualChangePp": {
@@ -134932,6 +136908,14 @@
           "OBL": 96,
           "ARB": 93,
           "OOT": 645
+        },
+        "census_groups": {
+          "white_british": 90.14,
+          "white_other": 2.99,
+          "asian": 3.58,
+          "black": 0.8,
+          "mixed": 1.8,
+          "other": 0.69
         }
       },
       "annualChangePp": {
@@ -135106,7 +137090,7 @@
         "totalChangePp": -3.8,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
-        "localEffectPp": 3.3,
+        "localEffectPp": 3.2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -135449,6 +137433,14 @@
           "black": 624,
           "mixed": 2987,
           "other": 721
+        },
+        "census_groups": {
+          "white_british": 91.99,
+          "white_other": 2.6,
+          "asian": 2.13,
+          "black": 0.47,
+          "mixed": 2.26,
+          "other": 0.55
         }
       },
       "annualChangePp": {
@@ -135905,6 +137897,14 @@
           "OBL": 1336,
           "ARB": 253,
           "OOT": 2135
+        },
+        "census_groups": {
+          "white_british": 67.28,
+          "white_other": 7.18,
+          "asian": 9.86,
+          "black": 10.52,
+          "mixed": 3.12,
+          "other": 2.04
         }
       },
       "annualChangePp": {
@@ -136086,7 +138086,7 @@
         "totalChangePp": -15.4,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.2,
-        "localEffectPp": -9.2,
+        "localEffectPp": -9.1,
         "dominantDriver": "local migration"
       },
       "englishProficiency": {
@@ -136471,6 +138471,14 @@
           "OBL": 17,
           "ARB": 144,
           "OOT": 241
+        },
+        "census_groups": {
+          "white_british": 94.19,
+          "white_other": 3.32,
+          "asian": 0.69,
+          "black": 0.17,
+          "mixed": 1.18,
+          "other": 0.44
         }
       },
       "annualChangePp": {
@@ -136642,7 +138650,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -1.6,
+        "totalChangePp": -1.7,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.2,
         "localEffectPp": 5.6,
@@ -137030,6 +139038,14 @@
           "OBL": 143,
           "ARB": 258,
           "OOT": 875
+        },
+        "census_groups": {
+          "white_british": 85.04,
+          "white_other": 6.31,
+          "asian": 3.94,
+          "black": 1.15,
+          "mixed": 2.56,
+          "other": 0.99
         }
       },
       "annualChangePp": {
@@ -137589,6 +139605,14 @@
           "OBL": 489,
           "ARB": 1718,
           "OOT": 4630
+        },
+        "census_groups": {
+          "white_british": 63.04,
+          "white_other": 17.42,
+          "asian": 8.94,
+          "black": 1.89,
+          "mixed": 5.46,
+          "other": 3.25
         }
       },
       "annualChangePp": {
@@ -138168,6 +140192,14 @@
           "OBL": 800,
           "ARB": 759,
           "OOT": 2891
+        },
+        "census_groups": {
+          "white_british": 45.79,
+          "white_other": 15.07,
+          "asian": 24.49,
+          "black": 6.35,
+          "mixed": 4.74,
+          "other": 3.57
         }
       },
       "annualChangePp": {
@@ -138686,6 +140718,14 @@
           "black": 192,
           "mixed": 659,
           "other": 160
+        },
+        "census_groups": {
+          "white_british": 92.87,
+          "white_other": 4.02,
+          "asian": 1.16,
+          "black": 0.37,
+          "mixed": 1.27,
+          "other": 0.31
         }
       },
       "annualChangePp": {
@@ -139142,6 +141182,14 @@
           "OBL": 128,
           "ARB": 153,
           "OOT": 504
+        },
+        "census_groups": {
+          "white_british": 91.79,
+          "white_other": 3.65,
+          "asian": 1.8,
+          "black": 0.82,
+          "mixed": 1.48,
+          "other": 0.46
         }
       },
       "annualChangePp": {
@@ -139701,6 +141749,14 @@
           "OBL": 416,
           "ARB": 1154,
           "OOT": 3377
+        },
+        "census_groups": {
+          "white_british": 52.99,
+          "white_other": 21.54,
+          "asian": 14.85,
+          "black": 2.44,
+          "mixed": 5.09,
+          "other": 3.09
         }
       },
       "annualChangePp": {
@@ -140229,6 +142285,14 @@
           "black": 228,
           "mixed": 1005,
           "other": 245
+        },
+        "census_groups": {
+          "white_british": 95.23,
+          "white_other": 1.87,
+          "asian": 1.3,
+          "black": 0.25,
+          "mixed": 1.09,
+          "other": 0.27
         }
       },
       "annualChangePp": {
@@ -140685,6 +142749,14 @@
           "OBL": 143,
           "ARB": 69,
           "OOT": 692
+        },
+        "census_groups": {
+          "white_british": 88.89,
+          "white_other": 5.71,
+          "asian": 1.94,
+          "black": 1.11,
+          "mixed": 1.58,
+          "other": 0.78
         }
       },
       "annualChangePp": {
@@ -141244,6 +143316,14 @@
           "OBL": 246,
           "ARB": 185,
           "OOT": 799
+        },
+        "census_groups": {
+          "white_british": 88.03,
+          "white_other": 5.05,
+          "asian": 3.28,
+          "black": 1.12,
+          "mixed": 1.77,
+          "other": 0.75
         }
       },
       "annualChangePp": {
@@ -141803,6 +143883,14 @@
           "OBL": 249,
           "ARB": 555,
           "OOT": 1066
+        },
+        "census_groups": {
+          "white_british": 85.56,
+          "white_other": 6.63,
+          "asian": 3.3,
+          "black": 0.95,
+          "mixed": 2.72,
+          "other": 0.83
         }
       },
       "annualChangePp": {
@@ -142381,6 +144469,14 @@
           "OBL": 358,
           "ARB": 306,
           "OOT": 1305
+        },
+        "census_groups": {
+          "white_british": 77.81,
+          "white_other": 8.28,
+          "asian": 7.13,
+          "black": 2.4,
+          "mixed": 3.08,
+          "other": 1.3
         }
       },
       "annualChangePp": {
@@ -142912,6 +145008,14 @@
           "black": 221,
           "mixed": 1135,
           "other": 406
+        },
+        "census_groups": {
+          "white_british": 94.88,
+          "white_other": 2.86,
+          "asian": 0.94,
+          "black": 0.17,
+          "mixed": 0.85,
+          "other": 0.3
         }
       },
       "annualChangePp": {
@@ -143368,6 +145472,14 @@
           "OBL": 116,
           "ARB": 102,
           "OOT": 405
+        },
+        "census_groups": {
+          "white_british": 93.58,
+          "white_other": 2.74,
+          "asian": 1.39,
+          "black": 0.52,
+          "mixed": 1.4,
+          "other": 0.38
         }
       },
       "annualChangePp": {
@@ -143882,6 +145994,14 @@
           "OBL": 179,
           "ARB": 150,
           "OOT": 864
+        },
+        "census_groups": {
+          "white_british": 88.75,
+          "white_other": 6.87,
+          "asian": 1.87,
+          "black": 0.55,
+          "mixed": 1.31,
+          "other": 0.66
         }
       },
       "annualChangePp": {
@@ -144396,6 +146516,14 @@
           "OBL": 69,
           "ARB": 92,
           "OOT": 317
+        },
+        "census_groups": {
+          "white_british": 94.27,
+          "white_other": 2.9,
+          "asian": 0.98,
+          "black": 0.35,
+          "mixed": 1.16,
+          "other": 0.34
         }
       },
       "annualChangePp": {
@@ -144910,6 +147038,14 @@
           "OBL": 82,
           "ARB": 93,
           "OOT": 550
+        },
+        "census_groups": {
+          "white_british": 90.51,
+          "white_other": 4.91,
+          "asian": 1.88,
+          "black": 0.52,
+          "mixed": 1.65,
+          "other": 0.51
         }
       },
       "annualChangePp": {
@@ -145424,6 +147560,14 @@
           "OBL": 234,
           "ARB": 727,
           "OOT": 1550
+        },
+        "census_groups": {
+          "white_british": 69.36,
+          "white_other": 10.1,
+          "asian": 11.41,
+          "black": 1.94,
+          "mixed": 4.39,
+          "other": 2.81
         }
       },
       "annualChangePp": {
@@ -145605,7 +147749,7 @@
         "totalChangePp": -9.3,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.1,
-        "localEffectPp": -3.4,
+        "localEffectPp": -3.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -145945,6 +148089,14 @@
           "OBL": 34,
           "ARB": 30,
           "OOT": 192
+        },
+        "census_groups": {
+          "white_british": 94.77,
+          "white_other": 2.67,
+          "asian": 0.76,
+          "black": 0.25,
+          "mixed": 1.3,
+          "other": 0.24
         }
       },
       "annualChangePp": {
@@ -146459,6 +148611,14 @@
           "OBL": 83,
           "ARB": 78,
           "OOT": 368
+        },
+        "census_groups": {
+          "white_british": 92.4,
+          "white_other": 3.97,
+          "asian": 1.04,
+          "black": 0.44,
+          "mixed": 1.79,
+          "other": 0.37
         }
       },
       "annualChangePp": {
@@ -146973,6 +149133,14 @@
           "OBL": 92,
           "ARB": 39,
           "OOT": 312
+        },
+        "census_groups": {
+          "white_british": 93.58,
+          "white_other": 3.09,
+          "asian": 0.95,
+          "black": 0.54,
+          "mixed": 1.46,
+          "other": 0.37
         }
       },
       "annualChangePp": {
@@ -147487,6 +149655,14 @@
           "OBL": 114,
           "ARB": 121,
           "OOT": 408
+        },
+        "census_groups": {
+          "white_british": 90.41,
+          "white_other": 2.65,
+          "asian": 3.19,
+          "black": 0.77,
+          "mixed": 2.43,
+          "other": 0.54
         }
       },
       "annualChangePp": {
@@ -148001,6 +150177,14 @@
           "OBL": 43,
           "ARB": 28,
           "OOT": 310
+        },
+        "census_groups": {
+          "white_british": 94.71,
+          "white_other": 2.84,
+          "asian": 0.72,
+          "black": 0.28,
+          "mixed": 1.06,
+          "other": 0.39
         }
       },
       "annualChangePp": {
@@ -148473,6 +150657,14 @@
           "black": 244,
           "mixed": 1162,
           "other": 419
+        },
+        "census_groups": {
+          "white_british": 94.7,
+          "white_other": 2.89,
+          "asian": 0.94,
+          "black": 0.2,
+          "mixed": 0.94,
+          "other": 0.34
         }
       },
       "annualChangePp": {
@@ -148884,6 +151076,14 @@
           "OBL": 167,
           "ARB": 65,
           "OOT": 471
+        },
+        "census_groups": {
+          "white_british": 82.43,
+          "white_other": 7.39,
+          "asian": 5.74,
+          "black": 1.21,
+          "mixed": 2.62,
+          "other": 0.61
         }
       },
       "annualChangePp": {
@@ -149398,6 +151598,14 @@
           "OBL": 166,
           "ARB": 165,
           "OOT": 619
+        },
+        "census_groups": {
+          "white_british": 88.34,
+          "white_other": 4.92,
+          "asian": 2.93,
+          "black": 0.99,
+          "mixed": 2.23,
+          "other": 0.59
         }
       },
       "annualChangePp": {
@@ -149870,6 +152078,14 @@
           "black": 75,
           "mixed": 630,
           "other": 133
+        },
+        "census_groups": {
+          "white_british": 96.09,
+          "white_other": 2.16,
+          "asian": 0.52,
+          "black": 0.11,
+          "mixed": 0.92,
+          "other": 0.2
         }
       },
       "annualChangePp": {
@@ -150281,6 +152497,14 @@
           "OBL": 109,
           "ARB": 141,
           "OOT": 637
+        },
+        "census_groups": {
+          "white_british": 86.82,
+          "white_other": 6.84,
+          "asian": 2.83,
+          "black": 0.69,
+          "mixed": 2.22,
+          "other": 0.61
         }
       },
       "annualChangePp": {
@@ -150753,6 +152977,14 @@
           "black": 1082,
           "mixed": 4436,
           "other": 1342
+        },
+        "census_groups": {
+          "white_british": 93.86,
+          "white_other": 3.2,
+          "asian": 1.13,
+          "black": 0.29,
+          "mixed": 1.17,
+          "other": 0.35
         }
       },
       "annualChangePp": {
@@ -151104,6 +153336,14 @@
           "OBL": 169,
           "ARB": 203,
           "OOT": 778
+        },
+        "census_groups": {
+          "white_british": 88.13,
+          "white_other": 4.28,
+          "asian": 3.85,
+          "black": 0.95,
+          "mixed": 2.06,
+          "other": 0.72
         }
       },
       "annualChangePp": {
@@ -151618,6 +153858,14 @@
           "OBL": 98,
           "ARB": 198,
           "OOT": 543
+        },
+        "census_groups": {
+          "white_british": 88.91,
+          "white_other": 5.28,
+          "asian": 1.9,
+          "black": 0.72,
+          "mixed": 2.46,
+          "other": 0.73
         }
       },
       "annualChangePp": {
@@ -152090,6 +154338,14 @@
           "black": 552,
           "mixed": 744,
           "other": 211
+        },
+        "census_groups": {
+          "white_british": 91.04,
+          "white_other": 3.74,
+          "asian": 1.54,
+          "black": 1.34,
+          "mixed": 1.81,
+          "other": 0.51
         }
       },
       "annualChangePp": {
@@ -152515,6 +154771,14 @@
           "OBL": 228,
           "ARB": 151,
           "OOT": 765
+        },
+        "census_groups": {
+          "white_british": 85.56,
+          "white_other": 6.55,
+          "asian": 2.89,
+          "black": 1.6,
+          "mixed": 2.64,
+          "other": 0.76
         }
       },
       "annualChangePp": {
@@ -153029,6 +155293,14 @@
           "OBL": 249,
           "ARB": 293,
           "OOT": 1268
+        },
+        "census_groups": {
+          "white_british": 67.94,
+          "white_other": 9.18,
+          "asian": 15.21,
+          "black": 2.38,
+          "mixed": 3.62,
+          "other": 1.67
         }
       },
       "annualChangePp": {
@@ -153549,6 +155821,14 @@
           "OBL": 129,
           "ARB": 83,
           "OOT": 492
+        },
+        "census_groups": {
+          "white_british": 86.48,
+          "white_other": 7.99,
+          "asian": 1.92,
+          "black": 0.8,
+          "mixed": 2.15,
+          "other": 0.66
         }
       },
       "annualChangePp": {
@@ -153720,7 +156000,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -3.2,
+        "totalChangePp": -3.3,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.7,
         "localEffectPp": 3.5,
@@ -154063,6 +156343,14 @@
           "OBL": 80,
           "ARB": 50,
           "OOT": 371
+        },
+        "census_groups": {
+          "white_british": 92.03,
+          "white_other": 2.79,
+          "asian": 2.35,
+          "black": 0.56,
+          "mixed": 1.87,
+          "other": 0.41
         }
       },
       "annualChangePp": {
@@ -154577,6 +156865,14 @@
           "OBL": 139,
           "ARB": 322,
           "OOT": 943
+        },
+        "census_groups": {
+          "white_british": 82.74,
+          "white_other": 9.41,
+          "asian": 3.22,
+          "black": 1.41,
+          "mixed": 1.99,
+          "other": 1.22
         }
       },
       "annualChangePp": {
@@ -155091,6 +157387,14 @@
           "OBL": 143,
           "ARB": 126,
           "OOT": 797
+        },
+        "census_groups": {
+          "white_british": 88.65,
+          "white_other": 7.17,
+          "asian": 1.6,
+          "black": 0.52,
+          "mixed": 1.51,
+          "other": 0.55
         }
       },
       "annualChangePp": {
@@ -155605,6 +157909,14 @@
           "OBL": 134,
           "ARB": 48,
           "OOT": 676
+        },
+        "census_groups": {
+          "white_british": 85.91,
+          "white_other": 10.01,
+          "asian": 1.2,
+          "black": 0.79,
+          "mixed": 1.38,
+          "other": 0.71
         }
       },
       "annualChangePp": {
@@ -156119,6 +158431,14 @@
           "OBL": 262,
           "ARB": 736,
           "OOT": 1969
+        },
+        "census_groups": {
+          "white_british": 77.33,
+          "white_other": 9.55,
+          "asian": 6.7,
+          "black": 1.5,
+          "mixed": 3.05,
+          "other": 1.87
         }
       },
       "annualChangePp": {
@@ -156633,6 +158953,14 @@
           "OBL": 43,
           "ARB": 17,
           "OOT": 192
+        },
+        "census_groups": {
+          "white_british": 94.04,
+          "white_other": 2.81,
+          "asian": 1.12,
+          "black": 0.36,
+          "mixed": 1.35,
+          "other": 0.31
         }
       },
       "annualChangePp": {
@@ -157147,6 +159475,14 @@
           "OBL": 143,
           "ARB": 85,
           "OOT": 546
+        },
+        "census_groups": {
+          "white_british": 93.21,
+          "white_other": 3.57,
+          "asian": 1.2,
+          "black": 0.4,
+          "mixed": 1.26,
+          "other": 0.37
         }
       },
       "annualChangePp": {
@@ -157661,6 +159997,14 @@
           "OBL": 68,
           "ARB": 82,
           "OOT": 258
+        },
+        "census_groups": {
+          "white_british": 94.25,
+          "white_other": 2.73,
+          "asian": 1.15,
+          "black": 0.33,
+          "mixed": 1.19,
+          "other": 0.34
         }
       },
       "annualChangePp": {
@@ -158175,6 +160519,14 @@
           "OBL": 63,
           "ARB": 203,
           "OOT": 497
+        },
+        "census_groups": {
+          "white_british": 88.92,
+          "white_other": 4.5,
+          "asian": 2.16,
+          "black": 0.82,
+          "mixed": 2.52,
+          "other": 1.08
         }
       },
       "annualChangePp": {
@@ -158689,6 +161041,14 @@
           "OBL": 86,
           "ARB": 77,
           "OOT": 692
+        },
+        "census_groups": {
+          "white_british": 87.56,
+          "white_other": 3.46,
+          "asian": 5.43,
+          "black": 0.72,
+          "mixed": 2.05,
+          "other": 0.79
         }
       },
       "annualChangePp": {
@@ -158860,7 +161220,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -5.3,
+        "totalChangePp": -5.2,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.9,
         "localEffectPp": 1.7,
@@ -159203,6 +161563,14 @@
           "OBL": 89,
           "ARB": 213,
           "OOT": 574
+        },
+        "census_groups": {
+          "white_british": 85.81,
+          "white_other": 6.94,
+          "asian": 3.02,
+          "black": 0.81,
+          "mixed": 2.51,
+          "other": 0.92
         }
       },
       "annualChangePp": {
@@ -159717,6 +162085,14 @@
           "OBL": 55,
           "ARB": 121,
           "OOT": 340
+        },
+        "census_groups": {
+          "white_british": 91.67,
+          "white_other": 3.9,
+          "asian": 1.49,
+          "black": 0.6,
+          "mixed": 1.83,
+          "other": 0.5
         }
       },
       "annualChangePp": {
@@ -159888,10 +162264,10 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -2.4,
+        "totalChangePp": -2.5,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
-        "localEffectPp": 4.7,
+        "localEffectPp": 4.6,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -160231,6 +162607,14 @@
           "OBL": 246,
           "ARB": 415,
           "OOT": 1410
+        },
+        "census_groups": {
+          "white_british": 79.56,
+          "white_other": 9.44,
+          "asian": 5.8,
+          "black": 1.25,
+          "mixed": 2.83,
+          "other": 1.12
         }
       },
       "annualChangePp": {
@@ -160751,6 +163135,14 @@
           "OBL": 75,
           "ARB": 162,
           "OOT": 594
+        },
+        "census_groups": {
+          "white_british": 91.77,
+          "white_other": 4.27,
+          "asian": 1.4,
+          "black": 0.4,
+          "mixed": 1.69,
+          "other": 0.46
         }
       },
       "annualChangePp": {
@@ -161223,6 +163615,14 @@
           "black": 122,
           "mixed": 626,
           "other": 162
+        },
+        "census_groups": {
+          "white_british": 94.92,
+          "white_other": 2.89,
+          "asian": 0.59,
+          "black": 0.21,
+          "mixed": 1.1,
+          "other": 0.28
         }
       },
       "annualChangePp": {
@@ -161634,6 +164034,14 @@
           "OBL": 221,
           "ARB": 642,
           "OOT": 1544
+        },
+        "census_groups": {
+          "white_british": 67.26,
+          "white_other": 11.18,
+          "asian": 14.18,
+          "black": 1.81,
+          "mixed": 3.48,
+          "other": 2.1
         }
       },
       "annualChangePp": {
@@ -161815,7 +164223,7 @@
         "totalChangePp": -7.7,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 0.4,
-        "localEffectPp": -2.1,
+        "localEffectPp": -2,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -162113,6 +164521,14 @@
           "black": 366,
           "mixed": 867,
           "other": 368
+        },
+        "census_groups": {
+          "white_british": 91.89,
+          "white_other": 4.34,
+          "asian": 1.53,
+          "black": 0.51,
+          "mixed": 1.21,
+          "other": 0.51
         }
       },
       "annualChangePp": {
@@ -162482,6 +164898,14 @@
           "black": 232,
           "mixed": 470,
           "other": 482
+        },
+        "census_groups": {
+          "white_british": 42.51,
+          "white_other": 26.86,
+          "asian": 16.83,
+          "black": 2.7,
+          "mixed": 5.48,
+          "other": 5.62
         }
       },
       "annualChangePp": {
@@ -162907,6 +165331,14 @@
           "OBL": 63,
           "ARB": 33,
           "OOT": 299
+        },
+        "census_groups": {
+          "white_british": 91.98,
+          "white_other": 4.37,
+          "asian": 1.32,
+          "black": 0.44,
+          "mixed": 1.53,
+          "other": 0.36
         }
       },
       "annualChangePp": {
@@ -163379,6 +165811,14 @@
           "black": 169,
           "mixed": 723,
           "other": 185
+        },
+        "census_groups": {
+          "white_british": 95.51,
+          "white_other": 2.26,
+          "asian": 0.72,
+          "black": 0.24,
+          "mixed": 1.01,
+          "other": 0.26
         }
       },
       "annualChangePp": {
@@ -163748,6 +166188,14 @@
           "black": 1951,
           "mixed": 4245,
           "other": 1357
+        },
+        "census_groups": {
+          "white_british": 84.74,
+          "white_other": 7.55,
+          "asian": 2.68,
+          "black": 1.3,
+          "mixed": 2.83,
+          "other": 0.9
         }
       },
       "annualChangePp": {
@@ -164159,6 +166607,14 @@
           "OBL": 103,
           "ARB": 122,
           "OOT": 657
+        },
+        "census_groups": {
+          "white_british": 86.93,
+          "white_other": 5.57,
+          "asian": 3.62,
+          "black": 0.85,
+          "mixed": 2.24,
+          "other": 0.79
         }
       },
       "annualChangePp": {
@@ -164673,6 +167129,14 @@
           "OBL": 49,
           "ARB": 90,
           "OOT": 286
+        },
+        "census_groups": {
+          "white_british": 93.76,
+          "white_other": 3.22,
+          "asian": 1.18,
+          "black": 0.34,
+          "mixed": 1.22,
+          "other": 0.27
         }
       },
       "annualChangePp": {
@@ -165159,6 +167623,14 @@
           "black": 4,
           "mixed": 23,
           "other": 18
+        },
+        "census_groups": {
+          "white_british": 93.72,
+          "white_other": 3.8,
+          "asian": 0.29,
+          "black": 0.19,
+          "mixed": 1.12,
+          "other": 0.88
         }
       },
       "annualChangePp": {
@@ -165584,6 +168056,14 @@
           "OBL": 32,
           "ARB": 48,
           "OOT": 229
+        },
+        "census_groups": {
+          "white_british": 93.34,
+          "white_other": 3.25,
+          "asian": 1.32,
+          "black": 0.33,
+          "mixed": 1.41,
+          "other": 0.35
         }
       },
       "annualChangePp": {
@@ -165758,7 +168238,7 @@
         "totalChangePp": -1.8,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1.1,
-        "localEffectPp": 5.4,
+        "localEffectPp": 5.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -166056,6 +168536,14 @@
           "black": 101,
           "mixed": 899,
           "other": 223
+        },
+        "census_groups": {
+          "white_british": 93.78,
+          "white_other": 4.07,
+          "asian": 0.68,
+          "black": 0.12,
+          "mixed": 1.09,
+          "other": 0.27
         }
       },
       "annualChangePp": {
@@ -166425,6 +168913,14 @@
           "black": 230,
           "mixed": 1115,
           "other": 324
+        },
+        "census_groups": {
+          "white_british": 94.2,
+          "white_other": 2.73,
+          "asian": 1.27,
+          "black": 0.25,
+          "mixed": 1.2,
+          "other": 0.35
         }
       },
       "annualChangePp": {
@@ -166836,6 +169332,14 @@
           "OBL": 24,
           "ARB": 27,
           "OOT": 215
+        },
+        "census_groups": {
+          "white_british": 95.56,
+          "white_other": 2.53,
+          "asian": 0.55,
+          "black": 0.18,
+          "mixed": 0.95,
+          "other": 0.24
         }
       },
       "annualChangePp": {
@@ -167350,6 +169854,14 @@
           "OBL": 133,
           "ARB": 466,
           "OOT": 1207
+        },
+        "census_groups": {
+          "white_british": 72.62,
+          "white_other": 10.89,
+          "asian": 9.24,
+          "black": 1.81,
+          "mixed": 3.53,
+          "other": 1.91
         }
       },
       "annualChangePp": {
@@ -167530,7 +170042,7 @@
         "totalChangePp": -7.4,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": 0,
-        "localEffectPp": -1.4,
+        "localEffectPp": -1.3,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -167870,6 +170382,14 @@
           "OBL": 108,
           "ARB": 77,
           "OOT": 384
+        },
+        "census_groups": {
+          "white_british": 90.34,
+          "white_other": 4.73,
+          "asian": 2.03,
+          "black": 0.63,
+          "mixed": 1.79,
+          "other": 0.48
         }
       },
       "annualChangePp": {
@@ -168044,7 +170564,7 @@
         "totalChangePp": -3.6,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -1,
-        "localEffectPp": 3.5,
+        "localEffectPp": 3.4,
         "dominantDriver": "national trend"
       },
       "englishProficiency": {
@@ -168384,6 +170904,14 @@
           "OBL": 131,
           "ARB": 249,
           "OOT": 860
+        },
+        "census_groups": {
+          "white_british": 84.16,
+          "white_other": 7.38,
+          "asian": 3.96,
+          "black": 0.98,
+          "mixed": 2.56,
+          "other": 0.96
         }
       },
       "annualChangePp": {
@@ -168555,7 +171083,7 @@
         ]
       },
       "shiftShare": {
-        "totalChangePp": -5.4,
+        "totalChangePp": -5.5,
         "nationalEffectPp": -6.1,
         "structuralEffectPp": -0.7,
         "localEffectPp": 1.3,
@@ -168898,6 +171426,14 @@
           "OBL": 239,
           "ARB": 217,
           "OOT": 1124
+        },
+        "census_groups": {
+          "white_british": 92.61,
+          "white_other": 4.27,
+          "asian": 0.94,
+          "black": 0.7,
+          "mixed": 0.94,
+          "other": 0.55
         }
       },
       "annualChangePp": {
@@ -169263,6 +171799,14 @@
           "OBL": 2625,
           "ARB": 8969,
           "OOT": 8563
+        },
+        "census_groups": {
+          "white_british": 74.52,
+          "white_other": 4.59,
+          "asian": 9.62,
+          "black": 4.58,
+          "mixed": 3.54,
+          "other": 3.15
         }
       },
       "annualChangePp": {

@@ -10,6 +10,8 @@
  *   current.total_population, current.groups_absolute   every area
  *   current.groups                                      areas with no model
  *                                                       output (no projections_detail)
+ *   current.census_groups                               every area: TS021 shares,
+ *                                                       which the site prints as Census 2021
  *   baseline.total_population, baseline.groups,
  *   baseline.groups_absolute                            every area, from the
  *                                                       Census of baseline.year
@@ -215,7 +217,7 @@ const log = {
     baseline2021: { direct: 0, alias: [], predecessors: [] }
   },
   unresolved: { current: [], baseline: [] },
-  changed: { currentCounts: 0, currentTotal: 0, currentShares: 0, baselineCounts: 0, baselineTotal: 0, baselineShares: 0 },
+  changed: { currentCounts: 0, currentTotal: 0, currentShares: 0, currentCensusShares: 0, baselineCounts: 0, baselineTotal: 0, baselineShares: 0 },
   modelled: { areas: 0, maxDeviationPp: 0, maxDeviationArea: null, outside: [] },
   legacy: [],
   movedTo2011: []
@@ -249,6 +251,12 @@ for (const code of areaCodes) {
     if (JSON.stringify(cur.groups_absolute) !== beforeCounts) log.changed.currentCounts++;
 
     const s = shares(r21);
+    // The Census 2021 shares as TS021 gives them, for every area. The site prints these
+    // wherever it says "Census 2021"; current.groups stays the model's own base, which
+    // the model scripts read (maps plan v2.2, decision on I22).
+    const beforeCensus = JSON.stringify(cur.census_groups);
+    cur.census_groups = assignInOrder(cur.census_groups ?? {}, s);
+    if (JSON.stringify(cur.census_groups) !== beforeCensus) log.changed.currentCensusShares++;
     if (modelled) {
       log.modelled.areas++;
       for (const g of GROUP_KEYS) {
@@ -350,7 +358,11 @@ const manifest = {
   target: { file: path.basename(FILE), areas: areaCodes.length },
   resolution: log.resolution,
   unresolved: log.unresolved,
-  baselineMovedTo2011: log.movedTo2011,
+  // The councils moved to a 2011 baseline, kept from the run that moved them: a later
+  // run finds them already on 2011 and would otherwise record an empty list.
+  baselineMovedTo2011: log.movedTo2011.length
+    ? log.movedTo2011
+    : (existsSync(MANIFEST) ? JSON.parse(readFileSync(MANIFEST, "utf8")).baselineMovedTo2011 ?? [] : []),
   modelledShareCheck: {
     areas: log.modelled.areas,
     tolerancePp: MODELLED_TOLERANCE_PP,
