@@ -76,7 +76,7 @@ const barData = timeline.map(snap => {
         <div class="eth-bar-track">
           {bar.segments.map(seg => (
             <div
-              class="eth-segment"
+              class={`eth-segment eth-g-${seg.key}`}
               style={`width: ${seg.pct}%; background: ${seg.color};`}
               title={`${seg.label}: ${seg.pct.toFixed(1)}%`}
             >
@@ -140,8 +140,8 @@ const barData = timeline.map(snap => {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--accent-3);
-    background: color-mix(in srgb, var(--warning) 10%, transparent);
+    color: var(--warning);
+    background: color-mix(in srgb, var(--warning) 10%, var(--panel));
     padding: 0.1rem 0.3rem;
     border-radius: 4px;
   }
@@ -160,15 +160,30 @@ const barData = timeline.map(snap => {
     transition: width 400ms ease;
     position: relative;
   }
+  /* Each label takes the ink that passes on its own segment, in both schemes:
+     4.5:1 or more on every fill (maps plan v2.1, issue I17). The fills are unchanged. */
   .eth-seg-label {
     font-size: 0.7rem;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.7);
-    text-shadow: 0 0 3px var(--bg);
+    color: var(--on-fill-light);
     pointer-events: none;
   }
-  .eth-projected {
-    opacity: 0.85;
+  .eth-g-asian .eth-seg-label,
+  .eth-g-mixed .eth-seg-label,
+  .eth-g-other .eth-seg-label {
+    color: var(--on-fill-dark);
+  }
+  @media (prefers-color-scheme: dark) {
+    .eth-g-asian .eth-seg-label,
+    .eth-g-mixed .eth-seg-label {
+      color: var(--on-fill-light);
+    }
+  }
+  /* Projected rows are marked by the badge and a dashed outline. They were faded
+     with opacity, which took every label in them below 4.5:1. */
+  .eth-projected .eth-bar-track {
+    outline: 1px dashed var(--border-strong);
+    outline-offset: 2px;
   }
   .eth-legend {
     display: flex;

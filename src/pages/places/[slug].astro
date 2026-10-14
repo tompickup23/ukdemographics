@@ -1888,7 +1888,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   .model-card { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.9rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-subtle); }
   .model-card-primary { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
   .model-card-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; display: flex; gap: 0.4rem; align-items: center; }
-  .model-card-tag { font-size: 0.65rem; background: var(--accent); color: #fff; padding: 0.05rem 0.4rem; border-radius: 999px; letter-spacing: 0.04em; }
+  .model-card-tag { font-size: 0.65rem; background: var(--accent); color: var(--on-accent); padding: 0.05rem 0.4rem; border-radius: 999px; letter-spacing: 0.04em; }
   .model-card-value { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--ink); }
   .model-card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
   .model-compare-note { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-top: 0.9rem; max-width: 700px; }
@@ -2004,6 +2004,10 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   .vr-study  { background: var(--positive); }   /* green */
   .vr-family { background: #c2410c; }   /* orange-red */
   .vr-other  { background: #6b7280; }   /* slate */
+  /* The dark scheme's green is light: white on it was 1.89:1 (issue I17). */
+  @media (prefers-color-scheme: dark) {
+    .vr-study { color: var(--on-fill-light); }
+  }
   .vr-meta {
     display: flex;
     justify-content: space-between;
