@@ -30,11 +30,11 @@ describe("postcodeShare direction", () => {
     expect(off.length).toBeGreaterThan(0);
   });
 
-  it("getPconsForLa sorts by the constituency's own share in the authority, largest first", () => {
+  it("getPconsForLa lists constituencies A to Z", () => {
     const ladCodes = new Set(pcons.flatMap((p) => p.constituentLas.map((l: any) => l.ladCode as string)));
     for (const lad of ladCodes) {
-      const shares = getPconsForLa(lad).map((p: any) => p.constituentLas.find((l: any) => l.ladCode === lad).postcodeShare);
-      expect(shares, lad).toEqual([...shares].sort((a, b) => b - a));
+      const names = getPconsForLa(lad).map((p) => p.name);
+      expect(names, lad).toEqual([...names].sort((a, b) => a.localeCompare(b)));
     }
   });
 });

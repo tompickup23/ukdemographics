@@ -20,7 +20,7 @@ const barColor = (val: number) => val < 0 ? "var(--accent-bright)" : "var(--warn
 
 <figure class="viz-card shift-share-chart">
   <div class="viz-head">
-    <h3>Why {areaName} is changing</h3>
+    <h3>Components of change in {areaName}</h3>
     <span class="chip">{total > 0 ? "+" : ""}{total}pp</span>
   </div>
   <div class="ss-bars">
@@ -32,21 +32,21 @@ const barColor = (val: number) => val < 0 ? "var(--accent-bright)" : "var(--warn
       <span class="ss-value">{national > 0 ? "+" : ""}{national}pp</span>
     </div>
     <div class="ss-row">
-      <span class="ss-label">Age structure</span>
+      <span class="ss-label">Composition adjustment</span>
       <div class="ss-track">
         <div class="ss-bar" style={`width: ${barWidth(structural)}%; background: ${barColor(structural)}`}></div>
       </div>
       <span class="ss-value">{structural > 0 ? "+" : ""}{structural}pp</span>
     </div>
     <div class="ss-row">
-      <span class="ss-label">Local migration</span>
+      <span class="ss-label">Local residual</span>
       <div class="ss-track">
         <div class="ss-bar" style={`width: ${barWidth(local)}%; background: ${barColor(local)}`}></div>
       </div>
       <span class="ss-value">{local > 0 ? "+" : ""}{local}pp</span>
     </div>
   </div>
-  <p class="ss-caption">White British change 2011-2021. Cyan = decline. Amber = growth.</p>
+  <p class="ss-caption">White British share, 2011 to 2021. Descriptive components, not measured causes. Cyan = fall. Amber = rise.</p>
 </figure>
 
 <style>

@@ -13,7 +13,7 @@ const regionStats = regions.map((region) => {
     ? regionAreas.reduce((s, a) => s + (a.wbiPct2021 ?? 0) * (a.population ?? 0), 0) / totalPop
     : 0;
   return { ...region, totalPop, weightedWbi, areaCount: regionAreas.length };
-}).sort((a, b) => a.weightedWbi - b.weightedWbi);
+}).sort((a, b) => a.regionName.localeCompare(b.regionName));
 ---
 
 <BaseLayout
