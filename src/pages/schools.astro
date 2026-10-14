@@ -8,7 +8,7 @@ const sp = schoolPressure as any;
 const areasWithData = Object.entries(sp.areas)
   .filter(([_, d]: any) => d.dataAvailable)
   .map(([code, d]: any) => ({ code, ...d }))
-  .sort((a, b) => (b.minorityPupilsPct ?? 0) - (a.minorityPupilsPct ?? 0));
+  .sort((a, b) => a.areaName.localeCompare(b.areaName));
 ---
 
 <BaseLayout
@@ -16,7 +16,7 @@ const areasWithData = Object.entries(sp.areas)
   description={`School ethnic composition across ${areasWithData.length} local authorities. DfE School Census 2024/25 data with projected growth.`}
 >
   <h1>School demographic pressure</h1>
-  <p class="desc">DfE School Census 2024/25: pupil ethnic composition by local authority. {areasWithData.length} areas with school data. Sorted by minority pupil share (descending).</p>
+  <p class="desc">DfE School Census 2024/25: pupil ethnic composition by local authority. {areasWithData.length} areas with school data. Listed A to Z.</p>
 
   <div class="stat-card-row">
     <StatCard value={areasWithData.length.toString()} label="Areas with school data" accent="var(--accent)" />
@@ -27,7 +27,7 @@ const areasWithData = Object.entries(sp.areas)
 
   <div class="area-table">
     <div class="area-table-header"><span>Area</span><span>White British pupils</span><span>Minority pupils</span><span>EAL growth</span><span>Total pupils</span></div>
-    {areasWithData.slice(0, 50).map((a) => {
+    {areasWithData.map((a) => {
       const eal = a.ealDemandGrowthPp;
       const ealText = eal == null
         ? "-"

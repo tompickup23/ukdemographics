@@ -95,7 +95,7 @@ export interface PipConstituency {
   shareInArea: number;
 }
 
-/** Every constituency overlapping the authority that has a PIP count, largest share first. */
+/** Every constituency overlapping the authority that has a PIP count, A to Z. */
 export function pipConstituenciesForArea(ladCode: string): PipConstituency[] {
   const out: PipConstituency[] = [];
   for (const p of getPconsForLa(ladCode)) {
@@ -104,7 +104,7 @@ export function pipConstituenciesForArea(ladCode: string): PipConstituency[] {
     if (!row || !la) continue;
     out.push({ code: p.code, name: p.name, slug: p.slug, claimants: row.claimants, shareInArea: la.postcodeShare });
   }
-  return out.sort((a, b) => b.shareInArea - a.shareInArea);
+  return out.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /** "all of its postcodes" or "86% of its postcodes". */

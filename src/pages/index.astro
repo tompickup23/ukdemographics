@@ -1,4 +1,5 @@
 ---
+import { PROJECTION_DECADES, censusWhiteBritish2021, crossingDecade } from "../lib/crossing";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DataFreshness from "../components/DataFreshness.astro";
 import ShareButton from "../components/ShareButton.astro";
@@ -78,64 +79,31 @@ for (const area of publicAreas) {
   r.sumPop += area.population ?? 0;
   regionCounts.set(area.regionName, r);
 }
-const topRegions = [...regionCounts.entries()]
+const regionsByName = [...regionCounts.entries()]
   .map(([name, r]) => ({ name, count: r.count, avgWbi: r.sumPop > 0 ? (r.avgWbi2021 / r.sumPop) : 0, pop: r.sumPop }))
   .filter(r => r.name !== "Unknown")
-  .sort((a, b) => a.avgWbi - b.avgWbi)
-  .slice(0, 6);
+  .sort((a, b) => a.name.localeCompare(b.name));
 
-// Top areas by largest projected White British share decline 2021 to 2041.
-// Bars encode the projected change (in percentage points), not the level.
-const topChangingAreas = publicAreas
-  .filter((a) => a.wbiPct2021 != null && a.wbiPct2041 != null)
-  .map((a) => ({ ...a, changePp: a.wbiPct2041! - a.wbiPct2021! }))
-  .sort((a, b) => a.changePp - b.changePp)
-  .slice(0, 10);
-const topChangingMaxAbsPp = topChangingAreas.length > 0
-  ? Math.max(...topChangingAreas.map((a) => Math.abs(a.changePp)))
-  : 1;
-
-// The year an area is projected to fall below a 50% White British share, interpolated
-// between projection decades. A date is a thing a reader can picture; a percentage point
-// change is not. Returns 0 for areas already below half and null for areas the model
-// does not take across the line inside its horizon.
-function crossingYear(a: any): number | null {
-  const pts: Array<[number, number]> = [];
-  const now = (a?.current?.census_groups ?? a?.current?.groups)?.white_british;
-  if (now == null) return null;
-  pts.push([2021, now]);
-  for (const y of [2031, 2041, 2051, 2061]) {
-    const v = a?.projections?.[String(y)]?.white_british;
-    if (v != null) pts.push([y, v]);
-  }
-  if (now < 50) return 0;
-  for (let i = 0; i < pts.length - 1; i++) {
-    const [y1, v1] = pts[i];
-    const [y2, v2] = pts[i + 1];
-    if (v1 >= 50 && v2 < 50) return Math.round(y1 + ((v1 - 50) / (v1 - v2)) * (y2 - y1));
-  }
-  return null;
-}
-
-// Only areas with a clear majority today. An area sitting at 52% in 2021 "crosses in
-// 2023" purely because it started next to the line, which is inside the model's own
-// 1.56pp error and is not a projection worth printing. Requiring a 60% base means the
-// year is carried by the trend rather than by the starting position, and it matches the
-// published finding, whose interest is the areas that are comfortably majority now.
+// When the published projection takes each area below a 50% White British share, as a
+// decade between two model years: never a year interpolated between them, and never a
+// list ordered by how soon (maps plan v2.2, I28). Only areas comfortably majority White
+// British today (60% or more at the 2021 Census): for an area next to the line the
+// decade is carried by where it started, inside the model's own error.
 const CROSSING_MIN_BASE_PCT = 60;
-const crossingSoon = publicAreas
-  .map((area) => {
-    const rec = projData.areas[area.areaCode];
-    return { area, year: crossingYear(rec), now: (rec?.current?.census_groups ?? rec?.current?.groups)?.white_british ?? null };
-  })
-  .filter((r) => r.year !== null && r.now != null && r.now >= CROSSING_MIN_BASE_PCT)
-  .sort((a, b) => (a.year as number) - (b.year as number))
-  .slice(0, 8);
+const crossingByDecade = PROJECTION_DECADES.map((to, k) => {
+  const from = k === 0 ? 2021 : PROJECTION_DECADES[k - 1];
+  const areas = publicAreas
+    .filter((area) => {
+      const rec = projData.areas[area.areaCode];
+      const d = crossingDecade(rec);
+      const now = censusWhiteBritish2021(rec);
+      return d !== null && d !== "already" && d.to === to && now != null && now >= CROSSING_MIN_BASE_PCT;
+    })
+    .sort((a, b) => a.areaName.localeCompare(b.areaName));
+  return { from, to, areas };
+}).filter((d) => d.areas.length > 0);
 
-const crossingAlready = publicAreas.filter((area) => {
-  const rec = projData.areas[area.areaCode];
-  return crossingYear(rec) === 0;
-}).length;
+const crossingAlready = publicAreas.filter((area) => crossingDecade(projData.areas[area.areaCode]) === "already").length;
 
 // Get latest findings
 const allFindings = await getCollection("findings");
@@ -321,44 +289,30 @@ function findingColor(verdict: string): string {
         />
       </div>
 
-      <!-- The years these areas cross 50%. A date is a thing a reader can picture; a
-           percentage point change is not, so the year leads and the change is dropped. -->
+      <!-- The decade each area crosses 50%, from the published projection years only. -->
       <div class="cross-section">
-        <h3 class="cross-title">The years these areas cross 50%</h3>
+        <h3 class="cross-title">When the projection takes these areas below half</h3>
         <p class="cross-desc">
-          Areas that are comfortably majority White British today, and the year the projection
-          takes each of them below half. Interpolated between projection decades, so the years
-          are approximate. Areas already close to the line are left out: their crossing year is
-          carried by where they started rather than by the trend, and it sits inside the model's
-          own error. {crossingAlready} areas are already below a majority.
+          Areas with a White British share of 60% or more at the 2021 Census, grouped by the
+          decade in which the projection first puts the share below half, A to Z. The model
+          projects 2031, 2041, 2051 and 2061 only, so the decade is as precise as it can be.
+          Areas closer to the line are left out: their decade is carried by where they started
+          rather than by the trend. {crossingAlready} areas were already below half at the 2021 Census.
         </p>
-        <div class="cross-table">
-          <div class="cross-head">
-            <span>Area</span>
-            <span>Region</span>
-            <span class="cross-num">Today</span>
-            <span>2021 to 2041</span>
-            <span class="cross-num">Crosses 50%</span>
-          </div>
-          {crossingSoon.map((r) => (
-            <a href={`/places/${slugifyAreaName(r.area.areaName)}/`} class="cross-row">
-              <span class="cross-name">{r.area.areaName}</span>
-              <span class="cross-region">{r.area.regionName}</span>
-              <span class="cross-num cross-today">{fmtPct1(r.now as number)}</span>
-              <span class="cross-axis">
-                <span class="cross-axis-line"></span>
-                <span
-                  class="cross-axis-dot"
-                  style={`left: ${Math.max(0, Math.min(100, (((r.year as number) - 2021) / 20) * 100)).toFixed(1)}%`}
-                ></span>
-              </span>
-              <span class="cross-num cross-year">{r.year}</span>
-            </a>
-          ))}
-        </div>
+        {crossingByDecade.map((d) => (
+          <details class="cross-decade">
+            <summary><span class="cross-span">Between {d.from} and {d.to}</span> <span class="cross-count">{d.areas.length} {d.areas.length === 1 ? "area" : "areas"}</span></summary>
+            <ul class="cross-list">
+              {d.areas.map((a) => (
+                <li><a href={`/places/${slugifyAreaName(a.areaName)}/`}>{a.areaName}</a></li>
+              ))}
+            </ul>
+          </details>
+        ))}
         <p class="cross-note">
-          The marker sits on a 2021 to 2041 axis. Source: Census 2021 (ONS) projected with
-          Hamilton-Perry v8.0, mean absolute error 1.56pp on a one-decade out-of-sample test.
+          Source: Census 2021 (ONS, table TS021) projected with Hamilton-Perry v8.0, mean absolute
+          error 1.56pp on a one-decade out-of-sample test. Projected years past an area's
+          plausibility horizon are withheld and not counted.
         </p>
       </div>
 
@@ -414,14 +368,14 @@ function findingColor(verdict: string): string {
   </section>
 
   <!-- ═══ REGIONAL OVERVIEW ═══ -->
-  {topRegions.length > 0 && (
+  {regionsByName.length > 0 && (
     <section class="pressure-section shell" id="regional">
-      <h2 class="section-title">Most diverse regions</h2>
+      <h2 class="section-title">Regions A to Z</h2>
       <p class="section-desc">
-        Regional variation in ethnic composition. Sorted by lowest population-weighted White British share.
+        Regional variation in ethnic composition, listed A to Z.
       </p>
       <div class="region-grid">
-        {topRegions.map((region) => (
+        {regionsByName.map((region) => (
           <div class="region-card">
             <span class="region-name">{region.name}</span>
             <span class="region-stat">{region.avgWbi.toFixed(1)}%</span>
@@ -550,6 +504,7 @@ function findingColor(verdict: string): string {
 
       const matches = areas
         .filter((a) => a.areaName && a.areaName.toLowerCase().includes(queryLower))
+        .sort((a, b) => a.areaName.localeCompare(b.areaName))
         .slice(0, 8);
 
       if (matches.length === 0) {
@@ -607,6 +562,7 @@ function findingColor(verdict: string): string {
 
       const matches = futureAreas
         .filter((a: any) => a.areaName && a.areaName.toLowerCase().includes(query))
+        .sort((a, b) => a.areaName.localeCompare(b.areaName))
         .slice(0, 6);
 
       if (matches.length === 0) {
@@ -1049,72 +1005,12 @@ function findingColor(verdict: string): string {
     letter-spacing: -0.04em;
   }
   .cross-desc { margin: 0.5rem 0 0; max-width: 70ch; color: var(--text-muted); line-height: 1.7; }
-  .cross-table {
-    margin-top: 1.1rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--bg-card);
-    overflow: hidden;
-  }
-  .cross-head,
-  .cross-row {
-    display: grid;
-    grid-template-columns: 1.35fr 1fr 6rem 1.4fr 6rem;
-    gap: 1rem;
-    align-items: center;
-    padding: 0.7rem 1.15rem;
-  }
-  .cross-head {
-    background: var(--bg-subtle);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-faint);
-  }
-  .cross-row {
-    border-bottom: 1px solid var(--border);
-    text-decoration: none;
-    color: inherit;
-    transition: background 140ms ease;
-  }
-  .cross-row:hover { background: var(--accent-wash); }
-  .cross-name { font-weight: 600; }
-  .cross-region { color: var(--text-muted); font-size: 0.9rem; }
-  .cross-num { text-align: right; font-family: var(--font-display); font-weight: 600; }
-  .cross-today { font-size: 0.95rem; }
-  .cross-year { font-size: 1.15rem; color: var(--accent); }
-  .cross-axis { position: relative; display: block; height: 22px; }
-  .cross-axis-line {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 10px;
-    height: 2px;
-    background: var(--border);
-  }
-  .cross-axis-dot {
-    position: absolute;
-    top: 4px;
-    width: 14px;
-    height: 14px;
-    margin-left: -7px;
-    border-radius: 999px;
-    background: var(--accent);
-  }
-  .cross-note { margin: 0; padding: 0.8rem 1.15rem; font-size: 0.79rem; line-height: 1.6; color: var(--text-faint); }
-  @media (max-width: 760px) {
-    .cross-head { display: none; }
-    .cross-row {
-      grid-template-columns: 1fr auto;
-      grid-template-areas: "name year" "region today" "axis axis";
-      gap: 0.3rem 1rem;
-    }
-    .cross-name { grid-area: name; }
-    .cross-region { grid-area: region; }
-    .cross-today { grid-area: today; text-align: right; }
-    .cross-year { grid-area: year; }
-    .cross-axis { grid-area: axis; }
-  }
+  .cross-decade { margin-top: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--panel); }
+  .cross-decade summary { cursor: pointer; padding: 0.7rem 1rem; display: flex; justify-content: space-between; gap: 1rem; font-weight: 600; }
+  .cross-span { font-family: var(--font-display); }
+  .cross-count { color: var(--text-muted); font-weight: 400; }
+  .cross-list { list-style: none; margin: 0; padding: 0 1rem 0.8rem; columns: 14rem auto; column-gap: 1.5rem; }
+  .cross-list li { padding: 0.15rem 0; break-inside: avoid; }
+  .cross-note { margin: 0.75rem 0 0; font-size: 0.79rem; line-height: 1.6; color: var(--text-faint); }
+
 </style>
