@@ -25,6 +25,7 @@ test('keyboard playback uses held years, pauses and respects reduced motion', as
   await expect(page.locator('#year-label')).toHaveText('2011');
   await page.locator('#map-play').focus(); await page.keyboard.press('Space');
   await expect(page.locator('#map-play')).toHaveText('Pause');
+  await expect(page.locator('#map-play')).toBeFocused();
   await expect(page.locator('#year-label')).toHaveText('2012', { timeout: 5000 });
   await page.keyboard.press('Escape');
   await expect(page.locator('#map-play')).toHaveText('Play');
