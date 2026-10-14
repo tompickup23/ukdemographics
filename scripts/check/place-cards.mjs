@@ -60,7 +60,8 @@ for (const slug of readdirSync(dir)) {
   if (!focusRow) fail("no focus row in the population table");
   else {
     const [, name, change] = focusRow.map(decode);
-    const onCard = alt.match(new RegExp(`(?:\\. |; )${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")} ([^;.]+(?:\\.\\d+%)?)`));
+    const esc = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const onCard = alt.match(new RegExp(`(?:\\. |; )${esc} ([+\\-\u2212]?\\d[\\d.,]*%|n/a)(?:;|\\.$)`));
     const norm = (s) => s.replace(/−/g, "-").trim();
     if (!onCard || norm(onCard[1]) !== norm(change)) fail(`card says "${onCard?.[1]}" for ${name}, page says "${change}"`);
   }
