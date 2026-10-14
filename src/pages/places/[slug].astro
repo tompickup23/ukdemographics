@@ -1,4 +1,6 @@
 ---
+import { buildPublicPlaceRegionPath } from "../../lib/site";
+import { countyForDistrict, countyPath } from "../../lib/counties";
 import { CARD_LICENCE_METADATA } from "../../lib/map/card-licence";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
@@ -616,6 +618,8 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
 >
   <Breadcrumbs items={[
     { label: "Places", href: "/places/" },
+    { label: area.regionName, href: buildPublicPlaceRegionPath(area.regionName) },
+    ...(countyForDistrict(area.areaCode) ? [{label:countyForDistrict(area.areaCode)!.countyName,href:countyPath(countyForDistrict(area.areaCode)!.countyName)}] : []),
     { label: area.areaName }
   ]} />
 

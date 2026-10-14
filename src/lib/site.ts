@@ -1,3 +1,4 @@
+import { publicCounties, countyPath, countyForDistrict } from "./counties";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -45,6 +46,7 @@ const INDEXABLE_STATIC_PATHS = [
   "/national/",
   "/maps/",
   "/places/",
+  "/places/counties/",
   "/pressure/",
   "/privacy/",
   "/regional/",
@@ -156,6 +158,7 @@ export function getPublicPlaceRegions(): Array<{ regionName: string; countryName
 
 export function getIndexableSitePaths(): string[] {
   const paths = new Set<string>(INDEXABLE_STATIC_PATHS);
+  for (const county of publicCounties) paths.add(countyPath(county.name));
 
   for (const region of getPublicPlaceRegions()) {
     paths.add(buildPublicPlaceRegionPath(region.regionName));
@@ -194,19 +197,12 @@ export function buildPlaceStructuredData(
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: SITE_URL
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: area.areaName,
-          item: options.canonicalUrl
-        }
-      ]
+        {name: "Home", item: SITE_URL},
+        {name: "Places", item: buildAbsoluteUrl("/places/")},
+        {name: area.regionName, item: buildAbsoluteUrl(buildPublicPlaceRegionPath(area.regionName))},
+        ...(countyForDistrict(area.areaCode) ? [{name: countyForDistrict(area.areaCode)!.countyName, item: buildAbsoluteUrl(countyPath(countyForDistrict(area.areaCode)!.countyName))}] : []),
+        {name: area.areaName, item: options.canonicalUrl}
+      ].map((item,index)=>({"@type":"ListItem",position:index+1,...item}))
     },
     {
       "@context": "https://schema.org",

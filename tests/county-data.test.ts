@@ -1,3 +1,5 @@
+import { countyAuditInputs, validateCountyAudit } from '../scripts/lib/county-audit.mjs';
+import {countyShares, countyChange} from '../src/lib/counties';
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -14,10 +16,10 @@ const manifest = read('data/raw/manifests/county_census.json');
 const countyCodes = [...new Set(Object.values(lookup).map((d: any) => d.countyCode))].sort();
 
 describe('county source records and publication gate', () => {
-  it('covers the county lookup exactly, without adding public county routes', () => {
+  it('covers the county lookup exactly, and publishes county routes', () => {
     expect(Object.keys(census.counties).sort()).toEqual(countyCodes);
     expect(Object.keys(estimates.counties).sort()).toEqual(countyCodes);
-    expect(fs.existsSync('src/pages/places/counties')).toBe(false);
+    expect(fs.existsSync('src/pages/places/counties')).toBe(true);
   });
 
   it('reconciles every MYE4 year with the published county workbook rows', () => {
@@ -70,12 +72,35 @@ describe('county source records and publication gate', () => {
     }
   });
 
-  it('keeps the unresolved Census 2021 differences behind a failed publication gate', () => {
-    const ready = Object.values(census.counties).every((county: any) => Object.values(county.census).every((row: any) => row.exact));
-    expect(census.publicationReady).toBe(ready);
-    expect(ready).toBe(false);
+  it('verifies the reviewed county policy before every production build', () => {
+    expect(census.publicationReady).toBe(true);
     const gate = spawnSync(process.execPath, ['scripts/check/county-reconciliation.mjs'], { encoding: 'utf8' });
-    expect(gate.status).toBe(1);
-    expect(gate.stderr).toContain('County publication blocked');
+    expect(gate.status, gate.stderr).toBe(0);
+    expect(gate.stdout).toContain('294 census comparisons, 315 population comparisons');
+  });
+  it('rejects changed counts, denominators, differences, membership and sources', () => {
+    const mutations = [
+      (i:any)=>i.census.counties.E10000017.census['2021'].published.white_british++,
+      (i:any)=>{const c=i.census.counties.E10000017.census['2021'];c.published.total=c.districtSum.total;},
+      (i:any)=>i.census.counties.E10000017.census['2021'].difference.asian++,
+      (i:any)=>delete i.lookup.E07000117,
+      (i:any)=>i.manifest.sources[1].sha256='changed',
+      (i:any)=>i.site.E07000117.current.groups_absolute.asian++,
+      (i:any)=>i.estimates.source.fileSha256='changed',
+      (i:any)=>i.populationManifest.sourceUrl='changed',
+    ];
+    for(const mutate of mutations){const input=countyAuditInputs();mutate(input);expect(()=>validateCountyAudit(input)).toThrow(/reviewed evidence changed/);}
+  });
+  it('rejects disabled readiness and district display shares that disagree with counts', () => {
+    const disabled=countyAuditInputs();disabled.census.publicationReady=false;expect(()=>validateCountyAudit(disabled)).toThrow(/not ready/);
+    const shares=countyAuditInputs();shares.site.E07000117.current.census_groups.white_british++;expect(()=>validateCountyAudit(shares)).toThrow(/displayed share differs/);
+  });
+  it('calculates every share and change from the county denominator, before rounding', () => {
+    for(const code of countyCodes as string[]) for(const group of GROUP_KEYS){
+      const county=census.counties[code];
+      const ratio=(year:string)=>county.census[year].published[group]/county.census[year].published.total*100;
+      expect(countyShares(code,2021)[group as keyof ReturnType<typeof countyShares>]).toBe(ratio('2021'));
+      expect(countyChange(code,group as Parameters<typeof countyChange>[1])).toBe(ratio('2021')-ratio('2011'));
+    }
   });
 });

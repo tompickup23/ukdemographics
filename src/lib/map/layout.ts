@@ -280,7 +280,7 @@ export function buildLayout(frame: Frame, tk: TemplateKey, ind: Indicator): Layo
   let panel: Box;
   let H = t.H;
   const footSize = F.foot, footLineH = F.foot * 1.42;
-  const footMaxW = tk === "og" ? 440 : W - 2 * (tk === "inline" ? INLINE_PAD : 48);
+  const footMaxW = tk === "og" ? 440 : W - 2 * ((tk === "inline" || tk === "wide") ? INLINE_PAD : 48);
   const footN = Math.max(...ind.years.map((y) => footerLines(ind, frame, y, footSize, footMaxW, tk === "og").length));
   const tableRows = isFocus && t.table ? Math.ceil((frame.members.length - 1) / 2) : 0;
   const tableH = tableRows ? 70 * s + tableRows * 34 * s : 0;
@@ -302,7 +302,7 @@ export function buildLayout(frame: Frame, tk: TemplateKey, ind: Indicator): Layo
     header.legend = { x: 40, y: sb + 162, w: 400, barH: 15 };
     urlY = t.H - 26;
     footY = urlY - 30 - (footN - 1) * footLineH;
-  } else if (tk === "inline") {
+  } else if (tk === "inline" || tk === "wide") {
     header.brand = { x: INLINE_PAD, y: 8, k: 0.95 };
     header.titleLines = wrap(ind.title, F.title, W - 2 * INLINE_PAD, "serifSemiBold");
     header.titleBase = header.titleLines.map((_, i) => 104 + i * 36);
@@ -363,7 +363,8 @@ export function buildLayout(frame: Frame, tk: TemplateKey, ind: Indicator): Layo
   const proj = geoMercator().fitExtent([[panel.x + ix, panel.y + iy], [panel.x + panel.w - ix, panel.y + panel.h - iy]], target);
   const path = geoPath(proj);
   // Simplify in screen space: under half a CSS pixel on a phone, two thirds of a pixel on cards.
-  const tol = tk === "inline" ? 0.75 : 0.66;
+  // Group outlines are simplified below a CSS pixel at their intended display width.
+  const tol = !isFocus && tk === "wide" ? 1.5 : !isFocus && tk === "inline" ? 1.2 : tk === "inline" ? 0.75 : 0.66;
   // Paths are cut a little outside the panel (the camera push in clips zooms in, never out).
   const clip: Box = { x: panel.x - 8, y: panel.y - 8, w: panel.w + 16, h: panel.h + 16 };
   const shapes = feats.map((f) => ({ code: f.properties.code, d: svgPath(f, proj, tol, clip) }));

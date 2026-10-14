@@ -1,0 +1,12 @@
+{
+  "policy": "published-county-rows-v1",
+  "reviewed": "2026-10-14",
+  "decision": "D30: published Census 2021 county rows, exact 2011 and MYE sums, reviewed discrepancy vectors. Independent raw source audit completed before publication.",
+  "hashes": {
+    "counties": "ed67d04be8320b1a2e7d1e4df0d4d27f106a5a75c7d4bfbcc183995eb9f5e42c",
+    "sources": "d8369476d43964f1132787f905cbc83f5691f9ad3e628bbcc6cc62032ddfcae6",
+    "membership": "5da9af3cea8a11ed95edaf05c389da7509f01f7906e5a676e7099a0840ba58df",
+    "population": "fedc4405baf4a1a0b071ec058830514ede2c345e02c970dce22076797f9281b6",
+    "districtCensus": "0fbf38ffb3063134641e67f050475dbe27e57f29d33ddc63f9932720436afe54"
+  }
+}

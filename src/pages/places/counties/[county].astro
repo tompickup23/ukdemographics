@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import RaceBar from '../../../components/RaceBar.astro';
+import StatCard from '../../../components/StatCard.astro';
+import GroupMaps from '../../../components/GroupMaps.astro';
+import { publicCounties, countyRecords, countyPopulation, countyShares, countyChange, countySources, countyPath, countyPopulationSummary, countyPopulationSource } from '../../../lib/counties';
+import { countyFrame } from '../../../lib/map/geo';
+import { ETHNIC_PALETTE } from '../../../lib/ethnic-palette';
+import { getPublicPlaceAreas, buildPublicPlaceRegionPath, buildAbsoluteUrl } from '../../../lib/site';
+export function getStaticPaths() { return publicCounties.map(c=>({params:{county:countyPath(c.name).split('/')[3]},props:{code:c.code}})); }
+const {code}=Astro.props;
+const county=countyRecords[code], frame=countyFrame(code), series=countyPopulation[code].series;
+const region=getPublicPlaceAreas().find(a=>county.districts.includes(a.areaCode))!.regionName;
+const n=(v:number)=>v.toLocaleString('en-GB');
+const signed=(v:number)=>`${v>0?'+':''}${n(v)}`;
+const difference=county.census['2021'].difference.total;
+const differenceText=difference===0?'The 2021 district resident total agrees exactly with the published county total.':`The 2021 district total is ${n(Math.abs(difference))} residents ${difference>0?'higher':'lower'} than the published county total. Both figures are retained as published.`;
+const title=`${county.name} county: population and census maps`;
+const description=`Population estimates and Census 2011 and 2021 ethnic groups for the ${county.name} county council area, with district maps and source reconciliation.`;
+const canonical=buildAbsoluteUrl(countyPath(county.name));
+const structuredData=[{'@context':'https://schema.org','@type':'Dataset',name:title,description,url:canonical,creator:{'@type':'Organization',name:'Office for National Statistics'},spatialCoverage:{'@type':'Place',name:`${county.name} county council area`,identifier:code},temporalCoverage:'2011/2025',isBasedOn:[...countySources.map(s=>s.sourceUrl),countyPopulationSource.sourceUrl],license:'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'},{'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{name:'Home',item:buildAbsoluteUrl('/')},{name:'Places',item:buildAbsoluteUrl('/places/')},{name:region,item:buildAbsoluteUrl(buildPublicPlaceRegionPath(region))},{name:county.name,item:canonical}].map((item,i)=>({'@type':'ListItem',position:i+1,...item}))}];
+const measures=[{key:'total' as const,label:'All residents'},...ETHNIC_PALETTE];
+---
+<BaseLayout title={title} description={description} structuredData={structuredData}>
+  <Breadcrumbs items={[{label:'Places',href:'/places/'},{label:region,href:buildPublicPlaceRegionPath(region)},{label:county.name}]} />
+  <header><h1>{county.name}: population and ethnicity</h1><p>County council area. {county.districts.length} district councils.</p>{frame.note&&<p class="scope-note">{frame.note}</p>}</header>
+  <p>{countyPopulationSummary(code)} Source: <a href={countyPopulationSource.sourceUrl}>ONS MYE4</a>.</p>
+  <div class="stat-card-row">
+    <StatCard value={n(series['2025'])} label="Residents, mid-2025" note="ONS MYE4 estimate" />
+    <StatCard value={n(county.census['2021'].published.total)} label="Residents, Census 2021 ethnicity table" note="ONS TS021 county row" />
+    <StatCard value={n(county.census['2011'].published.total)} label="Residents, Census 2011" note="ONS KS201EW county row" />
+  </div>
+  <section aria-labelledby="county-composition"><h2 id="county-composition">Ethnic groups in the county council area</h2>
+    <div class="county-composition">{([2011,2021] as const).map(year=><RaceBar title={`Census ${year}`} height={36} labelMinPct={2} ariaLabel={`${county.name} county council area, Census ${year}`} segments={ETHNIC_PALETTE.map(g=>({label:g.label,pct:countyShares(code,year)[g.key]/100,colour:g.fill}))} />)}</div>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="County ethnic group counts and change"><table><caption>Published county counts. Changes are percentage points calculated from unrounded shares.</caption><thead><tr><th scope="col">Group</th><th scope="col">2011</th><th scope="col">2021</th><th scope="col">Change</th></tr></thead><tbody>{ETHNIC_PALETTE.map(g=><tr><th scope="row">{g.label}</th><td>{n(county.census['2011'].published[g.key])}</td><td>{n(county.census['2021'].published[g.key])}</td><td>{countyChange(code,g.key)>0?'+':''}{countyChange(code,g.key).toFixed(1)}pp</td></tr>)}</tbody></table></div>
+  </section>
+  <section aria-labelledby="county-source-note"><h2 id="county-source-note">How county and district counts relate</h2>
+    <p>County figures use the ONS county council row. Districts use their own published rows. Census 2021 counts include disclosure-control changes, so district figures may not add exactly to the county figure. The reconciliation table shows each difference. Census 2011 counts and annual population estimates agree exactly with the district sums.</p>
+    <p>{differenceText} The ethnicity table's all-residents count is the denominator for every county ethnic group share.</p>
+    <p><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/methodologies/protectingpersonaldataincensus2021results">ONS explains Census 2021 disclosure controls</a>. The audit does not establish the precise cause of each individual difference.</p>
+    <details><summary>Reconciliation: every county and district-sum comparison</summary>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="County census reconciliation"><table><caption>Difference means district sum minus published county count.</caption><thead><tr><th scope="col">Year and measure</th><th scope="col">County</th><th scope="col">District sum</th><th scope="col">Difference</th></tr></thead><tbody>{(['2011','2021'] as const).flatMap(year=>measures.map(g=><tr><th scope="row">{year}: {g.label}</th><td>{n(county.census[year].published[g.key])}</td><td>{n(county.census[year].districtSum[g.key])}</td><td>{signed(county.census[year].difference[g.key])}</td></tr>))}</tbody></table></div>
+      <p>Raw source rows: {countySources.map(source=><span><a href={source.sourceUrl}>{source.table}, {source.year}</a>, row {county.census[source.year as 2011|2021].sourceRow}. </span>)}</p>
+      <p><a href="/data/county-reconciliation.csv" download>Download all county reconciliation records (CSV)</a></p>
+    </details>
+    <details><summary>Annual county population estimates, 2011 to 2025</summary><table><caption>ONS MYE4. Every value agrees exactly with the sum of constituent districts.</caption><thead><tr><th scope="col">Year</th><th scope="col">Residents</th></tr></thead><tbody>{Object.entries(series).map(([year,value])=><tr><th scope="row">{year}</th><td>{n(value)}</td></tr>)}</tbody></table></details>
+  </section>
+  <GroupMaps frame={frame} />
+  <p><a href="/places/counties/">All county council areas, A to Z</a></p>
+</BaseLayout>
+<style>
+  header { margin-bottom:1.5rem; } h1 { margin-bottom:.3rem; }
+  .scope-note { padding:1rem; border-left:3px solid var(--accent); background:var(--panel); }
+  section { margin-block:2rem; } p { max-width:78ch; }
+  .table-wrap { overflow-x:auto; max-width:100%; }
+  table { width:100%; border-collapse:collapse; font-size:.9rem; }
+  th,td { padding:.6rem; text-align:right; border-bottom:1px solid var(--border); }
+  th:first-child { text-align:left; } caption { text-align:left; padding-block:.75rem; color:var(--muted); }
+  details { margin-block:1rem; } summary { cursor:pointer; padding:.75rem; border:1px solid var(--border); border-radius:var(--radius); }
+  .county-composition { display:grid; gap:1.5rem; }
+  @media(min-width:768px) { .county-composition { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+</style>

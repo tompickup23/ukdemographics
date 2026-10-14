@@ -1,3 +1,4 @@
+import { publicCounties, countyPath } from "./counties";
 import { getPublicPlaceAreas, getPublicPlaceRegions, buildPublicPlaceRegionPath, slugifyAreaName } from "./site";
 import { formatPconCount } from "./coverage";
 import { getEthnicProjection } from "./ethnic-projections";
@@ -181,6 +182,7 @@ const STATIC_PAGE_ENTRIES: SiteSearchEntry[] = [
 ];
 
 export function getPublicSearchEntries(): SiteSearchEntry[] {
+  const countyEntries: SiteSearchEntry[] = publicCounties.map(c=>({href:countyPath(c.name),title:`${c.name} county council area`,kind:'region',kicker:'County',description:'Population estimates and census ethnic groups, with district maps and source reconciliation.',priority:112,searchText:`${c.name} county population census districts`.toLowerCase()}));
   const placeEntries = getPublicPlaceAreas().map((area) => {
     const ep = getEthnicProjection(area.areaCode);
     const wbiNow = (ep?.current?.census_groups ?? ep?.current?.groups)?.white_british ?? area.wbiPct2021 ?? null;
@@ -233,7 +235,7 @@ export function getPublicSearchEntries(): SiteSearchEntry[] {
 
   const kindOrder: Record<SiteSearchEntry["kind"], number> = { page: 0, region: 1, place: 2 };
 
-  return [...STATIC_PAGE_ENTRIES, ...regionEntries, ...placeEntries].sort((left, right) => {
+  return [...STATIC_PAGE_ENTRIES, ...countyEntries, ...regionEntries, ...placeEntries].sort((left, right) => {
     if (left.kind !== right.kind) {
       return kindOrder[left.kind] - kindOrder[right.kind];
     }

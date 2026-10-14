@@ -64,12 +64,14 @@ export const GET: APIRoute = async () => {
     "src/pages/places/regions/[region].astro",
     "src/lib/search-listing.ts",
   ]));
+  const countyDate = lastCommitDate(["src/pages/places/counties", "src/components/GroupMaps.astro", "src/data/live/county-census.json", "src/data/live/population-estimates.json"]);
   const pconDate = latest(pconDatasetDate(), lastCommitDate([
     "src/pages/constituencies/[slug].astro",
     "src/lib/search-listing.ts",
   ]));
   for (const path of paths) {
-    const date = path.startsWith("/places/regions/") ? regionDate
+    const date = path.startsWith("/places/counties/") ? countyDate
+      : path.startsWith("/places/regions/") ? regionDate
       : /^\/places\/[^/]+\/$/.test(path) ? placeDate
       : /^\/constituencies\/[^/]+\/$/.test(path) ? pconDate
       : null;

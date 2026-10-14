@@ -1,0 +1,57 @@
+---
+import RaceBar from './RaceBar.astro';
+import { areaName, slugify, type Frame } from '../lib/map/geo';
+import { getIndicator } from '../lib/map/indicators';
+import { renderChecked } from '../lib/map/render';
+import { GROUPS, censusShares, populationCount } from '../lib/map/place';
+import { ethnicColour } from '../lib/ethnic-palette';
+interface Props { frame: Frame }
+const { frame } = Astro.props;
+const measures = [{id:'population_change' as const,year:2025,label:'Population change since 2011'},{id:'white_british_share' as const,year:2021,label:'Census 2021 ethnic groups'}];
+const n=(v:number|null)=>v==null?'n/a':v.toLocaleString('en-GB');
+const signed=(v:number)=>`${v>0?'+':''}${v.toFixed(1)}%`;
+const maps=measures.map(m=>{
+  const indicator=getIndicator(m.id,{projections:false});
+  const rendered=(['inline','wide'] as const).map(t=>{
+    const result=renderChecked({...frame,id:`${frame.id}-${m.id}`},indicator,t,m.year);
+    if(t==='wide' && frame.members.length<=20 && result.layout.unlabelled.length) throw new Error(`Unlabelled county: ${frame.name}`);
+    // Static maps need only the chosen year's values; tables provide the history.
+    return result.svg.replace(/ data-[\w-]+="[^"]*"/g,'');
+  });
+  return {...m,indicator,rendered};
+});
+---
+<section class="group-maps" data-group-maps>
+  {maps.map((m)=><section aria-label={m.label}>
+    <h2>{m.label}</h2>
+    <div class="gm-inline" set:html={m.rendered[0]} />
+    <div class="gm-wide" set:html={m.rendered[1]} />
+    {m.id==='population_change' ? <div class="table-wrap" tabindex="0" role="region" aria-label="Council population estimates">
+      <table><caption>ONS mid-year estimates. Councils A to Z.</caption><thead><tr><th scope="col">Council</th><th scope="col">2011</th><th scope="col">2025</th><th scope="col">Change</th></tr></thead><tbody>
+      {frame.members.map(code=><tr><th scope="row"><a href={`/places/${slugify(areaName(code))}/`}>{areaName(code)}</a>{frame.extras.includes(code)&&<small>Unitary, outside county total</small>}</th><td>{n(populationCount(code,2011))}</td><td>{n(populationCount(code,2025))}</td><td>{signed(m.indicator.value(code,2025)!)}</td></tr>)}
+      </tbody></table>
+    </div> : <div class="gm-compositions">
+      <p>Each bar shows all six groups. Figures are observed Census 2021 shares; they are not projections.</p>
+      {frame.members.map(code=>{const shares=censusShares(code,2021)!;return <section class="gm-council"><h3><a href={`/places/${slugify(areaName(code))}/`}>{areaName(code)}</a></h3>{frame.extras.includes(code)&&<p>Unitary council, outside the county council total.</p>}<RaceBar height={28} labelMinPct={2} ariaLabel={`${areaName(code)}, Census 2021 ethnic group shares`} segments={GROUPS.map(g=>({label:g.label,pct:shares[g.key]/100,colour:ethnicColour(g.key).fill}))} /></section>;})}
+    </div>}
+  </section>)}
+  <p class="source">Sources: ONS MYE4 population estimates, Census 2011 KS201EW and Census 2021 TS021. Boundaries: ONS Open Geography. Contains public sector information licensed under the Open Government Licence v3.0.</p>
+</section>
+<style>
+  .group-maps { margin-block:2rem; }
+  h2 { margin-top:2rem; }
+  .gm-wide { display:none; }
+  .gm-inline :global(svg), .gm-wide :global(svg) { width:100%; height:auto; display:block; }
+  .table-wrap { overflow-x:auto; max-width:100%; }
+  table { width:100%; border-collapse:collapse; font-size:.9rem; }
+  th,td { padding:.65rem; text-align:right; border-bottom:1px solid var(--border); }
+  th:first-child { text-align:left; }
+  caption { text-align:left; padding-block:.75rem; color:var(--muted); }
+  small { display:block; font-weight:400; }
+  .gm-compositions { display:grid; gap:1rem; }
+  .gm-compositions>p { grid-column:1/-1; }
+  .gm-council { padding:1rem; background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); min-width:0; }
+  h3 { margin-top:0; }
+  .source { color:var(--muted); font-size:.85rem; }
+  @media(min-width:768px) { .gm-wide { display:block; } .gm-inline { display:none; } .gm-compositions { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+</style>
