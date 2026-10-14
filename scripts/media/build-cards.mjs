@@ -28,7 +28,7 @@ const { module: M } = await runnerImport("/src/lib/map/index.ts");
 const t0 = Date.now();
 const log = (...a) => console.log(`[${((Date.now() - t0) / 1000).toFixed(1)}s]`, ...a);
 
-const indicators = M.INDICATOR_IDS.map((id) => M.getIndicator(id));
+const indicators = M.INDICATOR_IDS.map((id) => M.getIndicator(id, { projections: false }));
 const png = (svg, W) =>
   new Resvg(svg, { fitTo: { mode: "width", value: W }, font: { fontFiles: M.RESVG_FONT_FILES, loadSystemFonts: false, defaultFontFamily: M.FONT_SANS } })
     .render().asPng();
@@ -43,7 +43,7 @@ let n = 0;
 for (const frame of frames) {
   for (const ind of indicators) {
     // Every year for the web map (its switcher shows them all); the latest year for cards.
-    const years = { inline: ind.years, portrait: [M.latestYear(ind)], story: [M.latestYear(ind)], og: [M.latestYear(ind)] };
+    const years = Object.fromEntries(M.TEMPLATE_KEYS.map(tk => [tk, tk === "inline" ? ind.years : [M.latestYear(ind)]]));
     for (const tk of M.TEMPLATE_KEYS) for (const year of years[tk]) {
       const label = `${ind.id}/${frame.type}/${frame.id}/${tk}-${year}`;
       try {
