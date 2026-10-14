@@ -1,7 +1,7 @@
 # UK Demographics — Claude Code Context
 
 ## Overview
-Population data for every community. Ethnic projections, school data, housing demand, health and tenure by ethnic group, and now per-constituency political mapping across **1,000 pages**: 318 local authority profiles + 10 region pages + 631 UK constituencies + 22 findings + 16 dashboard and static pages + 3 section indexes.
+Population data for every community. Ethnic projections, school data, housing demand, health and tenure by ethnic group, and now per-constituency political mapping across **1,022 pages**: 318 local authority profiles + 21 county profiles + 10 region pages + 631 UK constituencies + 22 findings + 16 dashboard and static pages + 4 section indexes.
 
 **Coverage counts come from `src/lib/coverage.ts`.** `PLACE_COUNT` (318) is derived from `ethnic-projections.json`, `PCON_COUNT` (631) from `pcon-dataset.json`, and `PCON_UNIVERSE` (650) is the size of the Commons. Never type a coverage count into copy: use `formatPlaceCount()` / `formatPconCount()`, or import the constants. `tests/coverage.test.ts` sweeps `src/` and `public/` and fails on any hard-coded `320`/`650` next to a coverage noun, excluding `src/data` and `src/pages/releases.astro` (verbatim history). It also pins both counts, so a dataset change breaks the test and has to be an explicit decision. The 320 that was published in the nav and on `/compare/` predates the Barnsley and Sheffield duplicate-code fix of 29 Aug 2026; it is stale by exactly two. Recompute the page total with `find dist -name index.html | wc -l` after a build.
 
@@ -15,6 +15,7 @@ Population data for every community. Ethnic projections, school data, housing de
 ## Key surfaces
 
 - `/places/<slug>/` — 318 LA profiles, 23 sections each. NOMIS Census data wired (TS029 English proficiency, RM134 tenure by ethnic group, RM043 health by ethnic group). District pages fall back to parent county for ASC with a clear caveat banner.
+- `/places/counties/<county>/` and `/places/counties/` use published county Census rows, with complete district reconciliations. `npm run build` first verifies the pinned source and reconciliation evidence; do not refresh the reviewed manifest without checking the new source rows.
 - `/constituencies/<slug>/` — 631 of the 650 UK PCONs, with sitting MP card, 2024 GE bar chart, PIP claimants, constituent LAs. Index at `/constituencies/`.
 - `/national/` — Rebuilt with NINo 2002-2025 arc + births-by-COB 2008-2024 share charts (inline SVG).
 - `/findings/` — 16 Tom-voice pieces. Schema enum: `demographics | projections | fertility | schools | housing | health | migration | validation | crime | social-care | send` ("economy" is NOT valid).
@@ -22,7 +23,7 @@ Population data for every community. Ethnic projections, school data, housing de
 
 ## Map module (`src/lib/map/`, Oct 2026)
 
-One SVG renderer for the web map (`inline`, 600-unit viewBox), share cards (`portrait`, `story`, `og`) and clip frames. `indicators.ts` is the registry (population change from MYE4, White British share from Census 2011 and 2021); projected years stay off unless `MAPS_PROJECTIONS=1`, which waits for model v8.1. `geo.ts` reads `data/geography/lad26-uk-bsc.geojson` (fetch script and source record beside it). `brand.ts` is shared with the OG route. `tests/map.test.ts` holds the QA gates (contrast, dashes, brand marks, values re-read from source, fixed classes). `node scripts/media/build-cards.mjs [--png --sheet]` sweeps every frame and template into `.cache/media/` (never committed). Eleven councils formed since 2011 have no 2011 figure in `ethnic-projections.json` (`baseline.year` is 2021); the maps read exact sums of their 2011 districts from `src/data/live/census-2011-successors.json`, built by `scripts/build/derive-census-2011-successors.mjs` from the held KS201EW extract. The plan and staging live in the Reports repo, `ukd-maps-2026-10-13/HANDOFF_UKD_Maps_Execution.md`.
+One SVG renderer for the web map (`inline`, 600-unit viewBox), county and regional desktop maps (`wide`, 1000-unit viewBox), share cards (`portrait`, `story`, `og`) and clip frames. `indicators.ts` is the registry (population change from MYE4, White British share from Census 2011 and 2021); projected years stay off unless `MAPS_PROJECTIONS=1`, which waits for model v8.1. `geo.ts` reads `data/geography/lad26-uk-bsc.geojson` (fetch script and source record beside it). `brand.ts` is shared with the OG route. `tests/map.test.ts` holds the QA gates (contrast, dashes, brand marks, values re-read from source, fixed classes). `node scripts/media/build-cards.mjs [--png --sheet]` sweeps every frame and template into `.cache/media/` (never committed). Eleven councils formed since 2011 have no 2011 figure in `ethnic-projections.json` (`baseline.year` is 2021); the maps read exact sums of their 2011 districts from `src/data/live/census-2011-successors.json`, built by `scripts/build/derive-census-2011-successors.mjs` from the held KS201EW extract. The plan and staging live in the Reports repo, `ukd-maps-2026-10-13/HANDOFF_UKD_Maps_Execution.md`.
 
 ## CI / deploy
 
