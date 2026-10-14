@@ -10,7 +10,7 @@ if (root) {
   const names = rows.map(r => r.querySelector('a').textContent);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const cache = new Map();
-  let timer = null, revision = 0;
+  let timer = null, revision = 0, playRequest = 0, playPending = false;
   let state = { m: 'population', y: 2025, g: 'white_british', c: '2021', v: 'hex', a: 0 };
   const load = async file => {
     if (!cache.has(file)) cache.set(file, fetch(`/maps/data/${file}.json`).then(r => {
@@ -20,6 +20,7 @@ if (root) {
     return cache.get(file);
   };
   function pause(announce = true) {
+    playRequest += 1;
     if (timer) clearInterval(timer);
     timer = null;
     el('map-play').textContent = 'Play';
@@ -136,14 +137,16 @@ if (root) {
   paths.forEach((p, i) => p.addEventListener('click', () => change({ a: i })));
   el('map-play').addEventListener('click', async () => {
     if (timer) { pause(); return; }
-    if (reduced.matches || state.m !== 'population') return;
-    const requested = revision;
-    el('map-play').disabled = true;
+    if (reduced.matches || state.m !== 'population' || playPending) return;
+    const requested = revision, request = ++playRequest;
+    playPending = true;
+    el('map-play').setAttribute('aria-disabled', 'true');
     try { await load('population'); }
     catch (error) { el('map-status').textContent = error.message; return; }
-    finally { el('map-play').disabled = false; }
-    if (requested !== revision || state.m !== 'population' || reduced.matches || document.hidden) return;
-    if (state.y === years.at(-1)) { state.y = years[0]; await render(); }
+    finally { playPending = false; el('map-play').removeAttribute('aria-disabled'); }
+    if (request !== playRequest || requested !== revision || state.m !== 'population' || reduced.matches || document.hidden) return;
+    if (state.y === years.at(-1)) { state.y = years[0]; await render(true, false); }
+    if (request !== playRequest || state.m !== 'population' || reduced.matches || document.hidden) return;
     el('map-status').textContent = '';
     el('map-play').textContent = 'Pause'; el('map-play').setAttribute('aria-pressed', 'true');
     timer = setInterval(async () => {
@@ -154,7 +157,7 @@ if (root) {
       if (state.y === years.at(-1)) pause();
     }, 1200);
   });
-  root.addEventListener('keydown', e => { if (e.key === 'Escape') pause(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') pause(); });
   document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
   const motion = () => { pause(false); el('map-play').hidden = reduced.matches; };
   reduced.addEventListener('change', motion); motion();
