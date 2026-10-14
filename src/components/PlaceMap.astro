@@ -1,0 +1,241 @@
+---
+/**
+ * The map block on a place page (maps plan Stage 2): one inline SVG carrying both
+ * measures (D7), population change first, the full ethnic mix as composition bars beside
+ * the White British map (P3, never that share alone), A to Z tables, and two summary
+ * sentences from the indicator registry. The block keeps the dark ground in light mode
+ * (D10): it is the share card in miniature and its contrast is checked on that ground.
+ *
+ * public/scripts/place-map.js switches measure and year. With no script the map shows
+ * mid-2025 population change and both panels, tables included, stay visible.
+ */
+import RaceBar from "./RaceBar.astro";
+import { areaName } from "../lib/map/geo";
+import { GROUPS, censusShares, placeMap, populationCount, summarySentences, yearLabel } from "../lib/map/place";
+
+interface Props {
+  code: string;
+}
+const { code } = Astro.props;
+const pm = placeMap(code);
+const name = areaName(code);
+const sentences = summarySentences(code);
+const [pop, eth] = pm.measures;
+const nearby = pm.frame.relation === "nearby";
+const others = nearby ? "the nearest councils" : "the councils that border it";
+const popFirst = pop.years[0], popLast = pop.years[pop.years.length - 1];
+
+const nf = (v: number | null) => (v == null ? "n/a" : v.toLocaleString("en-GB"));
+const MINUS = "−";
+const signed = (v: number | null, unit: string) => {
+  if (v == null) return "n/a";
+  const r = Number(v.toFixed(1));
+  return `${r > 0 ? "+" : r < 0 ? MINUS : ""}${Math.abs(r).toFixed(1)}${unit}`;
+};
+const pc = (v: number | null | undefined) => (v == null ? "n/a" : `${v.toFixed(1)}%`);
+
+const popRows = pm.members.map((c) => ({
+  code: c,
+  name: areaName(c),
+  first: populationCount(c, popFirst),
+  last: populationCount(c, popLast),
+  change: pop.ind.value(c, popLast),
+  byYear: pop.years.map((y) => pop.ind.value(c, y))
+}));
+const segments = (s: Record<string, number> | null) =>
+  s ? GROUPS.map((g) => ({ label: g.label, pct: s[g.key] / 100, colour: g.colour })) : [];
+const barLabel = (n: string, y: number, s: Record<string, number> | null) =>
+  s ? `${n}, Census ${y}: ${GROUPS.map((g) => `${g.label} ${s[g.key].toFixed(1)}%`).join(", ")}.` : `${n}, Census ${y}: no figure.`;
+const ethRows = pm.members.map((c) => {
+  const s11 = censusShares(c, 2011), s21 = censusShares(c, 2021);
+  const w11 = eth.ind.value(c, 2011), w21 = eth.ind.value(c, 2021);
+  return {
+    code: c,
+    name: areaName(c),
+    s11,
+    s21,
+    w11,
+    w21,
+    change: w11 != null && w21 != null ? w21 - w11 : null,
+    census: [
+      { y: 2011, s: s11, label: barLabel(areaName(c), 2011, s11), segs: segments(s11), cells: GROUPS.map((g) => (s11 ? pc(s11[g.key]) : "n/a")) },
+      { y: 2021, s: s21, label: barLabel(areaName(c), 2021, s21), segs: segments(s21), cells: GROUPS.map((g) => (s21 ? pc(s21[g.key]) : "n/a")) }
+    ]
+  };
+});
+const ethNotes = eth.ind.notes(2021, pm.frame.members);
+const popLabels = pop.years.map((y) => yearLabel(pop.ind, y));
+const ethLabels = eth.years.map((y) => yearLabel(eth.ind, y));
+---
+
+<section class="section place-map" id="map" data-place-map>
+  <h2>{name} and {others}, on the map</h2>
+  {sentences.length > 0 && <p class="section-desc">{sentences.join(" ")}</p>}
+  <div class="pm-card">
+    <div class="pm-tabs" role="tablist" aria-label="Measure shown on the map">
+      {pm.measures.map((m, i) => (
+        <button type="button" role="tab" id={`pm-tab-${m.key}`} data-m={m.key} aria-controls={`pm-panel-${m.key}`} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1}>{m.tab}</button>
+      ))}
+    </div>
+    <div class="pm-layout">
+      <figure class="pm-figure" set:html={pm.svg} />
+      <div class="pm-panels">
+        <div class="pm-panel" role="tabpanel" id="pm-panel-p" data-m="p" aria-labelledby="pm-tab-p">
+          <h3>Population of {name}, {popFirst} to {popLast}</h3>
+          <div class="pm-year">
+            <label for="pm-range-p">Year</label>
+            <input type="range" id="pm-range-p" data-m="p" min="0" max={pop.years.length - 1} step="1" value={pop.years.length - 1} data-years={pop.years.join(" ")} data-labels={popLabels.join("|")} aria-valuetext={popLabels[popLabels.length - 1]} />
+            <output data-m="p" for="pm-range-p">{popLabels[popLabels.length - 1]}</output>
+          </div>
+          <div class="pm-table-wrap">
+            <table class="pm-table">
+              <caption>{name} and {others}, A to Z. ONS estimates of the resident population at 30 June. Source: {pop.ind.source(popLast)}.</caption>
+              <thead><tr><th scope="col">Council</th><th scope="col">Mid-{popFirst}</th><th scope="col">Mid-{popLast}</th><th scope="col">Change</th></tr></thead>
+              <tbody>
+                {popRows.map((r) => (
+                  <tr class={r.code === code ? "pm-focus" : undefined}><th scope="row">{r.name}</th><td>{nf(r.first)}</td><td>{nf(r.last)}</td><td>{signed(r.change, "%")}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <details class="pm-details">
+            <summary>Change since mid-{popFirst}, every year</summary>
+            <div class="pm-table-wrap pm-scroll">
+              <table class="pm-table">
+                <caption>Change in the estimated population compared with mid-{popFirst}, A to Z. Source: {pop.ind.source(popLast)}.</caption>
+                <thead><tr><th scope="col">Council</th>{pop.years.map((y) => <th scope="col">{y}</th>)}</tr></thead>
+                <tbody>
+                  {popRows.map((r) => (
+                    <tr class={r.code === code ? "pm-focus" : undefined}><th scope="row">{r.name}</th>{r.byYear.map((v) => <td>{signed(v, "%")}</td>)}</tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+
+        <div class="pm-panel" role="tabpanel" id="pm-panel-e" data-m="e" aria-labelledby="pm-tab-e">
+          <h3>Ethnic groups in {name}, 2011 and 2021</h3>
+          <div class="pm-year">
+            <label for="pm-range-e">Year</label>
+            <input type="range" id="pm-range-e" data-m="e" min="0" max={eth.years.length - 1} step="1" value={eth.years.length - 1} data-years={eth.years.join(" ")} data-labels={ethLabels.join("|")} aria-valuetext={ethLabels[ethLabels.length - 1]} />
+            <output data-m="e" for="pm-range-e">{ethLabels[ethLabels.length - 1]}</output>
+          </div>
+          <p class="pm-note">The map shows the White British share. The bars show all six groups, on one scale, for each council in 2011 and 2021.</p>
+          <ul class="pm-legend" aria-label="Ethnic groups">
+            {GROUPS.map((g) => (<li><span class="pm-swatch" style={`background:${g.colour}`}></span>{g.label}</li>))}
+          </ul>
+          <div class="pm-bars">
+            {ethRows.map((r) => (
+              <div class={r.code === code ? "pm-bar-row pm-focus" : "pm-bar-row"}>
+                <p class="pm-bar-name">{r.name}</p>
+                {r.census.map((k) => (
+                  <div class="pm-bar-year">
+                    <span class="pm-bar-label">{k.y}</span>
+                    {k.s ? (
+                      <RaceBar segments={k.segs} height={18} showLegend={false} labelMinPct={2} ariaLabel={k.label} />
+                    ) : (
+                      <span class="pm-bar-na">n/a</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div class="pm-table-wrap">
+            <table class="pm-table">
+              <caption>White British share of usual residents, A to Z. Census counts. Source: ONS Census 2011 table KS201EW and Census 2021 table TS021.{ethNotes.length > 0 && ` ${ethNotes.join(" ")}`}</caption>
+              <thead><tr><th scope="col">Council</th><th scope="col">2011</th><th scope="col">2021</th><th scope="col">Change</th></tr></thead>
+              <tbody>
+                {ethRows.map((r) => (
+                  <tr class={r.code === code ? "pm-focus" : undefined}><th scope="row">{r.name}</th><td>{pc(r.w11)}</td><td>{pc(r.w21)}</td><td>{signed(r.change, " pts")}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <details class="pm-details">
+            <summary>All six groups, 2011 and 2021</summary>
+            <div class="pm-table-wrap pm-scroll">
+              <table class="pm-table">
+                <caption>Share of usual residents in each ethnic group, A to Z. Source: ONS Census 2011 table KS201EW and Census 2021 table TS021.</caption>
+                <thead><tr><th scope="col">Council</th><th scope="col">Census</th>{GROUPS.map((g) => <th scope="col">{g.label}</th>)}</tr></thead>
+                <tbody>
+                  {ethRows.flatMap((r) => r.census.map((k) => (
+                    <tr class={r.code === code ? "pm-focus" : undefined}><th scope="row">{r.name}</th><td>{k.y}</td>{k.cells.map((v) => <td>{v}</td>)}</tr>
+                  )))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script is:inline src="/scripts/place-map.js" defer></script>
+
+<style is:global>
+  .place-map .pm-card {
+    background: #0f1317;
+    color: #f4f6f7;
+    border-radius: 14px;
+    padding: 0.75rem;
+    color-scheme: dark;
+  }
+  .place-map .pm-tabs { display: none; gap: 0.4rem; margin: 0 0 0.75rem; flex-wrap: wrap; }
+  .place-map.pm-js .pm-tabs { display: flex; }
+  .place-map .pm-tabs button {
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid #4b535c;
+    background: transparent;
+    color: #f4f6f7;
+    cursor: pointer;
+    min-height: 44px;
+  }
+  .place-map .pm-tabs button[aria-selected="true"] { background: #f4f6f7; color: #0f1317; border-color: #f4f6f7; }
+  .place-map .pm-tabs button:focus-visible, .place-map .pm-year input:focus-visible, .place-map .pm-details summary:focus-visible { outline: 3px solid #a9a4f7; outline-offset: 2px; }
+  .place-map .pm-layout { display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); }
+  .place-map .pm-figure { margin: 0; }
+  .place-map .pm-figure svg { display: block; width: 100%; height: auto; border-radius: 10px; }
+  .place-map .pm-figure svg [data-code] { transition: fill 0.25s ease-out; }
+  @media (prefers-reduced-motion: reduce) {
+    .place-map .pm-figure svg [data-code] { transition: none; }
+  }
+  .place-map .pm-panel h3 { font-size: 1.05rem; margin: 0 0 0.6rem; color: #f4f6f7; }
+  .place-map .pm-year { display: none; align-items: center; gap: 0.6rem; margin: 0 0 0.8rem; flex-wrap: wrap; }
+  .place-map.pm-js .pm-year { display: flex; }
+  .place-map .pm-year label { font-size: 0.9rem; color: #98a3ac; }
+  .place-map .pm-year input { flex: 1 1 10rem; min-width: 0; accent-color: #7b74f2; min-height: 44px; }
+  .place-map .pm-year output { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 0.95rem; min-width: 9.5rem; }
+  .place-map .pm-note { font-size: 0.9rem; color: #c3cbd1; margin: 0 0 0.6rem; }
+  .place-map .pm-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; padding: 0; margin: 0 0 0.75rem; font-size: 0.85rem; color: #f4f6f7; }
+  .place-map .pm-legend li { display: flex; align-items: center; gap: 0.35rem; }
+  .place-map .pm-swatch { width: 0.8rem; height: 0.8rem; border-radius: 3px; display: inline-block; }
+  .place-map .pm-bars { display: grid; gap: 0.55rem; margin: 0 0 1rem; }
+  .place-map .pm-bar-name { margin: 0 0 0.2rem; font-size: 0.9rem; font-weight: 600; color: #f4f6f7; }
+  .place-map .pm-bar-row.pm-focus .pm-bar-name { color: #a9a4f7; }
+  .place-map .pm-bar-year { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); align-items: center; gap: 0.4rem; margin: 0 0 0.2rem; }
+  .place-map .pm-bar-label { font-size: 0.8rem; color: #98a3ac; font-variant-numeric: tabular-nums; }
+  .place-map .pm-bar-year .hero-race { margin: 0; }
+  .place-map .pm-bar-year .hero-race-bar { border-radius: 4px; background: #1b2229; }
+  .place-map .pm-bar-na { font-size: 0.85rem; color: #98a3ac; }
+  .place-map .pm-table-wrap { max-width: 100%; }
+  .place-map .pm-scroll { overflow-x: auto; }
+  .place-map .pm-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; font-variant-numeric: tabular-nums; color: #f4f6f7; }
+  .place-map .pm-table caption { caption-side: bottom; text-align: left; font-size: 0.8rem; color: #98a3ac; padding-top: 0.4rem; }
+  .place-map .pm-table th, .place-map .pm-table td { padding: 0.3rem 0.4rem; border-bottom: 1px solid #2a3038; text-align: right; white-space: nowrap; vertical-align: baseline; background: transparent; color: #f4f6f7; font-size: inherit; letter-spacing: 0; text-transform: none; }
+  .place-map .pm-table tbody th[scope="row"], .place-map .pm-table thead th:first-child { text-align: left; white-space: normal; font-weight: 400; color: #f4f6f7; }
+  .place-map .pm-table thead th { color: #98a3ac; font-weight: 600; }
+  .place-map .pm-table tbody tr:hover td { background: #1b2229; }
+  .place-map .pm-table tr:last-child td { border-bottom: 1px solid #2a3038; }
+  .place-map .pm-table tr.pm-focus th, .place-map .pm-table tr.pm-focus td { font-weight: 600; color: #ffffff; }
+  .place-map .pm-details { margin: 0 0 0.8rem; }
+  .place-map .pm-details summary { cursor: pointer; font-size: 0.9rem; color: #a9a4f7; padding: 0.35rem 0; }
+  @media (min-width: 1000px) {
+    .place-map .pm-layout { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
+  }
+</style>

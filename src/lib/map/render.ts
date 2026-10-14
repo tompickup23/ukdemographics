@@ -71,6 +71,24 @@ export interface RenderResult {
   fills: Record<string, string>;
   alt: string;
   layout: Layout;
+  /** Inline maps rendered for one measure of a two-measure map (see place.ts). */
+  measure?: MeasureParts;
+}
+
+/**
+ * The parts of an inline map that belong to one measure, so a second measure can be
+ * merged into the first map's SVG with the geometry drawn once (decision D7):
+ * per-council attributes for the shape and its <title>, attributes for the map's own
+ * <title> and root, and the measure-specific chunks, in drawing order.
+ */
+export interface MeasureParts {
+  key: string;
+  shapeAttrs: Record<string, string>;
+  titleAttrs: Record<string, string>;
+  altAttrs: string;
+  rootAttrs: string;
+  chunks: string[];
+  height: number;
 }
 
 export interface FrameState {
@@ -163,16 +181,34 @@ function legend(cv: Canvas, L: Layout, year: number, hasNA: boolean): string {
   ind.scale.breaks.forEach((_, i) => {
     o += cv.txt({ x: x + (i + 1) * bw, y: y + barH + F.legend * 1.25, size: F.legend, fill: C.muted, bg: C.ground, content: ind.scale.labels[i], anchor: "middle" });
   });
-  const ref = ind.reference(year);
-  if (ref) {
-    const step = ind.scale.breaks[1] - ind.scale.breaks[0];
-    const lo = ind.scale.breaks[0] - step, hi = ind.scale.breaks[ind.scale.breaks.length - 1] + step;
+  const step = ind.scale.breaks[1] - ind.scale.breaks[0];
+  const lo = ind.scale.breaks[0] - step, hi = ind.scale.breaks[ind.scale.breaks.length - 1] + step;
+  const refMark = (ref: { label: string; value: number }) => {
     const pos = x + ((ref.value - lo) / (hi - lo)) * w;
-    o += `<rect x="${n2(pos - 2)}" y="${n2(y - barH * 0.4)}" width="4" height="${n2(barH * 1.6)}" fill="${C.text}"/>`;
     const label = `${ref.label}: ${ref.value.toFixed(1)}%`;
     const lw = measure(label, F.reference);
     const lx = Math.min(Math.max(pos, x + lw / 2), x + w - lw / 2);
-    o += cv.txt({ x: lx, y: y - barH * 0.4 - F.reference * 0.45, size: F.reference, fill: C.text, bg: C.ground, content: label, anchor: "middle" });
+    return `<rect x="${n2(pos - 2)}" y="${n2(y - barH * 0.4)}" width="4" height="${n2(barH * 1.6)}" fill="${C.text}"/>` +
+      cv.txt({ x: lx, y: y - barH * 0.4 - F.reference * 0.45, size: F.reference, fill: C.text, bg: C.ground, content: label, anchor: "middle" });
+  };
+  if (L.tk === "inline") {
+    // The web map switches year, so it carries each year's reference line, one group per
+    // distinct reference, shown for the years it belongs to (as the footer is).
+    const groups = new Map<string, { ref: { label: string; value: number }; years: number[] }>();
+    for (const yr of ind.years) {
+      const ref = ind.reference(yr);
+      if (!ref) continue;
+      const k = `${ref.label}|${ref.value}`;
+      groups.set(k, { ref, years: [...(groups.get(k)?.years ?? []), yr] });
+    }
+    for (const { ref, years } of groups.values()) {
+      const shown = years.includes(year), before = cv.texts.length;
+      o += `<g data-years="${years.join(" ")}"${shown ? "" : ` display="none"`}>${refMark(ref)}</g>`;
+      if (!shown) cv.texts.splice(before); // hidden lines are checked when their own year renders
+    }
+  } else {
+    const ref = ind.reference(year);
+    if (ref) o += refMark(ref);
   }
   if (hasNA) {
     const nx = x + w + 18 * Math.max(L.t.s, 0.6);
@@ -198,9 +234,13 @@ function timeline(cv: Canvas, L: Layout, pos: number): string {
   return o;
 }
 
-/** data-f-YEAR / data-t-YEAR attributes for the web map's year switcher (inline only). */
-const perYear = (L: Layout, attr: "f" | "t", fn: (y: number) => string | null) =>
-  L.tk !== "inline" ? "" : L.ind.years.map((y) => { const v = fn(y); return v == null ? "" : ` data-${attr}-${y}="${esc(v)}"`; }).join("");
+/**
+ * data-f-YEAR / data-t-YEAR attributes for the web map's year switcher (inline only).
+ * With a measure key m they are data-m-f-YEAR and data-m-t-YEAR, so two measures can
+ * share one element.
+ */
+const perYear = (L: Layout, attr: "f" | "t" | "a", fn: (y: number) => string | null, m?: string) =>
+  L.tk !== "inline" ? "" : L.ind.years.map((y) => { const v = fn(y); return v == null ? "" : ` data-${m ? `${m}-` : ""}${attr}-${y}="${esc(v)}"`; }).join("");
 
 /** Ids for one map's patterns, unique per frame and template. */
 function mapIds(L: Layout) {
@@ -208,8 +248,18 @@ function mapIds(L: Layout) {
   return { hatchId, naId, na: `url(#${naId})` };
 }
 
-export function render(L: Layout, st: FrameState): RenderResult {
+export function render(L: Layout, st: FrameState, opts: { measure?: string } = {}): RenderResult {
   const ids = mapIds(L);
+  const m = L.tk === "inline" ? opts.measure : undefined;
+  const parts: MeasureParts | undefined = m ? { key: m, shapeAttrs: {}, titleAttrs: {}, altAttrs: "", rootAttrs: "", chunks: [], height: L.H } : undefined;
+  // A measure's own chunk: wrapped in a group the switcher shows or hides, and marked so
+  // place.ts can merge another measure's chunk in beside it.
+  const chunk = (body: string) => {
+    if (!parts) return body;
+    const i = parts.chunks.length, g = `<g data-measure="${m}">${body}</g>`;
+    parts.chunks.push(g);
+    return `<!--m${i}-->${g}<!--/m${i}-->`;
+  };
   const fillAt = (ind: Indicator, c: string, y: number) => (val(ind, c, y) == null ? ids.na : colourFor(ind, val(ind, c, y)!));
   const { t, ind, frame, panel, W, H } = L, s = t.s, F = t.font, cv = new Canvas(), tk = L.tk;
   const isFocus = frame.type === "focus";
@@ -219,9 +269,13 @@ export function render(L: Layout, st: FrameState): RenderResult {
   const fills: Record<string, string> = {};
   const inline = tk === "inline";
 
-  let o = `<svg xmlns="http://www.w3.org/2000/svg"${inline ? ` class="ukd-map" data-years="${ind.years.join(" ")}" data-year="${year}"` : ` width="${W}" height="${H}"`} viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="ukd-map-title-${frame.id}-${tk}">`;
+  const rootYears = m ? ` data-${m}-years="${ind.years.join(" ")}" data-${m}-year="${year}" data-${m}-h="${H}"` : ` data-years="${ind.years.join(" ")}" data-year="${year}"`;
+  if (parts) parts.rootAttrs = rootYears;
+  let o = `<svg xmlns="http://www.w3.org/2000/svg"${inline ? ` class="ukd-map"${rootYears}` : ` width="${W}" height="${H}"`} viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="ukd-map-title-${frame.id}-${tk}">`;
   const altText = alt(L, year);
-  o += `<title id="ukd-map-title-${frame.id}-${tk}">${esc(altText)}</title>`;
+  const altAttrs = m ? perYear(L, "a", (y) => alt(L, y), m) : "";
+  if (parts) parts.altAttrs = altAttrs;
+  o += `<title id="ukd-map-title-${frame.id}-${tk}"${m ? ' data-alt=""' : ""}${altAttrs}>${esc(altText)}</title>`;
   // Pattern ids carry the frame and template, so two maps on one page never share one.
   o += `<defs><pattern id="${ids.hatchId}" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4.5" height="12" fill="${C.ground}" opacity="0.5"/></pattern>` +
     `<pattern id="${ids.naId}" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="${C.na}"/><rect width="2.5" height="8" fill="${C.naStripe}"/></pattern></defs>`;
@@ -244,8 +298,11 @@ export function render(L: Layout, st: FrameState): RenderResult {
     // The focus council's geometry sits in defs once, unpainted, and is drawn twice by
     // reference: filled here, outlined below. A use cannot repaint a painted original.
     const isF = isFocus && sh.code === frame.focus;
-    const attrs = `fill="${f}" stroke="${C.ground}" stroke-width="${n2(2 * s)}" stroke-linejoin="round" data-code="${sh.code}"${perYear(L, "f", (y) => fillAt(ind, sh.code, y))}`;
-    const title = `<title>${name}: ${esc(display(ind, sh.code, year))}</title>`;
+    const fAttrs = perYear(L, "f", (y) => fillAt(ind, sh.code, y), m);
+    const tAttrs = m ? perYear(L, "t", (y) => `${areaName(sh.code)}: ${display(ind, sh.code, y)}`, m) : "";
+    if (parts) { parts.shapeAttrs[sh.code] = fAttrs; parts.titleAttrs[sh.code] = tAttrs; }
+    const attrs = `fill="${f}" stroke="${C.ground}" stroke-width="${n2(2 * s)}" stroke-linejoin="round" data-code="${sh.code}"${fAttrs}`;
+    const title = `<title${m ? ` data-tc="${sh.code}"` : ""}${tAttrs}>${name}: ${esc(display(ind, sh.code, year))}</title>`;
     o += isF
       ? `<defs><path id="ukd-focus-${frame.id}-${tk}" d="${sh.d}"/></defs><use href="#ukd-focus-${frame.id}-${tk}" ${attrs}>${title}</use>`
       : `<path d="${sh.d}" ${attrs}>${title}</path>`;
@@ -278,25 +335,26 @@ export function render(L: Layout, st: FrameState): RenderResult {
     lb.nameLines.forEach((nl, i) => {
       p += cv.txt({ x: tx, y: y0 + M.base[i], size: lb.type.name, family: lb.nameFont === "serifSemiBold" ? FONT_SERIF : FONT_SANS, weight: lb.nameFont === "serifSemiBold" ? 600 : 400, fill: C.plateName, bg, content: nl, anchor: anc, role: "name", plate: lb.code });
     });
-    p += cv.txt({ x: tx, y: y0 + M.valBase, size: lb.type.val, weight: 600, fill: C.text, bg, content: display(ind, lb.code, year), anchor: anc, role: "value", plate: lb.code, attrs: perYear(L, "t", (y) => display(ind, lb.code, y)) });
+    p += cv.txt({ x: tx, y: y0 + M.valBase, size: lb.type.val, weight: 600, fill: C.text, bg, content: display(ind, lb.code, year), anchor: anc, role: "value", plate: lb.code, attrs: perYear(L, "t", (y) => display(ind, lb.code, y), m) });
     if (lb.showSub) {
       const sub = subText(ind, lb.code, year);
-      if (sub != null || inline) p += cv.txt({ x: tx, y: y0 + M.subBase, size: lb.type.sub, fill: C.plateSub, bg, content: sub ?? "", anchor: anc, role: "sub", plate: lb.code, attrs: perYear(L, "t", (y) => subText(ind, lb.code, y) ?? "") });
+      if (sub != null || inline) p += cv.txt({ x: tx, y: y0 + M.subBase, size: lb.type.sub, fill: C.plateSub, bg, content: sub ?? "", anchor: anc, role: "sub", plate: lb.code, attrs: perYear(L, "t", (y) => subText(ind, lb.code, y) ?? "", m) });
     }
     plates += p + "</g>";
   }
-  o += leaders + plates + "</g>";
+  o += chunk(leaders + plates) + "</g>";
 
   // ---- Mask: ground everywhere outside the rounded panel (no clip-path in resvg) ----
   const P = panel, r = radius;
   o += `<path fill-rule="evenodd" fill="${C.ground}" d="M0 0H${W}V${H}H0Z M${n2(P.x + r)} ${n2(P.y)}H${n2(P.x + P.w - r)}A${n2(r)} ${n2(r)} 0 0 1 ${n2(P.x + P.w)} ${n2(P.y + r)}V${n2(P.y + P.h - r)}A${n2(r)} ${n2(r)} 0 0 1 ${n2(P.x + P.w - r)} ${n2(P.y + P.h)}H${n2(P.x + r)}A${n2(r)} ${n2(r)} 0 0 1 ${n2(P.x)} ${n2(P.y + P.h - r)}V${n2(P.y + r)}A${n2(r)} ${n2(r)} 0 0 1 ${n2(P.x + r)} ${n2(P.y)}Z"/>`;
   o += panelTags(cv, L);
+  const restStart = o.length;
   if (kind === "projection") o += `<rect x="${n2(P.x)}" y="${n2(P.y)}" width="${n2(P.w)}" height="${n2(P.h)}" rx="${n2(r)}" fill="none" stroke="${C.accentLight}" stroke-opacity="0.7" stroke-width="2" stroke-dasharray="12 9"/>`;
 
   // ---- Header, drawn after the mask ----
   const H_ = L.header;
-  const yearAttrs = perYear(L, "t", (y) => String(y));
-  const pillAttrs = perYear(L, "t", (y) => KIND_TAG[ind.kind(y)]);
+  const yearAttrs = perYear(L, "t", (y) => String(y), m);
+  const pillAttrs = perYear(L, "t", (y) => KIND_TAG[ind.kind(y)], m);
   if (tk === "og") {
     o += brandRow(cv, H_.brand.x, H_.brand.y, H_.brand.k, F);
     H_.titleLines.forEach((l, i) => { o += cv.txt({ x: 40, y: H_.titleBase[i], size: F.title, family: FONT_SERIF, weight: 600, fill: C.text, bg: C.ground, content: l }); });
@@ -359,6 +417,7 @@ export function render(L: Layout, st: FrameState): RenderResult {
   o += cv.txt({ x: footX, y: L.urlY, size: F.url, weight: 600, fill: C.accent, bg: C.ground, content: SITE_DOMAIN });
   const sourcedX = tk === "og" ? footX + measure(SITE_DOMAIN, F.url, "sansSemiBold") + 14 : W - footX;
   o += cv.txt({ x: sourcedX, y: L.urlY, size: F.sourced, fill: C.muted, bg: C.ground, content: BRAND_SOURCED, anchor: tk === "og" ? "start" : "end" });
+  if (parts) o = o.slice(0, restStart) + chunk(o.slice(restStart));
   o += "</svg>";
 
   const drawn: DrawnValue[] = [...frame.members].sort((p, q) => areaName(p).localeCompare(areaName(q))).map((code) => {
@@ -368,21 +427,22 @@ export function render(L: Layout, st: FrameState): RenderResult {
       kind: ind.kind(year), status: ind.status(code, year), labelled: L.labels.some((l) => l.code === code)
     };
   });
-  return { svg: o, texts: cv.texts, drawn, brand: cv.brand, brandInPanel: cv.brandInPanel, fills, alt: altText, layout: L };
+  return { svg: o, texts: cv.texts, drawn, brand: cv.brand, brandInPanel: cv.brandInPanel, fills, alt: altText, layout: L, measure: parts };
 }
 
 /** One sentence per map: what it shows, when, and every council's value, A to Z. */
 export function alt(L: Layout, year: number): string {
   const { ind, frame } = L;
   const rows = [...frame.members].sort((p, q) => areaName(p).localeCompare(areaName(q))).map((c) => `${areaName(c)} ${display(ind, c, year)}`);
-  return `Map: ${ind.title.toLowerCase()}, ${yearPhrase(ind, year)}. ${frame.subtitle}. ${rows.join("; ")}.`;
+  // The title keeps its capitals: "White British" is a name.
+  return `Map: ${ind.title}, ${yearPhrase(ind, year)}. ${frame.subtitle}. ${rows.join("; ")}.`;
 }
 
 /** A still: one year, labels fully shown. */
-export function renderStill(frame: Frame, ind: Indicator, tk: TemplateKey, year: number): RenderResult {
+export function renderStill(frame: Frame, ind: Indicator, tk: TemplateKey, year: number, opts: { measure?: string } = {}): RenderResult {
   if (!ind.years.includes(year)) throw new Error(`${ind.id} has no ${year}`);
   const L = buildLayout(frame, tk, ind);
-  return render(L, { fromYear: year, toYear: year, t: 0, labelYear: year, labelAlpha: 1, pos: ind.years.indexOf(year), zoom: 1 });
+  return render(L, { fromYear: year, toYear: year, t: 0, labelYear: year, labelAlpha: 1, pos: ind.years.indexOf(year), zoom: 1 }, opts);
 }
 
 // ---------- QA gates: fail loudly rather than ship an unreadable or unsourced card ----------
