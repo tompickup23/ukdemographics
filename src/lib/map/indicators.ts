@@ -61,6 +61,8 @@ interface CensusSide {
   year: number;
   total_population: number;
   groups: Record<string, number>;
+  /** Census 2021 only: TS021 shares as published. groups is the model base there. */
+  census_groups: Record<string, number>;
   groups_absolute: Record<string, number>;
 }
 interface ModelArea {
@@ -137,7 +139,7 @@ function whiteBritishShare(projections: boolean): Indicator {
     if (status(code, y) !== "ok") return null;
     const a = model.areas[code];
     if (y === 2011) return a.baseline.groups.white_british;
-    if (y === 2021) return a.current.groups.white_british;
+    if (y === 2021) return a.current.census_groups.white_british; // TS021 as published, not the model base
     return a.projections![String(y)].white_british;
   };
   return {

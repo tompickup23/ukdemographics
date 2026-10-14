@@ -49,4 +49,20 @@ describe("Census national White British share", () => {
     expect(page).toContain("census2011WhiteBritish()");
     expect(page).not.toMatch(/baseline\?*\.groups\?*\.white_british/);
   });
+
+  it("prints Census 2021 shares as TS021 gives them: census_groups is the counts, rounded to 2 places, for every area", () => {
+    const all = (rawProjections as unknown as {
+      areas: Record<string, { areaName: string; current: { total_population: number; groups_absolute: Record<string, number>; census_groups?: Record<string, number> } }>;
+    }).areas;
+    const bad: string[] = [];
+    for (const [code, a] of Object.entries(all)) {
+      const c = a.current;
+      if (!c.census_groups) { bad.push(`${code} ${a.areaName}: no census_groups`); continue; }
+      for (const [g, n] of Object.entries(c.groups_absolute)) {
+        const want = Math.round((n / c.total_population) * 10000) / 100;
+        if (c.census_groups[g] !== want) bad.push(`${code} ${a.areaName} ${g}: ${c.census_groups[g]} against ${want}`);
+      }
+    }
+    expect(bad).toEqual([]);
+  });
 });

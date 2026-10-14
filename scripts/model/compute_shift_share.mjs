@@ -1,12 +1,9 @@
 /**
- * C1: Shift-Share Decomposition
- *
- * Decomposes each area's ethnic composition change (2011→2021) into:
- * 1. National effect: change attributable to national-level ethnic trends
- * 2. Age structure effect: change due to having a younger/older ethnic age profile
- * 3. Local effect: residual (migration attraction, local factors)
- *
- * Following Franklin (2014, Population Space and Place)
+ * Descriptive decomposition of changes in White British share, 2011 to 2021.
+ * Uses ethnic shares only. It does not estimate age or migration effects.
+ * National component: change in the share across summed local authority rows.
+ * Composition adjustment: baseline share difference times proportional change.
+ * Local residual: the remainder needed to reproduce the observed local change.
  */
 import { readFileSync } from "node:fs";
 import path from "node:path";
@@ -24,19 +21,17 @@ function arg(name, fallback) {
 // authority is counted once. Skipped records still get their own shiftShare.
 const SITE_OUTPUT = path.resolve(arg("--file", "src/data/live/ethnic-projections.json"));
 const SKIP = new Set((arg("--skip", "") || "").split(",").filter(Boolean));
-// The councils formed since 2011 whose 2011 baseline is the sum of their 2011
-// districts (October 2026). Until the shift-share is recomputed over all 318
-// areas, in its own pull request, it stays on the 307 areas with a KS201EW row
-// of their own: they get no shiftShare and are left out of the national base.
-const CENSUS_MANIFEST = path.resolve(arg("--census-manifest", "data/raw/manifests/census_ethnic_groups.json"));
-const SUMMED_2011 = new Set(
-  (JSON.parse(readFileSync(CENSUS_MANIFEST, "utf8")).resolution?.baseline2011?.predecessors ?? []).map((line) => line.split(" ")[0])
-);
 const original = readFileSync(SITE_OUTPUT, "utf8");
 const existing = JSON.parse(original);
 
 // Compute national-level change, on constant geography: the areas with a 2011
-// baseline, each counted in both years. Until October 2026 every 2011 total
+// baseline, each counted in both years. Since October 2026 that is all 318:
+// the eleven councils formed since 2011 carry the sum of their 2011 districts
+// (scripts/build/rebase-census-groups.mjs), so the base is England and Wales,
+// 56,075,912 residents in 2011. These are summed LA rows, not the published
+// national row: Census 2021 sums can differ under disclosure control. Rounded
+// national shares match ONS's 80.5% to
+// 74.4%. Until then they were left out and the base was 307 areas (-6.2pp). Until October 2026 every 2011 total
 // was 0 (the ethnicity transform missed the 2011 label "All usual residents"),
 // and the script fell back to a typed 80% for 2011 and 74% for 2021, so the
 // published national effect was not computed from the Census at all. There is
@@ -45,7 +40,7 @@ let natWBI_2011 = 0, natWBI_2021 = 0, natTotal_2011 = 0, natTotal_2021 = 0, natA
 const missing = [];
 for (const [code, area] of Object.entries(existing.areas)) {
   if (!area.baseline || !area.current || area.baseline.year === area.current.year) continue;
-  if (SKIP.has(code) || SUMMED_2011.has(code)) continue;
+  if (SKIP.has(code)) continue;
   const b = area.baseline, c = area.current;
   if (!(b.total_population > 0) || !(c.total_population > 0) ||
       b.groups_absolute?.white_british == null || c.groups_absolute?.white_british == null) {
@@ -74,15 +69,15 @@ console.log(`National WBI: ${natWBI_pct_2011.toFixed(1)}% → ${natWBI_pct_2021.
 // is the largest component with the sign of the total change, so a component
 // working against the change is never named as its driver. Until October 2026
 // the largest component in size was named whatever its sign, and 20 areas where
-// the local effect raised the White British share were labelled "local migration".
+// the local effect raised the White British share were labelled "local residual".
 function dominantDriver(s) {
   const sign = Math.sign(s.totalChangePp);
   const none = "none, the components cancel out";
   if (sign === 0) return none;
   const parts = [
     { name: "national trend", value: s.nationalEffectPp },
-    { name: "age structure", value: s.structuralEffectPp },
-    { name: "local migration", value: s.localEffectPp },
+    { name: "composition adjustment", value: s.structuralEffectPp },
+    { name: "local residual", value: s.localEffectPp },
   ];
   const bySize = (a, b) => Math.abs(b.value) - Math.abs(a.value);
   const same = parts.filter((p) => Math.sign(p.value) === sign).sort(bySize);
@@ -98,21 +93,20 @@ function dominantDriver(s) {
 let count = 0;
 for (const [code, area] of Object.entries(existing.areas)) {
   if (!area.baseline || !area.current || area.baseline.year === area.current.year) continue;
-  if (SUMMED_2011.has(code)) continue;
   if (!area.baseline.groups || !area.current.groups) continue;
 
   const localWBI_2011 = area.baseline.groups.white_british || 0;
-  const localWBI_2021 = area.current.groups.white_british || 0;
+  // 2021 as TS021 gives it (census_groups), the figure the page prints, not the model base.
+  const localWBI_2021 = (area.current.census_groups ?? area.current.groups).white_british || 0;
   const totalChange = localWBI_2021 - localWBI_2011;
 
-  // National effect: how much change is explained by national-level WBI decline
+  // National component: observed change across summed local authority rows.
   const nationalEffect = natWBI_change;
 
-  // Structural effect: difference from national due to local age/ethnic composition
-  // Areas with younger minority populations see faster change than national average
+  // Composition adjustment uses the baseline ethnic share, with no age data.
   const structuralEffect = (localWBI_2011 - natWBI_pct_2011) * (natWBI_change / natWBI_pct_2011);
 
-  // Local effect: residual (migration, local factors)
+  // Residual is descriptive. It cannot identify migration or any other cause.
   const localEffect = totalChange - nationalEffect - structuralEffect;
 
   const rounded = {

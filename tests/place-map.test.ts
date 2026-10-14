@@ -20,6 +20,8 @@ const FIVE = [BURNLEY, CARDIFF, RIBBLE_VALLEY, CUMBERLAND, ISLE_OF_WIGHT];
 function rawShares(code: string, year: 2011 | 2021): Record<string, number> | null {
   const a = projections.areas[code];
   const side = year === 2011 ? a.baseline : a.current;
+  // 2021 re-derived from the TS021 counts, rounded to 2 places as the rebase script does.
+  if (side.year === year && year === 2021) return Object.fromEntries(Object.entries<number>(side.groups_absolute).map(([g, n]) => [g, Math.round((n / side.total_population) * 10000) / 100]));
   if (side.year === year) return side.groups;
   const d = year === 2011 ? successors2011[code] : null;
   if (!d) return null;

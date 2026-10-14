@@ -18,7 +18,7 @@ const CROSSING_MIN_BASE_PCT = 53;
 
 function crossingYear(code: string): number | null {
   const a = projData?.areas?.[code];
-  const now = a?.current?.groups?.white_british;
+  const now = (a?.current?.census_groups ?? a?.current?.groups)?.white_british;
   if (now == null) return null;
   if (now < 50) return 0;
   if (now < CROSSING_MIN_BASE_PCT) return null;
