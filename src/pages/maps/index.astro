@@ -1,0 +1,94 @@
+---
+import MapLayout from '../../layouts/MapLayout.astro';
+import { timelineAreas, POPULATION, GROUPS, frame, hexPaths, placeHref } from '../../lib/map/timeline';
+import { BOUNDARY_CREDIT } from '../../lib/map/geo';
+import { formatPlaceCount } from '../../lib/coverage';
+const initial = frame(POPULATION, 2025);
+const paths = hexPaths();
+---
+<MapLayout title="Population and census maps | UK Demographics" description="Explore population change by year and ethnic groups at the 2011 and 2021 censuses. Equal-area and geographic maps with an alphabetical table.">
+  <h1>Population and census maps</h1>
+  <p>Explore {formatPlaceCount()} in England and Wales. Each hexagon represents one council with the same area on the map. Use the table to find every figure and its source.</p>
+  <section id="timeline" data-years={JSON.stringify(POPULATION.years)} data-groups={JSON.stringify(GROUPS)}>
+    <div class="controls" hidden id="map-controls">
+      <div role="tablist" aria-label="Map measure">
+        <button id="tab-population" role="tab" aria-controls="map-panel" aria-selected="true" data-measure="population">Population</button>
+        <button id="tab-ethnicity" role="tab" aria-controls="map-panel" aria-selected="false" tabindex="-1" data-measure="ethnicity">Ethnic groups</button>
+      </div>
+      <label>Map view <select id="map-view"><option value="hex">Equal-area hexagons</option><option value="geographic">Geographic boundaries</option></select></label>
+      <label>Find a council <input id="map-search" type="search" list="council-names" autocomplete="off" /></label>
+      <datalist id="council-names">{timelineAreas.map(a => <option value={a.areaName} />)}</datalist>
+      <div id="population-controls">
+        <label for="map-year">Year <output id="year-label">2025</output></label>
+        <input id="map-year" type="range" min="2011" max="2025" step="1" value="2025" aria-valuetext="Mid-2025, ONS estimate" list="population-years" />
+        <datalist id="population-years">{POPULATION.years.map(y => <option value={y} label={String(y)} />)}</datalist>
+        <button id="map-play" type="button" aria-pressed="false">Play</button>
+      </div>
+      <div id="ethnicity-controls" hidden>
+        <label>Ethnic group <select id="map-group">{GROUPS.map(g => <option value={g.key}>{g.label}</option>)}</select></label>
+        <div role="group" aria-label="Census year or change">
+          <button data-census="2011" aria-pressed="false">2011</button>
+          <button data-census="2021" aria-pressed="true">2021</button>
+          <button data-census="change" aria-pressed="false">Change 2011 to 2021</button>
+        </div>
+      </div>
+    </div>
+    <div id="map-panel" role="tabpanel" aria-labelledby="tab-population">
+      <h2 id="map-heading">{initial.title}: mid-2025</h2>
+      <p id="map-source">Source: {initial.source}. Figures are ONS estimates.</p>
+      <div class="map-and-bars">
+        <div>
+          <svg id="national-map" viewBox="0 0 600 640" role="img" aria-labelledby="map-svg-title">
+            <title id="map-svg-title">Population change since 2011, mid-2025 ONS estimates</title>
+            {paths.map((p, i) => <path d={p.path} transform={p.transform} data-area={i} fill={initial.rows[i][1]}><title>{timelineAreas[i].areaName}: {initial.rows[i][0]}</title></path>)}
+          </svg>
+          <div id="map-legend" aria-label="Map legend">{initial.scale.colours.map((colour, i) => <span><i style={`background:${colour}`}></i>{i === 0 ? `Under ${initial.scale.labels[0]}` : i === initial.scale.colours.length - 1 ? `${initial.scale.labels[i - 1]} and above` : `${initial.scale.labels[i - 1]} to ${initial.scale.labels[i]}`}</span>)}</div>
+        </div>
+        <aside id="composition" hidden aria-labelledby="composition-title">
+          <h3 id="composition-title">All six ethnic groups</h3>
+          <label>Council <select id="composition-area">{timelineAreas.map((a, i) => <option value={i}>{a.areaName}</option>)}</select></label>
+          <div id="composition-bars"></div>
+          <p>Census 2011 KS201EW and Census 2021 TS021. Each bar uses the same 0 to 100% scale.</p>
+        </aside>
+      </div>
+      <p id="map-status" role="status" aria-live="polite"></p>
+      <p>Census figures are available for 2011 and 2021 only. Population estimates step through held annual figures without interpolation.</p>
+      <h2>All councils, A to Z</h2>
+      <p>The table shows the current map measure. Follow a council name for its full profile.</p>
+      <table id="map-table">
+        <caption id="table-caption">{initial.title}, mid-2025. Source: {initial.source}.</caption>
+        <thead><tr><th scope="col">Council</th><th scope="col" id="value-heading">Change since 2011</th></tr></thead>
+        <tbody>{timelineAreas.map((a, i) => <tr data-row={i}><th scope="row"><a href={placeHref(i)}>{a.areaName}</a></th><td>{initial.rows[i][0]}</td></tr>)}</tbody>
+      </table>
+    </div>
+    <p class="credits">Hex layout: <a href="https://github.com/odileeds/hexmaps/blob/17982f91f7f21b84b6c876f952437c8986172811/maps/uk-local-authority-districts-2025.hexjson">ODI Leeds / Open Innovations</a>, <a href="/maps/hex-licence.txt">MIT licence</a>. {BOUNDARY_CREDIT}</p>
+  </section>
+  <script src="../../../public/scripts/national-map.js"></script>
+</MapLayout>
+<style>
+  #timeline { background:#0f1317; color:#f4f3ff; padding:1rem; border-radius:var(--radius); margin-block:1rem; }
+  #timeline a { color:#c8c3ff; }
+  #timeline button, #timeline select, #timeline input { font:inherit; color:#f4f3ff; background:#252b33; border:1px solid #a5a3b3; border-radius:.3rem; padding:.55rem; max-width:100%; }
+  #timeline button { cursor:pointer; }
+  #timeline button[aria-selected="true"], #timeline button[aria-pressed="true"] { background:#7b74f2; color:#05080a; }
+  #timeline :focus-visible { outline:3px solid #f0b03e; outline-offset:3px; }
+  #timeline [hidden] { display:none!important; }
+  .controls { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+  .controls label { display:block; }
+  .controls [role="tablist"], .controls [role="group"] { display:flex; flex-wrap:wrap; gap:.4rem; }
+  #population-controls { width:100%; }
+  #map-year { width:min(100%,28rem); vertical-align:middle; }
+  .map-and-bars { display:grid; grid-template-columns:minmax(0,1fr); gap:1rem; }
+  #national-map { width:100%; max-height:44rem; background:#0f1317; }
+  #national-map path { stroke:#0f1317; stroke-width:.5; }
+  #map-legend { display:flex; flex-wrap:wrap; gap:.7rem; font-size:.85rem; }
+  #map-legend :global(span) { display:inline-flex; align-items:center; gap:.3rem; }
+  #map-legend :global(i) { display:inline-block; width:1rem; height:1rem; border:1px solid #a5a3b3; }
+  #map-table { width:100%; table-layout:fixed; }
+  #map-table th, #map-table td { background:#0f1317; color:#f4f3ff; padding:.6rem; text-align:left; overflow-wrap:anywhere; }
+  #map-table th:first-child { width:58%; }
+  #map-table caption { text-align:left; margin-bottom:.5rem; }
+  .credits { font-size:.8rem; }
+  @media(min-width:850px) { .map-and-bars:has(#composition:not([hidden])) { grid-template-columns:minmax(0,3fr) minmax(16rem,2fr); } }
+  @media print { .controls { display:none!important; } #timeline { break-inside:auto; } }
+</style>

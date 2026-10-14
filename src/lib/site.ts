@@ -43,6 +43,7 @@ const INDEXABLE_STATIC_PATHS = [
   "/methodology/",
   "/migration/",
   "/national/",
+  "/maps/",
   "/places/",
   "/pressure/",
   "/privacy/",

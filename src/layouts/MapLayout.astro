@@ -1,0 +1,170 @@
+---
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_SOCIAL_IMAGE_PATH,
+  SITE_NAME,
+  SITE_URL,
+  normalisePageTitle,
+  type StructuredDataNode
+} from "../lib/site";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  /** Alt text for the social image; defaults to the page title. */
+  imageAlt?: string;
+  /** Copyright notice for the social image's metadata; defaults to the site's own. */
+  imageCopyright?: string;
+  noIndex?: boolean;
+  structuredData?: StructuredDataNode[];
+  bodyClass?: string;
+  mainClass?: string;
+  hideFooter?: boolean;
+}
+
+const {
+  title,
+  description = DEFAULT_DESCRIPTION,
+  image = DEFAULT_SOCIAL_IMAGE_PATH,
+  imageAlt,
+  imageCopyright = `© ukdemographics.co.uk ${new Date().getFullYear()}`,
+  noIndex = false,
+  structuredData: pageStructuredData = [],
+  bodyClass,
+  mainClass,
+  hideFooter = false
+} = Astro.props;
+const siteOrigin = Astro.site ?? new URL(SITE_URL);
+const pathname = Astro.url.pathname || "/";
+const pageTitle = normalisePageTitle(title);
+// The default card shows the page title on the brand ground (maps plan v2.2, I25: no pseudo-dash).
+const socialImageAlt = imageAlt ?? `Share card: ${pageTitle}`;
+const canonicalUrl = new URL(pathname, siteOrigin).toString();
+const socialImageUrl = /^https?:\/\//.test(image) ? image : new URL(image, siteOrigin).toString();
+const robotsContent = noIndex ? "noindex,follow,max-image-preview:large" : "index,follow,max-image-preview:large";
+const socialImageMime = socialImageUrl.endsWith(".png")
+  ? "image/png"
+  : socialImageUrl.endsWith(".webp")
+    ? "image/webp"
+    : socialImageUrl.endsWith(".svg")
+      ? "image/svg+xml"
+      : undefined;
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: pageTitle,
+    description,
+    url: canonicalUrl,
+    inLanguage: "en-GB",
+    isPartOf: {
+      "@id": `${SITE_URL}/#website`
+    },
+    // Image metadata credits the site, never a person (Google image licence metadata).
+    // No licence field: the terms allow quoting with attribution, not reposting.
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: socialImageUrl,
+      contentUrl: socialImageUrl,
+      width: 1200,
+      height: 630,
+      caption: socialImageAlt,
+      creator: { "@id": `${SITE_URL}/#organization` },
+      creditText: "ukdemographics.co.uk",
+      copyrightNotice: imageCopyright
+    }
+  },
+  ...(pathname === "/"
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          url: SITE_URL,
+          name: SITE_NAME,
+          description: DEFAULT_DESCRIPTION,
+          inLanguage: "en-GB",
+          publisher: {
+            "@id": `${SITE_URL}/#organization`
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: SITE_NAME,
+          url: SITE_URL,
+          logo: {
+            "@type": "ImageObject",
+            url: new URL("/favicon.svg", siteOrigin).toString()
+          }
+        }
+      ]
+    : []),
+  ...pageStructuredData
+];
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robotsContent} />
+    <meta name="theme-color" content="#050812" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    {socialImageMime && <meta property="og:image:type" content={socialImageMime} />}
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@UKDemographics" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
+    <title>{pageTitle}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.postcodes.io https://cloudflareinsights.com; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" />
+    <meta name="google-site-verification" content="0NnwYAx2MjnJ1it-L-2U2FvYnQj-gB3dYWMGntGL-0E" />
+    {structuredData.map((item) => (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(item)} />
+    ))}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header><a href="/" class="brand">UK Demographics</a><nav aria-label="Main navigation"><a href="/places/">Places</a><a href="/maps/" aria-current="page">Maps</a><a href="/national/">National</a><a href="/sources/">Sources</a></nav></header>
+    <main id="main-content" tabindex="-1"><slot /></main>
+    <footer><p>© ukdemographics.co.uk. An independent demographic research project.</p><a href="/accessibility/">Accessibility</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></footer>
+  </body>
+</html>
+<style is:global>
+  :root { color-scheme:dark light; --radius:.5rem; font-family:system-ui,sans-serif; background:#0f1317; color:#f4f3ff; line-height:1.5; }
+  * { box-sizing:border-box; }
+  body { margin:0; }
+  main, header, footer { max-width:1120px; margin:auto; padding:1rem; }
+  header { display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap; border-bottom:1px solid #546a73; }
+  nav { display:flex; gap:1rem; flex-wrap:wrap; }
+  a { color:#c8c3ff; }
+  .brand { font-weight:700; font-size:1.2rem; }
+  h1 { font-size:clamp(1.6rem,5vw,2.3rem); line-height:1.15; }
+  h2 { font-size:1.25rem; }
+  h4 { margin-bottom:.3rem; }
+  p { max-width:75ch; }
+  :focus-visible { outline:3px solid #f0b03e; outline-offset:3px; }
+  .skip-link { position:absolute; top:-10rem; padding:1rem; background:#0f1317; }
+  .skip-link:focus { top:0; }
+  @media(prefers-color-scheme:light) { :root { background:#fff; color:#151920; } a { color:#4338ca; } }
+</style>
