@@ -82,7 +82,10 @@ function expectedWhiteBritish(code: string, year: number): string {
   if (d) return `${((d.groups_absolute.white_british / d.total_population) * 100).toFixed(1)}%`;
   const a = projections.areas[code];
   const side = year === 2011 ? a.baseline : a.current;
-  return side.year === year ? `${side.groups.white_british.toFixed(1)}%` : "n/a";
+  if (side.year !== year) return "n/a";
+  // 2021 re-derived from the TS021 counts, rounded to 2 places as the rebase script does.
+  const share = year === 2021 ? Math.round((side.groups_absolute.white_british / side.total_population) * 10000) / 100 : side.groups.white_british;
+  return `${share.toFixed(1)}%`;
 }
 
 describe("map geometry", () => {
@@ -180,7 +183,7 @@ describe("map indicators", () => {
       const share = Number(((d.groups_absolute.white_british / d.total_population) * 100).toFixed(2));
       expect(wb.status(code, 2011)).toBe("ok");
       expect(wb.value(code, 2011)).toBe(share);
-      expect(wb.value(code, 2011)).not.toBe(projections.areas[code].current.groups.white_british);
+      expect(wb.value(code, 2011)).not.toBe(projections.areas[code].current.census_groups.white_british);
       expect(wb.sub(code, 2021)).toMatch(/pts from 2011|no change/);
     }
     // Cumberland: Allerdale 96,422 + Carlisle 107,524 + Copeland 70,603 (Census 2011 usual residents).

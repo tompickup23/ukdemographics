@@ -34,7 +34,7 @@ type Groups = Record<string, number | undefined>;
 interface ProjectionArea {
   areaName: string;
   baseline?: { year?: number; groups?: Groups };
-  current?: { year?: number; total_population?: number; groups?: Groups };
+  current?: { year?: number; total_population?: number; groups?: Groups; census_groups?: Groups };
   projections?: Record<string, Groups>;
 }
 
@@ -219,7 +219,7 @@ export function buildPlaceDirectAnswer(areaCode: string): string | null {
   if (!area || !population || !year) return null;
 
   const sentences: string[] = [];
-  const top2021 = topGroups(area.current?.groups, 3);
+  const top2021 = topGroups(area.current?.census_groups ?? area.current?.groups, 3);
 
   // Change since 2011, from the Census population change in the country of
   // birth file. The eleven unitaries formed after 2011 are not in that file and

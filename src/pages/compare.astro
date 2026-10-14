@@ -51,7 +51,7 @@ for (const a of areas) {
     name: a.areaName,
     region: a.regionName,
     population: popA?.population ?? null,
-    wbi2021: proj?.current?.groups?.white_british ?? null,
+    wbi2021: (proj?.current?.census_groups ?? proj?.current?.groups)?.white_british ?? null,
     wbi2051: proj?.projections?.["2051"]?.white_british ?? null,
     foreignBornPct2021: proj?.foreignBornPct2021 ?? null,
     foreignBornPct2051: proj?.foreignBornPct2051 ?? null,

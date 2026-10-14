@@ -28,7 +28,7 @@ export const MEASURES: Array<{ key: "p" | "e"; id: IndicatorId; tab: string }> =
 export const GROUPS = ETHNIC_PALETTE.map((g) => ({ key: g.key, label: g.label, colour: g.fill }));
 export type GroupKey = (typeof ETHNIC_PALETTE)[number]["key"];
 
-interface CensusSide { year: number; total_population: number; groups: Record<string, number>; groups_absolute: Record<string, number> }
+interface CensusSide { year: number; total_population: number; groups: Record<string, number>; groups_absolute: Record<string, number>; census_groups?: Record<string, number> }
 const model = rawProjections as unknown as { areas: Record<string, { areaName: string; baseline: CensusSide; current: CensusSide }> };
 const mye = rawMye as unknown as { areas: Record<string, { series?: Record<string, number> }> };
 
@@ -42,7 +42,9 @@ export function censusShares(code: string, year: 2011 | 2021): Record<GroupKey, 
   const a = model.areas[code];
   const side = year === 2011 ? a?.baseline : a?.current;
   if (side?.year !== year) return null;
-  return Object.fromEntries(GROUPS.map((g) => [g.key, side.groups[g.key]])) as Record<GroupKey, number>;
+  // 2021: TS021 as published (census_groups), not the model base in groups.
+  const shares = year === 2021 ? side.census_groups ?? side.groups : side.groups;
+  return Object.fromEntries(GROUPS.map((g) => [g.key, shares[g.key]])) as Record<GroupKey, number>;
 }
 
 export const populationCount = (code: string, year: number): number | null => mye.areas[code]?.series?.[String(year)] ?? null;
