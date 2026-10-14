@@ -13,6 +13,7 @@
  * one, and a card whose focus council has no plate fails the build (I6).
  */
 import { createRequire } from "node:module";
+import { availableParallelism } from "node:os";
 import { join } from "node:path";
 import { slugifyAreaName } from "../site";
 import { FONT_SANS, RESVG_FONT_FILES } from "./brand";
@@ -129,4 +130,43 @@ export async function buildCard(code: string, spec: CardSpec): Promise<Buffer> {
   return spec.format === "png"
     ? sharp(raw).png({ palette: true, colours: CARD_PALETTE_COLOURS, compressionLevel: 9, effort: 7 }).toBuffer()
     : sharp(raw).resize(CARD_WEBP_WIDTH).webp({ quality: CARD_WEBP_QUALITY, effort: 4 }).toBuffer();
+}
+
+// ---------- The build pass: every place's cards, built ahead on a pool ----------
+
+const prebuilt = new Map<string, Promise<Buffer>>();
+const fileKey = (code: string, spec: CardSpec) => `${code}/${spec.name}.${spec.format}`;
+
+/**
+ * Start building every card for these places, in this order, a few places at a time.
+ * Astro asks for one file at a time; on its own that left the runner's other cores idle
+ * and the card pass took two to four minutes. The raster runs on the libuv pool and sharp
+ * on its own threads, so a pool the size of the machine keeps them busy.
+ */
+export function prebuildPlaceCards(codes: string[], concurrency = Math.max(2, availableParallelism())): void {
+  const specs = placeCardSpecs();
+  const settle = new Map<string, { resolve: (b: Buffer) => void; reject: (e: unknown) => void }>();
+  for (const code of codes) for (const spec of specs) {
+    const key = fileKey(code, spec);
+    if (prebuilt.has(key)) continue;
+    const p = new Promise<Buffer>((resolve, reject) => settle.set(key, { resolve, reject }));
+    p.catch(() => {}); // awaited later by the endpoint; mark it handled now
+    prebuilt.set(key, p);
+  }
+  const queue = codes.filter((c) => specs.some((sp) => settle.has(fileKey(c, sp))));
+  const worker = async () => {
+    for (let code = queue.shift(); code; code = queue.shift()) {
+      for (const spec of specs) {
+        const s = settle.get(fileKey(code, spec));
+        if (!s) continue;
+        try { s.resolve(await buildCard(code, spec)); } catch (e) { s.reject(e); }
+      }
+    }
+  };
+  for (let i = 0; i < concurrency; i++) void worker();
+}
+
+/** One card file: from the pool when it was started, otherwise built now. */
+export function cardFile(code: string, spec: CardSpec): Promise<Buffer> {
+  return prebuilt.get(fileKey(code, spec)) ?? buildCard(code, spec);
 }

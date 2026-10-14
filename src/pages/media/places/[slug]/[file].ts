@@ -4,7 +4,7 @@
  */
 import type { APIRoute, GetStaticPaths } from "astro";
 import { getPublicPlaceAreas } from "../../../../lib/site";
-import { buildCard, placeCardSpecs, placeSlug, type CardSpec } from "../../../../lib/map/cards";
+import { cardFile, placeCardSpecs, placeSlug, prebuildPlaceCards, type CardSpec } from "../../../../lib/map/cards";
 
 const MIME: Record<CardSpec["format"], string> = { png: "image/png", webp: "image/webp" };
 
@@ -19,9 +19,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   );
 };
 
+let started = false;
+
 export const GET: APIRoute = async ({ props }) => {
   const { code, spec } = props as { code: string; spec: CardSpec };
-  const body = await buildCard(code, spec);
+  if (!started) {
+    started = true;
+    prebuildPlaceCards(getPublicPlaceAreas().map((a) => a.areaCode));
+  }
+  const body = await cardFile(code, spec);
   return new Response(new Uint8Array(body), {
     headers: { "Content-Type": MIME[spec.format], "Cache-Control": "public, max-age=86400" }
   });
