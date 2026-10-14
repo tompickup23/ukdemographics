@@ -1,4 +1,5 @@
 ---
+import { CARD_LICENCE_METADATA } from "../lib/map/card-licence";
 import SiteHeader from "../components/SiteHeader.astro";
 import "../styles/global.css";
 import {
@@ -64,7 +65,7 @@ const structuredData = [
       "@id": `${SITE_URL}/#website`
     },
     // Image metadata credits the site, never a person (Google image licence metadata).
-    // No licence field: the terms allow quoting with attribution, not reposting.
+    // The card terms apply only to map cards on place pages.
     primaryImageOfPage: {
       "@type": "ImageObject",
       url: socialImageUrl,
@@ -74,7 +75,8 @@ const structuredData = [
       caption: socialImageAlt,
       creator: { "@id": `${SITE_URL}/#organization` },
       creditText: "ukdemographics.co.uk",
-      copyrightNotice: imageCopyright
+      copyrightNotice: imageCopyright,
+      ...(new URL(socialImageUrl).pathname.startsWith("/media/places/") ? CARD_LICENCE_METADATA : {})
     }
   },
   ...(pathname === "/"
