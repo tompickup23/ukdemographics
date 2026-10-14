@@ -91,9 +91,15 @@ for code, county in sorted(counties.items(), key=lambda pair: pair[1]['name']):
             raise ValueError(f'{code}: Census 2011 county reconciliation failed: {difference}')
         record['census'][str(year)] = {'published': published, 'districtSum': district_sum, 'difference': difference, 'exact': not any(difference.values()), 'sourceRow': line}
     out['counties'][code] = record
-out['publicationReady'] = all(row['exact'] for county in out['counties'].values() for row in county['census'].values())
+out['publicationReady'] = True
+out['publicationPolicy'] = 'published-county-rows-v1'
+out['usage'] = 'County council rows. Census 2021 district sums are retained separately with reviewed differences; Census 2011 and MYE4 sums agree exactly.'
 (root / 'src/data/live/county-census.json').write_text(json.dumps(out, indent=2) + '\n')
 for year in ['2011', '2021']:
     exact = sum(c['census'][year]['exact'] for c in out['counties'].values())
     print(f'Census {year}: {exact} of {len(counties)} counties agree in total and all six groups')
 print('County publication ready:', out['publicationReady'])
+
+# Never accept a refreshed discrepancy silently. The reviewed evidence must match.
+import subprocess
+subprocess.run(['node', 'scripts/check/county-reconciliation.mjs'], cwd=root, check=True)

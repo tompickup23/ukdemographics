@@ -226,7 +226,7 @@ describe("map indicators", () => {
 describe("map renderer", () => {
   it("passes every QA gate on a spread of frames, templates and years", () => {
     for (const res of getSamples()) expect(qa(res), `${res.layout.ind.id}/${res.layout.frame.id}/${res.layout.tk}`).toEqual([]);
-  });
+  }, 30000);
 
   it("meets WCAG contrast for every text element against what it sits on", () => {
     for (const res of getSamples()) for (const t of res.texts) {

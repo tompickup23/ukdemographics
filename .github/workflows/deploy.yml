@@ -37,6 +37,8 @@ jobs:
         run: npm run build
       - run: node scripts/check/place-map-weight.mjs
       - run: node scripts/check/national-map-weight.mjs
+      - run: node scripts/check/group-map-weight.mjs
+      - run: node scripts/check/published-dashes.mjs
       - run: node scripts/check/place-cards.mjs
       - run: npx playwright install --with-deps chromium
       - run: npm run test:mobile

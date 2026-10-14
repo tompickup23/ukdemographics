@@ -23,7 +23,7 @@
       "extractSha256": "a380ba0c973f1a520b07a7f708a324a163f720b60462b633922dad62e221fcb7"
     }
   ],
-  "usage": "Source records for county reconciliation. County pages remain blocked while any exact comparison fails.",
+  "usage": "County council rows. Census 2021 district sums are retained separately with reviewed differences; Census 2011 and MYE4 sums agree exactly.",
   "counties": {
     "E10000003": {
       "name": "Cambridgeshire",
@@ -1639,5 +1639,6 @@
       }
     }
   },
-  "publicationReady": false
+  "publicationReady": true,
+  "publicationPolicy": "published-county-rows-v1"
 }

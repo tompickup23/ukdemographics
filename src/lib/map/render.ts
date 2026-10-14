@@ -311,7 +311,7 @@ export function render(L: Layout, st: FrameState, opts: { measure?: string } = {
   const hasNA = ind.years.some((y) => frame.members.some((c) => ind.status(c, y) !== "ok"));
   const radius = 18 * Math.max(s, 0.75);
   const fills: Record<string, string> = {};
-  const inline = tk === "inline";
+  const inline = tk === "inline" || tk === "wide";
 
   const rootYears = m ? ` data-${m}-years="${ind.years.join(" ")}" data-${m}-year="${year}" data-${m}-h="${H}"` : ` data-years="${ind.years.join(" ")}" data-year="${year}"`;
   if (parts) parts.rootAttrs = rootYears;

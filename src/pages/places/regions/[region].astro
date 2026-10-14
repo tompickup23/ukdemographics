@@ -1,4 +1,7 @@
 ---
+import GroupMaps from "../../../components/GroupMaps.astro";
+import { regionFrame } from "../../../lib/map/geo";
+import { publicCounties, countyRecords, countyPath } from "../../../lib/counties";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { getPublicPlaceAreas, getPublicPlaceRegions, buildPublicPlaceRegionSlug, slugifyAreaName } from "../../../lib/site";
@@ -43,6 +46,9 @@ const baseCensusYear = censusYear();
     {" "}Combined population {(totalPop / 1_000_000).toFixed(1)}M{baseCensusYear != null ? ` at the ${baseCensusYear} Census` : ""}.
   </p>
 
+  <p><a href="/places/counties/">County council areas</a></p>
+  <ul>{publicCounties.filter(c=>countyRecords[c.code].districts.some(code=>regionAreas.some(a=>a.areaCode===code))).map(c=><li><a href={countyPath(c.name)}>{c.name}</a></li>)}</ul>
+  <GroupMaps frame={regionFrame(buildPublicPlaceRegionSlug(regionName))} />
   <div class="area-table">
     <div class="area-table-header">
       <span>Area</span><span>WBI 2021</span><span>WBI 2041</span><span>Population</span>
