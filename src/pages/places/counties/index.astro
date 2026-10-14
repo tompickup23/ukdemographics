@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import {COUNTY_COUNT} from '../../../lib/coverage';
 import {publicCounties,countyPath} from '../../../lib/counties';
 ---
-<BaseLayout title="County council areas" description="Population and census maps for the 21 English county council areas, listed A to Z.">
+<BaseLayout title="County council areas" description={`Population and census maps for the ${COUNTY_COUNT} English county council areas, listed A to Z.`}>
   <Breadcrumbs items={[{label:'Places',href:'/places/'},{label:'County council areas'}]} />
   <h1>County council areas</h1>
-  <p>Population estimates and census ethnic groups for {publicCounties.length} English county council areas. Unitary councils shown on a county map keep their own figures and remain outside its total.</p>
+  <p>Population estimates and census ethnic groups for {COUNTY_COUNT} English county council areas. Unitary councils shown on a county map keep their own figures and remain outside its total.</p>
   <ul>{publicCounties.map(c=><li><a href={countyPath(c.name)}>{c.name}</a></li>)}</ul>
 </BaseLayout>
 <style>li { margin-block:.75rem; } p { max-width:70ch; }</style>

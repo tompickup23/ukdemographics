@@ -4,7 +4,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import RaceBar from '../../../components/RaceBar.astro';
 import StatCard from '../../../components/StatCard.astro';
 import GroupMaps from '../../../components/GroupMaps.astro';
-import { publicCounties, countyRecords, countyPopulation, countyShares, countyChange, countySources, countyPath } from '../../../lib/counties';
+import { publicCounties, countyRecords, countyPopulation, countyShares, countyChange, countySources, countyPath, countyPopulationSummary } from '../../../lib/counties';
 import { countyFrame } from '../../../lib/map/geo';
 import { ETHNIC_PALETTE } from '../../../lib/ethnic-palette';
 import { getPublicPlaceAreas, buildPublicPlaceRegionPath, buildAbsoluteUrl } from '../../../lib/site';
@@ -24,7 +24,8 @@ const measures=[{key:'total' as const,label:'All residents'},...ETHNIC_PALETTE];
 ---
 <BaseLayout title={title} description={description} structuredData={structuredData}>
   <Breadcrumbs items={[{label:'Places',href:'/places/'},{label:region,href:buildPublicPlaceRegionPath(region)},{label:county.name}]} />
-  <header><h1>{county.name}</h1><p>County council area. {county.districts.length} district councils.</p>{frame.note&&<p class="scope-note">{frame.note}</p>}</header>
+  <header><h1>{county.name}: population and ethnicity</h1><p>County council area. {county.districts.length} district councils.</p>{frame.note&&<p class="scope-note">{frame.note}</p>}</header>
+  <p>{countyPopulationSummary(code)} Source: ONS MYE4.</p>
   <div class="stat-card-row">
     <StatCard value={n(series['2025'])} label="Residents, mid-2025" note="ONS MYE4 estimate" />
     <StatCard value={n(county.census['2021'].published.total)} label="Residents, Census 2021 ethnicity table" note="ONS TS021 county row" />

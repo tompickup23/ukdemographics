@@ -25,8 +25,12 @@
  * getPublicPlaceAreas() enumerates, and tests/coverage.test.ts asserts the two
  * agree, so the equivalence is enforced rather than assumed.
  */
+import rawCounties from "../data/lookups/district-to-utla.json";
 import rawProjections from "../data/live/ethnic-projections.json";
 import { getAllPcons } from "./pcon-data";
+
+/** County council areas represented by the district membership lookup. */
+export const COUNTY_COUNT = new Set(Object.values(rawCounties.districts).map(d => d.countyCode)).size;
 
 /** Seats in the House of Commons. Not derived: this is the universe, not the coverage. */
 export const PCON_UNIVERSE = 650;

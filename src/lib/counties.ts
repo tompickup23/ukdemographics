@@ -18,3 +18,11 @@ export function countyShares(code: string, year: 2011|2021): Record<CountyGroup,
   return Object.fromEntries(keys.map(key=>[key,counts[key]/counts.total*100])) as Record<CountyGroup,number>;
 }
 export function countyChange(code: string, group: CountyGroup): number { return countyShares(code,2021)[group]-countyShares(code,2011)[group]; }
+
+export function countyPopulationSummary(code: string): string {
+  const series = countyPopulation[code].series;
+  const start = series['2011'], end = series['2025'], change = end - start;
+  const verb = change > 0 ? 'rose' : change < 0 ? 'fell' : 'did not change';
+  const amount = change === 0 ? '' : ` by ${Math.abs(change).toLocaleString('en-GB')} residents (${(Math.abs(change)/start*100).toFixed(1)}%)`;
+  return `ONS estimates show that the county council area's population ${verb}${amount} between mid-2011 and mid-2025, from ${start.toLocaleString('en-GB')} to ${end.toLocaleString('en-GB')}.`;
+}

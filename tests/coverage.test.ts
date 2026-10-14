@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
+  COUNTY_COUNT,
   PCON_COUNT,
   PCON_UNIVERSE,
   PLACE_COUNT,
@@ -76,6 +77,7 @@ function findStaleCounts(): string[] {
 }
 
 describe("coverage counts", () => {
+  it("covers the 21 county council areas", () => { expect(COUNTY_COUNT).toBe(21); });
   it("derives the local authority count from the projections dataset", () => {
     expect(PLACE_COUNT).toBe(318);
     expect(PLACE_COUNT).toBe(getPublicPlaceAreas().length);
