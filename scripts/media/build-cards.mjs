@@ -1,6 +1,7 @@
 /**
  * Render map cards through src/lib/map/, run every QA gate, and write a manifest of every
- * value drawn. Local only for now; the build pass behind BUILD_OG=1 is Stage 3.
+ * value drawn. Local only: the site's own cards are built in the BUILD_OG=1 pass by
+ * src/pages/media/places/[slug]/[file].ts (Stage 3); this script sweeps every frame.
  *
  *   node scripts/media/build-cards.mjs [--out .cache/media/cards] [--png] [--sheet] [--only E07000117,...]
  *

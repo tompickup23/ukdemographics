@@ -119,6 +119,18 @@ export const DIVERGING = ["#b0703a", "#7a5636", "#6e747a", "#3b3878", "#524dad",
 const PUBLISHED = /(\d{1,2} [A-Z][a-z]+ \d{4})/.exec(mye.source.published)?.[1];
 const MYE_SOURCE = `ONS, ${mye.source.title}, table MYE4${PUBLISHED ? ` (published ${PUBLISHED})` : ""}`;
 
+/**
+ * The six groups' shares of usual residents at a Census, straight from the Census counts
+ * (KS201EW for 2011, TS021 for 2021), rounded to 2 places: the composition bars on the
+ * ethnicity cards (maps plan v2.2, issue I27). Null where the council has no record.
+ */
+export function censusGroupShares(code: string, year: 2011 | 2021): Record<string, number> | null {
+  const a = model.areas[code];
+  const side = year === 2011 ? a?.baseline : a?.current;
+  if (!side || side.year !== year || !(side.total_population > 0)) return null;
+  return Object.fromEntries(Object.entries(side.groups_absolute).map(([g, n]) => [g, Math.round((n / side.total_population) * 10000) / 100]));
+}
+
 function ewShare(year: number): number | null {
   const t = censusTotals.englandAndWales?.[String(year)];
   return t ? (t.groups.white_british / t.total) * 100 : null;
@@ -158,7 +170,7 @@ function whiteBritishShare(projections: boolean): Indicator {
       if (now == null || then == null) return null;
       const d = Number((now - then).toFixed(1));
       if (d === 0) return "no change from 2011";
-      return `${d < 0 ? "fell" : "rose"} ${Math.abs(d).toFixed(1)} pts from 2011`;
+      return `${d < 0 ? "fell" : "rose"} ${Math.abs(d).toFixed(1)} points from 2011`;
     },
     statusText: { formed_since: "no 2011 figure", older_run: "older model run" },
     scale: {
