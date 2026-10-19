@@ -77,6 +77,38 @@
       ],
       "etag": "\"6915f5b6-b6239\"",
       "last_modified": "Thu, 13 Nov 2025 15:13:58 GMT"
+    },
+    {
+      "url": "https://assets.publishing.service.gov.uk/media/6915f5b6bc34c86ce4e6e77a/adult-social-care-finance-report-2024-to-2025-data-tables-13-nov.ods",
+      "attempted_at": "2026-10-19T15:27:57.908Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "c2ff7f38db06da67f2af3d05c30e4a2f4321be0505d3c7218991a695c57d6dd7",
+      "bytes": 746041,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "adult-social-care-finance-report-2024-to-2025-data-tables-13-nov.ods",
+      "landing_page": "https://www.gov.uk/government/statistics/adult-social-care-finance-report-england-2024-to-2025",
+      "edition": "Adult social care finance report, England: 2024 to 2025",
+      "edition_published_at": "2025-10-23T00:00:00+01:00",
+      "edition_updated_at": "2025-11-13T16:33:29+00:00",
+      "attachment_title": "Adult social care finance report, England: 2024 to 2025 - data tables",
+      "change_notes": [
+        {
+          "note": "Updated with new 'Adult social care finance report, England: 2024 to 2025 - data tables' to correct errors in calculating average unit costs in tables 52 and 55.",
+          "public_timestamp": "2025-11-13T16:33:29Z"
+        },
+        {
+          "note": "Updated to upload a new 'Adult social care finance report, England: 2024 to 2025 - data pack' to replace the CSV file where some of the voluntary data items had not fully populated, causing some additional data totals to be incorrect.",
+          "public_timestamp": "2025-10-27T08:18:56Z"
+        },
+        {
+          "note": "First published.",
+          "public_timestamp": "2025-10-22T23:00:00Z"
+        }
+      ],
+      "etag": "\"6915f5b6-b6239\"",
+      "last_modified": "Thu, 13 Nov 2025 15:13:58 GMT"
     }
   ]
 }
