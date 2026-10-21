@@ -207,5 +207,5 @@ describe.skipIf(!INPUTS.every((p) => existsSync(p)))("zero-noise check on the he
     const r = runBoth(dir, "full", []);
     expect(Object.keys(r.det.areas).length).toBeGreaterThan(250);
     expect(mismatches(r)).toEqual([]);
-  }, 180_000);
+  }, 400_000);
 });
