@@ -1,7 +1,7 @@
 {
   "source": "Parliament Members API",
-  "lastUpdated": "2026-10-04",
-  "totalMPs": 649,
+  "lastUpdated": "2026-10-21",
+  "totalMPs": 650,
   "members": [
     {
       "memberId": 4359,
@@ -987,7 +987,7 @@
     {
       "memberId": 5208,
       "mpName": "Perran Moon",
-      "party": "Labour",
+      "party": "Independent",
       "constituencyName": "Camborne and Redruth",
       "photoUrl": "https://members-api.parliament.uk/api/Members/5208/Thumbnail",
       "majority": null,
@@ -2605,6 +2605,15 @@
       "electedDate": "2023-10-19T00:00:00"
     },
     {
+      "memberId": 5484,
+      "mpName": "Sagal Abdi-Wali",
+      "party": "Labour",
+      "constituencyName": "Holborn and St Pancras",
+      "photoUrl": "https://members-api.parliament.uk/api/Members/5484/Thumbnail",
+      "majority": null,
+      "electedDate": "2026-10-08T00:00:00"
+    },
+    {
       "memberId": 4942,
       "mpName": "Richard Foord",
       "party": "Liberal Democrats",
@@ -2832,7 +2841,7 @@
     {
       "memberId": 4030,
       "mpName": "Karl Turner",
-      "party": "Independent",
+      "party": "Labour",
       "constituencyName": "Kingston upon Hull East",
       "photoUrl": "https://members-api.parliament.uk/api/Members/4030/Thumbnail",
       "majority": null,
@@ -5845,15 +5854,7 @@
       "electedDate": "2024-07-04T00:00:00"
     }
   ],
-  "vacancies": [
-    {
-      "constituencyName": "Holborn and St Pancras",
-      "parliamentConstituencyId": 4105,
-      "previousMember": "Sir Keir Starmer",
-      "previousMemberEnded": "2026-09-01",
-      "previousMemberEndReason": "Resignation (Chiltern)"
-    }
-  ],
+  "vacancies": [],
   "holds": [
     {
       "constituencyName": "East Kilbride and Strathaven",
