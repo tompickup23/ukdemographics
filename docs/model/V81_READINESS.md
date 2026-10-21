@@ -2,6 +2,8 @@
 
 Written 12 October 2026, at the end of the preparation for phase 3 of the UKD refresh plan (Reports repo, `UKD_Data_Refresh_Plan_2026-10-11.md`, decisions D3 to D6, delegated by Tom on 12 October). Nothing in this document has been published and no live data file has changed. v8.0 (13 and 14 August 2026) is still what the site shows.
 
+Updated 21 October 2026: blockers 2 to 5 are closed in code on branch `model/v81-prep-2026-10-21` (draft PR, not merged without Tom's yes), and blocker 6 is written up below as a decision for Tom. v8.1 has not been run and no model output has been published.
+
 ## What is ready
 
 | Piece | Where | State |
@@ -13,6 +15,11 @@ Written 12 October 2026, at the end of the preparation for phase 3 of the UKD re
 | v8.0 regression | `tests/hp-regression.test.mjs` | A default run reproduces all 269 modelled areas exactly |
 | Control totals (D3, D4) | `scripts/model/build_control_totals.mjs` | Builds `data/model/control_totals_v81.json` and the 3596 sensitivity file; tested against the sources |
 | Base with Wales and the suppressed areas (D6) | `build_single_year_base.mjs` options, `lib/rm032-fallback.mjs`, `scripts/model/geography/lad11-successors.json` | A scratch run projects all 318 authorities |
+| Shared projection step (21 Oct) | `scripts/model/lib/hp-core.mjs` | The deterministic run's ratio, adjustment, cap and projection code, moved unchanged; both runs call it |
+| Stochastic options and zero-noise check (21 Oct) | `run_stochastic_hp.mjs`, `tests/stochastic-zero-noise.test.mjs` | Same options as the forward model; one simulation with the noise off reproduces it exactly |
+| Out-of-sample coverage (21 Oct) | `validate_out_of_sample.mjs`, `tests/out-of-sample-coverage.test.mjs` | Wales, successors and the 2023 unitaries can be scored; no 2001 lookup gap |
+| School Census base option (21 Oct) | `validate_schools.mjs`, `tests/validate-schools-base.test.mjs` | `--base`, `--output`; default unchanged |
+| Methodology text (21 Oct) | `scripts/model/lib/hp-methodology.mjs`, `tests/hp-methodology.test.mjs` | Composed from the options and inputs used; v8.0 text byte for byte by default |
 
 ### What a scratch run showed
 
@@ -45,12 +52,28 @@ These scratch outputs were for checking that the code runs. Their numbers are no
 ## What blocks the run
 
 1. **Timing (D5).** ONS said on 11 August 2026 that it intends "to make an alternative population projections product available by the end of 2026 for users who require continuity between population estimates and projections" (ONS, Quarterly update on population and migration statistics: August 2026, section 3). D5: run v8.1 after that product, or by the end of January 2027 if it slips, so the control totals change once. When it lands: fetch it, add it to `INPUTS.json`, and decide whether it replaces the SNPP growth in the England step. That needs a reader in `lib/control-totals-sources.mjs`, because its layout is unknown.
-2. **The stochastic run has none of the new options.** `run_stochastic_hp.mjs` still reads the v8.0 base, the SNPP CSV and England only. Run as it is, its bands would describe a different model from the projection (the defect fixed in August, audit Part 2d item 11). It needs the same options, through `lib/hp-options.mjs`, and the zero-noise check (one simulation with the noise off must reproduce the deterministic run) before v8.1.
-3. **The out-of-sample test covers 285 areas with unchanged codes.** `validate_out_of_sample.mjs` reads ST101 (2001) and DC2101EW on 2011 geography, so Wales, the successor areas and the 2023 unitaries are not scored. The test must be extended (the successor lookup applies to the 2011 side; 2001 needs the same treatment) and published before any forward view (economy plan s8 rule 7).
-4. **`validate_schools.mjs` reads the v8.0 base by a fixed path.** It needs a `--base` option so School Census calibration covers the new areas. The School Census 2025/26 refresh should land first, so v8.1 calibrates on 2025/26, not 2024/25.
-5. **The methodology string.** `run_hp_single_year.mjs` writes the v8.0 methodology text. A non-default run prints a warning. Before publishing, the text must describe the control totals, the cap mode, Wales, the 16 estimated bases and the extrapolation, with sources; `--model-version` sets the version.
-6. **Cap mode.** Choose `--cap-mode age-sex` (one factor per area, sex, single year and year; ethnic shares kept within each cell, as C s1.3 recommends after Hauer 2019) or `total` (v8.0's single factor per area and year). In a scratch age-sex run, 16 area-sex-age-year cells had a positive control total and no modelled person; they are counted and left empty.
+2. **The stochastic run has none of the new options.** CLOSED 21 October 2026. `run_stochastic_hp.mjs` now reads every option of the forward model through `lib/hp-options.mjs` (base, DC2101EW and NEWETHPOP paths, `--countries-2011`, `--successors-2011`, control totals, cap mode, Brexit damp, School Census calibration, site input and output, format, run record), plus `--simulations` (default 1000) and `--noise on|off`. The ratios, the two adjustments, the cap and the projection step are no longer copies: both scripts call `lib/hp-core.mjs`, which is the deterministic run's code moved unchanged (`tests/hp-regression.test.mjs` still reproduces all 269 v8.0 areas, and a v8.1-option raw run was byte-identical before and after the move). The zero-noise check is `tests/stochastic-zero-noise.test.mjs`: on a five-area synthetic fixture (so it runs in CI) one simulation with the noise off matches the deterministic run in every area, year and group under four configurations (v8.0 options; Wales, successors, control-totals JSON and age-sex cap; the same with the total cap; cap and both adjustments off), a noisy run is shown to differ, and the check repeats on the held v8.0 inputs where they are linked. On 21 October it also matched on the held inputs with the v8.1 base, control totals and either cap mode (scratch only). Three things change for a default stochastic run, all bringing it into line with the forward model: national ratios are pooled the deterministic way, a cap factor outside 0.3 to 3.0 is skipped rather than clamped, and the area list is the deterministic one. Its bands will therefore differ slightly from the published v8.0 bands, which came from the older code. It no longer reads `model-validation.json`, which it never used. `--noise off` cannot write the site file. A run writing anything but the published file locks `<output>.lock` instead of `.stochastic-run.lock`.
+3. **The out-of-sample test covers 285 areas with unchanged codes.** CLOSED in code 21 October 2026; the extended test has not been run for publication and must still be published before any forward view (economy plan s8 rule 7). `validate_out_of_sample.mjs` takes `--countries E,W`, `--successors on` and `--actual <file>`. With successors on, each authority whose code changed after 2011 (`successors2011()` in `lib/geography.mjs`: `lad11-successors.json` plus the April 2023 lookup) is scored on the summed counts of its 2011 districts on both sides, DC2101EW for 2011 and ST101 for 2001. **No 2001 lookup gap:** the held ST101 and DC2101EW list exactly the same 348 codes (326 English, 22 Welsh), because Nomis publishes ST101 on the same 2011 local authority geography (TYPE464) as DC2101EW. Every 2011 district named by the successor lookup is in both files, so all 11 successor authorities and 2023 unitaries are summed the same way on both sides, and the six authorities reissued codes after small boundary changes (Northumberland, Gateshead, St Albans, Welwyn Hatfield, East Hertfordshire, Stevenage) are already held under their current codes in both files and were already in the 285. A successor with any district missing would be listed under `coverage.successorGaps` and not scored; none is. `--actual` reads a 2021 base file (20 groups summed to six) instead of the site file's `current.groups`, and lists its 16 IPF-estimated areas under `coverage.estimatedActual`: their group totals are fitted to RM032, so the score for them is against an estimate whose group totals are Census counts. A scratch run with `--countries E,W --successors on` scored all 318 authorities against either source; its numbers are not results. With no flags the output is byte-identical to the v8.0 test. When the extended test is run, the σ of the stochastic run (MAE / 100, rounded to 2dp) and the out-of-sample sentence in the methodology text should be re-derived from it.
+4. **`validate_schools.mjs` reads the v8.0 base by a fixed path.** CLOSED 21 October 2026. It takes `--base` (default the v8.0 path), and `--dfe`, `--projections` and `--output` so a v8.1 check writes to scratch, not `src/data/live/`. With no flags its output matches the unchanged script's on the held inputs (ignoring `generatedAt`). One thing found on the way: the published `school-validation.json` (generated 14 April 2026) is not what the script now produces from the held inputs, but only in `pipelineGap` and `comparisonTotalPop`, which read `current.groups` from the site file; the `comparison` block the forward model's calibration reads is identical. Still open: the School Census 2025/26 refresh should land first, so v8.1 calibrates on 2025/26, not 2024/25.
+5. **The methodology string.** CLOSED 21 October 2026. `run_hp_single_year.mjs` now writes the text composed by `lib/hp-methodology.mjs` from what the run used: the version (`--model-version`), coverage by country, the 2021 base (direct observations, the April 2023 unitary summed from its districts, and the 16 IPF-estimated authorities by name and code, with RM032 and TS009 named), the 2011 base (Wales, the successor sums by name), the control totals from the file's own metadata (each year range's source, the post-2047 straight-line extension stated once with both sources it applies to, and every source by publisher, title, table, publication date and file), the cap mode with the run's own counts (empty age-sex cells, skipped or untargeted area-years), the ratio settings and the two adjustments. `run_stochastic_hp.mjs` appends a sentence that says its σ comes from the v8.0 test and has not been re-derived. A run in the v8.0 configuration writes the v8.0 text byte for byte and the stochastic run appends the v8.0 sentence; `tests/hp-methodology.test.mjs` checks both against the published string and `tests/hp-regression.test.mjs` checks the text a default run writes. The composed text cites the v8.0 out-of-sample figures (285 English areas) for the ratio settings until the extended test is published; it never contains Tom's name (the control-totals metadata's `decisions` field is not used).
+6. **Cap mode.** OPEN: a decision for Tom (see "Decision for Tom: cap mode" below). Choose `--cap-mode age-sex` (one factor per area, sex, single year and year; ethnic shares kept within each cell, as C s1.3 recommends after Hauer 2019) or `total` (v8.0's single factor per area and year). In a scratch age-sex run, 16 area-sex-age-year cells had a positive control total and no modelled person; they are counted and left empty.
 7. **Downstream.** Everything after step 3 of `RUN_ORDER.md`, the derived files, findings reconciliation (PR 63 pattern), the Asylum Stats sync (refresh plan B s1) and the dated corrections. The 49 legacy areas' place pages change, so that PR is a draft "(merge after 1 Nov)" with a fact-check.
+
+## Decision for Tom: cap mode
+
+Not chosen here. Both modes run through the forward model and the stochastic run, and the methodology text describes whichever is used.
+
+| | `total` (v8.0) | `age-sex` |
+|---|---|---|
+| What it scales | One factor per authority and year: the model's total is moved to the control total | One factor per authority, sex, single year of age and year: each age and sex cell is moved to its control total |
+| What it keeps | Every ethnic share and the age structure the cohort change ratios produce; only the level moves | The ethnic mix inside each age and sex cell; the age structure becomes the control totals' (ONS estimates, SNPP and NPP for England, Welsh Government for Wales) |
+| What it changes | Nothing but the level, so the projected age structure is the model's own and can drift from the official one | The overall ethnic shares, because cells are scaled by different factors: where the control totals hold more people at an age than the model, that age's ethnic mix gains weight |
+| Guard | A factor outside 0.3 to 3.0 is not applied (the area-year is left uncapped and counted) | No bound on a cell's factor |
+| Empty cells | None | A cell with a positive control total and no modelled person cannot be scaled. In the scratch run 16 such authority, sex, age and year cells were left empty and counted, not filled, so those authorities' totals fall short of their control totals by those cells |
+| Control-totals file | SNPP CSV or the v8.1 JSON | The v8.1 JSON only (needs age and sex detail) |
+| Literature | v8.0's published method | C s1.3 recommends it, citing Hauer (2019) |
+
+The readiness work recommends `age-sex` (it is what C s1.3 recommends, and step 6 of the commands below uses it), so that the projection's age structure matches the official series it is capped to. The cost is the 16 empty cells and a change in overall ethnic shares that is caused by the cap rather than by the ratios. `total` keeps v8.0's behaviour and its continuity. Before choosing, compare the two scratch runs area by area (the raw format holds both by age and sex); those numbers are for the decision, not for quoting.
 
 ## Commands for v8.1
 
@@ -97,7 +120,23 @@ node scripts/model/run_hp_single_year.mjs --groups all-persons --snpp-cap off \
   --output /tmp/v81/all-persons.json
 ```
 
-Then, once blockers 2 to 5 are fixed: the stochastic run, the out-of-sample test, and the enrichment steps in `RUN_ORDER.md` order. Each run writes a record of its options and input hashes beside its output (`<output>.run.json`); keep it with the PR.
+```
+# 2.1 School Census check on the v8.1 base (after the 2025/26 refresh), to scratch
+node scripts/model/validate_schools.mjs --base data/model/base_single_year_2021_v81.json --output /tmp/v81/school-validation.json
+#     then give step 6 --school-validation /tmp/v81/school-validation.json
+
+# 9. Zero-noise check on the v8.1 options, then the stochastic run into the step 6 output
+node scripts/model/run_hp_single_year.mjs <step 6 options> --format raw --output /tmp/v81/det-raw.json
+node scripts/model/run_stochastic_hp.mjs <step 6 options> --simulations 1 --noise off --format raw --output /tmp/v81/zero-noise.json
+#     (compare: every firstSimulation count must equal det-raw's; tests/stochastic-zero-noise.test.mjs shows how)
+node scripts/model/run_stochastic_hp.mjs <step 6 options> --site-input /tmp/v81/ethnic-projections.json
+
+# 10. Out-of-sample test with the new coverage (raw output to scratch; publish only after review)
+node scripts/model/validate_out_of_sample.mjs --countries E,W --successors on \
+  --actual data/model/base_single_year_2021_v81.json --json > /tmp/v81/out-of-sample.json
+```
+
+Then the enrichment steps in `RUN_ORDER.md` order. Each run writes a record of its options and input hashes beside its output (`<output>.run.json`); keep it with the PR.
 
 ## Sources
 
@@ -108,4 +147,6 @@ Then, once blockers 2 to 5 are fixed: the stochastic run, the out-of-sample test
 - ONS (2026d) User requested data 3596, `rescaledpop2025to2050.xlsx`. Published 27 August 2026. Fetched 12 October 2026, sha256 `0f564389...`.
 - ONS (2026e) Quarterly update on population and migration statistics: August 2026, section 3. Published 11 August 2026.
 - Welsh Government (2025) 2022-based population projections by local authority, age, sex, year and variant, StatsWales dataset `036507d7-6671-4885-b2b4-af7f01e9ed5b`. First published 20 November 2025. Fetched through the StatsWales API on 12 October 2026, sha256 `3f4758fc...`.
+- ONS (n.d.) Census 2001 ST101: sex and age by ethnic group, on 2011 local authority geography (Nomis NM_1869_1, TYPE464). Held copy sha256 `73780646...`, obtained 13 August 2026 (`data/model/INPUTS.json`).
+- ONS (n.d.) Census 2011 DC2101EW: ethnic group by sex by age, local authorities. Held copy sha256 `9ec6fb02...`, obtained April 2026 (`data/model/INPUTS.json`).
 - Hauer, M.E. (2019) "Population projections for U.S. counties by age, sex, and race controlled to shared socioeconomic pathway", Scientific Data, 6, 190005.
