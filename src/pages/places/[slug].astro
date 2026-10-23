@@ -85,7 +85,7 @@ export function getStaticPaths() {
 }
 
 const { area } = Astro.props as { area: DemographicAreaSummary };
-const aidogeLink = getAidogeLink(area.areaCode);
+const aidogeUrl = getAidogeLink(area.areaCode)?.url ?? null;
 const projData = (rawProjections as any).areas?.[area.areaCode];
 type UkPlacesRecord = {
   slug: string;
@@ -1767,15 +1767,14 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     </div>
   )}
 
-  {aidogeLink && (
-    <!-- AI DOGE cross-link. Joined on ONS area code, never on name. -->
+  {aidogeUrl && (
     <div class="dg-cross-link">
       <div class="dg-cross-inner">
         <span class="dg-cross-label">Council spending</span>
         <span class="dg-cross-desc">
           Council spending on AI DOGE: every payment {area.areaName} has published, searchable by supplier and category.
         </span>
-        <a href={aidogeLink.url} class="dg-cross-btn" rel="noopener">
+        <a href={aidogeUrl} class="dg-cross-btn" rel="noopener">
           View {area.areaName} on AI DOGE &rarr;
         </a>
       </div>
