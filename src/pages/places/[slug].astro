@@ -48,7 +48,7 @@ import { compareCountyEal, SIMILAR_WITHIN_PP } from "../../lib/school-eal-compar
 import payrollRegional from "../../data/live/payroll-by-region-industry.json";
 import hmoDensity from "../../data/live/hmo-density.json";
 import councilTaxSpd from "../../data/live/council-tax-spd.json";
-import { SITE_URL, buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
+import { SITE_URL, buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, getAidogeLink, type DemographicAreaSummary } from "../../lib/site";
 import rawProjections from "../../data/live/ethnic-projections.json";
 import ukPlacesRegistry from "../../data/live/ukplaces-places.json";
 import economicProfile from "../../data/live/economic-profile.json";
@@ -85,6 +85,7 @@ export function getStaticPaths() {
 }
 
 const { area } = Astro.props as { area: DemographicAreaSummary };
+const aidogeLink = getAidogeLink(area.areaCode);
 const projData = (rawProjections as any).areas?.[area.areaCode];
 type UkPlacesRecord = {
   slug: string;
@@ -1762,6 +1763,21 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         <span class="as-cross-label">Local geography</span>
         <span class="as-cross-desc">The shared local-authority geography record and its source coverage.</span>
         <a href={ukPlacesUrl} class="as-cross-btn" rel="noopener">Place record on UK Places</a>
+      </div>
+    </div>
+  )}
+
+  {aidogeLink && (
+    <!-- AI DOGE cross-link. Joined on ONS area code, never on name. -->
+    <div class="dg-cross-link">
+      <div class="dg-cross-inner">
+        <span class="dg-cross-label">Council spending</span>
+        <span class="dg-cross-desc">
+          Council spending on AI DOGE: every payment {area.areaName} has published, searchable by supplier and category.
+        </span>
+        <a href={aidogeLink.url} class="dg-cross-btn" rel="noopener">
+          View {area.areaName} on AI DOGE &rarr;
+        </a>
       </div>
     </div>
   )}
