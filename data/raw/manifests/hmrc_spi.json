@@ -1,0 +1,36 @@
+{
+  "dataset": "hmrc_spi",
+  "publisher": "HM Revenue & Customs",
+  "cadence": "annual",
+  "discovery": "https://www.gov.uk/api/search.json?q=%22Personal+incomes+statistics%22&count=100&filter_organisations=hm-revenue-customs&filter_content_store_document_type=national_statistics&fields=title%2Clink%2Cpublic_timestamp",
+  "note": "Published ODS bytes are tracked for offline replay. Tax years and projection status are read from workbook cells by transform-hmrc-spi-la.mjs.",
+  "current": {
+    "fileName": "Collated_Tables_3_12_to_3_15a_2324.ods",
+    "fileSha256": "f70e210eb2931d9a6da5f8b6fa184b902b51ef9e2c9fb3588323907647d7672c",
+    "sizeBytes": 926081,
+    "sourceUrl": "https://assets.publishing.service.gov.uk/media/69f1f17cc42061e837e3ac3b/Collated_Tables_3_12_to_3_15a_2324.ods",
+    "edition": "Personal Incomes Statistics for the tax year 2023 to 2024",
+    "landingPage": "https://www.gov.uk/government/statistics/personal-incomes-statistics-for-the-tax-year-2023-to-2024"
+  },
+  "attempts": [
+    {
+      "url": "https://assets.publishing.service.gov.uk/media/69f1f17cc42061e837e3ac3b/Collated_Tables_3_12_to_3_15a_2324.ods",
+      "attempted_at": "2026-10-24T22:34:35.920Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "f70e210eb2931d9a6da5f8b6fa184b902b51ef9e2c9fb3588323907647d7672c",
+      "bytes": 926081,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "Collated_Tables_3_12_to_3_15a_2324.ods",
+      "published_file_name": "Collated_Tables_3_12_to_3_15a_2324.ods",
+      "attachment_title": "Personal Incomes Statistics Tables 3.12 to 3.15a for the tax year 2023 to 2024",
+      "landing_page": "https://www.gov.uk/government/statistics/personal-incomes-statistics-for-the-tax-year-2023-to-2024",
+      "edition": "Personal Incomes Statistics for the tax year 2023 to 2024",
+      "edition_first_published_at": "2026-04-29T09:30:00+01:00",
+      "edition_updated_at": "2026-04-29T09:30:00+01:00",
+      "etag": "\"69f1f17c-e2181\"",
+      "last_modified": "Wed, 29 Apr 2026 11:54:36 GMT"
+    }
+  ]
+}
