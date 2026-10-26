@@ -52,6 +52,20 @@
       "edition_on_page": 2025,
       "blob_sha256": "d444d2c5b6b96eea67ccb82ad5acffb9f5ea7e63f5efe6311cf2a92db065e264",
       "bytes": 158731
+    },
+    {
+      "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/parentscountryofbirth/2025/2025birthbyparentscountry.xlsx",
+      "attempted_at": "2026-10-26T15:03:23.363Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "etag": "\"92bb68a9a03fae82f5137755d6396b06fc2c8c9a--gzip\"",
+      "last_modified": null,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "2025birthbyparentscountry.xlsx",
+      "edition_on_page": 2025,
+      "blob_sha256": "d444d2c5b6b96eea67ccb82ad5acffb9f5ea7e63f5efe6311cf2a92db065e264",
+      "bytes": 158731
     }
   ]
 }
