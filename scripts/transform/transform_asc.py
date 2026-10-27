@@ -14,8 +14,9 @@ columns by header text:
     "Gross current expenditure, by care type, <period>": the Total column, in GBP
       thousands, for each council with adult social services responsibilities (CASSR)
       and for England.
-    "Gross current expenditure per 100,000 adults, year on year comparison, <period>":
-      DHSC's own adult population (ONS mid-2024), read only to check the population join.
+    "Gross current expenditure per 100,000 adults, year on year comparison, <period>"
+      (hyphenated "year-on-year" from 2025 to 2026): DHSC's own adult population (ONS
+      mid-year estimates), read only to check the population join.
   Activity report
     "Number of clients accessing long term support during the year, by age band and
       support setting, <period>": the "65 and over - Residential" column.
@@ -124,13 +125,17 @@ def find_table(book: dict, subject: str):
     return hits[0][1], str(hits[0][1].iat[0, 0]).strip()
 
 
-def header_map(df, required: dict[str, str]):
-    """Locate the header row and map each key to a column by exact header text (case-insensitive)."""
+def header_map(df, required: dict[str, str | tuple[str, ...]]):
+    """Locate the header row and map each key to a column by exact header text (case-insensitive).
+
+    A tuple gives the labels DHSC has used for one column across editions; exactly one must match.
+    """
     for i in range(min(len(df), 30)):
         cells = [re.sub(r"\s+", " ", str(v)).strip().lower() for v in df.iloc[i].tolist()]
         found = {}
         for key, text in required.items():
-            cols = [j for j, c in enumerate(cells) if c == text.lower()]
+            labels = {t.lower() for t in ((text,) if isinstance(text, str) else text)}
+            cols = [j for j, c in enumerate(cells) if c in labels]
             if len(cols) == 1:
                 found[key] = cols[0]
         if len(found) == len(required):
@@ -222,7 +227,7 @@ def main() -> None:
     fin_cover = cover_lines(fin)
     if period_label(fin_cover[0]) != fin_period:
         fail(f"finance cover {fin_cover[0]!r} and table period {fin_period} disagree")
-    h, c = header_map(t14, {"code": "Geography code", "name": "LA name", "region": "Region code", "total": "Total"})
+    h, c = header_map(t14, {"code": "Geography code", "name": ("LA name", "Local authority name"), "region": "Region code", "total": "Total"})
     gce, fin_names = {}, {}
     for code, v in rows(t14, h, c, c["code"], c["region"]):
         value, marker = cell(v["total"])
@@ -234,7 +239,7 @@ def main() -> None:
     if "ENGLAND" not in gce:
         fail("no England row in the gross current expenditure table")
 
-    t16, t16_title = find_table(fin, "Gross current expenditure per 100,000 adults, year on year comparison")
+    t16, t16_title = find_table(fin, "Gross current expenditure per 100,000 adults, year[ -]on[ -]year comparison")
     lp = long_period(fin_period)
     h, c = header_map(t16, {"code": "Geography code", "region": "Region code", "pop": f"Population 18+: {lp}"})
     dhsc_pop18 = {code: cell(v["pop"])[0] for code, v in rows(t16, h, c, c["code"], c["region"])}
