@@ -81,7 +81,7 @@ jobs:
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the births files if the births ingest failed
         if: steps.births_fetch.outcome == 'failure' || steps.births.outcome == 'failure'
-        run: git checkout -- src/data/live/births-by-mother-cob.json src/data/live/births-history-national.json
+        run: git checkout -- src/data/live/births-by-mother-cob.json src/data/live/births-history-national.json data/raw/manifests/ons_births_cob.json
 
       # UKHSA TB surveillance tables, found on GOV.UK by title, no key. Annual: most
       # weeks record an "unchanged" attempt in the manifest and rewrite the same file.
@@ -101,7 +101,7 @@ jobs:
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the TB file if the TB ingest failed
         if: steps.tb_fetch.outcome == 'failure' || steps.tb.outcome == 'failure'
-        run: git checkout -- src/data/live/tb-notifications.json
+        run: git checkout -- src/data/live/tb-notifications.json data/raw/manifests/ukhsa_tb.json
 
       # MHCLG Council Taxbase, found on GOV.UK by title, no key. Annual (November);
       # other weeks record an "unchanged" attempt and rewrite the same file.
@@ -121,8 +121,10 @@ jobs:
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the MHCLG Council Taxbase file if its ingest failed
         if: steps.ctb_fetch.outcome == 'failure' || steps.ctb.outcome == 'failure'
-        run: git checkout -- src/data/live/council-tax-spd.json
+        run: git checkout -- src/data/live/council-tax-spd.json data/raw/manifests/council_taxbase.json
 
+      # Every restore step in this file also restores the ingest's manifest: the tests check
+      # that the manifest names the file the committed data was built from.
       # DHSC adult social care finance and activity reports on GOV.UK, no key. Each
       # series resolves its own newest edition by title, so finance moves to a new year
       # when DHSC publishes it while activity keeps its last edition until its own
@@ -142,7 +144,7 @@ jobs:
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the ASC file if the ASC ingest failed
         if: steps.asc_fetch.outcome == 'failure' || steps.asc.outcome == 'failure'
-        run: git checkout -- src/data/live/asc-dashboard.json
+        run: git checkout -- src/data/live/asc-dashboard.json data/raw/manifests/dhsc_asc_finance.json data/raw/manifests/dhsc_asc_activity.json
 
       # DfE SEN figures from the statistics API, no key: newest release found by the
       # publication's slug. Annual (June); other weeks rewrite the same file.
@@ -162,7 +164,7 @@ jobs:
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the DfE SEN file if its ingest failed
         if: steps.send_fetch.outcome == 'failure' || steps.send.outcome == 'failure'
-        run: git checkout -- src/data/live/send-dashboard.json
+        run: git checkout -- src/data/live/send-dashboard.json data/raw/manifests/dfe_sen.json
 
       # Ignore run timestamps when deciding whether anything changed.
       #
