@@ -3,6 +3,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdtempSync, readFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { V80_STOCHASTIC_SENTENCE } from "../scripts/model/lib/hp-methodology.mjs";
 
 /**
  * The forward model's run options must not change the published numbers.
@@ -69,6 +70,9 @@ describe.skipIf(!haveInputs)("forward model regression against the published v8.
     expect(modelled).toBeGreaterThan(250);
     expect(diffs).toEqual([]);
     expect(candidate.modelVersion).toBe(published.modelVersion);
+    // The forward model writes the v8.0 text byte for byte; the published string
+    // is that text with the stochastic run's sentence appended.
+    expect(candidate.methodology + V80_STOCHASTIC_SENTENCE).toBe(published.methodology);
   }, 120_000);
 
   it("detects a changed setting (the comparison can fail)", () => {
