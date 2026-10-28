@@ -38,6 +38,7 @@ const INDEXABLE_STATIC_PATHS = [
   "/accessibility/",
   "/compare/",
   "/constituencies/",
+  "/data/",
   "/findings/",
   "/glossary/",
   "/housing/",
