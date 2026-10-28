@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { COLUMNS, SOURCES, placeCodes, placeCsvPath } from "../../lib/place-downloads";
+import { SITE_URL, buildAbsoluteUrl } from "../../lib/site";
+import { formatPlaceCount } from "../../lib/coverage";
+import rawProjections from "../../data/live/ethnic-projections.json";
+
+const names = (rawProjections as unknown as { areas: Record<string, { areaName: string }> }).areas;
+const places = placeCodes()
+  .map((code) => ({ code, name: names[code].areaName, href: placeCsvPath(names[code].areaName) }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+const COLUMN_NOTES: Record<(typeof COLUMNS)[number], string> = {
+  area_code: "ONS local authority code.",
+  area_name: "Council name as used on this site.",
+  measure: "What the value counts: population_estimate, population_estimate_ci95, population_by_age, median_age, components_of_change, census_usual_residents or census_ethnic_group.",
+  category: "The group, band or component within the measure.",
+  period: "Reference date: mid-year (30 June), a year to mid-year, or the Census.",
+  value: "The figure as published, or a sum of published cells where the sources file says so.",
+  unit: "persons or years.",
+  source_id: "Key into sources.csv: publisher, table, edition, file and its SHA-256.",
+  source_locator: "Sheet and row of the source workbook, the Census area code, or the 2011 districts summed for a council formed since."
+};
+
+const title = "Download the data";
+const description = `CSV downloads of ONS mid-year population estimates and Census ethnic group counts for ${formatPlaceCount()}, with sources, tables and file hashes.`;
+const canonicalUrl = buildAbsoluteUrl("/data/");
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "@id": `${canonicalUrl}#dataset`,
+    name: "UK Demographics: population estimates and Census ethnic group counts by local authority",
+    description,
+    url: canonicalUrl,
+    isAccessibleForFree: true,
+    license: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    creator: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    spatialCoverage: { "@type": "Place", name: "England and Wales" },
+    temporalCoverage: "2011/2025",
+    variableMeasured: ["Population estimate", "Population by age band", "Median age", "Components of population change", "Usual residents by ethnic group"],
+    isBasedOn: SOURCES.map((s) => ({ "@type": "CreativeWork", name: `${s.publisher}, ${s.title}, ${s.table}`, url: s.url })),
+    distribution: [
+      { "@type": "DataDownload", encodingFormat: "text/csv", name: "All places", contentUrl: buildAbsoluteUrl("/data/places.csv") },
+      { "@type": "DataDownload", encodingFormat: "text/csv", name: "Sources", contentUrl: buildAbsoluteUrl("/data/sources.csv") }
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} structuredData={structuredData}>
+  <Breadcrumbs items={[{ label: "Data" }]} />
+  <h1>{title}</h1>
+  <p class="desc">
+    Published figures for {formatPlaceCount()}, one row per figure, in CSV. Every row names its source table, and
+    <a href="/data/sources.csv">sources.csv</a> gives the publisher, edition, file name and SHA-256 hash of each workbook.
+    These files hold observed figures only. The projections on place pages are not included.
+  </p>
+
+  <section class="dl-section">
+    <h2>Files</h2>
+    <ul class="dl-files">
+      <li><a href="/data/places.csv" download>places.csv</a>: every place in one file.</li>
+      <li><a href="/data/sources.csv" download>sources.csv</a>: one row per source table.</li>
+      <li>One file per place, listed below.</li>
+    </ul>
+    <p class="note">
+      Contains public sector information licensed under the
+      <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v3.0</a>.
+      Cite the original ONS table; the source columns say which.
+    </p>
+  </section>
+
+  <section class="dl-section">
+    <h2>Columns</h2>
+    <dl class="dl-columns">
+      {COLUMNS.map((c) => (
+        <div>
+          <dt><code>{c}</code></dt>
+          <dd>{COLUMN_NOTES[c]}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="dl-section">
+    <h2>Sources</h2>
+    <ul class="dl-sources">
+      {SOURCES.map((s) => (
+        <li>
+          <code>{s.id}</code>: {s.publisher}, {s.title}, table {s.table}{s.edition ? `, ${s.edition}` : ""}. {s.note}
+          {" "}<a href={s.url} rel="noopener">Source</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="dl-section">
+    <h2>By place</h2>
+    <ul class="dl-places">
+      {places.map((p) => (
+        <li><a href={p.href} download>{p.name}</a></li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.5rem; }
+  .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 700px; line-height: 1.5; }
+  .dl-section { margin-top: 1.75rem; max-width: 760px; }
+  .dl-section h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin: 0 0 0.75rem; }
+  .dl-files, .dl-sources { padding-left: 1.1rem; font-size: 0.9rem; line-height: 1.55; display: grid; gap: 0.35rem; }
+  .dl-columns { display: grid; gap: 0.5rem; margin: 0; font-size: 0.88rem; }
+  .dl-columns dt { font-weight: 600; }
+  .dl-columns dd { margin: 0 0 0 1rem; color: var(--muted); }
+  .dl-places { list-style: none; padding: 0; margin: 0; columns: 14rem auto; column-gap: var(--space-4, 1rem); font-size: 0.88rem; line-height: 1.7; }
+  .note { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+  code { overflow-wrap: anywhere; }
+  a { color: var(--accent); }
+</style>

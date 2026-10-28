@@ -8,6 +8,8 @@ const compact = (s: string) => s.replace(/\s+/g, '');
 // Exact expressions are reviewed exceptions, not file-wide exclusions.
 const exceptions: Record<string, string[]> = {
   'src/pages/index.astro': ['(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()'],
+  // Findings by file name, for a stable list.
+  'src/pages/llms.txt.ts': ['(a, b) => a.id.localeCompare(b.id)'],
   'src/pages/findings/index.astro': ['(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()'],
   'src/pages/places/[slug].astro': [
     '(a, b) => (b[1].nonUkSharePct ?? 0) - (a[1].nonUkSharePct ?? 0)',
