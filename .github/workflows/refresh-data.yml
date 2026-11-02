@@ -139,7 +139,9 @@ jobs:
         id: asc
         if: steps.asc_fetch.outcome == 'success'
         continue-on-error: true
-        run: python3 scripts/transform/transform_asc.py
+        run: |
+          python3 -m unittest discover -s tests -p test_asc_schema.py
+          python3 scripts/transform/transform_asc.py
 
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the ASC file if the ASC ingest failed

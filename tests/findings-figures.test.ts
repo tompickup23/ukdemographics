@@ -135,7 +135,9 @@ describe("adult social care finding against asc-dashboard.json", () => {
   const pounds = (code: string) => `£${a[code].grossSpendPerCapita}`;
 
   it("quotes spend per adult from the file", () => {
-    const [bwd, wn] = grab(text, /Blackburn with Darwen spent (£\d+) per adult in 2024-25 and West Northamptonshire (£\d+)/, "two unitaries");
+    const [bwd, wn] = grab(text, /Blackburn with Darwen spent (£\d+) per adult in \d{4} to \d{4} and West Northamptonshire (£\d+)/, "two unitaries");
+    const [start, end] = asc.measures.grossSpendPerCapita.period.split("-");
+    expect(text).toContain(`per adult in ${start} to ${start.slice(0, 2)}${end}`);
     expect(bwd).toBe(pounds("E06000008"));
     expect(wn).toBe(pounds("E06000062"));
     const [lancs] = grab(text, /Lancashire County Council spent (£\d+) per adult/, "Lancashire");
