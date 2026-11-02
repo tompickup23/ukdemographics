@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { buildAbsoluteUrl, buildReleaseCollectionStructuredData } from "../lib/site";
+import { DEFAULT_SOCIAL_IMAGE_PATH, buildAbsoluteUrl, buildReleaseCollectionStructuredData } from "../lib/site";
 
 const releases = [
   {
@@ -140,7 +140,7 @@ const pageDescription = "Release diary for UK Demographics covering model update
 const pageStructuredData = buildReleaseCollectionStructuredData(releases, {
   canonicalUrl: buildAbsoluteUrl("/releases/"),
   description: pageDescription,
-  socialImageUrl: buildAbsoluteUrl("/og-card.svg")
+  socialImageUrl: buildAbsoluteUrl(DEFAULT_SOCIAL_IMAGE_PATH)
 });
 ---
 

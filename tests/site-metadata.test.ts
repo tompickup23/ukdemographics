@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   DEFAULT_SOCIAL_IMAGE_PATH,
@@ -40,8 +42,14 @@ describe("site metadata helpers", () => {
     expect(paths).not.toContain("/councils/");
   });
 
-  it("defaults social images to the SVG card", () => {
-    expect(DEFAULT_SOCIAL_IMAGE_PATH).toBe("/og-card.svg");
+  it("defaults social images to the 1200x630 PNG card", () => {
+    // Social platforms do not render SVG for og:image. The PNG is rendered from
+    // public/og-card.svg by scripts/media/render-og-card.mjs.
+    expect(DEFAULT_SOCIAL_IMAGE_PATH).toBe("/og-card.png");
+    const png = fs.readFileSync(path.resolve("public/og-card.png"));
+    expect(png.subarray(1, 4).toString("ascii")).toBe("PNG");
+    expect(png.readUInt32BE(16)).toBe(1200);
+    expect(png.readUInt32BE(20)).toBe(630);
   });
 
   it("builds release collection structured data with an item list", () => {
@@ -57,7 +65,7 @@ describe("site metadata helpers", () => {
       {
         canonicalUrl: buildAbsoluteUrl("/releases/"),
         description: "Release diary",
-        socialImageUrl: buildAbsoluteUrl("/og-card.svg")
+        socialImageUrl: buildAbsoluteUrl("/og-card.png")
       }
     );
 

@@ -10,7 +10,7 @@ export const SITE_NAME = "UK Demographics";
 export const SITE_URL = "https://ukdemographics.co.uk";
 export const DEFAULT_DESCRIPTION =
   `Population data for every community. Ethnic projections, school demand, housing pressure, and demographic change across ${formatPlaceCount()}. Every figure sourced from ONS, Census, and DfE data.`;
-export const DEFAULT_SOCIAL_IMAGE_PATH = "/og-card.svg";
+export const DEFAULT_SOCIAL_IMAGE_PATH = "/og-card.png";
 
 export type StructuredDataNode = Record<string, unknown>;
 
