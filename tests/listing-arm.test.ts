@@ -2,25 +2,20 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { fnv1a32, listingArmForSlug, LISTING_ARMS } from "../src/lib/listing-arm";
-import { getPublicPlaceAreas, slugifyAreaName } from "../src/lib/site";
 
-// The committed assignment list, so the arms can be joined to a Search Console
-// export without running this code. Regenerate after a dataset change with
-// UPDATE_LISTING_ARMS=1 npx vitest run tests/listing-arm.test.ts
+// The assignment list as the October 2026 test ran it. The test is retired
+// (docs/seo/README.md, "Result"), so the list is a historical record: it is
+// checked against the hash rule row by row, and never regenerated from the
+// current set of places.
 const ARMS_CSV = path.resolve("docs/seo/listing-arms-2026-10.csv");
 
-function expectedCsv(): string {
-  const rows = getPublicPlaceAreas()
-    .map((a) => {
-      const slug = slugifyAreaName(a.areaName);
-      return { slug, a, hash: fnv1a32(slug) };
-    })
-    .sort((x, y) => x.slug.localeCompare(y.slug))
-    .map(({ slug, a, hash }) => {
-      const name = a.areaName.includes(",") ? `"${a.areaName}"` : a.areaName;
-      return [slug, a.areaCode, name, a.regionName, `0x${hash.toString(16).padStart(8, "0")}`, hash % 3, listingArmForSlug(slug)].join(",");
-    });
-  return ["slug,area_code,area_name,region,fnv1a32,mod3,arm", ...rows].join("\n") + "\n";
+function armRows(): string[][] {
+  const [, ...rows] = fs.readFileSync(ARMS_CSV, "utf8").trim().split("\n");
+  return rows.map((line) => {
+    const slug = line.split(",")[0];
+    const tail = line.split(",").slice(-3);
+    return [slug, ...tail];
+  });
 }
 
 describe("listing test arm assignment", () => {
@@ -36,22 +31,23 @@ describe("listing test arm assignment", () => {
     expect(listingArmForSlug("birmingham")).toBe("B");
   });
 
-  it("matches the committed assignment list", () => {
-    const expected = expectedCsv();
-    if (process.env.UPDATE_LISTING_ARMS === "1") fs.writeFileSync(ARMS_CSV, expected);
-    expect(fs.readFileSync(ARMS_CSV, "utf8")).toBe(expected);
+  it("every row of the committed assignment list follows the hash rule", () => {
+    const rows = armRows();
+    expect(rows.length).toBe(318);
+    for (const [slug, hex, mod3, arm] of rows) {
+      const hash = fnv1a32(slug);
+      expect(hex, slug).toBe(`0x${hash.toString(16).padStart(8, "0")}`);
+      expect(Number(mod3), slug).toBe(hash % 3);
+      expect(arm, slug).toBe(listingArmForSlug(slug));
+    }
   });
 
-  it("puts a workable share of places in every arm", () => {
-    const counts = new Map(LISTING_ARMS.map((a) => [a, 0]));
-    const areas = getPublicPlaceAreas();
-    for (const a of areas) {
-      const arm = listingArmForSlug(slugifyAreaName(a.areaName));
-      counts.set(arm, (counts.get(arm) ?? 0) + 1);
-    }
+  it("put a workable share of places in every arm", () => {
+    const rows = armRows();
     for (const arm of LISTING_ARMS) {
-      expect(counts.get(arm)! / areas.length).toBeGreaterThan(0.25);
-      expect(counts.get(arm)! / areas.length).toBeLessThan(0.42);
+      const share = rows.filter((r) => r[3] === arm).length / rows.length;
+      expect(share).toBeGreaterThan(0.25);
+      expect(share).toBeLessThan(0.42);
     }
   });
 });

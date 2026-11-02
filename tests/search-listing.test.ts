@@ -91,7 +91,7 @@ describe("direct-answer paragraph", () => {
   });
 });
 
-describe("listing arms", () => {
+describe("place listing (arm B format, rolled out November 2026)", () => {
   const coverage = (code: string): PlaceCoverage => ({
     areaName: areas[code].areaName,
     censusYear: censusYear(),
@@ -106,13 +106,9 @@ describe("listing arms", () => {
   const updated = profileUpdatedDate();
   const groupNames = /White|Asian|Black|Mixed|British/;
 
-  it("leaves the control copy to the template", () => {
-    expect(buildPlaceListing("control", coverage("E08000025"), updated)).toBeNull();
-  });
-
-  it("arm A names no group and quotes no figure other than a year", () => {
+  it("names no group and quotes no figure other than a year, on every place", () => {
     for (const code of Object.keys(areas)) {
-      const l = buildPlaceListing("A", coverage(code), updated)!;
+      const l = buildPlaceListing(coverage(code), updated);
       for (const text of [l.title, l.description, l.summary]) {
         const stripped = text.replace(areas[code].areaName, "");
         expect(stripped).not.toMatch(groupNames);
@@ -123,12 +119,18 @@ describe("listing arms", () => {
     }
   });
 
-  it("arm B takes its year from the data and says the population is the Census count", () => {
-    const l = buildPlaceListing("B", coverage("E08000025"), updated)!;
+  it("takes its year from the data and says the population is the Census count", () => {
+    const l = buildPlaceListing(coverage("E08000025"), updated);
     expect(l.title).toContain(` ${updated!.slice(0, 4)}:`);
     expect(l.description).toContain(`as counted at the ${censusYear()} Census`);
-    expect(l.description).not.toMatch(groupNames);
-    expectHouseStyle(l.description);
+    expect(l.summary).toMatch(/^Updated /);
+  });
+
+  it("drops the year rather than inventing one when the data has no revision date", () => {
+    const l = buildPlaceListing(coverage("E08000025"), null);
+    expect(l.title).not.toMatch(/\d{4}:/);
+    expect(l.description).not.toMatch(/updated/i);
+    expectHouseStyle(l.title);
   });
 });
 

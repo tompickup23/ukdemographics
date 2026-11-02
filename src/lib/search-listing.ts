@@ -7,14 +7,13 @@
  * plausibility guard, the arrivals start year from the NINo series and the
  * profile date from the projection file's lastUpdated. Nothing is typed.
  *
- * The place listing test (control, A, B) is documented in listing-arm.ts and
- * docs/seo/README.md. Control copy stays in the page template, exactly as it
- * was before the test, so this module only builds the two new arms.
+ * Place pages use the listing format that won the October 2026 test, arm B
+ * (docs/seo/README.md, "Result"). The test's other arms are retired; the
+ * assignment that ran it is kept in listing-arm.ts for the record.
  */
 import rawProjections from "../data/live/ethnic-projections.json";
 import cobChange from "../data/live/country-of-birth-change-2011-2021.json";
 import rawPcon from "../data/live/pcon-dataset.json";
-import type { ListingArm } from "./listing-arm";
 import { plausibleThrough } from "./projection-plausibility";
 
 /** The furthest projection year a listing advertises. Later years exist but are not the headline horizon. */
@@ -169,18 +168,20 @@ function coverageTopics(c: PlaceCoverage, counted: boolean): string {
 }
 
 /**
- * Arm A: breadth, no number in the title or description beyond years.
- * Arm B: as A, with the profile's revision year in the title, and the
- * description saying the population is the Census count, so "2026" is not
- * read as a 2026 population estimate.
- * Returns null for the control, whose copy stays in the template.
+ * The place listing, in the format of arm B of the October 2026 test: what the
+ * page covers, with the profile's revision year in the title, and a
+ * description saying the population is the Census count, so "2026" is not read
+ * as a 2026 population estimate. No group is named and no figure other than a
+ * year is quoted.
+ *
+ * If the projection file carries no revision date, the year cannot be read
+ * from the data, so the listing falls back to the same breadth copy without
+ * it (the test's arm A wording) rather than typing one in.
  */
-export function buildPlaceListing(arm: ListingArm, c: PlaceCoverage, updatedIso: string | null): PlaceListing | null {
-  if (arm === "control") return null;
-
+export function buildPlaceListing(c: PlaceCoverage, updatedIso: string | null): PlaceListing {
   const projectionsTitle = c.projectionTo != null ? `projections to ${c.projectionTo}` : "";
 
-  if (arm === "A" || updatedIso == null) {
+  if (updatedIso == null) {
     const title = `${c.areaName} demographics: ${joinList([
       "population",
       "ethnicity",

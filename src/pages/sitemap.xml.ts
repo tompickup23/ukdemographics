@@ -58,7 +58,6 @@ export const GET: APIRoute = async () => {
   const placeDate = latest(projectionsUpdated, lastCommitDate([
     "src/pages/places/[slug].astro",
     "src/lib/search-listing.ts",
-    "src/lib/listing-arm.ts",
   ]));
   const regionDate = latest(projectionsUpdated, lastCommitDate([
     "src/pages/places/regions/[region].astro",

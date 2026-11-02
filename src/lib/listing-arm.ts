@@ -1,5 +1,14 @@
 /**
- * Search listing test, October 2026.
+ * Search listing test, October 2026. RETIRED 2 November 2026.
+ *
+ * Arm B won (0.618% clicks per impression, against 0.490% for A and 0.354%
+ * for the control, 4 to 31 October 2026; docs/seo/README.md, "Result"), and
+ * every place page now uses its format. No page imports this module any more.
+ * It stays so the assignment in docs/seo/listing-arms-2026-10.csv can still be
+ * reproduced and re-checked, and so scripts/seo/ctr-by-arm.mjs can compare the
+ * former arms after the rollout.
+ *
+ * What follows describes the test as it ran.
  *
  * Place pages ranked on page one for "<place> demographics" and "<place>
  * population" and drew a 0.3% click rate, against 6.7% for the postcode tool
