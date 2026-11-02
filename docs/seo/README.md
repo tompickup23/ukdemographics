@@ -55,8 +55,10 @@ figures were not re-checked here.
 
 - **15 "Page with redirect"**: every one is a section URL without its trailing slash
   (`/your-area`, `/findings`, `/places/barking-and-dagenham` and so on). GitHub Pages redirects
-  these to the slash form, which is the canonical. They are not stale slugs and no internal link
-  uses the slashless form, so there is nothing to fix.
+  these to the slash form, which is the canonical. They are not stale slugs. This note first said
+  no internal link used the slashless form; that was wrong. Fourteen of the header menu links in
+  `src/components/SiteHeader.astro` had no trailing slash and redirected on every click, on every
+  page. They were fixed on 2 November 2026, and `tests/site-metadata.test.ts` now checks them.
 - **8 "Not found (404)"**: seven Scottish and Northern Irish council pages the site no longer
   builds (Belfast, Glasgow City, Aberdeenshire, City of Edinburgh, Derry City and Strabane,
   Antrim and Newtownabbey, Perth and Kinross; last crawled 23 to 31 May 2026) and

@@ -115,3 +115,13 @@ describe("sitemap covers the generated pages", () => {
     expect(getIndexableSitePaths().length).toBeGreaterThan(900);
   });
 });
+
+describe("site-wide links", () => {
+  // A link without the trailing slash 301s on GitHub Pages, on every click.
+  it("gives every header menu link its trailing slash", () => {
+    const header = fs.readFileSync(path.resolve("src/components/SiteHeader.astro"), "utf8");
+    const hrefs = [...header.matchAll(/href: "([^"]+)"/g)].map((m) => m[1]);
+    expect(hrefs.length).toBeGreaterThan(10);
+    for (const href of hrefs) expect(href, href).toMatch(/^\/(?:[a-z0-9-]+\/)*$/);
+  });
+});
