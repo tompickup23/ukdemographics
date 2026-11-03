@@ -30,6 +30,14 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Exercise the refresh parser using the same schema checks as cron.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Python packages for the spreadsheet transforms
+        run: python3 -m pip install --quiet pandas==2.2.3 odfpy==1.4.1 openpyxl==3.1.5
+      - name: Check DHSC workbook schemas
+        run: python3 -m unittest discover -s tests -p test_asc_schema.py
       - run: npm test
       - run: npm run check
       - env:

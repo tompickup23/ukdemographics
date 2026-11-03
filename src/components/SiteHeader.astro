@@ -8,36 +8,36 @@ const NAV_GROUPS: NavGroup[] = [
   {
     label: "Explore",
     items: [
-      { href: "/your-area", label: "Your Area", desc: "Look up any UK community by postcode" },
-      { href: "/places", label: "Places", desc: formatPlaceCount() },
-      { href: "/constituencies", label: "Constituencies", desc: formatPconCount() },
+      { href: "/your-area/", label: "Your Area", desc: "Look up any UK community by postcode" },
+      { href: "/places/", label: "Places", desc: formatPlaceCount() },
+      { href: "/constituencies/", label: "Constituencies", desc: formatPconCount() },
       { href: "/maps/", label: "Maps", desc: "Population by year and census ethnic groups" },
-      { href: "/national", label: "National", desc: "England and Wales projections, UK flows" },
-      { href: "/compare", label: "Compare", desc: "Side-by-side any two places" },
+      { href: "/national/", label: "National", desc: "England and Wales projections, UK flows" },
+      { href: "/compare/", label: "Compare", desc: "Side-by-side any two places" },
     ],
   },
   {
     label: "Themes",
     items: [
-      { href: "/pressure", label: "Exposure Index", desc: "Demographic change exposure" },
-      { href: "/schools", label: "Schools", desc: "DfE school census" },
-      { href: "/housing", label: "Housing", desc: "Tenure, prices, stress" },
-      { href: "/regional", label: "Regional", desc: "9 English regions + nations" },
+      { href: "/pressure/", label: "Exposure Index", desc: "Demographic change exposure" },
+      { href: "/schools/", label: "Schools", desc: "DfE school census" },
+      { href: "/housing/", label: "Housing", desc: "Tenure, prices, stress" },
+      { href: "/regional/", label: "Regional", desc: "9 English regions + nations" },
     ],
   },
   {
     label: "Research",
     items: [
-      { href: "/findings", label: "Findings", desc: "Published research" },
-      { href: "/releases", label: "Releases", desc: "Version history" },
+      { href: "/findings/", label: "Findings", desc: "Published research" },
+      { href: "/releases/", label: "Releases", desc: "Version history" },
     ],
   },
   {
     label: "About",
     items: [
-      { href: "/methodology", label: "Methodology", desc: "How the projections work" },
-      { href: "/sources", label: "Sources", desc: "Data provenance" },
-      { href: "/glossary", label: "Glossary", desc: "Terms & definitions" },
+      { href: "/methodology/", label: "Methodology", desc: "How the projections work" },
+      { href: "/sources/", label: "Sources", desc: "Data provenance" },
+      { href: "/glossary/", label: "Glossary", desc: "Terms & definitions" },
     ],
   },
 ];
@@ -46,7 +46,10 @@ const pathname = Astro.url.pathname;
 
 function isActiveItem(href: string): boolean {
   if (href === "/") return pathname === "/";
-  return pathname === href || pathname.startsWith(`${href}/`);
+  // Menu links carry the trailing slash (the canonical form), so match the
+  // section with or without it and every page beneath it.
+  const base = href.replace(/\/$/, "");
+  return pathname === base || pathname.startsWith(`${base}/`);
 }
 function isActiveGroup(group: NavGroup): boolean {
   return group.items.some((item) => isActiveItem(item.href));

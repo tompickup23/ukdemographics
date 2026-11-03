@@ -2,7 +2,8 @@
 
 Started 4 October 2026. The place pages rank on page one for population and demographics
 queries and almost nobody clicks. This folder holds the baseline taken before any change, the
-design of the test that changes the place listings, and the result when it is measured.
+design of the test that changed the place listings, and its result. Arm B won, and since
+2 November 2026 every place page uses its format (see "Result" below).
 
 ## Baseline, taken 4 October 2026
 
@@ -55,10 +56,10 @@ figures were not re-checked here.
 
 - **15 "Page with redirect"**: every one is a section URL without its trailing slash
   (`/your-area`, `/findings`, `/places/barking-and-dagenham` and so on). GitHub Pages redirects
-  these to the slash form, which is the canonical. They are not stale slugs. The claim below that
-  no internal link used the slashless form was wrong: 14 of the header menu links had no trailing
-  slash and 301ed on every click, on every page. PR 130 (open at writing, 2 November 2026) adds
-  the trailing slash to those header links and pins the slashes with a test.
+  these to the slash form, which is the canonical. They are not stale slugs. This note first said
+  no internal link used the slashless form; that was wrong. Fourteen of the header menu links in
+  `src/components/SiteHeader.astro` had no trailing slash and redirected on every click, on every
+  page. They were fixed on 2 November 2026, and `tests/site-metadata.test.ts` now checks them.
 - **8 "Not found (404)"**: seven Scottish and Northern Irish council pages the site no longer
   builds (Belfast, Glasgow City, Aberdeenshire, City of Edinburgh, Derry City and Strabane,
   Antrim and Newtownabbey, Perth and Kinross; last crawled 23 to 31 May 2026) and
@@ -105,9 +106,9 @@ and take the result modulo 3: 0 is control, 1 is arm A, 2 is arm B. No salt. Wor
 `birmingham` hashes to `0xd4ab7d67`, which is 2 modulo 3, so arm B.
 
 The full list is `listing-arms-2026-10.csv` (slug, area code, name, region, hash, remainder,
-arm). `tests/listing-arm.test.ts` fails if the list and the function disagree; regenerate it
-after a dataset change with `UPDATE_LISTING_ARMS=1 npx vitest run tests/listing-arm.test.ts`.
-Each live page also carries its arm as `data-listing-arm` on the header block.
+arm). It is now a historical record: `tests/listing-arm.test.ts` checks every row against the
+hash rule and never regenerates it. While the test ran, each live page carried its arm as
+`data-listing-arm` on the header block; that attribute went with the rollout.
 
 ### Baseline by arm
 
@@ -180,11 +181,17 @@ node scripts/seo/ctr-by-arm.mjs docs/seo/after-2026-11/pages-28d.csv
 
 ## Result
 
-Measured 2 November 2026. Source: Google Search Console, property
-`https://ukdemographics.co.uk/`, Performance report, Pages table, search type Web, dates 4 to
-31 October 2026 (the 28 days from the 4 October deploy of PR 68). The 15 pages listed in
-`listing-test-exclusions-2026-10.csv` are dropped. The same method is recorded in the Reports
-repo at `Traffic/seo/ukd_listing_test/RESULT.md`.
+Measured 2 November 2026. Arm B won.
+
+**Data.** Google Search Console, ukdemographics.co.uk, Performance, Pages, web search, 4 to 31
+October 2026, read by hand in the Search Console web interface. The full table had 1,000 rows
+summing to 4,534 clicks, matching the property total of 4.53k, so no page was cut off. The 319
+place-page rows are in `after-2026-11/place-pages-2026-10-04_to_2026-10-31.csv`.
+
+**Method.** `node scripts/seo/ctr-by-arm.mjs <export>` (repo at origin/main of 28 October
+2026), which drops the 15 pages in `listing-test-exclusions-2026-10.csv`. Baseline is the same
+script on `baseline-2026-10/pages-3m.csv`. Re-running the script on the committed place-page
+file on 2 November 2026 gives the same clicks, impressions and rates.
 
 | Arm | Pages | Clicks | Impressions | Clicks per impression | Baseline (3 months to 3 Oct) |
 |---|---:|---:|---:|---:|---:|
@@ -192,10 +199,17 @@ repo at `Traffic/seo/ukd_listing_test/RESULT.md`.
 | A (breadth, no number) | 97 | 813 | 165,790 | 0.490% | 0.334% |
 | B (breadth plus data year) | 100 | 1,409 | 228,065 | 0.618% | 0.292% |
 
-Arm B wins (0.618% against 0.354% for control). B started lowest on the baseline (0.292%) and
-finished highest. Without each arm's three highest-click pages the order holds (control 0.376%,
-A 0.480%, B 0.621%). Average position by arm was not in the measurement.
+**Robustness.** Without each arm's three highest-click pages: control 0.376%, A 0.480%, B
+0.621%. Median page rate among pages with 500 or more impressions: control 0.384% (63 pages),
+A 0.483% (73), B 0.657% (68). B started lowest and finished highest; control did not move.
 
-**Follow-up.** PR 130 rolls arm B's title, description and opening sentence to every place page,
-and corrects the slashless header links noted in the index report above. Re-measure the place
-pages four weeks after that PR deploys (register task T08).
+Average position by arm was not recorded in this measurement.
+
+**Rollout, 2 November 2026.** Every place page now takes arm B's title, description and
+opening sentence from `buildPlaceListing` in `src/lib/search-listing.ts`. The control copy is
+gone from the template. `src/lib/listing-arm.ts` and `listing-arms-2026-10.csv` stay as the
+record of the assignment, and `ctr-by-arm.mjs` still splits a later export by the former arms.
+
+**Next.** Re-measure four weeks after the rollout deploys: the former control and A pages
+should move towards B's rate. Leading with the ONS mid-year estimate instead of the 2021 Census
+count is a separate change, to test after this one.

@@ -4,11 +4,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout
   title="Privacy Policy | UK Demographics"
-  description="How ukdemographics.co.uk handles your data. No cookies. No tracking. No personal data collected."
+  description="How ukdemographics.co.uk handles your data: no cookies, no accounts, and cookieless page view counts through Cloudflare Web Analytics."
 >
   <article class="legal-page shell">
     <h1>Privacy Policy</h1>
-    <p class="legal-updated">Last updated: 11 April 2026</p>
+    <p class="legal-updated">Last updated: 2 November 2026</p>
 
     <p class="legal-intro">
       ukdemographics.co.uk is an independent demographic research project.
@@ -18,9 +18,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <section class="legal-section">
       <h2>The short version</h2>
       <p>
-        This site does not use cookies. It does not use analytics. It does not collect
-        your email address. It does not require you to create an account. I do not
-        know who you are when you visit.
+        This site does not use cookies. It counts page views with Cloudflare Web
+        Analytics, which is cookieless and does not track you across other sites. It
+        does not collect your email address. It does not require you to create an
+        account. I do not know who you are when you visit.
       </p>
     </section>
 
@@ -50,11 +51,27 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </section>
 
     <section class="legal-section">
+      <h2>Analytics</h2>
+      <p>
+        Most pages load Cloudflare Web Analytics, a small script served from
+        static.cloudflareinsights.com that counts visits. It records the page viewed,
+        the page that referred you (if any), your country, your browser and device
+        type, and how quickly the page loaded. I see these only as totals. I cannot
+        see your IP address or pick out an individual visit.
+      </p>
+      <p>
+        Cloudflare says Web Analytics sets no cookies, uses no browser storage and
+        does not fingerprint visitors or follow them from site to site. Cloudflare's
+        own description is at <a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noopener">cloudflare.com/web-analytics</a>,
+        and its privacy policy is linked above.
+      </p>
+    </section>
+
+    <section class="legal-section">
       <h2>Cookies and tracking</h2>
       <p>
-        This site sets no cookies. It uses no analytics scripts, no tracking pixels,
-        no fingerprinting, and no advertising technology. There are no third-party
-        scripts loaded. There is no cookie banner because there are no cookies to consent to.
+        This site sets no cookies. It uses no tracking pixels and no advertising
+        technology. There is no cookie banner because there are no cookies to consent to.
       </p>
       <p>
         This site does not use localStorage, sessionStorage, or any other browser
@@ -84,10 +101,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <h2>Lawful basis</h2>
       <p>
         The limited data processing described above (serving web pages via hosting
-        infrastructure) is carried out under UK GDPR Article 6(1)(f): legitimate
-        interests. The legitimate interest is operating a publicly accessible website.
-        Given the minimal data involved and the complete absence of tracking, this
-        processing does not override your rights and freedoms.
+        infrastructure, and counting page views) is carried out under UK GDPR
+        Article 6(1)(f): legitimate interests. The legitimate interest is operating a publicly accessible website and
+        knowing, in total, which pages people read.
       </p>
     </section>
 
@@ -120,7 +136,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <p>
         Information Commissioner's Office (ICO)<br>
         Wycliffe House, Water Lane, Wilmslow, Cheshire SK9 5AF<br>
-        <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> - Tel: 0303 123 1113
+        <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a><br>
+        Telephone: 0303 123 1113
       </p>
     </section>
 
