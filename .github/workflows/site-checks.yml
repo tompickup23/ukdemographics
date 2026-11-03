@@ -8,7 +8,7 @@ jobs:
   validate:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         # Full history: the sitemap dates generated pages by the last commit to
         # their templates (src/pages/sitemap.xml.ts). A shallow clone has none.
         with:
