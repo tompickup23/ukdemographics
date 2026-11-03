@@ -1,24 +1,24 @@
 # UK Demographics — Claude Code Context
 
 ## Overview
-Population data for every community. Ethnic projections, school data, housing demand, health and tenure by ethnic group, and now per-constituency political mapping across **1,022 pages**: 318 local authority profiles + 21 county profiles + 10 region pages + 631 UK constituencies + 22 findings + 16 dashboard and static pages + 4 section indexes.
+Population data for every community. Ethnic projections, school data, housing demand, health and tenure by ethnic group, and now per-constituency political mapping across **1,022 pages**: 318 local authority profiles + 21 county profiles + 10 region pages + 631 UK constituencies + 21 findings URLs + 16 dashboard and static pages + 4 section indexes.
 
 **Coverage counts come from `src/lib/coverage.ts`.** `PLACE_COUNT` (318) is derived from `ethnic-projections.json`, `PCON_COUNT` (631) from `pcon-dataset.json`, and `PCON_UNIVERSE` (650) is the size of the Commons. Never type a coverage count into copy: use `formatPlaceCount()` / `formatPconCount()`, or import the constants. `tests/coverage.test.ts` sweeps `src/` and `public/` and fails on any hard-coded `320`/`650` next to a coverage noun, excluding `src/data` and `src/pages/releases.astro` (verbatim history). It also pins both counts, so a dataset change breaks the test and has to be an explicit decision. The 320 that was published in the nav and on `/compare/` predates the Barnsley and Sheffield duplicate-code fix of 29 Aug 2026; it is stale by exactly two. Recompute the page total with `find dist -name index.html | wc -l` after a build.
 
 **Stack:** Astro 5 + design tokens (Tailwind dropped 19-20 May) + TypeScript. Inline SVG charts (no chart library).
 **Hosting:** GitHub Pages only (NOT Cloudflare).
 **Domain:** ukdemographics.co.uk.
-**Data:** ONS Census 2021 (NOMIS — TS012, TS029, RM134, RM043, RM192, RM021), DWP NINo + PIP (Stat-Xplore), ONS births, MHCLG CTB1, DfE School Census, ONS Open Geography Portal LAD24↔CTY24 + PCON24↔LAD25 crosswalks, UKE GE 2024 shares, Parliament Members API.
+**Data:** ONS Census 2021 tables held as committed JSON (TS012, TS029, RM134, RM043, RM192, RM021; the Nomis dataset API is not used since 12 October 2026, see below), DWP NINo + PIP (Stat-Xplore), ONS births, MHCLG CTB1, DfE School Census, ONS Open Geography Portal LAD24↔CTY24 + PCON24↔LAD25 crosswalks, UKE GE 2024 shares, Parliament Members API.
 
 **Cross-repo data dependency (10 Aug 2026):** `scripts/transform/transform_asylum_bridge.py` reads `/Users/tompickup/asylumstats/data/raw/uk_routes/*.xlsx` directly off disk — a hardcoded absolute path, not an API. Local-only (not in CI); output gets committed. Only works on this Mac with `asylumstats` present at that exact path.
 
 ## Key surfaces
 
-- `/places/<slug>/` — 318 LA profiles, 23 sections each. NOMIS Census data wired (TS029 English proficiency, RM134 tenure by ethnic group, RM043 health by ethnic group). District pages fall back to parent county for ASC with a clear caveat banner.
+- `/places/<slug>/`: 318 LA profiles, 23 sections each. Census tables wired from the committed JSON (TS029 English proficiency, RM134 tenure by ethnic group, RM043 health by ethnic group). District pages fall back to parent county for ASC with a clear caveat banner.
 - `/places/counties/<county>/` and `/places/counties/` use published county Census rows, with complete district reconciliations. `npm run build` first verifies the pinned source and reconciliation evidence; do not refresh the reviewed manifest without checking the new source rows.
 - `/constituencies/<slug>/` — 631 of the 650 UK PCONs, with sitting MP card, 2024 GE bar chart, PIP claimants, constituent LAs. Index at `/constituencies/`.
 - `/national/` — Rebuilt with NINo 2002-2025 arc + births-by-COB 2008-2024 share charts (inline SVG).
-- `/findings/` — 16 Tom-voice pieces. Schema enum: `demographics | projections | fertility | schools | housing | health | migration | validation | crime | social-care | send` ("economy" is NOT valid).
+- `/findings/`: 21 URLs in the sitemap (the index plus 20 Tom-voice pieces). Schema enum: `demographics | projections | fertility | schools | housing | health | migration | validation | crime | social-care | send` ("economy" is NOT valid).
 - Dashboards: `/regional/` `/your-area/` `/pressure/` `/schools/` `/housing/` `/compare/`.
 
 ## Map module (`src/lib/map/`, Oct 2026)
@@ -30,7 +30,7 @@ One SVG renderer for the web map (`inline`, 600-unit viewBox), county and region
 - GH Actions on Node 22. `actions/checkout@v4`, `actions/setup-node@v4`.
 - `npm test` (vitest) + `npm run check` (astro check, strict) + `BUILD_OG=1 npm run build` + Playwright (mobile + desktop chromium).
 - `BUILD_OG=1` is set in both deploy.yml + site-checks.yml via `env:` block (PreToolUse security hook rejects inline `KEY=val` form). Iteration `npm run build` (without `BUILD_OG`) skips the ~340-card Satori pass.
-- `Refresh data` cron runs Mondays 08:00 UTC. Currently wires stop-and-search; pattern is ready for more datasets as secrets are added.
+- `Refresh data` cron runs Mondays 08:00 UTC. Wires six datasets with no API key: stop-and-search (data.police.uk), ONS births by parents' country of birth, UKHSA TB, MHCLG Council Taxbase, DHSC adult social care, and DfE SEN. Datasets that need DWP Stat-Xplore, Companies House or Land Registry secrets are still separate once those secrets are set.
 - Site-checks.yml + deploy.yml are kept in lockstep — same step list.
 
 ## Rules
