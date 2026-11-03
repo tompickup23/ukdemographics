@@ -14,11 +14,11 @@ Population data for every community. Ethnic projections, school data, housing de
 
 ## Key surfaces
 
-- `/places/<slug>/` — 318 LA profiles, 23 sections each. Census tables wired from the committed JSON (TS029 English proficiency, RM134 tenure by ethnic group, RM043 health by ethnic group). District pages fall back to parent county for ASC with a clear caveat banner.
+- `/places/<slug>/`: 318 LA profiles, 23 sections each. Census tables wired from the committed JSON (TS029 English proficiency, RM134 tenure by ethnic group, RM043 health by ethnic group). District pages fall back to parent county for ASC with a clear caveat banner.
 - `/places/counties/<county>/` and `/places/counties/` use published county Census rows, with complete district reconciliations. `npm run build` first verifies the pinned source and reconciliation evidence; do not refresh the reviewed manifest without checking the new source rows.
 - `/constituencies/<slug>/` — 631 of the 650 UK PCONs, with sitting MP card, 2024 GE bar chart, PIP claimants, constituent LAs. Index at `/constituencies/`.
 - `/national/` — Rebuilt with NINo 2002-2025 arc + births-by-COB 2008-2024 share charts (inline SVG).
-- `/findings/` — 21 URLs in the sitemap (the index plus 20 Tom-voice pieces). Schema enum: `demographics | projections | fertility | schools | housing | health | migration | validation | crime | social-care | send` ("economy" is NOT valid).
+- `/findings/`: 21 URLs in the sitemap (the index plus 20 Tom-voice pieces). Schema enum: `demographics | projections | fertility | schools | housing | health | migration | validation | crime | social-care | send` ("economy" is NOT valid).
 - Dashboards: `/regional/` `/your-area/` `/pressure/` `/schools/` `/housing/` `/compare/`.
 
 ## Map module (`src/lib/map/`, Oct 2026)
