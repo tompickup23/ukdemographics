@@ -55,8 +55,10 @@ figures were not re-checked here.
 
 - **15 "Page with redirect"**: every one is a section URL without its trailing slash
   (`/your-area`, `/findings`, `/places/barking-and-dagenham` and so on). GitHub Pages redirects
-  these to the slash form, which is the canonical. They are not stale slugs and no internal link
-  uses the slashless form, so there is nothing to fix.
+  these to the slash form, which is the canonical. They are not stale slugs. The claim below that
+  no internal link used the slashless form was wrong: 14 of the header menu links had no trailing
+  slash and 301ed on every click, on every page. PR 130 (open at writing, 2 November 2026) adds
+  the trailing slash to those header links and pins the slashes with a test.
 - **8 "Not found (404)"**: seven Scottish and Northern Irish council pages the site no longer
   builds (Belfast, Glasgow City, Aberdeenshire, City of Edinburgh, Derry City and Strabane,
   Antrim and Newtownabbey, Perth and Kinross; last crawled 23 to 31 May 2026) and
@@ -178,4 +180,22 @@ node scripts/seo/ctr-by-arm.mjs docs/seo/after-2026-11/pages-28d.csv
 
 ## Result
 
-Not yet measured.
+Measured 2 November 2026. Source: Google Search Console, property
+`https://ukdemographics.co.uk/`, Performance report, Pages table, search type Web, dates 4 to
+31 October 2026 (the 28 days from the 4 October deploy of PR 68). The 15 pages listed in
+`listing-test-exclusions-2026-10.csv` are dropped. The same method is recorded in the Reports
+repo at `Traffic/seo/ukd_listing_test/RESULT.md`.
+
+| Arm | Pages | Clicks | Impressions | Clicks per impression | Baseline (3 months to 3 Oct) |
+|---|---:|---:|---:|---:|---:|
+| Control | 106 | 485 | 136,814 | 0.354% | 0.350% |
+| A (breadth, no number) | 97 | 813 | 165,790 | 0.490% | 0.334% |
+| B (breadth plus data year) | 100 | 1,409 | 228,065 | 0.618% | 0.292% |
+
+Arm B wins (0.618% against 0.354% for control). B started lowest on the baseline (0.292%) and
+finished highest. Without each arm's three highest-click pages the order holds (control 0.376%,
+A 0.480%, B 0.621%). Average position by arm was not in the measurement.
+
+**Follow-up.** PR 130 rolls arm B's title, description and opening sentence to every place page,
+and corrects the slashless header links noted in the index report above. Re-measure the place
+pages four weeks after that PR deploys (register task T08).
