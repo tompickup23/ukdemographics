@@ -59,7 +59,6 @@ import languageProjections from "../../data/live/language-projections.json";
 import fiscalResilience from "../../data/live/fiscal-resilience.json";
 import scenarioSummaries from "../../data/live/scenario-summaries.json";
 import { getCollection } from "astro:content";
-import { listingArmForSlug } from "../../lib/listing-arm";
 import {
   buildPlaceDirectAnswer,
   buildPlaceListing,
@@ -447,36 +446,12 @@ const natChartLines = nativityData
   : [];
 
 const canonicalUrl = buildAbsoluteUrl(`/places/${slugifyAreaName(area.areaName)}/`);
-const popText = population != null ? population.toLocaleString() : "n/a";
-const wbi2021Text = wbi2021 != null ? `${wbi2021.toFixed(1)}%` : "n/a";
-const wbi2051Text = wbi2051 != null ? `${wbi2051.toFixed(1)}%` : "n/a";
-// Truncated areas advertise the horizon they can actually show.
-const projClause = wbi2051 != null
-  ? ` to ${wbi2051Text} (2051 projected)`
-  : projHorizon != null
-    ? `, projected to ${projHorizon}`
-    : "";
-const pageDescription = `${area.areaName} demographic profile: population ${popText}, White British ${wbi2021Text} (2021)${projClause}. Ethnic composition, religion, nativity, shift-share analysis.`;
-const populationTitleValue = population >= 1_000_000
-  ? `${(population / 1_000_000).toLocaleString("en-GB", { maximumFractionDigits: 2 })}m`
-  : `${Math.round(population / 1_000).toLocaleString("en-GB")}k`;
-
-// Search intent: people type "<place> demographics" and "<place> population".
-// The date sits beside the population in the title because a Census count must
-// not be read as a current or projected estimate simply because the query says
-// "2026". The description supplies the modelling coverage without making the
-// title so long that its useful distinction is cut from a result snippet.
-const controlTitle = population != null
-  ? `${area.areaName} demographics: ${populationTitleValue} population (2021 Census)`
-  : `${area.areaName}. Population, ethnicity and projections`;
-
-// Listing test, October 2026: control keeps the title, description and opening
-// sentence above; arms A and B replace all three. Assignment is by a hash of the
-// slug, see src/lib/listing-arm.ts and docs/seo/README.md.
-const placeSlug = slugifyAreaName(area.areaName);
-const listingArm = listingArmForSlug(placeSlug);
+// Search listing: every place page uses the format that won the October 2026
+// listing test (arm B: the coverage, with the profile's data year in the title
+// and the population named as the Census count). The test and its result are
+// in docs/seo/README.md; src/lib/listing-arm.ts keeps the retired assignment.
 const firstArrivalIdx = ninoHistorical?.totalByYear.findIndex((v) => v != null) ?? -1;
-const placeListing = buildPlaceListing(listingArm, {
+const placeListing = buildPlaceListing({
   areaName: area.areaName,
   censusYear: censusYear(),
   projectionTo: ethnicProjection && ethChartLines.length > 0 ? listingHorizon(area.areaCode) : null,
@@ -488,11 +463,11 @@ const placeListing = buildPlaceListing(listingArm, {
   // Crime is left out of this flag so that a crime refresh cannot change listing copy.
   // On 12 Oct 2026 every page that showed crime already qualified through ASC, SEND or
   // PIP; the Welsh pages that gained crime from the Police Force Area tables did not,
-  // and their titles and descriptions must stay as the listing test set them.
+  // and their titles and descriptions were left as the listing test set them.
   hasServices: !!(asc || send || pipMatch),
 }, profileUpdatedDate());
-const pageTitle = placeListing?.title ?? controlTitle;
-const metaDescription = placeListing?.description ?? pageDescription;
+const pageTitle = placeListing.title;
+const metaDescription = placeListing.description;
 const directAnswer = buildPlaceDirectAnswer(area.areaCode);
 
 // Findings that name this area, then this region, then the newest pieces on
@@ -623,26 +598,14 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     { label: area.areaName }
   ]} />
 
-  <div class="place-header" data-listing-arm={listingArm}>
+  <div class="place-header">
     <div class="place-identity">
       <h1>{area.areaName}</h1>
       <span class="place-region">{area.regionName} &middot; {area.countryName} &middot; {area.areaCode}</span>
-      {placeListing ? (
-        <p class="place-summary">
-          {placeListing.summary}
-          {" "}Modelled projections are labelled as such. Read the <a href="/methodology/">methodology and limitations</a> or inspect the <a href="/sources/">official sources</a>.
-        </p>
-      ) : (
-        <p class="place-summary">
-          <strong>{fmtInt(population)}</strong> people at the 2021 Census.
-          {showCrossing
-            ? ` The projection takes the White British share below half ${decadePhrase(crossingSpan!)}.`
-            : wbi2021 != null && wbi2021 < 50
-              ? " Already below a White British majority at the 2021 Census."
-              : ""}
-          {" "}This profile combines observed Census data with clearly labelled modelled projections. Read the <a href="/methodology/">methodology and limitations</a> or inspect the <a href="/sources/">official sources</a>.
-        </p>
-      )}
+      <p class="place-summary">
+        {placeListing.summary}
+        {" "}Modelled projections are labelled as such. Read the <a href="/methodology/">methodology and limitations</a> or inspect the <a href="/sources/">official sources</a>.
+      </p>
     </div>
     <div class="place-header-aside">
       <MiniMap
@@ -677,7 +640,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     </section>
   )}
 
-  {placeListing && (showCrossing || (wbi2021 != null && wbi2021 < 50)) && (
+  {(showCrossing || (wbi2021 != null && wbi2021 < 50)) && (
     <p class="place-trajectory">
       {showCrossing
         ? `The projection takes the White British share below half ${decadePhrase(crossingSpan!)}.`

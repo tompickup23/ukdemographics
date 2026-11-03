@@ -133,8 +133,8 @@ function findingColor(verdict: string): string {
 ---
 
 <BaseLayout
-  title="UK Demographics, population projections for every community"
-  description={`${fmtInt(totalAreas)} local authorities. Ethnic projections to 2061. Census 2021 to the future. Every figure sourced from ONS data.`}
+  title="UK demographics: population and projections for every area"
+  description={`Population, ethnicity and projections to 2061 for ${fmtInt(totalAreas)} local authorities, and profiles of ${fmtInt(PCON_COUNT)} constituencies, built from the Census and other official statistics.`}
 >
   <!-- HERO -->
   <section class="hero-section">
@@ -402,7 +402,7 @@ function findingColor(verdict: string): string {
       <div style="margin-top: 1rem;">
         <ShareButton
           url={SITE_URL}
-          title="UK Demographics, population projections for every community"
+          title="UK demographics: population and projections for every area"
           text={`${fmtInt(totalAreas)} local authorities. Ethnic projections to 2061. See the data: ${SITE_URL}`}
           compact
         />
