@@ -17,6 +17,7 @@ const pages = [
   { name: "housing", path: "/housing/", h1Match: /Housing/i },
   { name: "findings", path: "/findings/", h1Match: /what the data has turned up/i },
   { name: "methodology", path: "/methodology/", h1Match: /Methodology/i },
+  { name: "about", path: "/about/", h1Match: /About this site/i },
   { name: "sources", path: "/sources/", h1Match: /Sources/i },
   { name: "constituencies", path: "/constituencies/", h1Match: /find your seat/i },
   { name: "constituency-burnley", path: "/constituencies/burnley/", h1Match: /Burnley/i },

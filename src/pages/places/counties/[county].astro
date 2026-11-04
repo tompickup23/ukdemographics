@@ -4,6 +4,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import RaceBar from '../../../components/RaceBar.astro';
 import StatCard from '../../../components/StatCard.astro';
 import GroupMaps from '../../../components/GroupMaps.astro';
+import NeighbourLinks from '../../../components/NeighbourLinks.astro';
 import { publicCounties, countyRecords, countyPopulation, countyShares, countyChange, countySources, countyPath, countyPopulationSummary, countyPopulationSource } from '../../../lib/counties';
 import { countyFrame } from '../../../lib/map/geo';
 import { ETHNIC_PALETTE } from '../../../lib/ethnic-palette';
@@ -47,6 +48,7 @@ const measures=[{key:'total' as const,label:'All residents'},...ETHNIC_PALETTE];
     <details><summary>Annual county population estimates, 2011 to 2025</summary><table><caption>ONS MYE4. Every value agrees exactly with the sum of constituent districts.</caption><thead><tr><th scope="col">Year</th><th scope="col">Residents</th></tr></thead><tbody>{Object.entries(series).map(([year,value])=><tr><th scope="row">{year}</th><td>{n(value)}</td></tr>)}</tbody></table></details>
   </section>
   <GroupMaps frame={frame} />
+  <NeighbourLinks county={code} level={2} />
   <p><a href="/places/counties/">All county council areas, A to Z</a></p>
 </BaseLayout>
 <style>

@@ -1,0 +1,70 @@
+---
+/**
+ * The councils next to this area, as plain links to their profiles. The lists come
+ * from src/lib/neighbour-links.ts, which reads the same sets the maps draw.
+ *
+ *   <NeighbourLinks place="E07000117" />      a place: the councils that border it
+ *   <NeighbourLinks county="E10000017" />     a county: its districts and unitaries
+ *   <NeighbourLinks region="north-west" />    a region: its counties and single tier councils
+ *
+ * `level` is the heading level: 3 inside the place page's map section (an h2), 2 where
+ * the list stands on its own under the page's h1.
+ */
+import { countyNeighbourLinks, placeNeighbourLinks, regionNeighbourLinks, type LinkGroup } from "../lib/neighbour-links";
+
+interface Props {
+  place?: string;
+  county?: string;
+  region?: string;
+  level?: 2 | 3;
+}
+const { place, county, region, level = 3 } = Astro.props;
+const Heading = level === 2 ? "h2" : "h3";
+const groups: LinkGroup[] = place ? placeNeighbourLinks(place) : county ? countyNeighbourLinks(county) : region ? regionNeighbourLinks(region) : [];
+---
+
+{groups.length > 0 && (
+  <nav class="neighbour-links" aria-label={groups[0].heading}>
+    {groups.map((g) => (
+      <div class="neighbour-links-group">
+        <Heading class="neighbour-links-head">{g.heading}</Heading>
+        <ul>
+          {g.links.map((l) => (
+            <li><a href={l.href} data-code={l.code}>{l.name}</a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </nav>
+)}
+
+<style>
+  .neighbour-links {
+    margin: 1rem 0 0;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm, 8px);
+    background: var(--surface);
+    max-width: 100%;
+  }
+  .neighbour-links-group + .neighbour-links-group { margin-top: 0.75rem; }
+  .neighbour-links-head {
+    margin: 0 0 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .neighbour-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.1rem;
+  }
+  .neighbour-links li { font-size: 0.95rem; line-height: 1.5; min-width: 0; overflow-wrap: anywhere; }
+  .neighbour-links a { color: var(--accent); display: inline-block; padding: 0.3rem 0; }
+  .neighbour-links a:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+</style>

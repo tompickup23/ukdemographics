@@ -63,6 +63,8 @@ import languageProjections from "../../data/live/language-projections.json";
 import fiscalResilience from "../../data/live/fiscal-resilience.json";
 import scenarioSummaries from "../../data/live/scenario-summaries.json";
 import { getCollection } from "astro:content";
+import { relatedFindings as matchRelatedFindings } from "../../lib/related-findings";
+import NeighbourLinks from "../../components/NeighbourLinks.astro";
 import {
   buildPlaceDirectAnswer,
   buildPlaceListing,
@@ -484,27 +486,29 @@ const placeMye = placeEstimate(area.areaCode);
 const signedInt = (n: number) => `${n < 0 ? "\u2212" : "+"}${Math.abs(n).toLocaleString("en-GB")}`;
 const signedPct1 = (n: number) => `${n < 0 ? "\u2212" : "+"}${Math.abs(n).toFixed(1)}%`;
 
-// Findings that name this area, then this region, then the newest pieces on
-// composition and migration, so every place page passes readers on to the
-// pages that convert.
+// Findings that name this place, then its county or region, then a category this page
+// has a section for, then the newest; never a piece about another named place. The
+// rules and the reasons are in src/lib/related-findings.ts.
 const findingsAll = await getCollection("findings");
-const escapeRegExp = (t: string) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-const mentions = (text: string, name: string) =>
-  new RegExp(`(^|[^A-Za-z])${escapeRegExp(name)}([^A-Za-z]|$)`).test(text);
-const relatedFindings = findingsAll
-  .map((f) => {
-    const text = `${f.data.headline} ${f.data.summary} ${f.body ?? ""}`;
-    const score = mentions(f.data.headline, area.areaName) ? 3
-      : mentions(text, area.areaName) ? 2
-      : area.regionName && area.regionName !== "Unknown" && mentions(text, area.regionName) ? 1
-      : 0;
-    const coreCategory = ["demographics", "projections", "migration"].includes(f.data.category);
-    return { f, score, coreCategory };
-  })
-  .filter((r) => r.score > 0 || r.coreCategory)
-  .sort((a, b) => b.score - a.score || (b.f.data.updated ?? b.f.data.date).localeCompare(a.f.data.updated ?? a.f.data.date))
-  .slice(0, 3)
-  .map((r) => ({ href: `/findings/${r.f.id.replace(/\.md$/, "")}/`, headline: r.f.data.headline }));
+const relatedFindings = matchRelatedFindings(
+  findingsAll.map((f) => ({ id: f.id, headline: f.data.headline, summary: f.data.summary, body: f.body ?? "", category: f.data.category, date: f.data.date, updated: f.data.updated })),
+  {
+    code: area.areaCode,
+    name: area.areaName,
+    regionName: area.regionName,
+    countyName: countyForDistrict(area.areaCode)?.countyName ?? null,
+    sections: [
+      ...(ethnicProjection && ethChartLines.length > 0 ? ["ethnic-composition"] : []),
+      ...(nino && nino.totalRollingYear > 0 ? ["nino"] : []),
+      ...(hmo || ctSpd || housing?.dataAvailable ? ["housing"] : []),
+      ...(topHealthByEthnic.length > 0 ? ["health-ethnic"] : []),
+      ...(crime ? ["crime"] : []),
+      ...(asc ? ["asc"] : []),
+      ...(send ? ["send"] : []),
+      ...(school?.dataAvailable ? ["schools"] : []),
+    ],
+  },
+);
 
 // The Open Graph image is the population change card (maps plan P2), never ethnicity.
 const ogCard = placeOgCard(area.areaCode);
@@ -803,7 +807,7 @@ const wbiComparison = wbi2021 != null ? whiteBritishComparison(area.areaCode) : 
     <div class="place-sections">
 
   <!-- place-map: the map block, maps plan Stage 2 -->
-  <PlaceMap code={area.areaCode}><SectionDates section="map" /></PlaceMap>
+  <PlaceMap code={area.areaCode}><NeighbourLinks place={area.areaCode} /><SectionDates section="map" /></PlaceMap>
   <!-- /place-map -->
 
   <!-- Ethnic composition, trajectory chart + timeline -->
