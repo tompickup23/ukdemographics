@@ -1,0 +1,46 @@
+---
+/**
+ * The "last updated, next update likely" line under a place-page section
+ * (roadmap R503). One entry per series the section shows, each with its
+ * source data link. Dates and their provenance: src/lib/section-dates.ts and
+ * src/data/lookups/release-calendar.json.
+ */
+import { lastUpdatedText, newerEditionText, nextUpdateText, sectionSeries } from "../lib/section-dates";
+
+interface Props {
+  section: string;
+  /** Series in the register for this section whose block did not render on this page. */
+  omit?: Array<string | false | null | undefined>;
+}
+
+const { section, omit = [] } = Astro.props;
+const series = sectionSeries(section).filter((s) => !omit.includes(s.id));
+const external = (url: string) => /^https?:/.test(url);
+---
+
+<ul class="section-dates" data-section-dates={section}>
+  {series.map((s) => (
+    <li>
+      <span class="section-dates-series">{s.label}</span>: {lastUpdatedText(s)}; {newerEditionText(s) ? `${newerEditionText(s)}; ` : ""}{nextUpdateText(s)}.{" "}
+      {external(s.sourceUrl)
+        ? <a href={s.sourceUrl} target="_blank" rel="noopener">Source data</a>
+        : <a href={s.sourceUrl}>Source data</a>}
+    </li>
+  ))}
+</ul>
+
+<style>
+  .section-dates {
+    list-style: none;
+    margin: 0.9rem 0 0;
+    padding: 0.55rem 0 0;
+    border-top: 1px dashed var(--border);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--muted);
+    display: grid;
+    gap: 0.2rem;
+  }
+  .section-dates-series { color: var(--ink-soft); font-weight: 600; }
+  .section-dates a { color: var(--accent); text-underline-offset: 2px; }
+</style>

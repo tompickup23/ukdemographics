@@ -5919,6 +5919,15 @@ tr:last-child td {
   background: color-mix(in oklab, var(--ink-soft) 8%, transparent);
 }
 
+/* Plain-words comparison with the region and country (place pages, R504). */
+.stat-card-compare {
+  grid-column: 1 / -1;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
 .stat-card-note.is-projected {
   color: color-mix(in oklab, var(--accent) 70%, var(--ink-soft));
   border-style: dashed;

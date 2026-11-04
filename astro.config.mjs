@@ -1,4 +1,18 @@
+import fs from "node:fs";
 import { defineConfig } from "astro/config";
+
+// Natural place URLs that returned 404 (roadmap R360): /places/bristol/ for the
+// page built at /places/bristol-city-of/, and so on. The list and its source
+// are in src/data/lookups/place-identities.json; the target is the slug the
+// place page is built at, from the same rule as slugifyAreaName in
+// src/lib/site.ts. tests/place-names.test.ts checks every stub lands on a
+// built page and shadows none.
+const placeIdentities = JSON.parse(fs.readFileSync(new URL("./src/data/lookups/place-identities.json", import.meta.url), "utf8"));
+const placeAreas = JSON.parse(fs.readFileSync(new URL("./src/data/live/ethnic-projections.json", import.meta.url), "utf8")).areas;
+const placeSlug = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const placeRedirects = Object.fromEntries(
+  Object.entries(placeIdentities.redirects).map(([from, code]) => [from, `/places/${placeSlug(placeAreas[code].areaName)}/`])
+);
 
 export default defineConfig({
   site: "https://ukdemographics.co.uk",
@@ -28,5 +42,7 @@ export default defineConfig({
     // search engines treat as a permanent move on a static host.
     "/places/shepway/":
       "/places/folkestone-and-hythe/",
+
+    ...placeRedirects,
   },
 });

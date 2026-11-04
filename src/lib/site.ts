@@ -5,6 +5,7 @@ import path from "node:path";
 import { getAllPcons } from "./pcon-data";
 import { canonicalAreaCode } from "./area-codes";
 import { formatPlaceCount } from "./coverage";
+import { alternateNames, placeSameAs, plainPlaceName } from "./place-names";
 
 export const SITE_NAME = "UK Demographics";
 export const SITE_URL = "https://ukdemographics.co.uk";
@@ -192,6 +193,11 @@ export function buildPlaceStructuredData(
 ): StructuredDataNode[] {
   const areaId = `${options.canonicalUrl}#area`;
   const datasetId = `${options.canonicalUrl}#dataset`;
+  // Plain name first ("Bristol"), with the ONS name and others as alternateName
+  // and the Wikidata item for the area code as sameAs (R360, place-names.ts).
+  const name = plainPlaceName(area.areaCode, area.areaName);
+  const alternates = alternateNames(area.areaCode);
+  const sameAs = placeSameAs(area.areaCode);
 
   return [
     {
@@ -202,15 +208,17 @@ export function buildPlaceStructuredData(
         {name: "Places", item: buildAbsoluteUrl("/places/")},
         {name: area.regionName, item: buildAbsoluteUrl(buildPublicPlaceRegionPath(area.regionName))},
         ...(countyForDistrict(area.areaCode) ? [{name: countyForDistrict(area.areaCode)!.countyName, item: buildAbsoluteUrl(countyPath(countyForDistrict(area.areaCode)!.countyName))}] : []),
-        {name: area.areaName, item: options.canonicalUrl}
+        {name, item: options.canonicalUrl}
       ].map((item,index)=>({"@type":"ListItem",position:index+1,...item}))
     },
     {
       "@context": "https://schema.org",
       "@type": "AdministrativeArea",
       "@id": areaId,
-      name: area.areaName,
+      name,
+      ...(alternates.length ? { alternateName: alternates } : {}),
       identifier: area.areaCode,
+      ...(sameAs.length ? { sameAs } : {}),
       address: {
         "@type": "PostalAddress",
         addressRegion: area.regionName,
@@ -234,7 +242,7 @@ export function buildPlaceStructuredData(
       "@context": "https://schema.org",
       "@type": "Dataset",
       "@id": datasetId,
-      name: `${area.areaName} demographic profile`,
+      name: `${name} demographic profile`,
       description: options.description,
       url: options.canonicalUrl,
       isAccessibleForFree: true,
@@ -270,7 +278,7 @@ export function buildPlaceStructuredData(
         "ethnic composition",
         "demographic change",
         "Census 2021",
-        area.areaName
+        name
       ],
       variableMeasured: [
         "Ethnic composition",
