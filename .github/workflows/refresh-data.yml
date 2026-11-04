@@ -10,8 +10,14 @@ name: Refresh data
 #   5. commit to main (never deleting a data file), rebase-retry to survive cron
 #      races, then dispatch deploy.yml, because this push alone deploys nothing
 #
+# Every ingest is secondary: a fetch or transform that fails restores that dataset's
+# committed files, the other ingests carry on, and one open refresh-failed issue names
+# the ingest and quotes the end of its log. The 2 November 2026 run failed that way
+# (DHSC renamed a column) and opened nothing, because only a test failure opened an
+# issue then. docs/REFRESH.md says what each step fetches and from where.
+#
 # Datasets that need DWP Stat-Xplore / Companies House / Land Registry
-# API keys land separately once the secrets are wired up.
+# API keys land separately once the secrets are wired up; docs/REFRESH.md names them.
 #
 # The pattern follows Asylum Stats' refresh-data.yml, which learned each of these
 # steps from a failure on its own live site.
@@ -53,11 +59,38 @@ jobs:
         run: python3 -m pip install --quiet pandas==2.2.3 odfpy==1.4.1 openpyxl==3.1.5
       - run: npm ci
 
+      # data.police.uk stop-and-search, the newest three months, one request per
+      # force-month, no key. Secondary ingest, as births below: a failure (a refused or
+      # failed force-month included, so no total is published with a force missing)
+      # restores the committed file, lets the rest of the refresh carry on, and turns the
+      # run red at the end. Each fetch and transform below tees its output to a log in
+      # RUNNER_TEMP so the ingest-failed issue can quote it; shell: bash adds pipefail,
+      # so the step still fails when the script does.
       - name: Fetch stop-and-search (data.police.uk, no auth)
-        run: node scripts/fetch/fetch-stop-and-search.mjs
+        id: sas_fetch
+        continue-on-error: true
+        shell: bash
+        run: node scripts/fetch/fetch-stop-and-search.mjs 2>&1 | tee "$RUNNER_TEMP/stop-and-search-fetch.log"
 
       - name: Transform stop-and-search
-        run: python3 scripts/transform/transform_stop_and_search.py
+        id: sas
+        if: steps.sas_fetch.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: python3 scripts/transform/transform_stop_and_search.py 2>&1 | tee "$RUNNER_TEMP/stop-and-search-transform.log"
+
+      # The stop-and-search manifest is new on 4 November 2026, so until a run commits it
+      # there is no committed copy to restore and the run's copy is removed instead.
+      # Pure shell, no GitHub event data is interpolated here.
+      - name: Restore the stop-and-search file if its ingest failed
+        if: steps.sas_fetch.outcome == 'failure' || steps.sas.outcome == 'failure'
+        run: |
+          git checkout -- src/data/live/stop-and-search.json
+          if git ls-files --error-unmatch data/raw/manifests/police_stops.json > /dev/null 2>&1; then
+            git checkout -- data/raw/manifests/police_stops.json
+          else
+            rm -f data/raw/manifests/police_stops.json
+          fi
 
       # ONS births by parents' country of birth: one edition a year (May), no key.
       # The fetch resolves the newest edition from the ONS dataset page; the transforms
@@ -68,15 +101,19 @@ jobs:
       - name: Fetch births by parents' country of birth (ONS, no auth)
         id: births_fetch
         continue-on-error: true
-        run: node scripts/fetch/fetch-ons-births-cob.mjs
+        shell: bash
+        run: node scripts/fetch/fetch-ons-births-cob.mjs 2>&1 | tee "$RUNNER_TEMP/births-fetch.log"
 
       - name: Transform births by parents' country of birth
         id: births
         if: steps.births_fetch.outcome == 'success'
         continue-on-error: true
+        shell: bash
         run: |
-          python3 scripts/transform/transform_births_by_mother_cob.py
-          python3 scripts/transform/transform_births_history.py
+          {
+            python3 scripts/transform/transform_births_by_mother_cob.py
+            python3 scripts/transform/transform_births_history.py
+          } 2>&1 | tee "$RUNNER_TEMP/births-transform.log"
 
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the births files if the births ingest failed
@@ -90,13 +127,15 @@ jobs:
       - name: Fetch UKHSA TB (GOV.UK, no auth)
         id: tb_fetch
         continue-on-error: true
-        run: node scripts/fetch/fetch-ukhsa-tb.mjs
+        shell: bash
+        run: node scripts/fetch/fetch-ukhsa-tb.mjs 2>&1 | tee "$RUNNER_TEMP/tb-fetch.log"
 
       - name: Transform UKHSA TB
         id: tb
         if: steps.tb_fetch.outcome == 'success'
         continue-on-error: true
-        run: python3 scripts/transform/transform_tb.py
+        shell: bash
+        run: python3 scripts/transform/transform_tb.py 2>&1 | tee "$RUNNER_TEMP/tb-transform.log"
 
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the TB file if the TB ingest failed
@@ -110,13 +149,15 @@ jobs:
       - name: Fetch MHCLG Council Taxbase (GOV.UK, no auth)
         id: ctb_fetch
         continue-on-error: true
-        run: node scripts/fetch/fetch-council-taxbase.mjs
+        shell: bash
+        run: node scripts/fetch/fetch-council-taxbase.mjs 2>&1 | tee "$RUNNER_TEMP/ctb-fetch.log"
 
       - name: Transform MHCLG Council Taxbase
         id: ctb
         if: steps.ctb_fetch.outcome == 'success'
         continue-on-error: true
-        run: python3 scripts/transform/transform_council_tax_spd.py
+        shell: bash
+        run: python3 scripts/transform/transform_council_tax_spd.py 2>&1 | tee "$RUNNER_TEMP/ctb-transform.log"
 
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the MHCLG Council Taxbase file if its ingest failed
@@ -133,15 +174,19 @@ jobs:
       - name: Fetch DHSC adult social care tables (GOV.UK, no auth)
         id: asc_fetch
         continue-on-error: true
-        run: node scripts/fetch/fetch-dhsc-asc.mjs
+        shell: bash
+        run: node scripts/fetch/fetch-dhsc-asc.mjs 2>&1 | tee "$RUNNER_TEMP/asc-fetch.log"
 
       - name: Transform DHSC adult social care tables
         id: asc
         if: steps.asc_fetch.outcome == 'success'
         continue-on-error: true
+        shell: bash
         run: |
-          python3 -m unittest discover -s tests -p test_asc_schema.py
-          python3 scripts/transform/transform_asc.py
+          {
+            python3 -m unittest discover -s tests -p test_asc_schema.py
+            python3 scripts/transform/transform_asc.py
+          } 2>&1 | tee "$RUNNER_TEMP/asc-transform.log"
 
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the ASC file if the ASC ingest failed
@@ -155,13 +200,15 @@ jobs:
       - name: Fetch DfE SEN (statistics API, no auth)
         id: send_fetch
         continue-on-error: true
-        run: node scripts/fetch/fetch-dfe-sen.mjs
+        shell: bash
+        run: node scripts/fetch/fetch-dfe-sen.mjs 2>&1 | tee "$RUNNER_TEMP/send-fetch.log"
 
       - name: Transform DfE SEN
         id: send
         if: steps.send_fetch.outcome == 'success'
         continue-on-error: true
-        run: python3 scripts/transform/transform_send.py
+        shell: bash
+        run: python3 scripts/transform/transform_send.py 2>&1 | tee "$RUNNER_TEMP/send-transform.log"
 
       # Pure shell, no GitHub event data is interpolated here.
       - name: Restore the DfE SEN file if its ingest failed
@@ -303,14 +350,104 @@ jobs:
             gh issue close "$NUM" --comment "The MP list matches Parliament again."
           fi
 
-      # Last, so the MP check above still runs on a week when the data tests fail.
-      # The test step is continue-on-error so that the data can be parked; this
-      # makes sure the run still ends red when it was.
+      # A failed ingest is the other way a run goes red, and until 4 November 2026 it
+      # opened no issue: the 2 November run failed on the DHSC transform and told nobody.
+      # This keeps one open issue for ingest failures, separate from the per-run issue
+      # the test failure opens above. It lists each failed ingest with the end of its
+      # fetch and transform logs, is rewritten on each failing run, and is closed with a
+      # comment by the first run in which every fetch and transform succeeds. A run that
+      # stopped before the ingests (npm ci, say) has no outcomes and leaves it alone.
+      # Reads step outcomes and the run URL only; no GitHub event data is interpolated.
+      - name: Open, update or close the ingest-failed issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          SAS_FETCH_OUTCOME: ${{ steps.sas_fetch.outcome }}
+          SAS_OUTCOME: ${{ steps.sas.outcome }}
+          BIRTHS_FETCH_OUTCOME: ${{ steps.births_fetch.outcome }}
+          BIRTHS_OUTCOME: ${{ steps.births.outcome }}
+          TB_FETCH_OUTCOME: ${{ steps.tb_fetch.outcome }}
+          TB_OUTCOME: ${{ steps.tb.outcome }}
+          CTB_FETCH_OUTCOME: ${{ steps.ctb_fetch.outcome }}
+          CTB_OUTCOME: ${{ steps.ctb.outcome }}
+          ASC_FETCH_OUTCOME: ${{ steps.asc_fetch.outcome }}
+          ASC_OUTCOME: ${{ steps.asc.outcome }}
+          SEND_FETCH_OUTCOME: ${{ steps.send_fetch.outcome }}
+          SEND_OUTCOME: ${{ steps.send.outcome }}
+        run: |
+          report="$RUNNER_TEMP/ingest-failures.md"
+          : > "$report"
+          passed=0
+          check() {
+            name="$1"; label="$2"; fetch="$3"; transform="$4"
+            if [ "$fetch" = "success" ] && [ "$transform" = "success" ]; then
+              passed=$((passed + 1))
+              return
+            fi
+            if [ "$fetch" != "failure" ] && [ "$transform" != "failure" ]; then
+              return
+            fi
+            {
+              echo "### $label"
+              echo
+              echo "Fetch: ${fetch:-not run}. Transform: ${transform:-not run}. The committed files for this dataset were kept."
+              echo
+              for part in fetch transform; do
+                log="$RUNNER_TEMP/$name-$part.log"
+                if [ -s "$log" ]; then
+                  echo "End of the $part log:"
+                  echo
+                  echo "~~~"
+                  tail -n 15 "$log"
+                  echo "~~~"
+                  echo
+                fi
+              done
+            } >> "$report"
+          }
+          check stop-and-search "Stop and search (data.police.uk)" "$SAS_FETCH_OUTCOME" "$SAS_OUTCOME"
+          check births "Births by parents' country of birth (ONS)" "$BIRTHS_FETCH_OUTCOME" "$BIRTHS_OUTCOME"
+          check tb "TB notifications (UKHSA)" "$TB_FETCH_OUTCOME" "$TB_OUTCOME"
+          check ctb "Council Taxbase (MHCLG)" "$CTB_FETCH_OUTCOME" "$CTB_OUTCOME"
+          check asc "Adult social care finance and activity (DHSC)" "$ASC_FETCH_OUTCOME" "$ASC_OUTCOME"
+          check send "Special educational needs (DfE)" "$SEND_FETCH_OUTCOME" "$SEND_OUTCOME"
+
+          export TITLE="Data refresh: an ingest failed"
+          NUM="$(gh issue list --state open --label refresh-failed --json number,title \
+            -q '.[] | select(.title == $ENV.TITLE) | .number' | head -n 1)"
+          if [ -s "$report" ]; then
+            body="$RUNNER_TEMP/ingest-issue.md"
+            {
+              echo "One or more ingests failed in the weekly data refresh. Each failed ingest's committed files were kept, so the live site shows the last data that passed, and the other ingests carried on."
+              echo
+              echo "Run: $RUN_URL"
+              echo
+              echo "Each fetch names the publisher and the URL it could not use. A moved file, a renamed sheet or column, or a new edition's layout is the script's to fix; a withdrawn file or a refusal is the publisher's. docs/REFRESH.md lists what each step fetches and from where."
+              echo
+              cat "$report"
+            } > "$body"
+            gh label create refresh-failed --color B60205 --description "Refreshed data failed the tests" --force
+            if [ -n "$NUM" ]; then
+              gh issue edit "$NUM" --body-file "$body"
+              gh issue comment "$NUM" --body "Failed again: $RUN_URL"
+            else
+              gh issue create --label refresh-failed --title "$TITLE" --body-file "$body"
+            fi
+          elif [ -n "$NUM" ] && [ "$passed" -eq 6 ]; then
+            gh issue close "$NUM" --comment "Every ingest passed in $RUN_URL."
+          fi
+
+      # Last, so the MP check and the issue step above still run on a week when an
+      # ingest or the data tests fail. Those steps are continue-on-error so that the
+      # data can be restored or parked; this makes sure the run still ends red.
       # Reads a step outcome only; no GitHub event data is interpolated here.
-      - name: Fail if the refreshed data failed the tests
+      - name: Fail if an ingest or the data tests failed
         if: always()
         env:
           DATATESTS_OUTCOME: ${{ steps.datatests.outcome }}
+          SAS_FETCH_OUTCOME: ${{ steps.sas_fetch.outcome }}
+          SAS_OUTCOME: ${{ steps.sas.outcome }}
           BIRTHS_FETCH_OUTCOME: ${{ steps.births_fetch.outcome }}
           BIRTHS_OUTCOME: ${{ steps.births.outcome }}
           TB_FETCH_OUTCOME: ${{ steps.tb_fetch.outcome }}
@@ -325,6 +462,10 @@ jobs:
           failed=0
           if [ "$DATATESTS_OUTCOME" = "failure" ]; then
             echo "The refreshed data failed npm test and was NOT committed. See the refresh-failed issue."
+            failed=1
+          fi
+          if [ "$SAS_FETCH_OUTCOME" = "failure" ] || [ "$SAS_OUTCOME" = "failure" ]; then
+            echo "Stop and search was skipped (fetch: $SAS_FETCH_OUTCOME, transform: $SAS_OUTCOME). The committed stop-and-search.json was kept."
             failed=1
           fi
           if [ "$BIRTHS_FETCH_OUTCOME" = "failure" ] || [ "$BIRTHS_OUTCOME" = "failure" ]; then

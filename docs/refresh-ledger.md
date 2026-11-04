@@ -15,3 +15,7 @@ Runs: [12 Oct](https://github.com/tompickup23/ukdemographics/actions/runs/382855
 [19 Oct](https://github.com/tompickup23/ukdemographics/actions/runs/39277809059),
 [26 Oct](https://github.com/tompickup23/ukdemographics/actions/runs/40345189613),
 [2 Nov](https://github.com/tompickup23/ukdemographics/actions/runs/41496977826).
+
+## Changes after the 2 November run
+
+The 2 November failure opened no issue, because only a test failure opened one. From 4 November 2026 the workflow keeps one open `refresh-failed` issue, "Data refresh: an ingest failed", for any fetch or transform failure. It quotes the end of each failed step's log and closes when all six ingests pass. Stop and search became a secondary ingest like the other five. Its fetch now reads robots.txt, sends the neutral user agent, makes one request per file with no retry and records a manifest. A local replay on 4 November 2026 had data.police.uk answer HTTP 429 to 5 of 92 back-to-back requests, so requests are now spaced two seconds apart. `docs/REFRESH.md` describes every step.

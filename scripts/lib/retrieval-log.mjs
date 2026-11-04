@@ -29,23 +29,32 @@ function robotsPattern(rule) {
 }
 
 /**
- * Whether robots.txt on `origin` lets this user agent fetch `pathname`.
+ * Read robots.txt on `origin` once.
  *
- * Reads the group for our own agent if there is one, otherwise the "*" group, and applies
- * the longest matching rule (Allow wins a tie), as RFC 9309 describes. Returns "allowed",
- * "disallowed", "absent" (HTTP 404, which permits crawling), or a string naming why the
- * file could not be read. Callers stop on anything other than "allowed" or "absent".
+ * Returns { status, text }: status is "read" with the file's text, "absent" for HTTP 404
+ * (which permits crawling), or a string naming why the file could not be read. A fetch
+ * that makes many requests to one host reads this once and passes the text to
+ * robotsVerdict for each path, so robots.txt is not requested again for every file.
  */
-export async function robotsStatus(origin, pathname) {
-  let text;
+export async function readRobots(origin) {
   try {
     const res = await fetch(`${origin}/robots.txt`, { headers: { "user-agent": USER_AGENT } });
-    if (res.status === 404) return "absent";
-    if (!res.ok) return `unreadable_http_${res.status}`;
-    text = await res.text();
+    if (res.status === 404) return { status: "absent", text: null };
+    if (!res.ok) return { status: `unreadable_http_${res.status}`, text: null };
+    return { status: "read", text: await res.text() };
   } catch (err) {
-    return `error_${err.cause?.code ?? err.name}`;
+    return { status: `error_${err.cause?.code ?? err.name}`, text: null };
   }
+}
+
+/**
+ * Whether the robots.txt text `text` lets this user agent fetch `pathname`.
+ *
+ * Reads the group for our own agent if there is one, otherwise the "*" group, and applies
+ * the longest matching rule (Allow wins a tie), as RFC 9309 describes. Returns "allowed"
+ * or "disallowed". Pure, so it can be checked against fixture files.
+ */
+export function robotsVerdict(text, pathname) {
   const groups = [];
   let current = null;
   let lastWasAgent = false;
@@ -79,6 +88,18 @@ export async function robotsStatus(origin, pathname) {
     }
   }
   return best && !best.allow ? "disallowed" : "allowed";
+}
+
+/**
+ * Whether robots.txt on `origin` lets this user agent fetch `pathname`.
+ *
+ * Returns "allowed", "disallowed", "absent" (HTTP 404, which permits crawling), or a
+ * string naming why the file could not be read. Callers stop on anything other than
+ * "allowed" or "absent".
+ */
+export async function robotsStatus(origin, pathname) {
+  const robots = await readRobots(origin);
+  return robots.status === "read" ? robotsVerdict(robots.text, pathname) : robots.status;
 }
 
 /** Fetch text or JSON from a publisher page after a robots check; throws on refusal or HTTP error. */
