@@ -1,11 +1,21 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
-import {buildAbsoluteUrl} from '../../../lib/site';
+import {buildAbsoluteUrl, buildHubStructuredData} from '../../../lib/site';
 import {COUNTY_COUNT} from '../../../lib/coverage';
 import {publicCounties,countyPath} from '../../../lib/counties';
+
+const description = `Population and census maps for the ${COUNTY_COUNT} English county council areas, listed A to Z.`;
+// ItemList of every county page, in the order listed below.
+const structuredData = buildHubStructuredData({
+  canonicalUrl: buildAbsoluteUrl('/places/counties/'),
+  name: 'County council areas',
+  description,
+  trail: [{name: 'Places', path: '/places/'}, {name: 'County council areas', path: '/places/counties/'}],
+  items: publicCounties.map((c) => ({name: c.name, path: countyPath(c.name)})),
+});
 ---
-<BaseLayout title="County council areas" description={`Population and census maps for the ${COUNTY_COUNT} English county council areas, listed A to Z.`} structuredData={[{'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{name:'Home',item:buildAbsoluteUrl('/')},{name:'Places',item:buildAbsoluteUrl('/places/')},{name:'County council areas',item:buildAbsoluteUrl('/places/counties/')}].map((item,index)=>({'@type':'ListItem',position:index+1,...item}))}]}>
+<BaseLayout title="County council areas" description={description} structuredData={structuredData}>
   <Breadcrumbs items={[{label:'Places',href:'/places/'},{label:'County council areas'}]} />
   <h1>County council areas</h1>
   <p>Population estimates and census ethnic groups for {COUNTY_COUNT} English county council areas. Unitary councils shown on a county map keep their own figures and remain outside its total.</p>

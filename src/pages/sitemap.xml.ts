@@ -68,9 +68,19 @@ export const GET: APIRoute = async () => {
     "src/pages/constituencies/[slug].astro",
     "src/lib/search-listing.ts",
   ]));
+  // Hubs take the date of the newest page they list: the region pages list
+  // place profiles and county pages, the counties index lists county pages,
+  // /places/ lists place profiles and /constituencies/ lists constituencies.
+  // /findings/ is set from the findings below.
+  const hubDate: Record<string, string | null> = {
+    "/places/": placeDate,
+    "/places/counties/": countyDate,
+    "/constituencies/": pconDate,
+  };
   for (const path of paths) {
-    const date = path.startsWith("/places/counties/") ? countyDate
-      : path.startsWith("/places/regions/") ? regionDate
+    const date = path in hubDate ? hubDate[path]
+      : path.startsWith("/places/counties/") ? countyDate
+      : path.startsWith("/places/regions/") ? latest(regionDate, placeDate, countyDate)
       : /^\/places\/[^/]+\/$/.test(path) ? placeDate
       : /^\/constituencies\/[^/]+\/$/.test(path) ? pconDate
       : null;

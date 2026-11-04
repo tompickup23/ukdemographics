@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
+import { buildAbsoluteUrl, buildHubStructuredData, getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
+import { plainPlaceName } from "../../lib/place-names";
 import rawProjections from "../../data/live/ethnic-projections.json";
 import { censusWhiteBritish2021, crossingDecade } from "../../lib/crossing";
 import { plausibleThrough } from "../../lib/projection-plausibility";
@@ -49,11 +50,24 @@ rows.sort((a, b) => a.name.localeCompare(b.name));
 const regions = Array.from(new Set(rows.map((r) => r.region))).filter((r) => r !== "Unknown").sort();
 const maxAbsChange = Math.max(...rows.map((r) => Math.abs(r.change ?? 0)), 1);
 const alreadyBelow = rows.filter((r) => r.cross.kind === "already").length;
+
+const hubTitle = "Compare every area in England and Wales";
+const hubDescription = `Browse ${areas.length} local authorities A to Z, with population, Census 2021 composition and projections. Filter by region or area name.`;
+// ItemList of every place profile, in the A to Z order of the table below.
+const codeBySlug = new Map(areas.map((a) => [slugifyAreaName(a.areaName), a.areaCode]));
+const structuredData = buildHubStructuredData({
+  canonicalUrl: buildAbsoluteUrl("/places/"),
+  name: hubTitle,
+  description: hubDescription,
+  trail: [{ name: "Places", path: "/places/" }],
+  items: rows.map((r) => ({ name: plainPlaceName(codeBySlug.get(r.slug)!, r.name), path: `/places/${r.slug}/` })),
+});
 ---
 
 <BaseLayout
-  title="Compare every area in England and Wales"
-  description={`Browse ${areas.length} local authorities A to Z, with population, Census 2021 composition and projections. Filter by region or area name.`}
+  title={hubTitle}
+  description={hubDescription}
+  structuredData={structuredData}
 >
   <span class="page-eyebrow">England and Wales, {areas.length} councils</span>
   <h1>Compare every area in England and Wales</h1>
