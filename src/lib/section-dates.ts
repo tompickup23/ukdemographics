@@ -13,6 +13,8 @@
 import calendar from "../data/lookups/release-calendar.json";
 
 export const NOT_STATED = "next release not stated by the publisher";
+/** The rendered line for a series with no next release record carrying a schedule URL and read date. */
+export const NOT_ANNOUNCED = "Next update: not announced";
 
 export interface NextRelease {
   /** The publisher's wording of the date: "30 November 2026", "summer 2027". */
@@ -89,9 +91,16 @@ export function newerEditionText(s: SeriesDates): string | null {
   return `${s.publisher} has since published ${s.newerEdition.label} (${formatDay(s.newerEdition.published)}), not yet used here`;
 }
 
-/** "next update likely 30 November 2026", "next update likely November 2026 (provisional)", or the not-stated wording. */
+/**
+ * "Next update likely 30 November 2026, as stated by ONS (read 4 November 2026)",
+ * "Next update likely November 2026 (provisional), ...", or "Next update: not announced".
+ * A date is given only where the series' row in release-calendar.json carries the
+ * publisher's schedule URL and the date it was read (R503); every other series renders
+ * NOT_ANNOUNCED.
+ */
 export function nextUpdateText(s: SeriesDates): string {
-  if (!s.next) return NOT_STATED;
+  if (!s.next || !/^https:\/\//.test(s.next.url ?? "") || !/^\d{4}-\d{2}-\d{2}$/.test(s.next.accessed ?? "")) return NOT_ANNOUNCED;
   const provisional = s.next.status === "provisional" ? " (provisional)" : "";
-  return `next update likely ${s.next.stated}${provisional}, as ${s.publisher === "this site" ? "this site states" : `stated by ${s.publisher}`}`;
+  const by = s.publisher === "this site" ? "this site states" : `stated by ${s.publisher}`;
+  return `Next update likely ${s.next.stated}${provisional}, as ${by} (read ${formatDay(s.next.accessed)})`;
 }

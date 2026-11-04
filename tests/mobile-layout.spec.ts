@@ -47,3 +47,30 @@ test.describe("mobile smoke", () => {
     });
   }
 });
+
+test.describe("how to cite this page", () => {
+  test("the citation names the page title, copies without a framework and links the CSV", async ({ page, request }) => {
+    await stabilizePage(page);
+    await page.goto("/places/burnley/", { waitUntil: "networkidle" });
+    await disableMotion(page);
+
+    const box = page.locator("[data-cite-page]");
+    await box.scrollIntoViewIfNeeded();
+    await expect(box).toBeVisible();
+    const title = (await page.title()).replace(/ \| UK Demographics$/, "");
+    await expect(box.locator("[data-cite-text]")).toContainText(`UK Demographics (`);
+    await expect(box.locator("[data-cite-text]")).toContainText(title);
+
+    await box.locator("[data-cite-copy]").click();
+    await expect(box.locator("[data-cite-status]")).not.toBeEmpty();
+
+    const href = await box.locator("a[download]").getAttribute("href");
+    expect(href).toBe("/data/places/burnley.csv");
+    const csv = await request.get(href!);
+    expect(csv.status()).toBe(200);
+    expect((await csv.text()).startsWith("area_code,")).toBe(true);
+
+    const overflowWidth = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    expect(overflowWidth).toBeLessThanOrEqual(2);
+  });
+});

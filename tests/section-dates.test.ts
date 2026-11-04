@@ -12,7 +12,7 @@ import spc from "../data/raw/manifests/dfe_pupil_characteristics.json";
 import pfa from "../data/raw/manifests/ons_pfa_crime.json";
 import payroll from "../data/raw/manifests/hmrc_rti_payroll.json";
 import {
-  NOT_STATED,
+  NOT_ANNOUNCED,
   allSeries,
   formatDay,
   lastUpdatedText,
@@ -23,7 +23,7 @@ import {
   seriesDates,
 } from "../src/lib/section-dates";
 
-const BANNED = [/—/, /–/, / - /, /&mdash;|&ndash;/, /\bn\/a\b/];
+const BANNED = [/\u2014/, /\u2013/, / - /, /&mdash;|&ndash;/, /\bn\/a\b/];
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 const template = fs.readFileSync("src/pages/places/[slug].astro", "utf8");
 
@@ -95,7 +95,7 @@ describe("each series states its edition, next release and source", () => {
       }
       expect(nextUpdateText(s)).toContain(s.next.stated);
     } else {
-      expect(nextUpdateText(s)).toBe(NOT_STATED);
+      expect(nextUpdateText(s)).toBe(NOT_ANNOUNCED);
       expect(s.nextChecked?.url).toMatch(/^https:\/\//);
       expect(s.nextChecked?.accessed).toMatch(ISO);
     }
