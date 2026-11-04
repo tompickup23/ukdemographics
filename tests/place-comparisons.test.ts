@@ -50,8 +50,12 @@ describe("plain-words relation", () => {
     [2.4, "about 2 points above"],
     [-1.2, "about 1 point below"],
     [0.4, "about the same as"],
-    [-0.49, "about the same as"],
+    [-0.44, "about the same as"],
     [0.5, "about 1 point above"],
+    [-2.5, "about 3 points below"],
+    // Floating point makes this 3.4999...; Burnley's printed figures, 8.7 and 5.2.
+    [8.7 - 5.2, "about 4 points above"],
+    [7.6 - 7.1, "about 1 point above"],
     [-7.6, "about 8 points below"],
   ])("%s", (diff, text) => expect(relation(diff)).toBe(text));
 });

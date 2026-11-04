@@ -83,9 +83,16 @@ export const growthPct = (t: Pick<Totals, "population2011" | "population2021">) 
 export const whiteBritishPct = (t: Pick<Totals, "population2021" | "whiteBritish2021">) =>
   (t.whiteBritish2021 / t.population2021) * 100;
 
-/** "about 2 points above", "about 1 point below", "about the same as". Differences under half a point read as the same. */
+/**
+ * "about 2 points above", "about 1 point below", "about the same as".
+ * Differences under half a point read as the same; a half point rounds up.
+ * The gap is counted in whole tenths first, because the figures it compares
+ * are printed to one decimal and floating point puts 8.7 minus 5.2 just under
+ * 3.5.
+ */
 export function relation(diffPoints: number): string {
-  const n = Math.round(Math.abs(diffPoints));
+  const tenths = Math.abs(Math.round(diffPoints * 10));
+  const n = Math.floor((tenths + 5) / 10);
   if (n === 0) return "about the same as";
   return `about ${n} point${n === 1 ? "" : "s"} ${diffPoints > 0 ? "above" : "below"}`;
 }

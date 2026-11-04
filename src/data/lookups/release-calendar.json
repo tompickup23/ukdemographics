@@ -224,9 +224,9 @@
     "dfe-spc-2024-25": {
       "label": "DfE schools, pupils and their characteristics, 2024/25",
       "publisher": "DfE",
-      "lastUpdated": "2025-06-05",
-      "lastUpdatedNote": "first published; DfE updated the release on 25 September 2025",
-      "editionFrom": "Explore Education Statistics release page, 'Published 5 June 2025 Last updated 25 September 2025', read 2026-11-04; src/data/live/school-pressure.json names the 2024/25 School Census",
+      "lastUpdated": "2025-09-25",
+      "lastUpdatedNote": "first published 5 June 2025",
+      "editionFrom": "Explore Education Statistics release page, 'Published 5 June 2025 Last updated 25 September 2025', read 2026-11-04; the held file data/raw/dfe_schools/spc_pupils_ethnicity_and_language.csv (not in git, runs to 2024/25) was downloaded on 28 April 2026, after that update; src/data/live/school-pressure.json names the 2024/25 School Census",
       "sourceUrl": "https://explore-education-statistics.service.gov.uk/find-statistics/school-pupils-and-their-characteristics/2024-25",
       "newerEdition": {
         "label": "the 2025/26 edition",
