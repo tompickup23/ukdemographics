@@ -113,7 +113,7 @@ const structuredData = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content={description} />
     <meta name="robots" content={robotsContent} />
-    <meta name="theme-color" content="#050812" />
+    <meta name="theme-color" content="#0f1317" />
     <meta name="color-scheme" content="dark light" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -136,7 +136,10 @@ const structuredData = [
     <meta name="twitter:image" content={socialImageUrl} />
     <meta name="twitter:image:alt" content={socialImageAlt} />
     <title>{pageTitle}</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.postcodes.io https://cloudflareinsights.com; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" />
     <meta name="google-site-verification" content="0NnwYAx2MjnJ1it-L-2U2FvYnQj-gB3dYWMGntGL-0E" />
     {structuredData.map((item) => (

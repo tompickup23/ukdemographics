@@ -7,6 +7,8 @@
 **Subtitle:** Ethnic projections, school demand, housing pressure, and demographic change
 **Concept:** Rising population bars with a projection trend line. The bars represent growing demographic scale across local authorities. The trend line shows the forward trajectory: projections from Census 2021 to 2051. Green endpoint = where the data points.
 
+**Mark, from 4 November 2026:** the favicon set, touch icon and header mark are the population pyramid from the estate brand system (`briefings/uk-network-brand/brand-system/` in the clawd repo). The bars below are retired from the browser tab and the header.
+
 ## Logo Variants
 
 | File | Use Case |
@@ -15,8 +17,9 @@
 | `logo-stacked.svg` | Square: social media avatars, app icon |
 | `icon.svg` | Bars icon only (dark bg): favicons, UI elements |
 | `icon-light.svg` | Bars icon only (light bg): print, email |
-| `favicon.svg` | Browser tab (32x32, dark bg with bars) |
-| `apple-touch-icon.svg` | iOS home screen (180x180) |
+| `favicon.svg`, `favicon.ico` | Browser tab: the population pyramid on the dark ground, from the estate brand system (4 November 2026) |
+| `apple-touch-icon.png` | iOS home screen (180x180) |
+| `icon-192.png`, `icon-512-maskable.png` | Web manifest icons |
 
 ## Color System
 
@@ -123,8 +126,8 @@ The rising bars chart is the core brand mark:
 | Instagram Post | 1080x1080 | Stacked logo + stat + headline | |
 | Instagram Reel | 1080x1920 | Vertical, bars top, data below | |
 | Avatar | 400x400 | `logo-stacked.svg` on dark bg | |
-| Favicon | 32x32 | `favicon.svg` | |
-| Apple Touch | 180x180 | `apple-touch-icon.svg` | |
+| Favicon | 16, 32, 48 and any | `favicon.svg`, `favicon.ico` | Pyramid |
+| Apple Touch | 180x180 | `apple-touch-icon.png` | Pyramid |
 
 ## Relationship to Asylum Stats
 
