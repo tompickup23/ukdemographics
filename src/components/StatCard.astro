@@ -22,6 +22,9 @@
  *   note: optional provenance chip ("Census", "Projected"). Use this rather
  *         than a hotter accent colour to mark a modelled figure: colour should
  *         identify the entity, not rate it.
+ *   compare: optional plain-words comparison with the region and country
+ *         ("About 2 points above the North West (81.2%)"), from
+ *         src/lib/place-comparisons.ts.
  */
 interface Props {
   value: string;
@@ -32,6 +35,7 @@ interface Props {
   sparkline?: number[] | null;
   sparklineColor?: string | null;
   note?: string | null;
+  compare?: string | null;
 }
 
 const {
@@ -43,6 +47,7 @@ const {
   sparkline = null,
   sparklineColor = "var(--accent-3)",
   note = null,
+  compare = null,
 } = Astro.props;
 
 function sparklinePath(values: number[]): string {
@@ -83,4 +88,5 @@ const sparkD = sparkline ? sparklinePath(sparkline) : null;
   )}
   <span class="stat-card-label">{label}</span>
   {note && <span class={`stat-card-note${note.toLowerCase() === "projected" ? " is-projected" : ""}`}>{note}</span>}
+  {compare && <span class="stat-card-compare">{compare}</span>}
 </article>

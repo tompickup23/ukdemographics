@@ -1,0 +1,566 @@
+{
+  "description": "Register behind the 'last updated' and 'next update likely' line under each place-page section (roadmap R503). lastUpdated is the edition date of the series as this site holds it, read from the manifest or data file named in editionFrom, or from the publisher's page where no manifest records it. next is the publisher's own statement of its next release, quoted, with the page and the access date; null means the publisher states none, and the page then says 'next release not stated by the publisher'. No date here is estimated. Served as /data/release-calendar.csv.",
+  "series": {
+    "census-2011-ks201ew": {
+      "label": "Census 2011, KS201EW Ethnic group",
+      "publisher": "ONS",
+      "lastUpdated": "2012-12-11",
+      "lastUpdatedNote": "local authority key statistics",
+      "editionFrom": "ONS dataset page, 2011 Census: Key Statistics for Local Authorities in England and Wales, 'Release date: 11 December 2012', read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/2011censuskeystatisticsforlocalauthoritiesinenglandandwales",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/2011censuskeystatisticsforlocalauthoritiesinenglandandwales",
+        "accessed": "2026-11-04",
+        "note": "ONS dataset page: 'Next release: To be announced'. The 2011 tables are followed by Census 2021, shown alongside."
+      }
+    },
+    "census-2011-ks204ew": {
+      "label": "Census 2011, KS204EW Country of birth",
+      "publisher": "ONS",
+      "lastUpdated": "2012-12-11",
+      "lastUpdatedNote": "local authority key statistics",
+      "editionFrom": "ONS dataset page, 2011 Census: Key Statistics for Local Authorities in England and Wales, 'Release date: 11 December 2012', read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/2011censuskeystatisticsforlocalauthoritiesinenglandandwales",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/2011censuskeystatisticsforlocalauthoritiesinenglandandwales",
+        "accessed": "2026-11-04",
+        "note": "ONS dataset page: 'Next release: To be announced'. The 2011 tables are followed by Census 2021, shown alongside."
+      }
+    },
+    "census-2021-rm018": {
+      "label": "Census 2021, RM018 Economic activity status by ethnic group",
+      "publisher": "ONS",
+      "lastUpdated": "2024-01-15",
+      "lastUpdatedNote": "ONS dataset version 3; version 1 released 28 March 2023",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/RM018/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/RM018/editions/2021/versions/3",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021rm018",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "census-2021-rm021": {
+      "label": "Census 2021, RM021 Economic activity status by passports held",
+      "publisher": "ONS",
+      "lastUpdated": "2024-01-15",
+      "lastUpdatedNote": "ONS dataset version 3; version 1 released 28 March 2023",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/RM021/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/RM021/editions/2021/versions/3",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021rm021",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "census-2021-rm043": {
+      "label": "Census 2021, RM043 General health by ethnic group by age",
+      "publisher": "ONS",
+      "lastUpdated": "2023-03-28",
+      "lastUpdatedNote": "ONS dataset version 1",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/RM043/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/RM043/editions/2021/versions/1",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021rm043",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "census-2021-rm049": {
+      "label": "Census 2021, RM049 Highest level of qualification by ethnic group",
+      "publisher": "ONS",
+      "lastUpdated": "2023-03-28",
+      "lastUpdatedNote": "ONS dataset version 1",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/RM049/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/RM049/editions/2021/versions/1",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021rm049",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "census-2021-rm134": {
+      "label": "Census 2021, RM134 Tenure by ethnic group, household reference persons",
+      "publisher": "ONS",
+      "lastUpdated": "2023-03-28",
+      "lastUpdatedNote": "ONS dataset version 1",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/RM134/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/RM134/editions/2021/versions/1",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021rm134",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "census-2021-rm192": {
+      "label": "Census 2021, RM192 Houses in multiple occupation",
+      "publisher": "ONS",
+      "lastUpdated": "2023-04-28",
+      "lastUpdatedNote": "ONS dataset version 2; version 1 released 30 March 2023",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/RM192/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/RM192/editions/2021/versions/2",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021rm192",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "census-2021-ts004": {
+      "label": "Census 2021, TS004 Country of birth",
+      "publisher": "ONS",
+      "lastUpdated": "2023-02-16",
+      "lastUpdatedNote": "ONS dataset version 3; version 1 released 13 December 2022",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/TS004/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/TS004/editions/2021/versions/3",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021ts004",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "census-2021-ts012": {
+      "label": "Census 2021, TS012 Country of birth (detailed)",
+      "publisher": "ONS",
+      "lastUpdated": "2023-03-28",
+      "lastUpdatedNote": "ONS dataset version 2; version 1 released 13 December 2022",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/TS012/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/TS012/editions/2021/versions/2",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021ts012",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "census-2021-ts021": {
+      "label": "Census 2021, TS021 Ethnic group",
+      "publisher": "ONS",
+      "lastUpdated": "2023-03-28",
+      "lastUpdatedNote": "ONS dataset version 3; version 1 released 29 November 2022",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/TS021/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/TS021/editions/2021/versions/3",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021ts021",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "census-2021-ts029": {
+      "label": "Census 2021, TS029 Proficiency in English",
+      "publisher": "ONS",
+      "lastUpdated": "2023-03-28",
+      "lastUpdatedNote": "ONS dataset version 3; version 1 released 29 November 2022",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/TS029/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/TS029/editions/2021/versions/3",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021ts029",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "census-2021-ts030": {
+      "label": "Census 2021, TS030 Religion",
+      "publisher": "ONS",
+      "lastUpdated": "2023-03-28",
+      "lastUpdatedNote": "ONS dataset version 3; version 1 released 29 November 2022",
+      "editionFrom": "ONS dataset API, https://api.beta.ons.gov.uk/v1/datasets/TS030/editions/2021/versions (release_date of each version), read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/datasets/TS030/editions/2021/versions/3",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.nomisweb.co.uk/datasets/c2021ts030",
+        "accessed": "2026-11-04",
+        "note": "Nomis dataset page: 'Next release: None scheduled'. The next census is to be held in 2031 (Cabinet Office letter to the UK Statistics Authority, published 15 July 2025, https://www.gov.uk/government/publications/2031-census-of-england-and-wales-confirmed); no date for its results is stated."
+      }
+    },
+    "dfe-sen": {
+      "label": "DfE special educational needs in England, 2025/26",
+      "publisher": "DfE",
+      "lastUpdated": "2026-06-11",
+      "editionFrom": "src/data/live/send-dashboard.json lastUpdated (the publication date in its source line)",
+      "sourceUrl": "https://explore-education-statistics.service.gov.uk/find-statistics/special-educational-needs-in-england",
+      "next": {
+        "stated": "June 2027",
+        "isoDate": null,
+        "status": "month only",
+        "url": "https://explore-education-statistics.service.gov.uk/find-statistics/special-educational-needs-in-england/2025-26",
+        "quote": "Latest release Next release June 2027 All releases in this series",
+        "accessed": "2026-11-04"
+      },
+      "lastUpdatedNote": "first published; DfE added a note on type of need on 30 June 2026"
+    },
+    "dfe-spc": {
+      "label": "DfE schools, pupils and their characteristics, 2025/26",
+      "publisher": "DfE",
+      "lastUpdated": "2026-07-14",
+      "lastUpdatedNote": "first published 4 June 2026",
+      "editionFrom": "data/raw/manifests/dfe_pupil_characteristics.json release.lastUpdated",
+      "sourceUrl": "https://explore-education-statistics.service.gov.uk/find-statistics/school-pupils-and-their-characteristics/2025-26",
+      "next": {
+        "stated": "June 2027",
+        "isoDate": null,
+        "status": "month only",
+        "url": "https://explore-education-statistics.service.gov.uk/find-statistics/school-pupils-and-their-characteristics/2025-26",
+        "quote": "Latest release Next release June 2027 All releases in this series",
+        "accessed": "2026-11-04"
+      },
+      "newerEdition": {
+        "label": "an update adding FSM6 and cross-border data",
+        "published": "2026-10-16",
+        "url": "https://explore-education-statistics.service.gov.uk/find-statistics/school-pupils-and-their-characteristics/2025-26/updates",
+        "accessed": "2026-11-04"
+      }
+    },
+    "dfe-spc-2024-25": {
+      "label": "DfE schools, pupils and their characteristics, 2024/25",
+      "publisher": "DfE",
+      "lastUpdated": "2025-06-05",
+      "lastUpdatedNote": "first published; DfE updated the release on 25 September 2025",
+      "editionFrom": "Explore Education Statistics release page, 'Published 5 June 2025 Last updated 25 September 2025', read 2026-11-04; src/data/live/school-pressure.json names the 2024/25 School Census",
+      "sourceUrl": "https://explore-education-statistics.service.gov.uk/find-statistics/school-pupils-and-their-characteristics/2024-25",
+      "newerEdition": {
+        "label": "the 2025/26 edition",
+        "published": "2026-06-04",
+        "url": "https://explore-education-statistics.service.gov.uk/find-statistics/school-pupils-and-their-characteristics/2025-26",
+        "accessed": "2026-11-04"
+      },
+      "next": {
+        "stated": "June 2027",
+        "isoDate": null,
+        "status": "month only",
+        "url": "https://explore-education-statistics.service.gov.uk/find-statistics/school-pupils-and-their-characteristics/2025-26",
+        "quote": "Latest release Next release June 2027 All releases in this series",
+        "accessed": "2026-11-04"
+      }
+    },
+    "dhsc-asc-activity": {
+      "label": "DHSC adult social care activity report, England, 2024 to 2025",
+      "publisher": "DHSC",
+      "lastUpdated": "2026-06-16",
+      "lastUpdatedNote": "corrected data tables; first published 23 October 2025",
+      "editionFrom": "gov.uk release page change note dated 16 June 2026 ('upload 3 corrected files'), read 2026-11-04; the held file is asc-activity-report-england-2024-to-2025-data-tables-updated-june-2026.ods (data/raw/manifests/dhsc_asc_activity.json)",
+      "sourceUrl": "https://www.gov.uk/government/statistics/adult-social-care-activity-report-england-2024-to-2025",
+      "next": {
+        "stated": "January to February 2027",
+        "isoDate": null,
+        "status": "provisional",
+        "url": "https://www.gov.uk/government/statistics/announcements/adult-social-care-activity-report-england-2025-to-2026",
+        "quote": "Release date: January to February 2027 (provisional) The release date has been changed Previous date: 22 October 2026 9:30am",
+        "accessed": "2026-11-04"
+      }
+    },
+    "dhsc-asc-finance": {
+      "label": "DHSC adult social care finance report, England, 2025 to 2026",
+      "publisher": "DHSC",
+      "lastUpdated": "2026-10-22",
+      "editionFrom": "gov.uk release page, 'Published: 22 October 2026', read 2026-11-04; edition named in data/raw/manifests/dhsc_asc_finance.json",
+      "sourceUrl": "https://www.gov.uk/government/statistics/adult-social-care-finance-report-england-2025-to-2026",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.gov.uk/government/collections/adult-social-care-finance-statistics-england",
+        "accessed": "2026-11-04",
+        "note": "No next release date on the release page or the collection page, which says DHSC publishes annual statistics; no gov.uk statistics announcement found."
+      }
+    },
+    "dwp-nino": {
+      "label": "DWP National Insurance numbers allocated to adult overseas nationals, to December 2025",
+      "publisher": "DWP",
+      "lastUpdated": "2026-02-26",
+      "editionFrom": "gov.uk release page, 'Published 26 February 2026', read 2026-11-04; the cube behind src/data/live/nino-dashboard.json runs to Q4 2025",
+      "sourceUrl": "https://www.gov.uk/government/statistics/national-insurance-numbers-allocated-to-adult-overseas-nationals-to-december-2025",
+      "newerEdition": {
+        "label": "the figures to March 2026",
+        "published": "2026-05-21",
+        "url": "https://www.gov.uk/government/statistics/national-insurance-numbers-allocated-to-adult-overseas-nationals-to-march-2026",
+        "accessed": "2026-11-04"
+      },
+      "next": {
+        "stated": "September 2027",
+        "isoDate": null,
+        "status": "month only",
+        "url": "https://www.gov.uk/government/collections/national-insurance-number-allocations-to-adult-overseas-nationals-entering-the-uk",
+        "quote": "the release schedule for the “National Insurance Numbers Allocated to Overseas Nationals” statistics will change to annual. The next release will be September 2027.",
+        "accessed": "2026-11-04"
+      }
+    },
+    "dwp-pip": {
+      "label": "DWP Personal Independence Payment statistics, to January 2026",
+      "publisher": "DWP",
+      "lastUpdated": "2026-03-17",
+      "editionFrom": "gov.uk release page, 'Published 17 March 2026', read 2026-11-04; src/data/live/pip-pcon.json holds January 2026",
+      "sourceUrl": "https://www.gov.uk/government/statistics/personal-independence-payment-statistics-to-january-2026",
+      "newerEdition": {
+        "label": "the figures to July 2026",
+        "published": "2026-09-15",
+        "url": "https://www.gov.uk/government/statistics/personal-independence-payment-statistics-to-july-2026",
+        "accessed": "2026-11-04"
+      },
+      "next": {
+        "stated": "15 December 2026",
+        "isoDate": "2026-12-15",
+        "status": "confirmed",
+        "url": "https://www.gov.uk/government/statistics/announcements/personal-independence-payment-statistics-april-2013-to-october-2026-accredited-official-statistics",
+        "quote": "Release date: 15 December 2026 9:30am (confirmed) These statistics will be released on 15 December 2026 9:30am",
+        "accessed": "2026-11-04"
+      }
+    },
+    "ge-2024": {
+      "label": "General election results, 4 July 2024",
+      "publisher": "UK Parliament",
+      "lastUpdated": "2024-07-04",
+      "lastUpdatedNote": "polling day; vote shares as held by UK Elections",
+      "editionFrom": "House of Commons Library election results, 'Results for the UK general election on 4 July 2024', read 2026-11-04; shares from src/data/live/pcon-dataset.json",
+      "sourceUrl": "https://electionresults.parliament.uk/general-elections/6",
+      "next": null,
+      "nextChecked": {
+        "url": "https://electionresults.parliament.uk/parliament-periods",
+        "accessed": "2026-11-04",
+        "note": "The 59th Parliament, summoned 9 July 2024, shows no dissolution date; no official date for the next general election is published."
+      }
+    },
+    "hmrc-payroll": {
+      "label": "HMRC payrolled employments by nationality, region and industry, to December 2025",
+      "publisher": "HMRC",
+      "lastUpdated": "2026-05-22",
+      "lastUpdatedNote": "first published 14 April 2026",
+      "editionFrom": "data/raw/manifests/hmrc_rti_payroll.json release.lastUpdated (the held file was fetched on 12 October 2026, after that update)",
+      "sourceUrl": "https://www.gov.uk/government/statistics/uk-payrolled-employments-by-nationality-region-industry-age-and-sex-from-july-2014-to-december-2025",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.gov.uk/government/collections/uk-payrolled-employments-by-nationality-region-industry-age-and-sex",
+        "accessed": "2026-11-04",
+        "note": "No next release date on the release page or the collection page, and no gov.uk statistics announcement found."
+      }
+    },
+    "ho-visas": {
+      "label": "Home Office immigration system statistics, year ending June 2026",
+      "publisher": "the Home Office",
+      "lastUpdated": "2026-08-27",
+      "editionFrom": "data/raw/manifests/home_office.json releaseDate",
+      "sourceUrl": "https://www.gov.uk/government/statistical-data-sets/immigration-system-statistics-data-tables",
+      "next": {
+        "stated": "26 November 2026",
+        "isoDate": "2026-11-26",
+        "status": "confirmed",
+        "url": "https://www.gov.uk/government/statistics/announcements/immigration-system-statistics-year-ending-september-2026",
+        "quote": "Release date: 26 November 2026 9:30am (confirmed) These statistics will be released on 26 November 2026 9:30am",
+        "accessed": "2026-11-04"
+      }
+    },
+    "mhclg-ctb": {
+      "label": "MHCLG Council Taxbase 2025",
+      "publisher": "MHCLG",
+      "lastUpdated": "2026-01-21",
+      "lastUpdatedNote": "revised; first published 6 November 2025",
+      "editionFrom": "src/data/live/council-tax-spd.json firstPublished and lastUpdated",
+      "sourceUrl": "https://www.gov.uk/government/statistics/council-taxbase-2025-in-england",
+      "next": {
+        "stated": "18 November 2026",
+        "isoDate": "2026-11-18",
+        "status": "confirmed",
+        "url": "https://www.gov.uk/government/statistics/announcements/council-taxbase-2026-in-england",
+        "quote": "Release date: 18 November 2026 9:30am (confirmed) These statistics will be released on 18 November 2026 9:30am",
+        "accessed": "2026-11-04"
+      }
+    },
+    "ons-mye": {
+      "label": "ONS mid-year population estimates, mid-2025",
+      "publisher": "ONS",
+      "lastUpdated": "2026-07-29",
+      "editionFrom": "src/data/live/population-estimates.json source.published, read from the cover sheet of mye25tablesew.xlsx (data/raw/manifests/ons_mye.json)",
+      "sourceUrl": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales",
+      "next": {
+        "stated": "summer 2027",
+        "isoDate": null,
+        "status": "season only",
+        "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid20252023localauthorityboundaries/mye25tablesew.xlsx",
+        "quote": "The next publication is scheduled for summer 2027.",
+        "accessed": "2026-08-22"
+      }
+    },
+    "ons-pfa-crime": {
+      "label": "ONS police force area data tables, year ending March 2026",
+      "publisher": "ONS",
+      "lastUpdated": "2026-07-23",
+      "editionFrom": "data/raw/manifests/ons_pfa_crime.json current.pageReleaseDate",
+      "sourceUrl": "https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables",
+      "next": {
+        "stated": "28 January 2027",
+        "isoDate": "2027-01-28",
+        "status": "confirmed",
+        "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables",
+        "quote": "Release date: 22 October 2026 Next release: 28 January 2027",
+        "accessed": "2026-11-04"
+      },
+      "newerEdition": {
+        "label": "the year ending June 2026 tables",
+        "published": "2026-10-22",
+        "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables",
+        "accessed": "2026-11-04"
+      }
+    },
+    "ons-snpp": {
+      "label": "ONS subnational population projections for England, 2022-based",
+      "publisher": "ONS",
+      "lastUpdated": "2025-06-24",
+      "editionFrom": "ONS bulletin, Subnational population projections for England: 2022-based, 'Release date: 24 June 2025', read 2026-11-04",
+      "sourceUrl": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/bulletins/subnationalpopulationprojectionsforengland/2022based",
+      "next": {
+        "stated": "the second half of 2028",
+        "isoDate": null,
+        "status": "period only",
+        "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/bulletins/subnationalpopulationprojectionsforengland/latest",
+        "quote": "we are planning the next release to be in the second half of 2028. This is because of the redevelopment of the production.",
+        "accessed": "2026-11-04"
+      }
+    },
+    "ukd-exposure-score": {
+      "label": "This site's exposure score",
+      "publisher": "this site",
+      "lastUpdated": "2026-09-07",
+      "editionFrom": "src/data/live/fiscal-resilience.json lastUpdated",
+      "sourceUrl": "/pressure/",
+      "next": null,
+      "nextChecked": {
+        "url": "https://ukdemographics.co.uk/pressure/",
+        "accessed": "2026-11-04",
+        "note": "This site publishes no date for the next rebuild of the score."
+      }
+    },
+    "ukd-nhs-context": {
+      "label": "This site's summary of NHS charging and the Immigration Health Surcharge",
+      "publisher": "this site",
+      "lastUpdated": "2026-04-29",
+      "editionFrom": "src/data/live/nhs-funding-context.json lastUpdated (hand-curated; each figure cites its own source)",
+      "sourceUrl": "https://www.gov.uk/healthcare-immigration-application/how-much-pay",
+      "next": null,
+      "nextChecked": {
+        "url": "https://www.gov.uk/healthcare-immigration-application/how-much-pay",
+        "accessed": "2026-11-04",
+        "note": "The surcharge rates change by regulation; no date for the next change is published there."
+      }
+    },
+    "ukd-projection": {
+      "label": "This site's projection, Hamilton-Perry model 8.0",
+      "publisher": "this site",
+      "lastUpdated": "2026-08-14",
+      "editionFrom": "src/data/live/ethnic-projections.json lastUpdated",
+      "sourceUrl": "/methodology/",
+      "next": null,
+      "nextChecked": {
+        "url": "https://ukdemographics.co.uk/methodology/",
+        "accessed": "2026-11-04",
+        "note": "This site publishes no date for its next model run."
+      }
+    }
+  },
+  "sections": {
+    "map": [
+      "ons-mye",
+      "census-2011-ks201ew",
+      "census-2021-ts021"
+    ],
+    "ethnic-composition": [
+      "census-2011-ks201ew",
+      "census-2021-ts021",
+      "ukd-projection",
+      "ons-snpp"
+    ],
+    "shift-share": [
+      "census-2011-ks201ew",
+      "census-2021-ts021"
+    ],
+    "diversity": [
+      "census-2021-ts021"
+    ],
+    "religion": [
+      "census-2021-ts030",
+      "ukd-projection"
+    ],
+    "nativity": [
+      "census-2021-ts004",
+      "ukd-projection"
+    ],
+    "english": [
+      "census-2021-ts029"
+    ],
+    "pressure": [
+      "ukd-exposure-score"
+    ],
+    "nino": [
+      "dwp-nino"
+    ],
+    "nino-history": [
+      "dwp-nino"
+    ],
+    "nino-demographic": [
+      "dwp-nino"
+    ],
+    "visa-routes": [
+      "ho-visas",
+      "dwp-nino"
+    ],
+    "cob-change": [
+      "census-2011-ks204ew",
+      "census-2021-ts012"
+    ],
+    "econ-passport": [
+      "census-2021-rm021"
+    ],
+    "schools-eal": [
+      "dfe-spc"
+    ],
+    "regional-labour": [
+      "hmrc-payroll"
+    ],
+    "crime": [
+      "ons-pfa-crime",
+      "ons-mye"
+    ],
+    "asc": [
+      "dhsc-asc-finance",
+      "dhsc-asc-activity",
+      "ons-mye"
+    ],
+    "health-ethnic": [
+      "census-2021-rm043"
+    ],
+    "send": [
+      "dfe-sen"
+    ],
+    "pip": [
+      "dwp-pip"
+    ],
+    "nhs-funding": [
+      "ukd-nhs-context"
+    ],
+    "economy": [
+      "census-2021-rm018",
+      "census-2021-rm049",
+      "census-2021-rm134"
+    ],
+    "housing": [
+      "mhclg-ctb",
+      "census-2021-rm192",
+      "census-2021-rm134",
+      "ukd-projection"
+    ],
+    "schools": [
+      "dfe-spc-2024-25",
+      "ukd-projection"
+    ],
+    "constituencies": [
+      "ge-2024"
+    ]
+  }
+}

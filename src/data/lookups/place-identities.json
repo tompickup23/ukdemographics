@@ -1,0 +1,1337 @@
+{
+  "description": "Identifiers and plain names for the place pages (roadmap R360). sameAs links each place to the Wikidata item that carries its GSS code. A plain name drops the ONS suffix (\", City of\", \", County of\") from the title, the H1 and the breadcrumb only; the page URL, the area code and every figure are unchanged.",
+  "wikidata": {
+    "publisher": "Wikidata",
+    "endpoint": "https://query.wikidata.org/sparql",
+    "query": "SELECT ?code ?item ?itemLabel (GROUP_CONCAT(DISTINCT ?inst; separator=\"|\") AS ?insts) WHERE { VALUES ?code { <the 318 area codes in src/data/live/ethnic-projections.json> } ?item wdt:P836 ?code . OPTIONAL { ?item wdt:P31 ?inst } SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } } GROUP BY ?code ?item ?itemLabel",
+    "rule": "The item whose GSS code (property P836) equals the area code. Isle of Anglesey (W06000001) has two such items, the island and the principal area; the principal area (instance of Q15979307, as for the other 21 Welsh areas) is used.",
+    "accessed": "2026-11-04"
+  },
+  "plainNames": {
+    "E06000023": {
+      "plainName": "Bristol",
+      "councilName": "Bristol City Council",
+      "alternateNames": [
+        "Bristol, City of",
+        "City of Bristol"
+      ]
+    },
+    "E06000010": {
+      "plainName": "Kingston upon Hull",
+      "councilName": "Hull City Council",
+      "alternateNames": [
+        "Kingston upon Hull, City of",
+        "City of Kingston upon Hull",
+        "Hull"
+      ]
+    },
+    "E06000019": {
+      "plainName": "Herefordshire",
+      "councilName": "Herefordshire Council",
+      "alternateNames": [
+        "Herefordshire, County of",
+        "County of Herefordshire"
+      ]
+    }
+  },
+  "redirects": {
+    "/places/bristol/": "E06000023",
+    "/places/kingston-upon-hull/": "E06000010",
+    "/places/hull/": "E06000010",
+    "/places/herefordshire/": "E06000019",
+    "/places/kings-lynn-and-west-norfolk/": "E07000146"
+  },
+  "sources": {
+    "councilNames": {
+      "publisher": "GOV.UK",
+      "title": "Find your local council",
+      "urls": [
+        "https://www.gov.uk/find-local-council/bristol",
+        "https://www.gov.uk/find-local-council/kingston-upon-hull",
+        "https://www.gov.uk/find-local-council/herefordshire"
+      ],
+      "quoted": [
+        "Go to Bristol City Council website",
+        "Go to Hull City Council website",
+        "Go to Herefordshire Council website"
+      ],
+      "accessed": "2026-11-03"
+    },
+    "alternateNames": "The ONS name as held in ethnic-projections.json, the Wikidata item label, and for Kingston upon Hull the Wikidata alias \"Hull\", read on the Wikidata access date.",
+    "redirects": "URLs a reader is likely to type that returned HTTP 404 on ukdemographics.co.uk when requested with curl on 3 November 2026. Each becomes a redirect stub to the existing page."
+  },
+  "areas": {
+    "E06000001": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2594690",
+      "label": "Hartlepool"
+    },
+    "E06000002": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2673020",
+      "label": "Middlesbrough"
+    },
+    "E06000003": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1434448",
+      "label": "Redcar and Cleveland"
+    },
+    "E06000004": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894094",
+      "label": "Stockton-on-Tees"
+    },
+    "E06000005": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1171024",
+      "label": "Darlington"
+    },
+    "E06000006": {
+      "wikidata": "https://www.wikidata.org/wiki/Q376141",
+      "label": "Halton"
+    },
+    "E06000007": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894095",
+      "label": "Warrington"
+    },
+    "E06000008": {
+      "wikidata": "https://www.wikidata.org/wiki/Q880782",
+      "label": "Blackburn with Darwen"
+    },
+    "E06000009": {
+      "wikidata": "https://www.wikidata.org/wiki/Q20989106",
+      "label": "Blackpool"
+    },
+    "E06000010": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21885987",
+      "label": "City of Kingston upon Hull"
+    },
+    "E06000011": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21695028",
+      "label": "East Riding of Yorkshire"
+    },
+    "E06000012": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1342914",
+      "label": "North East Lincolnshire"
+    },
+    "E06000013": {
+      "wikidata": "https://www.wikidata.org/wiki/Q175945",
+      "label": "North Lincolnshire"
+    },
+    "E06000014": {
+      "wikidata": "https://www.wikidata.org/wiki/Q20986421",
+      "label": "City of York"
+    },
+    "E06000015": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21885980",
+      "label": "City of Derby"
+    },
+    "E06000016": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21683242",
+      "label": "City of Leicester"
+    },
+    "E06000017": {
+      "wikidata": "https://www.wikidata.org/wiki/Q23107",
+      "label": "Rutland"
+    },
+    "E06000018": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21885994",
+      "label": "City of Nottingham"
+    },
+    "E06000019": {
+      "wikidata": "https://www.wikidata.org/wiki/Q23129",
+      "label": "Herefordshire"
+    },
+    "E06000020": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1425298",
+      "label": "Telford and Wrekin"
+    },
+    "E06000021": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21891722",
+      "label": "City of Stoke-on-Trent"
+    },
+    "E06000022": {
+      "wikidata": "https://www.wikidata.org/wiki/Q810793",
+      "label": "Bath and North East Somerset"
+    },
+    "E06000023": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21693433",
+      "label": "City of Bristol"
+    },
+    "E06000024": {
+      "wikidata": "https://www.wikidata.org/wiki/Q178196",
+      "label": "North Somerset"
+    },
+    "E06000025": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1369280",
+      "label": "South Gloucestershire"
+    },
+    "E06000026": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21674890",
+      "label": "City of Plymouth"
+    },
+    "E06000027": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1136118",
+      "label": "Torbay"
+    },
+    "E06000030": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894093",
+      "label": "Swindon"
+    },
+    "E06000031": {
+      "wikidata": "https://www.wikidata.org/wiki/Q12956645",
+      "label": "City of Peterborough"
+    },
+    "E06000032": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21683239",
+      "label": "Luton"
+    },
+    "E06000033": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21487155",
+      "label": "Southend-on-Sea"
+    },
+    "E06000034": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1549155",
+      "label": "Thurrock"
+    },
+    "E06000035": {
+      "wikidata": "https://www.wikidata.org/wiki/Q797782",
+      "label": "Medway"
+    },
+    "E06000036": {
+      "wikidata": "https://www.wikidata.org/wiki/Q896725",
+      "label": "Bracknell Forest"
+    },
+    "E06000037": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1473780",
+      "label": "West Berkshire"
+    },
+    "E06000038": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21496716",
+      "label": "Reading"
+    },
+    "E06000039": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21163036",
+      "label": "Slough"
+    },
+    "E06000040": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1368496",
+      "label": "Windsor and Maidenhead"
+    },
+    "E06000041": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1758432",
+      "label": "Wokingham"
+    },
+    "E06000042": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894090",
+      "label": "City of Milton Keynes"
+    },
+    "E06000043": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1022488",
+      "label": "Brighton and Hove"
+    },
+    "E06000044": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21683233",
+      "label": "City of Portsmouth"
+    },
+    "E06000045": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21683230",
+      "label": "City of Southampton"
+    },
+    "E06000046": {
+      "wikidata": "https://www.wikidata.org/wiki/Q9679",
+      "label": "Isle of Wight"
+    },
+    "E06000047": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1137286",
+      "label": "County Durham"
+    },
+    "E06000049": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1070590",
+      "label": "Cheshire East"
+    },
+    "E06000050": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1070591",
+      "label": "Cheshire West and Chester"
+    },
+    "E06000051": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21694759",
+      "label": "Shropshire"
+    },
+    "E06000052": {
+      "wikidata": "https://www.wikidata.org/wiki/Q22338583",
+      "label": "Cornwall"
+    },
+    "E06000053": {
+      "wikidata": "https://www.wikidata.org/wiki/Q180209",
+      "label": "Isles of Scilly"
+    },
+    "E06000054": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21694746",
+      "label": "Wiltshire"
+    },
+    "E06000055": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894077",
+      "label": "Bedford"
+    },
+    "E06000056": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1053723",
+      "label": "Central Bedfordshire"
+    },
+    "E06000057": {
+      "wikidata": "https://www.wikidata.org/wiki/Q23079",
+      "label": "Northumberland"
+    },
+    "E06000058": {
+      "wikidata": "https://www.wikidata.org/wiki/Q54366459",
+      "label": "Bournemouth, Christchurch and Poole"
+    },
+    "E06000059": {
+      "wikidata": "https://www.wikidata.org/wiki/Q55231693",
+      "label": "Dorset"
+    },
+    "E06000060": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21694636",
+      "label": "Buckinghamshire"
+    },
+    "E06000061": {
+      "wikidata": "https://www.wikidata.org/wiki/Q60790121",
+      "label": "North Northamptonshire"
+    },
+    "E06000062": {
+      "wikidata": "https://www.wikidata.org/wiki/Q60790129",
+      "label": "West Northamptonshire"
+    },
+    "E06000063": {
+      "wikidata": "https://www.wikidata.org/wiki/Q110536343",
+      "label": "Cumberland"
+    },
+    "E06000064": {
+      "wikidata": "https://www.wikidata.org/wiki/Q110536353",
+      "label": "Westmorland and Furness"
+    },
+    "E06000065": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21241814",
+      "label": "North Yorkshire"
+    },
+    "E06000066": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21694741",
+      "label": "Somerset"
+    },
+    "E07000008": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21713103",
+      "label": "Cambridge"
+    },
+    "E07000009": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1277768",
+      "label": "East Cambridgeshire"
+    },
+    "E07000010": {
+      "wikidata": "https://www.wikidata.org/wiki/Q176029",
+      "label": "Fenland"
+    },
+    "E07000011": {
+      "wikidata": "https://www.wikidata.org/wiki/Q23330",
+      "label": "Huntingdonshire"
+    },
+    "E07000012": {
+      "wikidata": "https://www.wikidata.org/wiki/Q969203",
+      "label": "South Cambridgeshire"
+    },
+    "E07000032": {
+      "wikidata": "https://www.wikidata.org/wiki/Q457014",
+      "label": "Amber Valley"
+    },
+    "E07000033": {
+      "wikidata": "https://www.wikidata.org/wiki/Q891608",
+      "label": "Bolsover"
+    },
+    "E07000034": {
+      "wikidata": "https://www.wikidata.org/wiki/Q20989091",
+      "label": "Chesterfield"
+    },
+    "E07000035": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1199980",
+      "label": "Derbyshire Dales"
+    },
+    "E07000036": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1350065",
+      "label": "Erewash"
+    },
+    "E07000037": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1458060",
+      "label": "High Peak"
+    },
+    "E07000038": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1384012",
+      "label": "North East Derbyshire"
+    },
+    "E07000039": {
+      "wikidata": "https://www.wikidata.org/wiki/Q745385",
+      "label": "South Derbyshire"
+    },
+    "E07000040": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1277825",
+      "label": "East Devon"
+    },
+    "E07000041": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21886091",
+      "label": "Exeter"
+    },
+    "E07000042": {
+      "wikidata": "https://www.wikidata.org/wiki/Q662238",
+      "label": "Mid Devon"
+    },
+    "E07000043": {
+      "wikidata": "https://www.wikidata.org/wiki/Q674940",
+      "label": "North Devon"
+    },
+    "E07000044": {
+      "wikidata": "https://www.wikidata.org/wiki/Q649699",
+      "label": "South Hams"
+    },
+    "E07000045": {
+      "wikidata": "https://www.wikidata.org/wiki/Q739432",
+      "label": "Teignbridge"
+    },
+    "E07000046": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1752488",
+      "label": "Torridge"
+    },
+    "E07000047": {
+      "wikidata": "https://www.wikidata.org/wiki/Q370814",
+      "label": "West Devon"
+    },
+    "E07000061": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21886079",
+      "label": "Eastbourne"
+    },
+    "E07000062": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21886138",
+      "label": "Hastings"
+    },
+    "E07000063": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1254688",
+      "label": "Lewes"
+    },
+    "E07000064": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1811605",
+      "label": "Rother"
+    },
+    "E07000065": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1575946",
+      "label": "Wealden"
+    },
+    "E07000066": {
+      "wikidata": "https://www.wikidata.org/wiki/Q810056",
+      "label": "Basildon"
+    },
+    "E07000067": {
+      "wikidata": "https://www.wikidata.org/wiki/Q897454",
+      "label": "Braintree"
+    },
+    "E07000068": {
+      "wikidata": "https://www.wikidata.org/wiki/Q427849",
+      "label": "Brentwood"
+    },
+    "E07000069": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1049506",
+      "label": "Castle Point"
+    },
+    "E07000070": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894080",
+      "label": "Chelmsford"
+    },
+    "E07000071": {
+      "wikidata": "https://www.wikidata.org/wiki/Q589620",
+      "label": "Colchester"
+    },
+    "E07000072": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1347659",
+      "label": "Epping Forest"
+    },
+    "E07000073": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21713095",
+      "label": "Harlow"
+    },
+    "E07000074": {
+      "wikidata": "https://www.wikidata.org/wiki/Q613878",
+      "label": "Maldon"
+    },
+    "E07000075": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2160315",
+      "label": "Rochford"
+    },
+    "E07000076": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1752638",
+      "label": "Tendring"
+    },
+    "E07000077": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1496198",
+      "label": "Uttlesford"
+    },
+    "E07000078": {
+      "wikidata": "https://www.wikidata.org/wiki/Q20989092",
+      "label": "Cheltenham"
+    },
+    "E07000079": {
+      "wikidata": "https://www.wikidata.org/wiki/Q581022",
+      "label": "Cotswold"
+    },
+    "E07000080": {
+      "wikidata": "https://www.wikidata.org/wiki/Q902998",
+      "label": "Forest of Dean"
+    },
+    "E07000081": {
+      "wikidata": "https://www.wikidata.org/wiki/Q20986485",
+      "label": "Gloucester"
+    },
+    "E07000082": {
+      "wikidata": "https://www.wikidata.org/wiki/Q966144",
+      "label": "Stroud"
+    },
+    "E07000083": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894096",
+      "label": "Tewkesbury"
+    },
+    "E07000084": {
+      "wikidata": "https://www.wikidata.org/wiki/Q810185",
+      "label": "Basingstoke and Deane"
+    },
+    "E07000085": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1277894",
+      "label": "East Hampshire"
+    },
+    "E07000086": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894083",
+      "label": "Eastleigh"
+    },
+    "E07000087": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894084",
+      "label": "Fareham"
+    },
+    "E07000088": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21886128",
+      "label": "Gosport"
+    },
+    "E07000089": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1587050",
+      "label": "Hart"
+    },
+    "E07000090": {
+      "wikidata": "https://www.wikidata.org/wiki/Q4946344",
+      "label": "Havant"
+    },
+    "E07000091": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1972541",
+      "label": "New Forest"
+    },
+    "E07000092": {
+      "wikidata": "https://www.wikidata.org/wiki/Q635274",
+      "label": "Rushmoor"
+    },
+    "E07000093": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2116338",
+      "label": "Test Valley"
+    },
+    "E07000094": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1094226",
+      "label": "Winchester"
+    },
+    "E07000095": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894078",
+      "label": "Broxbourne"
+    },
+    "E07000096": {
+      "wikidata": "https://www.wikidata.org/wiki/Q931180",
+      "label": "Dacorum"
+    },
+    "E07000098": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1614775",
+      "label": "Hertsmere"
+    },
+    "E07000099": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1685976",
+      "label": "North Hertfordshire"
+    },
+    "E07000102": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1386468",
+      "label": "Three Rivers"
+    },
+    "E07000103": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21886164",
+      "label": "Watford"
+    },
+    "E07000105": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894074",
+      "label": "Ashford"
+    },
+    "E07000106": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1094104",
+      "label": "Canterbury"
+    },
+    "E07000107": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894082",
+      "label": "Dartford"
+    },
+    "E07000108": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1971967",
+      "label": "Dover"
+    },
+    "E07000109": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1459781",
+      "label": "Gravesham"
+    },
+    "E07000110": {
+      "wikidata": "https://www.wikidata.org/wiki/Q737114",
+      "label": "Maidstone"
+    },
+    "E07000111": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1499339",
+      "label": "Sevenoaks"
+    },
+    "E07000112": {
+      "wikidata": "https://www.wikidata.org/wiki/Q635416",
+      "label": "Folkestone and Hythe"
+    },
+    "E07000113": {
+      "wikidata": "https://www.wikidata.org/wiki/Q652559",
+      "label": "Swale"
+    },
+    "E07000114": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1752642",
+      "label": "Thanet"
+    },
+    "E07000115": {
+      "wikidata": "https://www.wikidata.org/wiki/Q596743",
+      "label": "Tonbridge and Malling"
+    },
+    "E07000116": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894097",
+      "label": "Tunbridge Wells"
+    },
+    "E07000117": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894079",
+      "label": "Burnley"
+    },
+    "E07000118": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894081",
+      "label": "Chorley"
+    },
+    "E07000119": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1478592",
+      "label": "Fylde"
+    },
+    "E07000120": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1640713",
+      "label": "Hyndburn"
+    },
+    "E07000121": {
+      "wikidata": "https://www.wikidata.org/wiki/Q168052",
+      "label": "Lancaster"
+    },
+    "E07000122": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1693090",
+      "label": "Pendle"
+    },
+    "E07000123": {
+      "wikidata": "https://www.wikidata.org/wiki/Q385669",
+      "label": "Preston"
+    },
+    "E07000124": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2116317",
+      "label": "Ribble Valley"
+    },
+    "E07000125": {
+      "wikidata": "https://www.wikidata.org/wiki/Q527423",
+      "label": "Rossendale"
+    },
+    "E07000126": {
+      "wikidata": "https://www.wikidata.org/wiki/Q290838",
+      "label": "South Ribble"
+    },
+    "E07000127": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1290796",
+      "label": "West Lancashire"
+    },
+    "E07000128": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894100",
+      "label": "Wyre"
+    },
+    "E07000129": {
+      "wikidata": "https://www.wikidata.org/wiki/Q596076",
+      "label": "Blaby"
+    },
+    "E07000130": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1067639",
+      "label": "Charnwood"
+    },
+    "E07000131": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1556307",
+      "label": "Harborough"
+    },
+    "E07000132": {
+      "wikidata": "https://www.wikidata.org/wiki/Q946825",
+      "label": "Hinckley and Bosworth"
+    },
+    "E07000133": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1853349",
+      "label": "Melton"
+    },
+    "E07000134": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1853930",
+      "label": "North West Leicestershire"
+    },
+    "E07000135": {
+      "wikidata": "https://www.wikidata.org/wiki/Q764425",
+      "label": "Oadby and Wigston"
+    },
+    "E07000136": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894076",
+      "label": "Boston"
+    },
+    "E07000137": {
+      "wikidata": "https://www.wikidata.org/wiki/Q82181",
+      "label": "East Lindsey"
+    },
+    "E07000138": {
+      "wikidata": "https://www.wikidata.org/wiki/Q20989075",
+      "label": "Lincoln"
+    },
+    "E07000139": {
+      "wikidata": "https://www.wikidata.org/wiki/Q607082",
+      "label": "North Kesteven"
+    },
+    "E07000140": {
+      "wikidata": "https://www.wikidata.org/wiki/Q303269",
+      "label": "South Holland"
+    },
+    "E07000141": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1942426",
+      "label": "South Kesteven"
+    },
+    "E07000142": {
+      "wikidata": "https://www.wikidata.org/wiki/Q253501",
+      "label": "West Lindsey"
+    },
+    "E07000143": {
+      "wikidata": "https://www.wikidata.org/wiki/Q488142",
+      "label": "Breckland"
+    },
+    "E07000144": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2116353",
+      "label": "Broadland"
+    },
+    "E07000145": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894085",
+      "label": "Great Yarmouth"
+    },
+    "E07000146": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1742192",
+      "label": "King's Lynn and West Norfolk"
+    },
+    "E07000147": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1545713",
+      "label": "North Norfolk"
+    },
+    "E07000148": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21886147",
+      "label": "Norwich"
+    },
+    "E07000149": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1854245",
+      "label": "South Norfolk"
+    },
+    "E07000170": {
+      "wikidata": "https://www.wikidata.org/wiki/Q600996",
+      "label": "Ashfield"
+    },
+    "E07000171": {
+      "wikidata": "https://www.wikidata.org/wiki/Q810508",
+      "label": "Bassetlaw"
+    },
+    "E07000172": {
+      "wikidata": "https://www.wikidata.org/wiki/Q605605",
+      "label": "Broxtowe"
+    },
+    "E07000173": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1497633",
+      "label": "Gedling"
+    },
+    "E07000174": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1891143",
+      "label": "Mansfield"
+    },
+    "E07000175": {
+      "wikidata": "https://www.wikidata.org/wiki/Q637772",
+      "label": "Newark and Sherwood"
+    },
+    "E07000176": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1854225",
+      "label": "Rushcliffe"
+    },
+    "E07000177": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1070481",
+      "label": "Cherwell"
+    },
+    "E07000178": {
+      "wikidata": "https://www.wikidata.org/wiki/Q20986484",
+      "label": "Oxford"
+    },
+    "E07000179": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1776967",
+      "label": "South Oxfordshire"
+    },
+    "E07000180": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1540110",
+      "label": "Vale of White Horse"
+    },
+    "E07000181": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1776955",
+      "label": "West Oxfordshire"
+    },
+    "E07000192": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1033439",
+      "label": "Cannock Chase"
+    },
+    "E07000193": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1278032",
+      "label": "East Staffordshire"
+    },
+    "E07000194": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1823259",
+      "label": "Lichfield"
+    },
+    "E07000195": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894089",
+      "label": "Newcastle-under-Lyme"
+    },
+    "E07000196": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2116379",
+      "label": "South Staffordshire"
+    },
+    "E07000197": {
+      "wikidata": "https://www.wikidata.org/wiki/Q678347",
+      "label": "Stafford"
+    },
+    "E07000198": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2116362",
+      "label": "Staffordshire Moorlands"
+    },
+    "E07000199": {
+      "wikidata": "https://www.wikidata.org/wiki/Q7170938",
+      "label": "Tamworth"
+    },
+    "E07000200": {
+      "wikidata": "https://www.wikidata.org/wiki/Q797643",
+      "label": "Babergh"
+    },
+    "E07000202": {
+      "wikidata": "https://www.wikidata.org/wiki/Q3801785",
+      "label": "Ipswich"
+    },
+    "E07000203": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1931811",
+      "label": "Mid Suffolk"
+    },
+    "E07000207": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1292592",
+      "label": "Elmbridge"
+    },
+    "E07000208": {
+      "wikidata": "https://www.wikidata.org/wiki/Q257577",
+      "label": "Epsom and Ewell"
+    },
+    "E07000209": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894086",
+      "label": "Guildford"
+    },
+    "E07000210": {
+      "wikidata": "https://www.wikidata.org/wiki/Q961824",
+      "label": "Mole Valley"
+    },
+    "E07000211": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2066396",
+      "label": "Reigate and Banstead"
+    },
+    "E07000212": {
+      "wikidata": "https://www.wikidata.org/wiki/Q9324032",
+      "label": "Runnymede"
+    },
+    "E07000213": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1234166",
+      "label": "Spelthorne"
+    },
+    "E07000214": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2116333",
+      "label": "Surrey Heath"
+    },
+    "E07000215": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2301760",
+      "label": "Tandridge"
+    },
+    "E07000216": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2116521",
+      "label": "Waverley"
+    },
+    "E07000217": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2277849",
+      "label": "Woking"
+    },
+    "E07000218": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2000897",
+      "label": "North Warwickshire"
+    },
+    "E07000219": {
+      "wikidata": "https://www.wikidata.org/wiki/Q920466",
+      "label": "Nuneaton and Bedworth"
+    },
+    "E07000220": {
+      "wikidata": "https://www.wikidata.org/wiki/Q894091",
+      "label": "Rugby"
+    },
+    "E07000221": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1693076",
+      "label": "Stratford-on-Avon"
+    },
+    "E07000222": {
+      "wikidata": "https://www.wikidata.org/wiki/Q611294",
+      "label": "Warwick"
+    },
+    "E07000223": {
+      "wikidata": "https://www.wikidata.org/wiki/Q379103",
+      "label": "Adur"
+    },
+    "E07000224": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1725997",
+      "label": "Arun"
+    },
+    "E07000225": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1072104",
+      "label": "Chichester"
+    },
+    "E07000226": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21886073",
+      "label": "Crawley"
+    },
+    "E07000227": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1629013",
+      "label": "Horsham"
+    },
+    "E07000228": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1344342",
+      "label": "Mid Sussex"
+    },
+    "E07000229": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21886170",
+      "label": "Worthing"
+    },
+    "E07000234": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1744694",
+      "label": "Bromsgrove"
+    },
+    "E07000235": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1427973",
+      "label": "Malvern Hills"
+    },
+    "E07000236": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21496675",
+      "label": "Redditch"
+    },
+    "E07000237": {
+      "wikidata": "https://www.wikidata.org/wiki/Q20986481",
+      "label": "Worcester"
+    },
+    "E07000238": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2116344",
+      "label": "Wychavon"
+    },
+    "E07000239": {
+      "wikidata": "https://www.wikidata.org/wiki/Q548224",
+      "label": "Wyre Forest"
+    },
+    "E07000240": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1094060",
+      "label": "St Albans"
+    },
+    "E07000241": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2166127",
+      "label": "Welwyn Hatfield"
+    },
+    "E07000242": {
+      "wikidata": "https://www.wikidata.org/wiki/Q582288",
+      "label": "East Hertfordshire"
+    },
+    "E07000243": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21886152",
+      "label": "Stevenage"
+    },
+    "E07000244": {
+      "wikidata": "https://www.wikidata.org/wiki/Q54554266",
+      "label": "East Suffolk"
+    },
+    "E07000245": {
+      "wikidata": "https://www.wikidata.org/wiki/Q54554272",
+      "label": "West Suffolk"
+    },
+    "E08000001": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1364541",
+      "label": "Bolton"
+    },
+    "E08000002": {
+      "wikidata": "https://www.wikidata.org/wiki/Q512036",
+      "label": "Bury"
+    },
+    "E08000003": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21525592",
+      "label": "Manchester"
+    },
+    "E08000004": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1278608",
+      "label": "Oldham"
+    },
+    "E08000005": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1892596",
+      "label": "Rochdale"
+    },
+    "E08000006": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1142118",
+      "label": "Salford"
+    },
+    "E08000007": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1752424",
+      "label": "Stockport"
+    },
+    "E08000008": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1423078",
+      "label": "Tameside"
+    },
+    "E08000009": {
+      "wikidata": "https://www.wikidata.org/wiki/Q915954",
+      "label": "Trafford"
+    },
+    "E08000010": {
+      "wikidata": "https://www.wikidata.org/wiki/Q684307",
+      "label": "Wigan"
+    },
+    "E08000011": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1228523",
+      "label": "Knowsley"
+    },
+    "E08000012": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21665571",
+      "label": "Liverpool"
+    },
+    "E08000013": {
+      "wikidata": "https://www.wikidata.org/wiki/Q179206",
+      "label": "St Helens"
+    },
+    "E08000014": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1546645",
+      "label": "Sefton"
+    },
+    "E08000015": {
+      "wikidata": "https://www.wikidata.org/wiki/Q11365639",
+      "label": "Wirral"
+    },
+    "E08000016": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1857382",
+      "label": "Barnsley"
+    },
+    "E08000017": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1925846",
+      "label": "Doncaster"
+    },
+    "E08000018": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1878732",
+      "label": "Rotherham"
+    },
+    "E08000019": {
+      "wikidata": "https://www.wikidata.org/wiki/Q12956644",
+      "label": "Sheffield"
+    },
+    "E08000021": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21012735",
+      "label": "Newcastle upon Tyne"
+    },
+    "E08000022": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1120443",
+      "label": "North Tyneside"
+    },
+    "E08000023": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1541228",
+      "label": "South Tyneside"
+    },
+    "E08000024": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1280897",
+      "label": "Sunderland"
+    },
+    "E08000025": {
+      "wikidata": "https://www.wikidata.org/wiki/Q20986424",
+      "label": "Birmingham"
+    },
+    "E08000026": {
+      "wikidata": "https://www.wikidata.org/wiki/Q20986417",
+      "label": "Coventry"
+    },
+    "E08000027": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1617704",
+      "label": "Dudley"
+    },
+    "E08000028": {
+      "wikidata": "https://www.wikidata.org/wiki/Q285964",
+      "label": "Sandwell"
+    },
+    "E08000029": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1925858",
+      "label": "Solihull"
+    },
+    "E08000030": {
+      "wikidata": "https://www.wikidata.org/wiki/Q178356",
+      "label": "Walsall"
+    },
+    "E08000031": {
+      "wikidata": "https://www.wikidata.org/wiki/Q21885975",
+      "label": "City of Wolverhampton"
+    },
+    "E08000032": {
+      "wikidata": "https://www.wikidata.org/wiki/Q2834810",
+      "label": "Bradford"
+    },
+    "E08000033": {
+      "wikidata": "https://www.wikidata.org/wiki/Q1026448",
+      "label": "Calderdale"
+    },
+    "E08000034": {
+      "wikidata": "https://www.wikidata.org/wiki/Q918975",
+      "label": "Kirklees"
+    },
+    "E08000035": {
+      "wikidata": "https://www.wikidata.org/wiki/Q774015",
+      "label": "Leeds"
+    },
+    "E08000036": {
+      "wikidata": "https://www.wikidata.org/wiki/Q763171",
+      "label": "Wakefield"
+    },
+    "E08000037": {
+      "wikidata": "https://www.wikidata.org/wiki/Q929034",
+      "label": "Gateshead"
+    },
+    "E09000001": {
+      "wikidata": "https://www.wikidata.org/wiki/Q23311",
+      "label": "City of London"
+    },
+    "E09000002": {
+      "wikidata": "https://www.wikidata.org/wiki/Q205358",
+      "label": "London Borough of Barking and Dagenham"
+    },
+    "E09000003": {
+      "wikidata": "https://www.wikidata.org/wiki/Q151048",
+      "label": "London Borough of Barnet"
+    },
+    "E09000004": {
+      "wikidata": "https://www.wikidata.org/wiki/Q207208",
+      "label": "London Borough of Bexley"
+    },
+    "E09000005": {
+      "wikidata": "https://www.wikidata.org/wiki/Q207201",
+      "label": "London Borough of Brent"
+    },
+    "E09000006": {
+      "wikidata": "https://www.wikidata.org/wiki/Q208201",
+      "label": "London Borough of Bromley"
+    },
+    "E09000007": {
+      "wikidata": "https://www.wikidata.org/wiki/Q202088",
+      "label": "London Borough of Camden"
+    },
+    "E09000008": {
+      "wikidata": "https://www.wikidata.org/wiki/Q26888",
+      "label": "London Borough of Croydon"
+    },
+    "E09000009": {
+      "wikidata": "https://www.wikidata.org/wiki/Q207218",
+      "label": "London Borough of Ealing"
+    },
+    "E09000010": {
+      "wikidata": "https://www.wikidata.org/wiki/Q210531",
+      "label": "London Borough of Enfield"
+    },
+    "E09000011": {
+      "wikidata": "https://www.wikidata.org/wiki/Q693450",
+      "label": "Royal Borough of Greenwich"
+    },
+    "E09000012": {
+      "wikidata": "https://www.wikidata.org/wiki/Q205679",
+      "label": "London Borough of Hackney"
+    },
+    "E09000013": {
+      "wikidata": "https://www.wikidata.org/wiki/Q40478",
+      "label": "London Borough of Hammersmith and Fulham"
+    },
+    "E09000014": {
+      "wikidata": "https://www.wikidata.org/wiki/Q213560",
+      "label": "London Borough of Haringey"
+    },
+    "E09000015": {
+      "wikidata": "https://www.wikidata.org/wiki/Q210476",
+      "label": "London Borough of Harrow"
+    },
+    "E09000016": {
+      "wikidata": "https://www.wikidata.org/wiki/Q215038",
+      "label": "London Borough of Havering"
+    },
+    "E09000017": {
+      "wikidata": "https://www.wikidata.org/wiki/Q205690",
+      "label": "London Borough of Hillingdon"
+    },
+    "E09000018": {
+      "wikidata": "https://www.wikidata.org/wiki/Q214162",
+      "label": "London Borough of Hounslow"
+    },
+    "E09000019": {
+      "wikidata": "https://www.wikidata.org/wiki/Q205817",
+      "label": "London Borough of Islington"
+    },
+    "E09000020": {
+      "wikidata": "https://www.wikidata.org/wiki/Q188801",
+      "label": "Royal Borough of Kensington and Chelsea"
+    },
+    "E09000021": {
+      "wikidata": "https://www.wikidata.org/wiki/Q32508",
+      "label": "Royal Borough of Kingston upon Thames"
+    },
+    "E09000022": {
+      "wikidata": "https://www.wikidata.org/wiki/Q202059",
+      "label": "London Borough of Lambeth"
+    },
+    "E09000023": {
+      "wikidata": "https://www.wikidata.org/wiki/Q215030",
+      "label": "London Borough of Lewisham"
+    },
+    "E09000024": {
+      "wikidata": "https://www.wikidata.org/wiki/Q32504",
+      "label": "London Borough of Merton"
+    },
+    "E09000025": {
+      "wikidata": "https://www.wikidata.org/wiki/Q208139",
+      "label": "London Borough of Newham"
+    },
+    "E09000026": {
+      "wikidata": "https://www.wikidata.org/wiki/Q208955",
+      "label": "London Borough of Redbridge"
+    },
+    "E09000027": {
+      "wikidata": "https://www.wikidata.org/wiki/Q32515",
+      "label": "London Borough of Richmond upon Thames"
+    },
+    "E09000028": {
+      "wikidata": "https://www.wikidata.org/wiki/Q730706",
+      "label": "London Borough of Southwark"
+    },
+    "E09000029": {
+      "wikidata": "https://www.wikidata.org/wiki/Q320378",
+      "label": "London Borough of Sutton"
+    },
+    "E09000030": {
+      "wikidata": "https://www.wikidata.org/wiki/Q208152",
+      "label": "London Borough of Tower Hamlets"
+    },
+    "E09000031": {
+      "wikidata": "https://www.wikidata.org/wiki/Q40608",
+      "label": "London Borough of Waltham Forest"
+    },
+    "E09000032": {
+      "wikidata": "https://www.wikidata.org/wiki/Q210563",
+      "label": "London Borough of Wandsworth"
+    },
+    "E09000033": {
+      "wikidata": "https://www.wikidata.org/wiki/Q179351",
+      "label": "City of Westminster"
+    },
+    "W06000001": {
+      "wikidata": "https://www.wikidata.org/wiki/Q42617191",
+      "label": "Isle of Anglesey"
+    },
+    "W06000002": {
+      "wikidata": "https://www.wikidata.org/wiki/Q109128",
+      "label": "Gwynedd"
+    },
+    "W06000003": {
+      "wikidata": "https://www.wikidata.org/wiki/Q817971",
+      "label": "Conwy County Borough"
+    },
+    "W06000004": {
+      "wikidata": "https://www.wikidata.org/wiki/Q650682",
+      "label": "Denbighshire"
+    },
+    "W06000005": {
+      "wikidata": "https://www.wikidata.org/wiki/Q505610",
+      "label": "Flintshire"
+    },
+    "W06000006": {
+      "wikidata": "https://www.wikidata.org/wiki/Q843868",
+      "label": "Wrexham County Borough"
+    },
+    "W06000008": {
+      "wikidata": "https://www.wikidata.org/wiki/Q217829",
+      "label": "Ceredigion"
+    },
+    "W06000009": {
+      "wikidata": "https://www.wikidata.org/wiki/Q213361",
+      "label": "Pembrokeshire"
+    },
+    "W06000010": {
+      "wikidata": "https://www.wikidata.org/wiki/Q217840",
+      "label": "Carmarthenshire"
+    },
+    "W06000011": {
+      "wikidata": "https://www.wikidata.org/wiki/Q10996863",
+      "label": "Swansea"
+    },
+    "W06000012": {
+      "wikidata": "https://www.wikidata.org/wiki/Q748078",
+      "label": "Neath Port Talbot"
+    },
+    "W06000013": {
+      "wikidata": "https://www.wikidata.org/wiki/Q697126",
+      "label": "Bridgend County Borough"
+    },
+    "W06000014": {
+      "wikidata": "https://www.wikidata.org/wiki/Q844784",
+      "label": "The Vale of Glamorgan"
+    },
+    "W06000015": {
+      "wikidata": "https://www.wikidata.org/wiki/Q24342199",
+      "label": "Cardiff"
+    },
+    "W06000016": {
+      "wikidata": "https://www.wikidata.org/wiki/Q817960",
+      "label": "Rhondda Cynon Taf"
+    },
+    "W06000018": {
+      "wikidata": "https://www.wikidata.org/wiki/Q748065",
+      "label": "Caerphilly County Borough"
+    },
+    "W06000019": {
+      "wikidata": "https://www.wikidata.org/wiki/Q596885",
+      "label": "Q596885"
+    },
+    "W06000020": {
+      "wikidata": "https://www.wikidata.org/wiki/Q643919",
+      "label": "Torfaen"
+    },
+    "W06000021": {
+      "wikidata": "https://www.wikidata.org/wiki/Q207176",
+      "label": "Monmouthshire"
+    },
+    "W06000022": {
+      "wikidata": "https://www.wikidata.org/wiki/Q5283458",
+      "label": "Newport"
+    },
+    "W06000023": {
+      "wikidata": "https://www.wikidata.org/wiki/Q156150",
+      "label": "Q156150"
+    },
+    "W06000024": {
+      "wikidata": "https://www.wikidata.org/wiki/Q3306663",
+      "label": "Merthyr Tydfil County Borough"
+    }
+  }
+}

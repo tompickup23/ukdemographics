@@ -5,6 +5,7 @@ import { CARD_LICENCE_METADATA } from "../../lib/map/card-licence";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import DataFreshness from "../../components/DataFreshness.astro";
+import SectionDates from "../../components/SectionDates.astro";
 import ShareButton from "../../components/ShareButton.astro";
 import StatCard from "../../components/StatCard.astro";
 import MiniMap from "../../components/MiniMap.astro";
@@ -48,6 +49,8 @@ import { compareCountyEal, SIMILAR_WITHIN_PP } from "../../lib/school-eal-compar
 import payrollRegional from "../../data/live/payroll-by-region-industry.json";
 import hmoDensity from "../../data/live/hmo-density.json";
 import councilTaxSpd from "../../data/live/council-tax-spd.json";
+import { councilName, plainPlaceName } from "../../lib/place-names";
+import { populationGrowthComparison, whiteBritishComparison, COMPARISON_NOTE } from "../../lib/place-comparisons";
 import { SITE_URL, buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
 import rawProjections from "../../data/live/ethnic-projections.json";
 import ukPlacesRegistry from "../../data/live/ukplaces-places.json";
@@ -84,6 +87,11 @@ export function getStaticPaths() {
 }
 
 const { area } = Astro.props as { area: DemographicAreaSummary };
+// The plain name ("Bristol") leads the title, H1 and breadcrumb; the council's
+// own name sits under the H1 where it differs (R360, src/lib/place-names.ts).
+// The URL and the body text keep the ONS name.
+const displayName = plainPlaceName(area.areaCode, area.areaName);
+const displayCouncil = councilName(area.areaCode);
 const projData = (rawProjections as any).areas?.[area.areaCode];
 type UkPlacesRecord = {
   slug: string;
@@ -452,7 +460,7 @@ const canonicalUrl = buildAbsoluteUrl(`/places/${slugifyAreaName(area.areaName)}
 // in docs/seo/README.md; src/lib/listing-arm.ts keeps the retired assignment.
 const firstArrivalIdx = ninoHistorical?.totalByYear.findIndex((v) => v != null) ?? -1;
 const placeListing = buildPlaceListing({
-  areaName: area.areaName,
+  areaName: displayName,
   censusYear: censusYear(),
   projectionTo: ethnicProjection && ethChartLines.length > 0 ? listingHorizon(area.areaCode) : null,
   hasReligion: !!religionData,
@@ -581,6 +589,12 @@ const CROSSING_MIN_BASE_PCT = 53;
 const showCrossing = crossingSpan != null && wbi2021 != null && wbi2021 >= CROSSING_MIN_BASE_PCT;
 const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
 
+// Plain-words comparisons beside the two observed headline figures (R504):
+// arithmetic on the council figures the site holds, no new source. The
+// projected cards get none; see src/lib/place-comparisons.ts.
+const growthComparison = populationGrowthComparison(area.areaCode);
+const wbiComparison = wbi2021 != null ? whiteBritishComparison(area.areaCode) : null;
+
 ---
 
 <BaseLayout
@@ -595,12 +609,13 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     { label: "Places", href: "/places/" },
     { label: area.regionName, href: buildPublicPlaceRegionPath(area.regionName) },
     ...(countyForDistrict(area.areaCode) ? [{label:countyForDistrict(area.areaCode)!.countyName,href:countyPath(countyForDistrict(area.areaCode)!.countyName)}] : []),
-    { label: area.areaName }
+    { label: displayName }
   ]} />
 
   <div class="place-header">
     <div class="place-identity">
-      <h1>{area.areaName}</h1>
+      <h1>{displayName}</h1>
+      {displayCouncil && <span class="place-council">{displayCouncil}</span>}
       <span class="place-region">{area.regionName} &middot; {area.countryName} &middot; {area.areaCode}</span>
       <p class="place-summary">
         {placeListing.summary}
@@ -683,12 +698,14 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     <StatCard
       value={fmtInt(population)}
       label="Population (2021 Census)"
+      compare={growthComparison?.text}
     />
     <StatCard
       value={fmtPct(wbi2021)}
       label="White British (2021)"
       accent="var(--accent)"
       note="Census"
+      compare={wbiComparison?.text}
     />
     {/* One entity, one colour. These three cards are the same measure at three
         dates, so escalating the hue (indigo to cyan to coral) encoded alarm
@@ -715,6 +732,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     />
     )}
   </section>
+  {(growthComparison || wbiComparison) && <p class="stat-compare-note">{COMPARISON_NOTE}</p>}
 
   {relatedFindings.length > 0 && (
     <nav class="place-related" aria-label="Related findings">
@@ -743,7 +761,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
     <div class="place-sections">
 
   <!-- place-map: the map block, maps plan Stage 2 -->
-  <PlaceMap code={area.areaCode} />
+  <PlaceMap code={area.areaCode}><SectionDates section="map" /></PlaceMap>
   <!-- /place-map -->
 
   <!-- Ethnic composition, trajectory chart + timeline -->
@@ -820,6 +838,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           />
         </div>
       )}
+      <SectionDates section="ethnic-composition" omit={[area.countryName !== "England" && "ons-snpp"]} />
     </section>
   )}
 
@@ -841,6 +860,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           areaName={area.areaName}
         />
       </div>
+      <SectionDates section="shift-share" />
     </section>
   )}
 
@@ -852,6 +872,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         <span class="diversity-level">{diversityIndex.diversityLevel}</span>
         <span class="diversity-detail">Shannon entropy: {diversityIndex.entropy.toFixed(2)} &middot; Dissimilarity: {diversityIndex.dissimilarity.toFixed(1)}</span>
       </div>
+      <SectionDates section="diversity" />
     </section>
   )}
 
@@ -883,6 +904,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       {projData?.muslimPct2051 != null && wbi2051 != null && (
         <p class="section-note">Muslim population projected: {projData.muslimPct2051.toFixed(1)}% by 2051</p>
       )}
+      <SectionDates section="religion" omit={[!(relChartLines.length > 0 || (projData?.muslimPct2051 != null && wbi2051 != null)) && "ukd-projection"]} />
     </section>
   )}
 
@@ -919,6 +941,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           )}
         </div>
       )}
+      <SectionDates section="nativity" omit={[!(natChartLines.length > 0 || (projData?.foreignBornPct2051 != null && wbi2051 != null)) && "ukd-projection"]} />
     </section>
   )}
 
@@ -950,6 +973,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           <span class="data-flag-note">A threshold on one Census variable, not a service-planning assessment. This site publishes no projection of language: it models ethnic group, and ethnic composition change is not a measure of language change.</span>
         </p>
       )}
+      <SectionDates section="english" />
     </section>
   )}
 
@@ -970,6 +994,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         <div class="data-item"><span class="data-label">Language</span><span class="data-value">{pressure.components?.languagePressure}/20</span></div>
         <div class="data-item"><span class="data-label">Housing</span><span class="data-value">{pressure.components?.housingPressure}/20</span></div>
       </div>
+      <SectionDates section="pressure" />
     </section>
   )}
 
@@ -1009,6 +1034,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         </div>
       )}
       <p class="section-note">{getNinoSource()}. {getNinoCaveat()}</p>
+      <SectionDates section="nino" />
     </section>
   )}
 
@@ -1036,6 +1062,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         troughValue={ninoHistorical.troughValue}
       />
       <p class="section-note">{getNinoHistoricalSource()} {getNinoHistoricalCaveat()}</p>
+      <SectionDates section="nino-history" />
     </section>
   )}
 
@@ -1104,6 +1131,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       </div>
 
       <p class="section-note">{getNinoDemographicSource()} {getNinoDemographicCaveat()}</p>
+      <SectionDates section="nino-demographic" />
     </section>
   )}
 
@@ -1187,6 +1215,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       </div>
 
       <p class="section-note">{getVisaRoutesSource()} {getVisaRoutesCaveat()}</p>
+      <SectionDates section="visa-routes" />
     </section>
   )}
 
@@ -1219,6 +1248,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         Source: ONS Census 2011 KS204EW (NOMIS NM_611_1) and Census 2021 TS012 (NOMIS NM_2032_1), aligned to broad country-of-birth groups.
         2011 data uses 2011 LA boundaries; 2021 data uses 2023 boundaries. LAs whose ONS code changed between Censuses (Buckinghamshire, Northamptonshire, North Yorkshire, Somerset reorganisations) are not in this comparison.
       </p>
+      <SectionDates section="cob-change" />
     </section>
   )}
 
@@ -1257,6 +1287,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         ))}
       </div>
       <p class="section-note">{getEconPassportSource()} {getEconPassportCaveat()}</p>
+      <SectionDates section="econ-passport" />
     </section>
   )}
 
@@ -1285,6 +1316,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-note">
         Source: DfE Schools, Pupils and their Characteristics {(schoolEalDistrict as any).academicYear}, school-level data aggregated to district. EAL (English as Additional Language) is a household-level signal: children born in the UK to non-English-speaking households count as EAL.
       </p>
+      <SectionDates section="schools-eal" />
     </section>
   )}
 
@@ -1332,6 +1364,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-note">
         Source: HM Revenue and Customs, PAYE Real Time Information, payrolled employments by region and industrial sector, July 2014 to {payrollRegion.latestSnapshotDate}; the five-year change runs from {payrollRegion.fiveYearBaselineDate}. Counts are employments not employees, rounded to the nearest 100; suppressed cells appear as missing.
       </p>
+      <SectionDates section="regional-labour" />
     </section>
   )}
 
@@ -1388,6 +1421,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         </p>
       )}
       <p class="section-note">{getCrimeSource()}. {getCrimeCaveat()}</p>
+      <SectionDates section="crime" />
     </section>
   )}
 
@@ -1426,6 +1460,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           {getAscMeasure("residentialRatePer10k65").publisher} change note on the activity report, {new Date(getAscMeasure("residentialRatePer10k65").revisionNotice!.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}: &ldquo;{getAscMeasure("residentialRatePer10k65").revisionNotice!.note}&rdquo;
         </p>
       )}
+      <SectionDates section="asc" />
     </section>
   )}
 
@@ -1443,6 +1478,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         ))}
       </div>
       <p class="section-note">ONS Census 2021 (RM043 - General health by ethnic group by age) via NOMIS. All ages, no age-standardisation: younger ethnic-group populations will show lower rates partly because they're younger, not necessarily because they're healthier. Group labels shortened for display.</p>
+      <SectionDates section="health-ethnic" />
     </section>
   )}
 
@@ -1491,6 +1527,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         </div>
       )}
       <p class="section-note">{getSendSource()}. {getSendCaveat()}</p>
+      <SectionDates section="send" />
     </section>
   )}
 
@@ -1525,6 +1562,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         )}
         {" "}No rate is given for {area.areaName}: that needs DWP's count by local authority, which this site does not yet hold, and splitting constituency counts between council areas by postcode share would be an estimate.
       </p>
+      <SectionDates section="pip" />
     </section>
   )}
 
@@ -1578,6 +1616,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
       <p class="section-note">
         Sources: NHS (Charges to Overseas Visitors) Regulations 2015 (as amended); Home Office IHS caseworker guidance (Sept 2025); House of Commons Library briefing CBP-7274; NHS England NHS Payment Scheme (national tariff). Approximately 80% of identified overseas-visitor debt across all NHS treatment is uncollected (NAO, follow-up scrutiny).
       </p>
+      <SectionDates section="nhs-funding" />
     </section>
   )}
 
@@ -1592,6 +1631,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         <div class="data-item"><span class="data-label">Degree or above</span><span class="data-value">{econ.summary.avgDegreeRate}%</span></div>
         <div class="data-item"><span class="data-label">No qualifications</span><span class="data-value">{econ.summary.avgNoQualsRate}%</span></div>
       </div>
+      <SectionDates section="economy" />
     </section>
   )}
 
@@ -1664,6 +1704,12 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           )}
         </>
       )}
+      <SectionDates section="housing" omit={[
+        !(ctSpd && ctSpd.singlePersonDiscountPctOfChargeable != null) && "mhclg-ctb",
+        !(hmo && hmo.hmoPer1kPopulation != null) && "census-2021-rm192",
+        topTenureByEthnic.length === 0 && "census-2021-rm134",
+        !housing?.dataAvailable && "ukd-projection",
+      ]} />
     </section>
   )}
 
@@ -1681,6 +1727,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
         <div class="data-item"><span class="data-label">White British gap (school vs population)</span><span class="data-value">{school.wbiGap != null ? `${school.wbiGap.toFixed(1)}pp` : "n/a"}</span></div>
       </div>
       {school.insight && <p class="section-note">{school.insight}</p>}
+      <SectionDates section="schools" omit={[school.ealDemandGrowthPp == null && "ukd-projection"]} />
     </section>
   )}
 
@@ -1699,6 +1746,7 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
           </a>
         ))}
       </div>
+      <SectionDates section="constituencies" />
     </section>
   )}
 
@@ -1759,6 +1807,8 @@ const wbiHeadcount = projData?.current?.groups_absolute?.white_british ?? null;
   .place-related ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.3rem; }
   .place-related li { font-size: 0.92rem; line-height: 1.45; overflow-wrap: anywhere; }
   .place-region { font-size: 0.88rem; color: var(--muted); }
+  .place-council { display: block; margin: 0.45rem 0 0.15rem; font-family: var(--font-display); font-size: 1.05rem; color: var(--ink-soft); }
+  .stat-compare-note { margin: -0.35rem 0 1rem; font-size: 0.78rem; color: var(--muted); max-width: 70ch; }
   .place-header-aside { display: flex; flex-direction: column; align-items: flex-end; gap: 0.65rem; flex: 0 0 auto; }
   .place-header-aside :global(.mini-map) {
     margin: 0;
