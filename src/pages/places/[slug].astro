@@ -8,6 +8,7 @@ import DataFreshness from "../../components/DataFreshness.astro";
 import SectionDates from "../../components/SectionDates.astro";
 import ShareButton from "../../components/ShareButton.astro";
 import StatCard from "../../components/StatCard.astro";
+import { placeEstimate, MYE_SOURCE_LINE } from "../../lib/population-headline";
 import MiniMap from "../../components/MiniMap.astro";
 import PlaceMap from "../../components/PlaceMap.astro";
 import { cardPath, placeCardSpecs, placeOgCard, renderCard } from "../../lib/map/cards";
@@ -477,6 +478,11 @@ const placeListing = buildPlaceListing({
 const pageTitle = placeListing.title;
 const metaDescription = placeListing.description;
 const directAnswer = buildPlaceDirectAnswer(area.areaCode);
+// Answer box order (decision R359, 4 November 2026): the ONS mid-year estimate and its
+// change since mid-2011 come first, then the 2021 Census count and the Census lines.
+const placeMye = placeEstimate(area.areaCode);
+const signedInt = (n: number) => `${n < 0 ? "\u2212" : "+"}${Math.abs(n).toLocaleString("en-GB")}`;
+const signedPct1 = (n: number) => `${n < 0 ? "\u2212" : "+"}${Math.abs(n).toFixed(1)}%`;
 
 // Findings that name this area, then this region, then the newest pieces on
 // composition and migration, so every place page passes readers on to the
@@ -646,9 +652,45 @@ const wbiComparison = wbi2021 != null ? whiteBritishComparison(area.areaCode) : 
     </div>
   </div>
 
-  {directAnswer && (
+  {(placeMye || directAnswer) && (
     <section class="place-answer" aria-label={`${area.areaName} in brief`}>
-      <p class="place-answer-text">{directAnswer}</p>
+      {placeMye && (
+        <div class="place-answer-estimate">
+          <div class="stat-card-row place-answer-stats">
+            <StatCard
+              value={placeMye.population.toLocaleString("en-GB")}
+              label={`Population, mid-${placeMye.year}`}
+              note="ONS estimate"
+            />
+            <StatCard
+              value={signedInt(placeMye.change)}
+              label={`${signedPct1(placeMye.changePct)} since mid-${placeMye.baseYear}, from ${placeMye.basePopulation.toLocaleString("en-GB")}`}
+              note="ONS estimate"
+            />
+            {/* Slot 1 of 2 (R359): population density, persons per square kilometre, from
+                ONS table MYE5. Renders once population-estimates.json carries a density field. */}
+            {placeMye.density != null && (
+              <StatCard
+                value={placeMye.density.toLocaleString("en-GB", { maximumFractionDigits: 0 })}
+                label={`People per square kilometre, mid-${placeMye.year}`}
+                note="ONS estimate"
+              />
+            )}
+            {/* Slot 2 of 2 (R359): median age, from ONS table MYE6 in the same workbook. */}
+            {placeMye.medianAge != null && (
+              <StatCard
+                value={placeMye.medianAge.toFixed(1)}
+                label={`Median age, mid-${placeMye.year}`}
+                note="ONS estimate"
+              />
+            )}
+          </div>
+          <p class="place-answer-source">
+            Source: {MYE_SOURCE_LINE}. Change since mid-{placeMye.baseYear} from the same series{placeMye.medianAge != null ? "; median age from table MYE6 in the same workbook" : ""}{placeMye.density != null ? "; density from table MYE5" : ""}.
+          </p>
+        </div>
+      )}
+      {directAnswer && <p class="place-answer-text">{directAnswer}</p>}
       <p class="place-answer-links">
         Looking at a street rather than the whole area? <a href="/your-area/">Look up your postcode</a> for the local authority and constituency it sits in.
       </p>
@@ -1799,6 +1841,8 @@ const wbiComparison = wbi2021 != null ? whiteBritishComparison(area.areaCode) : 
   }
   .place-summary { margin: 0.85rem 0 0; color: var(--text-muted); font-size: 1.02rem; line-height: 1.7; }
   .place-answer { margin: 0 0 1.5rem; padding: var(--space-4, 1rem) var(--space-5, 1.25rem); background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm, 8px); max-width: 72ch; }
+  .place-answer-stats { margin: 0 0 0.5rem; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); }
+  .place-answer-source { margin: 0 0 0.9rem; font-size: 0.8rem; line-height: 1.5; color: var(--muted); }
   .place-answer-text { margin: 0; font-size: 1rem; line-height: 1.65; color: var(--ink); }
   .place-answer-links { margin: 0.6rem 0 0; font-size: 0.9rem; color: var(--muted); }
   .place-trajectory { margin: 0 0 1rem; font-size: 0.98rem; color: var(--text-muted); max-width: 72ch; }
