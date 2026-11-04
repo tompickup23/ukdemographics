@@ -50,6 +50,9 @@ const spreadPp = Math.round((max2051 - min2051) * 10) / 10;
 // Pre-render central scenario chart data for server-side display
 const centralData = scenarioData[centralScenario];
 const years = ["2031", "2041", "2051", "2061"].filter(y => centralData?.[y]);
+// The chart's accessible name, from its own data: what it shows, for which place, the
+// span of years, and the scenario on show. The script below rewrites it on each switch.
+const chartAriaLabel = `Line chart of White British share in ${areaName}, ${years[0] ?? 2031} to ${years[years.length - 1] ?? 2061}. Central scenario: WBI ${central2051.toFixed(1)}% by 2051.`;
 ---
 
 <div class="scenario-section" data-area={areaCode} data-central={centralScenario}>
@@ -106,13 +109,13 @@ const years = ["2031", "2041", "2051", "2061"].filter(y => centralData?.[y]);
       Central scenario: WBI {central2051.toFixed(1)}% by 2051
     </div>
     <svg class="scenario-chart" id={`scenario-chart-${areaCode}`}
-         viewBox="0 0 480 180" role="img" aria-label="Scenario projection chart">
+         viewBox="0 0 480 180" role="img" aria-label={chartAriaLabel}>
       <!-- Rendered by client-side JS -->
     </svg>
   </div>
 
   <!-- Embed scenario data for JS -->
-  <script define:vars={{ areaCode, scenarioData, centralScenario }}>
+  <script define:vars={{ areaCode, areaName, scenarioData, centralScenario }}>
     (function() {
       const container = document.querySelector(`[data-area="${areaCode}"]`);
       if (!container) return;
@@ -178,6 +181,7 @@ const years = ["2031", "2041", "2051", "2061"].filter(y => centralData?.[y]);
         label.innerHTML = isCentral
           ? `Central scenario: WBI ${endVal.toFixed(1)}% by ${endYr}`
           : `${fert} fertility, ${mig}: WBI ${endVal.toFixed(1)}% by ${endYr}`;
+        svg.setAttribute('aria-label', `Line chart of White British share in ${areaName}, ${years[0]} to ${endYr}. ${label.textContent.trim()}.`);
       }
 
       // Initial render

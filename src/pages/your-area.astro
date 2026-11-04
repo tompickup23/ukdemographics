@@ -123,14 +123,15 @@ import { PLACE_COUNT, PCON_COUNT } from "../lib/coverage";
 </BaseLayout>
 
 <script>
+  import { loadSearchIndex } from "../scripts/search-index";
+
   const input = document.getElementById("postcode-input") as HTMLInputElement;
   const results = document.getElementById("search-results")!;
   const previewCard = document.getElementById("preview-card")!;
 
   let allAreas: any[] = [];
 
-  fetch("/search-index.json")
-    .then(r => r.json())
+  loadSearchIndex<any>()
     .then(data => { allAreas = Array.isArray(data) ? data : data.areas ?? []; })
     .catch(() => {});
 

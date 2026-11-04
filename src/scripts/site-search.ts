@@ -1,3 +1,5 @@
+import { loadSearchIndex } from "./search-index";
+
 interface SiteSearchEntry {
   href: string;
   title: string;
@@ -79,15 +81,12 @@ let entriesPromise: Promise<SiteSearchEntry[]> | null = null;
 
 function loadEntries(): Promise<SiteSearchEntry[]> {
   if (!entriesPromise) {
-    entriesPromise = fetch("/search-index.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Search index request failed with ${response.status}`);
-        }
-
-        return response.json() as Promise<SiteSearchEntry[]>;
-      })
-      .then((entries) => entries.sort((left, right) => right.priority - left.priority || left.title.localeCompare(right.title)));
+    // Sort a copy: the parsed index is shared with the other readers on the page.
+    entriesPromise = loadSearchIndex<SiteSearchEntry[]>()
+      .then((entries) => [...entries].sort((left, right) => right.priority - left.priority || left.title.localeCompare(right.title)));
+    entriesPromise.catch(() => {
+      entriesPromise = null;
+    });
   }
 
   return entriesPromise;

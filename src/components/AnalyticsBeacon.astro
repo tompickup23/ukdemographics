@@ -1,0 +1,14 @@
+---
+// Cloudflare Web Analytics: cookieless page view counts, described on /privacy/.
+// One token, read by both layouts, so the maps pages count the same way as the rest.
+// Production only, so local Astro work cannot inflate public traffic.
+export const CF_WEB_ANALYTICS_TOKEN = "b46b578caa974eeaa429fabf1cfaa932";
+---
+
+{import.meta.env.PROD && (
+  <script
+    defer
+    src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon={JSON.stringify({ token: CF_WEB_ANALYTICS_TOKEN })}
+  ></script>
+)}

@@ -1,4 +1,5 @@
 ---
+import AnalyticsBeacon from "../components/AnalyticsBeacon.astro";
 import {
   DEFAULT_DESCRIPTION,
   DEFAULT_SOCIAL_IMAGE_PATH,
@@ -142,6 +143,7 @@ const structuredData = [
     <link rel="manifest" href="/site.webmanifest" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.postcodes.io https://cloudflareinsights.com; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" />
     <meta name="google-site-verification" content="0NnwYAx2MjnJ1it-L-2U2FvYnQj-gB3dYWMGntGL-0E" />
+    <AnalyticsBeacon />
     {structuredData.map((item) => (
       <script type="application/ld+json" is:inline set:html={JSON.stringify(item)} />
     ))}
