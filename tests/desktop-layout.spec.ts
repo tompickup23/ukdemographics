@@ -81,6 +81,11 @@ test.describe("population first", () => {
       const ethnic = text.search(/ethnic/i);
       expect(census).toBeGreaterThan(at);
       expect(ethnic).toBeGreaterThan(census);
+      // Density (MYE5) and median age (MYE6) follow the Census count, and median age appears once.
+      const density = text.search(/Density: /);
+      expect(density).toBeGreaterThan(census);
+      expect(text.indexOf("Median age: ")).toBeGreaterThan(density);
+      expect(text.match(/median age/gi)?.length ?? 0).toBe(2);
     });
   }
 });

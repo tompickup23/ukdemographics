@@ -1,0 +1,3570 @@
+{
+ "source": {
+  "publisher": "Office for National Statistics",
+  "title": "Mid-Year Population Estimates, England and Wales, June 2025",
+  "published": "29 July 2026",
+  "release": "MYE25",
+  "referenceDate": "2025-06-30",
+  "tables": {
+   "MYE5": "MYE5: Population density for local authorities in England and Wales, mid-2011 to mid-2025",
+   "MYE6": "MYE6: Median age of population for local authorities in England and Wales, mid-2011 to mid-2025"
+  },
+  "sourceUrl": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid20252023localauthorityboundaries/mye25tablesew.xlsx",
+  "fileName": "mye25tablesew.xlsx",
+  "fileSha256": "85b4e105e9618043884e5ac41d46e6eae8a46bb01b31790f1c76110cbe92d0d8"
+ },
+ "units": {
+  "areaSqKm": "Land area in square kilometres, as published in MYE5 (column \"Area (sq km)\"). The sheet is in square kilometres, so no conversion from hectares or any other unit is made.",
+  "densityPerSqKm": "Usual residents per square kilometre of land at mid-2025, as published in MYE5 (column \"2025 people per sq. km\"), rounded by ONS to a whole number.",
+  "medianAge": "Median age in years at mid-2025, as published in MYE6, to one decimal place.",
+  "population": "Estimated population mid-2025 from MYE5, checked equal to MYE4 for every row."
+ },
+ "sourceNotes": {
+  "rounding": "Rounding: the population density estimates and area measurements are displayed rounded to the nearest integer though calculations have been performed on the unrounded data.",
+  "definitions": "Definitions: Standard Area Measurements (SAM) data used reflect the position as at January 2025 for England, Wales and Scotland. Land area measurements, excluding inland water, have been used in compiling these population density figures. Information on this is available from the ONS geography portal.",
+  "changes": "Changes: the area measurements are a definitive set derived from boundaries maintained by Ordnance Survey and Ordnance Survey of Northern Ireland. The current measurements may differ from those published previously in tables, publications, or other statistical outputs, even allowing for boundary changes or changes to the physical structure of the land because of improvements to the source of the data."
+ },
+ "usage": "Area, density and median age for each local authority, as ONS publishes them. Nothing is estimated, interpolated or borrowed from another area.",
+ "counts": {
+  "siteAreas": 318,
+  "areasEmitted": 318,
+  "missing": 0
+ },
+ "missing": [],
+ "latestYear": 2025,
+ "countries": {
+  "K04000001": {
+   "name": "ENGLAND AND WALES",
+   "areaSqKm": 151046.9967,
+   "densityPerSqKm": 411,
+   "medianAge": 40.7,
+   "population": 62009993,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=9",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=9"
+   }
+  },
+  "E92000001": {
+   "name": "ENGLAND",
+   "areaSqKm": 130310.4539,
+   "densityPerSqKm": 451,
+   "medianAge": 40.6,
+   "population": 58834812,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=10",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=10"
+   }
+  },
+  "W92000004": {
+   "name": "WALES",
+   "areaSqKm": 20736.5428,
+   "densityPerSqKm": 153,
+   "medianAge": 43.2,
+   "population": 3175181,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=343",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=343"
+   }
+  }
+ },
+ "areas": {
+  "E08000025": {
+   "name": "Birmingham",
+   "areaSqKm": 267.7782,
+   "densityPerSqKm": 4395,
+   "medianAge": 34.1,
+   "population": 1176960,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=143",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=143"
+   }
+  },
+  "E08000012": {
+   "name": "Liverpool",
+   "areaSqKm": 111.842,
+   "densityPerSqKm": 4541,
+   "medianAge": 35.4,
+   "population": 507915,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=60",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=60"
+   }
+  },
+  "E09000017": {
+   "name": "Hillingdon",
+   "areaSqKm": 115.7074,
+   "densityPerSqKm": 2823,
+   "medianAge": 36.9,
+   "population": 326671,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=234",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=234"
+   }
+  },
+  "E08000003": {
+   "name": "Manchester",
+   "areaSqKm": 115.6533,
+   "densityPerSqKm": 5086,
+   "medianAge": 30.6,
+   "population": 588256,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=37",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=37"
+   }
+  },
+  "E08000035": {
+   "name": "Leeds",
+   "areaSqKm": 551.6983,
+   "densityPerSqKm": 1524,
+   "medianAge": 36.6,
+   "population": 840550,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=80",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=80"
+   }
+  },
+  "E09000018": {
+   "name": "Hounslow",
+   "areaSqKm": 55.9623,
+   "densityPerSqKm": 5352,
+   "medianAge": 37.5,
+   "population": 299486,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=235",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=235"
+   }
+  },
+  "E08000026": {
+   "name": "Coventry",
+   "areaSqKm": 98.648,
+   "densityPerSqKm": 3698,
+   "medianAge": 35,
+   "population": 364766,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=144",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=144"
+   }
+  },
+  "E06000018": {
+   "name": "Nottingham",
+   "areaSqKm": 74.6251,
+   "densityPerSqKm": 4365,
+   "medianAge": 31.9,
+   "population": 325765,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=86",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=86"
+   }
+  },
+  "E08000028": {
+   "name": "Sandwell",
+   "areaSqKm": 85.5673,
+   "densityPerSqKm": 4124,
+   "medianAge": 36.9,
+   "population": 352918,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=146",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=146"
+   }
+  },
+  "E06000016": {
+   "name": "Leicester",
+   "areaSqKm": 73.3399,
+   "densityPerSqKm": 5224,
+   "medianAge": 33.5,
+   "population": 383116,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=84",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=84"
+   }
+  },
+  "E09000008": {
+   "name": "Croydon",
+   "areaSqKm": 86.466,
+   "densityPerSqKm": 4743,
+   "medianAge": 38.1,
+   "population": 410085,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=228",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=228"
+   }
+  },
+  "W06000015": {
+   "name": "Cardiff",
+   "areaSqKm": 140.9148,
+   "densityPerSqKm": 2707,
+   "medianAge": 34.7,
+   "population": 381516,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=358",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=358"
+   }
+  },
+  "E09000003": {
+   "name": "Barnet",
+   "areaSqKm": 86.7666,
+   "densityPerSqKm": 4703,
+   "medianAge": 38.8,
+   "population": 408087,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=224",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=224"
+   }
+  },
+  "E08000032": {
+   "name": "Bradford",
+   "areaSqKm": 366.3875,
+   "densityPerSqKm": 1522,
+   "medianAge": 37.6,
+   "population": 557758,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=77",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=77"
+   }
+  },
+  "E08000031": {
+   "name": "Wolverhampton",
+   "areaSqKm": 69.4393,
+   "densityPerSqKm": 4053,
+   "medianAge": 37.7,
+   "population": 281434,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=149",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=149"
+   }
+  },
+  "E06000021": {
+   "name": "Stoke-on-Trent",
+   "areaSqKm": 93.4361,
+   "densityPerSqKm": 2914,
+   "medianAge": 37.8,
+   "population": 272282,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=125",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=125"
+   }
+  },
+  "E09000009": {
+   "name": "Ealing",
+   "areaSqKm": 55.5422,
+   "densityPerSqKm": 6969,
+   "medianAge": 36.9,
+   "population": 387072,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=229",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=229"
+   }
+  },
+  "E06000015": {
+   "name": "Derby",
+   "areaSqKm": 78.0201,
+   "densityPerSqKm": 3529,
+   "medianAge": 37.7,
+   "population": 275344,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=83",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=83"
+   }
+  },
+  "E08000010": {
+   "name": "Wigan",
+   "areaSqKm": 188.1584,
+   "densityPerSqKm": 1845,
+   "medianAge": 41.5,
+   "population": 347089,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=44",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=44"
+   }
+  },
+  "E09000025": {
+   "name": "Newham",
+   "areaSqKm": 36.1958,
+   "densityPerSqKm": 10403,
+   "medianAge": 31.8,
+   "population": 376542,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=218",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=218"
+   }
+  },
+  "E08000021": {
+   "name": "Newcastle upon Tyne",
+   "areaSqKm": 113.4504,
+   "densityPerSqKm": 2828,
+   "medianAge": 33.7,
+   "population": 320838,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=21",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=21"
+   }
+  },
+  "E06000023": {
+   "name": "Bristol, City of",
+   "areaSqKm": 109.6615,
+   "densityPerSqKm": 4516,
+   "medianAge": 33.6,
+   "population": 495260,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=316",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=316"
+   }
+  },
+  "E08000001": {
+   "name": "Bolton",
+   "areaSqKm": 139.783,
+   "densityPerSqKm": 2216,
+   "medianAge": 38.5,
+   "population": 309732,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=35",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=35"
+   }
+  },
+  "E09000005": {
+   "name": "Brent",
+   "areaSqKm": 43.2361,
+   "densityPerSqKm": 8146,
+   "medianAge": 35.5,
+   "population": 352201,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=226",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=226"
+   }
+  },
+  "E08000007": {
+   "name": "Stockport",
+   "areaSqKm": 126.0524,
+   "densityPerSqKm": 2419,
+   "medianAge": 42.1,
+   "population": 304879,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=41",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=41"
+   }
+  },
+  "E06000004": {
+   "name": "Stockton-on-Tees",
+   "areaSqKm": 204.9433,
+   "densityPerSqKm": 1011,
+   "medianAge": 41.5,
+   "population": 207158,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=18",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=18"
+   }
+  },
+  "E08000024": {
+   "name": "Sunderland",
+   "areaSqKm": 137.4246,
+   "densityPerSqKm": 2089,
+   "medianAge": 42.3,
+   "population": 287070,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=24",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=24"
+   }
+  },
+  "E08000004": {
+   "name": "Oldham",
+   "areaSqKm": 142.345,
+   "densityPerSqKm": 1770,
+   "medianAge": 37.2,
+   "population": 251915,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=38",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=38"
+   }
+  },
+  "E08000015": {
+   "name": "Wirral",
+   "areaSqKm": 160.9235,
+   "densityPerSqKm": 2050,
+   "medianAge": 44.2,
+   "population": 329896,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=63",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=63"
+   }
+  },
+  "E06000010": {
+   "name": "Kingston upon Hull, City of",
+   "areaSqKm": 71.5789,
+   "densityPerSqKm": 3818,
+   "medianAge": 37.4,
+   "population": 273257,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=66",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=66"
+   }
+  },
+  "E06000008": {
+   "name": "Blackburn with Darwen",
+   "areaSqKm": 137.0175,
+   "densityPerSqKm": 1195,
+   "medianAge": 36.5,
+   "population": 163801,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=26",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=26"
+   }
+  },
+  "E06000044": {
+   "name": "Portsmouth",
+   "areaSqKm": 40.3867,
+   "densityPerSqKm": 5236,
+   "medianAge": 36.9,
+   "population": 211475,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=248",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=248"
+   }
+  },
+  "E06000038": {
+   "name": "Reading",
+   "areaSqKm": 40.3935,
+   "densityPerSqKm": 4549,
+   "medianAge": 35.3,
+   "population": 183762,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=249",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=249"
+   }
+  },
+  "E08000034": {
+   "name": "Kirklees",
+   "areaSqKm": 408.5517,
+   "densityPerSqKm": 1091,
+   "medianAge": 40.3,
+   "population": 445832,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=79",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=79"
+   }
+  },
+  "E08000005": {
+   "name": "Rochdale",
+   "areaSqKm": 158.1236,
+   "densityPerSqKm": 1503,
+   "medianAge": 38.1,
+   "population": 237641,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=39",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=39"
+   }
+  },
+  "E08000027": {
+   "name": "Dudley",
+   "areaSqKm": 97.9733,
+   "densityPerSqKm": 3408,
+   "medianAge": 41.4,
+   "population": 333941,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=145",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=145"
+   }
+  },
+  "E08000036": {
+   "name": "Wakefield",
+   "areaSqKm": 338.6086,
+   "densityPerSqKm": 1091,
+   "medianAge": 41.2,
+   "population": 369450,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=81",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=81"
+   }
+  },
+  "E06000032": {
+   "name": "Luton",
+   "areaSqKm": 43.3526,
+   "densityPerSqKm": 5452,
+   "medianAge": 34.1,
+   "population": 236380,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=160",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=160"
+   }
+  },
+  "E06000020": {
+   "name": "Telford and Wrekin",
+   "areaSqKm": 290.2731,
+   "densityPerSqKm": 687,
+   "medianAge": 40,
+   "population": 199378,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=126",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=126"
+   }
+  },
+  "E08000006": {
+   "name": "Salford",
+   "areaSqKm": 97.1974,
+   "densityPerSqKm": 3056,
+   "medianAge": 33.4,
+   "population": 297004,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=40",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=40"
+   }
+  },
+  "W06000011": {
+   "name": "Swansea",
+   "areaSqKm": 377.6127,
+   "densityPerSqKm": 661,
+   "medianAge": 40.7,
+   "population": 249429,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=354",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=354"
+   }
+  },
+  "E06000002": {
+   "name": "Middlesbrough",
+   "areaSqKm": 53.8815,
+   "densityPerSqKm": 2836,
+   "medianAge": 37,
+   "population": 152795,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=15",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=15"
+   }
+  },
+  "E07000067": {
+   "name": "Braintree",
+   "areaSqKm": 611.7095,
+   "densityPerSqKm": 272,
+   "medianAge": 43.1,
+   "population": 166471,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=172",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=172"
+   }
+  },
+  "E06000057": {
+   "name": "Northumberland",
+   "areaSqKm": 5019.8979,
+   "densityPerSqKm": 67,
+   "medianAge": 49.4,
+   "population": 333975,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=16",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=16"
+   }
+  },
+  "E08000030": {
+   "name": "Walsall",
+   "areaSqKm": 103.9978,
+   "densityPerSqKm": 2844,
+   "medianAge": 38.5,
+   "population": 295722,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=148",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=148"
+   }
+  },
+  "E08000013": {
+   "name": "St. Helens",
+   "areaSqKm": 136.3571,
+   "densityPerSqKm": 1393,
+   "medianAge": 42.4,
+   "population": 189890,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=62",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=62"
+   }
+  },
+  "E06000050": {
+   "name": "Cheshire West and Chester",
+   "areaSqKm": 920.0139,
+   "densityPerSqKm": 406,
+   "medianAge": 43.8,
+   "population": 373951,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=29",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=29"
+   }
+  },
+  "E08000017": {
+   "name": "Doncaster",
+   "areaSqKm": 567.9934,
+   "densityPerSqKm": 569,
+   "medianAge": 41.2,
+   "population": 323016,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=73",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=73"
+   }
+  },
+  "E08000037": {
+   "name": "Gateshead",
+   "areaSqKm": 142.3447,
+   "densityPerSqKm": 1423,
+   "medianAge": 41.8,
+   "population": 202509,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=20",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=20"
+   }
+  },
+  "E08000023": {
+   "name": "South Tyneside",
+   "areaSqKm": 64.4205,
+   "densityPerSqKm": 2348,
+   "medianAge": 43.2,
+   "population": 151255,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=23",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=23"
+   }
+  },
+  "E08000033": {
+   "name": "Calderdale",
+   "areaSqKm": 363.9619,
+   "densityPerSqKm": 579,
+   "medianAge": 42.6,
+   "population": 210734,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=78",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=78"
+   }
+  },
+  "E06000006": {
+   "name": "Halton",
+   "areaSqKm": 79.0819,
+   "densityPerSqKm": 1668,
+   "medianAge": 41.7,
+   "population": 131912,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=31",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=31"
+   }
+  },
+  "E06000061": {
+   "name": "North Northamptonshire",
+   "areaSqKm": 986.6073,
+   "densityPerSqKm": 385,
+   "medianAge": 41.2,
+   "population": 379569,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=85",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=85"
+   }
+  },
+  "E09000012": {
+   "name": "Hackney",
+   "areaSqKm": 19.044,
+   "densityPerSqKm": 13980,
+   "medianAge": 32.9,
+   "population": 266241,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=211",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=211"
+   }
+  },
+  "E06000009": {
+   "name": "Blackpool",
+   "areaSqKm": 34.871,
+   "densityPerSqKm": 4115,
+   "medianAge": 43.2,
+   "population": 143492,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=27",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=27"
+   }
+  },
+  "E06000047": {
+   "name": "County Durham",
+   "areaSqKm": 2225.8556,
+   "densityPerSqKm": 242,
+   "medianAge": 43.9,
+   "population": 539146,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=12",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=12"
+   }
+  },
+  "E07000220": {
+   "name": "Rugby",
+   "areaSqKm": 351.1404,
+   "densityPerSqKm": 358,
+   "medianAge": 40.4,
+   "population": 125594,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=139",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=139"
+   }
+  },
+  "E06000030": {
+   "name": "Swindon",
+   "areaSqKm": 230.0634,
+   "densityPerSqKm": 1066,
+   "medianAge": 40.1,
+   "population": 245286,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=324",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=324"
+   }
+  },
+  "E06000058": {
+   "name": "Bournemouth, Christchurch and Poole",
+   "areaSqKm": 162.0813,
+   "densityPerSqKm": 2504,
+   "medianAge": 43.4,
+   "population": 405829,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=315",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=315"
+   }
+  },
+  "E09000028": {
+   "name": "Southwark",
+   "areaSqKm": 28.8776,
+   "densityPerSqKm": 10817,
+   "medianAge": 33.9,
+   "population": 312366,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=219",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=219"
+   }
+  },
+  "E06000063": {
+   "name": "Cumberland",
+   "areaSqKm": 3012.2185,
+   "densityPerSqKm": 94,
+   "medianAge": 46.4,
+   "population": 282343,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=30",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=30"
+   }
+  },
+  "E06000026": {
+   "name": "Plymouth",
+   "areaSqKm": 79.8455,
+   "densityPerSqKm": 3399,
+   "medianAge": 39.7,
+   "population": 271361,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=321",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=321"
+   }
+  },
+  "E09000026": {
+   "name": "Redbridge",
+   "areaSqKm": 56.3942,
+   "densityPerSqKm": 5707,
+   "medianAge": 35.9,
+   "population": 321829,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=238",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=238"
+   }
+  },
+  "E06000031": {
+   "name": "Peterborough",
+   "areaSqKm": 343.4015,
+   "densityPerSqKm": 655,
+   "medianAge": 37.4,
+   "population": 224757,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=161",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=161"
+   }
+  },
+  "E08000008": {
+   "name": "Tameside",
+   "areaSqKm": 103.1522,
+   "densityPerSqKm": 2335,
+   "medianAge": 39.8,
+   "population": 240822,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=42",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=42"
+   }
+  },
+  "E09000030": {
+   "name": "Tower Hamlets",
+   "areaSqKm": 19.771,
+   "densityPerSqKm": 16906,
+   "medianAge": 30.8,
+   "population": 334240,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=220",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=220"
+   }
+  },
+  "E06000062": {
+   "name": "West Northamptonshire",
+   "areaSqKm": 1377.3811,
+   "densityPerSqKm": 323,
+   "medianAge": 40.5,
+   "population": 444218,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=88",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=88"
+   }
+  },
+  "E06000065": {
+   "name": "North Yorkshire",
+   "areaSqKm": 8037.4537,
+   "densityPerSqKm": 80,
+   "medianAge": 49.1,
+   "population": 639133,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=69",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=69"
+   }
+  },
+  "E06000049": {
+   "name": "Cheshire East",
+   "areaSqKm": 1166.3102,
+   "densityPerSqKm": 365,
+   "medianAge": 45,
+   "population": 425459,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=28",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=28"
+   }
+  },
+  "E07000096": {
+   "name": "Dacorum",
+   "areaSqKm": 212.4798,
+   "densityPerSqKm": 764,
+   "medianAge": 40.9,
+   "population": 162316,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=185",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=185"
+   }
+  },
+  "E07000117": {
+   "name": "Burnley",
+   "areaSqKm": 110.6816,
+   "densityPerSqKm": 912,
+   "medianAge": 38.9,
+   "population": 100946,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=46",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=46"
+   }
+  },
+  "E06000007": {
+   "name": "Warrington",
+   "areaSqKm": 180.6281,
+   "densityPerSqKm": 1193,
+   "medianAge": 43.2,
+   "population": 215425,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=32",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=32"
+   }
+  },
+  "E07000228": {
+   "name": "Mid Sussex",
+   "areaSqKm": 334.0239,
+   "densityPerSqKm": 490,
+   "medianAge": 43.5,
+   "population": 163566,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=311",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=311"
+   }
+  },
+  "E07000122": {
+   "name": "Pendle",
+   "areaSqKm": 169.4027,
+   "densityPerSqKm": 592,
+   "medianAge": 39.5,
+   "population": 100203,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=51",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=51"
+   }
+  },
+  "E08000018": {
+   "name": "Rotherham",
+   "areaSqKm": 286.5345,
+   "densityPerSqKm": 974,
+   "medianAge": 41.1,
+   "population": 279161,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=74",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=74"
+   }
+  },
+  "E08000022": {
+   "name": "North Tyneside",
+   "areaSqKm": 82.3017,
+   "densityPerSqKm": 2617,
+   "medianAge": 43.5,
+   "population": 215401,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=22",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=22"
+   }
+  },
+  "E07000222": {
+   "name": "Warwick",
+   "areaSqKm": 282.8685,
+   "densityPerSqKm": 558,
+   "medianAge": 40,
+   "population": 157925,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=141",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=141"
+   }
+  },
+  "E08000014": {
+   "name": "Sefton",
+   "areaSqKm": 156.5913,
+   "densityPerSqKm": 1837,
+   "medianAge": 45.4,
+   "population": 287583,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=61",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=61"
+   }
+  },
+  "E07000123": {
+   "name": "Preston",
+   "areaSqKm": 142.2885,
+   "densityPerSqKm": 1156,
+   "medianAge": 35.7,
+   "population": 164498,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=52",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=52"
+   }
+  },
+  "E09000022": {
+   "name": "Lambeth",
+   "areaSqKm": 26.8071,
+   "densityPerSqKm": 11724,
+   "medianAge": 33.6,
+   "population": 314298,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=216",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=216"
+   }
+  },
+  "E07000120": {
+   "name": "Hyndburn",
+   "areaSqKm": 72.9771,
+   "densityPerSqKm": 1191,
+   "medianAge": 39.2,
+   "population": 86908,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=49",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=49"
+   }
+  },
+  "E07000127": {
+   "name": "West Lancashire",
+   "areaSqKm": 346.633,
+   "densityPerSqKm": 356,
+   "medianAge": 44.1,
+   "population": 123564,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=56",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=56"
+   }
+  },
+  "E08000009": {
+   "name": "Trafford",
+   "areaSqKm": 106.042,
+   "densityPerSqKm": 2273,
+   "medianAge": 41.1,
+   "population": 240981,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=43",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=43"
+   }
+  },
+  "E06000001": {
+   "name": "Hartlepool",
+   "areaSqKm": 93.7146,
+   "densityPerSqKm": 1063,
+   "medianAge": 41.4,
+   "population": 99656,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=14",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=14"
+   }
+  },
+  "E08000002": {
+   "name": "Bury",
+   "areaSqKm": 99.4586,
+   "densityPerSqKm": 2004,
+   "medianAge": 40.4,
+   "population": 199271,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=36",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=36"
+   }
+  },
+  "E07000226": {
+   "name": "Crawley",
+   "areaSqKm": 44.9452,
+   "densityPerSqKm": 2769,
+   "medianAge": 37.8,
+   "population": 124462,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=309",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=309"
+   }
+  },
+  "E09000010": {
+   "name": "Enfield",
+   "areaSqKm": 80.8003,
+   "densityPerSqKm": 4077,
+   "medianAge": 38.8,
+   "population": 329400,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=230",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=230"
+   }
+  },
+  "E07000081": {
+   "name": "Gloucester",
+   "areaSqKm": 40.553,
+   "densityPerSqKm": 3417,
+   "medianAge": 39.1,
+   "population": 138565,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=340",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=340"
+   }
+  },
+  "E06000042": {
+   "name": "Milton Keynes",
+   "areaSqKm": 308.645,
+   "densityPerSqKm": 1001,
+   "medianAge": 38.5,
+   "population": 308866,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=247",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=247"
+   }
+  },
+  "E06000039": {
+   "name": "Slough",
+   "areaSqKm": 32.5421,
+   "densityPerSqKm": 5146,
+   "medianAge": 35,
+   "population": 167450,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=250",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=250"
+   }
+  },
+  "E07000126": {
+   "name": "South Ribble",
+   "areaSqKm": 113.1852,
+   "densityPerSqKm": 1039,
+   "medianAge": 44.2,
+   "population": 117554,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=55",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=55"
+   }
+  },
+  "E06000040": {
+   "name": "Windsor and Maidenhead",
+   "areaSqKm": 196.4875,
+   "densityPerSqKm": 813,
+   "medianAge": 43.1,
+   "population": 159776,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=253",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=253"
+   }
+  },
+  "E07000070": {
+   "name": "Chelmsford",
+   "areaSqKm": 338.7676,
+   "densityPerSqKm": 563,
+   "medianAge": 41.4,
+   "population": 190570,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=175",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=175"
+   }
+  },
+  "E06000066": {
+   "name": "Somerset",
+   "areaSqKm": 3450.2053,
+   "densityPerSqKm": 171,
+   "medianAge": 47.2,
+   "population": 590972,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=322",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=322"
+   }
+  },
+  "E09000013": {
+   "name": "Hammersmith and Fulham",
+   "areaSqKm": 16.4013,
+   "densityPerSqKm": 11598,
+   "medianAge": 34.2,
+   "population": 190216,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=212",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=212"
+   }
+  },
+  "E07000128": {
+   "name": "Wyre",
+   "areaSqKm": 282.1582,
+   "densityPerSqKm": 427,
+   "medianAge": 51,
+   "population": 120528,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=57",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=57"
+   }
+  },
+  "E07000095": {
+   "name": "Broxbourne",
+   "areaSqKm": 51.4567,
+   "densityPerSqKm": 2004,
+   "medianAge": 40.2,
+   "population": 103130,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=184",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=184"
+   }
+  },
+  "E09000015": {
+   "name": "Harrow",
+   "areaSqKm": 50.4643,
+   "densityPerSqKm": 5402,
+   "medianAge": 38.2,
+   "population": 272612,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=232",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=232"
+   }
+  },
+  "E07000148": {
+   "name": "Norwich",
+   "areaSqKm": 38.9978,
+   "densityPerSqKm": 3735,
+   "medianAge": 35.6,
+   "population": 145676,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=200",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=200"
+   }
+  },
+  "W06000022": {
+   "name": "Newport",
+   "areaSqKm": 190.4364,
+   "densityPerSqKm": 885,
+   "medianAge": 38.9,
+   "population": 168584,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=365",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=365"
+   }
+  },
+  "E06000045": {
+   "name": "Southampton",
+   "areaSqKm": 49.8807,
+   "densityPerSqKm": 5197,
+   "medianAge": 34.8,
+   "population": 259230,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=251",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=251"
+   }
+  },
+  "E07000211": {
+   "name": "Reigate and Banstead",
+   "areaSqKm": 129.1617,
+   "densityPerSqKm": 1234,
+   "medianAge": 41.7,
+   "population": 159413,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=298",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=298"
+   }
+  },
+  "E07000066": {
+   "name": "Basildon",
+   "areaSqKm": 110.0167,
+   "densityPerSqKm": 1759,
+   "medianAge": 39.1,
+   "population": 193489,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=171",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=171"
+   }
+  },
+  "E07000243": {
+   "name": "Stevenage",
+   "areaSqKm": 25.9692,
+   "densityPerSqKm": 3546,
+   "medianAge": 38.6,
+   "population": 92081,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=190",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=190"
+   }
+  },
+  "E08000011": {
+   "name": "Knowsley",
+   "areaSqKm": 86.5002,
+   "densityPerSqKm": 1893,
+   "medianAge": 39.2,
+   "population": 163723,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=59",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=59"
+   }
+  },
+  "E07000071": {
+   "name": "Colchester",
+   "areaSqKm": 328.2237,
+   "densityPerSqKm": 613,
+   "medianAge": 39.8,
+   "population": 201163,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=176",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=176"
+   }
+  },
+  "E09000024": {
+   "name": "Merton",
+   "areaSqKm": 37.624,
+   "densityPerSqKm": 5818,
+   "medianAge": 38.3,
+   "population": 218891,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=237",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=237"
+   }
+  },
+  "E09000002": {
+   "name": "Barking and Dagenham",
+   "areaSqKm": 36.1012,
+   "densityPerSqKm": 6601,
+   "medianAge": 33.2,
+   "population": 238295,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=223",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=223"
+   }
+  },
+  "E07000219": {
+   "name": "Nuneaton and Bedworth",
+   "areaSqKm": 78.9072,
+   "densityPerSqKm": 1825,
+   "medianAge": 40.2,
+   "population": 144042,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=138",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=138"
+   }
+  },
+  "E08000029": {
+   "name": "Solihull",
+   "areaSqKm": 178.2953,
+   "densityPerSqKm": 1242,
+   "medianAge": 42.9,
+   "population": 221449,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=147",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=147"
+   }
+  },
+  "E06000012": {
+   "name": "North East Lincolnshire",
+   "areaSqKm": 192.6232,
+   "densityPerSqKm": 831,
+   "medianAge": 43.4,
+   "population": 160101,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=67",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=67"
+   }
+  },
+  "E07000178": {
+   "name": "Oxford",
+   "areaSqKm": 45.603,
+   "densityPerSqKm": 3639,
+   "medianAge": 31.7,
+   "population": 165940,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=289",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=289"
+   }
+  },
+  "E06000014": {
+   "name": "York",
+   "areaSqKm": 271.9407,
+   "densityPerSqKm": 769,
+   "medianAge": 38.8,
+   "population": 209118,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=70",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=70"
+   }
+  },
+  "E06000003": {
+   "name": "Redcar and Cleveland",
+   "areaSqKm": 245.0785,
+   "densityPerSqKm": 569,
+   "medianAge": 46,
+   "population": 139541,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=17",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=17"
+   }
+  },
+  "E09000020": {
+   "name": "Kensington and Chelsea",
+   "areaSqKm": 12.1256,
+   "densityPerSqKm": 12019,
+   "medianAge": 39.5,
+   "population": 145734,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=215",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=215"
+   }
+  },
+  "E09000023": {
+   "name": "Lewisham",
+   "areaSqKm": 35.146,
+   "densityPerSqKm": 8565,
+   "medianAge": 36.5,
+   "population": 301037,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=217",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=217"
+   }
+  },
+  "E06000035": {
+   "name": "Medway",
+   "areaSqKm": 193.7212,
+   "densityPerSqKm": 1511,
+   "medianAge": 39.1,
+   "population": 292697,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=246",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=246"
+   }
+  },
+  "E06000033": {
+   "name": "Southend-on-Sea",
+   "areaSqKm": 41.6737,
+   "densityPerSqKm": 4444,
+   "medianAge": 42.1,
+   "population": 185214,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=162",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=162"
+   }
+  },
+  "E07000121": {
+   "name": "Lancaster",
+   "areaSqKm": 566.935,
+   "densityPerSqKm": 256,
+   "medianAge": 41.5,
+   "population": 145237,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=50",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=50"
+   }
+  },
+  "E07000125": {
+   "name": "Rossendale",
+   "areaSqKm": 138.0409,
+   "densityPerSqKm": 534,
+   "medianAge": 42.3,
+   "population": 73688,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=54",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=54"
+   }
+  },
+  "E07000130": {
+   "name": "Charnwood",
+   "areaSqKm": 279.0238,
+   "densityPerSqKm": 680,
+   "medianAge": 40.2,
+   "population": 189718,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=100",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=100"
+   }
+  },
+  "E06000064": {
+   "name": "Westmorland and Furness",
+   "areaSqKm": 3755.7135,
+   "densityPerSqKm": 62,
+   "medianAge": 49.8,
+   "population": 231307,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=33",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=33"
+   }
+  },
+  "E09000007": {
+   "name": "Camden",
+   "areaSqKm": 21.7785,
+   "densityPerSqKm": 9948,
+   "medianAge": 33.9,
+   "population": 216658,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=209",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=209"
+   }
+  },
+  "E07000118": {
+   "name": "Chorley",
+   "areaSqKm": 202.7565,
+   "densityPerSqKm": 601,
+   "medianAge": 44,
+   "population": 121814,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=47",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=47"
+   }
+  },
+  "E07000106": {
+   "name": "Canterbury",
+   "areaSqKm": 308.7372,
+   "densityPerSqKm": 527,
+   "medianAge": 42.4,
+   "population": 162612,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=276",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=276"
+   }
+  },
+  "E06000005": {
+   "name": "Darlington",
+   "areaSqKm": 197.4895,
+   "densityPerSqKm": 574,
+   "medianAge": 43.1,
+   "population": 113402,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=13",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=13"
+   }
+  },
+  "E07000040": {
+   "name": "East Devon",
+   "areaSqKm": 814.2385,
+   "densityPerSqKm": 196,
+   "medianAge": 51.2,
+   "population": 159637,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=328",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=328"
+   }
+  },
+  "E06000055": {
+   "name": "Bedford",
+   "areaSqKm": 476.4167,
+   "densityPerSqKm": 412,
+   "medianAge": 40.1,
+   "population": 196398,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=158",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=158"
+   }
+  },
+  "E06000041": {
+   "name": "Wokingham",
+   "areaSqKm": 178.9739,
+   "densityPerSqKm": 1056,
+   "medianAge": 41.9,
+   "population": 189024,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=254",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=254"
+   }
+  },
+  "E07000141": {
+   "name": "South Kesteven",
+   "areaSqKm": 942.5749,
+   "densityPerSqKm": 157,
+   "medianAge": 46.5,
+   "population": 148069,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=112",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=112"
+   }
+  },
+  "E07000199": {
+   "name": "Tamworth",
+   "areaSqKm": 30.8412,
+   "densityPerSqKm": 2639,
+   "medianAge": 41.3,
+   "population": 81392,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=135",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=135"
+   }
+  },
+  "E06000054": {
+   "name": "Wiltshire",
+   "areaSqKm": 3255.391,
+   "densityPerSqKm": 162,
+   "medianAge": 45.2,
+   "population": 526392,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=326",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=326"
+   }
+  },
+  "E06000056": {
+   "name": "Central Bedfordshire",
+   "areaSqKm": 715.6662,
+   "densityPerSqKm": 449,
+   "medianAge": 40.7,
+   "population": 321605,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=159",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=159"
+   }
+  },
+  "E07000241": {
+   "name": "Welwyn Hatfield",
+   "areaSqKm": 129.5429,
+   "densityPerSqKm": 940,
+   "medianAge": 39,
+   "population": 121748,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=193",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=193"
+   }
+  },
+  "E07000076": {
+   "name": "Tendring",
+   "areaSqKm": 336.3245,
+   "densityPerSqKm": 473,
+   "medianAge": 50.7,
+   "population": 159060,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=181",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=181"
+   }
+  },
+  "E06000060": {
+   "name": "Buckinghamshire",
+   "areaSqKm": 1564.9412,
+   "densityPerSqKm": 373,
+   "medianAge": 42.4,
+   "population": 584296,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=255",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=255"
+   }
+  },
+  "E07000171": {
+   "name": "Bassetlaw",
+   "areaSqKm": 637.795,
+   "densityPerSqKm": 198,
+   "medianAge": 44.7,
+   "population": 126454,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=116",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=116"
+   }
+  },
+  "E09000031": {
+   "name": "Waltham Forest",
+   "areaSqKm": 38.8102,
+   "densityPerSqKm": 7310,
+   "medianAge": 36.9,
+   "population": 283713,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=241",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=241"
+   }
+  },
+  "E09000014": {
+   "name": "Haringey",
+   "areaSqKm": 29.6063,
+   "densityPerSqKm": 8992,
+   "medianAge": 37,
+   "population": 266218,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=213",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=213"
+   }
+  },
+  "E07000225": {
+   "name": "Chichester",
+   "areaSqKm": 786.1901,
+   "densityPerSqKm": 166,
+   "medianAge": 48.9,
+   "population": 130224,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=308",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=308"
+   }
+  },
+  "E09000016": {
+   "name": "Havering",
+   "areaSqKm": 112.336,
+   "densityPerSqKm": 2500,
+   "medianAge": 39.2,
+   "population": 280787,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=233",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=233"
+   }
+  },
+  "E09000006": {
+   "name": "Bromley",
+   "areaSqKm": 150.1288,
+   "densityPerSqKm": 2238,
+   "medianAge": 42.1,
+   "population": 336048,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=227",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=227"
+   }
+  },
+  "E06000034": {
+   "name": "Thurrock",
+   "areaSqKm": 163.8359,
+   "densityPerSqKm": 1109,
+   "medianAge": 37.5,
+   "population": 181664,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=163",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=163"
+   }
+  },
+  "E07000172": {
+   "name": "Broxtowe",
+   "areaSqKm": 80.1019,
+   "densityPerSqKm": 1423,
+   "medianAge": 42.5,
+   "population": 113963,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=117",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=117"
+   }
+  },
+  "E07000072": {
+   "name": "Epping Forest",
+   "areaSqKm": 338.9783,
+   "densityPerSqKm": 408,
+   "medianAge": 43.1,
+   "population": 138394,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=177",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=177"
+   }
+  },
+  "E07000174": {
+   "name": "Mansfield",
+   "areaSqKm": 76.7054,
+   "densityPerSqKm": 1482,
+   "medianAge": 42.2,
+   "population": 113682,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=119",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=119"
+   }
+  },
+  "E07000105": {
+   "name": "Ashford",
+   "areaSqKm": 580.642,
+   "densityPerSqKm": 245,
+   "medianAge": 41.9,
+   "population": 142523,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=275",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=275"
+   }
+  },
+  "E07000078": {
+   "name": "Cheltenham",
+   "areaSqKm": 46.5958,
+   "densityPerSqKm": 2607,
+   "medianAge": 41.7,
+   "population": 121452,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=337",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=337"
+   }
+  },
+  "E07000195": {
+   "name": "Newcastle-under-Lyme",
+   "areaSqKm": 210.9532,
+   "densityPerSqKm": 607,
+   "medianAge": 42.7,
+   "population": 128093,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=131",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=131"
+   }
+  },
+  "E07000099": {
+   "name": "North Hertfordshire",
+   "areaSqKm": 375.3846,
+   "densityPerSqKm": 366,
+   "medianAge": 42.8,
+   "population": 137365,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=188",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=188"
+   }
+  },
+  "E07000092": {
+   "name": "Rushmoor",
+   "areaSqKm": 39.0494,
+   "densityPerSqKm": 2719,
+   "medianAge": 38.4,
+   "population": 106185,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=271",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=271"
+   }
+  },
+  "W06000016": {
+   "name": "Rhondda Cynon Taf",
+   "areaSqKm": 424.1523,
+   "densityPerSqKm": 568,
+   "medianAge": 41.9,
+   "population": 241015,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=359",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=359"
+   }
+  },
+  "E07000221": {
+   "name": "Stratford-on-Avon",
+   "areaSqKm": 977.892,
+   "densityPerSqKm": 152,
+   "medianAge": 47.9,
+   "population": 148772,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=140",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=140"
+   }
+  },
+  "E07000170": {
+   "name": "Ashfield",
+   "areaSqKm": 109.5461,
+   "densityPerSqKm": 1192,
+   "medianAge": 42.2,
+   "population": 130581,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=115",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=115"
+   }
+  },
+  "E07000237": {
+   "name": "Worcester",
+   "areaSqKm": 33.3503,
+   "densityPerSqKm": 3207,
+   "medianAge": 40.1,
+   "population": 106954,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=154",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=154"
+   }
+  },
+  "E07000177": {
+   "name": "Cherwell",
+   "areaSqKm": 588.7321,
+   "densityPerSqKm": 292,
+   "medianAge": 40.8,
+   "population": 172178,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=288",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=288"
+   }
+  },
+  "E07000036": {
+   "name": "Erewash",
+   "areaSqKm": 109.6402,
+   "densityPerSqKm": 1035,
+   "medianAge": 43.9,
+   "population": 113474,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=94",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=94"
+   }
+  },
+  "E09000011": {
+   "name": "Greenwich",
+   "areaSqKm": 47.3114,
+   "densityPerSqKm": 6367,
+   "medianAge": 35.9,
+   "population": 301225,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=231",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=231"
+   }
+  },
+  "E06000025": {
+   "name": "South Gloucestershire",
+   "areaSqKm": 497.0174,
+   "densityPerSqKm": 621,
+   "medianAge": 40,
+   "population": 308787,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=323",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=323"
+   }
+  },
+  "E07000193": {
+   "name": "East Staffordshire",
+   "areaSqKm": 386.9118,
+   "densityPerSqKm": 340,
+   "medianAge": 41.4,
+   "population": 131541,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=129",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=129"
+   }
+  },
+  "E07000109": {
+   "name": "Gravesham",
+   "areaSqKm": 98.9883,
+   "densityPerSqKm": 1124,
+   "medianAge": 39,
+   "population": 111221,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=280",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=280"
+   }
+  },
+  "E07000033": {
+   "name": "Bolsover",
+   "areaSqKm": 160.332,
+   "densityPerSqKm": 526,
+   "medianAge": 43.3,
+   "population": 84397,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=91",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=91"
+   }
+  },
+  "W06000006": {
+   "name": "Wrexham",
+   "areaSqKm": 503.7726,
+   "densityPerSqKm": 274,
+   "medianAge": 43.1,
+   "population": 137977,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=349",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=349"
+   }
+  },
+  "E07000181": {
+   "name": "West Oxfordshire",
+   "areaSqKm": 714.4281,
+   "densityPerSqKm": 170,
+   "medianAge": 44.2,
+   "population": 121412,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=292",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=292"
+   }
+  },
+  "E07000114": {
+   "name": "Thanet",
+   "areaSqKm": 103.6092,
+   "densityPerSqKm": 1386,
+   "medianAge": 45.2,
+   "population": 143618,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=284",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=284"
+   }
+  },
+  "E07000136": {
+   "name": "Boston",
+   "areaSqKm": 363.9925,
+   "densityPerSqKm": 198,
+   "medianAge": 43.1,
+   "population": 72092,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=107",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=107"
+   }
+  },
+  "E07000075": {
+   "name": "Rochford",
+   "areaSqKm": 167.0923,
+   "densityPerSqKm": 543,
+   "medianAge": 45,
+   "population": 90760,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=180",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=180"
+   }
+  },
+  "E07000202": {
+   "name": "Ipswich",
+   "areaSqKm": 39.5024,
+   "densityPerSqKm": 3530,
+   "medianAge": 39.3,
+   "population": 139457,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=205",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=205"
+   }
+  },
+  "E07000238": {
+   "name": "Wychavon",
+   "areaSqKm": 663.4924,
+   "densityPerSqKm": 210,
+   "medianAge": 48.1,
+   "population": 139175,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=155",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=155"
+   }
+  },
+  "E07000137": {
+   "name": "East Lindsey",
+   "areaSqKm": 1766.7649,
+   "densityPerSqKm": 83,
+   "medianAge": 54.7,
+   "population": 146756,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=108",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=108"
+   }
+  },
+  "E09000004": {
+   "name": "Bexley",
+   "areaSqKm": 60.5723,
+   "densityPerSqKm": 4245,
+   "medianAge": 39.8,
+   "population": 257103,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=225",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=225"
+   }
+  },
+  "E06000043": {
+   "name": "Brighton and Hove",
+   "areaSqKm": 82.8217,
+   "densityPerSqKm": 3431,
+   "medianAge": 38.3,
+   "population": 284170,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=244",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=244"
+   }
+  },
+  "E07000134": {
+   "name": "North West Leicestershire",
+   "areaSqKm": 279.3383,
+   "densityPerSqKm": 405,
+   "medianAge": 42.8,
+   "population": 113263,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=104",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=104"
+   }
+  },
+  "W06000018": {
+   "name": "Caerphilly",
+   "areaSqKm": 277.388,
+   "densityPerSqKm": 635,
+   "medianAge": 43,
+   "population": 176078,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=361",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=361"
+   }
+  },
+  "E07000180": {
+   "name": "Vale of White Horse",
+   "areaSqKm": 577.6621,
+   "densityPerSqKm": 264,
+   "medianAge": 41.7,
+   "population": 152217,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=291",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=291"
+   }
+  },
+  "E07000227": {
+   "name": "Horsham",
+   "areaSqKm": 530.2437,
+   "densityPerSqKm": 287,
+   "medianAge": 46.1,
+   "population": 152016,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=310",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=310"
+   }
+  },
+  "E07000213": {
+   "name": "Spelthorne",
+   "areaSqKm": 44.8979,
+   "densityPerSqKm": 2387,
+   "medianAge": 41.4,
+   "population": 107188,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=300",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=300"
+   }
+  },
+  "E07000214": {
+   "name": "Surrey Heath",
+   "areaSqKm": 95.0926,
+   "densityPerSqKm": 1000,
+   "medianAge": 43.8,
+   "population": 95094,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=301",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=301"
+   }
+  },
+  "E07000032": {
+   "name": "Amber Valley",
+   "areaSqKm": 265.4411,
+   "densityPerSqKm": 497,
+   "medianAge": 45.9,
+   "population": 131894,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=90",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=90"
+   }
+  },
+  "E06000024": {
+   "name": "North Somerset",
+   "areaSqKm": 373.7875,
+   "densityPerSqKm": 608,
+   "medianAge": 45.6,
+   "population": 227160,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=320",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=320"
+   }
+  },
+  "E07000196": {
+   "name": "South Staffordshire",
+   "areaSqKm": 407.2832,
+   "densityPerSqKm": 282,
+   "medianAge": 48,
+   "population": 114811,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=132",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=132"
+   }
+  },
+  "E06000013": {
+   "name": "North Lincolnshire",
+   "areaSqKm": 846.5403,
+   "densityPerSqKm": 202,
+   "medianAge": 45.2,
+   "population": 171421,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=68",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=68"
+   }
+  },
+  "E07000034": {
+   "name": "Chesterfield",
+   "areaSqKm": 66.0411,
+   "densityPerSqKm": 1611,
+   "medianAge": 44.7,
+   "population": 106419,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=92",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=92"
+   }
+  },
+  "E07000140": {
+   "name": "South Holland",
+   "areaSqKm": 750.0713,
+   "densityPerSqKm": 134,
+   "medianAge": 46.4,
+   "population": 100758,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=111",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=111"
+   }
+  },
+  "W06000004": {
+   "name": "Denbighshire",
+   "areaSqKm": 836.9178,
+   "densityPerSqKm": 117,
+   "medianAge": 47.3,
+   "population": 98247,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=347",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=347"
+   }
+  },
+  "E07000119": {
+   "name": "Fylde",
+   "areaSqKm": 165.6919,
+   "densityPerSqKm": 523,
+   "medianAge": 52.3,
+   "population": 86689,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=48",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=48"
+   }
+  },
+  "E07000175": {
+   "name": "Newark and Sherwood",
+   "areaSqKm": 651.3405,
+   "densityPerSqKm": 198,
+   "medianAge": 45.3,
+   "population": 128684,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=120",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=120"
+   }
+  },
+  "E09000021": {
+   "name": "Kingston upon Thames",
+   "areaSqKm": 37.2556,
+   "densityPerSqKm": 4637,
+   "medianAge": 39.5,
+   "population": 172761,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=236",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=236"
+   }
+  },
+  "E09000032": {
+   "name": "Wandsworth",
+   "areaSqKm": 34.2619,
+   "densityPerSqKm": 9919,
+   "medianAge": 33.3,
+   "population": 339859,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=221",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=221"
+   }
+  },
+  "E07000094": {
+   "name": "Winchester",
+   "areaSqKm": 660.9708,
+   "densityPerSqKm": 207,
+   "medianAge": 42.9,
+   "population": 136856,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=273",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=273"
+   }
+  },
+  "E07000108": {
+   "name": "Dover",
+   "areaSqKm": 315.3496,
+   "densityPerSqKm": 384,
+   "medianAge": 46.1,
+   "population": 121055,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=278",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=278"
+   }
+  },
+  "E07000073": {
+   "name": "Harlow",
+   "areaSqKm": 30.5436,
+   "densityPerSqKm": 3226,
+   "medianAge": 37.6,
+   "population": 98543,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=178",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=178"
+   }
+  },
+  "E07000132": {
+   "name": "Hinckley and Bosworth",
+   "areaSqKm": 297.3413,
+   "densityPerSqKm": 398,
+   "medianAge": 44.7,
+   "population": 118240,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=102",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=102"
+   }
+  },
+  "W06000012": {
+   "name": "Neath Port Talbot",
+   "areaSqKm": 441.246,
+   "densityPerSqKm": 322,
+   "medianAge": 43.7,
+   "population": 142028,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=355",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=355"
+   }
+  },
+  "E07000173": {
+   "name": "Gedling",
+   "areaSqKm": 119.9849,
+   "densityPerSqKm": 1009,
+   "medianAge": 43.8,
+   "population": 121105,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=118",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=118"
+   }
+  },
+  "E07000113": {
+   "name": "Swale",
+   "areaSqKm": 373.4422,
+   "densityPerSqKm": 430,
+   "medianAge": 41.3,
+   "population": 160671,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=283",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=283"
+   }
+  },
+  "W06000005": {
+   "name": "Flintshire",
+   "areaSqKm": 439.8307,
+   "densityPerSqKm": 355,
+   "medianAge": 45.1,
+   "population": 155954,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=348",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=348"
+   }
+  },
+  "E07000077": {
+   "name": "Uttlesford",
+   "areaSqKm": 641.1526,
+   "densityPerSqKm": 151,
+   "medianAge": 44.7,
+   "population": 96762,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=182",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=182"
+   }
+  },
+  "E07000062": {
+   "name": "Hastings",
+   "areaSqKm": 29.8032,
+   "densityPerSqKm": 3048,
+   "medianAge": 44.3,
+   "population": 90855,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=258",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=258"
+   }
+  },
+  "W06000010": {
+   "name": "Carmarthenshire",
+   "areaSqKm": 2370.2769,
+   "densityPerSqKm": 80,
+   "medianAge": 47.4,
+   "population": 190037,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=353",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=353"
+   }
+  },
+  "E06000027": {
+   "name": "Torbay",
+   "areaSqKm": 62.885,
+   "densityPerSqKm": 2218,
+   "medianAge": 49.8,
+   "population": 139486,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=325",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=325"
+   }
+  },
+  "E07000038": {
+   "name": "North East Derbyshire",
+   "areaSqKm": 275.612,
+   "densityPerSqKm": 391,
+   "medianAge": 46.5,
+   "population": 107888,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=96",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=96"
+   }
+  },
+  "E06000011": {
+   "name": "East Riding of Yorkshire",
+   "areaSqKm": 2403.5702,
+   "densityPerSqKm": 150,
+   "medianAge": 49.9,
+   "population": 360334,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=65",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=65"
+   }
+  },
+  "E07000240": {
+   "name": "St Albans",
+   "areaSqKm": 161.2067,
+   "densityPerSqKm": 935,
+   "medianAge": 42.7,
+   "population": 150757,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=189",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=189"
+   }
+  },
+  "E07000218": {
+   "name": "North Warwickshire",
+   "areaSqKm": 284.3068,
+   "densityPerSqKm": 238,
+   "medianAge": 44.8,
+   "population": 67688,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=137",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=137"
+   }
+  },
+  "W06000002": {
+   "name": "Gwynedd",
+   "areaSqKm": 2535.1425,
+   "densityPerSqKm": 47,
+   "medianAge": 44.9,
+   "population": 120295,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=345",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=345"
+   }
+  },
+  "E09000019": {
+   "name": "Islington",
+   "areaSqKm": 14.8579,
+   "densityPerSqKm": 15113,
+   "medianAge": 33,
+   "population": 224551,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=214",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=214"
+   }
+  },
+  "E07000098": {
+   "name": "Hertsmere",
+   "areaSqKm": 101.1275,
+   "densityPerSqKm": 1090,
+   "medianAge": 42.2,
+   "population": 110242,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=187",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=187"
+   }
+  },
+  "E07000239": {
+   "name": "Wyre Forest",
+   "areaSqKm": 195.4343,
+   "densityPerSqKm": 533,
+   "medianAge": 47.3,
+   "population": 104179,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=156",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=156"
+   }
+  },
+  "W06000019": {
+   "name": "Blaenau Gwent",
+   "areaSqKm": 108.728,
+   "densityPerSqKm": 622,
+   "medianAge": 43.2,
+   "population": 67593,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=362",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=362"
+   }
+  },
+  "E07000110": {
+   "name": "Maidstone",
+   "areaSqKm": 393.3442,
+   "densityPerSqKm": 487,
+   "medianAge": 41,
+   "population": 191415,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=281",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=281"
+   }
+  },
+  "W06000013": {
+   "name": "Bridgend",
+   "areaSqKm": 250.7851,
+   "densityPerSqKm": 586,
+   "medianAge": 44.1,
+   "population": 146986,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=356",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=356"
+   }
+  },
+  "E07000142": {
+   "name": "West Lindsey",
+   "areaSqKm": 1155.7366,
+   "densityPerSqKm": 86,
+   "medianAge": 48.4,
+   "population": 99716,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=113",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=113"
+   }
+  },
+  "E07000045": {
+   "name": "Teignbridge",
+   "areaSqKm": 673.7288,
+   "densityPerSqKm": 206,
+   "medianAge": 50.4,
+   "population": 138607,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=333",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=333"
+   }
+  },
+  "E07000244": {
+   "name": "East Suffolk",
+   "areaSqKm": 1260.9929,
+   "densityPerSqKm": 198,
+   "medianAge": 51.2,
+   "population": 250106,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=204",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=204"
+   }
+  },
+  "E07000061": {
+   "name": "Eastbourne",
+   "areaSqKm": 44.1614,
+   "densityPerSqKm": 2353,
+   "medianAge": 45.9,
+   "population": 103894,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=257",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=257"
+   }
+  },
+  "E07000176": {
+   "name": "Rushcliffe",
+   "areaSqKm": 409.2353,
+   "densityPerSqKm": 312,
+   "medianAge": 44.3,
+   "population": 127857,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=121",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=121"
+   }
+  },
+  "E06000037": {
+   "name": "West Berkshire",
+   "areaSqKm": 704.1771,
+   "densityPerSqKm": 235,
+   "medianAge": 44,
+   "population": 165523,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=252",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=252"
+   }
+  },
+  "E07000135": {
+   "name": "Oadby and Wigston",
+   "areaSqKm": 23.5261,
+   "densityPerSqKm": 2616,
+   "medianAge": 41.3,
+   "population": 61533,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=105",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=105"
+   }
+  },
+  "E07000129": {
+   "name": "Blaby",
+   "areaSqKm": 130.4966,
+   "densityPerSqKm": 831,
+   "medianAge": 42.4,
+   "population": 108423,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=99",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=99"
+   }
+  },
+  "W06000024": {
+   "name": "Merthyr Tydfil",
+   "areaSqKm": 111.4478,
+   "densityPerSqKm": 524,
+   "medianAge": 41.8,
+   "population": 58362,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=360",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=360"
+   }
+  },
+  "E09000033": {
+   "name": "Westminster",
+   "areaSqKm": 21.4826,
+   "densityPerSqKm": 9886,
+   "medianAge": 35.7,
+   "population": 212367,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=222",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=222"
+   }
+  },
+  "E07000192": {
+   "name": "Cannock Chase",
+   "areaSqKm": 78.8777,
+   "densityPerSqKm": 1322,
+   "medianAge": 42.3,
+   "population": 104299,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=128",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=128"
+   }
+  },
+  "E07000112": {
+   "name": "Folkestone and Hythe",
+   "areaSqKm": 356.912,
+   "densityPerSqKm": 314,
+   "medianAge": 47.9,
+   "population": 112163,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=279",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=279"
+   }
+  },
+  "E07000124": {
+   "name": "Ribble Valley",
+   "areaSqKm": 583.1802,
+   "densityPerSqKm": 115,
+   "medianAge": 48.6,
+   "population": 66938,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=53",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=53"
+   }
+  },
+  "E07000197": {
+   "name": "Stafford",
+   "areaSqKm": 598.1833,
+   "densityPerSqKm": 239,
+   "medianAge": 45.4,
+   "population": 142903,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=133",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=133"
+   }
+  },
+  "E07000087": {
+   "name": "Fareham",
+   "areaSqKm": 74.22,
+   "densityPerSqKm": 1554,
+   "medianAge": 48,
+   "population": 115373,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=266",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=266"
+   }
+  },
+  "E07000198": {
+   "name": "Staffordshire Moorlands",
+   "areaSqKm": 575.8943,
+   "densityPerSqKm": 168,
+   "medianAge": 50.4,
+   "population": 96764,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=134",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=134"
+   }
+  },
+  "E09000029": {
+   "name": "Sutton",
+   "areaSqKm": 43.8464,
+   "densityPerSqKm": 4880,
+   "medianAge": 40.7,
+   "population": 213972,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=240",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=240"
+   }
+  },
+  "W06000001": {
+   "name": "Isle of Anglesey",
+   "areaSqKm": 712.0899,
+   "densityPerSqKm": 96,
+   "medianAge": 50.4,
+   "population": 68607,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=344",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=344"
+   }
+  },
+  "E06000051": {
+   "name": "Shropshire",
+   "areaSqKm": 3197.3433,
+   "densityPerSqKm": 104,
+   "medianAge": 49.4,
+   "population": 333162,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=124",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=124"
+   }
+  },
+  "E07000069": {
+   "name": "Castle Point",
+   "areaSqKm": 44.6673,
+   "densityPerSqKm": 2029,
+   "medianAge": 46.5,
+   "population": 90613,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=174",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=174"
+   }
+  },
+  "E07000207": {
+   "name": "Elmbridge",
+   "areaSqKm": 95.0607,
+   "densityPerSqKm": 1499,
+   "medianAge": 43.9,
+   "population": 142484,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=294",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=294"
+   }
+  },
+  "E07000143": {
+   "name": "Breckland",
+   "areaSqKm": 1305.1029,
+   "densityPerSqKm": 113,
+   "medianAge": 47.3,
+   "population": 148095,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=195",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=195"
+   }
+  },
+  "E07000068": {
+   "name": "Brentwood",
+   "areaSqKm": 153.1177,
+   "densityPerSqKm": 523,
+   "medianAge": 42.2,
+   "population": 80104,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=173",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=173"
+   }
+  },
+  "E07000203": {
+   "name": "Mid Suffolk",
+   "areaSqKm": 871.0636,
+   "densityPerSqKm": 130,
+   "medianAge": 47.7,
+   "population": 113047,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=206",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=206"
+   }
+  },
+  "E07000179": {
+   "name": "South Oxfordshire",
+   "areaSqKm": 678.5024,
+   "densityPerSqKm": 233,
+   "medianAge": 44.2,
+   "population": 158084,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=290",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=290"
+   }
+  },
+  "E07000088": {
+   "name": "Gosport",
+   "areaSqKm": 25.3737,
+   "densityPerSqKm": 3256,
+   "medianAge": 44.5,
+   "population": 82618,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=267",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=267"
+   }
+  },
+  "E07000084": {
+   "name": "Basingstoke and Deane",
+   "areaSqKm": 633.8107,
+   "densityPerSqKm": 306,
+   "medianAge": 41.2,
+   "population": 194037,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=263",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=263"
+   }
+  },
+  "W06000003": {
+   "name": "Conwy",
+   "areaSqKm": 1125.8216,
+   "densityPerSqKm": 102,
+   "medianAge": 51.3,
+   "population": 114421,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=346",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=346"
+   }
+  },
+  "E07000041": {
+   "name": "Exeter",
+   "areaSqKm": 47.0357,
+   "densityPerSqKm": 2932,
+   "medianAge": 35.8,
+   "population": 137894,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=329",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=329"
+   }
+  },
+  "E06000019": {
+   "name": "Herefordshire, County of",
+   "areaSqKm": 2179.6887,
+   "densityPerSqKm": 88,
+   "medianAge": 49.4,
+   "population": 192539,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=123",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=123"
+   }
+  },
+  "E07000215": {
+   "name": "Tandridge",
+   "areaSqKm": 248.2275,
+   "densityPerSqKm": 364,
+   "medianAge": 44.4,
+   "population": 90322,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=302",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=302"
+   }
+  },
+  "E06000052": {
+   "name": "Cornwall",
+   "areaSqKm": 3545.4448,
+   "densityPerSqKm": 165,
+   "medianAge": 48.3,
+   "population": 584782,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=317",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=317"
+   }
+  },
+  "E07000245": {
+   "name": "West Suffolk",
+   "areaSqKm": 1034.7344,
+   "densityPerSqKm": 183,
+   "medianAge": 41.8,
+   "population": 189407,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=207",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=207"
+   }
+  },
+  "E07000090": {
+   "name": "Havant",
+   "areaSqKm": 55.7516,
+   "densityPerSqKm": 2284,
+   "medianAge": 46.2,
+   "population": 127362,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=269",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=269"
+   }
+  },
+  "E07000011": {
+   "name": "Huntingdonshire",
+   "areaSqKm": 906.1803,
+   "densityPerSqKm": 212,
+   "medianAge": 43.1,
+   "population": 191941,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=168",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=168"
+   }
+  },
+  "E07000039": {
+   "name": "South Derbyshire",
+   "areaSqKm": 338.1248,
+   "densityPerSqKm": 353,
+   "medianAge": 41.9,
+   "population": 119441,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=97",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=97"
+   }
+  },
+  "W06000014": {
+   "name": "Vale of Glamorgan",
+   "areaSqKm": 331.1487,
+   "densityPerSqKm": 409,
+   "medianAge": 44.6,
+   "population": 135362,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=357",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=357"
+   }
+  },
+  "E07000107": {
+   "name": "Dartford",
+   "areaSqKm": 72.7327,
+   "densityPerSqKm": 1736,
+   "medianAge": 37.6,
+   "population": 126297,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=277",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=277"
+   }
+  },
+  "E07000044": {
+   "name": "South Hams",
+   "areaSqKm": 886.5719,
+   "densityPerSqKm": 105,
+   "medianAge": 51.5,
+   "population": 93171,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=332",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=332"
+   }
+  },
+  "E07000229": {
+   "name": "Worthing",
+   "areaSqKm": 32.5202,
+   "densityPerSqKm": 3501,
+   "medianAge": 45.5,
+   "population": 113844,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=312",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=312"
+   }
+  },
+  "E09000027": {
+   "name": "Richmond upon Thames",
+   "areaSqKm": 57.3876,
+   "densityPerSqKm": 3428,
+   "medianAge": 43.2,
+   "population": 196713,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=239",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=239"
+   }
+  },
+  "E07000103": {
+   "name": "Watford",
+   "areaSqKm": 21.4306,
+   "densityPerSqKm": 5024,
+   "medianAge": 37.6,
+   "population": 107658,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=192",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=192"
+   }
+  },
+  "E07000133": {
+   "name": "Melton",
+   "areaSqKm": 481.3876,
+   "densityPerSqKm": 114,
+   "medianAge": 47.5,
+   "population": 54694,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=103",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=103"
+   }
+  },
+  "E07000149": {
+   "name": "South Norfolk",
+   "areaSqKm": 907.6455,
+   "densityPerSqKm": 166,
+   "medianAge": 46.4,
+   "population": 150396,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=201",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=201"
+   }
+  },
+  "E07000008": {
+   "name": "Cambridge",
+   "areaSqKm": 40.6953,
+   "densityPerSqKm": 3683,
+   "medianAge": 31.9,
+   "population": 149872,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=165",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=165"
+   }
+  },
+  "W06000020": {
+   "name": "Torfaen",
+   "areaSqKm": 125.6997,
+   "densityPerSqKm": 748,
+   "medianAge": 42.5,
+   "population": 93973,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=363",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=363"
+   }
+  },
+  "E07000145": {
+   "name": "Great Yarmouth",
+   "areaSqKm": 174.3135,
+   "densityPerSqKm": 579,
+   "medianAge": 46.6,
+   "population": 100957,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=197",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=197"
+   }
+  },
+  "E07000093": {
+   "name": "Test Valley",
+   "areaSqKm": 627.6541,
+   "densityPerSqKm": 216,
+   "medianAge": 44.5,
+   "population": 135698,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=272",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=272"
+   }
+  },
+  "E06000022": {
+   "name": "Bath and North East Somerset",
+   "areaSqKm": 345.9101,
+   "densityPerSqKm": 581,
+   "medianAge": 39.5,
+   "population": 200898,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=314",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=314"
+   }
+  },
+  "E06000036": {
+   "name": "Bracknell Forest",
+   "areaSqKm": 109.3746,
+   "densityPerSqKm": 1208,
+   "medianAge": 40.1,
+   "population": 132145,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=243",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=243"
+   }
+  },
+  "W06000023": {
+   "name": "Powys",
+   "areaSqKm": 5180.6775,
+   "densityPerSqKm": 26,
+   "medianAge": 52,
+   "population": 134843,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=350",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=350"
+   }
+  },
+  "E07000144": {
+   "name": "Broadland",
+   "areaSqKm": 552.0945,
+   "densityPerSqKm": 253,
+   "medianAge": 47.9,
+   "population": 139652,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=196",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=196"
+   }
+  },
+  "E07000146": {
+   "name": "King's Lynn and West Norfolk",
+   "areaSqKm": 1439.5099,
+   "densityPerSqKm": 109,
+   "medianAge": 48.5,
+   "population": 156943,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=198",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=198"
+   }
+  },
+  "E07000139": {
+   "name": "North Kesteven",
+   "areaSqKm": 922.4735,
+   "densityPerSqKm": 134,
+   "medianAge": 46.3,
+   "population": 123267,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=110",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=110"
+   }
+  },
+  "E07000085": {
+   "name": "East Hampshire",
+   "areaSqKm": 514.4123,
+   "densityPerSqKm": 254,
+   "medianAge": 47.2,
+   "population": 130599,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=264",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=264"
+   }
+  },
+  "E07000208": {
+   "name": "Epsom and Ewell",
+   "areaSqKm": 34.0877,
+   "densityPerSqKm": 2446,
+   "medianAge": 42.5,
+   "population": 83370,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=295",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=295"
+   }
+  },
+  "E07000037": {
+   "name": "High Peak",
+   "areaSqKm": 539.1391,
+   "densityPerSqKm": 170,
+   "medianAge": 47.3,
+   "population": 91676,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=95",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=95"
+   }
+  },
+  "E07000082": {
+   "name": "Stroud",
+   "areaSqKm": 460.5621,
+   "densityPerSqKm": 274,
+   "medianAge": 46.9,
+   "population": 126418,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=341",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=341"
+   }
+  },
+  "E07000200": {
+   "name": "Babergh",
+   "areaSqKm": 593.7243,
+   "densityPerSqKm": 165,
+   "medianAge": 49.5,
+   "population": 97833,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=203",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=203"
+   }
+  },
+  "E07000234": {
+   "name": "Bromsgrove",
+   "areaSqKm": 216.9694,
+   "densityPerSqKm": 470,
+   "medianAge": 45.5,
+   "population": 101973,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=151",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=151"
+   }
+  },
+  "E07000080": {
+   "name": "Forest of Dean",
+   "areaSqKm": 525.8854,
+   "densityPerSqKm": 171,
+   "medianAge": 48.5,
+   "population": 90157,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=339",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=339"
+   }
+  },
+  "W06000009": {
+   "name": "Pembrokeshire",
+   "areaSqKm": 1618.3441,
+   "densityPerSqKm": 78,
+   "medianAge": 49.5,
+   "population": 125849,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=352",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=352"
+   }
+  },
+  "E07000236": {
+   "name": "Redditch",
+   "areaSqKm": 54.2564,
+   "densityPerSqKm": 1614,
+   "medianAge": 41.4,
+   "population": 87548,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=153",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=153"
+   }
+  },
+  "E07000115": {
+   "name": "Tonbridge and Malling",
+   "areaSqKm": 240.1196,
+   "densityPerSqKm": 574,
+   "medianAge": 42.6,
+   "population": 137913,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=285",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=285"
+   }
+  },
+  "E07000046": {
+   "name": "Torridge",
+   "areaSqKm": 983.7702,
+   "densityPerSqKm": 72,
+   "medianAge": 53.1,
+   "population": 70378,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=334",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=334"
+   }
+  },
+  "E07000216": {
+   "name": "Waverley",
+   "areaSqKm": 345.1968,
+   "densityPerSqKm": 398,
+   "medianAge": 44.9,
+   "population": 137218,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=303",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=303"
+   }
+  },
+  "E06000059": {
+   "name": "Dorset",
+   "areaSqKm": 2490.9232,
+   "densityPerSqKm": 157,
+   "medianAge": 52.7,
+   "population": 391036,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=318",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=318"
+   }
+  },
+  "E07000086": {
+   "name": "Eastleigh",
+   "areaSqKm": 79.6916,
+   "densityPerSqKm": 1803,
+   "medianAge": 42.1,
+   "population": 143710,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=265",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=265"
+   }
+  },
+  "E07000063": {
+   "name": "Lewes",
+   "areaSqKm": 292.1138,
+   "densityPerSqKm": 351,
+   "medianAge": 49.1,
+   "population": 102648,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=259",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=259"
+   }
+  },
+  "E06000017": {
+   "name": "Rutland",
+   "areaSqKm": 381.817,
+   "densityPerSqKm": 109,
+   "medianAge": 48.2,
+   "population": 41629,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=87",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=87"
+   }
+  },
+  "E07000111": {
+   "name": "Sevenoaks",
+   "areaSqKm": 369.2235,
+   "densityPerSqKm": 334,
+   "medianAge": 44.7,
+   "population": 123183,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=282",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=282"
+   }
+  },
+  "E07000102": {
+   "name": "Three Rivers",
+   "areaSqKm": 88.8234,
+   "densityPerSqKm": 1082,
+   "medianAge": 43.1,
+   "population": 96068,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=191",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=191"
+   }
+  },
+  "E07000009": {
+   "name": "East Cambridgeshire",
+   "areaSqKm": 651.2253,
+   "densityPerSqKm": 145,
+   "medianAge": 44,
+   "population": 94599,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=166",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=166"
+   }
+  },
+  "E07000194": {
+   "name": "Lichfield",
+   "areaSqKm": 331.2694,
+   "densityPerSqKm": 342,
+   "medianAge": 45.8,
+   "population": 113270,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=130",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=130"
+   }
+  },
+  "E07000138": {
+   "name": "Lincoln",
+   "areaSqKm": 35.6902,
+   "densityPerSqKm": 2896,
+   "medianAge": 35.5,
+   "population": 103351,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=109",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=109"
+   }
+  },
+  "E07000224": {
+   "name": "Arun",
+   "areaSqKm": 220.9951,
+   "densityPerSqKm": 780,
+   "medianAge": 50,
+   "population": 172326,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=307",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=307"
+   }
+  },
+  "E07000010": {
+   "name": "Fenland",
+   "areaSqKm": 546.4462,
+   "densityPerSqKm": 194,
+   "medianAge": 44.8,
+   "population": 105930,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=167",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=167"
+   }
+  },
+  "E07000209": {
+   "name": "Guildford",
+   "areaSqKm": 270.9448,
+   "densityPerSqKm": 562,
+   "medianAge": 39.1,
+   "population": 152148,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=296",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=296"
+   }
+  },
+  "E07000074": {
+   "name": "Maldon",
+   "areaSqKm": 357.8159,
+   "densityPerSqKm": 196,
+   "medianAge": 49.1,
+   "population": 70196,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=179",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=179"
+   }
+  },
+  "E07000091": {
+   "name": "New Forest",
+   "areaSqKm": 752.1805,
+   "densityPerSqKm": 234,
+   "medianAge": 52.9,
+   "population": 175930,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=270",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=270"
+   }
+  },
+  "E07000043": {
+   "name": "North Devon",
+   "areaSqKm": 1085.9002,
+   "densityPerSqKm": 93,
+   "medianAge": 49.1,
+   "population": 101281,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=331",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=331"
+   }
+  },
+  "E07000223": {
+   "name": "Adur",
+   "areaSqKm": 42.0689,
+   "densityPerSqKm": 1540,
+   "medianAge": 46.4,
+   "population": 64802,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=306",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=306"
+   }
+  },
+  "E07000131": {
+   "name": "Harborough",
+   "areaSqKm": 591.765,
+   "densityPerSqKm": 180,
+   "medianAge": 45.4,
+   "population": 106577,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=101",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=101"
+   }
+  },
+  "E07000210": {
+   "name": "Mole Valley",
+   "areaSqKm": 258.3119,
+   "densityPerSqKm": 344,
+   "medianAge": 48.1,
+   "population": 88808,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=297",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=297"
+   }
+  },
+  "E07000064": {
+   "name": "Rother",
+   "areaSqKm": 509.4303,
+   "densityPerSqKm": 189,
+   "medianAge": 54.4,
+   "population": 96150,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=260",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=260"
+   }
+  },
+  "E07000012": {
+   "name": "South Cambridgeshire",
+   "areaSqKm": 901.6439,
+   "densityPerSqKm": 194,
+   "medianAge": 43,
+   "population": 174641,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=169",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=169"
+   }
+  },
+  "E07000065": {
+   "name": "Wealden",
+   "areaSqKm": 833.1616,
+   "densityPerSqKm": 202,
+   "medianAge": 49.7,
+   "population": 168308,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=261",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=261"
+   }
+  },
+  "E07000047": {
+   "name": "West Devon",
+   "areaSqKm": 1159.6904,
+   "densityPerSqKm": 51,
+   "medianAge": 53.3,
+   "population": 58980,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=335",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=335"
+   }
+  },
+  "E07000217": {
+   "name": "Woking",
+   "areaSqKm": 63.6096,
+   "densityPerSqKm": 1670,
+   "medianAge": 40.9,
+   "population": 106197,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=304",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=304"
+   }
+  },
+  "W06000008": {
+   "name": "Ceredigion",
+   "areaSqKm": 1784.9802,
+   "densityPerSqKm": 41,
+   "medianAge": 47.6,
+   "population": 72696,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=351",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=351"
+   }
+  },
+  "E09000001": {
+   "name": "City of London",
+   "areaSqKm": 2.8899,
+   "densityPerSqKm": 5409,
+   "medianAge": 33.5,
+   "population": 15631,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=210",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=210"
+   }
+  },
+  "E07000079": {
+   "name": "Cotswold",
+   "areaSqKm": 1164.4872,
+   "densityPerSqKm": 79,
+   "medianAge": 50.9,
+   "population": 91563,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=338",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=338"
+   }
+  },
+  "E07000035": {
+   "name": "Derbyshire Dales",
+   "areaSqKm": 792.4546,
+   "densityPerSqKm": 91,
+   "medianAge": 53.8,
+   "population": 72028,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=93",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=93"
+   }
+  },
+  "E07000242": {
+   "name": "East Hertfordshire",
+   "areaSqKm": 475.6674,
+   "densityPerSqKm": 332,
+   "medianAge": 42.6,
+   "population": 158033,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=186",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=186"
+   }
+  },
+  "E07000089": {
+   "name": "Hart",
+   "areaSqKm": 215.2537,
+   "densityPerSqKm": 480,
+   "medianAge": 44.1,
+   "population": 103335,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=268",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=268"
+   }
+  },
+  "E06000046": {
+   "name": "Isle of Wight",
+   "areaSqKm": 379.62,
+   "densityPerSqKm": 371,
+   "medianAge": 52.8,
+   "population": 140777,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=245",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=245"
+   }
+  },
+  "E06000053": {
+   "name": "Isles of Scilly",
+   "areaSqKm": 16.3177,
+   "densityPerSqKm": 141,
+   "medianAge": 47.5,
+   "population": 2299,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=319",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=319"
+   }
+  },
+  "E07000235": {
+   "name": "Malvern Hills",
+   "areaSqKm": 577.0844,
+   "densityPerSqKm": 146,
+   "medianAge": 51.3,
+   "population": 84380,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=152",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=152"
+   }
+  },
+  "E07000042": {
+   "name": "Mid Devon",
+   "areaSqKm": 912.9201,
+   "densityPerSqKm": 94,
+   "medianAge": 47.5,
+   "population": 85593,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=330",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=330"
+   }
+  },
+  "W06000021": {
+   "name": "Monmouthshire",
+   "areaSqKm": 849.1295,
+   "densityPerSqKm": 112,
+   "medianAge": 49.8,
+   "population": 95329,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=364",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=364"
+   }
+  },
+  "E07000147": {
+   "name": "North Norfolk",
+   "areaSqKm": 965.9544,
+   "densityPerSqKm": 107,
+   "medianAge": 56.5,
+   "population": 103708,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=199",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=199"
+   }
+  },
+  "E07000212": {
+   "name": "Runnymede",
+   "areaSqKm": 78.0253,
+   "densityPerSqKm": 1192,
+   "medianAge": 39.5,
+   "population": 93013,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=299",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=299"
+   }
+  },
+  "E07000083": {
+   "name": "Tewkesbury",
+   "areaSqKm": 414.3854,
+   "densityPerSqKm": 250,
+   "medianAge": 43.2,
+   "population": 103753,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=342",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=342"
+   }
+  },
+  "E07000116": {
+   "name": "Tunbridge Wells",
+   "areaSqKm": 331.2856,
+   "densityPerSqKm": 363,
+   "medianAge": 43.7,
+   "population": 120098,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=286",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=286"
+   }
+  },
+  "E08000016": {
+   "name": "Barnsley",
+   "areaSqKm": 329.0898,
+   "densityPerSqKm": 768,
+   "medianAge": 42.2,
+   "population": 252784,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=72",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=72"
+   }
+  },
+  "E08000019": {
+   "name": "Sheffield",
+   "areaSqKm": 367.919,
+   "densityPerSqKm": 1575,
+   "medianAge": 37,
+   "population": 579517,
+   "locators": {
+    "density": "v1:xlsx:sheet=MYE5;row=75",
+    "medianAge": "v1:xlsx:sheet=MYE6;row=75"
+   }
+  }
+ }
+}
