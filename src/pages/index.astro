@@ -12,6 +12,7 @@ import { PLACE_COUNT, PCON_COUNT } from "../lib/coverage";
 import { census2011WhiteBritish, census2021WhiteBritish } from "../lib/census-national";
 import { nationalWhiteBritishAggregate } from "../lib/national-share";
 import { getCollection } from "astro:content";
+import { coveredSeries, MYE_SERIES_SOURCE_LINE } from "../lib/population-headline";
 
 const projData = rawProjections as any;
 const publicAreas = getPublicPlaceAreas();
@@ -69,6 +70,45 @@ const natWb2011 = census2011.pct;
 const natWb2021 = census2021.pct;
 const natWb2051 = natAgg.wb2051;
 const natWb2061 = natAgg.wb2061;
+
+// Population first (decision R359, 4 November 2026). The first chart and the first stat
+// row are population change from the ONS mid-year estimates, summed over the same areas
+// every other aggregate on this page uses. The site covers England and Wales, so the
+// England-only row would not match the areas a reader can click into; the sum of the
+// covered areas does, and tests/population-estimates.test.ts pins it to the workbook's
+// own England and Wales row. coveredSeries throws if any area lacks any year.
+const popSeries = coveredSeries(allAreaCodes);
+const fmtSigned = (n: number) => `${n < 0 ? "−" : "+"}${fmtInt(Math.abs(n))}`;
+const fmtSignedPct = (n: number) => `${n < 0 ? "−" : "+"}${Math.abs(n).toFixed(1)}%`;
+const fmtMillions = (n: number) => `${(n / 1e6).toFixed(1)}m`;
+
+// The line chart beside the search. One series, so no legend: the title names it. The
+// axis does not start at zero, and its labels say where it starts. Ticks every two
+// million on whole millions read from the data's own range.
+const POP_W = 360, POP_H = 210, POP_L = 34, POP_R = 14, POP_T = 22, POP_B = 26;
+const popMin = Math.floor(Math.min(...popSeries.points.map((p) => p.population)) / 2e6) * 2e6;
+const popMax = Math.ceil(Math.max(...popSeries.points.map((p) => p.population)) / 2e6) * 2e6;
+const popTicks = Array.from({ length: (popMax - popMin) / 2e6 + 1 }, (_, i) => popMin + i * 2e6);
+const popX = (year: number) =>
+  POP_L + ((year - popSeries.base.year) / (popSeries.latest.year - popSeries.base.year)) * (POP_W - POP_L - POP_R);
+const popY = (v: number) => POP_T + (1 - (v - popMin) / (popMax - popMin)) * (POP_H - POP_T - POP_B);
+const popPath = popSeries.points.map((p, i) => `${i ? "L" : "M"}${popX(p.year).toFixed(1)},${popY(p.population).toFixed(1)}`).join(" ");
+const popCensusYear = 2021;
+const popLabelled = popSeries.points.filter((p) => p.year === popSeries.base.year || p.year === popCensusYear || p.year === popSeries.latest.year);
+
+// WebSite search: the hero box reads ?q= on load, so the SearchAction target is a real URL.
+// The layout already emits the WebSite node with this @id; this adds its potentialAction.
+const websiteSearchNode = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/?q={search_term_string}` },
+    "query-input": "required name=search_term_string"
+  }
+};
 
 // Regional summary
 const regionCounts = new Map<string, { count: number; avgWbi2021: number; sumPop: number }>();
@@ -135,18 +175,19 @@ function findingColor(verdict: string): string {
 <BaseLayout
   title="UK demographics: population and projections for every area"
   description={`Population, ethnicity and projections to 2061 for ${fmtInt(totalAreas)} local authorities, and profiles of ${fmtInt(PCON_COUNT)} constituencies, built from the Census and other official statistics.`}
+  structuredData={[websiteSearchNode]}
 >
   <!-- HERO -->
   <section class="hero-section">
     <div class="hero-inner">
       <div class="hero-main">
-      <div class="hero-eyebrow">Census 2021 projected to 2061 &middot; model v8.0</div>
-      <h1 class="hero-headline">What will your area look like in 2051?</h1>
+      <div class="hero-eyebrow">ONS estimates to mid-{popSeries.latest.year} &middot; Census 2021 projected to 2061 &middot; model v8.0</div>
+      <h1 class="hero-headline">How is your area changing?</h1>
       <p class="hero-subline">
-        Put in a postcode and get the whole picture for that community: the ethnic
-        projection to 2061, who is arriving and why, school and housing pressure, care
-        and health demand, and the constituency it sits in. Twenty three datasets, one
-        page, every figure sourced.
+        Put in a postcode and get the whole picture for that community: how its population
+        has changed since {popSeries.base.year}, the ethnic projection to 2061, who is arriving
+        and why, school and housing pressure, and the constituency it sits in. Twenty three
+        datasets, one page, every figure sourced.
       </p>
 
       <div class="hero-search">
@@ -172,6 +213,53 @@ function findingColor(verdict: string): string {
         Scored against Census 2021 before publication: 1.56pp average error, +0.05pp bias, 285 areas &rarr;
       </a>
       </div>
+
+      <div class="hero-aside">
+      <aside class="hero-panel hero-panel--population" aria-labelledby="hero-pop-title">
+        <span class="hero-panel-eyebrow">England and Wales</span>
+        <h2 class="hero-panel-title" id="hero-pop-title">Population, mid-{popSeries.base.year} to mid-{popSeries.latest.year}</h2>
+        <p class="hero-pop-lead">
+          <strong>{fmtInt(popSeries.latest.population)}</strong> people at mid-{popSeries.latest.year},
+          {popSeries.change >= 0 ? "up" : "down"} {fmtInt(Math.abs(popSeries.change))} ({Math.abs(popSeries.changePct).toFixed(1)}%) since mid-{popSeries.base.year}.
+        </p>
+        <svg
+          class="hero-pop-chart"
+          viewBox={`0 0 ${POP_W} ${POP_H}`}
+          role="img"
+          aria-label={`Line chart of the population of England and Wales at 30 June each year from ${popSeries.base.year} to ${popSeries.latest.year}: ${fmtInt(popSeries.base.population)} in ${popSeries.base.year}, ${fmtInt(popSeries.latest.population)} in ${popSeries.latest.year}.`}
+        >
+          {popTicks.map((t) => (
+            <g class="hero-pop-grid">
+              <line x1={POP_L} x2={POP_W - POP_R} y1={popY(t)} y2={popY(t)} />
+              <text x={POP_L - 6} y={popY(t) + 3.5} text-anchor="end">{t / 1e6}m</text>
+            </g>
+          ))}
+          <path class="hero-pop-line" d={popPath} />
+          {popSeries.points.map((p) => (
+            <g class="hero-pop-point">
+              <circle class="hero-pop-hit" cx={popX(p.year)} cy={popY(p.population)} r="9"><title>Mid-{p.year}: {fmtInt(p.population)}</title></circle>
+              {popLabelled.includes(p) && <circle class="hero-pop-dot" cx={popX(p.year)} cy={popY(p.population)} r="4" />}
+            </g>
+          ))}
+          {popLabelled.map((p) => (
+            <text
+              class="hero-pop-label"
+              x={popX(p.year)}
+              y={popY(p.population) - 10}
+              text-anchor={p.year === popSeries.base.year ? "start" : "end"}
+              dx={p.year === popSeries.latest.year || p.year === popSeries.base.year ? 0 : -6}
+            >{fmtMillions(p.population)}</text>
+          ))}
+          {popLabelled.map((p) => (
+            <text class="hero-pop-year" x={popX(p.year)} y={POP_H - 8} text-anchor={p.year === popSeries.latest.year ? "end" : p.year === popSeries.base.year ? "start" : "middle"}>{p.year}</text>
+          ))}
+        </svg>
+        <p class="hero-panel-note">
+          Source: {MYE_SERIES_SOURCE_LINE}. Resident population at 30 June each year, the sum of
+          the {fmtInt(popSeries.areas)} local authorities this site covers, which is the
+          workbook's England and Wales total. The axis starts at {popMin / 1e6} million.
+        </p>
+      </aside>
 
       <aside class="hero-panel">
         <span class="hero-panel-eyebrow">England and Wales</span>
@@ -210,6 +298,7 @@ function findingColor(verdict: string): string {
           is {fmtPct1(natAgg.wb2051Current)}.
         </p>
       </aside>
+      </div>
     </div>
   </section>
 
@@ -234,7 +323,13 @@ function findingColor(verdict: string): string {
   <!-- IMPACT STRIP -->
   <section class="impact-strip shell" aria-label="Headline demographic impact">
     <div class="impact-strip-inner">
-      <div class="impact-item impact-item--hero">
+      <div class="impact-item impact-item--hero impact-item--population">
+        <span class="impact-number">{fmtInt(popSeries.latest.population)}</span>
+        <span class="impact-label">people in England and Wales, mid-{popSeries.latest.year}</span>
+        <span class="impact-context">{fmtSigned(popSeries.change)} ({fmtSignedPct(popSeries.changePct)}) since mid-{popSeries.base.year}, across the {fmtInt(popSeries.areas)} local authorities this site covers.</span>
+        <span class="impact-calc">Source: {MYE_SERIES_SOURCE_LINE}.</span>
+      </div>
+      <div class="impact-item impact-item--ethnic">
         <span class="impact-number">{fmtPct1(natWb2021)} &rarr; {fmtPct1(natWb2051)}</span>
         <span class="impact-label">White British share, 2021 &rarr; 2051</span>
         <span class="impact-context">Observed Census 2021 across {fmtInt(totalAreas)} local authorities, against the Hamilton-Perry projection across the {natAgg.n2051} where 2051 is publishable.</span>
@@ -251,7 +346,7 @@ function findingColor(verdict: string): string {
         <span class="impact-context">{muslimMajority2051} projected Muslim majority by 2051.</span>
       </div>
     </div>
-    <p class="impact-source">Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations. The model was fitted on Census 2001 to 2011 and scored against Census 2021: mean absolute error 1.56 percentage points on that one-decade forecast, bias +0.05 points across 285 areas. Areas where the model diverged are withheld. <a href="/methodology/">Full methodology &rarr;</a></p>
+    <p class="impact-source">Population: ONS mid-year estimates. Ethnicity: Census 2011 and 2021 observed. 2051 and 2061 projected by Hamilton-Perry CCR model, 1,000 Monte Carlo simulations. The model was fitted on Census 2001 to 2011 and scored against Census 2021: mean absolute error 1.56 percentage points on that one-decade forecast, bias +0.05 points across 285 areas. Areas where the model diverged are withheld. <a href="/methodology/">Full methodology &rarr;</a></p>
   </section>
 
   <!-- ═══ DEMOGRAPHIC PROJECTIONS ═══ -->
@@ -428,7 +523,15 @@ function findingColor(verdict: string): string {
           areas = data.areas;
         }
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => {
+        // The WebSite SearchAction points at /?q=...: fill the box and run the search.
+        const initial = new URLSearchParams(window.location.search).get("q")?.trim();
+        if (initial) {
+          searchInput.value = initial;
+          searchInput.dispatchEvent(new Event("input"));
+        }
+      });
 
     const postcodeRegex = /^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i;
     const partialPostcodeRegex = /^[A-Z]{1,2}\d[A-Z\d]?\s*\d/i;
@@ -636,6 +739,17 @@ function findingColor(verdict: string): string {
   /* The national trajectory, promoted out of the section below the fold. It is the one
      chart that says what the whole site is for, so it sits beside the search rather than
      three screens down. */
+  .hero-aside { display: flex; flex-direction: column; gap: 1.2rem; min-width: 0; }
+  .hero-pop-lead { margin: 0.6rem 0 0; font-size: 0.92rem; line-height: 1.5; color: var(--muted); }
+  .hero-pop-lead strong { color: var(--ink); font-family: var(--font-display); font-weight: 600; }
+  .hero-pop-chart { display: block; width: 100%; height: auto; margin-top: 0.9rem; overflow: visible; }
+  .hero-pop-grid line { stroke: var(--border); stroke-width: 1; }
+  .hero-pop-grid text, .hero-pop-year { fill: var(--text-faint); font-size: 10px; }
+  .hero-pop-line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .hero-pop-hit { fill: transparent; }
+  .hero-pop-point:hover .hero-pop-hit { fill: color-mix(in srgb, var(--accent) 18%, transparent); }
+  .hero-pop-dot { fill: var(--accent); stroke: var(--bg-card); stroke-width: 2; }
+  .hero-pop-label { fill: var(--ink); font-size: 11px; font-weight: 600; font-family: var(--font-display); }
   .hero-panel {
     display: block;
     padding: 1.4rem 1.5rem 1.5rem;
@@ -920,7 +1034,7 @@ function findingColor(verdict: string): string {
   }
   .impact-strip-inner {
     display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-columns: 1.2fr 1.2fr 1fr 1fr;
     gap: 1.5rem;
     text-align: center;
   }
@@ -949,6 +1063,12 @@ function findingColor(verdict: string): string {
     line-height: 1;
   }
   .impact-item:not(.impact-item--hero) .impact-number { color: var(--accent); }
+  .impact-item--population .impact-number { color: var(--ink); }
+  .impact-item.impact-item--ethnic .impact-number { color: var(--coral); }
+  @media (max-width: 900px) {
+    .impact-strip-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .impact-item--hero::after { display: none; }
+  }
   .impact-label {
     font-size: 0.9rem;
     font-weight: 600;
