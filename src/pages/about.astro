@@ -1,0 +1,166 @@
+---
+/**
+ * What the site is, how it is paid for, how to report an error and what it does not
+ * collect (audit of 3 November 2026: /about/ returned 404). Anonymous by rule: no
+ * individual is named here or anywhere else people read.
+ *
+ * Every figure is read, never typed: coverage from src/lib/coverage.ts, the model
+ * version from ethnic-projections.json, the forecast error from
+ * out-of-sample-validation.json, the same file the methodology page describes.
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import rawProjections from "../data/live/ethnic-projections.json";
+import validation from "../data/live/out-of-sample-validation.json";
+import { COUNTY_COUNT, formatPconCount, formatPlaceCount } from "../lib/coverage";
+
+const modelVersion = `v${String((rawProjections as { modelVersion: string }).modelVersion).split("-")[0]}`;
+const wb = validation.summary.white_british;
+const mae = wb.mae.toFixed(2);
+const bias = `${wb.bias > 0 ? "+" : wb.bias < 0 ? "−" : ""}${Math.abs(wb.bias).toFixed(2)}`;
+const scored = validation.areasScored.toLocaleString("en-GB");
+const ISSUES_URL = "https://github.com/tompickup23/ukdemographics/issues";
+---
+
+<BaseLayout
+  title="About | UK Demographics"
+  description="What ukdemographics.co.uk is, how it is paid for, how to report an error, and what it does not collect."
+>
+  <article class="legal-page shell">
+    <h1>About this site</h1>
+
+    <p class="legal-intro">
+      ukdemographics.co.uk is an independent demographic research project. It publishes
+      one profile for each of {formatPlaceCount()} in England and Wales, built from named
+      government tables, with every figure traceable to its source.
+    </p>
+
+    <section class="legal-section">
+      <h2>What it publishes</h2>
+      <p>
+        Each local authority profile brings together official statistics that are
+        otherwise spread across several departments. The site also publishes {COUNTY_COUNT} county
+        council area profiles, a page for each English region and Wales, and pages
+        for {formatPconCount("constituencies")}.
+      </p>
+      <ul>
+        <li><strong>Office for National Statistics:</strong> Census 2021 tables TS021 (ethnic group), TS029 (English proficiency), RM134 (tenure by ethnic group) and RM043 (health by ethnic group), Census 2011 table KS201EW, and the mid year population estimates (MYE4).</li>
+        <li><strong>Department for Work and Pensions:</strong> National Insurance number registrations by nationality and Personal Independence Payment claimants, both from Stat-Xplore.</li>
+        <li><strong>Department for Education:</strong> the School Census, for pupil ethnicity and first language.</li>
+      </ul>
+      <p>
+        Every table is listed with its link on the <a href="/sources/">sources page</a>.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>How the projections are made</h2>
+      <p>
+        Figures for future years are modelled, not observed, and the pages label them
+        as projections. They come from a Hamilton-Perry cohort change model, currently
+        {modelVersion}, which carries each age, sex and ethnic group forward from the
+        2011 and 2021 Censuses.
+      </p>
+      <p>
+        The model is scored before publication. Fitted on the 2001 and 2011 Censuses
+        and run one decade forward, it missed the actual Census 2021 White British
+        share by {mae} percentage points on average across {scored} local authorities,
+        with a bias of {bias} points. The <a href="/methodology/">methodology page</a> sets
+        out the test, the settings it chose and what it does not establish.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>How it is funded</h2>
+      <p>
+        The site is not affiliated with, endorsed by or funded by any government body,
+        political party, council or campaign organisation. It carries no advertising.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Reporting an error</h2>
+      <p>
+        Corrections are published, not hidden. A finding that has been revised says so
+        beside its date, and the correction stays on the page with the figure it
+        replaced.
+      </p>
+      <p>
+        To report an error, open an issue on the project's public repository at
+        <a href={ISSUES_URL} target="_blank" rel="noopener">github.com/tompickup23/ukdemographics/issues</a>.
+        Give the page address, the figure, and the source table you checked it
+        against.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>What it does not collect</h2>
+      <p>
+        The site sets no cookies, has no accounts and asks for no email address. Page
+        views are counted in total by Cloudflare Web Analytics, which sets no cookies
+        and does not follow visitors between sites. The <a href="/privacy/">privacy
+        policy</a> gives the detail.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Who runs it</h2>
+      <p>
+        The site does not name an individual. Its figures are there to be checked
+        against the official tables they come from, not taken on anyone's authority.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    max-width: 720px;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+  }
+  .legal-page h1 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+  }
+  .legal-intro {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .legal-section {
+    margin-bottom: 2rem;
+  }
+  .legal-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+  }
+  .legal-section p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0 0 0.75rem;
+  }
+  .legal-section ul {
+    padding-left: 1.25rem;
+    margin: 0.5rem 0 0.75rem;
+  }
+  .legal-section li {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 0.25rem;
+    overflow-wrap: anywhere;
+  }
+  .legal-section a {
+    color: var(--accent);
+    overflow-wrap: anywhere;
+  }
+</style>

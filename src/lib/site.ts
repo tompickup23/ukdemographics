@@ -36,6 +36,7 @@ export interface DemographicAreaSummary {
 
 const INDEXABLE_STATIC_PATHS = [
   "/",
+  "/about/",
   "/accessibility/",
   "/compare/",
   "/constituencies/",
