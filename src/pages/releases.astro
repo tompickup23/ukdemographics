@@ -1,8 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { DEFAULT_SOCIAL_IMAGE_PATH, buildAbsoluteUrl, buildReleaseCollectionStructuredData } from "../lib/site";
+import { MYE5_PUBLISHED } from "../lib/area-density";
+import { NOT_ANNOUNCED } from "../lib/section-dates";
 
 const releases = [
+  {
+    date: "2026-11-04",
+    title: "How to cite a place page, and when each section's data was last checked",
+    summary: `Every place page now ends with a citation in Harvard form: the site, the year, the page's own title, the editions of the ONS figures behind it (mid-year estimates published ${MYE5_PUBLISHED}, Census 2021 TS021 and Census 2011 KS201EW), the address and a space for the date you read it. A copy button sits beside it, with a link to that place's CSV of the same figures. The line under each section that gives the next update now also says when the publisher's schedule was read. A next update date appears only where the register holds the publisher's schedule page and the date it was read; elsewhere the line reads "${NOT_ANNOUNCED}".`,
+    sourceUrl: "https://ukdemographics.co.uk/data/"
+  },
   {
     date: "2026-10-14",
     title: "County census pages and regional population maps",

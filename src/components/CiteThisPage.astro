@@ -1,0 +1,99 @@
+---
+/**
+ * "How to cite this page", with a copy button and the place's CSV download
+ * (roadmap R363). The text comes from src/lib/cite.ts. The button is plain
+ * script: it copies with the Clipboard API and falls back to selecting the
+ * text, so the citation can always be copied by hand.
+ */
+interface Props {
+  citation: string;
+  csvPath: string | null;
+  placeName: string;
+}
+
+const { citation, csvPath, placeName } = Astro.props;
+---
+
+<aside class="cite-page" aria-labelledby="cite-page-heading" data-cite-page>
+  <h2 id="cite-page-heading" class="cite-page-heading">How to cite this page</h2>
+  <p class="cite-page-text" data-cite-text>{citation}</p>
+  <p class="cite-page-actions">
+    <button type="button" class="cite-page-copy" data-cite-copy>Copy citation</button>
+    <span class="cite-page-status" role="status" aria-live="polite" data-cite-status></span>
+    {csvPath && (
+      <a class="cite-page-download" href={csvPath} download>Download the {placeName} figures (CSV)</a>
+    )}
+  </p>
+  <p class="cite-page-note">Add the date you read the page. The CSV holds the published ONS figures behind this citation, with a source column for each row; <a href="/data/">all downloads</a>.</p>
+</aside>
+
+<script>
+  for (const box of document.querySelectorAll<HTMLElement>("[data-cite-page]")) {
+    const button = box.querySelector<HTMLButtonElement>("[data-cite-copy]");
+    const text = box.querySelector<HTMLElement>("[data-cite-text]");
+    const status = box.querySelector<HTMLElement>("[data-cite-status]");
+    if (!button || !text || !status) continue;
+    button.addEventListener("click", async () => {
+      const value = text.textContent?.trim() ?? "";
+      try {
+        await navigator.clipboard.writeText(value);
+        status.textContent = "Copied";
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(text);
+        const sel = window.getSelection();
+        sel?.removeAllRanges();
+        sel?.addRange(range);
+        status.textContent = "Selected: press Ctrl+C or Cmd+C to copy";
+      }
+    });
+  }
+</script>
+
+<style>
+  .cite-page {
+    margin: var(--space-6, 2rem) 0 var(--space-4, 1rem);
+    padding: var(--space-4, 1rem) var(--space-5, 1.25rem);
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm, 8px);
+    max-width: 72ch;
+  }
+  .cite-page-heading {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+  }
+  .cite-page-text {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    overflow-wrap: anywhere;
+  }
+  .cite-page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin: 0.75rem 0 0;
+  }
+  .cite-page-copy {
+    font: inherit;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.8rem;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .cite-page-copy:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+  .cite-page-copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .cite-page-status { font-size: 0.8rem; color: var(--muted); }
+  .cite-page-download { font-size: 0.85rem; color: var(--accent); text-underline-offset: 2px; overflow-wrap: anywhere; }
+  .cite-page-note { margin: 0.6rem 0 0; font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+  .cite-page-note a { color: var(--accent); }
+</style>

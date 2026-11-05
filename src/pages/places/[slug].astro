@@ -6,6 +6,8 @@ import { CARD_LICENCE_METADATA } from "../../lib/map/card-licence";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import DataFreshness from "../../components/DataFreshness.astro";
+import CiteThisPage from "../../components/CiteThisPage.astro";
+import { placeCitation } from "../../lib/cite";
 import SectionDates from "../../components/SectionDates.astro";
 import ShareButton from "../../components/ShareButton.astro";
 import StatCard from "../../components/StatCard.astro";
@@ -483,6 +485,14 @@ const placeListing = buildPlaceListing({
 }, profileUpdatedDate());
 const pageTitle = placeListing.title;
 const metaDescription = placeListing.description;
+// How to cite this page (R363): the page's own title, the profile's revision year.
+const citation = placeCitation({
+  areaCode: area.areaCode,
+  areaName: area.areaName,
+  title: pageTitle,
+  url: canonicalUrl,
+  year: (profileUpdatedDate() ?? new Date().toISOString()).slice(0, 4),
+});
 const directAnswerSentences = placeDirectAnswerSentences(area.areaCode);
 const directAnswer = directAnswerSentences?.join(" ") ?? null;
 // Answer box order (decision R359, 4 November 2026): the ONS mid-year estimate and its
@@ -1842,6 +1852,8 @@ const wbiComparison = wbi2021 != null ? whiteBritishComparison(area.areaCode) : 
       </div>
     </div>
   )}
+
+  <CiteThisPage citation={citation.text} csvPath={citation.csvPath} placeName={displayName} />
 
   <DataFreshness
     updated={(rawProjections as any).lastUpdated ?? "2026-04-14"}
