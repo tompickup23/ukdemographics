@@ -8,17 +8,81 @@
  *   1. Perturb each CCR by sampling from Normal(CCR_observed, σ)
  *   2. Perturb CWRs similarly
  *   3. Run full HP projection with perturbed ratios
- *   4. Record WBI% and ethnic shares at each projection year
+ *   4. Record WBI% at each projection year
  *
  * After 1000 simulations:
  *   - Median = central projection
  *   - P10/P90 = 80% prediction interval
  *   - P2.5/P97.5 = 95% prediction interval
  *
- * σ calibrated from HP v7.0 backcast: MAE 1.71pp over 10 years
- * → per-cohort CCR σ = 0.02 (Census 2011 DC2101EW + Census 2021 direct base)
+ * RUN OPTIONS (21 Oct 2026, V81_READINESS.md blocker 2). This script reads the
+ * same options as run_hp_single_year.mjs, through scripts/model/lib/hp-options.mjs
+ * (base, 2011 files, countries, successors, control totals, cap mode, Brexit
+ * damp, School Census calibration, paths), and projects through the same code,
+ * scripts/model/lib/hp-core.mjs. Its bands are therefore drawn around the
+ * projection the same options produce. Two options of its own:
+ *
+ *   --simulations <n>   HP_SIMULATIONS   1000
+ *   --noise on|off      HP_NOISE         on
+ *
+ * The zero-noise check: one simulation with the noise off must reproduce the
+ * deterministic run exactly. tests/stochastic-zero-noise.test.mjs runs both
+ * scripts on a small fixture and compares every count.
+ *
+ *   node scripts/model/run_hp_single_year.mjs --format raw --output /tmp/det.json [options]
+ *   node scripts/model/run_stochastic_hp.mjs --simulations 1 --noise off --format raw --output /tmp/sto.json [options]
+ *
+ * A site-format run merges into --site-input (default the published file) and
+ * writes --output (default the same file); for v8.1 point --site-input at the
+ * forward model's scratch output. --format raw writes the percentiles and the
+ * first simulation's counts, for checking. Noise off is only a check and cannot
+ * write the site format.
+ *
+ * Changes from the v8.0 script, all of which bring it into line with the
+ * deterministic run: national ratios are pooled the deterministic way (sums of
+ * 2021 and 2011 counts, clamped, a 2011 base of five or fewer giving 1.0) rather
+ * than as a weighted mean of cells above ten; a cap factor outside 0.3 to 3.0 is
+ * skipped rather than clamped; the area list is the deterministic run's. A
+ * default run therefore gives slightly different bands from the v8.0 ones, which
+ * were drawn by the older code. It no longer reads model-validation.json, which
+ * it loaded and never used.
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { readFileSync, writeFileSync, existsSync, lstatSync, mkdirSync, rmSync } from "node:fs";
+import { execSync } from "node:child_process";
+import path from "node:path";
+import { loadBase2011 } from "./lib/census-2011-base.mjs";
+import { loadControlTotals } from "./lib/control-totals.mjs";
+import { successors2011 } from "./lib/geography.mjs";
+import { parseHpOptions } from "./lib/hp-options.mjs";
+import { isV80Run, stochasticSentence } from "./lib/hp-methodology.mjs";
+import {
+  applyBrexitDamp, applySchoolCalibration, computeRatios, newCapStats, projectArea, ratioSettings, PROJ_YEARS, SEXES,
+} from "./lib/hp-core.mjs";
+
+let OPTS;
+let N_SIMULATIONS;
+let NOISE;
+try {
+  OPTS = parseHpOptions(process.argv.slice(2), process.env, { extraFlags: ["simulations", "noise"], recordPrefix: "stochastic" });
+  if (OPTS.allPersons) throw new Error("the stochastic run reports White British bands and cannot run in all-persons mode");
+  N_SIMULATIONS = Number(OPTS.extra.simulations ?? 1000);
+  if (!Number.isInteger(N_SIMULATIONS) || N_SIMULATIONS < 1) throw new Error(`--simulations: expected a whole number of 1 or more, got "${OPTS.extra.simulations}"`);
+  const noise = String(OPTS.extra.noise ?? "on").toLowerCase();
+  if (!["on", "off"].includes(noise)) throw new Error(`--noise: expected on or off, got "${OPTS.extra.noise}"`);
+  NOISE = noise === "on";
+  if (!NOISE && OPTS.format === "site") throw new Error("--noise off is the zero-noise check and cannot write the site file; use --format raw");
+} catch (err) {
+  console.error(err.message);
+  process.exit(2);
+}
+const SITE_INPUT = OPTS.siteInput;
+const SITE_OUTPUT = OPTS.output;
+if (existsSync(SITE_OUTPUT) && lstatSync(SITE_OUTPUT).isSymbolicLink()) {
+  // Model inputs are symlinked from stores other repos read; never write through one.
+  console.error(`Refusing to write through a symlink: ${SITE_OUTPUT}`);
+  process.exit(2);
+}
 
 // Single-writer lock.
 //
@@ -29,8 +93,10 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync } from "node
 // dead, a second was started, and both were 85% through before it was noticed.
 //
 // The lock is a directory because mkdir is atomic. A stale lock from a killed run
-// can be cleared by deleting it; the path is printed on failure.
-const LOCK = ".stochastic-run.lock";
+// can be cleared by deleting it; the path is printed on failure. A run writing
+// the published file takes .stochastic-run.lock in the working directory, as
+// before; any other run locks its own output path.
+const LOCK = SITE_OUTPUT === path.resolve("src/data/live/ethnic-projections.json") ? ".stochastic-run.lock" : `${SITE_OUTPUT}.lock`;
 try {
   mkdirSync(LOCK);
 } catch (err) {
@@ -44,23 +110,13 @@ try {
 const releaseLock = () => { try { rmSync(LOCK, { recursive: true, force: true }); } catch {} };
 process.on("exit", releaseLock);
 for (const sig of ["SIGINT", "SIGTERM"]) process.on(sig, () => { releaseLock(); process.exit(130); });
-import path from "node:path";
-import { loadBase2011 } from "./lib/census-2011-base.mjs";
 
-const BASE_PATH = path.resolve("data/model/base_single_year_2021.json");
-const NEWETHPOP_2011 = path.resolve("data/raw/newethpop/extracted/2DataArchive/OutputData/Population/Population2011_LEEDS2.csv");
-const SNPP_PATH = path.resolve("data/raw/snpp/2022 SNPP Population persons.csv");
-const VALIDATION_PATH = path.resolve("src/data/live/model-validation.json");
-const SITE_OUTPUT = path.resolve("src/data/live/ethnic-projections.json");
+console.log(`Options: snppCap=${OPTS.snppCap ? "on" : "off"} capMode=${OPTS.capMode} brexitDamp=${OPTS.brexitDamp ? "on" : "off"} schoolCalibration=${OPTS.schoolCalibration ? "on" : "off"} format=${OPTS.format} simulations=${N_SIMULATIONS} noise=${NOISE ? "on" : "off"}`);
+console.log(`  output: ${SITE_OUTPUT}`);
 
-const base2021 = JSON.parse(readFileSync(BASE_PATH, "utf8"));
-const validation = JSON.parse(readFileSync(VALIDATION_PATH, "utf8"));
+const base2021 = JSON.parse(readFileSync(OPTS.base, "utf8"));
 const ETHNIC_GROUPS = base2021.ethnicGroups;
 const AGES = base2021.ages;
-const SEXES = ["M", "F"];
-
-const N_SIMULATIONS = 1000;
-const PROJ_YEARS = [2031, 2041, 2051, 2061];
 
 // FIX 1: Cell-size-dependent σ + horizon scaling
 // Base σ calibrated from the v8.0 out-of-sample test: White British MAE 1.56pp
@@ -82,24 +138,10 @@ const PROJ_YEARS = [2031, 2041, 2051, 2061];
 const CCR_SIGMA_BASE = 0.02;
 const CCR_SIGMA_SMALL_POP = 0.25;
 const CWR_SIGMA_BASE = 0.02;
+const PERTURB_FACTOR = NOISE ? 1.0 : 0.0;
 
-// James-Stein shrinkage constant: CCR_shrunk = w * CCR_local + (1-w) * CCR_national
-// where w = pop / (pop + k). k=50 means pop=50 gets 50% shrinkage toward national.
-// Aligned with run_hp_single_year.mjs. These two scripts had drifted apart: the
-// deterministic run used a 5.0 ceiling and a five-person freeze with no
-// shrinkage, this one used shrinkage at K=50 with the same ceiling, and the
-// published bands consequently failed to contain their own point estimate in 71%
-// of area-years. They now read the same settings, selected on the out-of-sample
-// test in validate_out_of_sample.mjs.
-const SHRINKAGE_K = Number(process.env.CCR_SHRINK_K ?? 25);
-const CCR_CEILING = Number(process.env.CCR_CEILING ?? 1.65);
-const CCR_FLOOR = Number(process.env.CCR_FLOOR ?? 0.05);
-
-function parseCsvLine(line) {
-  const f = []; let c = ""; let q = false;
-  for (const ch of line) { if (ch === '"') q = !q; else if (ch === "," && !q) { f.push(c.trim()); c = ""; } else c += ch; }
-  f.push(c.trim()); return f;
-}
+// Ratio guardrails: the deterministic run's, from the same environment variables.
+const RATIO_SETTINGS = ratioSettings();
 
 // Normal random using Box-Muller transform
 function randn() {
@@ -110,280 +152,93 @@ function randn() {
 }
 
 // ============================================================
-// Parse 2011 base (12 groups) and split to 20 (same as run_hp_single_year.mjs)
+// 2011 base, ratios and adjustments: shared with run_hp_single_year.mjs
 // ============================================================
-console.log("Parsing NEWETHPOP 2011 (12 groups) and splitting to 20...");
-// Shared with run_hp_single_year.mjs via scripts/model/lib/census-2011-base.mjs.
-//
-// This script used to read NEWETHPOP directly and split 12 groups to 20 using
-// 2021 proportions, while its own header comment claimed a DC2101EW base. The
-// deterministic model prefers DC2101EW, which is 18 observed groups. Cohort
-// change ratios are the 2021 population over the 2011 population, so a
-// different 2011 base is a different model, and the uncertainty bands were
-// being drawn around a projection they did not describe.
-const { pop2011, areas2011 } = loadBase2011(base2021, ETHNIC_GROUPS, SEXES);
-
-// Compute deterministic CCRs and CWRs
-const areaCodes = Object.keys(base2021.areas).filter(c => pop2011.has(`${c}|WBI|M|0`));
-const ccrs = new Map();
-const cwrs = new Map();
-
-// Compute national-average CCRs for James-Stein shrinkage target
-const nationalCCRs = new Map(); // "eth|sex|age" → { sumRatio, sumPop }
-for (const code of areaCodes) {
-  for (const eth of ETHNIC_GROUPS) {
-    for (const sex of SEXES) {
-      for (let fromAge = 0; fromAge <= 80; fromAge++) {
-        const pop11 = pop2011.get(`${code}|${eth}|${sex}|${fromAge}`)||0;
-        const pop21 = base2021.areas[code][eth]?.[sex]?.[fromAge+10]||0;
-        if (pop11 > 10) {
-          const key = `${eth}|${sex}|${fromAge}`;
-          if (!nationalCCRs.has(key)) nationalCCRs.set(key, { sumRatio: 0, sumPop: 0, count: 0 });
-          const n = nationalCCRs.get(key);
-          n.sumRatio += pop21 / pop11 * pop11; // population-weighted
-          n.sumPop += pop11;
-          n.count++;
-        }
-      }
-    }
+// The 2011 base, the ratios, the Brexit damp, the School Census calibration and
+// the cap are the deterministic run's own functions. Each of them was once a
+// separate copy here and each copy drifted (the 2011 source, the shrink-then-
+// clamp order, the two adjustments, the extension beyond 2047, the national
+// ratio and the cap guard), every time found by running one simulation with the
+// noise off, which must reproduce the deterministic projection exactly.
+const { pop2011, areas2011 } = loadBase2011(base2021, ETHNIC_GROUPS, SEXES, {
+  dc2101ewPath: OPTS.dc2101ew,
+  newethpopPath: OPTS.newethpop2011,
+  countries: OPTS.countries2011,
+  successors: OPTS.successors2011 ? successors2011() : undefined,
+});
+const areaCodes = Object.keys(base2021.areas).filter((c) => areas2011.has(c));
+const { ccrs, cwrs } = computeRatios(base2021, pop2011, areaCodes, ETHNIC_GROUPS, RATIO_SETTINGS);
+if (OPTS.brexitDamp) applyBrexitDamp(ccrs, areaCodes);
+if (OPTS.schoolCalibration) {
+  let schoolData = null;
+  try {
+    schoolData = JSON.parse(readFileSync(OPTS.schoolValidation, "utf8"));
+  } catch {
+    console.log("  WARNING: school-validation.json not found, calibration skipped (the deterministic run skips it too)");
   }
-}
-const natCCR = new Map();
-for (const [key, data] of nationalCCRs) {
-  natCCR.set(key, data.sumPop > 0 ? data.sumRatio / data.sumPop : 1.0);
-}
-console.log(`  Computed ${natCCR.size} national-average CCRs for shrinkage`);
-
-// Store base populations for cell-size-dependent σ
-const ccrPops = new Map(); // "code|eth|sex|age" → pop11
-
-for (const code of areaCodes) {
-  for (const eth of ETHNIC_GROUPS) {
-    let children = 0, women = 0;
-    for (let a = 0; a <= 9; a++) children += (base2021.areas[code][eth]?.M?.[a]||0) + (base2021.areas[code][eth]?.F?.[a]||0);
-    for (let a = 15; a <= 44; a++) women += base2021.areas[code][eth]?.F?.[a]||0;
-    cwrs.set(`${code}|${eth}`, women > 5 ? children / women / 10 : 0.03);
-
-    for (const sex of SEXES) {
-      for (let fromAge = 0; fromAge <= 80; fromAge++) {
-        const pop11 = pop2011.get(`${code}|${eth}|${sex}|${fromAge}`)||0;
-        const pop21 = base2021.areas[code][eth]?.[sex]?.[fromAge+10]||0;
-
-        // No five-person freeze: shrinkage below already handles a thin cell by
-        // borrowing the national ratio, which is the honest answer when there is
-        // no local signal, rather than freezing the group at no change.
-        const natForCell = natCCR.get(`${eth}|${sex}|${fromAge}`) || 1.0;
-
-        // Shrink the UNCLAMPED ratio, then clamp, matching run_hp_single_year.mjs.
-        //
-        // This script used to clamp first and shrink second. That is not the same
-        // operation: clamping a fast-growing cell to the ceiling before averaging
-        // it with the national ratio pulls it below the ceiling, where shrinking
-        // first leaves it at the ceiling. It therefore under-projected exactly the
-        // cells that grow fastest, which are minority groups on a thin base, and so
-        // over-projected the White British share relative to the deterministic run.
-        //
-        // Found by running one simulation with the noise turned off, which must
-        // reproduce the deterministic projection exactly and did not: only 1 of 269
-        // areas matched, mean gap +0.35pp and up to 2.76pp in Cornwall. Three
-        // earlier hypotheses (sampling noise, the population envelope, the School
-        // Census calibration) were each wrong; the zero-noise comparison is what
-        // isolated it.
-        const localCCR = pop11 > 0 ? pop21 / pop11 : natForCell;
-        const w = pop11 / (pop11 + SHRINKAGE_K); // 0 = full shrinkage, 1 = none
-        const shrunkCCR = Math.max(CCR_FLOOR, Math.min(CCR_CEILING, w * localCCR + (1 - w) * natForCell));
-
-        ccrs.set(`${code}|${eth}|${sex}|${fromAge}`, shrunkCCR);
-        ccrPops.set(`${code}|${eth}|${sex}|${fromAge}`, pop11);
-      }
-    }
+  if (schoolData?.areas) {
+    const n = applySchoolCalibration(ccrs, schoolData, base2021, RATIO_SETTINGS);
+    console.log(`  Calibrated ${n} areas using DfE school data (matching the deterministic run)`);
   }
 }
 
-// Brexit White Other damp and DfE School Census calibration.
-//
-// Ported from run_hp_single_year.mjs so the two runs describe the same model.
-// They did not: the deterministic model applied both of these to its ratios and
-// this script applied neither, so the deterministic projection sat BELOW its own
-// band in 163 of 185 disagreeing area-years, a one-sided pattern that sampling
-// noise cannot produce. Cornwall missed by 9.2pp at 2051 and by 2.5pp at 2031,
-// so it was never a long-horizon or envelope problem.
-const APPLY_BREXIT_DAMP = process.env.BREXIT_DAMP !== "0";
-if (APPLY_BREXIT_DAMP) {
-  for (const code of areaCodes) {
-    for (const sex of SEXES) {
-      for (let fromAge = 10; fromAge <= 34; fromAge++) {
-        const key = `${code}|WHO|${sex}|${fromAge}`;
-        const ccr = ccrs.get(key);
-        if (ccr && ccr > 1.0) ccrs.set(key, 1.0 + (ccr - 1.0) * 0.85);
-      }
-    }
+let control = null;
+if (OPTS.snppCap) {
+  control = loadControlTotals(OPTS.controlTotals);
+  console.log(`Control totals: ${control.label}`);
+  if (OPTS.capMode === "age-sex" && !control.hasCells) {
+    console.error("--cap-mode age-sex needs a control-totals JSON with age and sex detail");
+    process.exit(2);
   }
 }
 
-const CALIBRATION_GROUPS = {
-  white_british: ["WBI"],
-  white_other: ["WIR", "WGT", "WRO", "WHO"],
-  asian: ["IND", "PAK", "BAN", "CHI", "OAS"],
-  black: ["BAF", "BCA", "OBL"],
-  mixed: ["MWA", "MWF", "MWC", "MOM"],
-  other: ["ARB", "OOT"]
+// The noise. Each ratio's σ grows with the horizon and with the thinness of the
+// 2011 cell it rests on (CCRs) or of the 2021 women behind it (CWRs).
+const perturb = {
+  ccr(baseCCR, code, eth, sex, fromAge, year) {
+    const horizonScale = Math.sqrt((year - 2021) / 10); // 2031=1.0, 2041=1.41, 2051=1.73, 2061=2.0
+    const pop = pop2011.get(`${code}|${eth}|${sex}|${fromAge}`) || 1;
+    const sigma = (CCR_SIGMA_BASE + CCR_SIGMA_SMALL_POP / Math.sqrt(Math.max(pop, 1))) * horizonScale;
+    return Math.max(0.01, baseCCR + randn() * sigma * PERTURB_FACTOR);
+  },
+  cwr(baseCWR, code, eth) {
+    let cwrWomen = 0;
+    for (let a = 15; a <= 44; a++) cwrWomen += base2021.areas[code][eth]?.F?.[a] || 0;
+    const cwrSigma = CWR_SIGMA_BASE + 0.15 / Math.sqrt(Math.max(cwrWomen, 1));
+    return Math.max(0, baseCWR + randn() * cwrSigma * PERTURB_FACTOR);
+  },
 };
-let calibratedAreas = 0;
-try {
-  const schoolData = JSON.parse(readFileSync(path.resolve("src/data/live/school-validation.json"), "utf8"));
-  for (const sv of schoolData?.areas ?? []) {
-    const code = sv.areaCode;
-    if (!base2021.areas[code]) continue;
-    for (const [group, ethCodes] of Object.entries(CALIBRATION_GROUPS)) {
-      const comparison = sv.comparison?.[group];
-      if (!comparison?.censusChildPct || !comparison?.schoolPct) continue;
-      const gapPp = comparison.gapPp;
-      if (Math.abs(gapPp) < 1.5) continue;
-      const adjustment = 1 + (gapPp / 100) * 0.2;
-      for (const eth of ethCodes) {
-        for (const sex of SEXES) {
-          for (let fromAge = 0; fromAge <= 5; fromAge++) {
-            const key = `${code}|${eth}|${sex}|${fromAge}`;
-            const ccr = ccrs.get(key);
-            if (ccr) ccrs.set(key, Math.max(CCR_FLOOR, Math.min(CCR_CEILING, ccr * adjustment)));
-          }
-        }
-      }
-    }
-    calibratedAreas++;
-  }
-  console.log(`  Calibrated ${calibratedAreas} areas using DfE school data (matching the deterministic run)`);
-} catch {
-  console.log("  WARNING: school-validation.json not found, calibration skipped (will disagree with the deterministic run)");
-}
-
-// Parse SNPP
-const snppTotals = new Map();
-const snppLines = readFileSync(SNPP_PATH, "utf8").split("\n").filter(l => l.trim());
-const snppHeader = parseCsvLine(snppLines[0]);
-const yearCols = snppHeader.slice(5);
-for (let i = 1; i < snppLines.length; i++) {
-  const cols = parseCsvLine(snppLines[i]);
-  if (!cols[0]?.startsWith("E") || cols[4] !== "All ages") continue;
-  snppTotals.set(cols[0], {});
-  for (let j = 0; j < yearCols.length; j++) snppTotals.get(cols[0])[yearCols[j]] = parseFloat(cols[5+j])||0;
-}
 
 console.log(`${areaCodes.length} areas, ${ccrs.size} CCRs, running ${N_SIMULATIONS} simulations...`);
 
 // ============================================================
-// Run single HP projection with perturbed CCRs
-// ============================================================
-function runOneSimulation(perturbFactor) {
-  const results = {}; // code → { 2031: {WBI: %, ...}, 2041: {...}, ... }
-
-  for (const code of areaCodes) {
-    results[code] = {};
-    let currentPop = {};
-    for (const eth of ETHNIC_GROUPS) {
-      currentPop[eth] = {};
-      for (const sex of SEXES) {
-        currentPop[eth][sex] = {};
-        for (const age of AGES) currentPop[eth][sex][age] = base2021.areas[code][eth]?.[sex]?.[age]||0;
-      }
-    }
-
-    for (const year of PROJ_YEARS) {
-      const yearsFromBase = year - 2021;
-      const horizonScale = Math.sqrt(yearsFromBase / 10); // 2031=1.0, 2041=1.41, 2051=1.73, 2061=2.0
-      const newPop = {};
-      // Pass 1: age every cohort for BOTH sexes before any births, so the male
-      // pass cannot fall back to the previous step's women.
-      for (const eth of ETHNIC_GROUPS) {
-        newPop[eth] = {};
-        for (const sex of SEXES) {
-          newPop[eth][sex] = {};
-          // Age with perturbed CCRs — cell-size-dependent sigma + horizon scaling
-          for (let toAge = 10; toAge <= 90; toAge++) {
-            const baseCCR = ccrs.get(`${code}|${eth}|${sex}|${toAge-10}`)||1.0;
-            const pop = ccrPops.get(`${code}|${eth}|${sex}|${toAge-10}`) || 1;
-            const sigma = (CCR_SIGMA_BASE + CCR_SIGMA_SMALL_POP / Math.sqrt(Math.max(pop, 1))) * horizonScale;
-            const perturbedCCR = Math.max(0.01, baseCCR + randn() * sigma * perturbFactor);
-            newPop[eth][sex][toAge] = Math.round((currentPop[eth][sex][toAge-10]||0) * perturbedCCR);
-          }
-          newPop[eth][sex][90] = (newPop[eth][sex][90]||0) + Math.round((currentPop[eth][sex][90]||0) * 0.3);
-        }
-      }
-      // Pass 2: births from the projected women of this step.
-      for (const eth of ETHNIC_GROUPS) {
-        const baseCWR = cwrs.get(`${code}|${eth}`)||0.03;
-        let cwrWomen = 0;
-        for (let a = 15; a <= 44; a++) cwrWomen += base2021.areas[code][eth]?.F?.[a] || 0;
-        const cwrSigma = CWR_SIGMA_BASE + 0.15 / Math.sqrt(Math.max(cwrWomen, 1));
-        const perturbedCWR = Math.max(0, baseCWR + randn() * cwrSigma * perturbFactor);
-        let women = 0;
-        for (let a = 15; a <= 44; a++) women += newPop[eth].F[a] || 0;
-        const births = women * perturbedCWR;
-        for (const sex of SEXES) {
-          const sr = sex === "M" ? 0.512 : 0.488;
-          for (let a = 0; a <= 9; a++) newPop[eth][sex][a] = Math.round(births * sr);
-        }
-      }
-
-      // SNPP constraint.
-      //
-      // SNPP stops at 2047. run_hp_single_year.mjs extrapolates the 2043-to-2047
-      // slope linearly beyond that; this script used to clamp to the 2047 total
-      // instead. The two therefore constrained 2051 and 2061 to different
-      // populations, which is a systematic difference between the deterministic
-      // projection and the band drawn around it, not sampling noise. It is why
-      // the residual band mismatches concentrated at the long horizons. Matched
-      // to the deterministic model here.
-      let target;
-      if (year <= 2047) {
-        target = snppTotals.get(code)?.[String(year)];
-      } else {
-        const s43 = snppTotals.get(code)?.["2043"];
-        const s47 = snppTotals.get(code)?.["2047"];
-        if (s43 && s47 && s43 > 0) {
-          const annualGrowth = (s47 - s43) / 4;
-          target = s47 + annualGrowth * (year - 2047);
-          if (target < 0) target = s47;
-        } else {
-          target = snppTotals.get(code)?.["2047"];
-        }
-      }
-      if (target > 0) {
-        let total = 0;
-        for (const eth of ETHNIC_GROUPS) for (const sex of SEXES) for (const a of AGES) total += newPop[eth][sex][a]||0;
-        if (total > 0) {
-          const scale = Math.max(0.3, Math.min(3, target / total));
-          for (const eth of ETHNIC_GROUPS) for (const sex of SEXES) for (const a of AGES) newPop[eth][sex][a] = Math.round((newPop[eth][sex][a]||0) * scale);
-        }
-      }
-
-      // Compute ethnic shares
-      let total = 0;
-      const ethTotals = {};
-      for (const eth of ETHNIC_GROUPS) {
-        ethTotals[eth] = 0;
-        for (const sex of SEXES) for (const a of AGES) ethTotals[eth] += newPop[eth][sex][a]||0;
-        total += ethTotals[eth];
-      }
-      results[code][year] = {};
-      for (const eth of ETHNIC_GROUPS) results[code][year][eth] = total > 0 ? ethTotals[eth] / total * 100 : 0;
-
-      currentPop = newPop;
-    }
-  }
-  return results;
-}
-
-// ============================================================
 // Run Monte Carlo
 // ============================================================
-const allSimulations = []; // Array of N_SIMULATIONS result objects
-const progressInterval = Math.floor(N_SIMULATIONS / 10);
+// Only the White British share of each area and year is kept from each
+// simulation (it is all the bands use); the first simulation's counts are kept
+// whole for the raw output and the zero-noise check.
+const nYears = PROJ_YEARS.length;
+const wbiShares = []; // one Float64Array per simulation, [areaIndex * nYears + yearIndex]
+let firstSimulation = null;
+let capStats = newCapStats();
+const progressInterval = Math.max(1, Math.floor(N_SIMULATIONS / 10));
 
 for (let sim = 0; sim < N_SIMULATIONS; sim++) {
   if (sim % progressInterval === 0) process.stderr.write(`  Sim ${sim}/${N_SIMULATIONS}\n`);
-  allSimulations.push(runOneSimulation(1.0));
+  const stats = newCapStats();
+  const ctx = { base2021, groups: ETHNIC_GROUPS, ages: AGES, ccrs, cwrs, control, capMode: OPTS.capMode, capStats: stats, ageSex: false };
+  const shares = new Float64Array(areaCodes.length * nYears);
+  const keep = sim === 0 ? {} : null;
+  areaCodes.forEach((code, i) => {
+    const timeline = projectArea(code, ctx, perturb);
+    PROJ_YEARS.forEach((year, j) => {
+      const { total, eth } = timeline[year];
+      shares[i * nYears + j] = total > 0 ? (eth.WBI || 0) / total * 100 : 0;
+    });
+    if (keep) keep[code] = Object.fromEntries(PROJ_YEARS.map((y) => [y, timeline[y]]));
+  });
+  wbiShares.push(shares);
+  if (keep) { firstSimulation = keep; capStats = stats; }
 }
 console.log(`  ${N_SIMULATIONS} simulations complete`);
 
@@ -399,13 +254,10 @@ function percentile(arr, p) {
 }
 
 const stochasticResults = {};
-
-for (const code of areaCodes) {
+areaCodes.forEach((code, i) => {
   stochasticResults[code] = {};
-
-  for (const year of PROJ_YEARS) {
-    const wbiValues = allSimulations.map(sim => sim[code][year].WBI);
-
+  PROJ_YEARS.forEach((year, j) => {
+    const wbiValues = wbiShares.map((s) => s[i * nYears + j]);
     stochasticResults[code][year] = {
       wbi: {
         p2_5: Math.round(percentile(wbiValues, 0.025) * 10) / 10,
@@ -415,8 +267,8 @@ for (const code of areaCodes) {
         p97_5: Math.round(percentile(wbiValues, 0.975) * 10) / 10
       }
     };
-  }
-}
+  });
+});
 
 // ============================================================
 // Diagnostics
@@ -425,7 +277,6 @@ console.log("\n=== STOCHASTIC HP RESULTS ===");
 for (const code of ["E07000117", "E06000008", "E08000025"]) {
   const s = stochasticResults[code];
   if (!s) continue;
-  const name = base2021.areas[code]?.WBI ? code : code;
   console.log(`\n${code}:`);
   for (const year of PROJ_YEARS) {
     const d = s[year].wbi;
@@ -433,27 +284,46 @@ for (const code of ["E07000117", "E06000008", "E08000025"]) {
   }
 }
 
-// National aggregate
-for (const year of PROJ_YEARS) {
-  // Compute national median WBI across simulations
-  const natWBI = allSimulations.map(sim => {
-    let total = 0, wbi = 0;
-    for (const code of areaCodes) {
-      const areaTotal = ETHNIC_GROUPS.reduce((s, e) => s + (sim[code][year][e]||0), 0);
-      total += areaTotal; wbi += sim[code][year].WBI || 0;
-    }
-    // This is the mean WBI% across areas, weighted by... nothing. Need to weight by population.
-    // For now, simple mean across areas (population-weighted would be better)
+// National aggregate: the simple mean of the areas' White British shares, not
+// population-weighted; printed for orientation only.
+PROJ_YEARS.forEach((year, j) => {
+  const natWBI = wbiShares.map((s) => {
+    let wbi = 0;
+    for (let i = 0; i < areaCodes.length; i++) wbi += s[i * nYears + j];
     return wbi / areaCodes.length;
   });
   console.log(`\nNational ${year}: median WBI=${percentile(natWBI, 0.5).toFixed(1)}% [80%: ${percentile(natWBI, 0.1).toFixed(1)}-${percentile(natWBI, 0.9).toFixed(1)}%]`);
+});
+
+// ============================================================
+// Raw output (for checking, not for publication)
+// ============================================================
+if (OPTS.format === "raw") {
+  const out = {
+    model: "Stochastic Hamilton-Perry (scripts/model/run_stochastic_hp.mjs)",
+    simulations: N_SIMULATIONS,
+    noise: NOISE,
+    groups: ETHNIC_GROUPS,
+    controlTotals: control ? control.label : "none (cap off)",
+    capMode: control ? OPTS.capMode : null,
+    note: "Model output for checking, not for publication. stochastic holds White British percentiles by area and year; firstSimulation holds the first simulation's projected persons by area, year and group.",
+    stochastic: stochasticResults,
+    firstSimulation,
+  };
+  writeFileSync(SITE_OUTPUT, JSON.stringify(out), "utf8");
+  console.log(`Written raw output ${SITE_OUTPUT}`);
+  writeRunRecord();
+  process.exit(0);
 }
 
 // ============================================================
 // Update site data
 // ============================================================
 console.log("\nUpdating ethnic-projections.json...");
-const existing = JSON.parse(readFileSync(SITE_OUTPUT, "utf8"));
+if (!isV80Run(OPTS, RATIO_SETTINGS)) {
+  console.log("NOTE: a non-default configuration. The appended methodology sentence describes it; read it before anything is published.");
+}
+const existing = JSON.parse(readFileSync(SITE_INPUT, "utf8"));
 
 for (const code of areaCodes) {
   if (!existing.areas[code] || !stochasticResults[code]) continue;
@@ -483,7 +353,41 @@ for (const code of areaCodes) {
 // three releases behind the projections it actually contained.
 
 existing.lastUpdated = new Date().toISOString().slice(0, 10);
-existing.methodology += " Monte Carlo stochastic projection (1000 simulations, CCR σ=0.02 calibrated from the v8.0 out-of-sample validation: White British MAE 1.56pp with a bias of +0.05pp over 285 areas). Reports median + 80%/95% prediction intervals.";
+existing.methodology += stochasticSentence({ opts: OPTS, settings: RATIO_SETTINGS, simulations: N_SIMULATIONS });
 
 writeFileSync(SITE_OUTPUT, JSON.stringify(existing, null, 2), "utf8");
+writeRunRecord();
 console.log("Done.");
+
+function writeRunRecord() {
+  const hashFile = (p) => (existsSync(p) ? createHash("sha256").update(readFileSync(p)).digest("hex") : null);
+  let commit = null;
+  try {
+    commit = execSync("git rev-parse HEAD", { stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
+  } catch {
+    commit = null;
+  }
+  const inputs = {
+    base: OPTS.base,
+    dc2101ew: OPTS.dc2101ew,
+    newethpop2011: OPTS.newethpop2011,
+    controlTotals: OPTS.snppCap ? OPTS.controlTotals : null,
+    schoolValidation: OPTS.schoolCalibration ? OPTS.schoolValidation : null,
+    siteInput: OPTS.format === "site" ? OPTS.siteInput : null,
+  };
+  const record = {
+    script: "scripts/model/run_stochastic_hp.mjs",
+    ranAt: new Date().toISOString(),
+    commit,
+    node: process.version,
+    options: { ...OPTS, simulations: N_SIMULATIONS, noise: NOISE, ...RATIO_SETTINGS },
+    v80Configuration: isV80Run(OPTS, RATIO_SETTINGS),
+    inputs: Object.fromEntries(Object.entries(inputs).map(([k, p]) => [k, p ? { path: p, sha256: hashFile(p) } : null])),
+    areasProjected: areaCodes.length,
+    cap: control ? { mode: OPTS.capMode, firstSimulation: capStats } : null,
+    output: { path: SITE_OUTPUT, sha256: hashFile(SITE_OUTPUT) },
+  };
+  mkdirSync(path.dirname(OPTS.runRecord), { recursive: true });
+  writeFileSync(OPTS.runRecord, JSON.stringify(record, null, 2), "utf8");
+  console.log(`Run record ${OPTS.runRecord}`);
+}
