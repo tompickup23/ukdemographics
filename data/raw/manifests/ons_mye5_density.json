@@ -1,0 +1,36 @@
+{
+  "dataset": "ons_mye5_density",
+  "publisher": "Office for National Statistics",
+  "cadence": "annual",
+  "landing": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales",
+  "note": "Tables MYE5 (population density: land area in square kilometres and people per square kilometre) and MYE6 (median age) of the mid-2025 workbook, read by scripts/build/build-mye5-density.mjs into src/data/live/ons-mye5-density.json. The workbook is the same file as data/raw/manifests/ons_mye.json, byte for byte (same SHA-256). The 4 November 2026 fetch by scripts/fetch/fetch-ons-mye.mjs is recorded here rather than appended to ons_mye.json, because the county publication gate (scripts/lib/county-audit.mjs) hashes that manifest whole and a new attempt line would need a separately reviewed refresh. The run made one request each for robots.txt (HTTP 404, recorded as absent), the dataset page (to resolve the current edition) and the workbook. A dry run of the same script a minute earlier made one request each for robots.txt and the dataset page, and none for the workbook. The Nomis dataset API was not used.",
+  "edition": {
+    "title": "Mid-Year Population Estimates, England and Wales, June 2025",
+    "release": "MYE25",
+    "published": "29 July 2026",
+    "referenceDate": "2025-06-30",
+    "source": "read from the workbook cover sheet"
+  },
+  "current": {
+    "fileName": "mye25tablesew.xlsx",
+    "fileSha256": "85b4e105e9618043884e5ac41d46e6eae8a46bb01b31790f1c76110cbe92d0d8",
+    "sizeBytes": 976621,
+    "sourceUrl": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid20252023localauthorityboundaries/mye25tablesew.xlsx"
+  },
+  "attempts": [
+    {
+      "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid20252023localauthorityboundaries/mye25tablesew.xlsx",
+      "attempted_at": "2026-11-04T14:53:43.907Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "etag": "\"fed461f6ee1968c715df322945e4cf5f63ff0997--gzip\"",
+      "last_modified": null,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "mye25tablesew.xlsx",
+      "blob_sha256": "85b4e105e9618043884e5ac41d46e6eae8a46bb01b31790f1c76110cbe92d0d8",
+      "bytes": 976621,
+      "held_at": "data/raw/ons_mye (not committed; the build checks this hash)"
+    }
+  ]
+}

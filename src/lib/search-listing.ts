@@ -214,6 +214,14 @@ export function buildPlaceListing(c: PlaceCoverage, updatedIso: string | null): 
  * Every figure in it is already rendered further down the same page.
  */
 export function buildPlaceDirectAnswer(areaCode: string): string | null {
+  return placeDirectAnswerSentences(areaCode)?.join(" ") ?? null;
+}
+
+/**
+ * The same paragraph as separate sentences. The first is always the population
+ * sentence, so the place page can set short figure lines after it.
+ */
+export function placeDirectAnswerSentences(areaCode: string): string[] | null {
   const area = projections.areas[areaCode];
   const population = area?.current?.total_population;
   const year = area?.current?.year;
@@ -266,7 +274,7 @@ export function buildPlaceDirectAnswer(areaCode: string): string | null {
     sentences.push("No projection is published for this area, because the model's first projected decade fails the plausibility check.");
   }
 
-  return sentences.join(" ");
+  return sentences;
 }
 
 // ---------------------------------------------------------------------------

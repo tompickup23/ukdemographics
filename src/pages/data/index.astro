@@ -14,11 +14,11 @@ const places = placeCodes()
 const COLUMN_NOTES: Record<(typeof COLUMNS)[number], string> = {
   area_code: "ONS local authority code.",
   area_name: "Council name as used on this site.",
-  measure: "What the value counts: population_estimate, population_estimate_ci95, population_by_age, median_age, components_of_change, census_usual_residents or census_ethnic_group.",
+  measure: "What the value counts: population_estimate, population_estimate_ci95, population_by_age, land_area, population_density, median_age, components_of_change, census_usual_residents or census_ethnic_group.",
   category: "The group, band or component within the measure.",
   period: "Reference date: mid-year (30 June), a year to mid-year, or the Census.",
   value: "The figure as published, or a sum of published cells where the sources file says so.",
-  unit: "persons or years.",
+  unit: "persons, years, square kilometres or persons per square kilometre.",
   source_id: "Key into sources.csv: publisher, table, edition, file and its SHA-256.",
   source_locator: "Sheet and row of the source workbook, the Census area code, or the 2011 districts summed for a council formed since."
 };
@@ -41,7 +41,7 @@ const structuredData = [
     publisher: { "@id": `${SITE_URL}/#organization` },
     spatialCoverage: { "@type": "Place", name: "England and Wales" },
     temporalCoverage: "2011/2025",
-    variableMeasured: ["Population estimate", "Population by age band", "Median age", "Components of population change", "Usual residents by ethnic group"],
+    variableMeasured: ["Population estimate", "Population by age band", "Land area", "Population density", "Median age", "Components of population change", "Usual residents by ethnic group"],
     isBasedOn: SOURCES.map((s) => ({ "@type": "CreativeWork", name: `${s.publisher}, ${s.title}, ${s.table}`, url: s.url })),
     distribution: [
       { "@type": "DataDownload", encodingFormat: "text/csv", name: "All places", contentUrl: buildAbsoluteUrl("/data/places.csv") },

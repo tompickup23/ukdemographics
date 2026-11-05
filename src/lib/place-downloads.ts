@@ -13,6 +13,7 @@ import rawProjections from "../data/live/ethnic-projections.json";
 import rawMye from "../data/live/population-estimates.json";
 import rawCensusManifest from "../../data/raw/manifests/census_ethnic_groups.json";
 import { ETHNIC_PALETTE } from "./ethnic-palette";
+import { getAreaDensity } from "./area-density";
 import { slugifyAreaName } from "./site";
 
 interface CensusSide {
@@ -77,6 +78,7 @@ export const SOURCES: DownloadSource[] = [
   myeSource("ons-mye2", "MYE2 - Persons", `Age bands are sums of single-year-of-age cells: 0 to 17, 18 to 64, and 65 to 89 plus 90+.`),
   myeSource("ons-mye3", "MYE3", `Components of change, mid-${Number(MYE_YEAR) - 1} to mid-${MYE_YEAR}.`),
   myeSource("ons-mye6", "MYE6", `Median age at mid-${MYE_YEAR}.`),
+  myeSource("ons-mye5", "MYE5", `Land area in square kilometres as published (Standard Area Measurements, January 2025, excluding inland water) and usual residents per square kilometre at mid-${MYE_YEAR}, rounded by ONS to a whole number. No unit conversion.`),
   {
     id: "census-2011-ks201ew",
     publisher: "Office for National Statistics",
@@ -139,6 +141,12 @@ export function placeRows(code: string): DownloadRow[] {
     const r2 = sheetLocator("MYE2 - Persons", m.locators.ageBands);
     for (const [band, value] of Object.entries(m.ageBands))
       push("population_by_age", `aged ${band.replace("-", " to ").replace("+", " and over")}`, `mid-${MYE_YEAR}`, value, "persons", "ons-mye2", r2);
+  }
+  const d = getAreaDensity(code);
+  if (d) {
+    const r5 = sheetLocator("MYE5", d.locators.density);
+    push("land_area", "all land", d.period, d.areaSqKm, "square kilometres", "ons-mye5", r5);
+    push("population_density", "all persons", d.period, d.densityPerSqKm, "persons per square kilometre", "ons-mye5", r5);
   }
   if (m.medianAge != null) push("median_age", "all persons", `mid-${MYE_YEAR}`, m.medianAge, "years", "ons-mye6", `sheet=MYE6;column=Mid-${MYE_YEAR}`);
   if (m.components) {
