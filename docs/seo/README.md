@@ -213,3 +213,23 @@ record of the assignment, and `ctr-by-arm.mjs` still splits a later export by th
 **Next.** Re-measure four weeks after the rollout deploys: the former control and A pages
 should move towards B's rate. Leading with the ONS mid-year estimate instead of the 2021 Census
 count is a separate change, to test after this one.
+
+## T08 re-measure clock
+
+- Clock start: 5 November 2026. PR 146 (population first homepage and place answer box, R359)
+  merged to main at 10:06 UTC as `b610709e`; its deploy run (42007978427) succeeded at 10:17
+  UTC the same day. From that date every place page opens its answer box with the ONS mid-2025
+  estimate (table MYE4, published 29 July 2026) ahead of the 2021 Census count.
+- Window: the 28 days from 6 November to 3 December 2026, four weeks from 146's deploy (Reports
+  `Website_Audits/Project_Plans_2026-11-04.md` section 5). Read on or after 5 December 2026, once
+  Search Console has the last day, and before the due date of 16 December 2026 (register R381,
+  Traffic/seo/tasks.csv T08). Same method as the result above: the Pages export split by the
+  former arms with `ctr-by-arm.mjs`, deciding on clicks per impression and recording average
+  position by arm.
+- Changes inside the window to note before counting: PRs 148, 143, 144 and 147 (neighbour links,
+  density and median age, schema and the plain name under the H1, the cite block) change place
+  page body text after 5 November. None changes a place page title or meta description; 144
+  changes the hub pages' titles and descriptions, which sit outside the arm split. Record each
+  one's deploy date here when it lands.
+- Deployed inside the window: PR 148 (neighbour links, related findings, /about/), merged
+  `c0b7479a`, deploy run 42011618134 green at 10:44 UTC on 5 November 2026.
