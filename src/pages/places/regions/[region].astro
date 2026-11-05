@@ -4,7 +4,9 @@ import NeighbourLinks from "../../../components/NeighbourLinks.astro";
 import { regionFrame } from "../../../lib/map/geo";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
-import { getPublicPlaceAreas, getPublicPlaceRegions, buildPublicPlaceRegionSlug, buildPublicPlaceRegionPath, buildAbsoluteUrl, slugifyAreaName } from "../../../lib/site";
+import { getPublicPlaceAreas, getPublicPlaceRegions, buildPublicPlaceRegionSlug, buildPublicPlaceRegionPath, buildAbsoluteUrl, buildHubStructuredData, slugifyAreaName } from "../../../lib/site";
+import { plainPlaceName } from "../../../lib/place-names";
+import * as counties from "../../../lib/counties";
 import { buildRegionListing, censusYear, listingHorizon } from "../../../lib/search-listing";
 
 const allAreas = getPublicPlaceAreas();
@@ -29,15 +31,26 @@ const totalPop = regionAreas.reduce((s, a) => s + (a.population ?? 0), 0);
 const horizons = regionAreas.map((a) => listingHorizon(a.areaCode)).filter((y): y is number => y != null);
 const regionListing = buildRegionListing(regionName, horizons.length ? Math.max(...horizons) : null);
 const baseCensusYear = censusYear();
+
+// ItemList: the county pages, then the place profiles, in the order listed below.
+// The county set is the one the page lists: counties holding any of this region's districts, A to Z.
+const regionCounties = counties.publicCounties.filter((c) => counties.countyRecords[c.code].districts.some((code) => regionAreas.some((a) => a.areaCode === code)));
+const structuredData = buildHubStructuredData({
+  canonicalUrl: buildAbsoluteUrl(buildPublicPlaceRegionPath(regionName)),
+  name: regionListing.title,
+  description: regionListing.description,
+  trail: [{ name: "Places", path: "/places/" }, { name: regionName, path: buildPublicPlaceRegionPath(regionName) }],
+  items: [
+    ...regionCounties.map((c) => ({ name: c.name, path: counties.countyPath(c.name) })),
+    ...regionAreas.map((a) => ({ name: plainPlaceName(a.areaCode, a.areaName), path: `/places/${slugifyAreaName(a.areaName)}/` })),
+  ],
+});
 ---
 
 <BaseLayout
   title={regionListing.title}
   description={regionListing.description}
-  structuredData={[{'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[
-    {name:'Home',item:buildAbsoluteUrl('/')}, {name:'Places',item:buildAbsoluteUrl('/places/')},
-    {name:regionName,item:buildAbsoluteUrl(buildPublicPlaceRegionPath(regionName))}
-  ].map((item,index)=>({'@type':'ListItem',position:index+1,...item}))}]}
+  structuredData={structuredData}
 >
   <Breadcrumbs items={[
     { label: "Places", href: "/places/" },

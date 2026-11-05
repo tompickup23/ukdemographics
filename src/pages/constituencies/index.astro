@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllPcons } from "../../lib/pcon-data";
 import { PCON_COUNT, PCON_UNIVERSE, formatPconCount } from "../../lib/coverage";
+import { buildAbsoluteUrl, buildHubStructuredData } from "../../lib/site";
 
 const all = getAllPcons();
 
@@ -33,11 +34,22 @@ for (const p of all) {
   winnerCounts[w] = (winnerCounts[w] ?? 0) + 1;
 }
 const sortedWinners = Object.entries(winnerCounts).sort(([, a], [, b]) => b - a);
+
+const hubDescription = `Per-constituency demographic and political profile for ${PCON_COUNT} of the ${PCON_UNIVERSE} UK parliamentary constituencies: 2024 General Election results, MP, PIP claimants, and the local authorities that make up each seat.`;
+// ItemList of every constituency page, by country then A to Z, as listed below.
+const structuredData = buildHubStructuredData({
+  canonicalUrl: buildAbsoluteUrl("/constituencies/"),
+  name: "UK constituencies",
+  description: hubDescription,
+  trail: [{ name: "Constituencies", path: "/constituencies/" }],
+  items: countryOrder.flatMap((c) => byCountry[c] ?? []).map((p) => ({ name: p.name, path: `/constituencies/${p.slug}/` })),
+});
 ---
 
 <BaseLayout
   title="UK constituencies"
-  description={`Per-constituency demographic and political profile for ${PCON_COUNT} of the ${PCON_UNIVERSE} UK parliamentary constituencies: 2024 General Election results, MP, PIP claimants, and the local authorities that make up each seat.`}
+  description={hubDescription}
+  structuredData={structuredData}
 >
   <span class="page-eyebrow">{formatPconCount()}</span>
   <h1>Find your seat and what sits underneath it</h1>

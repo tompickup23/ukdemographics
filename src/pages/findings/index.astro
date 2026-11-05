@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { buildAbsoluteUrl, buildHubStructuredData } from "../../lib/site";
 
 const allContent = (await getCollection("findings")).sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
@@ -23,6 +24,17 @@ const verdictLabel: Record<string, string> = {
   info: "Analysis"
 };
 
+const findingsDescription = "Articles and findings on UK asylum costs, demographic change, and the system. Every number sourced. No spin.";
+// ItemList: the articles, then the findings, newest first, as listed below.
+const structuredData = buildHubStructuredData({
+  canonicalUrl: buildAbsoluteUrl("/findings/"),
+  name: "What the data has turned up",
+  description: findingsDescription,
+  trail: [{ name: "Findings", path: "/findings/" }],
+  items: [...articles, ...findings].map((f) => ({ name: f.data.headline, path: `/findings/${f.id.replace(/\.md$/, "")}/` })),
+  order: "descending",
+});
+
 const categoryLabel: Record<string, string> = {
   spending: "Spending",
   routes: "Routes",
@@ -38,7 +50,8 @@ const categoryLabel: Record<string, string> = {
 
 <BaseLayout
   title="Research | UK Demographics"
-  description="Articles and findings on UK asylum costs, demographic change, and the system. Every number sourced. No spin."
+  description={findingsDescription}
+  structuredData={structuredData}
 >
   <section class="findings-header shell">
     <span class="page-eyebrow">Sourced research</span>

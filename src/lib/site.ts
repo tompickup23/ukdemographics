@@ -181,11 +181,19 @@ export function getIndexableSitePaths(): string[] {
   return [...paths].sort((a, b) => a.localeCompare(b));
 }
 
+/** The licence the site's data is published under (/terms/ and /data/ say the same). */
+export const DATA_LICENCE_URL = "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/";
+
 interface PlaceStructuredDataOptions {
   canonicalUrl: string;
   description: string;
   socialImageUrl: string;
+  /** The date the profile's data was last revised, read from the data files. */
   snapshotDate: string;
+  /** The place's CSV under /data/places/, where the site builds one. */
+  csv?: { path: string; dateModified: string | null } | null;
+  /** The projection model version, as the projection file states it. */
+  modelVersion?: string | null;
 }
 
 export function buildPlaceStructuredData(
@@ -246,8 +254,26 @@ export function buildPlaceStructuredData(
       name: `${name} demographic profile`,
       description: options.description,
       url: options.canonicalUrl,
+      identifier: area.areaCode,
       isAccessibleForFree: true,
+      license: DATA_LICENCE_URL,
       dateModified: options.snapshotDate,
+      ...(options.modelVersion ? { version: options.modelVersion } : {}),
+      includedInDataCatalog: {
+        "@type": "DataCatalog",
+        name: "UK Demographics data downloads",
+        url: buildAbsoluteUrl("/data/")
+      },
+      ...(options.csv ? {
+        distribution: [{
+          "@type": "DataDownload",
+          name: `${name}: population estimates and Census ethnic group counts`,
+          encodingFormat: "text/csv",
+          contentUrl: buildAbsoluteUrl(options.csv.path),
+          license: DATA_LICENCE_URL,
+          ...(options.csv.dateModified ? { dateModified: options.csv.dateModified } : {})
+        }]
+      } : {}),
       temporalCoverage: "2021/2051",
       measurementTechnique: [
         "ONS Census 2021 observations",
@@ -428,6 +454,68 @@ export function buildReleaseCollectionStructuredData(
           url: release.sourceUrl,
           datePublished: release.date
         }
+      }))
+    }
+  ];
+}
+
+export interface HubItem {
+  name: string;
+  path: string;
+}
+
+interface HubStructuredDataOptions {
+  canonicalUrl: string;
+  name: string;
+  description: string;
+  /** Breadcrumb trail after Home, ending with this page. */
+  trail: Array<{ name: string; path: string }>;
+  items: HubItem[];
+  order?: "ascending" | "descending" | "unordered";
+}
+
+/**
+ * Hub pages (the places, constituencies, counties, region and findings
+ * indexes): a breadcrumb, the CollectionPage and an ItemList of every page
+ * the hub links to, in the order the hub lists them.
+ */
+export function buildHubStructuredData(options: HubStructuredDataOptions): StructuredDataNode[] {
+  const listId = `${options.canonicalUrl}#list`;
+  const order = options.order ?? "ascending";
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [{ name: "Home", path: "/" }, ...options.trail].map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        item: buildAbsoluteUrl(item.path)
+      }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: options.name,
+      description: options.description,
+      url: options.canonicalUrl,
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      mainEntity: { "@id": listId }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": listId,
+      name: options.name,
+      numberOfItems: options.items.length,
+      itemListOrder: order === "descending" ? "https://schema.org/ItemListOrderDescending"
+        : order === "unordered" ? "https://schema.org/ItemListUnordered"
+        : "https://schema.org/ItemListOrderAscending",
+      itemListElement: options.items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        url: buildAbsoluteUrl(item.path)
       }))
     }
   ];

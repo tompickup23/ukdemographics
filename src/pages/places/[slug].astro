@@ -52,6 +52,7 @@ import payrollRegional from "../../data/live/payroll-by-region-industry.json";
 import hmoDensity from "../../data/live/hmo-density.json";
 import councilTaxSpd from "../../data/live/council-tax-spd.json";
 import { councilName, plainPlaceName } from "../../lib/place-names";
+import { placeCsvDate, placeCsvFor } from "../../lib/place-downloads";
 import { populationGrowthComparison, whiteBritishComparison, COMPARISON_NOTE } from "../../lib/place-comparisons";
 import { SITE_URL, buildAbsoluteUrl, buildPlaceStructuredData, getPublicPlaceAreas, slugifyAreaName, type DemographicAreaSummary } from "../../lib/site";
 import rawProjections from "../../data/live/ethnic-projections.json";
@@ -72,6 +73,7 @@ import {
   censusYear,
   listingHorizon,
   profileUpdatedDate,
+  modelProvenance,
 } from "../../lib/search-listing";
 import { consistentBandSeries } from "../../lib/projection-consistency";
 import { describeRank } from "../../lib/percentile";
@@ -92,7 +94,8 @@ export function getStaticPaths() {
 
 const { area } = Astro.props as { area: DemographicAreaSummary };
 // The plain name ("Bristol") leads the title, H1 and breadcrumb; the council's
-// own name sits under the H1 where it differs (R360, src/lib/place-names.ts).
+// own name and the formal ONS name sit under the H1 where they differ (R360,
+// src/lib/place-names.ts).
 // The URL and the body text keep the ONS name.
 const displayName = plainPlaceName(area.areaCode, area.areaName);
 const displayCouncil = councilName(area.areaCode);
@@ -538,7 +541,11 @@ const structuredData = buildPlaceStructuredData(area, {
   canonicalUrl,
   description: metaDescription,
   socialImageUrl: buildAbsoluteUrl(ogCard.path),
-  snapshotDate: (rawProjections as any).lastUpdated ?? "2026-04-14",
+  // The projection file's own revision date, the same date the summary under
+  // the H1 gives as the update month.
+  snapshotDate: profileUpdatedDate() ?? (rawProjections as any).lastUpdated,
+  csv: placeCsvFor(area.areaCode) ? { path: placeCsvFor(area.areaCode)!, dateModified: placeCsvDate() } : null,
+  modelVersion: modelProvenance().version,
 });
 
 function fmtPct(n: number | undefined | null): string {
@@ -630,7 +637,9 @@ const wbiComparison = wbi2021 != null ? whiteBritishComparison(area.areaCode) : 
   <div class="place-header">
     <div class="place-identity">
       <h1>{displayName}</h1>
-      {displayCouncil && <span class="place-council">{displayCouncil}</span>}
+      {displayName !== area.areaName && (
+        <span class="place-council">{displayCouncil ? `${displayCouncil}. ` : ""}ONS name: {area.areaName}</span>
+      )}
       <span class="place-region">{area.regionName} &middot; {area.countryName} &middot; {area.areaCode}</span>
       <p class="place-summary">
         {placeListing.summary}

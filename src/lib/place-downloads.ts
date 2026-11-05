@@ -176,6 +176,27 @@ export function placeRows(code: string): DownloadRow[] {
 
 export const placeCsvPath = (areaName: string) => `/data/places/${slugifyAreaName(areaName)}.csv`;
 
+/**
+ * The publication date of the newest source in a place CSV, as ISO, read from
+ * the sources' own records: the mid-year estimates workbook's publication
+ * line, and the Census release dates in SOURCES. Null if none parses.
+ */
+export function placeCsvDate(): string | null {
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const iso = (text: string) => {
+    const m = /(\d{1,2}) ([A-Z][a-z]+) (\d{4})/.exec(text);
+    const month = m ? months.indexOf(m[2]) + 1 : 0;
+    return m && month ? `${m[3]}-${String(month).padStart(2, "0")}-${m[1].padStart(2, "0")}` : null;
+  };
+  const dates = SOURCES.map((s) => iso(s.edition)).filter((d): d is string => d != null).sort();
+  return dates.at(-1) ?? null;
+}
+
+/** The place's CSV path, or null where the site builds none for that code. */
+export function placeCsvFor(code: string): string | null {
+  return mye.areas[code] && model.areas[code] ? placeCsvPath(model.areas[code].areaName) : null;
+}
+
 export const placeCodes = (): string[] => Object.keys(model.areas).filter((code) => mye.areas[code]);
 
 function cell(v: string | number): string {
