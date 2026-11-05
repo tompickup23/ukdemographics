@@ -412,14 +412,15 @@ function findingColor(verdict: string): string {
 </BaseLayout>
 
 <script>
+  import { loadSearchIndex } from "../scripts/search-index";
+
   const searchInput = document.getElementById("area-search") as HTMLInputElement | null;
   const resultsContainer = document.getElementById("area-results");
 
   if (searchInput && resultsContainer) {
     let areas: Array<{ areaCode: string; areaName: string; regionName: string; wbiPct2021?: number; population?: number }> = [];
 
-    fetch("/search-index.json")
-      .then((r) => r.json())
+    loadSearchIndex<any>()
       .then((data) => {
         if (Array.isArray(data)) {
           areas = data;
@@ -543,8 +544,7 @@ function findingColor(verdict: string): string {
   if (futureInput && futureResults && futurePreview) {
     let futureAreas: any[] = [];
 
-    fetch("/search-index.json")
-      .then((r) => r.json())
+    loadSearchIndex<any>()
       .then((data) => {
         futureAreas = Array.isArray(data) ? data : data.areas ?? [];
       })

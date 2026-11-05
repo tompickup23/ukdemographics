@@ -1,6 +1,9 @@
 ---
 import { CARD_LICENCE_METADATA } from "../lib/map/card-licence";
+import AnalyticsBeacon from "../components/AnalyticsBeacon.astro";
 import SiteHeader from "../components/SiteHeader.astro";
+import sansRegularUrl from "@fontsource/source-sans-3/files/source-sans-3-latin-400-normal.woff2?url";
+import serifDisplayUrl from "@fontsource/source-serif-4/files/source-serif-4-latin-600-normal.woff2?url";
 import "../styles/global.css";
 import {
   DEFAULT_DESCRIPTION,
@@ -115,6 +118,8 @@ const structuredData = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Set before first paint so styles that depend on a script (the phone section picker) render in their final shape. -->
+    <script is:inline>document.documentElement.classList.add("js");</script>
     <meta name="description" content={description} />
     <meta name="robots" content={robotsContent} />
     <meta name="theme-color" content="#0f1317" />
@@ -145,10 +150,12 @@ const structuredData = [
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.postcodes.io https://cloudflareinsights.com; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" />
-    <!-- Fonts self-hosted via Fontsource (imported in global.css) -->
+    <!-- Fonts self-hosted via Fontsource (imported in global.css). The body face and the
+         heading face are preloaded so they arrive with the stylesheet rather than after it. -->
+    <link rel="preload" href={sansRegularUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={serifDisplayUrl} as="font" type="font/woff2" crossorigin />
     <meta name="google-site-verification" content="0NnwYAx2MjnJ1it-L-2U2FvYnQj-gB3dYWMGntGL-0E" />
-    <!-- Cloudflare Web Analytics is production-only so local Astro work cannot inflate public traffic. -->
-    {import.meta.env.PROD && <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: "b46b578caa974eeaa429fabf1cfaa932" })}></script>}
+    <AnalyticsBeacon />
     {structuredData.map((item) => (
       <script type="application/ld+json" is:inline set:html={JSON.stringify(item)} />
     ))}
@@ -159,6 +166,10 @@ const structuredData = [
     <main id="main-content" class:list={["shell", mainClass]} tabindex="-1">
       <slot />
     </main>
+    <script>
+      import { initSectionPicker } from "../scripts/section-picker";
+      initSectionPicker();
+    </script>
     {!hideFooter && (
       <footer class="shell footer">
         <section class="footer-sisters" aria-labelledby="footer-sisters-heading">
@@ -166,7 +177,7 @@ const structuredData = [
           <div class="footer-sisters-grid">
             <a class="footer-sister-card footer-sister-card--uke" href="https://ukelections.co.uk" rel="noopener">
               <span class="footer-sister-tile" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 64 64">
+                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 64 64">
                   <rect x="8" y="6" width="48" height="52" rx="3" fill="#e3d9c3"></rect>
                   <path d="M22 22 L42 42 M42 22 L22 42" stroke="#6b5334" stroke-width="7" stroke-linecap="square" fill="none"></path>
                 </svg>
@@ -179,7 +190,7 @@ const structuredData = [
             </a>
             <a class="footer-sister-card footer-sister-card--as" href="https://asylumstats.co.uk" rel="noopener">
               <span class="footer-sister-tile" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 64 64">
+                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 64 64">
                   <rect x="10" y="26" width="18" height="34" fill="#f4f6f7"></rect>
                   <rect x="36" y="6" width="18" height="54" fill="#82abcb"></rect>
                 </svg>

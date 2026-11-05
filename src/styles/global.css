@@ -15,11 +15,8 @@
    estate runs a CSP with no font host, so a Google Fonts link would be blocked at the
    browser. Display at 600 only, UI at 400 and 600. Nothing else is used or shipped. */
 @import "@fontsource/source-serif-4/latin-600.css";
-@import "@fontsource/source-serif-4/latin-ext-600.css";
 @import "@fontsource/source-sans-3/latin-400.css";
 @import "@fontsource/source-sans-3/latin-600.css";
-@import "@fontsource/source-sans-3/latin-ext-400.css";
-@import "@fontsource/source-sans-3/latin-ext-600.css";
 
 :root {
   color-scheme: light dark;
@@ -149,6 +146,56 @@
   }
 }
 /* estate-tokens:end */
+
+/* Site level, outside the shared block. The latin-ext subsets are not imported: the
+   Fontsource subset files carry no unicode-range, so the browser fetched all six faces
+   on every page, and a sweep of the built pages found no character the latin-ext files
+   cover that the latin files do not.
+
+   Metric matched fallbacks. Until the web font arrives the text is set in a local face
+   scaled and given the web font's ascent and descent, so the swap moves nothing. The
+   overrides are computed from the font files, not eyeballed: size-adjust is the ratio of
+   average advance widths over an English sample, and ascent and descent are the web
+   font's OS/2 typo metrics (Source Sans 3: 1024 and 400 on 1000; Source Serif 4: 1036
+   and 335) divided by that ratio. Liberation Sans and Liberation Serif are metric
+   compatible with Arial and Times New Roman, so one set of numbers serves all four. */
+@font-face {
+  font-family: "Source Sans 3 Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("LiberationSans");
+  size-adjust: 93.33%;
+  ascent-override: 109.71%;
+  descent-override: 42.86%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Source Sans 3 Fallback";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("LiberationSans-Bold");
+  size-adjust: 89.62%;
+  ascent-override: 114.26%;
+  descent-override: 44.63%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Source Serif 4 Fallback";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Times New Roman Bold"), local("TimesNewRomanPS-BoldMT"), local("Liberation Serif Bold"), local("LiberationSerif-Bold");
+  size-adjust: 111.31%;
+  ascent-override: 93.08%;
+  descent-override: 30.1%;
+  line-gap-override: 0%;
+}
+
+:root {
+  --font-display: "Source Serif 4", "Source Serif 4 Fallback", Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3", "Source Sans 3 Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
 /* Ink for text drawn on a filled shape (chart segments, tags, buttons). Site level,
    outside the shared block. Each pairing is computed, not eyeballed: --on-fill-light
@@ -327,6 +374,17 @@ textarea {
   background: var(--bg);
 }
 
+/* The header's height is reserved, not measured from the text. Every box in it has a
+   fixed size in rem and every line a fixed line-height, so the height is the same in the
+   fallback face, in the web font and before the search script runs. With line-height
+   left at normal, the header grew by a few pixels when Source Sans 3 replaced the
+   fallback and pushed the whole page down (lab CLS up to 0.284, register T48).
+   --site-header-h is the bar's full height, borders included, for anything that sticks
+   beneath it. */
+:root {
+  --site-header-h: calc(5px + 1.44rem + 2.9rem);
+}
+
 .site-header {
   position: static;
   z-index: 20;
@@ -334,8 +392,11 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  box-sizing: content-box;
+  height: 2.9rem;
   margin-top: 0;
   padding: 0.72rem 0;
+  line-height: 1.2;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -373,12 +434,14 @@ textarea {
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 600;
+  line-height: 1.2;
   letter-spacing: -0.04em;
 }
 
 .brand-copy small {
   color: var(--muted);
   font-size: 0.72rem;
+  line-height: 1.2;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -434,7 +497,10 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
+  box-sizing: border-box;
+  height: 2.9rem;
   min-height: 2.9rem;
+  line-height: 1.2;
   padding: 0.68rem 0.9rem;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -4830,16 +4896,65 @@ tr:last-child td {
 }
 
 @media (max-width: 900px) {
+  /* Two rows on a phone: the brand with the menu button beside it, then the search box
+     at full width. The three row stack (brand, search, menu) took about 210px of an
+     812px screen before the breadcrumb. The tools wrapper steps aside (display:
+     contents) so the search box and the menu button sit in the header's own grid. */
+  :root {
+    --site-header-h: calc(5px + 1rem + 2.5rem + 0.5rem + 2.75rem);
+  }
+
   .site-header {
     top: 0.5rem;
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 2.5rem 2.75rem;
+    grid-template-areas:
+      "brand menu"
+      "search search";
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    height: auto;
+    padding: 0.5rem 0;
+  }
+
+  .site-header > .brand {
+    grid-area: brand;
+    gap: 0.65rem;
+    min-width: 0;
+  }
+
+  /* Tighter tracking so the whole tagline fits beside the menu button at 375px; the
+     ellipsis below is only a guard for narrower screens. */
+  .site-header .brand-copy small {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+  }
+
+  .site-header .brand-copy {
+    min-width: 0;
+  }
+
+  .site-header .brand-copy > span,
+  .site-header .brand-copy small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .site-tools {
+    display: contents;
+  }
+
+  .site-tools .search-launch {
+    grid-area: search;
     width: 100%;
-    flex-direction: column;
-    align-items: stretch;
+    height: 2.75rem;
+    min-height: 2.75rem;
+  }
+
+  .site-tools .mobile-menu-btn {
+    grid-area: menu;
   }
 
   .site-nav {
@@ -5989,4 +6104,133 @@ tr:last-child td {
   color: var(--text-muted);
   font-size: 1.02rem;
   line-height: 1.72;
+}
+
+/* Phone section picker for pages with the contents rail (the place pages). The rail
+   becomes a bar that sticks under the site header, names the section in view and opens
+   into the full list over the page. Drawn from first paint under html.js, which the base
+   layout sets inline before the body is parsed, so the script that wires the button
+   (src/scripts/section-picker.ts) changes no box. The selectors carry an extra class so
+   they outrank the page's own scoped rail styles, which are written for the tablet chip
+   row. */
+@media (max-width: 720px) {
+  .js .place-body > .place-rail {
+    position: sticky;
+    top: var(--site-header-h);
+    z-index: 15;
+    display: block;
+    max-height: none;
+    margin: 0 -0.5rem;
+    padding: 0 0.5rem;
+    overflow: visible;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .js .place-body > .place-rail > .place-rail-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-sizing: border-box;
+    width: 100%;
+    height: 2.75rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text-faint);
+    font: inherit;
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    text-align: left;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .js .place-body > .place-rail .section-picker-label {
+    flex: none;
+  }
+
+  .js .place-body > .place-rail .section-picker-current {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    color: var(--text);
+    font-size: 0.9rem;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+    text-transform: none;
+    white-space: nowrap;
+  }
+
+  .js .place-body > .place-rail .section-picker-caret {
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0 0.35rem 0.2rem auto;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  .js .place-body > .place-rail.is-open .section-picker-caret {
+    margin-bottom: -0.2rem;
+    transform: rotate(-135deg);
+  }
+
+  .js .place-body > .place-rail:not(.is-open) .place-rail-group,
+  .js .place-body > .place-rail:not(.is-open) .section-picker-panel {
+    display: none;
+  }
+
+  .js .place-body > .place-rail .section-picker-panel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    max-height: min(65vh, 30rem);
+    padding: 0.25rem 0.5rem 0.75rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    box-shadow: var(--shadow);
+  }
+
+  .js .place-body > .place-rail .place-rail-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.1rem;
+    padding: 0.5rem 0;
+  }
+
+  .js .place-body > .place-rail .place-rail-title {
+    margin: 0 0 0.35rem;
+  }
+
+  .js .place-body > .place-rail .place-rail-group .place-rail-link {
+    display: block;
+    padding: 0.55rem 0.75rem;
+    border: 0;
+    border-left: 2px solid var(--border);
+    border-radius: 0;
+    background: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .js .place-body > .place-rail .place-rail-group .place-rail-link[aria-current="true"] {
+    border-left-color: var(--accent);
+    background: none;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* A jump lands below the header and the bar, not under them. */
+  .js .place-body .place-sections [id] {
+    scroll-margin-top: calc(var(--site-header-h) + 3.75rem);
+  }
 }
