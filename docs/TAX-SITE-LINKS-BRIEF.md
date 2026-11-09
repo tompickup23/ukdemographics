@@ -20,7 +20,7 @@ Decision 7, taken 9 November 2026: UK Demographics place pages may carry a conte
 | Name the line prints | `displayName` (what the H1 prints, line 649, from `plainPlaceName()`) |
 | Placement | A new cross link block directly after the UK Places block (the `{ukPlacesUrl && (...)}` block ending near line 1855) and before `<CiteThisPage>`, using the existing `as-cross-link`, `as-cross-inner`, `as-cross-label` and `as-cross-desc` classes. Label: "Council tax and the council". The description span holds the line from section 3 with its two links. No button element; no new CSS unless the links need the existing link colour token |
 | Known refusals | None |
-| Counts | 296 of 318 with the line; 22 without, all W06 (Wales has no page on either tax site); 0 English pages without |
+| Counts | 296 of 318 with the line; 22 without, all W06 (UK Councils has no Welsh profiles, and the two link line needs both; UK Council Tax does have the 22 Welsh pages at `/wales/<slug>/`, so a UK Council Tax only line for Wales is follow up L2b, out of scope here); 0 English pages without |
 | Unit test | `tests/tax-site-links.test.ts` |
 | Dist check | `scripts/check/tax-site-links.mjs`, added to both `.github/workflows/site-checks.yml` and `.github/workflows/deploy.yml` after the `published-anonymity.mjs` step (the two files are kept in lockstep) |
 | Text test | `scripts/check/published-dashes.mjs` and `scripts/check/published-anonymity.mjs` already sweep the built pages; the unit test checks the line string |
