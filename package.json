@@ -28,7 +28,9 @@
     "reconcile:derived": "node scripts/model/reconcile_derived.mjs",
     "canonicalise:codes": "node scripts/model/canonicalise_area_codes.mjs",
     "canonicalise:codes:check": "node scripts/model/canonicalise_area_codes.mjs --check",
-    "prebuild": "node scripts/check/county-reconciliation.mjs"
+    "prebuild": "node scripts/check/county-reconciliation.mjs",
+    "links:crosswalk": "node scripts/links/copy-tax-crosswalk.mjs",
+    "links:fetch": "node scripts/links/fetch-tax-sitemaps.mjs"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.2.8",
