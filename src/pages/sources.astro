@@ -1,7 +1,10 @@
 ---
+import { taxSitemap, councilSitemap } from "../lib/tax-site-links";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import sourceScope from "../data/live/source-scope.json";
 import birthsHistory from "../data/live/births-history-national.json";
+
+const sitemapDate = (fetched: string) => new Date(fetched).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
 const birthsYears: number[] = (birthsHistory as any).years ?? [];
 ---
@@ -65,6 +68,7 @@ const birthsYears: number[] = (birthsHistory as any).years ?? [];
       </div>
     </div>
     <p class="source-note">This list covers the primary feeds. Specialist sources (Land Registry HPI for housing, Police.uk LSOA-level crime, DHSC for adult social care, DLUHC homelessness counts) are referenced inline on the pages that use them.</p>
+    <p class="source-note">Council tax links are checked against the <a href={taxSitemap.source}>UK Council Tax sitemap</a>, retrieved {sitemapDate(taxSitemap.fetched)}, and the <a href={councilSitemap.source}>UK Councils sitemap</a>, retrieved {sitemapDate(councilSitemap.fetched)}, joined by ONS code through UK Councils' council list, and shown only where both addresses are in the saved sitemaps.</p>
   </section>
 </BaseLayout>
 

@@ -1,4 +1,5 @@
 ---
+import { taxSiteLineParts, taxSiteLinks } from "../../lib/tax-site-links";
 import { densityAnswerLines } from "../../lib/area-density";
 import { buildPublicPlaceRegionPath } from "../../lib/site";
 import { countyForDistrict, countyPath } from "../../lib/counties";
@@ -100,6 +101,8 @@ const { area } = Astro.props as { area: DemographicAreaSummary };
 // src/lib/place-names.ts).
 // The URL and the body text keep the ONS name.
 const displayName = plainPlaceName(area.areaCode, area.areaName);
+const taxLinks = taxSiteLinks(area.areaCode, area.areaName);
+const taxCopy = taxLinks ? taxSiteLineParts(displayName, taxLinks.year) : null;
 const displayCouncil = councilName(area.areaCode);
 const projData = (rawProjections as any).areas?.[area.areaCode];
 type UkPlacesRecord = {
@@ -1853,6 +1856,15 @@ const wbiComparison = wbi2021 != null ? whiteBritishComparison(area.areaCode) : 
     </div>
   )}
 
+  {taxLinks && taxCopy && (
+    <div class="as-cross-link" data-tax-site-links>
+      <div class="as-cross-inner">
+        <span class="as-cross-label">Council tax and the council</span>
+        <span class="as-cross-desc">{taxCopy.prefix}<a href={taxLinks.taxUrl}>{taxCopy.taxLabel}</a>; <a href={taxLinks.councilUrl}>{taxCopy.councilLabel}</a>.</span>
+      </div>
+    </div>
+  )}
+
   <CiteThisPage citation={citation.text} csvPath={citation.csvPath} placeName={displayName} />
 
   <DataFreshness
@@ -1863,6 +1875,7 @@ const wbiComparison = wbi2021 != null ? whiteBritishComparison(area.areaCode) : 
 </BaseLayout>
 
 <style>
+  [data-tax-site-links] a { color: var(--accent); }
   .place-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
   .place-identity { max-width: 46ch; }
   .place-identity h1 {
