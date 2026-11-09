@@ -133,6 +133,30 @@
       ],
       "etag": "\"6ad8b7af-b1b7d\"",
       "last_modified": "Wed, 21 Oct 2026 13:01:35 GMT"
+    },
+    {
+      "url": "https://assets.publishing.service.gov.uk/media/6ad8b7afe19609e5aea10942/adult-social-care-finance-report-2025-2026-data-tables.ods",
+      "attempted_at": "2026-11-09T18:38:38.048Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "7f9ee0c1034efe8e6e2d862ee4a22def30c94c2c038d726ee2350945b210e5f4",
+      "bytes": 727933,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "adult-social-care-finance-report-2025-2026-data-tables.ods",
+      "landing_page": "https://www.gov.uk/government/statistics/adult-social-care-finance-report-england-2025-to-2026",
+      "edition": "Adult social care finance report, England: 2025 to 2026",
+      "edition_published_at": "2026-10-22T09:30:07+01:00",
+      "edition_updated_at": "2026-10-22T09:30:07+01:00",
+      "attachment_title": "Adult social care finance report, England: 2025 to 2026 - data tables",
+      "change_notes": [
+        {
+          "note": "First published.",
+          "public_timestamp": "2026-10-22T08:30:07Z"
+        }
+      ],
+      "etag": "\"6ad8b7af-b1b7d\"",
+      "last_modified": "Wed, 21 Oct 2026 13:01:35 GMT"
     }
   ]
 }

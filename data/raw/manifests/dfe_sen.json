@@ -765,6 +765,194 @@
       "data_set_version": "1.1",
       "etag": null,
       "last_modified": null
+    },
+    {
+      "url": "https://api.education.gov.uk/statistics/v1/publications/f657afb4-8f4a-427d-a683-15f11a2aefb5/data-sets?pageSize=20",
+      "attempted_at": "2026-11-09T18:38:51.382Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "59b77e27f49a0e0ba588b52adaa4683f1aec4235d0d57c1f74dd00f45d49170c",
+      "bytes": 5807,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "sen-api-datasets_2025-26.json",
+      "edition": "2025/26",
+      "landing_page": "https://api.education.gov.uk/statistics/v1/publications/f657afb4-8f4a-427d-a683-15f11a2aefb5/data-sets?pageSize=20",
+      "role": "data_set_list",
+      "etag": null,
+      "last_modified": null
+    },
+    {
+      "url": "https://api.education.gov.uk/statistics/v1/data-sets/019df85e-ab00-7458-a4ff-b381997776cb/meta?dataSetVersion=1.1",
+      "attempted_at": "2026-11-09T18:38:51.750Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "3eea6dc7ff4ff8fd417b9f473705f5a3568ba7b28ecb4a3e3bb730de6a6180cc",
+      "bytes": 49723,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "sen-api-provision-meta_2025-26.json",
+      "edition": "2025/26",
+      "landing_page": "https://api.education.gov.uk/statistics/v1/publications/f657afb4-8f4a-427d-a683-15f11a2aefb5/data-sets?pageSize=20",
+      "role": "metadata",
+      "data_set_id": "019df85e-ab00-7458-a4ff-b381997776cb",
+      "data_set_version": "1.1",
+      "etag": null,
+      "last_modified": null
+    },
+    {
+      "url": "https://api.education.gov.uk/statistics/v1/data-sets/019df85c-f5a6-7217-87ff-6ef033fc1e9c/meta?dataSetVersion=1.1",
+      "attempted_at": "2026-11-09T18:38:52.160Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "222aced4f336da0d201f7b8f28f8e53b22300cf7da97dd4aa2ed6dd40132ef10",
+      "bytes": 50657,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "sen-api-need-meta_2025-26.json",
+      "edition": "2025/26",
+      "landing_page": "https://api.education.gov.uk/statistics/v1/publications/f657afb4-8f4a-427d-a683-15f11a2aefb5/data-sets?pageSize=20",
+      "role": "metadata",
+      "data_set_id": "019df85c-f5a6-7217-87ff-6ef033fc1e9c",
+      "data_set_version": "1.1",
+      "etag": null,
+      "last_modified": null
+    },
+    {
+      "url": "https://api.education.gov.uk/statistics/v1/data-sets/019df85c-f5a6-7217-87ff-6ef033fc1e9c/query?dataSetVersion=1.1",
+      "attempted_at": "2026-11-09T18:38:52.453Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "78e1dd01c28d46888c303063b6e54221caac4332ddb3f9a84adedf0121b0e278",
+      "bytes": 520067,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "sen-api-need_2025-26.json",
+      "request_method": "POST",
+      "request_body": {
+        "criteria": {
+          "and": [
+            {
+              "filters": {
+                "eq": "gvBeO"
+              }
+            },
+            {
+              "filters": {
+                "eq": "mcRY9"
+              }
+            },
+            {
+              "filters": {
+                "eq": "HPnvz"
+              }
+            },
+            {
+              "filters": {
+                "eq": "zep0F"
+              }
+            },
+            {
+              "geographicLevels": {
+                "in": [
+                  "LA",
+                  "NAT"
+                ]
+              }
+            },
+            {
+              "timePeriods": {
+                "in": [
+                  {
+                    "period": "2025/2026",
+                    "code": "AY"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "indicators": [
+          "bqsmt"
+        ],
+        "page": 1,
+        "pageSize": 10000
+      },
+      "edition": "2025/26",
+      "landing_page": "https://api.education.gov.uk/statistics/v1/publications/f657afb4-8f4a-427d-a683-15f11a2aefb5/data-sets?pageSize=20",
+      "role": "query",
+      "data_set_id": "019df85c-f5a6-7217-87ff-6ef033fc1e9c",
+      "data_set_version": "1.1",
+      "etag": null,
+      "last_modified": null
+    },
+    {
+      "url": "https://api.education.gov.uk/statistics/v1/data-sets/019df85e-ab00-7458-a4ff-b381997776cb/query?dataSetVersion=1.1",
+      "attempted_at": "2026-11-09T18:38:53.438Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "528a993c1eda8de630bf0730cd29342da283870d7d172ce5818eabae04d0e285",
+      "bytes": 230731,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "sen-api-provision_2025-26.json",
+      "request_method": "POST",
+      "request_body": {
+        "criteria": {
+          "and": [
+            {
+              "filters": {
+                "eq": "DIqhQ"
+              }
+            },
+            {
+              "filters": {
+                "eq": "93yS4"
+              }
+            },
+            {
+              "filters": {
+                "eq": "cDKt3"
+              }
+            },
+            {
+              "geographicLevels": {
+                "in": [
+                  "LA",
+                  "NAT"
+                ]
+              }
+            },
+            {
+              "timePeriods": {
+                "in": [
+                  {
+                    "period": "2025/2026",
+                    "code": "AY"
+                  },
+                  {
+                    "period": "2020/2021",
+                    "code": "AY"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "indicators": [
+          "jgizA",
+          "emJ2u"
+        ],
+        "page": 1,
+        "pageSize": 10000
+      },
+      "edition": "2025/26",
+      "landing_page": "https://api.education.gov.uk/statistics/v1/publications/f657afb4-8f4a-427d-a683-15f11a2aefb5/data-sets?pageSize=20",
+      "role": "query",
+      "data_set_id": "019df85e-ab00-7458-a4ff-b381997776cb",
+      "data_set_version": "1.1",
+      "etag": null,
+      "last_modified": null
     }
   ]
 }
