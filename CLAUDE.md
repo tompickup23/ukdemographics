@@ -1,11 +1,11 @@
 # UK Demographics — Claude Code Context
 
 ## Overview
-Population data for every community. Ethnic projections, school data, housing demand, health and tenure by ethnic group, and now per-constituency political mapping across **1,022 pages**: 318 local authority profiles + 21 county profiles + 10 region pages + 631 UK constituencies + 21 findings URLs + 16 dashboard and static pages + 4 section indexes.
+Population data for every community. Ethnic projections, school data, housing demand, health and tenure by ethnic group, and per-constituency political mapping across **1,023 pages** in the sitemap: 318 local authority profiles + 21 county profiles + 10 region pages + 631 UK constituencies + 20 findings + the homepage + 4 section indexes (`/places/`, `/places/counties/`, `/constituencies/`, `/findings/`) + 18 dashboard and static pages. The build also writes 8 redirect stubs that stay out of the sitemap (six plain-name place addresses such as `/places/bristol/` and two retired finding slugs), so `find dist -name index.html | wc -l` returns 1,031. Counted on a build of main at `39d5f0c`, 9 November 2026.
 
 **Coverage counts come from `src/lib/coverage.ts`.** `PLACE_COUNT` (318) is derived from `ethnic-projections.json`, `PCON_COUNT` (631) from `pcon-dataset.json`, and `PCON_UNIVERSE` (650) is the size of the Commons. Never type a coverage count into copy: use `formatPlaceCount()` / `formatPconCount()`, or import the constants. `tests/coverage.test.ts` sweeps `src/` and `public/` and fails on any hard-coded `320`/`650` next to a coverage noun, excluding `src/data` and `src/pages/releases.astro` (verbatim history). It also pins both counts, so a dataset change breaks the test and has to be an explicit decision. The 320 that was published in the nav and on `/compare/` predates the Barnsley and Sheffield duplicate-code fix of 29 Aug 2026; it is stale by exactly two. Recompute the page total with `find dist -name index.html | wc -l` after a build.
 
-**Stack:** Astro 5 + design tokens (Tailwind dropped 19-20 May) + TypeScript. Inline SVG charts (no chart library).
+**Stack:** Astro 7 (`astro` ^7.3.3 in `package.json`), design tokens (Tailwind dropped 19 to 20 May 2026) and TypeScript. Inline SVG charts (no chart library).
 **Hosting:** GitHub Pages only (NOT Cloudflare).
 **Domain:** ukdemographics.co.uk.
 **Data:** ONS Census 2021 tables held as committed JSON (TS012, TS029, RM134, RM043, RM192, RM021; the Nomis dataset API is not used since 12 October 2026, see below), DWP NINo + PIP (Stat-Xplore), ONS births, MHCLG CTB1, DfE School Census, ONS Open Geography Portal LAD24↔CTY24 + PCON24↔LAD25 crosswalks, UKE GE 2024 shares, Parliament Members API.
@@ -20,6 +20,7 @@ Population data for every community. Ethnic projections, school data, housing de
 - `/national/` — Rebuilt with NINo 2002-2025 arc + births-by-COB 2008-2024 share charts (inline SVG).
 - `/findings/`: 21 URLs in the sitemap (the index plus 20 Tom-voice pieces). Schema enum: `demographics | projections | fertility | schools | housing | health | migration | validation | crime | social-care | send` ("economy" is NOT valid).
 - Dashboards: `/regional/` `/your-area/` `/pressure/` `/schools/` `/housing/` `/compare/`.
+- `/data/` lists the CSV downloads (`/data/places/<slug>.csv` for each place, `/data/places.csv` and `/data/sources.csv`). `/about/`, `/maps/` and the generated `/llms.txt` are also built.
 
 ## Map module (`src/lib/map/`, Oct 2026)
 
@@ -27,7 +28,7 @@ One SVG renderer for the web map (`inline`, 600-unit viewBox), county and region
 
 ## CI / deploy
 
-- GH Actions on Node 22. `actions/checkout@v4`, `actions/setup-node@v4`.
+- GH Actions on `ubuntu-24.04` with Node 22 and Python 3.11: `actions/checkout@v7`, `actions/setup-node@v4`, `actions/setup-python@v5` and `actions/upload-artifact@v7`.
 - `npm test` (vitest) + `npm run check` (astro check, strict) + `BUILD_OG=1 npm run build` + Playwright (mobile + desktop chromium).
 - `BUILD_OG=1` is set in both deploy.yml + site-checks.yml via `env:` block (PreToolUse security hook rejects inline `KEY=val` form). Iteration `npm run build` (without `BUILD_OG`) skips the ~340-card Satori pass.
 - `Refresh data` cron runs Mondays 08:00 UTC. Wires six datasets with no API key: stop-and-search (data.police.uk), ONS births by parents' country of birth, UKHSA TB, MHCLG Council Taxbase, DHSC adult social care, and DfE SEN. Datasets that need DWP Stat-Xplore, Companies House or Land Registry secrets are still separate once those secrets are set.
