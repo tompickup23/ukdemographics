@@ -36,10 +36,18 @@ jobs:
       - run: node scripts/check/group-map-weight.mjs
       - run: node scripts/check/published-dashes.mjs
       - run: node scripts/check/published-anonymity.mjs
+      - run: node scripts/check/tax-site-links.mjs
       - run: node scripts/check/place-cards.mjs
       - run: npx playwright install --with-deps chromium
       - run: npm run test:mobile
       - run: npm run test:desktop
+      - name: Retain the Burnley mobile review capture
+        uses: actions/upload-artifact@v7
+        with:
+          name: burnley-tax-links-375-${{ github.event.pull_request.head.sha || github.sha }}
+          path: .cache/review/burnley-tax-links-375.png
+          include-hidden-files: true
+          if-no-files-found: error
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
