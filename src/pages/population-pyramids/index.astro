@@ -1,0 +1,158 @@
+---
+/**
+ * The hub for the age pyramids: England and Wales as a whole, a council finder and
+ * an A to Z of every council's pyramid (docs/product/age-pyramid-spec-2026-11-09.md).
+ * Coverage counts come from the data, never typed.
+ */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import AgePyramid from "../../components/AgePyramid.astro";
+import {
+  ENGLAND_AND_WALES,
+  PYRAMID_ACCURACY_NOTE,
+  PYRAMID_BASE_YEAR,
+  PYRAMID_HUB_PATH,
+  PYRAMID_LATEST_YEAR,
+  PYRAMID_NEXT_STATED,
+  PYRAMID_PUBLISHED_DAY,
+  PYRAMID_SOURCE,
+  PYRAMID_SOURCE_LINE,
+  pyramidCodes,
+  pyramidFor,
+  pyramidOnsName,
+  pyramidPath,
+  pyramidSentences
+} from "../../lib/age-pyramid";
+import { formatPlaceCount } from "../../lib/coverage";
+import { buildAbsoluteUrl, type StructuredDataNode } from "../../lib/site";
+
+const national = pyramidFor(ENGLAND_AND_WALES)!;
+const councils = pyramidCodes()
+  .map((code) => ({ name: pyramidFor(code)!.name, href: pyramidPath(pyramidOnsName(code)!) }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+const letters = [...new Set(councils.map((c) => c.name[0].toUpperCase()))];
+const span = `${PYRAMID_BASE_YEAR} to ${PYRAMID_LATEST_YEAR}`;
+const pageTitle = `Population pyramids for England and Wales and every council, ${span} | UK Demographics`;
+const description = `Population by single year of age and sex for England and Wales and for ${formatPlaceCount()}, every year from mid-${PYRAMID_BASE_YEAR} to mid-${PYRAMID_LATEST_YEAR}. From ONS mid-year estimates, table ${PYRAMID_SOURCE.table}.`;
+const sentences = pyramidSentences(national);
+
+const structuredData: StructuredDataNode[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: buildAbsoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Population pyramids", item: buildAbsoluteUrl(PYRAMID_HUB_PATH) }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Population pyramids by council",
+    numberOfItems: councils.length,
+    itemListElement: councils.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, url: buildAbsoluteUrl(c.href) }))
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={description} structuredData={structuredData}>
+  <article class="pyramid-hub shell">
+    <Breadcrumbs items={[{ label: "Population pyramids" }]} />
+
+    <header>
+      <p class="eyebrow">Age and sex, mid-{PYRAMID_BASE_YEAR} to mid-{PYRAMID_LATEST_YEAR}</p>
+      <h1>Population pyramids</h1>
+      <p class="lede">{sentences.join(" ")}</p>
+      <p class="pyramid-how">
+        A population pyramid shows how many people there are at each year of age, males on the left and females on the right.
+        There is one here for England and Wales and one for each of {formatPlaceCount()}, for every year from
+        mid-{PYRAMID_BASE_YEAR} to mid-{PYRAMID_LATEST_YEAR}. They are ONS estimates of the people who usually live in each place, not projections.
+      </p>
+    </header>
+
+    <form class="pyramid-find" data-pyramid-find>
+      <label for="pyramid-council">Find a council</label>
+      <input id="pyramid-council" type="search" list="pyramid-councils" autocomplete="off" placeholder="Start typing a council name" />
+      <datalist id="pyramid-councils">
+        {councils.map((c) => <option value={c.name} data-href={c.href} />)}
+      </datalist>
+      <button type="submit">Open its pyramid</button>
+      <p class="pyramid-find-status" role="status" aria-live="polite" data-pyramid-find-status></p>
+    </form>
+
+    <h2 id="england-and-wales">England and Wales</h2>
+    <AgePyramid pyramid={national} imageName="england-and-wales-population-pyramid" headingLevel={3} />
+
+    <section class="pyramid-list" aria-labelledby="pyramid-list-heading">
+      <h2 id="pyramid-list-heading">Every council, A to Z</h2>
+      {letters.map((letter) => (
+        <div class="pyramid-letter">
+          <h3>{letter}</h3>
+          <ul>
+            {councils.filter((c) => c.name[0].toUpperCase() === letter).map((c) => <li><a href={c.href}>{c.name}</a></li>)}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <section class="pyramid-notes" aria-labelledby="pyramid-notes-heading">
+      <h2 id="pyramid-notes-heading">About these figures</h2>
+      <ul>
+        <li>Source: {PYRAMID_SOURCE_LINE}. <a href={PYRAMID_SOURCE.landing} target="_blank" rel="noopener">Source data</a></li>
+        <li>
+          Last updated {PYRAMID_PUBLISHED_DAY}. {PYRAMID_NEXT_STATED
+            ? `ONS says the next publication is scheduled for ${PYRAMID_NEXT_STATED}.`
+            : "ONS has not stated the next publication."}
+        </li>
+        <li>Each figure is ONS's estimate of the usual resident population at 30 June of that year. Mid-2022, mid-2023 and mid-2024 are the figures ONS revised in July 2026.</li>
+        <li>{PYRAMID_ACCURACY_NOTE}</li>
+        <li>Councils are those in place since April 2023. Each council's page has a CSV of every year.</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var form = document.querySelector("[data-pyramid-find]");
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var typed = form.querySelector("input").value.trim().toLowerCase();
+      var status = form.querySelector("[data-pyramid-find-status]");
+      var options = form.querySelectorAll("datalist option");
+      var exact = null, starts = null;
+      for (var i = 0; i < options.length; i++) {
+        var name = options[i].value.toLowerCase();
+        if (name === typed) { exact = options[i]; break; }
+        if (!starts && typed && name.indexOf(typed) === 0) starts = options[i];
+      }
+      var hit = exact || starts;
+      if (hit) window.location.href = hit.getAttribute("data-href");
+      else status.textContent = typed ? "No council matches that name. The full list is below." : "Type a council name first.";
+    });
+  })();
+</script>
+
+<style>
+  .pyramid-hub { padding-block: var(--space-6, 1.5rem) var(--space-8, 3rem); }
+  .pyramid-hub h1 { margin: 0 0 0.75rem; }
+  .pyramid-hub .eyebrow { margin: 1rem 0 0.35rem; font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+  .pyramid-how { max-width: 46rem; color: var(--text-muted); }
+  .pyramid-find { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 1.5rem 0; padding: 1rem; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius); }
+  .pyramid-find label { font-weight: 600; }
+  .pyramid-find input { flex: 1 1 14rem; min-width: 0; min-height: 44px; padding: 0.3rem 0.7rem; font: inherit; color: var(--text); background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); }
+  .pyramid-find button { min-height: 44px; padding: 0.3rem 1rem; font: inherit; font-weight: 600; color: var(--on-accent); background: var(--accent); border: 0; border-radius: var(--radius-sm); cursor: pointer; }
+  .pyramid-find :is(input, button):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .pyramid-find-status { flex-basis: 100%; margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+  .pyramid-find-status:empty { display: none; }
+  .pyramid-list { margin-top: 2.5rem; }
+  .pyramid-letter { margin: 0 0 1rem; }
+  .pyramid-letter h3 { font-size: 1rem; margin: 0 0 0.3rem; color: var(--text-muted); }
+  .pyramid-letter ul { list-style: none; margin: 0; padding: 0; columns: 14rem auto; column-gap: 1.5rem; }
+  .pyramid-letter li { margin: 0; padding: 0.3rem 0; break-inside: avoid; }
+  .pyramid-notes { margin-top: 2rem; max-width: 46rem; }
+  .pyramid-notes h2 { font-size: 1.2rem; }
+  .pyramid-notes ul { padding-left: 1.2rem; }
+  .pyramid-notes li { margin: 0 0 0.5rem; }
+</style>

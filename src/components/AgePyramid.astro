@@ -1,0 +1,211 @@
+---
+/**
+ * The age pyramid for one area (docs/product/age-pyramid-spec-2026-11-09.md).
+ *
+ * The picture is drawn at build time for the latest year with mid-2011 as an outline,
+ * and the figures beside it and the table under it are in the page, so everything
+ * here reads with no script. public/scripts/age-pyramid.js shows the controls and
+ * redraws the same marks for another year, as people or as a share of the population.
+ */
+import ChartActions from "./ChartActions.astro";
+import {
+  OPEN_AGE,
+  PYRAMID_BASE_YEAR,
+  PYRAMID_GEOMETRY,
+  PYRAMID_LATEST_YEAR,
+  PYRAMID_SOURCE,
+  PYRAMID_SOURCE_LINE,
+  changeWords,
+  pyramidClientData,
+  renderPyramidSvg,
+  summarise,
+  yearIndex,
+  type Pyramid
+} from "../lib/age-pyramid";
+
+interface Props {
+  pyramid: Pyramid;
+  /** File name for the saved image, without its extension. */
+  imageName: string;
+  /** Heading level for the figures panel: 2 on a page of its own. */
+  headingLevel?: 2 | 3;
+}
+
+const { pyramid, imageName, headingLevel = 2 } = Astro.props;
+const year = PYRAMID_LATEST_YEAR;
+const base = PYRAMID_BASE_YEAR;
+const now = summarise(pyramid, year);
+const then = summarise(pyramid, base);
+const svg = renderPyramidSvg(pyramid, { year, compareYear: base });
+const i = yearIndex(pyramid, year);
+const n = (v: number) => v.toLocaleString("en-GB");
+const share = (v: number, total: number) => `${((v / total) * 100).toFixed(1)}%`;
+const medianChange = (() => {
+  const d = Number(now.medianAge.toFixed(1)) - Number(then.medianAge.toFixed(1));
+  return d === 0 ? `the same as mid-${base}` : `${Math.abs(d).toFixed(1)} years ${d > 0 ? "higher" : "lower"} than mid-${base}`;
+})();
+const BANDS = [
+  { key: "0-17", label: "Aged 0 to 17" },
+  { key: "18-64", label: "Aged 18 to 64" },
+  { key: "65+", label: "Aged 65 and over" }
+] as const;
+const Heading = `h${headingLevel}` as "h2" | "h3";
+const startAge = 30;
+---
+
+<section class="age-pyramid" data-age-pyramid aria-label={`${pyramid.name} age pyramid`}>
+  <div class="ap-controls" data-ap="controls">
+    <div class="ap-control ap-year">
+      <label for="ap-year">Year</label>
+      <input id="ap-year" type="range" min={base} max={year} step="1" value={year} aria-valuetext={`Mid-${year}, ONS estimate`} data-ap="year" />
+      <output for="ap-year" data-ap="year-out">Mid-{year}</output>
+      <button type="button" class="ap-button" data-ap="play" aria-pressed="false">Play</button>
+    </div>
+    <fieldset class="ap-control ap-measure">
+      <legend>Show</legend>
+      <label><input type="radio" name="ap-measure" value="people" checked data-ap="measure" /> People</label>
+      <label><input type="radio" name="ap-measure" value="share" data-ap="measure" /> Share of population</label>
+    </fieldset>
+    <div class="ap-control">
+      <label for="ap-compare">Compare with</label>
+      <select id="ap-compare" data-ap="compare">
+        <option value="">No outline</option>
+        {pyramid.years.map((y) => <option value={y} selected={y === base}>Mid-{y}</option>)}
+      </select>
+    </div>
+    <label class="ap-control ap-ew" data-ap="ew-wrap" hidden>
+      <input type="checkbox" data-ap="ew" /> England and Wales as a dashed outline
+    </label>
+  </div>
+
+  <div class="ap-layout">
+    <figure class="ap-figure">
+      <div class="ap-plot" data-ap="plot" style={`aspect-ratio: ${PYRAMID_GEOMETRY.width} / ${PYRAMID_GEOMETRY.height}`} set:html={svg} />
+      <ChartActions source={PYRAMID_SOURCE_LINE} sourceUrl={PYRAMID_SOURCE.landing} downloadFilename={imageName} />
+    </figure>
+
+    <div class="ap-panel">
+      <Heading class="ap-panel-heading" data-ap="r-heading">Mid-{year} in figures</Heading>
+      <dl class="ap-readout">
+        <div>
+          <dt>Population</dt>
+          <dd data-ap="r-pop">{n(now.population)}</dd>
+          <dd class="ap-delta" data-ap="r-pop-d">{changeWords(now.population, then.population)} than mid-{base}</dd>
+        </div>
+        <div>
+          <dt>Median age</dt>
+          <dd data-ap="r-median">{now.medianAge.toFixed(1)}</dd>
+          <dd class="ap-delta" data-ap="r-median-d">{medianChange}</dd>
+        </div>
+        {BANDS.map((b) => (
+          <div>
+            <dt>{b.label}</dt>
+            <dd><span data-ap={`r-band-${b.key}`}>{n(now.bands[b.key])}</span> <span class="ap-share" data-ap={`r-share-${b.key}`}>{share(now.bands[b.key], now.population)} of residents</span></dd>
+            <dd class="ap-delta" data-ap={`r-band-d-${b.key}`}>{changeWords(now.bands[b.key], then.bands[b.key])} than mid-{base}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="ap-note">Median age is calculated from the single years of age. Changes are measured from the outline year, or from mid-{base} when no outline is shown.</p>
+
+      <div class="ap-reader" data-ap="reader">
+        <label for="ap-age">Read one age</label>
+        <input id="ap-age" type="range" min="0" max={OPEN_AGE} step="1" value={startAge} data-ap="age" />
+        <output for="ap-age" data-ap="age-out" role="status" aria-live="polite">Age {startAge}: {n(pyramid.M[i][startAge])} males, {n(pyramid.F[i][startAge])} females</output>
+      </div>
+    </div>
+  </div>
+
+  <details class="ap-details">
+    <summary>Table: <span data-ap="t-caption-year">mid-{year}</span>, every single year of age</summary>
+    <div class="ap-scroll">
+      <table class="ap-table">
+        <caption>{pyramid.name}, <span data-ap="t-year">mid-{year}</span>. Source: {PYRAMID_SOURCE_LINE}.</caption>
+        <thead><tr><th scope="col">Age</th><th scope="col">Males</th><th scope="col">Females</th><th scope="col">All</th></tr></thead>
+        <tbody data-ap="t-body">
+          {pyramid.M[i].map((m, age) => (
+            <tr>
+              <th scope="row">{age === OPEN_AGE ? "90 and over" : age}</th>
+              <td>{n(m)}</td>
+              <td>{n(pyramid.F[i][age])}</td>
+              <td>{n(m + pyramid.F[i][age])}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <script type="application/json" data-ap="data" is:inline set:html={JSON.stringify(pyramidClientData(pyramid))} />
+</section>
+
+<script is:inline src="/scripts/age-pyramid.js" defer></script>
+
+<style is:global>
+  .age-pyramid { margin: var(--space-6, 1.5rem) 0; }
+  /* The controls need script. BaseLayout sets `js` on the root element before the page is laid out,
+     so they take their space at first paint and nothing shifts when the chart script starts. */
+  .age-pyramid .ap-controls, .age-pyramid .ap-reader { display: none; }
+  .js .age-pyramid .ap-controls { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; margin: 0 0 1rem; padding: 0.75rem 1rem; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius); }
+  .js .age-pyramid .ap-reader { display: block; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .age-pyramid .ap-control { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0; padding: 0; border: 0; min-width: 0; font-size: 0.95rem; }
+  .age-pyramid .ap-control[hidden] { display: none; }
+  .age-pyramid .ap-control > label, .age-pyramid .ap-control legend, .age-pyramid .ap-reader > label { font-weight: 600; color: var(--text); }
+  .age-pyramid .ap-measure legend { float: left; padding: 0; margin-right: 0.5rem; }
+  .age-pyramid .ap-measure label, .age-pyramid .ap-ew { font-weight: 400; display: inline-flex; align-items: center; gap: 0.35rem; min-height: 44px; }
+  .age-pyramid .ap-year { flex: 1 1 18rem; }
+  .age-pyramid input[type="range"] { flex: 1 1 9rem; min-width: 0; min-height: 44px; accent-color: var(--accent); }
+  .age-pyramid .ap-reader input[type="range"] { display: block; width: 100%; }
+  .age-pyramid output { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .age-pyramid .ap-year output { min-width: 5.2rem; }
+  .age-pyramid .ap-reader output { display: block; font-weight: 400; color: var(--text); }
+  .age-pyramid select, .age-pyramid .ap-button { min-height: 44px; padding: 0.3rem 0.8rem; font: inherit; color: var(--text); background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); }
+  .age-pyramid .ap-button { cursor: pointer; font-weight: 600; min-width: 4.5rem; }
+  .age-pyramid .ap-button:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); }
+  .age-pyramid :is(input, select, button, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .age-pyramid .ap-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .age-pyramid .ap-figure { margin: 0; min-width: 0; }
+  /* ChartActions fades its source line to 70 per cent, which fails contrast; here it is shown at full strength. */
+  .age-pyramid .ap-figure .chart-source { opacity: 1; }
+  /* The box holds its shape before and after script runs, so nothing shifts. */
+  .age-pyramid .ap-plot { max-width: 34rem; margin: 0 auto; }
+  .age-pyramid .ap-plot svg { display: block; width: 100%; height: 100%; touch-action: pan-y; }
+  .age-pyramid .ap-ground { fill: transparent; }
+  .age-pyramid .ap-m { fill: var(--series-1); }
+  .age-pyramid .ap-f { fill: var(--series-2); }
+  .age-pyramid .ap-t { fill: var(--text); }
+  .age-pyramid .ap-sub, .age-pyramid .ap-tick, .age-pyramid .ap-axis, .age-pyramid .ap-source { fill: var(--text-muted); }
+  .age-pyramid .ap-grid { stroke: var(--border); }
+  .age-pyramid .ap-outline, .age-pyramid .ap-key-line { stroke: var(--text); }
+  .age-pyramid .ap-cursor { fill: var(--text); }
+  .age-pyramid.ap-js [data-ap-bar] { transition: x 0.35s ease-out, width 0.35s ease-out; }
+  @media (prefers-reduced-motion: reduce) {
+    .age-pyramid.ap-js [data-ap-bar] { transition: none; }
+  }
+
+  .age-pyramid .ap-panel-heading { font-size: 1.15rem; margin: 0 0 0.75rem; }
+  .age-pyramid .ap-readout { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0.75rem; margin: 0; }
+  .age-pyramid .ap-readout > div { padding: 0.7rem 0.8rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+  .age-pyramid .ap-readout dt { font-size: 0.85rem; color: var(--text-muted); }
+  .age-pyramid .ap-readout dd { margin: 0; font-size: 1.3rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text); }
+  .age-pyramid .ap-readout .ap-share { display: block; font-size: 0.85rem; font-weight: 400; color: var(--text-muted); }
+  .age-pyramid .ap-readout dd.ap-delta { font-size: 0.85rem; font-weight: 400; color: var(--text-muted); }
+  .age-pyramid .ap-note { font-size: 0.85rem; color: var(--text-muted); margin: 0.75rem 0 0; }
+
+  .age-pyramid .ap-details { margin-top: 1.25rem; }
+  .age-pyramid .ap-details summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: 0.6rem 0; min-height: 44px; }
+  .age-pyramid .ap-scroll { overflow-x: auto; max-width: 100%; }
+  .age-pyramid .ap-table { border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; min-width: 18rem; }
+  .age-pyramid .ap-table caption { caption-side: bottom; text-align: left; font-size: 0.8rem; color: var(--text-muted); padding-top: 0.5rem; }
+  .age-pyramid .ap-table th, .age-pyramid .ap-table td { padding: 0.25rem 0.75rem; border-bottom: 1px solid var(--border); text-align: right; }
+  .age-pyramid .ap-table tbody th, .age-pyramid .ap-table thead th:first-child { text-align: left; font-weight: 400; }
+  .age-pyramid .ap-table thead th { color: var(--text-muted); font-weight: 600; }
+
+  @media (min-width: 60rem) {
+    .age-pyramid .ap-layout { grid-template-columns: minmax(0, 34rem) minmax(0, 1fr); align-items: start; gap: 2rem; }
+    .age-pyramid .ap-plot { margin: 0; }
+  }
+  @media print {
+    .age-pyramid .ap-controls, .age-pyramid .ap-reader { display: none !important; }
+  }
+</style>

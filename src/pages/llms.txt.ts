@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import { SITE_URL } from "../lib/site";
 import { formatPconCount, formatPlaceCount } from "../lib/coverage";
+import { PYRAMID_BASE_YEAR, PYRAMID_LATEST_YEAR } from "../lib/age-pyramid";
 
 export const prerender = true;
 
@@ -25,6 +26,7 @@ Observed figures (ONS, DfE, DWP, Home Office, DHSC) and projections are labelled
 - [Counties](${SITE_URL}/places/counties/): county pages built from published county Census rows
 - [Constituencies](${SITE_URL}/constituencies/): ${formatPconCount()}
 - [Maps](${SITE_URL}/maps/): population change and Census composition maps
+- [Population pyramids](${SITE_URL}/population-pyramids/): population by single year of age and sex for each place, every year from mid-${PYRAMID_BASE_YEAR} to mid-${PYRAMID_LATEST_YEAR}
 - [National](${SITE_URL}/national/): England and Wales series
 - [Findings](${SITE_URL}/findings/): short articles with their figures and sources
 

@@ -178,6 +178,13 @@ export function getIndexableSitePaths(): string[] {
     paths.add(`/constituencies/${pcon.slug}/`);
   }
 
+  // Age pyramids: the hub and one page per council, on the place page's slug
+  // (src/lib/age-pyramid.ts builds the same addresses from the same names).
+  paths.add("/population-pyramids/");
+  for (const area of getPublicPlaceAreas()) {
+    paths.add(`${buildPlacePath(area)}population-pyramid/`);
+  }
+
   return [...paths].sort((a, b) => a.localeCompare(b));
 }
 

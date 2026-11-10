@@ -9,6 +9,7 @@ const paths = hexPaths();
 <MapLayout title="Population and census maps | UK Demographics" description="Explore population change by year and ethnic groups at the 2011 and 2021 censuses. Equal-area and geographic maps with an alphabetical table.">
   <h1>Population and census maps</h1>
   <p>Explore {formatPlaceCount()} in England and Wales. Each hexagon represents one council with the same area on the map. Use the table to find every figure and its source.</p>
+  <p>For age and sex, see the <a href="/population-pyramids/">population pyramids</a>: one for England and Wales and one for each council, for every year.</p>
   <section id="timeline" data-years={JSON.stringify(POPULATION.years)} data-groups={JSON.stringify(GROUPS)}>
     <div class="controls" hidden id="map-controls">
       <div role="tablist" aria-label="Map measure">

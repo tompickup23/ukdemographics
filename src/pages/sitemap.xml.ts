@@ -4,6 +4,7 @@ import { buildAbsoluteUrl, getIndexableSitePaths } from "../lib/site";
 import { getCollection } from "astro:content";
 import rawProjections from "../data/live/ethnic-projections.json";
 import { pconDatasetDate } from "../lib/search-listing";
+import { PYRAMID_HUB_PATH, PYRAMID_PUBLISHED_ISO } from "../lib/age-pyramid";
 
 export const prerender = true;
 
@@ -68,6 +69,14 @@ export const GET: APIRoute = async () => {
     "src/pages/constituencies/[slug].astro",
     "src/lib/search-listing.ts",
   ]));
+  // Age pyramids are dated by the ONS edition they draw, or by the last change to
+  // the code that draws them if that is later.
+  const pyramidDate = latest(PYRAMID_PUBLISHED_ISO, lastCommitDate([
+    "src/pages/places/[slug]/population-pyramid.astro",
+    "src/components/AgePyramid.astro",
+    "src/lib/age-pyramid.ts",
+    "src/data/live/age-pyramids.json",
+  ]));
   // Hubs take the date of the newest page they list: the region pages list
   // place profiles and county pages, the counties index lists county pages,
   // /places/ lists place profiles and /constituencies/ lists constituencies.
@@ -81,6 +90,7 @@ export const GET: APIRoute = async () => {
     const date = path in hubDate ? hubDate[path]
       : path.startsWith("/places/counties/") ? countyDate
       : path.startsWith("/places/regions/") ? latest(regionDate, placeDate, countyDate)
+      : path === PYRAMID_HUB_PATH || /^\/places\/[^/]+\/population-pyramid\/$/.test(path) ? pyramidDate
       : /^\/places\/[^/]+\/$/.test(path) ? placeDate
       : /^\/constituencies\/[^/]+\/$/.test(path) ? pconDate
       : null;

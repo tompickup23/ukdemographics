@@ -1,0 +1,152 @@
+---
+/**
+ * One council's population by single year of age and sex, every year from mid-2011
+ * (docs/product/age-pyramid-spec-2026-11-09.md). Observed ONS estimates only: no
+ * projection and no ethnicity dimension. Every figure is read from
+ * src/data/live/age-pyramids.json, never typed.
+ */
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import AgePyramid from "../../../components/AgePyramid.astro";
+import CiteThisPage from "../../../components/CiteThisPage.astro";
+import {
+  PYRAMID_ACCURACY_NOTE,
+  PYRAMID_BASE_YEAR,
+  PYRAMID_HUB_PATH,
+  PYRAMID_LATEST_YEAR,
+  PYRAMID_NEXT_STATED,
+  PYRAMID_PUBLISHED_DAY,
+  PYRAMID_PUBLISHED_ISO,
+  PYRAMID_SOURCE,
+  PYRAMID_SOURCE_LINE,
+  pyramidCitation,
+  pyramidCodes,
+  pyramidCsvPath,
+  pyramidFor,
+  pyramidOnsName,
+  pyramidPath,
+  pyramidSentences,
+  smallNumbersNote
+} from "../../../lib/age-pyramid";
+import { DATA_LICENCE_URL, SITE_URL, buildAbsoluteUrl, buildPlacePath, slugifyAreaName, type StructuredDataNode } from "../../../lib/site";
+
+export const getStaticPaths: GetStaticPaths = () =>
+  pyramidCodes().map((code) => ({ params: { slug: slugifyAreaName(pyramidOnsName(code)!) }, props: { code } }));
+
+const { code } = Astro.props as { code: string };
+const pyramid = pyramidFor(code)!;
+const onsName = pyramidOnsName(code)!;
+const name = pyramid.name;
+const placePath = buildPlacePath({ areaCode: code, areaName: onsName });
+const csvPath = pyramidCsvPath(onsName);
+const canonicalUrl = buildAbsoluteUrl(pyramidPath(onsName));
+const span = `${PYRAMID_BASE_YEAR} to ${PYRAMID_LATEST_YEAR}`;
+const heading = `${name} population pyramid`;
+const pageTitle = `${name} population pyramid: age and sex, ${span} | UK Demographics`;
+const description = `The population of ${name} by single year of age and sex, for every year from mid-${PYRAMID_BASE_YEAR} to mid-${PYRAMID_LATEST_YEAR}. Step through the years and compare any two. From ONS mid-year estimates, table ${PYRAMID_SOURCE.table}.`;
+const sentences = pyramidSentences(pyramid);
+const smallNumbers = smallNumbersNote(pyramid);
+const citation = pyramidCitation({ title: pageTitle.replace(/ \| UK Demographics$/, ""), url: canonicalUrl });
+
+const structuredData: StructuredDataNode[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: buildAbsoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Places", item: buildAbsoluteUrl("/places/") },
+      { "@type": "ListItem", position: 3, name, item: buildAbsoluteUrl(placePath) },
+      { "@type": "ListItem", position: 4, name: "Population pyramid", item: canonicalUrl }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: `${name}: population by single year of age and sex, mid-${PYRAMID_BASE_YEAR} to mid-${PYRAMID_LATEST_YEAR}`,
+    description,
+    url: canonicalUrl,
+    identifier: code,
+    isAccessibleForFree: true,
+    license: DATA_LICENCE_URL,
+    ...(PYRAMID_PUBLISHED_ISO ? { dateModified: PYRAMID_PUBLISHED_ISO } : {}),
+    temporalCoverage: `${PYRAMID_BASE_YEAR}/${PYRAMID_LATEST_YEAR}`,
+    spatialCoverage: { "@type": "AdministrativeArea", name, identifier: code },
+    variableMeasured: ["Usual resident population by sex and single year of age"],
+    isBasedOn: PYRAMID_SOURCE.landing,
+    includedInDataCatalog: { "@type": "DataCatalog", name: "UK Demographics data downloads", url: buildAbsoluteUrl("/data/") },
+    distribution: [{
+      "@type": "DataDownload",
+      name: `${name}: population by year, sex and single year of age`,
+      encodingFormat: "text/csv",
+      contentUrl: buildAbsoluteUrl(csvPath),
+      license: DATA_LICENCE_URL,
+      ...(PYRAMID_PUBLISHED_ISO ? { dateModified: PYRAMID_PUBLISHED_ISO } : {})
+    }],
+    creator: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` }
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={description} structuredData={structuredData}>
+  <article class="pyramid-page shell">
+    <Breadcrumbs items={[
+      { label: "Places", href: "/places/" },
+      { label: name, href: placePath },
+      { label: "Population pyramid" }
+    ]} />
+
+    <header class="pyramid-header">
+      <p class="eyebrow">Age and sex, mid-{PYRAMID_BASE_YEAR} to mid-{PYRAMID_LATEST_YEAR}</p>
+      <h1>{heading}</h1>
+      <p class="lede" data-pyramid-answer>{sentences.join(" ")}</p>
+      <p class="pyramid-how">
+        Each bar is the number of residents at one year of age, males on the left and females on the right.
+        The bars show mid-{PYRAMID_LATEST_YEAR} and the outline shows mid-{PYRAMID_BASE_YEAR}, so the gap between them is the change.
+        These are ONS estimates of the people who usually live in {name}, not a projection.
+      </p>
+    </header>
+
+    {smallNumbers && <p class="pyramid-small" data-pyramid-small>{smallNumbers}</p>}
+
+    <AgePyramid pyramid={pyramid} imageName={`${slugifyAreaName(onsName)}-population-pyramid`} />
+
+    <section class="pyramid-notes" aria-labelledby="pyramid-notes-heading">
+      <h2 id="pyramid-notes-heading">About these figures</h2>
+      <ul>
+        <li>
+          Source: {PYRAMID_SOURCE_LINE}.
+          <a href={PYRAMID_SOURCE.landing} target="_blank" rel="noopener">Source data</a>
+        </li>
+        <li>
+          Last updated {PYRAMID_PUBLISHED_DAY}. {PYRAMID_NEXT_STATED
+            ? `ONS says the next publication is scheduled for ${PYRAMID_NEXT_STATED}.`
+            : "ONS has not stated the next publication."}
+        </li>
+        <li>Each figure is ONS's estimate of the usual resident population at 30 June of that year. Mid-2022, mid-2023 and mid-2024 are the figures ONS revised in July 2026.</li>
+        <li>{PYRAMID_ACCURACY_NOTE}</li>
+        <li>The top bar is everyone aged 90 and over, so it is longer than the single years of age below it.</li>
+        <li>
+          <a href={csvPath} download>Download every year for {name} (CSV)</a>, or see
+          <a href={placePath}>the full {name} profile</a> and
+          <a href={PYRAMID_HUB_PATH}>the pyramid for England and Wales and every other council</a>.
+        </li>
+      </ul>
+    </section>
+
+    <CiteThisPage citation={citation} csvPath={csvPath} placeName={`${name} age and sex`} />
+  </article>
+</BaseLayout>
+
+<style>
+  .pyramid-page { padding-block: var(--space-6, 1.5rem) var(--space-8, 3rem); }
+  .pyramid-header h1 { margin: 0 0 0.75rem; }
+  .pyramid-header .eyebrow { margin: 1rem 0 0.35rem; font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+  .pyramid-how { max-width: 46rem; color: var(--text-muted); }
+  .pyramid-small { max-width: 46rem; padding: 0.75rem 1rem; background: var(--bg-subtle); border-left: 3px solid var(--border-strong); border-radius: var(--radius-sm); }
+  .pyramid-notes { margin-top: 2rem; max-width: 46rem; }
+  .pyramid-notes h2 { font-size: 1.2rem; }
+  .pyramid-notes ul { padding-left: 1.2rem; }
+  .pyramid-notes li { margin: 0 0 0.5rem; }
+</style>
