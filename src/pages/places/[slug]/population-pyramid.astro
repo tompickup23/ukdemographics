@@ -26,7 +26,8 @@ import {
   pyramidFor,
   pyramidOnsName,
   pyramidPath,
-  pyramidSentences
+  pyramidSentences,
+  smallNumbersNote
 } from "../../../lib/age-pyramid";
 import { DATA_LICENCE_URL, SITE_URL, buildAbsoluteUrl, buildPlacePath, slugifyAreaName, type StructuredDataNode } from "../../../lib/site";
 
@@ -45,6 +46,7 @@ const heading = `${name} population pyramid`;
 const pageTitle = `${name} population pyramid: age and sex, ${span} | UK Demographics`;
 const description = `The population of ${name} by single year of age and sex, for every year from mid-${PYRAMID_BASE_YEAR} to mid-${PYRAMID_LATEST_YEAR}. Step through the years and compare any two. From ONS mid-year estimates, table ${PYRAMID_SOURCE.table}.`;
 const sentences = pyramidSentences(pyramid);
+const smallNumbers = smallNumbersNote(pyramid);
 const citation = pyramidCitation({ title: pageTitle.replace(/ \| UK Demographics$/, ""), url: canonicalUrl });
 
 const structuredData: StructuredDataNode[] = [
@@ -106,6 +108,8 @@ const structuredData: StructuredDataNode[] = [
       </p>
     </header>
 
+    {smallNumbers && <p class="pyramid-small" data-pyramid-small>{smallNumbers}</p>}
+
     <AgePyramid pyramid={pyramid} imageName={`${slugifyAreaName(onsName)}-population-pyramid`} />
 
     <section class="pyramid-notes" aria-labelledby="pyramid-notes-heading">
@@ -140,6 +144,7 @@ const structuredData: StructuredDataNode[] = [
   .pyramid-header h1 { margin: 0 0 0.75rem; }
   .pyramid-header .eyebrow { margin: 1rem 0 0.35rem; font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
   .pyramid-how { max-width: 46rem; color: var(--text-muted); }
+  .pyramid-small { max-width: 46rem; padding: 0.75rem 1rem; background: var(--bg-subtle); border-left: 3px solid var(--border-strong); border-radius: var(--radius-sm); }
   .pyramid-notes { margin-top: 2rem; max-width: 46rem; }
   .pyramid-notes h2 { font-size: 1.2rem; }
   .pyramid-notes ul { padding-left: 1.2rem; }

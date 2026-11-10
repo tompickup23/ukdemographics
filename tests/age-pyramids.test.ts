@@ -22,7 +22,10 @@ import {
   pyramidScales,
   pyramidSentences,
   renderPyramidSvg,
-  summarise
+  smallNumbersNote,
+  summarise,
+  textWidth,
+  tickPositions
 } from "../src/lib/age-pyramid";
 import { DASHES, LOADED_WORDS, RANKING_WORDS, VISIONS, contrast, seenDistance } from "../src/lib/map";
 
@@ -133,6 +136,58 @@ describe("age pyramid chart", () => {
       expect(scales.people.max / scales.people.step, code).toBeLessThanOrEqual(5);
       expect(scales.share.max / scales.share.step, code).toBeLessThanOrEqual(5);
     }
+  });
+
+  it("keeps every axis label inside the picture and clear of its neighbours, for every area and both measures", () => {
+    // Found on 10 Nov 2026: the outermost label was cut off on large councils, so 15,000 read as 5,000.
+    for (const code of [...siteCodes, ENGLAND_AND_WALES]) {
+      const scales = pyramidScales(pyramidFor(code)!);
+      for (const measure of ["people", "share"] as const) {
+        const ticks = tickPositions(scales[measure], measure);
+        for (const t of ticks) {
+          expect(t.x - t.width / 2, `${code} ${measure} ${t.label}`).toBeGreaterThanOrEqual(0);
+          expect(t.x + t.width / 2, `${code} ${measure} ${t.label}`).toBeLessThanOrEqual(PYRAMID_GEOMETRY.width);
+        }
+        for (const side of [-1, 1]) {
+          const row = ticks.filter((t) => Math.sign(t.x - PYRAMID_GEOMETRY.centre) === side).sort((a, b) => a.x - b.x);
+          for (let i = 1; i < row.length; i++) {
+            const gap = row[i].x - row[i].width / 2 - (row[i - 1].x + row[i - 1].width / 2);
+            expect(gap, `${code} ${measure} ${row[i - 1].label} and ${row[i].label}`).toBeGreaterThanOrEqual(2);
+          }
+        }
+      }
+    }
+  });
+
+  it("draws the axis labels where that check measured them", () => {
+    const p = pyramidFor("E08000025")!;
+    const svg = draw("E08000025");
+    const drawn = [...svg.matchAll(/class="ap-t ap-tick" x="([\d.]+)"[^>]*>([^<]+)</g)].map((m) => `${m[1]} ${m[2]}`);
+    expect(drawn).toEqual(tickPositions(pyramidScales(p).people, "people").map((t) => `${t.x} ${t.label}`));
+  });
+
+  it("keeps the heading inside the picture for the longest name", () => {
+    for (const code of [...siteCodes, ENGLAND_AND_WALES]) {
+      const p = pyramidFor(code)!;
+      const m = /class="ap-t ap-head" x="8" y="18" font-size="([\d.]+)"[^>]*>([^<]+)</.exec(draw(code))!;
+      expect(8 + textWidth(m[2].replace(/&amp;/g, "&"), Number(m[1])), p.name).toBeLessThanOrEqual(PYRAMID_GEOMETRY.width - 8 + 0.5);
+    }
+  });
+
+  it("warns about small numbers only where no bar reaches 100 people, and says nothing it cannot read from the data", () => {
+    const noted = siteCodes.filter((c) => smallNumbersNote(pyramidFor(c)!) !== null);
+    for (const code of siteCodes) {
+      const a = pyramids.areas[code];
+      const largest = Math.max(...a.M.flat(), ...a.F.flat());
+      expect(noted.includes(code), code).toBe(largest < 100);
+      const note = smallNumbersNote(pyramidFor(code)!);
+      if (!note) continue;
+      const now = summarise(pyramidFor(code)!, PYRAMID_LATEST_YEAR);
+      expect(note).toContain(`${now.population.toLocaleString("en-GB")} residents`);
+      expect(note).toContain(`more than ${largest.toLocaleString("en-GB")} people`);
+      expect(DASHES.test(note) || RANKING_WORDS.test(note) || LOADED_WORDS.test(note), note).toBe(false);
+    }
+    expect(smallNumbersNote(pyramidFor(ENGLAND_AND_WALES)!)).toBeNull();
   });
 
   it("states the population of both years in the picture, exactly as held", () => {

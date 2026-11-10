@@ -11,8 +11,26 @@ The first release is built on branch `feat/age-pyramids-2026-11-09`: the data fi
 - **The dates line is written from the data file**, not through `SectionDates`. `tests/section-dates.test.ts` holds that register to the sections of the place page.
 - **The sources row is added in `src/pages/data/sources.csv.ts`**, not in `SOURCES`, because `SOURCES` also writes the place page citation and place pages must not change inside the re-measure window.
 - **Links in.** `/maps/` and `/national/` each gained one line linking to the hub. No place page changed. The link from each place page waits for the 5 December read (decision 4).
-- **The other decisions in section 11 were taken as recommended**: the addresses, the mid-2011 outline by default, single years for every council, and no header menu entry.
+- **The decisions in section 11 are recorded under "Decisions taken on 10 November 2026" below.**
 - **Median age agrees with ONS table MYE6 for all 318 councils and for England and Wales** to the one decimal place ONS publishes, so the open question in section 4 is closed.
+
+## Decisions taken on 10 November 2026
+
+The site owner delegated the open decisions with the instruction to decide on quality. Each is recorded with what it rests on.
+
+| Decision | Taken | Rests on |
+|---|---|---|
+| Addresses | `/places/<slug>/population-pyramid/` and `/population-pyramids/` | They match the one pyramid query in the search baseline (section 2) |
+| Default view | Latest year with the mid-2011 outline | One still image carries the change; it is what a reader with no script, a crawler and a saved image all see |
+| Smallest councils | Single years of age for every council, with a note where no bar in any year reaches 100 people | Only the Isles of Scilly is that small: its largest bar is 35 people. The City of London's is 349 and its shape reads clearly. The note is drawn from the data, so it follows the figures if they change |
+| Place page link | After the 5 December 2026 search read | A link is a body change on every place page inside the re-measure window |
+| Header menu | No entry for now; decide with the place page link | A menu change alters every page, place pages included, inside the same window |
+| Colours | `--series-1` for males, `--series-2` for females | The palette validator's weakest separation under colour vision deficiency is 20.8 for this pair in light mode and 18.7 in dark. Blue with purple, the only other candidate that is not a red, falls to 9.0 in light and 3.1 in dark |
+| Design check: phone header | Recorded as an exception; not changed here | The two-row header is shared by every page and is the estate's one-row header item. Changing it belongs in its own PR |
+| Design check: height of `/maps/` and `/national/` | Recorded as an exception; not changed here | Both pages were over the cap before this work, which adds one line to each |
+| Merge | Left to the site owner | Merging deploys the site |
+
+A check of the extreme cases on 10 November found one defect, now fixed: on councils with large numbers, and on England and Wales, the outermost axis label ran off the edge of the picture, so 15,000 read as 5,000. Bars now stop 25 units short of each edge, and a test measures every axis label for every area in both measures.
 
 ## 1. What it is, in one paragraph
 

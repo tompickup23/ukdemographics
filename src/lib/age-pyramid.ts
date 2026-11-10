@@ -167,7 +167,8 @@ export const PYRAMID_GEOMETRY = {
   height: 508,
   centre: 180,
   gutter: 30,
-  side: 156,
+  /* Bars stop 25 units short of each edge, which is the room the outermost axis label needs. */
+  side: 140,
   top: 76,
   rowHeight: 4,
   barHeight: 3.4,
@@ -194,6 +195,47 @@ const rightEdge = G.centre + G.gutter / 2;
 const r1 = (v: number) => Math.round(v * 10) / 10;
 const count = (n: number) => n.toLocaleString("en-GB");
 const escapeXml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+/**
+ * Rough width of a run of text in viewBox units. Digits in Source Sans 3 are about
+ * half an em and letters a little more; 0.56 em a character errs on the wide side,
+ * so anything that fits by this measure fits on the page.
+ */
+export const textWidth = (text: string, fontSize: number) => text.length * fontSize * 0.56;
+
+/** The heading size: 14 units, stepped down for the longest names so the line stays inside the picture. */
+export function headFontSize(name: string): number {
+  const sample = `${name}, mid-${PYRAMID_LATEST_YEAR}`;
+  const room = G.width - 16;
+  return textWidth(sample, 14) <= room ? 14 : Math.floor((room / (sample.length * 0.56)) * 10) / 10;
+}
+
+/** Where each axis label sits and how wide it is, for both sides: used to draw them and to test that none clips or collides. */
+export function tickPositions(scale: AxisScale, measure: "people" | "share"): Array<{ x: number; label: string; width: number }> {
+  const out: Array<{ x: number; label: string; width: number }> = [];
+  for (let t = 0; t <= scale.max + 1e-9; t += scale.step) {
+    const label = tickLabel(t, measure);
+    for (const dir of [-1, 1] as const) {
+      out.push({ x: r1((dir < 0 ? leftEdge : rightEdge) + dir * (t / scale.max) * G.side), label, width: textWidth(label, TICK_FONT_SIZE) });
+    }
+  }
+  return out;
+}
+
+export const TICK_FONT_SIZE = 10.5;
+
+/**
+ * Where single years of age are very small numbers the shape is mostly chance, and
+ * the page says so. The line is drawn from the data: it appears when no bar in any
+ * year reaches 100 people.
+ */
+export function smallNumbersNote(p: Pyramid): string | null {
+  let largest = 0;
+  for (const rows of [p.M, p.F]) for (const row of rows) for (const v of row) largest = Math.max(largest, v);
+  if (largest >= 100) return null;
+  const now = summarise(p, PYRAMID_LATEST_YEAR);
+  return `${p.name} had ${count(now.population)} residents at mid-${now.year}, and no bar in any year is more than ${count(largest)} people. Numbers this small move a lot from one year to the next, so the age bands beside the chart are a steadier guide than any single bar.`;
+}
 
 export function tickLabel(v: number, measure: "people" | "share"): string {
   return measure === "share" ? `${Number(v.toFixed(2))}%` : count(v);
@@ -240,7 +282,7 @@ export function renderPyramidSvg(p: Pyramid, opts: PyramidSvgOptions): string {
   parts.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${G.width} ${G.height}" role="img" aria-labelledby="${idPrefix}-title ${idPrefix}-desc" class="ap-svg" font-family="'Source Sans 3', system-ui, sans-serif">`);
   parts.push(`<title id="${idPrefix}-title" data-ap="svg-title">${escapeXml(title)}</title><desc id="${idPrefix}-desc" data-ap="svg-desc">${escapeXml(desc)}</desc>`);
   parts.push(`<rect class="ap-ground" width="${G.width}" height="${G.height}" fill="${PYRAMID_INK.ground}"/>`);
-  parts.push(`<text class="ap-t ap-head" x="8" y="18" font-size="14" font-weight="600" fill="${PYRAMID_INK.text}" data-ap="head">${escapeXml(`${p.name}, mid-${year}`)}</text>`);
+  parts.push(`<text class="ap-t ap-head" x="8" y="18" font-size="${headFontSize(p.name)}" font-weight="600" fill="${PYRAMID_INK.text}" data-ap="head">${escapeXml(`${p.name}, mid-${year}`)}</text>`);
   parts.push(`<text class="ap-t ap-sub" x="8" y="31" font-size="10.5" fill="${PYRAMID_INK.muted}" data-ap="sub-now">${escapeXml(`Bars: mid-${year}, ${count(now.population)} residents`)}</text>`);
   parts.push(`<g data-ap="sub-then-group"${then ? "" : ' display="none"'}><line class="ap-key-line" x1="8" x2="22" y1="40" y2="40" stroke="${PYRAMID_INK.text}" stroke-width="1.3"/><text class="ap-t ap-sub" x="26" y="43.5" font-size="10.5" fill="${PYRAMID_INK.muted}" data-ap="sub-then">${then ? escapeXml(`Outline: mid-${then.year}, ${count(then.population)} residents`) : ""}</text></g>`);
   parts.push(`<g data-ap="sub-ew-group" display="none"><line class="ap-key-line" x1="8" x2="22" y1="52.5" y2="52.5" stroke="${PYRAMID_INK.text}" stroke-width="1.3" stroke-dasharray="3 2"/><text class="ap-t ap-sub" x="26" y="56" font-size="10.5" fill="${PYRAMID_INK.muted}" data-ap="sub-ew"></text></g>`);
