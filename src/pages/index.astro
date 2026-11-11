@@ -198,9 +198,14 @@ function findingColor(verdict: string): string {
           autocomplete="off"
           spellcheck="false"
           aria-label="Search for a local authority"
+          aria-describedby="area-search-note"
         />
         <div class="lookup-results" id="area-results" hidden></div>
       </div>
+      <p class="hero-search-note" id="area-search-note">
+        A postcode is sent to Postcodes.io to find its council. This site does not record it.
+        <a href="/privacy/#postcode-lookup">Privacy details</a>.
+      </p>
 
       <ul class="hero-trust">
         <li><strong>{fmtInt(totalAreas)}</strong> local authorities</li>
@@ -872,6 +877,13 @@ function findingColor(verdict: string): string {
     border-radius: var(--radius-sm);
     outline: none;
     transition: border-color 180ms, box-shadow 180ms;
+  }
+  .hero-search-note {
+    width: min(38rem, 100%);
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--text-faint);
   }
   .hero-search input::placeholder { color: var(--muted); opacity: 0.7; }
   .hero-search input:focus {

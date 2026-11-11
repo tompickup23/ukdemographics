@@ -24,9 +24,14 @@ import { PLACE_COUNT, PCON_COUNT } from "../lib/coverage";
         autocomplete="off"
         spellcheck="false"
         aria-label="Postcode or area name"
+        aria-describedby="postcode-input-note"
       />
       <div class="search-results" id="search-results" hidden></div>
     </div>
+    <p class="ya-privacy ya-privacy--box" id="postcode-input-note">
+      A postcode is sent to Postcodes.io to find its council. This site does not record it.
+      <a href="/privacy/#postcode-lookup">Privacy details</a>.
+    </p>
 
     <div class="preview-card" id="preview-card" hidden>
       <h2 id="preview-name"></h2>
@@ -312,6 +317,7 @@ import { PLACE_COUNT, PCON_COUNT } from "../lib/coverage";
   .ya-way:hover { border-color: var(--accent-bright); box-shadow: var(--shadow); }
   .ya-way-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; letter-spacing: -0.025em; }
   .ya-privacy { margin: 1.2rem 0 0; font-size: 0.79rem; line-height: 1.6; color: var(--text-faint); }
+  .ya-privacy--box { margin-top: 0.6rem; }
   @media (max-width: 860px) {
     .ya-what { grid-template-columns: minmax(0, 1fr); gap: 2.2rem; }
   }
