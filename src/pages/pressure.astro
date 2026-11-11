@@ -112,7 +112,7 @@ const CUTOFFS = [
   <h2 class="section-title" style="margin-top: 2.5rem;">How the score is built</h2>
   <p class="desc">Each component is the input value multiplied by a fixed weight, then capped at 20 points. The five capped values are summed, the total is capped at 100, and the result is rounded to a whole number. There is no normalisation and no weighting derived from data. The multipliers and the caps were chosen when the score was written.</p>
 
-  <div class="table-scroll">
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Score components and weights">
     <table class="method-table">
       <thead>
         <tr>
@@ -142,7 +142,7 @@ const CUTOFFS = [
   </div>
 
   <h3 class="subhead">Band cutoffs</h3>
-  <div class="table-scroll">
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Band cutoffs">
     <table class="method-table">
       <thead>
         <tr><th>Band</th><th>Rule</th></tr>

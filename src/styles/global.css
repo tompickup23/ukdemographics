@@ -200,11 +200,17 @@
 /* Ink for text drawn on a filled shape (chart segments, tags, buttons). Site level,
    outside the shared block. Each pairing is computed, not eyeballed: --on-fill-light
    on --accent-bright is 4.99 light and 5.38 dark; --on-fill-dark on #6b7280 is 4.83;
-   --on-accent on --accent is 7.90 light and 4.99 dark. Maps plan v2.1, issue I17. */
+   --on-accent on --accent is 7.90 light and 4.99 dark; --on-coral on --coral is 6.57
+   light and 8.04 dark. Maps plan v2.1, issue I17. */
 :root {
   --on-fill-light: var(--ground);
   --on-fill-dark: #ffffff;
   --on-accent: #ffffff;
+  --on-coral: #ffffff;
+  /* Accent text on the accent wash (tags and chips). --accent on --accent-wash is 6.88
+     on the light page but 4.44 on the dark one, so the dark page uses a lighter indigo
+     at 4.70. tests/fill-ink.test.ts recomputes both. */
+  --accent-on-wash: var(--accent);
 }
 /* Line chart strokes for the six ethnic groups (src/lib/ethnic-palette.ts): darker
    shades on the light page, 3:1 or more on white; the fills themselves on the dark page.
@@ -220,6 +226,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --on-accent: var(--ground);
+    --on-coral: var(--ground);
+    --accent-on-wash: #8079f3;
     --eth-line-white-british: #7b74f2;
     --eth-line-white-other: #a7bedc;
     --eth-line-asian: #f0b03e;
@@ -4490,7 +4498,7 @@ button.region-map-shortlist-link {
 .chip.accent {
   border-color: color-mix(in srgb, var(--accent) 22%, transparent);
   background: var(--accent-wash);
-  color: var(--accent);
+  color: var(--accent-on-wash);
 }
 
 .chip.teal {

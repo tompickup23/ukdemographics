@@ -118,6 +118,10 @@ const structuredData = [
   .dl-columns dt { font-weight: 600; }
   .dl-columns dd { margin: 0 0 0 1rem; color: var(--muted); }
   .dl-places { list-style: none; padding: 0; margin: 0; columns: 14rem auto; column-gap: var(--space-4, 1rem); font-size: 0.88rem; line-height: 1.7; }
+  /* Each file link is a tap target of its own: 24 px tall at least, with the list's
+     rhythm kept by a tighter line height. */
+  .dl-places li { line-height: 1.3; }
+  .dl-places a { display: inline-block; min-height: 24px; padding-block: 0.25rem; }
   .note { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
   code { overflow-wrap: anywhere; }
   a { color: var(--accent); }
