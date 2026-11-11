@@ -18,9 +18,15 @@
  *   title: optional title rendered above the bar
  *   ariaLabel: a11y label for the bar
  *   labelMinPct: hide inline label in segments narrower than this (default 0.08)
+ *
+ * The inline label's ink comes from the segment's fill (src/lib/fill-ink.ts): white or
+ * the dark ground for a hex fill, whichever stands further off, and the matching
+ * `--on-*` token for a token fill.
  *   captionLabel: optional caption shown below each legend row
  *                 (e.g. "Census 2021" or a sub-group name)
  */
+import { inkOnFill } from "../lib/fill-ink";
+
 interface Segment {
   label: string;
   pct: number;
@@ -62,6 +68,7 @@ function fmtPct(p: number): string {
   >
     {segments.map((s) => {
       const wide = s.pct >= labelMinPct;
+      const ink = inkOnFill(s.colour);
       return (
         <div
           class="hero-race-segment"
@@ -69,7 +76,7 @@ function fmtPct(p: number): string {
           title={`${s.label} ${fmtPct(s.pct)}${s.captionLabel ? `, ${s.captionLabel}` : ""}`}
         >
           {wide && (
-            <span class="hero-race-label">
+            <span class="hero-race-label" style={ink ? `color:${ink}` : undefined}>
               <span class="hero-race-party">{s.label}</span>
               <span class="hero-race-pct">{fmtPct(s.pct)}</span>
             </span>

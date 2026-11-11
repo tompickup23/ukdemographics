@@ -98,7 +98,7 @@ const structuredData = buildHubStructuredData({
   </div>
 
   <div class="pl-table" id="pl-table">
-    <div class="pl-head" role="row">
+    <div class="pl-head">
       <button type="button" class="pl-sort pl-active" data-sort="name" aria-pressed="true">Area A to Z</button>
       <button type="button" class="pl-sort" data-sort="region" aria-pressed="false">Region A to Z</button>
       <span class="pl-num">2021</span>
@@ -255,7 +255,7 @@ const structuredData = buildHubStructuredData({
     font-weight: 600;
     cursor: pointer;
   }
-  .pl-chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: #ffffff; }
+  .pl-chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: var(--on-accent); }
 
   .pl-table { border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); overflow: hidden; }
   .pl-head,

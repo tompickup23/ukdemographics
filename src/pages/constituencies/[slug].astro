@@ -15,6 +15,7 @@ import {
 import { buildAbsoluteUrl, buildConstituencyStructuredData, getPublicPlaceAreas, slugifyAreaName } from "../../lib/site";
 import { buildConstituencyDescription, generalElectionYear, pconDatasetDate } from "../../lib/search-listing";
 import { getPconDemographics } from "../../lib/pcon-demographics";
+import { partyColour } from "../../lib/party-colours";
 import pipPcon from "../../data/live/pip-pcon.json";
 
 export function getStaticPaths() {
@@ -56,29 +57,6 @@ const constituentLasWithPages = pcon.constituentLas
   .filter((l) => l.area)
   .sort((a, b) => a.area!.areaName.localeCompare(b.area!.areaName));
 
-const partyColors: Record<string, string> = {
-  Labour: "#dc241f",
-  "Labour (Co-op)": "#dc241f",
-  "Reform UK": "#12b6cf",
-  Conservative: "#0087dc",
-  "Liberal Democrats": "#faa61a",
-  "Green Party": "#6ab023",
-  Green: "#6ab023",
-  "Plaid Cymru": "#005b54",
-  SNP: "#fdf38e",
-  Independent: "#999999",
-  "Sinn Fein": "#326760",
-  "Sinn Féin": "#326760",
-  "DUP": "#d46a4c",
-  "Democratic Unionist Party": "#d46a4c",
-  "UUP": "#48a5b8",
-  "Ulster Unionist Party": "#48a5b8",
-  "Alliance": "#f6cb2f",
-  "Alliance Party of Northern Ireland": "#f6cb2f",
-  "SDLP": "#2c6b3d",
-  "Social Democratic and Labour Party": "#2c6b3d",
-};
-
 // Build RaceBar segments from the GE2024 result, ordered descending.
 const raceBarSegments = Object.entries(pcon.ge2024.shares)
   .filter(([, v]) => v > 0.001)
@@ -86,7 +64,7 @@ const raceBarSegments = Object.entries(pcon.ge2024.shares)
   .map(([party, share]) => ({
     label: party,
     pct: share,
-    colour: partyColors[party] ?? "var(--accent)",
+    colour: partyColour(party),
   }));
 
 const winnerShareText = pcon.ge2024.winnerSharePct > 0
@@ -133,7 +111,7 @@ const structuredData = buildConstituencyStructuredData(pcon, {
       focalCode={pcon.code}
       focalName={pcon.name}
       focalKind="pcon"
-      focalColour={pcon.ge2024.winner ? (partyColors[pcon.ge2024.winner] ?? "var(--accent)") : "var(--accent)"}
+      focalColour={partyColour(pcon.ge2024.winner)}
       contextColour="#243049"
       contextStroke="#4a5b7e"
       width={260}
@@ -150,7 +128,7 @@ const structuredData = buildConstituencyStructuredData(pcon, {
         {mp.photoUrl && <img src={mp.photoUrl} alt={mp.mpName} class="mp-photo" loading="lazy" width="80" height="80" />}
         <div class="mp-info">
           <span class="mp-name">{mp.mpName}</span>
-          <span class="mp-party" style={`color: ${partyColors[mp.party] ?? "var(--ink)"}`}>{mp.party}</span>
+          <span class="mp-party"><span class="party-swatch" style={`background: ${partyColour(mp.party, "var(--muted)")}`}></span>{mp.party}</span>
           {mp.electedDate && <span class="mp-elected">Elected {formatDate(mp.electedDate)}</span>}
         </div>
       </div>
@@ -179,7 +157,6 @@ const structuredData = buildConstituencyStructuredData(pcon, {
       <StatCard
         value={pcon.ge2024.winner ?? "n/a"}
         label="Winner"
-        accent={pcon.ge2024.winner ? (partyColors[pcon.ge2024.winner] ?? "var(--accent)") : null}
       />
       <StatCard
         value={winnerShareText}
@@ -298,7 +275,9 @@ const structuredData = buildConstituencyStructuredData(pcon, {
   .mp-photo { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
   .mp-info { display: flex; flex-direction: column; gap: 0.15rem; }
   .mp-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--ink); }
-  .mp-party { font-size: 0.92rem; font-weight: 600; }
+  /* Party name in the text colour beside a swatch, never in the party colour. */
+  .mp-party { font-size: 0.92rem; font-weight: 600; color: var(--ink); display: inline-flex; align-items: center; gap: 0.4rem; }
+  .party-swatch { flex: none; width: 0.7rem; height: 0.7rem; border-radius: 2px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 35%, transparent); }
   .mp-elected { font-size: 0.78rem; color: var(--muted); }
   .mp-vacant { margin: 0; max-width: 60ch; color: var(--ink); }
   .la-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.5rem; }
