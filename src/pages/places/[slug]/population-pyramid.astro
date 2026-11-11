@@ -10,6 +10,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import AgePyramid from "../../../components/AgePyramid.astro";
 import CiteThisPage from "../../../components/CiteThisPage.astro";
+import { changePath } from "../../../lib/population-change";
 import {
   PYRAMID_ACCURACY_NOTE,
   PYRAMID_BASE_YEAR,
@@ -130,7 +131,8 @@ const structuredData: StructuredDataNode[] = [
         <li>
           <a href={csvPath} download>Download every year for {name} (CSV)</a>, or see
           <a href={placePath}>the full {name} profile</a> and
-          <a href={PYRAMID_HUB_PATH}>the pyramid for England and Wales and every other council</a>.
+          <a href={PYRAMID_HUB_PATH}>the pyramid for England and Wales and every other council</a>.{" "}
+          For births, deaths and migration each year, see <a href={changePath(onsName)}>{name} population change</a>.
         </li>
       </ul>
     </section>
