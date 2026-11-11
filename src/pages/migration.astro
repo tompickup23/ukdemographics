@@ -222,6 +222,15 @@ function fmtFull(v: number | null | undefined): string {
   .rev-stage { font-size: 0.82rem; color: var(--muted); }
   .rev-num { font-variant-numeric: tabular-nums; text-align: right; }
   .rev-net { font-weight: 600; color: var(--ink); }
+  .rev-header span:nth-child(n+4) { text-align: right; }
+  /* Six columns do not fit a phone: period, publication and stage take one line and
+     the three figures the next, each under its own heading. */
+  @media (max-width: 640px) {
+    .rev-header, .rev-row { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 0.5rem; row-gap: 0.2rem; }
+    .rev-header { font-size: 0.68rem; letter-spacing: 0.03em; }
+    .rev-header span, .rev-row span { overflow-wrap: anywhere; }
+    .rev-header span:nth-child(n+4), .rev-num { text-align: left; }
+  }
 
   .tri-table { max-width: 800px; }
   .tri-header { display: grid; grid-template-columns: 90px 1fr 1fr 1fr; padding: 0.45rem 0.75rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }

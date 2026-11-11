@@ -9,7 +9,7 @@ import { disableMotion, stabilizePage } from "./layout-helpers";
 const BURNLEY = "/places/burnley/population-pyramid/";
 const HUB = "/population-pyramids/";
 const overflow = (page: import("@playwright/test").Page) =>
-  page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+  page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
 
 test.describe("age pyramid", () => {
   test("the year slider, the measure and the outline redraw the chart and the figures", async ({ page }) => {
