@@ -43,10 +43,17 @@ const risingDemand = areasWithData.filter(a => (a.socialRentChangePp ?? 0) > 0).
   h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.5rem; }
   .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 700px; }
   .area-table { max-width: 800px; }
-  .area-table-header { display: grid; grid-template-columns: 1fr 80px 80px 80px 70px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
-  .area-row { display: grid; grid-template-columns: 1fr 80px 80px 80px 70px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
+  .area-table-header { display: grid; grid-template-columns: minmax(0, 1fr) 80px 80px 80px 70px; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border-strong); }
+  .area-row { display: grid; grid-template-columns: minmax(0, 1fr) 80px 80px 80px 70px; align-items: center; padding: 0.5rem 0.75rem; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border); transition: background 120ms; }
   .area-row:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
   .name { font-weight: 600; font-size: 0.88rem; }
   .val { font-family: var(--font-display); font-size: 0.85rem; font-weight: 600; color: var(--ink); }
   .val.accent { color: var(--accent); }
+  /* On a phone the four fixed columns leave no room for the name, so the name takes
+     its own line and the four figures sit beneath it in equal columns. */
+  @media (max-width: 640px) {
+    .area-table-header, .area-row { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 0.5rem; row-gap: 0.15rem; }
+    .area-table-header span:first-child, .area-row .name { grid-column: 1 / -1; }
+    .area-table-header { font-size: 0.7rem; letter-spacing: 0.04em; }
+  }
 </style>

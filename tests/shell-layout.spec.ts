@@ -118,7 +118,7 @@ test.describe("phone header and section picker", () => {
     expect(search.y).toBeGreaterThanOrEqual(brand.y + brand.height);
     expect(search.width).toBeGreaterThan(300);
     expect(await headerHeight(page)).toBeLessThanOrEqual(120);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(2);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(2);
   });
 
   test("the place page section picker sticks, opens, and closes on a jump", async ({ page }) => {
@@ -152,6 +152,6 @@ test.describe("phone header and section picker", () => {
     const sectionTop = await page.locator(`#${id}`).evaluate((el) => el.getBoundingClientRect().top);
     const barBottom = await rail.evaluate((el) => el.getBoundingClientRect().bottom);
     expect(sectionTop).toBeGreaterThanOrEqual(barBottom - 1);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(2);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(2);
   });
 });

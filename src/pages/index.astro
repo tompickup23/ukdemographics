@@ -203,7 +203,7 @@ function findingColor(verdict: string): string {
         <div class="lookup-results" id="area-results" hidden></div>
       </div>
       <p class="hero-search-note" id="area-search-note">
-        A postcode is sent to Postcodes.io to find its council. This site does not record it.
+        A postcode is sent to Postcodes.io to find its council. This site does not record it.{" "}
         <a href="/privacy/#postcode-lookup">Privacy details</a>.
       </p>
 
@@ -224,7 +224,7 @@ function findingColor(verdict: string): string {
         <span class="hero-panel-eyebrow">England and Wales</span>
         <h2 class="hero-panel-title" id="hero-pop-title">Population, mid-{popSeries.base.year} to mid-{popSeries.latest.year}</h2>
         <p class="hero-pop-lead">
-          <strong>{fmtInt(popSeries.latest.population)}</strong> people at mid-{popSeries.latest.year},
+          <strong>{fmtInt(popSeries.latest.population)}</strong> people at mid-{popSeries.latest.year},{" "}
           {popSeries.change >= 0 ? "up" : "down"} {fmtInt(Math.abs(popSeries.change))} ({Math.abs(popSeries.changePct).toFixed(1)}%) since mid-{popSeries.base.year}.
         </p>
         <svg

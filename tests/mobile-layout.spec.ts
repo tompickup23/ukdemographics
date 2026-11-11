@@ -15,6 +15,7 @@ const pages = [
   { name: "pressure", path: "/pressure/", h1Match: /Demographic change and service exposure/i },
   { name: "schools", path: "/schools/", h1Match: /School/i },
   { name: "housing", path: "/housing/", h1Match: /Housing/i },
+  { name: "migration", path: "/migration/", h1Match: /Net migration/i },
   { name: "findings", path: "/findings/", h1Match: /what the data has turned up/i },
   { name: "methodology", path: "/methodology/", h1Match: /Methodology/i },
   { name: "about", path: "/about/", h1Match: /About this site/i },
@@ -34,9 +35,10 @@ test.describe("mobile smoke", () => {
       await expect(h1).toBeVisible();
       await expect(h1).toContainText(pageConfig.h1Match);
 
-      // No horizontal scrollbar on mobile (allow a 2px sub-pixel tolerance).
+      // No horizontal scrollbar on mobile (allow a 2px sub-pixel tolerance). Measured
+      // against clientWidth: a phone widens innerWidth to fit overflowing content.
       const overflowWidth = await page.evaluate(
-        () => document.documentElement.scrollWidth - window.innerWidth
+        () => document.documentElement.scrollWidth - document.documentElement.clientWidth
       );
       expect(overflowWidth).toBeLessThanOrEqual(2);
 
@@ -71,7 +73,7 @@ test.describe("how to cite this page", () => {
     expect(csv.status()).toBe(200);
     expect((await csv.text()).startsWith("area_code,")).toBe(true);
 
-    const overflowWidth = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    const overflowWidth = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflowWidth).toBeLessThanOrEqual(2);
   });
 });

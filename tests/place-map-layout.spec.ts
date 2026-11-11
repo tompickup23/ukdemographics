@@ -50,7 +50,7 @@ test.describe("place map block", () => {
     await expect(popRange).toHaveAttribute("aria-valuetext", "mid-2011 estimate");
     await expect(svg.locator('title[data-tc="E07000117"]')).toHaveText("Burnley: 0.0%");
 
-    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow).toBeLessThanOrEqual(2);
   });
 
