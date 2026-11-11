@@ -1,0 +1,146 @@
+---
+/**
+ * The hub for components of population change: England and Wales as a whole, a
+ * council finder and an A to Z of every council (register row R628;
+ * docs/product/population-change-spec-2026-11-11.md). Coverage counts come from the
+ * data, never typed. Councils are listed by name only: nothing here ranks areas.
+ */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PopulationChange from "../../components/PopulationChange.astro";
+import ChangeNotes from "../../components/PopulationChangeNotes.astro";
+import {
+  CHANGE_BASE_YEAR,
+  CHANGE_HUB_PATH,
+  CHANGE_LATEST_YEAR,
+  CHANGE_SOURCE,
+  ENGLAND_AND_WALES,
+  certaintyFor,
+  changeCodes,
+  changeFor,
+  changeOnsName,
+  changePath,
+  spanSentences,
+  yearSentences
+} from "../../lib/population-change";
+import { PYRAMID_HUB_PATH } from "../../lib/age-pyramid";
+import { formatPlaceCount } from "../../lib/coverage";
+import { buildAbsoluteUrl, type StructuredDataNode } from "../../lib/site";
+
+const national = changeFor(ENGLAND_AND_WALES)!;
+const councils = changeCodes()
+  .map((code) => ({ name: changeFor(code)!.name, href: changePath(changeOnsName(code)!) }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+const letters = [...new Set(councils.map((c) => c.name[0].toUpperCase()))];
+const span = `${CHANGE_BASE_YEAR} to ${CHANGE_LATEST_YEAR}`;
+const pageTitle = `Population change: births, deaths and migration for every council, ${span} | UK Demographics`;
+const description = `Births, deaths, moves within the UK and international migration for England and Wales and for ${formatPlaceCount()}, every year from mid-${CHANGE_BASE_YEAR} to mid-${CHANGE_LATEST_YEAR}, adding up exactly to the ONS estimate. From ONS table ${CHANGE_SOURCE.table}.`;
+
+const structuredData: StructuredDataNode[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: buildAbsoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Population change", item: buildAbsoluteUrl(CHANGE_HUB_PATH) }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Population change by council",
+    numberOfItems: councils.length,
+    itemListElement: councils.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, url: buildAbsoluteUrl(c.href) }))
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={description} structuredData={structuredData}>
+  <article class="change-hub shell">
+    <Breadcrumbs items={[{ label: "Population change" }]} />
+
+    <header>
+      <p class="eyebrow">Births, deaths and migration, mid-{CHANGE_BASE_YEAR} to mid-{CHANGE_LATEST_YEAR}</p>
+      <h1>Population change</h1>
+      <p class="lede">{yearSentences(national).join(" ")}</p>
+      <p class="change-how">
+        A population changes in four ways: people are born, people die, people move in from or out to elsewhere in the UK,
+        and people move in from or out to outside the UK. ONS estimates each of these for every council every year, and with an
+        "other" term they add up exactly to the change in its population estimate. There is a page for England and Wales and for each of
+        {" "}{formatPlaceCount()}, for every year from mid-{CHANGE_BASE_YEAR} to mid-{CHANGE_LATEST_YEAR}.
+      </p>
+    </header>
+
+    <form class="change-find" data-change-find>
+      <label for="change-council">Find a council</label>
+      <input id="change-council" type="search" list="change-councils" autocomplete="off" placeholder="Start typing a council name" />
+      <datalist id="change-councils">
+        {councils.map((c) => <option value={c.name} data-href={c.href} />)}
+      </datalist>
+      <button type="submit">Open its page</button>
+      <p class="change-find-status" role="status" aria-live="polite" data-change-find-status></p>
+    </form>
+
+    <h2 id="england-and-wales">England and Wales</h2>
+    <PopulationChange change={national} imageName="england-and-wales-population-change" headingLevel={3} />
+    <p class="change-span">{spanSentences(national).join(" ")}</p>
+
+    <section class="change-list" aria-labelledby="change-list-heading">
+      <h2 id="change-list-heading">Every council, A to Z</h2>
+      {letters.map((letter) => (
+        <div class="change-letter">
+          <h3>{letter}</h3>
+          <ul>
+            {councils.filter((c) => c.name[0].toUpperCase() === letter).map((c) => <li><a href={c.href}>{c.name}</a></li>)}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <ChangeNotes change={national} certainty={certaintyFor(ENGLAND_AND_WALES)}>
+      <li>England and Wales is the sum of every council. Each council's page has a CSV of every year. For age and sex, see the <a href={PYRAMID_HUB_PATH}>population pyramids</a>.</li>
+    </ChangeNotes>
+  </article>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var form = document.querySelector("[data-change-find]");
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var typed = form.querySelector("input").value.trim().toLowerCase();
+      var status = form.querySelector("[data-change-find-status]");
+      var options = form.querySelectorAll("datalist option");
+      var exact = null, starts = null;
+      for (var i = 0; i < options.length; i++) {
+        var name = options[i].value.toLowerCase();
+        if (name === typed) { exact = options[i]; break; }
+        if (!starts && typed && name.indexOf(typed) === 0) starts = options[i];
+      }
+      var hit = exact || starts;
+      if (hit) window.location.href = hit.getAttribute("data-href");
+      else status.textContent = typed ? "No council matches that name. The full list is below." : "Type a council name first.";
+    });
+  })();
+</script>
+
+<style>
+  .change-hub { padding-block: var(--space-6, 1.5rem) var(--space-8, 3rem); }
+  .change-hub h1 { margin: 0 0 0.75rem; }
+  .change-hub .eyebrow { margin: 1rem 0 0.35rem; font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+  .change-hub .lede, .change-span { max-width: 46rem; }
+  .change-how { max-width: 46rem; color: var(--text-muted); }
+  .change-find { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 1.5rem 0; padding: 1rem; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius); }
+  .change-find label { font-weight: 600; }
+  .change-find input { flex: 1 1 14rem; min-width: 0; min-height: 44px; padding: 0.3rem 0.7rem; font: inherit; color: var(--text); background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); }
+  .change-find button { min-height: 44px; padding: 0.3rem 1rem; font: inherit; font-weight: 600; color: var(--on-accent); background: var(--accent); border: 0; border-radius: var(--radius-sm); cursor: pointer; }
+  .change-find :is(input, button):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .change-find-status { flex-basis: 100%; margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+  .change-find-status:empty { display: none; }
+  .change-list { margin-top: 2.5rem; }
+  .change-letter { margin: 0 0 1rem; }
+  .change-letter h3 { font-size: 1rem; margin: 0 0 0.3rem; color: var(--text-muted); }
+  .change-letter ul { list-style: none; margin: 0; padding: 0; columns: 14rem auto; column-gap: 1.5rem; }
+  .change-letter li { margin: 0; padding: 0.3rem 0; break-inside: avoid; }
+</style>

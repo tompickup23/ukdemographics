@@ -16,6 +16,8 @@ const paths = [
   "/places/regions/north-west/",
   "/places/burnley/population-pyramid/",
   "/population-pyramids/",
+  "/places/burnley/population-change/",
+  "/population-change/",
   "/maps/",
   "/national/",
   "/regional/",

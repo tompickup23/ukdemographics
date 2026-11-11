@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import rawProjections from "../data/live/ethnic-projections.json";
 import { pconDatasetDate } from "../lib/search-listing";
 import { PYRAMID_HUB_PATH, PYRAMID_PUBLISHED_ISO } from "../lib/age-pyramid";
+import { CHANGE_HUB_PATH, CHANGE_PUBLISHED_ISO } from "../lib/population-change";
 
 export const prerender = true;
 
@@ -77,6 +78,14 @@ export const GET: APIRoute = async () => {
     "src/lib/age-pyramid.ts",
     "src/data/live/age-pyramids.json",
   ]));
+  const changeDate = latest(CHANGE_PUBLISHED_ISO, lastCommitDate([
+    "src/pages/places/[slug]/population-change.astro",
+    "src/pages/population-change/index.astro",
+    "src/components/PopulationChange.astro",
+    "src/components/PopulationChangeNotes.astro",
+    "src/lib/population-change.ts",
+    "src/data/live/population-change.json",
+  ]));
   // Hubs take the date of the newest page they list: the region pages list
   // place profiles and county pages, the counties index lists county pages,
   // /places/ lists place profiles and /constituencies/ lists constituencies.
@@ -91,6 +100,7 @@ export const GET: APIRoute = async () => {
       : path.startsWith("/places/counties/") ? countyDate
       : path.startsWith("/places/regions/") ? latest(regionDate, placeDate, countyDate)
       : path === PYRAMID_HUB_PATH || /^\/places\/[^/]+\/population-pyramid\/$/.test(path) ? pyramidDate
+      : path === CHANGE_HUB_PATH || /^\/places\/[^/]+\/population-change\/$/.test(path) ? changeDate
       : /^\/places\/[^/]+\/$/.test(path) ? placeDate
       : /^\/constituencies\/[^/]+\/$/.test(path) ? pconDate
       : null;

@@ -1,0 +1,102 @@
+---
+/**
+ * The notes under the population change charts: how sure the estimate is, the July
+ * 2026 revisions, what each part means in ONS's own words, and the source. Shared by
+ * the council pages and the hub. The slot adds the page's own links as a last item.
+ */
+import {
+  CHANGE_ACCURACY_NOTE,
+  CHANGE_BASE_YEAR,
+  CHANGE_NEXT_STATED,
+  CHANGE_PUBLISHED_DAY,
+  CHANGE_SOURCE,
+  CHANGE_SOURCE_LINE,
+  ESTIMATES_SOURCE_LINE,
+  ESTIMATES_SOURCE_URL,
+  REBASED_UNTIL,
+  isWhole,
+  signed,
+  type Certainty,
+  type Change
+} from "../lib/population-change";
+
+interface Props {
+  change: Change;
+  certainty: Certainty | null;
+}
+
+const { change, certainty } = Astro.props;
+const n = (v: number) => v.toLocaleString("en-GB");
+const whole = isWhole(change);
+const lastRevised = certainty?.revisions.at(-1);
+---
+
+{certainty && (
+  <section class="change-notes" aria-labelledby="change-sure-heading">
+    <h2 id="change-sure-heading">How sure these figures are</h2>
+    <p>
+      ONS gives a 95 per cent confidence interval for its mid-{certainty.year} estimate of {change.name}:
+      {" "}{n(certainty.lower)} to {n(certainty.upper)}, around the estimate of {n(certainty.population)}.
+      The interval is ONS's measure of the uncertainty in the estimate, rounded here to whole people.
+    </p>
+    <p>
+      In July 2026 ONS revised its estimates for mid-2022, mid-2023 and mid-2024 to take account of updated international migration figures.
+      {lastRevised && ` This page starts from the revised mid-${lastRevised.year} figure, ${n(lastRevised.revised)}, not the ${n(lastRevised.first)} first published in July 2025.`}
+    </p>
+    <div class="pc-scroll" tabindex="0" role="region" aria-label="Revisions to the estimates, table">
+      <table class="change-table">
+        <caption>{change.name}. Source: {ESTIMATES_SOURCE_LINE}.</caption>
+        <thead><tr><th scope="col">Mid-year</th><th scope="col">Published July 2025</th><th scope="col">Revised July 2026</th><th scope="col">Difference</th></tr></thead>
+        <tbody>
+          {certainty.revisions.map((r) => (
+            <tr><th scope="row">{r.year}</th><td>{n(r.first)}</td><td>{n(r.revised)}</td><td>{signed(r.difference)}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+)}
+
+<section class="change-notes" aria-labelledby="change-notes-heading">
+  <h2 id="change-notes-heading">About these figures</h2>
+  <ul>
+    <li>
+      Source: {CHANGE_SOURCE_LINE}. <a href={CHANGE_SOURCE.landing} target="_blank" rel="noopener">Source data</a>.{" "}
+      {certainty && <>The interval and the revisions are from {ESTIMATES_SOURCE_LINE}. <a href={ESTIMATES_SOURCE_URL} target="_blank" rel="noopener">Workbook</a>.</>}
+    </li>
+    <li>
+      Last updated {CHANGE_PUBLISHED_DAY}. {CHANGE_NEXT_STATED
+        ? `ONS says the next publication is scheduled for ${CHANGE_NEXT_STATED}.`
+        : "ONS has not stated the next publication."}
+    </li>
+    <li>Each year runs from 1 July to 30 June. The population is ONS's estimate of the people who usually live in the area at 30 June.</li>
+    <li>
+      In ONS's words: births and deaths are those "occurring in the twelve months to mid-year"; moves within the UK are in moves
+      "originating elsewhere in the UK" and out moves "terminating elsewhere in the UK"; international migration is moves
+      "originating from outside the UK" and moves "terminating outside the UK".
+    </li>
+    <li>Moves are counted as moves, not people, so someone who moves twice in a year counts twice.{whole && " For England and Wales as a whole, moves between councils cancel out, so the figure for the rest of the UK is the net flow to and from Scotland and Northern Ireland."}</li>
+    <li>
+      Other changes are, in ONS's words, the "estimated net effect of changes to special populations", which are prisoners, the armed forces
+      and their dependants overseas, together with change "not attributed to a specific cause" and small boundary adjustments. For mid-{CHANGE_BASE_YEAR} to
+      mid-{REBASED_UNTIL} they also include the adjustment ONS made so that its estimates agree with the 2021 Census, which is why they are larger in those years.
+    </li>
+    <li>{CHANGE_ACCURACY_NOTE}</li>
+    <li>Councils are those in place since April 2023. Nothing here is a projection.</li>
+    <slot />
+  </ul>
+</section>
+
+<style>
+  .change-notes { margin-top: 2rem; max-width: 46rem; }
+  .change-notes h2 { font-size: 1.25rem; }
+  .change-notes ul { padding-left: 1.2rem; }
+  .change-notes li { margin: 0 0 0.5rem; }
+  .pc-scroll { overflow-x: auto; max-width: 100%; }
+  .pc-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .change-table { border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+  .change-table caption { caption-side: bottom; text-align: left; font-size: 0.8rem; color: var(--text-muted); padding-top: 0.5rem; }
+  .change-table th, .change-table td { padding: 0.3rem 0.6rem; border-bottom: 1px solid var(--border); text-align: right; }
+  .change-table tbody th, .change-table thead th:first-child { text-align: left; font-weight: 400; }
+  .change-table thead th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; }
+</style>
