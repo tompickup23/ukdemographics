@@ -355,10 +355,12 @@ export function renderYearSvg(c: Change, p: Parts = latestParts(c), id = "pc-yea
   const span = pos + neg || 1;
   const zero = barLeft + (neg / span) * (barRight - barLeft);
   const w = (v: number) => (Math.abs(v) / span) * (barRight - barLeft);
-  const plotTop = y;
 
   const row = (label: string, v: number, cls: string, fill: string, weight?: number) => {
     k.text(label, PAD, y + 11, 11, "pc-label", { weight });
+    // The zero line runs beside the bars only, never through the label line above them.
+    k.line(zero, y + 14, zero, y + 29, "pc-zero", CHANGE_INK.text, 1);
+    k.marks.push({ x: zero - 0.5, y: y + 14, width: 1, height: 15 });
     const width = w(v);
     if (width > 0) k.rect(v >= 0 ? zero : zero - width, y + 16, Math.max(width, 0.6), 11, cls, fill);
     k.text(signed(v), valueRight, y + 26, 11, "pc-value", { anchor: "end", weight: weight ?? 400 });
@@ -368,7 +370,6 @@ export function renderYearSvg(c: Change, p: Parts = latestParts(c), id = "pc-yea
   k.line(PAD, y + 2, CHART_WIDTH - PAD, y + 2, "pc-rule", CHANGE_INK.grid);
   y += 8;
   row("Total change", p.change, "pc-total", CHANGE_INK.total, 600);
-  k.line(zero, plotTop, zero, y - 4, "pc-zero", CHANGE_INK.text, 1);
 
   k.line(PAD, y, CHART_WIDTH - PAD, y, "pc-rule", CHANGE_INK.grid);
   y += 6;
