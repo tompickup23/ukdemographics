@@ -70,13 +70,17 @@ function distribute5YearBand(total, startAge) {
  *   are summed under the current code, and the area is admitted to the model
  *   even though NEWETHPOP files it under its 2011 code. Off by default, which
  *   leaves the v8.0 run unchanged.
- * @returns {{ pop2011: Map, areas2011: Set, successorsUsed: string[] }}
+ * @returns {{ pop2011: Map, areas2011: Set, successorsUsed: string[], successorsSummed: string[] }}
+ *   successorsUsed: every successor code given 2011 counts, including those
+ *   DC2101EW already holds under the current code; successorsSummed: only those
+ *   whose counts are sums of 2011 districts
  */
 export function loadBase2011(base2021, ETHNIC_GROUPS, SEXES, opts = {}) {
   const DC2101EW_PATH = opts.dc2101ewPath ?? DC2101EW_DEFAULT;
   const NEWETHPOP_2011 = opts.newethpopPath ?? NEWETHPOP_2011_DEFAULT;
   const COUNTRIES = opts.countries ?? ["E"];
   const successorsUsed = [];
+  const successorsSummed = []; // the subset whose counts are sums of 2011 districts
   // ============================================================
   // Parse Census 2011 DC2101EW (18 groups, 21 age bands) → single-year
   // ============================================================
@@ -151,6 +155,7 @@ export function loadBase2011(base2021, ETHNIC_GROUPS, SEXES, opts = {}) {
           dc2101ewLoaded.set(`${succ}|${eth}|${sex}|${age}`, v);
         }
         successorsUsed.push(succ);
+        successorsSummed.push(succ);
       }
       console.log(`  ${successorsUsed.length} current codes given 2011 counts through the successor lookup`);
     }
@@ -275,5 +280,5 @@ export function loadBase2011(base2021, ETHNIC_GROUPS, SEXES, opts = {}) {
     }
   }
   console.log(`  DC2101EW: ${dcUsed} areas | NEWETHPOP fallback: ${newethpopUsed} areas | Total cells: ${pop2011.size}`);
-  return { pop2011, areas2011, successorsUsed };
+  return { pop2011, areas2011, successorsUsed, successorsSummed };
 }

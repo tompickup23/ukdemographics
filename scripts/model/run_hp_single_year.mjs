@@ -32,8 +32,10 @@ import { execSync } from "node:child_process";
 import path from "node:path";
 import { loadBase2011 } from "./lib/census-2011-base.mjs";
 import { loadControlTotals } from "./lib/control-totals.mjs";
-import { isV80Configuration, parseHpOptions } from "./lib/hp-options.mjs";
+import { parseHpOptions } from "./lib/hp-options.mjs";
+import { isV80Run, methodologyText } from "./lib/hp-methodology.mjs";
 import { successors2011 } from "./lib/geography.mjs";
+import { applyBrexitDamp, applySchoolCalibration, computeRatios, newCapStats, projectArea, ratioSettings, SEXES } from "./lib/hp-core.mjs";
 
 let OPTS;
 try {
@@ -62,13 +64,12 @@ console.log(`  output: ${SITE_OUTPUT}`);
 const base2021 = JSON.parse(readFileSync(BASE_2021_PATH, "utf8"));
 let ETHNIC_GROUPS = base2021.ethnicGroups; // 20 groups
 const AGES = base2021.ages;
-const SEXES = ["M", "F"];
 
 // The 2011 base now comes from scripts/model/lib/census-2011-base.mjs, shared
 // with run_stochastic_hp.mjs. The two scripts each had their own copy and the
 // stochastic one read a different source, which made the uncertainty bands
 // describe a different model from the projections they were drawn around.
-const { pop2011, areas2011 } = loadBase2011(base2021, ETHNIC_GROUPS, SEXES, {
+const { pop2011, areas2011, successorsSummed } = loadBase2011(base2021, ETHNIC_GROUPS, SEXES, {
   dc2101ewPath: OPTS.dc2101ew,
   newethpopPath: OPTS.newethpop2011,
   countries: OPTS.countries2011,
@@ -109,6 +110,8 @@ if (OPTS.allPersons) {
 // ============================================================
 // Compute single-year CCRs: Pop(age+10, 2021) / Pop(age, 2011)
 // ============================================================
+// The arithmetic lives in scripts/model/lib/hp-core.mjs, shared with
+// run_stochastic_hp.mjs so the bands and the projection are the same model.
 console.log("Computing single-year CCRs (20 groups)...");
 const areaCodes = Object.keys(base2021.areas).filter(c => areas2011.has(c));
 console.log(`  ${areaCodes.length} areas in both censuses`);
@@ -159,70 +162,10 @@ console.log(`  ${areaCodes.length} areas in both censuses`);
 // is far closer to the 20 this model uses, puts it at 1.65 and reports the more
 // honest error of MAE 1.56pp with bias +0.05pp. Cell sizes differ enough between
 // the two that a setting tuned on the coarse fit does not transfer cleanly.
-const USE_SHRINKAGE = process.env.CCR_SHRINKAGE !== "0";
-const SHRINK_K = Number(process.env.CCR_SHRINK_K ?? 25);
-const CCR_CEILING = Number(process.env.CCR_CEILING ?? 1.65);
-const CCR_FLOOR = Number(process.env.CCR_FLOOR ?? 0.05);
-
-const nationalCCRs = new Map(); // "eth|sex|fromAge" -> pop-weighted national ratio
-if (USE_SHRINKAGE) {
-  const num = new Map(), den = new Map();
-  for (const code of areaCodes) {
-    for (const eth of ETHNIC_GROUPS) {
-      for (const sex of SEXES) {
-        for (let fromAge = 0; fromAge <= 80; fromAge++) {
-          const key = `${eth}|${sex}|${fromAge}`;
-          num.set(key, (num.get(key) || 0) + (base2021.areas[code][eth]?.[sex]?.[fromAge + 10] || 0));
-          den.set(key, (den.get(key) || 0) + (pop2011.get(`${code}|${eth}|${sex}|${fromAge}`) || 0));
-        }
-      }
-    }
-  }
-  for (const [key, n] of num) {
-    const d = den.get(key) || 0;
-    nationalCCRs.set(key, d > 5 ? Math.max(CCR_FLOOR, Math.min(CCR_CEILING, n / d)) : 1.0);
-  }
-  console.log(`  shrinkage on, K=${SHRINK_K}, ${nationalCCRs.size} national CCRs`);
-}
-
-const ccrs = new Map();
-const cwrs = new Map();
-
-for (const code of areaCodes) {
-  for (const eth of ETHNIC_GROUPS) {
-    // CWR: children / women of childbearing age
-    let children = 0, women = 0;
-    for (let age = 0; age <= 9; age++) {
-      children += (base2021.areas[code][eth]?.M?.[age] || 0) + (base2021.areas[code][eth]?.F?.[age] || 0);
-    }
-    for (let age = 15; age <= 44; age++) {
-      women += base2021.areas[code][eth]?.F?.[age] || 0;
-    }
-    cwrs.set(`${code}|${eth}`, women > 5 ? children / women / 10 : 0.03);
-
-    for (const sex of SEXES) {
-      for (let fromAge = 0; fromAge <= 80; fromAge++) {
-        const toAge = fromAge + 10;
-        const pop11 = pop2011.get(`${code}|${eth}|${sex}|${fromAge}`) || 0;
-        const pop21 = base2021.areas[code][eth]?.[sex]?.[toAge] || 0;
-
-        let ccr;
-        if (USE_SHRINKAGE) {
-          const nat = nationalCCRs.get(`${eth}|${sex}|${fromAge}`) ?? 1.0;
-          const local = pop11 > 0 ? pop21 / pop11 : nat;
-          ccr = (pop11 * local + SHRINK_K * nat) / (pop11 + SHRINK_K);
-          ccr = Math.max(CCR_FLOOR, Math.min(CCR_CEILING, ccr));
-        } else if (pop11 > 5) {
-          ccr = pop21 / pop11;
-          ccr = Math.max(CCR_FLOOR, Math.min(CCR_CEILING, ccr));
-        } else {
-          ccr = 1.0;
-        }
-        ccrs.set(`${code}|${eth}|${sex}|${fromAge}`, ccr);
-      }
-    }
-  }
-}
+const RATIO_SETTINGS = ratioSettings();
+const { useShrinkage: USE_SHRINKAGE, shrinkK: SHRINK_K, ceiling: CCR_CEILING, floor: CCR_FLOOR } = RATIO_SETTINGS;
+const { ccrs, cwrs, nationalCCRs } = computeRatios(base2021, pop2011, areaCodes, ETHNIC_GROUPS, RATIO_SETTINGS);
+if (USE_SHRINKAGE) console.log(`  shrinkage on, K=${SHRINK_K}, ${nationalCCRs.size} national CCRs`);
 
 // Brexit adjustment: WHO only (not WGT/WRO which are domestic populations).
 //
@@ -234,19 +177,7 @@ for (const code of areaCodes) {
 // by -0.87pp. Damping White Other growth further pushes in the same direction as
 // an error the model is already making. Set BREXIT_DAMP=0 to run without it.
 const APPLY_BREXIT_DAMP = OPTS.brexitDamp;
-let brexitAdjusted = 0;
-if (APPLY_BREXIT_DAMP) for (const code of areaCodes) {
-  for (const sex of SEXES) {
-    for (let fromAge = 10; fromAge <= 34; fromAge++) {
-      const key = `${code}|WHO|${sex}|${fromAge}`;
-      const ccr = ccrs.get(key);
-      if (ccr && ccr > 1.0) {
-        ccrs.set(key, 1.0 + (ccr - 1.0) * 0.85);
-        brexitAdjusted++;
-      }
-    }
-  }
-}
+const brexitAdjusted = APPLY_BREXIT_DAMP ? applyBrexitDamp(ccrs, areaCodes) : 0;
 console.log(`  Brexit-adjusted ${brexitAdjusted} WHO CCRs (ages 10-34, -15% growth)${APPLY_BREXIT_DAMP ? "" : " (damp off)"}`);
 console.log(`  ${ccrs.size} CCRs, ${cwrs.size} CWRs`);
 
@@ -280,51 +211,9 @@ if (OPTS.schoolCalibration) {
 // 1. School enrollment ≠ resident population (cross-boundary attendance)
 // 2. Unclassified pupils (~3-5%) introduce noise
 // 3. Only 3-year gap, so change should be small
-
-const CALIBRATION_GROUPS = {
-  "white_british": ["WBI"],
-  "white_other": ["WIR", "WGT", "WRO", "WHO"],
-  "asian": ["IND", "PAK", "BAN", "CHI", "OAS"],
-  "black": ["BAF", "BCA", "OBL"],
-  "mixed": ["MWA", "MWF", "MWC", "MOM"],
-  "other": ["ARB", "OOT"]
-};
-
 let calibratedAreas = 0;
 if (schoolData?.areas) {
-  for (const sv of schoolData.areas) {
-    const code = sv.areaCode;
-    if (!base2021.areas[code]) continue;
-
-    for (const [group, ethCodes] of Object.entries(CALIBRATION_GROUPS)) {
-      const comparison = sv.comparison?.[group];
-      if (!comparison?.censusChildPct || !comparison?.schoolPct) continue;
-
-      // Gap between school observation and Census child population
-      const gapPp = comparison.gapPp; // schoolPct - censusChildPct
-      if (Math.abs(gapPp) < 1.5) continue; // Only calibrate significant gaps
-
-      // Damped calibration: adjust CCRs by 20% of the gap
-      // A 10pp gap → 2pp adjustment to the group's share
-      const dampFactor = 0.2;
-      const adjustment = 1 + (gapPp / 100) * dampFactor;
-
-      // Apply to young-cohort CCRs (ages 0-15) for all eth codes in this group
-      for (const eth of ethCodes) {
-        for (const sex of SEXES) {
-          for (let fromAge = 0; fromAge <= 5; fromAge++) {
-            const key = `${code}|${eth}|${sex}|${fromAge}`;
-            const ccr = ccrs.get(key);
-            if (ccr) {
-              const newCcr = Math.max(CCR_FLOOR, Math.min(CCR_CEILING, ccr * adjustment));
-              ccrs.set(key, newCcr);
-            }
-          }
-        }
-      }
-    }
-    calibratedAreas++;
-  }
+  calibratedAreas = applySchoolCalibration(ccrs, schoolData, base2021, RATIO_SETTINGS);
   console.log(`  Calibrated ${calibratedAreas} areas using DfE school data (20% damping, ages 0-5 CCRs)`);
 } else {
   console.log("  No school data available for calibration.");
@@ -345,151 +234,18 @@ if (OPTS.snppCap) {
 } else {
   console.log("Control totals: cap off");
 }
-const capStats = { capped: 0, skippedOutOfRange: 0, noTarget: 0, emptyCells: 0 };
+const capStats = newCapStats();
 
 // ============================================================
 // PROJECT FORWARD: 10-year steps using single-year CCRs
 // ============================================================
 console.log("\nProjecting...");
-const PROJ_YEARS = [2031, 2041, 2051, 2061];
 const projections = {};
-
-for (const code of areaCodes) {
-  const timeline = {};
-
-  // 2021 baseline
-  let total2021 = 0;
-  const eth2021 = {};
-  for (const eth of ETHNIC_GROUPS) {
-    eth2021[eth] = 0;
-    for (const sex of SEXES) {
-      eth2021[eth] += base2021.areas[code][eth]?.[sex]?.total || 0;
-    }
-    total2021 += eth2021[eth];
-  }
-  timeline[2021] = { total: total2021, eth: eth2021 };
-
-  // Current population matrix
-  let currentPop = {};
-  for (const eth of ETHNIC_GROUPS) {
-    currentPop[eth] = {};
-    for (const sex of SEXES) {
-      currentPop[eth][sex] = {};
-      for (const age of AGES) {
-        currentPop[eth][sex][age] = base2021.areas[code][eth]?.[sex]?.[age] || 0;
-      }
-    }
-  }
-
-  for (const year of PROJ_YEARS) {
-    const newPop = {};
-
-    // Pass 1: advance every surviving cohort for BOTH sexes.
-    // Births must not be computed inside this loop: the female 15-44 population
-    // that drives them does not exist until the "F" iteration has run, so a
-    // births block here sizes male births off the PREVIOUS step's women.
-    for (const eth of ETHNIC_GROUPS) {
-      newPop[eth] = {};
-      for (const sex of SEXES) {
-        newPop[eth][sex] = {};
-
-        // Apply CCRs
-        for (let toAge = 10; toAge <= 90; toAge++) {
-          const fromAge = toAge - 10;
-          const ccr = ccrs.get(`${code}|${eth}|${sex}|${fromAge}`) || 1.0;
-          newPop[eth][sex][toAge] = Math.round((currentPop[eth][sex][fromAge] || 0) * ccr);
-        }
-
-        // 90+ survivors
-        newPop[eth][sex][90] = (newPop[eth][sex][90] || 0) +
-          Math.round((currentPop[eth][sex][90] || 0) * 0.3);
-      }
-    }
-
-    // Pass 2: births (ages 0-9), driven by the projected women of this step.
-    for (const eth of ETHNIC_GROUPS) {
-      const cwr = cwrs.get(`${code}|${eth}`) || 0.03;
-      let women = 0;
-      for (let age = 15; age <= 44; age++) {
-        women += newPop[eth].F[age] || 0;
-      }
-      const birthsPerYear = women * cwr;
-      for (const sex of SEXES) {
-        const sexRatio = sex === "M" ? 0.512 : 0.488;
-        for (let age = 0; age <= 9; age++) {
-          newPop[eth][sex][age] = Math.round(birthsPerYear * sexRatio);
-        }
-      }
-    }
-
-    // Control-total constraint.
-    // "total" (v8.0): one factor per area and year, so every ethnic share and
-    // the age structure the ratios produced are kept and only the level moves.
-    // "age-sex": one factor per area, sex, single year of age and year (Hauer
-    // 2019's within-cell ratio), so ethnic shares inside each age and sex cell
-    // are kept and the age structure follows the control totals.
-    if (control && OPTS.capMode === "total") {
-      const snppTarget = control.total(code, year);
-      if (snppTarget && snppTarget > 0) {
-        let modelTotal = 0;
-        for (const eth of ETHNIC_GROUPS) for (const sex of SEXES) for (const age of AGES) {
-          modelTotal += newPop[eth][sex][age] || 0;
-        }
-        if (modelTotal > 0) {
-          const scale = snppTarget / modelTotal;
-          if (scale > 0.3 && scale < 3.0) {
-            for (const eth of ETHNIC_GROUPS) for (const sex of SEXES) for (const age of AGES) {
-              newPop[eth][sex][age] = Math.round((newPop[eth][sex][age] || 0) * scale);
-            }
-            capStats.capped++;
-          } else {
-            capStats.skippedOutOfRange++;
-          }
-        }
-      } else {
-        capStats.noTarget++;
-      }
-    } else if (control && OPTS.capMode === "age-sex") {
-      if (control.total(code, year) === undefined) {
-        capStats.noTarget++;
-      } else {
-        for (const sex of SEXES) for (const age of AGES) {
-          const target = control.cell(code, sex, age, year);
-          if (target === undefined) throw new Error(`control totals lack ${code} ${sex} ${age} ${year}`);
-          let modelCell = 0;
-          for (const eth of ETHNIC_GROUPS) modelCell += newPop[eth][sex][age] || 0;
-          if (modelCell > 0) {
-            const scale = target / modelCell;
-            for (const eth of ETHNIC_GROUPS) newPop[eth][sex][age] = Math.round((newPop[eth][sex][age] || 0) * scale);
-          } else if (target > 0) {
-            // No modelled person in this cell to carry the control total's
-            // ethnic mix; left empty and counted rather than invented.
-            capStats.emptyCells++;
-          }
-        }
-        capStats.capped++;
-      }
-    }
-
-    // Summarize
-    let total = 0;
-    const eth = {};
-    for (const e of ETHNIC_GROUPS) {
-      eth[e] = 0;
-      for (const s of SEXES) for (const a of AGES) eth[e] += newPop[e][s][a] || 0;
-      total += eth[e];
-    }
-    timeline[year] = { total, eth };
-    if (OPTS.format === "raw") {
-      const ageSex = {};
-      for (const s of SEXES) ageSex[s] = AGES.map((a) => ETHNIC_GROUPS.reduce((sum, e) => sum + (newPop[e][s][a] || 0), 0));
-      timeline[year].ageSex = ageSex;
-    }
-    currentPop = newPop;
-  }
-
-  projections[code] = timeline;
-}
+const projectionCtx = {
+  base2021, groups: ETHNIC_GROUPS, ages: AGES, ccrs, cwrs, control,
+  capMode: OPTS.capMode, capStats, ageSex: OPTS.format === "raw",
+};
+for (const code of areaCodes) projections[code] = projectArea(code, projectionCtx);
 
 console.log(`Projected ${Object.keys(projections).length} areas`);
 if (control) console.log(`  cap (${OPTS.capMode}): applied ${capStats.capped} area-years, skipped ${capStats.skippedOutOfRange} outside the 0.3 to 3.0 guard, ${capStats.noTarget} without a target, ${capStats.emptyCells} empty age-sex cells with a positive target`);
@@ -558,8 +314,8 @@ for (const code of ["E06000008", "E08000025", "E07000117"]) {
 // UPDATE SITE DATA
 // ============================================================
 if (OPTS.format === "raw") finish();
-if (!isV80Configuration(OPTS)) {
-  console.log("\nNOTE: a non-default configuration is writing the site format. The methodology string below describes v8.0 and must be rewritten before anything is published.");
+if (!isV80Run(OPTS, RATIO_SETTINGS)) {
+  console.log("\nNOTE: a non-default configuration is writing the site format. Its methodology string is composed from the options and inputs used (scripts/model/lib/hp-methodology.mjs); read it before anything is published.");
 }
 console.log("\nUpdating ethnic-projections.json...");
 const existing = JSON.parse(readFileSync(SITE_INPUT, "utf8"));
@@ -633,7 +389,21 @@ for (const code of areaCodes) {
   }
 }
 
-existing.methodology = "Hamilton-Perry v8.0 single-year-of-age model with 20 ethnic groups. Census 2021 base from ONS custom dataset (direct observations, no IPF). Census 2011 base from DC2101EW (18 groups, 21 age bands, interpolated to single-year; Roma split from Gypsy/Traveller using 2021 proportions). 91 age groups x 20 ethnic groups x 2 sexes. SNPP 2022-based envelope constraint (linear extrapolation beyond 2047). Cohort change ratios shrunk toward the national ratio by cell size (K=25) with a growth ceiling of 1.65 per decade, both selected on an out-of-sample test that fits 2001 to 2011 and forecasts 2021 at 16 ethnic groups: MAE 1.56pp on the White British share across 285 areas, bias +0.05pp. The previous settings (freeze at a 2011 base of five or fewer, ceiling 5.0) scored MAE 2.82pp with a bias of -2.13pp on the same test. Brexit WHO adjustment (-15% growth ages 10-34). DfE School Census 2024/25 calibration (20% damped adjustment for ages 0-5). Monte Carlo stochastic: 1000 simulations, sharing this model\u0027s ratio settings and population envelope. The stochastic run does not apply the School Census calibration, so a minority of areas disagree at the margin and their bands are withheld rather than drawn."
+// The v8.0 configuration writes the v8.0 text byte for byte; any other run
+// describes the options and inputs it actually used.
+const written = areaCodes.filter((code) => existing.areas[code]);
+existing.methodology = methodologyText({
+  opts: OPTS,
+  settings: RATIO_SETTINGS,
+  base2021,
+  projected: written,
+  names: Object.fromEntries(written.map((code) => [code, existing.areas[code].areaName])),
+  successorsSummed,
+  control,
+  capStats,
+  schoolData,
+  calibratedAreas,
+});
 existing.modelVersion = OPTS.modelVersion;
 existing.lastUpdated = new Date().toISOString().slice(0, 10);
 
@@ -682,9 +452,10 @@ function writeRunRecord() {
     commit,
     node: process.version,
     options: { ...OPTS, ccrShrinkage: USE_SHRINKAGE, ccrShrinkK: SHRINK_K, ccrCeiling: CCR_CEILING, ccrFloor: CCR_FLOOR },
-    v80Configuration: isV80Configuration(OPTS) && USE_SHRINKAGE && SHRINK_K === 25 && CCR_CEILING === 1.65 && CCR_FLOOR === 0.05,
+    v80Configuration: isV80Run(OPTS, RATIO_SETTINGS),
     inputs: Object.fromEntries(Object.entries(inputs).map(([k, p]) => [k, p ? { path: p, sha256: hashFile(p) } : null])),
     areasProjected: Object.keys(projections).length,
+    successors2011Summed: successorsSummed,
     cap: control ? { mode: OPTS.capMode, ...capStats } : null,
     output: { path: SITE_OUTPUT, sha256: hashFile(SITE_OUTPUT) },
   };

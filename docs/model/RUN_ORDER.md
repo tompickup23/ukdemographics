@@ -28,7 +28,7 @@ For the v8.1 run (base options, control totals, cap mode) see `docs/model/V81_RE
 
 | Step | Script | Reads | Writes |
 |---|---|---|---|
-| 2.1 | `validate_schools.mjs` | base, DfE pupils by ethnicity, `current.groups` from `ethnic-projections.json` | `src/data/live/school-validation.json` |
+| 2.1 | `validate_schools.mjs` | base (`--base`), DfE pupils by ethnicity (`--dfe`), `current.groups` from `ethnic-projections.json` (`--projections`) | `src/data/live/school-validation.json`, or `--output` |
 
 `current.groups` for modelled areas is itself written by the forward model from the base, so step 2.1 gives the same result before or after step 3.1 for those areas. It differs for areas the model does not cover, whose `current.groups` come from the transform.
 
@@ -37,7 +37,7 @@ For the v8.1 run (base options, control totals, cap mode) see `docs/model/V81_RE
 | Step | Script | Reads | Writes (fields of `ethnic-projections.json`) |
 |---|---|---|---|
 | 3.1 | `run_hp_single_year.mjs` | base, DC2101EW, NEWETHPOP 2011, SNPP persons CSV, `school-validation.json` | `current.groups`, `current.groups_detail`, `current.groups_absolute_detail`, `projections`, `projections_detail`, `thresholds`, `headlineStat`; top-level `methodology`, `modelVersion`, `lastUpdated` |
-| 3.2 | `run_stochastic_hp.mjs` | the same inputs, `model-validation.json` | `stochastic`, `confidenceBand2051`; appends to `methodology`. Over an hour; holds `.stochastic-run.lock` |
+| 3.2 | `run_stochastic_hp.mjs` | the same inputs, through the same options (`lib/hp-options.mjs`) and the same projection code (`lib/hp-core.mjs`); `--simulations`, `--noise` | `stochastic`, `confidenceBand2051`; appends to `methodology`. Over an hour; holds `.stochastic-run.lock` (or `<output>.lock` for any other output) |
 | 3.3 | `run_projection_v2.mjs` | `data/model/base_population_2021.json`, `net_migration_rates.json`, SNPP persons CSV, `model-validation.json` | `scenarioRange2051`, `modelSpread2051.cohortComponent` only, and `modelSpread2051.spreadPp` recomputed from the stored `hamiltonPerry` (which `reconcile_derived.mjs` owns) |
 
 Step 3.3 doubled its SNPP target until the fix in the v2 PR (it summed the "All ages" row with every single-year row). Do not run it from a branch without that fix. The re-run of 12 October 2026 (fixed code, v8.0 inputs) replaced the doubled run's fields in the data file.
@@ -87,10 +87,10 @@ Step 6.1 rewrites `health-demand.json`, whose `healthDemandScore` is weighted by
 
 | Step | Script | Reads | Writes |
 |---|---|---|---|
-| 7.1 | `validate_out_of_sample.mjs` | ST101 (2001), DC2101EW, `current.groups` | `out-of-sample-validation.json` |
+| 7.1 | `validate_out_of_sample.mjs` | ST101 (2001), DC2101EW, `current.groups` or a 2021 base (`--actual`); `--countries`, `--successors` | `out-of-sample-validation.json` with `--write` (or `--out`) |
 | 7.2 | `validate_backcast.mjs` | base, DC2101EW, NEWETHPOP 2011 and 2021 | `model-validation.json` (circular by construction; kept for continuity) |
 
-The out-of-sample result is published before any forward view (economy plan s8 rule 7).
+The out-of-sample result is published before any forward view (economy plan s8 rule 7). Step 3.2's zero-noise check (one simulation, `--noise off --format raw`, against step 3.1 in raw format) runs before the full stochastic run; `tests/stochastic-zero-noise.test.mjs` does the same on a fixture.
 
 ## Scripts not in the run
 

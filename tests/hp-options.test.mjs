@@ -47,6 +47,15 @@ describe("forward model options", () => {
     expect(() => parseHpOptions(["--groups", "all-persons", "--format", "site"], {})).toThrow(/site file/);
   });
 
+  it("accepts the stochastic run's own flags only when it asks for them", () => {
+    const spec = { extraFlags: ["simulations", "noise"], recordPrefix: "stochastic" };
+    const o = parseHpOptions(["--simulations", "1", "--cap-mode", "age-sex"], { HP_NOISE: "off" }, spec);
+    expect(o.extra).toEqual({ simulations: "1", noise: "off" });
+    expect(o.capMode).toBe("age-sex");
+    expect(path.basename(o.runRecord)).toMatch(/^stochastic-/);
+    expect(() => parseHpOptions(["--simulations", "1"], {})).toThrow(/unknown flag/);
+  });
+
   it("rejects unknown flags and bad values", () => {
     expect(() => parseHpOptions(["--snp-cap", "off"], {})).toThrow(/unknown flag/);
     expect(() => parseHpOptions(["--cap-mode", "region"], {})).toThrow(/cap-mode/);
