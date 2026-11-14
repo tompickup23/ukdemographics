@@ -76,6 +76,32 @@
  *
  *   node scripts/model/validate_out_of_sample.mjs --countries E,W --successors on \
  *     --actual /tmp/v81/base_single_year_2021_v81.json --json > /tmp/v81/oos.json
+ *
+ * Extended measures (14 Nov 2026, register row R657). None changes the output
+ * above unless asked for; each adds an `extended` block (and type and counts on
+ * each area row).
+ *
+ *   --extended              the split by authority type (London apart from the other
+ *                           metropolitan boroughs); with a base file as --actual, also
+ *                           percentage errors on counts (median and 90th percentile
+ *                           over every area, mean over areas with 1,000 or more of
+ *                           the group) and the index of dissimilarity per group,
+ *                           projected against actual.
+ *   --cap-mode none|total|age-sex   cap the 2021 step to the actual Census 2021
+ *                           persons from the base file: one factor per area, or one
+ *                           per sex and single year of age, as the forward model's
+ *                           two cap modes do. Implies --extended and needs a base
+ *                           file. The control is the actual 2021 population, so this
+ *                           scores each mode at its best, not with a forecast control.
+ *   --simulations N         band calibration: rerun the step N times with the
+ *                           published noise rule (run_stochastic_hp.mjs at its first
+ *                           step) and report the share of areas whose actual White
+ *                           British share falls inside the 80 and 95 per cent bands.
+ *   --seed S                seed for --simulations (default 1), so a run repeats.
+ *
+ *   node scripts/model/validate_out_of_sample.mjs --countries E,W --successors on \
+ *     --actual data/model/base_single_year_2021_v81.json --cap-mode age-sex \
+ *     --simulations 200 --json > /tmp/v81/oos-age-sex.json
  */
 import { readFileSync, existsSync, writeFileSync } from "node:fs";
 import path from "node:path";
@@ -92,7 +118,10 @@ const flag = (name, fallback) => {
   }
   return v;
 };
-const KNOWN = new Set(["json", "write", "countries", "successors", "actual", "site-input", "st101", "dc2101ew", "out"]);
+const KNOWN = new Set([
+  "json", "write", "countries", "successors", "actual", "site-input", "st101", "dc2101ew", "out",
+  "extended", "cap-mode", "simulations", "seed",
+]);
 for (const a of argv) {
   if (a.startsWith("--") && !KNOWN.has(a.slice(2))) {
     console.error(`unknown flag ${a}`);
@@ -116,6 +145,21 @@ const SUCCESSORS = (() => {
 })();
 // Every coverage option at its default: the v8.0 test, whose output must not change.
 const DEFAULT_COVERAGE = COUNTRIES.join(",") === "E" && !SUCCESSORS && ACTUAL === PROJ;
+
+// Extended measures (R657, 14 Nov 2026). Off by default, so the output above is
+// unchanged unless one of these flags is given.
+const CAP_MODE = flag("cap-mode", "none");
+if (!["none", "total", "age-sex"].includes(CAP_MODE)) {
+  console.error(`--cap-mode: expected none, total or age-sex, got "${CAP_MODE}"`);
+  process.exit(2);
+}
+const SIMULATIONS = Number(flag("simulations", "0"));
+const SEED = Number(flag("seed", "1"));
+if (!Number.isInteger(SIMULATIONS) || SIMULATIONS < 0 || !Number.isInteger(SEED)) {
+  console.error("--simulations and --seed take whole numbers");
+  process.exit(2);
+}
+const EXTENDED = argv.includes("--extended") || CAP_MODE !== "none" || SIMULATIONS > 0;
 
 for (const [p, label] of [[ST101, "Census 2001 ST101"], [DC2101EW, "Census 2011 DC2101EW"]]) {
   if (!existsSync(p)) {
@@ -338,20 +382,27 @@ const BROAD_OF_20 = {
 const actualDoc = ACTUAL === PROJ ? null : JSON.parse(readFileSync(ACTUAL, "utf8"));
 const actualFromBase = Array.isArray(actualDoc?.ethnicGroups);
 const actualGroups = new Map();
+// Counts as well as shares, when the actual is a base file: the extended measures
+// read them (counts by broad group, and persons by sex and single year of age,
+// which is the control both cap modes scale to).
+const actualCounts = new Map();
 for (const [code, area] of Object.entries(actualDoc ? actualDoc.areas : projections)) {
   if (!actualFromBase) {
     if (area?.current?.groups?.white_british != null) actualGroups.set(code, area.current.groups);
     continue;
   }
   const sums = Object.fromEntries(SIMPLE.map((g) => [g, 0]));
+  const ageSex = { M: new Array(MAX_AGE + 1).fill(0), F: new Array(MAX_AGE + 1).fill(0) };
   let total = 0;
   for (const eth of actualDoc.ethnicGroups) {
     const v = (area[eth]?.M?.total || 0) + (area[eth]?.F?.total || 0);
     if (!BROAD_OF_20[eth]) throw new Error(`${ACTUAL}: unknown group ${eth}`);
     sums[BROAD_OF_20[eth]] += v;
     total += v;
+    for (const s of SEXES) for (let a = 0; a <= MAX_AGE; a++) ageSex[s][a] += Number(area[eth]?.[s]?.[a]) || 0;
   }
   if (total <= 0) continue;
+  actualCounts.set(code, { groups: sums, total, ageSex });
   // Rounded as run_hp_single_year.mjs rounds current.groups.
   actualGroups.set(code, Object.fromEntries(SIMPLE.map((g) => [g, Math.round(sums[g] / total * 10000) / 100])));
 }
@@ -396,16 +447,77 @@ function ccrFor(code, g, s, a) {
   return 1.0;
 }
 
-const results = [];
-for (const code of codes) {
-  // Child-woman ratio from the 2011 Census, the fitting endpoint, exactly as the
-  // forward model takes its CWR from its own latest Census.
-  const cwr = {};
+if (CAP_MODE !== "none" && !actualFromBase) {
+  console.error("--cap-mode needs --actual <2021 base file>: the cap scales to its persons by sex and age");
+  process.exit(2);
+}
+
+// Seeded generator for the band calibration, so a run can be repeated exactly.
+function mulberry32(a) {
+  return () => {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function makeRandn(rand) {
+  return () => {
+    let u = 0, v = 0;
+    while (u === 0) u = rand();
+    while (v === 0) v = rand();
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  };
+}
+
+// The published band's noise rule (run_stochastic_hp.mjs) at its first step, where
+// the horizon scale is 1: each ratio moves by sigma = 0.02 + 0.25 / sqrt(cell), the
+// cell being the fitting window's start population (2001 here, as 2011 there), and
+// each child-woman ratio by 0.02 + 0.15 / sqrt(women at the latest census).
+const CCR_SIGMA_BASE = 0.02, CCR_SIGMA_SMALL_POP = 0.25, CWR_SIGMA_BASE = 0.02;
+
+const capCounts = { capped: 0, emptyCells: 0 };
+
+// Each area's inputs, read once: the 2011 cohorts, the deterministic ratios, the
+// 2001 cell sizes the noise rule reads, and the child-woman ratios. The band
+// calibration reruns the step many times, and the string-keyed lookups were most
+// of its cost.
+const inputsCache = new Map();
+function areaInputs(code) {
+  let c = inputsCache.get(code);
+  if (c) return c;
+  c = { cwr: {}, women11: {}, g: {} };
   for (const g of FIT_GROUPS) {
+    // Child-woman ratio from the 2011 Census, the fitting endpoint, exactly as the
+    // forward model takes its CWR from its own latest Census.
     let children = 0, women = 0;
     for (let a = 0; a <= 9; a++) children += get(c2011.pop, code, g, "M", a) + get(c2011.pop, code, g, "F", a);
     for (let a = 15; a <= 44; a++) women += get(c2011.pop, code, g, "F", a);
-    cwr[g] = women > 5 ? children / women / 10 : 0.03;
+    c.cwr[g] = women > 5 ? children / women / 10 : 0.03;
+    c.women11[g] = women;
+    c.g[g] = {};
+    for (const s of SEXES) {
+      const p11 = new Float64Array(MAX_AGE + 1), ccr = new Float64Array(MAX_AGE + 1), cell01 = new Float64Array(MAX_AGE + 1);
+      for (let a = 0; a <= MAX_AGE; a++) {
+        p11[a] = get(c2011.pop, code, g, s, a);
+        cell01[a] = get(c2001.pop, code, g, s, a);
+        if (a <= MAX_AGE - 10) ccr[a] = ccrFor(code, g, s, a);
+      }
+      c.g[g][s] = { p11, ccr, cell01 };
+    }
+  }
+  inputsCache.set(code, c);
+  return c;
+}
+
+// One ten-year step for one area. randn null means no noise (the deterministic
+// test). Returns persons by fitted group, sex and single year of age.
+function projectArea(code, randn) {
+  const inp = areaInputs(code);
+  const cwr = {};
+  for (const g of FIT_GROUPS) {
+    cwr[g] = inp.cwr[g];
+    if (randn) cwr[g] = Math.max(0, cwr[g] + randn() * (CWR_SIGMA_BASE + 0.15 / Math.sqrt(Math.max(inp.women11[g], 1))));
   }
 
   // One ten-year step, 2011 -> 2021. Cohorts first for both sexes, then births,
@@ -414,11 +526,16 @@ for (const code of codes) {
   for (const g of FIT_GROUPS) {
     next[g] = { M: {}, F: {} };
     for (const s of SEXES) {
+      const { p11, ccr: ccrs, cell01 } = inp.g[g][s];
       for (let toAge = 10; toAge <= MAX_AGE; toAge++) {
         const fromAge = toAge - 10;
-        next[g][s][toAge] = get(c2011.pop, code, g, s, fromAge) * ccrFor(code, g, s, fromAge);
+        let ccr = ccrs[fromAge];
+        if (randn) {
+          ccr = Math.max(0.01, ccr + randn() * (CCR_SIGMA_BASE + CCR_SIGMA_SMALL_POP / Math.sqrt(Math.max(cell01[fromAge], 1))));
+        }
+        next[g][s][toAge] = p11[fromAge] * ccr;
       }
-      next[g][s][MAX_AGE] = (next[g][s][MAX_AGE] || 0) + get(c2011.pop, code, g, s, MAX_AGE) * 0.3;
+      next[g][s][MAX_AGE] = (next[g][s][MAX_AGE] || 0) + p11[MAX_AGE] * 0.3;
     }
   }
   for (const g of FIT_GROUPS) {
@@ -430,7 +547,36 @@ for (const code of codes) {
       for (let a = 0; a <= 9; a++) next[g][s][a] = births * ratio;
     }
   }
+  return next;
+}
 
+// Cap to the actual 2021 persons: one factor for the area (total), or one per sex
+// and single year of age (age-sex), with each cell's ethnic mix kept. A cell with
+// people in 2021 and none projected cannot be scaled; it is counted and left empty,
+// as the forward model does. count true adds to capCounts (the deterministic pass).
+function applyCap(code, next, count) {
+  if (CAP_MODE === "none") return;
+  const act = actualCounts.get(code);
+  if (CAP_MODE === "total") {
+    let t = 0;
+    for (const g of FIT_GROUPS) for (const s of SEXES) for (let a = 0; a <= MAX_AGE; a++) t += next[g][s][a] || 0;
+    if (t <= 0) return;
+    const f = act.total / t;
+    for (const g of FIT_GROUPS) for (const s of SEXES) for (let a = 0; a <= MAX_AGE; a++) next[g][s][a] = (next[g][s][a] || 0) * f;
+    if (count) capCounts.capped++;
+    return;
+  }
+  for (const s of SEXES) for (let a = 0; a <= MAX_AGE; a++) {
+    let p = 0;
+    for (const g of FIT_GROUPS) p += next[g][s][a] || 0;
+    const target = act.ageSex[s][a];
+    if (p <= 0) { if (target > 0 && count) capCounts.emptyCells++; continue; }
+    for (const g of FIT_GROUPS) next[g][s][a] = (next[g][s][a] || 0) * (target / p);
+  }
+  if (count) capCounts.capped++;
+}
+
+function broadTotals(next) {
   let total = 0;
   const totals = {};
   for (const g of SIMPLE) totals[g] = 0;
@@ -440,6 +586,21 @@ for (const code of codes) {
     totals[toBroad(g)] += t;
     total += t;
   }
+  return { totals, total };
+}
+
+// Authority type from the code prefix. London is kept apart from the other
+// metropolitan boroughs because its migration is unlike anywhere else's.
+const TYPES = { E09: "London borough", E08: "Metropolitan borough", E06: "Unitary authority", E07: "Shire district", W06: "Welsh authority" };
+function authorityType(code) {
+  return TYPES[code.slice(0, 3)] ?? "Other";
+}
+
+const results = [];
+for (const code of codes) {
+  const next = projectArea(code, null);
+  applyCap(code, next, true);
+  const { totals, total } = broadTotals(next);
   if (total <= 0) continue;
 
   const actual = actualGroups.get(code);
@@ -452,11 +613,17 @@ for (const code of codes) {
     row.actual[g] = actual[g] ?? null;
     row.error[g] = actual[g] != null ? Math.round((predicted[g] - actual[g]) * 100) / 100 : null;
   }
+  if (EXTENDED) {
+    // Kept off the row unless asked for, so the default output is unchanged.
+    row.type = authorityType(code);
+    row.predictedCount = Object.fromEntries(SIMPLE.map((g) => [g, Math.round(totals[g])]));
+    row.predictedTotal = Math.round(total);
+  }
   results.push(row);
 }
 
-function stats(key) {
-  const errs = results.map((r) => r.error[key]).filter((e) => e != null);
+function stats(key, rows = results) {
+  const errs = rows.map((r) => r.error[key]).filter((e) => e != null);
   if (!errs.length) return null;
   const n = errs.length;
   const mae = errs.reduce((t, e) => t + Math.abs(e), 0) / n;
@@ -480,6 +647,134 @@ function stats(key) {
 
 const summary = {};
 for (const g of SIMPLE) summary[g] = stats(g);
+
+const quant = (xs, p) => {
+  const sorted = [...xs].sort((a, b) => a - b);
+  return sorted[Math.min(sorted.length - 1, Math.floor(p * sorted.length))];
+};
+const r2 = (v) => (v == null || !Number.isFinite(v) ? null : Math.round(v * 100) / 100);
+
+// Smallest actual count for an area to enter the mean absolute percentage error.
+// A percentage error on a group of a few dozen people says nothing about the
+// model; the median takes every area.
+const MAPE_FLOOR = 1000;
+
+function extendedMeasures() {
+  const ext = {
+    capMode: CAP_MODE,
+    capControl: CAP_MODE === "none" ? null : "actual Census 2021 persons from the --actual base file",
+    capCounts: CAP_MODE === "none" ? null : { ...capCounts },
+    byType: {},
+  };
+  const typeNames = [...new Set(results.map((r) => r.type))].sort();
+  for (const t of typeNames) {
+    const rows = results.filter((r) => r.type === t);
+    ext.byType[t] = { n: rows.length, ...Object.fromEntries(SIMPLE.map((g) => [g, stats(g, rows)])) };
+  }
+
+  if (!actualFromBase) {
+    ext.counts = null;
+    ext.dissimilarity = null;
+    ext.note = "Count measures and the index of dissimilarity need --actual <2021 base file>.";
+    return ext;
+  }
+
+  // Percentage error on counts, the measure published benchmarks use. Under
+  // either cap the area total equals the actual total by construction (less any
+  // empty cells), so the total row is only informative with no cap.
+  const ape = (pred, act) => (act > 0 ? Math.abs(pred - act) / act * 100 : null);
+  const countSummary = (rows, pick) => {
+    const all = rows.map(pick).filter((x) => x && x.ape != null);
+    if (!all.length) return null;
+    const floored = all.filter((x) => x.act >= MAPE_FLOOR);
+    const algebraic = all.map((x) => (x.pred - x.act) / x.act * 100);
+    return {
+      n: all.length,
+      medianAPE: r2(quant(all.map((x) => x.ape), 0.5)),
+      p90APE: r2(quant(all.map((x) => x.ape), 0.9)),
+      MAPE: floored.length ? r2(floored.reduce((t, x) => t + x.ape, 0) / floored.length) : null,
+      nMAPE: floored.length,
+      medianALPE: r2(quant(algebraic, 0.5)),
+    };
+  };
+  const pickGroup = (g) => (r) => {
+    const act = actualCounts.get(r.code).groups[g];
+    return { pred: r.predictedCount[g], act, ape: ape(r.predictedCount[g], act) };
+  };
+  const pickTotal = (r) => {
+    const act = actualCounts.get(r.code).total;
+    return { pred: r.predictedTotal, act, ape: ape(r.predictedTotal, act) };
+  };
+  ext.counts = {
+    mapeFloor: MAPE_FLOOR,
+    total: countSummary(results, pickTotal),
+    byGroup: Object.fromEntries(SIMPLE.map((g) => [g, countSummary(results, pickGroup(g))])),
+    byType: Object.fromEntries(typeNames.map((t) => {
+      const rows = results.filter((r) => r.type === t);
+      return [t, { total: countSummary(rows, pickTotal), white_british: countSummary(rows, pickGroup("white_british")) }];
+    })),
+  };
+
+  // Index of dissimilarity of each group against everyone else, across the scored
+  // areas: half the sum over areas of |g_i / G - r_i / R|. Projected against actual
+  // shows whether the step gets each group's spread between areas right, the test
+  // ONS's own roll-forward by ethnic group failed on (Simpson, 2014).
+  const dissim = (countOf) => {
+    const out = {};
+    for (const g of SIMPLE) {
+      let G = 0, R = 0;
+      const parts = results.map((r) => {
+        const { gi, ti } = countOf(r, g);
+        G += gi; R += ti - gi;
+        return { gi, ri: ti - gi };
+      });
+      out[g] = G > 0 && R > 0 ? parts.reduce((t, p) => t + Math.abs(p.gi / G - p.ri / R), 0) / 2 * 100 : null;
+    }
+    return out;
+  };
+  const dPred = dissim((r, g) => ({ gi: r.predictedCount[g], ti: r.predictedTotal }));
+  const dAct = dissim((r, g) => ({ gi: actualCounts.get(r.code).groups[g], ti: actualCounts.get(r.code).total }));
+  ext.dissimilarity = Object.fromEntries(SIMPLE.map((g) => [g, { actual: r2(dAct[g]), projected: r2(dPred[g]), difference: r2(dPred[g] - dAct[g]) }]));
+  return ext;
+}
+
+// Band calibration: rerun the step SIMULATIONS times with the published noise rule
+// and count how often the actual 2021 White British share falls inside the 80 and
+// 95 per cent bands, read with run_stochastic_hp.mjs's percentile rule.
+function calibration() {
+  const randn = makeRandn(mulberry32(SEED));
+  const pct = (sorted, p) => sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * p))];
+  const perArea = [];
+  for (const r of results) {
+    const shares = [];
+    for (let i = 0; i < SIMULATIONS; i++) {
+      const next = projectArea(r.code, randn);
+      applyCap(r.code, next, false);
+      const { totals, total } = broadTotals(next);
+      shares.push(total > 0 ? totals.white_british / total * 100 : 0);
+    }
+    shares.sort((a, b) => a - b);
+    const b = { p2_5: pct(shares, 0.025), p10: pct(shares, 0.1), p90: pct(shares, 0.9), p97_5: pct(shares, 0.975) };
+    const act = r.actual.white_british;
+    perArea.push({ code: r.code, type: r.type, in80: act >= b.p10 && act <= b.p90, in95: act >= b.p2_5 && act <= b.p97_5, width80: b.p90 - b.p10, width95: b.p97_5 - b.p2_5 });
+  }
+  const sum = (rows) => ({
+    n: rows.length,
+    inside80: r2(rows.filter((x) => x.in80).length / rows.length * 100),
+    inside95: r2(rows.filter((x) => x.in95).length / rows.length * 100),
+    medianWidth80: r2(quant(rows.map((x) => x.width80), 0.5)),
+    medianWidth95: r2(quant(rows.map((x) => x.width95), 0.5)),
+  });
+  const types = [...new Set(perArea.map((x) => x.type))].sort();
+  return {
+    group: "white_british",
+    simulations: SIMULATIONS,
+    seed: SEED,
+    noiseRule: "run_stochastic_hp.mjs at horizon scale 1: CCR sigma 0.02 + 0.25 / sqrt(2001 cell), CWR sigma 0.02 + 0.15 / sqrt(2011 women aged 15 to 44)",
+    all: sum(perArea),
+    byType: Object.fromEntries(types.map((t) => [t, sum(perArea.filter((x) => x.type === t))])),
+  };
+}
 
 const out = {
   generatedAt: null,
@@ -517,6 +812,19 @@ if (!DEFAULT_COVERAGE) {
     (COUNTRIES.includes("W") ? "Welsh authorities included; " : "") +
     (SUCCESSORS ? "authorities whose code changed after 2011 are scored on the summed counts of their 2011 districts in both ST101 and DC2101EW; " : "") +
     `actual shares from ${out.coverage.actual}.`;
+}
+
+if (EXTENDED) {
+  out.extended = extendedMeasures();
+  if (SIMULATIONS > 0) {
+    console.error(`Band calibration: ${SIMULATIONS} simulations per area...`);
+    out.extended.calibration = calibration();
+  }
+  if (CAP_MODE !== "none") {
+    out.design +=
+      ` Capped (${CAP_MODE}) to the actual Census 2021 persons from the base file: a perfect control, so ` +
+      "this scores each cap mode at its best and is not the error a projection capped to a forecast would carry.";
+  }
 }
 
 if (writeOut) {
