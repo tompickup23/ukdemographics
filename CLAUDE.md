@@ -48,6 +48,7 @@ One SVG renderer for the web map (`inline`, 600-unit viewBox), county and region
 - **Findings collection schema is fixed** — see enum above. Build will fail fast if you use a new value.
 - **Design tokens, no Tailwind.** Use `--space-*`, `--text-*`, `--accent`, `--status-*`, `--surface`, `--panel`, `--ink-*`, `--muted`, `--border*`, `--shadow*`, `--radius*`. Light mode via `@media (prefers-color-scheme: light)`. Hover backgrounds use `color-mix(in srgb, var(--accent) 8%, transparent)` so they adapt.
 - **Components**: `StatCard.astro`, `RaceBar.astro`, `HeroClock.astro` — use these for any new big-number / categorical-share / hero-stat surfaces. CSS classes live in global.css (`.stat-card`, `.stat-card-row`, `.hero-race`, `.hero-clock`).
+- **Distributions**: `DistributionChart.astro` (binning in `src/lib/distribution.ts`, tests in `tests/distribution.test.ts`) draws how many councils fall in each range of one measure, with the counts in a table beneath. It names and orders no area, so it keeps to `tests/area-order.test.ts`; use it where a dashboard needs a chart of all councils. Text is 13 units on a 480-unit viewBox, 10 px on a 390 px phone.
 - **OG cards on shared standard** with UKE + AS — dark gradient, 40×40 brand tile, hero block, single-line footer. Render pipeline: Satori → @resvg/resvg-js.
 - **GH Pages, not CF.** Don't run a "remove oversized files" step pattern from AI DOGE.
 

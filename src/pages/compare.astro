@@ -16,6 +16,8 @@ import hmoDensity from "../data/live/hmo-density.json";
 import councilTaxSpd from "../data/live/council-tax-spd.json";
 import healthDemand from "../data/live/health-demand.json";
 import econPassport from "../data/live/econ-activity-by-passport.json";
+import popEstimates from "../data/live/population-estimates.json";
+import { MYE_BASE_YEAR, MYE_LATEST_YEAR, MYE_SOURCE_LINE, MYE_SERIES_SOURCE_LINE } from "../lib/population-headline";
 
 const areas = getPublicPlaceAreas();
 const sortedAreas = [...areas].sort((a, b) => a.areaName.localeCompare(b.areaName));
@@ -37,6 +39,17 @@ for (const a of areas) {
   const spdA = (councilTaxSpd as any).areas?.[code];
   const popA = (healthDemand as any).areas?.[code];
   const epA = (econPassport as any).areas?.[code];
+  const myeA = (popEstimates as any).areas?.[code];
+  const myeNow = myeA?.series?.[String(MYE_LATEST_YEAR)] ?? null;
+  const myeBase = myeA?.series?.[String(MYE_BASE_YEAR)] ?? null;
+  // Change since the first year of the series, per year, for the chart: read from the
+  // one held series, never interpolated. A missing year stays null and breaks the line.
+  const myeChange = myeBase > 0
+    ? Array.from({ length: MYE_LATEST_YEAR - MYE_BASE_YEAR + 1 }, (_, i) => {
+        const v = myeA?.series?.[String(MYE_BASE_YEAR + i)];
+        return typeof v === "number" ? +(((v - myeBase) / myeBase) * 100).toFixed(2) : null;
+      })
+    : null;
 
   const ealPct = ealD?.ealPct ?? ealU?.ealPct ?? null;
   const ealParentLA = ealU?.dataLevel === "parent_county" ? (ealU?.parentCountyName ?? null) : null;
@@ -50,6 +63,11 @@ for (const a of areas) {
     code,
     name: a.areaName,
     region: a.regionName,
+    popLatest: myeNow,
+    popBase: myeBase,
+    popChangePct: myeNow != null && myeBase > 0 ? +(((myeNow - myeBase) / myeBase) * 100).toFixed(1) : null,
+    medianAge: typeof myeA?.medianAge === "number" ? myeA.medianAge : null,
+    popChangeSeries: myeChange,
     population: popA?.population ?? null,
     wbi2021: (proj?.current?.census_groups ?? proj?.current?.groups)?.white_british ?? null,
     wbi2051: proj?.projections?.["2051"]?.white_british ?? null,
@@ -79,7 +97,7 @@ for (const a of areas) {
   };
 }
 
-const indexJson = JSON.stringify(indexBySlug);
+const indexJson = JSON.stringify({ baseYear: MYE_BASE_YEAR, latestYear: MYE_LATEST_YEAR, areas: indexBySlug });
 
 // Crime is shown in its own block, never in the table that holds population,
 // migration and nationality rows (12 October 2026; tests/compare-crime-separate.test.ts).
@@ -126,7 +144,14 @@ const crimePeriod = (crimeDashboard as any).period as string;
     <button id="cmp-swap" class="cmp-btn" type="button">Swap</button>
   </div>
 
+  <figure class="cmp-chart" aria-labelledby="cmp-chart-title">
+    <figcaption id="cmp-chart-title" class="cmp-chart-title">Population change since mid-{MYE_BASE_YEAR}, per cent</figcaption>
+    <div id="cmp-chart"></div>
+    <p class="cmp-source">Source: {MYE_SERIES_SOURCE_LINE}. Resident population at 30 June each year; each line is the change on that area's own mid-{MYE_BASE_YEAR} figure, so areas of different sizes can be read on one scale.</p>
+  </figure>
+
   <div id="cmp-results" class="cmp-results"></div>
+  <p class="cmp-source">Population and median age rows: {MYE_SOURCE_LINE}. The Census 2021 row is the count on Census day, 21 March 2021.</p>
 
   <section class="cmp-section" aria-labelledby="cmp-safety-heading">
     <h2 id="cmp-safety-heading">Local services and safety</h2>
@@ -149,7 +174,11 @@ const crimePeriod = (crimeDashboard as any).period as string;
 
 <script is:inline>
 (function () {
-  const data = JSON.parse(document.getElementById("cmp-data").textContent);
+  const payload = JSON.parse(document.getElementById("cmp-data").textContent);
+  const data = payload.areas;
+  const baseYear = payload.baseYear;
+  const latestYear = payload.latestYear;
+  const chartBox = document.getElementById("cmp-chart");
   const pickerA = document.getElementById("picker-a");
   const pickerB = document.getElementById("picker-b");
   const results = document.getElementById("cmp-results");
@@ -199,6 +228,77 @@ const crimePeriod = (crimeDashboard as any).period as string;
     return span;
   }
 
+  function signedPct(v) {
+    if (v === null || v === undefined) return "n/a";
+    return (v < 0 ? "\u2212" : "+") + Math.abs(v).toFixed(1) + "%";
+  }
+
+  // Two lines, one per area: change on each area's own first-year figure. Drawn as SVG
+  // in the page; the same end figures are in the table rows below the chart.
+  const SVGNS = "http://www.w3.org/2000/svg";
+  function el(name, attrs, text) {
+    const n = document.createElementNS(SVGNS, name);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function drawChart(a, b) {
+    while (chartBox.firstChild) chartBox.removeChild(chartBox.firstChild);
+    const sa = a.popChangeSeries, sb = b.popChangeSeries;
+    if (!sa && !sb) {
+      const p = document.createElement("p"); p.classList.add("empty");
+      p.textContent = "No mid-year series is held for either area.";
+      chartBox.appendChild(p);
+      return;
+    }
+    const W = 480, H = 250, L = 44, R = 16, T = 16, B = 30;
+    const all = [].concat(sa || [], sb || []).filter((v) => v !== null);
+    // A whole-number tick step that gives at most six gaps across the range.
+    const span = Math.max(Math.max.apply(null, all), 0) - Math.min(Math.min.apply(null, all), 0);
+    const step = [1, 2, 5, 10, 20, 25, 50, 100].find((s) => span / s <= 6) || 200;
+    const lo = Math.min(0, Math.floor(Math.min.apply(null, all) / step) * step);
+    const hi = Math.max(step, Math.ceil(Math.max.apply(null, all) / step) * step);
+    const years = latestYear - baseYear;
+    const x = (i) => L + (i / years) * (W - L - R);
+    const y = (v) => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
+    const fmt = (v) => (v === 0 ? "0" : (v < 0 ? "\u2212" : "+") + Math.abs(v) + "%");
+    const svg = el("svg", { viewBox: "0 0 " + W + " " + H, role: "img", class: "cmp-chart-svg" });
+    const last = (s) => (s ? s[s.length - 1] : null);
+    svg.setAttribute("aria-label",
+      "Line chart of population change since mid-" + baseYear + ". " +
+      a.name + ": " + (last(sa) == null ? "no figure" : signedPct(last(sa))) + " by mid-" + latestYear + ". " +
+      b.name + ": " + (last(sb) == null ? "no figure" : signedPct(last(sb))) + " by mid-" + latestYear + ".");
+    for (let v = lo; v <= hi; v += step) {
+      svg.appendChild(el("line", { x1: L, x2: W - R, y1: y(v), y2: y(v), class: v === 0 ? "cmp-zero" : "cmp-grid" }));
+      svg.appendChild(el("text", { x: L - 6, y: y(v) + 4.5, "text-anchor": "end", class: "cmp-tick" }, fmt(v)));
+    }
+    [0, years].forEach((i) => {
+      svg.appendChild(el("text", { x: x(i), y: H - 8, "text-anchor": i === 0 ? "start" : "end", class: "cmp-tick" }, String(baseYear + i)));
+    });
+    const lines = [[sa, a.name, "cmp-line-a"], [sb, b.name, "cmp-line-b"]];
+    lines.forEach(function (row) {
+      const s = row[0];
+      if (!s) return;
+      let d = "", pen = false;
+      s.forEach((v, i) => {
+        if (v === null) { pen = false; return; }
+        d += (pen ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1) + " ";
+        pen = true;
+      });
+      svg.appendChild(el("path", { d: d.trim(), class: row[2] }));
+    });
+    chartBox.appendChild(svg);
+    const key = document.createElement("p"); key.classList.add("cmp-key");
+    lines.forEach(function (row) {
+      const span = document.createElement("span");
+      const sw = document.createElement("i"); sw.classList.add("cmp-key-sw", row[2] + "-key");
+      span.appendChild(sw);
+      span.appendChild(document.createTextNode(row[1] + ": " + (last(row[0]) == null ? "n/a" : signedPct(last(row[0])))));
+      key.appendChild(span);
+    });
+    chartBox.appendChild(key);
+  }
+
   function appendRow(tbody, label, valueA, valueB, deltaNode) {
     const tr = document.createElement("tr");
     const td1 = document.createElement("td"); td1.classList.add("cmp-label"); td1.textContent = label; tr.appendChild(td1);
@@ -232,6 +332,8 @@ const crimePeriod = (crimeDashboard as any).period as string;
     u.searchParams.set("b", pickerB.value);
     window.history.replaceState(null, "", u);
 
+    drawChart(a, b);
+
     const wrap = document.createElement("div"); wrap.classList.add("cmp-table-wrap");
     const table = document.createElement("table"); table.classList.add("cmp-table");
     const thead = document.createElement("thead");
@@ -243,7 +345,10 @@ const crimePeriod = (crimeDashboard as any).period as string;
     table.appendChild(thead);
     const tbody = document.createElement("tbody");
 
-    appendRow(tbody, "Population (2021)", num(a.population), num(b.population), null);
+    appendRow(tbody, "Population (mid-" + latestYear + ")", num(a.popLatest), num(b.popLatest), null);
+    appendRow(tbody, "Change since mid-" + baseYear + " (%)", signedPct(a.popChangePct), signedPct(b.popChangePct), deltaSpan(a.popChangePct, b.popChangePct, { suffix2: "pp" }));
+    appendRow(tbody, "Median age (mid-" + latestYear + ")", num(a.medianAge), num(b.medianAge), deltaSpan(a.medianAge, b.medianAge, { suffix2: " yrs" }));
+    appendRow(tbody, "Population (Census 2021)", num(a.population), num(b.population), null);
     appendRow(tbody, "Region", a.region, b.region, null);
     appendRow(tbody, "White British 2021 (%)", pct(a.wbi2021), pct(b.wbi2021), deltaSpan(a.wbi2021, b.wbi2021, { suffix2: "pp" }));
     appendRow(tbody, "White British 2051 projected (%)", pct(a.wbi2051), pct(b.wbi2051), deltaSpan(a.wbi2051, b.wbi2051, { suffix2: "pp" }));
@@ -308,6 +413,19 @@ const crimePeriod = (crimeDashboard as any).period as string;
   .breadcrumb .sep { margin: 0 0.4rem; }
   h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.5rem; }
   .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; max-width: 720px; }
+  .cmp-chart { margin: 0 0 1.5rem; max-width: 640px; }
+  .cmp-chart-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 0 0 0.5rem; }
+  #cmp-chart :global(.cmp-chart-svg) { display: block; width: 100%; height: auto; overflow: visible; }
+  #cmp-chart :global(.cmp-grid) { stroke: var(--border); stroke-width: 1; }
+  #cmp-chart :global(.cmp-zero) { stroke: var(--border-strong); stroke-width: 1.5; }
+  #cmp-chart :global(.cmp-tick) { fill: var(--muted); font-size: 13px; }
+  #cmp-chart :global(.cmp-line-a) { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; }
+  #cmp-chart :global(.cmp-line-b) { fill: none; stroke: var(--ink-soft); stroke-width: 2.5; stroke-dasharray: 6 4; stroke-linejoin: round; }
+  #cmp-chart :global(.cmp-key) { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; font-size: 0.85rem; color: var(--ink-soft); margin: 0.5rem 0 0; }
+  #cmp-chart :global(.cmp-key span) { display: inline-flex; align-items: center; gap: 0.4rem; }
+  #cmp-chart :global(.cmp-key-sw) { display: inline-block; width: 22px; height: 0; }
+  #cmp-chart :global(.cmp-line-a-key) { border-top: 3px solid var(--accent); }
+  #cmp-chart :global(.cmp-line-b-key) { border-top: 3px dashed var(--ink-soft); }
   .cmp-pickers {
     display: grid;
     grid-template-columns: 1fr 1fr auto;

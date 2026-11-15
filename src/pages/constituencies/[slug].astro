@@ -132,6 +132,9 @@ const structuredData = buildConstituencyStructuredData(pcon, {
           {mp.electedDate && <span class="mp-elected">Elected {formatDate(mp.electedDate)}</span>}
         </div>
       </div>
+      {mp.photoUrl && (
+        <p class="section-note">Photograph: UK Parliament, loaded from members-api.parliament.uk when this page opens (<a href="/privacy/#mp-photos">privacy</a>).</p>
+      )}
       {electedAtByElection && (
         <p class="section-note">Elected at a by-election on {formatDate(mp.electedDate)}. The result below is from the general election of {formatDate(generalElectionDate)}.</p>
       )}
@@ -195,18 +198,18 @@ const structuredData = buildConstituencyStructuredData(pcon, {
 
   {demog && (
     <section class="section" id="demographics">
-      <h2>Demographic snapshot</h2>
+      <h2>Demographic snapshot, estimated</h2>
       <p class="section-desc">
-        Aggregated up from the {demog.coverageCount} of {demog.expectedCount} constituent local authority profiles, weighted by share of constituency postcodes and 2021 population. Indicative only: a constituency that takes the dense core of an LA but a small share of its postcodes will be misweighted. For direct Census observations, use the local-authority pages linked below.
+        <strong>These are estimates, not official constituency figures.</strong> They are built up from the {demog.coverageCount} of {demog.expectedCount} constituent local authority profiles, weighted by share of constituency postcodes and 2021 population. Indicative only: a constituency that takes the dense core of an LA but a small share of its postcodes will be misweighted. For direct Census observations, use the local-authority pages linked below.
       </p>
       <div class="stat-card-row">
         <StatCard
           value={demog.wbi2021 != null ? `${demog.wbi2021.toFixed(1)}%` : "n/a"}
-          label="White British 2021 (derived)"
+          label="White British 2021 (estimated)"
         />
         <StatCard
           value={demog.wbi2051 != null ? `${demog.wbi2051.toFixed(1)}%` : "n/a"}
-          label="White British 2051 projected (derived)"
+          label="White British 2051 projected (estimated)"
           accent="var(--accent)"
           note="Projected"
           trend={demog.wbi2021 != null && demog.wbi2051 != null ? `${(demog.wbi2051 - demog.wbi2021).toFixed(1)}pp` : null}
@@ -214,11 +217,11 @@ const structuredData = buildConstituencyStructuredData(pcon, {
         />
         <StatCard
           value={demog.foreignBornPct2021 != null ? `${demog.foreignBornPct2021.toFixed(1)}%` : "n/a"}
-          label="Foreign-born 2021 (derived)"
+          label="Foreign-born 2021 (estimated)"
         />
         <StatCard
           value={demog.foreignBornPct2051 != null ? `${demog.foreignBornPct2051.toFixed(1)}%` : "n/a"}
-          label="Foreign-born 2051 projected (derived)"
+          label="Foreign-born 2051 projected (estimated)"
           accent="var(--accent-3)"
         />
       </div>
