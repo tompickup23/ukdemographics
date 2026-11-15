@@ -40,7 +40,7 @@ One SVG renderer for the web map (`inline`, 600-unit viewBox), county and region
 ## Rules
 
 - **No AI tells, no hedging.** Findings use declarative voice. Numbers cross-reference the data files. Sources cited with exact NOMIS / ONS / DWP table.
-- **Anonymous.** No "Tom Pickup" attribution anywhere user-facing (footer/privacy/terms/accessibility/JSON-LD all use "an independent demographic research project" + "© ukdemographics.co.uk"). The `tompickup23` GitHub URLs in data sources are kept as functional links.
+- **Attribution in the footer only (15 Nov 2026).** The site footer (`BaseLayout.astro`, `MapLayout.astro`) says "An independent demographic research project by Tom Pickup", linked to tompickup.co.uk, which already lists the site as his. Nowhere else: page copy, privacy/terms/about, JSON-LD and OG cards keep "an independent demographic research project" + "© ukdemographics.co.uk". `tests/anonymity.test.ts` and `scripts/check/published-anonymity.mjs` enforce this, reading every file and page with the `<footer>` taken out. The `tompickup23` GitHub URLs in data sources are kept as functional links.
 - **British English** throughout.
 - **Mobile-first** — every chart `viewBox`-sized; no horizontal scroll allowed (Playwright enforces ≤2px tolerance).
 - **NOMIS sub-level codes have a leading underscore** (`_1, _2, ...`). Don't assume bare digits.
