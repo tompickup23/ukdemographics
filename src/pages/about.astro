@@ -12,6 +12,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import rawProjections from "../data/live/ethnic-projections.json";
 import validation from "../data/live/out-of-sample-validation.json";
 import { COUNTY_COUNT, formatPconCount, formatPlaceCount } from "../lib/coverage";
+import { CITATIONS, citationDay } from "../lib/citations";
 
 const modelVersion = `v${String((rawProjections as { modelVersion: string }).modelVersion).split("-")[0]}`;
 const wb = validation.summary.white_british;
@@ -67,6 +68,26 @@ const ISSUES_URL = "https://github.com/tompickup23/ukdemographics/issues";
         with a bias of {bias} points. The <a href="/methodology/">methodology page</a> sets
         out the test, the settings it chose and what it does not establish.
       </p>
+    </section>
+
+    <section class="legal-section" id="cited-in">
+      <h2>Where the figures have been used</h2>
+      <p>
+        These documents by other bodies cite the site as a source. Each entry gives
+        the page and footnote, so the use can be checked against the document itself.
+      </p>
+      <ul>
+        {CITATIONS.map((c) => (
+          <li>
+            {c.author} for {c.preparedFor}, <a href={c.url} target="_blank" rel="noopener"><cite>{c.title}</cite></a>{c.reference && <> (ref. {c.reference})</>}, {c.dateLabel}.
+            Page {c.page}, {c.location}: {c.used}, citing the <a href={c.ukdPath}>{c.ukdLabel}</a>.
+            {c.alsoIn.map((copy) => (
+              <> {copy.body} {copy.note} in its <a href={copy.url} target="_blank" rel="noopener">{copy.title}</a>, page {copy.page}.</>
+            ))}
+            {" "}Checked {citationDay(c.checked)}: {c.checkedNote}
+          </li>
+        ))}
+      </ul>
     </section>
 
     <section class="legal-section">

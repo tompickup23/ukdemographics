@@ -6,6 +6,7 @@ import {
   SITE_NAME,
   SITE_URL,
   normalisePageTitle,
+  organizationNode,
   type StructuredDataNode
 } from "../lib/site";
 
@@ -90,17 +91,7 @@ const structuredData = [
             "@id": `${SITE_URL}/#organization`
           }
         },
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "@id": `${SITE_URL}/#organization`,
-          name: SITE_NAME,
-          url: SITE_URL,
-          logo: {
-            "@type": "ImageObject",
-            url: new URL("/favicon.svg", siteOrigin).toString()
-          }
-        }
+        organizationNode(siteOrigin)
       ]
     : []),
   ...pageStructuredData

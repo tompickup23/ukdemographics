@@ -6,6 +6,7 @@ import { getAllPcons } from "./pcon-data";
 import { canonicalAreaCode } from "./area-codes";
 import { formatPlaceCount } from "./coverage";
 import { alternateNames, placeSameAs, plainPlaceName } from "./place-names";
+import { citationSubjectOf } from "./citations";
 
 export const SITE_NAME = "UK Demographics";
 export const SITE_URL = "https://ukdemographics.co.uk";
@@ -14,6 +15,29 @@ export const DEFAULT_DESCRIPTION =
 export const DEFAULT_SOCIAL_IMAGE_PATH = "/og-card.png";
 
 export type StructuredDataNode = Record<string, unknown>;
+
+/**
+ * The site's Organization node, shared by BaseLayout and MapLayout. alternateName holds
+ * the spellings other documents use for the site; subjectOf lists reports by other
+ * bodies that cite it (src/data/lookups/citations.json). No sameAs: the site is
+ * anonymous, and a machine-readable link to a personal account would undo that.
+ */
+export function organizationNode(siteOrigin: URL | string = SITE_URL): StructuredDataNode {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    alternateName: ["ukdemographics.co.uk", "UKDemographics"],
+    description: "An independent demographic research project publishing population, Census and projection figures for local authorities and constituencies, each with its published source.",
+    url: SITE_URL,
+    logo: {
+      "@type": "ImageObject",
+      url: new URL("/favicon.svg", siteOrigin).toString()
+    },
+    subjectOf: citationSubjectOf(SITE_URL)
+  };
+}
 
 export interface ReleaseEntry {
   date: string;

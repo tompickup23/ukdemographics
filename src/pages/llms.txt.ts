@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import { SITE_URL } from "../lib/site";
 import { formatPconCount, formatPlaceCount } from "../lib/coverage";
+import { CITATIONS } from "../lib/citations";
 import { PYRAMID_BASE_YEAR, PYRAMID_LATEST_YEAR } from "../lib/age-pyramid";
 
 export const prerender = true;
@@ -14,6 +15,9 @@ export const GET: APIRoute = async () => {
   const findings = (await getCollection("findings"))
     .sort((a, b) => a.id.localeCompare(b.id))
     .map((f) => `- [${f.data.headline}](${SITE_URL}/findings/${f.id.replace(/\.md$/, "")}/)`);
+  const citations = CITATIONS.map(
+    (c) => `- [${c.title}](${c.url}), ${c.author} for ${c.preparedFor}, ${c.dateLabel}: page ${c.page}, ${c.location}, cites ${SITE_URL}${c.ukdPath}`
+  );
   const body = `# UK Demographics
 
 > Population data for local authorities in England and Wales and for UK parliamentary constituencies: ONS mid-year estimates, Census 2011 and 2021 counts, and the site's own ethnic composition projections, each figure with its published source.
@@ -37,6 +41,12 @@ Observed figures (ONS, DfE, DWP, Home Office, DHSC) and projections are labelled
 - [Sources](${SITE_URL}/sources/): primary datasets
 - [Releases](${SITE_URL}/releases/): change log of data releases
 - [Glossary](${SITE_URL}/glossary/)
+
+## Cited in
+
+Documents by other bodies that cite the site as a source, listed on the [about page](${SITE_URL}/about/#cited-in).
+
+${citations.join("\n")}
 
 ## Findings
 
