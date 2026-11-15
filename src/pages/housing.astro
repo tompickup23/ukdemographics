@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import StatCard from "../components/StatCard.astro";
+import DistributionChart from "../components/DistributionChart.astro";
 import { slugifyAreaName } from "../lib/site";
 import housingDemand from "../data/live/housing-demand.json";
 
@@ -24,6 +25,20 @@ const risingDemand = areasWithData.filter(a => (a.socialRentChangePp ?? 0) > 0).
     <StatCard value={areasWithData.length.toString()} label="Areas modelled" accent="var(--accent)" />
     <StatCard value={risingDemand.toString()} label="Areas with rising social rent demand" accent="var(--coral)" />
   </div>
+
+  <DistributionChart
+    id="social-rent-change"
+    title="Projected change in the share of households in social rent, 2021 to 2041"
+    values={areasWithData.map((a) => a.socialRentChangePp)}
+    step={1}
+    min={0}
+    axisLabel="Change in social rent share, percentage points"
+    unit="pp"
+    noun="councils"
+    markers={[{ at: 0, label: "No change" }]}
+    source="Census 2021 tenure by ethnic group, applied to this site's Hamilton-Perry ethnic projections; src/data/live/housing-demand.json"
+    note="A projection: it holds each group's 2021 tenure pattern fixed and changes only the mix of groups. Each bar counts councils; none is named or ranked."
+  />
 
   <div class="area-table">
     <div class="area-table-header"><span>Area</span><span>Owner 2021</span><span>Social 2021</span><span>Social 2041</span><span>Change</span></div>

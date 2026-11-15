@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import StatCard from "../components/StatCard.astro";
+import DistributionChart from "../components/DistributionChart.astro";
 import { slugifyAreaName } from "../lib/site";
 import schoolPressure from "../data/live/school-pressure.json";
 
@@ -9,6 +10,7 @@ const areasWithData = Object.entries(sp.areas)
   .filter(([_, d]: any) => d.dataAvailable)
   .map(([code, d]: any) => ({ code, ...d }))
   .sort((a, b) => a.areaName.localeCompare(b.areaName));
+const withGap = areasWithData.filter((a) => typeof a.ealDemandGrowthPp === "number").length;
 ---
 
 <BaseLayout
@@ -24,6 +26,20 @@ const areasWithData = Object.entries(sp.areas)
     <StatCard value={areasWithData.filter(a => (a.ealDemandGrowthPp ?? 0) > 10).length.toString()} label="Areas with 10pp+ English-as-Additional-Language growth projected" accent="var(--accent-3)" />
   </div>
   <p class="caveat">EAL = English as Additional Language. White British pupils means pupils self-identified or recorded as White British in the DfE School Census.</p>
+
+  <DistributionChart
+    id="pupil-resident-gap"
+    title="How far pupil composition differs from the resident population"
+    values={areasWithData.map((a) => a.ealDemandGrowthPp)}
+    step={2.5}
+    min={0}
+    axisLabel="Minority pupil share minus minority resident share, pp"
+    unit="pp"
+    noun="councils"
+    markers={[{ at: 10, label: "10pp flag line" }]}
+    source="DfE School Census 2024/25 pupil ethnicity by local authority, against the Census 2021 resident share; src/data/live/school-pressure.json"
+    note={`Pupils and residents are different populations, counted four years apart, so the gap is not a projection.${withGap < areasWithData.length ? ` ${withGap} of the ${areasWithData.length} areas with school data carry this figure.` : ""} Each bar counts councils; none is named or ranked.`}
+  />
 
   <div class="area-table">
     <div class="area-table-header"><span>Area</span><span>White British pupils</span><span>Minority pupils</span><span>EAL growth</span><span>Total pupils</span></div>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import StatCard from "../components/StatCard.astro";
+import DistributionChart from "../components/DistributionChart.astro";
 import { slugifyAreaName } from "../lib/site";
 import fiscalResilience from "../data/live/fiscal-resilience.json";
 
@@ -95,6 +96,25 @@ const CUTOFFS = [
     <StatCard value={moderate.length.toString()} label="Moderate exposure" accent="var(--accent-3)" />
     <StatCard value={(totalAreas - high.length - moderate.length).toString()} label="Low / Stable" accent="var(--accent-2)" />
   </div>
+
+  <DistributionChart
+    id="score-distribution"
+    title={`How the ${totalAreas} councils' scores are spread`}
+    values={areasByName.map((a) => a.serviceDemandPressureScore)}
+    step={5}
+    min={0}
+    max={100}
+    axisLabel="Exposure score, 0 to 100"
+    noun="councils"
+    bands={[
+      { from: 0, to: 25, label: "Stable" },
+      { from: 25, to: 45, label: "Low" },
+      { from: 45, to: 70, label: "Moderate" },
+      { from: 70, to: 100, label: "High" },
+    ]}
+    source="this site's exposure index, src/data/live/fiscal-resilience.json, built by scripts/model/generate_national_dashboards.mjs"
+    note="Shaded bands are the cutoffs in the table further down. Each bar counts councils; no council is named or ranked."
+  />
 
   <h2 class="section-title">Exposure scores by area, A to Z</h2>
   <div class="area-table">
