@@ -391,8 +391,8 @@ export function buildConstituencyStructuredData(
         "Sitting MP",
         "General election vote shares",
         "PIP claimants",
-        "Ethnic composition (derived)",
-        "Country of birth (derived)"
+        "Ethnic composition (estimated from council figures)",
+        "Country of birth (estimated from council figures)"
       ]
     }
   ];
