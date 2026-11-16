@@ -12,7 +12,7 @@
       "2026-07"
     ],
     "forcesListed": 33,
-    "readAt": "2026-11-09T18:35:21.595Z"
+    "readAt": "2026-11-16T18:12:40.305Z"
   },
   "runs": [
     {
@@ -34,12 +34,32 @@
       "held": 0,
       "failed": [],
       "records_stored": 83195
+    },
+    {
+      "started_at": "2026-11-16T18:12:39.452Z",
+      "user_agent": "ukdemographics-data-fetch",
+      "outcome": "complete",
+      "robots_status": "read",
+      "window": {
+        "months": [
+          "2026-09",
+          "2026-08",
+          "2026-07"
+        ],
+        "forcesListed": 33,
+        "readAt": "2026-11-16T18:12:40.305Z"
+      },
+      "files_listed": 90,
+      "stored": 90,
+      "held": 0,
+      "failed": [],
+      "records_stored": 83195
     }
   ],
   "attempts": [
     {
       "url": "https://data.police.uk/api/crimes-street-dates",
-      "attempted_at": "2026-11-09T18:35:21.151Z",
+      "attempted_at": "2026-11-16T18:12:39.890Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -49,7 +69,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=avon-and-somerset&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:21.604Z",
+      "attempted_at": "2026-11-16T18:12:40.313Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -60,7 +80,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=btp&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:23.352Z",
+      "attempted_at": "2026-11-16T18:12:42.058Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -71,7 +91,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=cambridgeshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:26.574Z",
+      "attempted_at": "2026-11-16T18:12:45.455Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -82,7 +102,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=cheshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:27.549Z",
+      "attempted_at": "2026-11-16T18:12:46.287Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -93,7 +113,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=city-of-london&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:30.915Z",
+      "attempted_at": "2026-11-16T18:12:47.988Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -104,7 +124,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=cumbria&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:31.405Z",
+      "attempted_at": "2026-11-16T18:12:49.975Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -115,7 +135,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=derbyshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:34.520Z",
+      "attempted_at": "2026-11-16T18:12:52.810Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -126,7 +146,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=devon-and-cornwall&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:36.092Z",
+      "attempted_at": "2026-11-16T18:12:54.721Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -137,7 +157,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=dorset&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:38.395Z",
+      "attempted_at": "2026-11-16T18:12:57.273Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -148,7 +168,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=durham&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:39.708Z",
+      "attempted_at": "2026-11-16T18:12:58.371Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -159,7 +179,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=essex&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:41.550Z",
+      "attempted_at": "2026-11-16T18:13:00.404Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -170,7 +190,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=hampshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:43.270Z",
+      "attempted_at": "2026-11-16T18:13:04.592Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -181,7 +201,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=hertfordshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:45.274Z",
+      "attempted_at": "2026-11-16T18:13:06.288Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -192,7 +212,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=kent&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:48.165Z",
+      "attempted_at": "2026-11-16T18:13:07.557Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -203,7 +223,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=lancashire&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:52.350Z",
+      "attempted_at": "2026-11-16T18:13:11.184Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -214,7 +234,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=leicestershire&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:54.071Z",
+      "attempted_at": "2026-11-16T18:13:14.598Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -225,7 +245,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=merseyside&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:55.167Z",
+      "attempted_at": "2026-11-16T18:13:14.687Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -236,7 +256,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=north-wales&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:56.585Z",
+      "attempted_at": "2026-11-16T18:13:24.408Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -247,7 +267,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=northamptonshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:35:58.861Z",
+      "attempted_at": "2026-11-16T18:13:25.055Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -258,7 +278,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=northumbria&date=2026-09",
-      "attempted_at": "2026-11-09T18:36:00.885Z",
+      "attempted_at": "2026-11-16T18:13:26.864Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -269,7 +289,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=south-yorkshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:36:03.095Z",
+      "attempted_at": "2026-11-16T18:13:29.079Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -280,7 +300,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=staffordshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:36:04.458Z",
+      "attempted_at": "2026-11-16T18:13:30.650Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -291,7 +311,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=surrey&date=2026-09",
-      "attempted_at": "2026-11-09T18:36:07.877Z",
+      "attempted_at": "2026-11-16T18:13:33.462Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -302,7 +322,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=thames-valley&date=2026-09",
-      "attempted_at": "2026-11-09T18:36:09.274Z",
+      "attempted_at": "2026-11-16T18:13:35.183Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -313,7 +333,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=warwickshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:36:12.267Z",
+      "attempted_at": "2026-11-16T18:13:36.519Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -324,7 +344,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=west-mercia&date=2026-09",
-      "attempted_at": "2026-11-09T18:36:12.493Z",
+      "attempted_at": "2026-11-16T18:13:38.522Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -335,7 +355,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=west-yorkshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:36:14.947Z",
+      "attempted_at": "2026-11-16T18:13:40.497Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -346,7 +366,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=wiltshire&date=2026-09",
-      "attempted_at": "2026-11-09T18:36:16.473Z",
+      "attempted_at": "2026-11-16T18:13:45.196Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -357,7 +377,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=avon-and-somerset&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:18.452Z",
+      "attempted_at": "2026-11-16T18:13:45.279Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -368,7 +388,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=btp&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:20.459Z",
+      "attempted_at": "2026-11-16T18:13:48.101Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -379,7 +399,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=cambridgeshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:24.108Z",
+      "attempted_at": "2026-11-16T18:13:51.301Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -390,7 +410,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=cheshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:24.880Z",
+      "attempted_at": "2026-11-16T18:13:51.802Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -401,7 +421,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=city-of-london&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:26.464Z",
+      "attempted_at": "2026-11-16T18:13:53.394Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -412,7 +432,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=cumbria&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:28.862Z",
+      "attempted_at": "2026-11-16T18:13:55.386Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -423,7 +443,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=derbyshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:30.464Z",
+      "attempted_at": "2026-11-16T18:13:58.080Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -434,7 +454,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=devon-and-cornwall&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:33.342Z",
+      "attempted_at": "2026-11-16T18:14:00.188Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -445,7 +465,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=dorset&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:35.769Z",
+      "attempted_at": "2026-11-16T18:14:02.656Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -456,7 +476,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=durham&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:37.029Z",
+      "attempted_at": "2026-11-16T18:14:03.732Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -467,7 +487,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=essex&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:38.828Z",
+      "attempted_at": "2026-11-16T18:14:05.728Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -478,7 +498,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=hampshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:40.476Z",
+      "attempted_at": "2026-11-16T18:14:09.426Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -489,7 +509,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=hertfordshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:42.493Z",
+      "attempted_at": "2026-11-16T18:14:11.140Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -500,7 +520,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=kent&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:45.111Z",
+      "attempted_at": "2026-11-16T18:14:12.289Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -511,7 +531,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=lancashire&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:48.999Z",
+      "attempted_at": "2026-11-16T18:14:15.997Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -522,7 +542,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=leicestershire&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:49.476Z",
+      "attempted_at": "2026-11-16T18:14:16.661Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -533,7 +553,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=merseyside&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:51.943Z",
+      "attempted_at": "2026-11-16T18:14:18.087Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -544,7 +564,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=north-wales&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:53.183Z",
+      "attempted_at": "2026-11-16T18:14:29.252Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -555,7 +575,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=northamptonshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:55.550Z",
+      "attempted_at": "2026-11-16T18:14:29.723Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -566,7 +586,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=northumbria&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:57.407Z",
+      "attempted_at": "2026-11-16T18:14:31.753Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -577,7 +597,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=south-yorkshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:36:59.997Z",
+      "attempted_at": "2026-11-16T18:14:33.997Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -588,7 +608,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=staffordshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:37:01.911Z",
+      "attempted_at": "2026-11-16T18:14:35.545Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -599,7 +619,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=surrey&date=2026-08",
-      "attempted_at": "2026-11-09T18:37:03.818Z",
+      "attempted_at": "2026-11-16T18:14:38.349Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -610,7 +630,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=sussex&date=2026-08",
-      "attempted_at": "2026-11-09T18:37:05.606Z",
+      "attempted_at": "2026-11-16T18:14:39.339Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -621,7 +641,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=thames-valley&date=2026-08",
-      "attempted_at": "2026-11-09T18:37:07.113Z",
+      "attempted_at": "2026-11-16T18:14:42.230Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -632,7 +652,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=warwickshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:37:11.113Z",
+      "attempted_at": "2026-11-16T18:14:43.372Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -643,7 +663,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=west-mercia&date=2026-08",
-      "attempted_at": "2026-11-09T18:37:11.244Z",
+      "attempted_at": "2026-11-16T18:14:45.376Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -654,7 +674,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=west-yorkshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:37:13.772Z",
+      "attempted_at": "2026-11-16T18:14:48.353Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -665,7 +685,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=wiltshire&date=2026-08",
-      "attempted_at": "2026-11-09T18:37:18.777Z",
+      "attempted_at": "2026-11-16T18:14:51.750Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -676,7 +696,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=avon-and-somerset&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:18.880Z",
+      "attempted_at": "2026-11-16T18:14:52.201Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -687,7 +707,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=bedfordshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:20.883Z",
+      "attempted_at": "2026-11-16T18:14:54.772Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -698,7 +718,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=btp&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:23.063Z",
+      "attempted_at": "2026-11-16T18:14:56.015Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -709,7 +729,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=cambridgeshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:26.491Z",
+      "attempted_at": "2026-11-16T18:14:59.291Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -720,7 +740,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=cheshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:27.199Z",
+      "attempted_at": "2026-11-16T18:15:00.224Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -731,7 +751,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=city-of-london&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:28.892Z",
+      "attempted_at": "2026-11-16T18:15:01.858Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -742,7 +762,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=cumbria&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:31.029Z",
+      "attempted_at": "2026-11-16T18:15:03.838Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -753,7 +773,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=derbyshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:33.990Z",
+      "attempted_at": "2026-11-16T18:15:05.842Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -764,7 +784,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=devon-and-cornwall&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:35.764Z",
+      "attempted_at": "2026-11-16T18:15:08.788Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -775,7 +795,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=dorset&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:37.590Z",
+      "attempted_at": "2026-11-16T18:15:10.653Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -786,7 +806,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=durham&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:39.232Z",
+      "attempted_at": "2026-11-16T18:15:12.139Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -797,7 +817,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=essex&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:41.181Z",
+      "attempted_at": "2026-11-16T18:15:14.238Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -808,7 +828,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=hampshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:44.645Z",
+      "attempted_at": "2026-11-16T18:15:18.295Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -819,7 +839,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=hertfordshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:44.902Z",
+      "attempted_at": "2026-11-16T18:15:18.391Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -830,7 +850,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=humberside&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:47.195Z",
+      "attempted_at": "2026-11-16T18:15:20.693Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -841,7 +861,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=kent&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:48.901Z",
+      "attempted_at": "2026-11-16T18:15:23.016Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -852,7 +872,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=lancashire&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:53.201Z",
+      "attempted_at": "2026-11-16T18:15:26.744Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -863,7 +883,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=leicestershire&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:53.671Z",
+      "attempted_at": "2026-11-16T18:15:27.135Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -874,7 +894,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=merseyside&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:56.066Z",
+      "attempted_at": "2026-11-16T18:15:28.831Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -885,7 +905,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=metropolitan&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:57.364Z",
+      "attempted_at": "2026-11-16T18:15:38.385Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -896,7 +916,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=north-wales&date=2026-07",
-      "attempted_at": "2026-11-09T18:37:59.582Z",
+      "attempted_at": "2026-11-16T18:15:38.744Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -907,7 +927,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=northamptonshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:01.818Z",
+      "attempted_at": "2026-11-16T18:15:40.964Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -918,7 +938,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=northumbria&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:03.305Z",
+      "attempted_at": "2026-11-16T18:15:42.987Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -929,7 +949,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=south-yorkshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:06.387Z",
+      "attempted_at": "2026-11-16T18:15:45.474Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -940,7 +960,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=staffordshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:07.516Z",
+      "attempted_at": "2026-11-16T18:15:46.582Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -951,7 +971,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=surrey&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:09.897Z",
+      "attempted_at": "2026-11-16T18:15:49.344Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -962,7 +982,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=sussex&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:11.822Z",
+      "attempted_at": "2026-11-16T18:15:50.470Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -973,7 +993,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=thames-valley&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:13.308Z",
+      "attempted_at": "2026-11-16T18:15:53.575Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -984,7 +1004,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=warwickshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:18.101Z",
+      "attempted_at": "2026-11-16T18:15:55.953Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -995,7 +1015,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=west-mercia&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:18.249Z",
+      "attempted_at": "2026-11-16T18:15:56.497Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -1006,7 +1026,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=west-midlands&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:20.541Z",
+      "attempted_at": "2026-11-16T18:15:59.142Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -1017,7 +1037,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=west-yorkshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:22.231Z",
+      "attempted_at": "2026-11-16T18:16:05.101Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
@@ -1028,7 +1048,7 @@
     },
     {
       "url": "https://data.police.uk/api/stops-force?force=wiltshire&date=2026-07",
-      "attempted_at": "2026-11-09T18:38:26.505Z",
+      "attempted_at": "2026-11-16T18:16:07.649Z",
       "outcome": "stored",
       "http_status": 200,
       "robots_status": "allowed",
