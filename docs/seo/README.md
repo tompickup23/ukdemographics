@@ -233,3 +233,31 @@ count is a separate change, to test after this one.
   one's deploy date here when it lands.
 - Deployed inside the window: PR 148 (neighbour links, related findings, /about/), merged
   `c0b7479a`, deploy run 42011618134 green at 10:44 UTC on 5 November 2026.
+- The rest, from `gh pr view` and `gh run list` on 18 November 2026, in order of merge except PR 163, the last. Deploy runs end at the
+  UTC time given; a cancelled run is covered by the next green one, which carries its commit.
+  - PR 143 (density and median age, place page body): merged `7dac38a4`, run 42015262193 green
+    at 11:12 UTC on 5 November.
+  - PRs 144 and 147 (schema, the plain name under the H1, the cite block; hub titles and
+    descriptions): merged `1b02f328` and `66e397d3`; 144's own run was cancelled, and run
+    42042027389 for `66e397d3` carried both, green at 14:18 UTC on 5 November.
+  - PR 158 (age pyramids): merged `7aa37109`, run 42792135346 green at 09:50 UTC on 10
+    November. It adds 318 addresses under `/places/<slug>/population-pyramid/` and changes no
+    place page; `ctr-by-arm.mjs` counts exact place addresses, so they fall outside the arms.
+  - PR 160 (postcode line under each search box): merged `1482abd0`, run 42994861405 green at
+    09:35 UTC on 11 November. It touches no place page file.
+  - PR 161 (phone overflow, spacing before links in the shell): merged `d630175b`, run
+    43019654913 green at 12:35 UTC on 11 November. Shell change on every page.
+  - PR 162 (contrast tokens and label ink, `global.css`): merged `9f7192f3`, run 43021863468
+    green at 12:51 UTC on 11 November. Colours on every page; no text change.
+  - PR 167 (footer line on Cloudflare Web Analytics, dashboards, constituency pages): merged
+    `7cc09c10`, run 43701022152 green at 10:06 UTC on 15 November. Footer text on every page.
+  - PR 169 (footer names the publisher): merged `8506aebc`, run 43764035285 green at 21:43 UTC
+    on 15 November. Footer text on every page.
+  - PR 163 (population change): merged `16259904`, run 44324569980 green at 14:49 UTC on 18
+    November. It adds 318 addresses under `/places/<slug>/population-change/` and the hub
+    `/population-change/`, and changes no place page; like the pyramids, they fall outside the arms.
+  - The weekly data refresh of 16 November (`c1ee115`, run 43927316550, 18:29 UTC) changed
+    stop and search and SEN data only.
+- None of these changes a place page title or meta description, and each change after 5
+  November reached every arm alike. Read the arms as planned and report these dates beside
+  the result.
