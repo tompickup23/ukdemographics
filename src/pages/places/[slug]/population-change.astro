@@ -1,0 +1,132 @@
+---
+/**
+ * One council's components of population change, every year from mid-2011 (register
+ * row R628; docs/product/population-change-spec-2026-11-11.md). Observed ONS estimates
+ * only. Every figure is read from src/data/live/population-change.json and
+ * population-estimates.json, never typed. Place pages do not link here before the
+ * search read on or after 5 December 2026.
+ */
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import PopulationChange from "../../../components/PopulationChange.astro";
+import ChangeNotes from "../../../components/PopulationChangeNotes.astro";
+import CiteThisPage from "../../../components/CiteThisPage.astro";
+import {
+  CHANGE_BASE_YEAR,
+  CHANGE_HUB_PATH,
+  CHANGE_LATEST_YEAR,
+  CHANGE_PUBLISHED_ISO,
+  CHANGE_SOURCE,
+  certaintyFor,
+  changeCitation,
+  changeCodes,
+  changeCsvPath,
+  changeFor,
+  changeOnsName,
+  changePath,
+  spanSentences,
+  yearSentences
+} from "../../../lib/population-change";
+import { pyramidPath } from "../../../lib/age-pyramid";
+import { DATA_LICENCE_URL, SITE_URL, buildAbsoluteUrl, buildPlacePath, slugifyAreaName, type StructuredDataNode } from "../../../lib/site";
+
+export const getStaticPaths: GetStaticPaths = () =>
+  changeCodes().map((code) => ({ params: { slug: slugifyAreaName(changeOnsName(code)!) }, props: { code } }));
+
+const { code } = Astro.props as { code: string };
+const change = changeFor(code)!;
+const onsName = changeOnsName(code)!;
+const name = change.name;
+const placePath = buildPlacePath({ areaCode: code, areaName: onsName });
+const csvPath = changeCsvPath(onsName);
+const canonicalUrl = buildAbsoluteUrl(changePath(onsName));
+const span = `${CHANGE_BASE_YEAR} to ${CHANGE_LATEST_YEAR}`;
+const heading = `${name} population change`;
+const pageTitle = `${name} population change: births, deaths and migration, ${span} | UK Demographics`;
+const description = `How the population of ${name} changed each year from mid-${CHANGE_BASE_YEAR} to mid-${CHANGE_LATEST_YEAR}: births, deaths, moves within the UK and international migration, adding up exactly to the ONS estimate. From ONS table ${CHANGE_SOURCE.table}.`;
+const citation = changeCitation({ title: pageTitle.replace(/ \| UK Demographics$/, ""), url: canonicalUrl });
+const certainty = certaintyFor(code);
+
+const structuredData: StructuredDataNode[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: buildAbsoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Places", item: buildAbsoluteUrl("/places/") },
+      { "@type": "ListItem", position: 3, name, item: buildAbsoluteUrl(placePath) },
+      { "@type": "ListItem", position: 4, name: "Population change", item: canonicalUrl }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: `${name}: components of population change, mid-${CHANGE_BASE_YEAR} to mid-${CHANGE_LATEST_YEAR}`,
+    description,
+    url: canonicalUrl,
+    identifier: code,
+    isAccessibleForFree: true,
+    license: DATA_LICENCE_URL,
+    ...(CHANGE_PUBLISHED_ISO ? { dateModified: CHANGE_PUBLISHED_ISO } : {}),
+    temporalCoverage: `${CHANGE_BASE_YEAR}/${CHANGE_LATEST_YEAR}`,
+    spatialCoverage: { "@type": "AdministrativeArea", name, identifier: code },
+    variableMeasured: ["Births", "Deaths", "Internal migration in and out", "International migration in and out", "Other changes", "Usual resident population at 30 June"],
+    isBasedOn: CHANGE_SOURCE.landing,
+    includedInDataCatalog: { "@type": "DataCatalog", name: "UK Demographics data downloads", url: buildAbsoluteUrl("/data/") },
+    distribution: [{
+      "@type": "DataDownload",
+      name: `${name}: components of population change by year`,
+      encodingFormat: "text/csv",
+      contentUrl: buildAbsoluteUrl(csvPath),
+      license: DATA_LICENCE_URL,
+      ...(CHANGE_PUBLISHED_ISO ? { dateModified: CHANGE_PUBLISHED_ISO } : {})
+    }],
+    creator: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` }
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={description} structuredData={structuredData}>
+  <article class="change-page shell">
+    <Breadcrumbs items={[
+      { label: "Places", href: "/places/" },
+      { label: name, href: placePath },
+      { label: "Population change" }
+    ]} />
+
+    <header class="change-header">
+      <p class="eyebrow">Births, deaths and migration, mid-{CHANGE_BASE_YEAR} to mid-{CHANGE_LATEST_YEAR}</p>
+      <h1>{heading}</h1>
+      <p class="lede" data-change-answer>{yearSentences(change).join(" ")}</p>
+    </header>
+
+    <PopulationChange change={change} imageName={`${slugifyAreaName(onsName)}-population-change`} />
+
+    <section class="change-span" aria-labelledby="change-span-heading">
+      <h2 id="change-span-heading">Since mid-{CHANGE_BASE_YEAR}</h2>
+      <p data-change-span>{spanSentences(change).join(" ")}</p>
+    </section>
+
+    <ChangeNotes change={change} certainty={certainty}>
+      <li>
+        <a href={csvPath} download>Download every year for {name} (CSV)</a>, or see{" "}
+        <a href={placePath}>the full {name} profile</a>,{" "}
+        <a href={pyramidPath(onsName)}>the {name} population pyramid</a> and{" "}
+        <a href={CHANGE_HUB_PATH}>population change for England and Wales and every other council</a>.
+      </li>
+    </ChangeNotes>
+
+    <CiteThisPage citation={citation} csvPath={csvPath} placeName={`${name} population change`} />
+  </article>
+</BaseLayout>
+
+<style>
+  .change-page { padding-block: var(--space-6, 1.5rem) var(--space-8, 3rem); }
+  .change-header h1 { margin: 0 0 0.75rem; }
+  .change-header .eyebrow { margin: 1rem 0 0.35rem; font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+  .change-header .lede { max-width: 46rem; }
+  .change-span { margin-top: 2rem; max-width: 46rem; }
+  .change-span h2 { font-size: 1.25rem; }
+</style>

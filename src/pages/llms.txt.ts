@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { SITE_URL } from "../lib/site";
 import { formatPconCount, formatPlaceCount } from "../lib/coverage";
 import { PYRAMID_BASE_YEAR, PYRAMID_LATEST_YEAR } from "../lib/age-pyramid";
+import { CHANGE_BASE_YEAR, CHANGE_LATEST_YEAR } from "../lib/population-change";
 
 export const prerender = true;
 
@@ -27,6 +28,7 @@ Observed figures (ONS, DfE, DWP, Home Office, DHSC) and projections are labelled
 - [Constituencies](${SITE_URL}/constituencies/): ${formatPconCount()}
 - [Maps](${SITE_URL}/maps/): population change and Census composition maps
 - [Population pyramids](${SITE_URL}/population-pyramids/): population by single year of age and sex for each place, every year from mid-${PYRAMID_BASE_YEAR} to mid-${PYRAMID_LATEST_YEAR}
+- [Population change](${SITE_URL}/population-change/): births, deaths, moves within the UK and international migration for each place, every year from mid-${CHANGE_BASE_YEAR} to mid-${CHANGE_LATEST_YEAR}, adding up to the ONS estimate
 - [National](${SITE_URL}/national/): England and Wales series
 - [Findings](${SITE_URL}/findings/): short articles with their figures and sources
 

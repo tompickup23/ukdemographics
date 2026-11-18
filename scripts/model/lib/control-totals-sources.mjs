@@ -116,6 +116,44 @@ export function readMyeb1(file, years) {
 }
 
 /**
+ * ONS detailed time series, table MYEB3: components of population change by local
+ * authority (as of April 2023), all ages, one block of columns per year. Returns,
+ * per council, the population for every year in `years` and each flow for every
+ * year after the first. ONS's own difference columns (natchange, internal_net,
+ * international_net) are returned too, so the caller can check them.
+ */
+export function readMyeb3(file, years) {
+  const wb = XLSX.read(readFileSync(file), { sheets: ["Cover sheet", "Notes", "MYEB3"] });
+  const { header, rows } = sheetRows(wb, "MYEB3", "ladcode23", `${file} MYEB3`);
+  const code = headerIndex(header, "ladcode23", "MYEB3");
+  const name = headerIndex(header, "laname23", "MYEB3");
+  const popCols = years.map((y) => headerIndex(header, `population_${y}`, "MYEB3"));
+  const later = years.slice(1);
+  const keys = ["births", "deaths", "natchange", "internal_in", "internal_out", "internal_net", "international_in", "international_out", "international_net", "other_change"];
+  const flowCols = Object.fromEntries(keys.map((k) => [k, later.map((y) => headerIndex(header, `${k}_${y}`, "MYEB3"))]));
+  const out = new Map();
+  for (const r of rows) {
+    if (!r[code]) continue;
+    const num = (c, what) => {
+      const v = Number(r[c]);
+      if (!Number.isInteger(v)) throw new Error(`MYEB3 ${r[code]} ${what}: "${r[c]}" is not a whole number`);
+      return v;
+    };
+    out.set(r[code], {
+      name: r[name],
+      population: popCols.map((c, i) => num(c, `population_${years[i]}`)),
+      ...Object.fromEntries(Object.entries(flowCols).map(([k, cols]) => [k, cols.map((c, i) => num(c, `${k}_${later[i]}`))]))
+    });
+  }
+  const notes = XLSX.utils.sheet_to_json(wb.Sheets.Notes, { header: 1 });
+  const definitions = notes
+    .filter((r) => String(r[0] ?? "").startsWith("Variable") && String(r[1] ?? "").includes("other_change"))
+    .map((r) => String(r[1]))[0];
+  if (!definitions) throw new Error("MYEB3: no variable definitions in the Notes sheet");
+  return { cover: coverLines(wb), definitions, areas: out };
+}
+
+/**
  * ONS SNPP sex file in the "2022 SNPP Population males.csv" layout: one row per
  * area and age group, one column per year. Returns single-year arrays by year;
  * the "All ages" row is checked against the sum of the single years.

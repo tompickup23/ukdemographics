@@ -1,0 +1,169 @@
+---
+/**
+ * Components of population change for one area (register row R628;
+ * docs/product/population-change-spec-2026-11-11.md).
+ *
+ * Two charts drawn at build time, each with its table in the page, so everything here
+ * reads with no script: the latest year as a ledger from the start population to the
+ * end, then every year since mid-2011 as small multiples on one scale.
+ */
+import ChartActions from "./ChartActions.astro";
+import {
+  CHANGE_BASE_YEAR,
+  CHANGE_LATEST_YEAR,
+  CHANGE_SOURCE,
+  CHANGE_SOURCE_LINE,
+  COMPONENT_ROWS,
+  internalLabel,
+  isWhole,
+  latestParts,
+  renderYearSvg,
+  renderYearsSvg,
+  signed,
+  yearParts,
+  type Change
+} from "../lib/population-change";
+
+interface Props {
+  change: Change;
+  /** File name stem for saved images. */
+  imageName: string;
+  /** Heading level for the two chart headings: 2 on a page of its own. */
+  headingLevel?: 2 | 3;
+}
+
+const { change, imageName, headingLevel = 2 } = Astro.props;
+const p = latestParts(change);
+const year = renderYearSvg(change, p);
+const years = renderYearsSvg(change);
+const rows = yearParts(change);
+const n = (v: number) => v.toLocaleString("en-GB");
+const Heading = `h${headingLevel}` as "h2" | "h3";
+const id = (s: string) => `${imageName}-${s}`;
+const whole = isWhole(change);
+---
+
+<section class="pop-change" aria-labelledby={id("year-heading")}>
+  <Heading id={id("year-heading")} class="pc-heading">Mid-{p.from} to mid-{p.to}</Heading>
+  <figure class="pc-figure">
+    <div class="pc-plot" style={`aspect-ratio: ${year.width} / ${year.height}`} set:html={year.svg} />
+    <ChartActions source={CHANGE_SOURCE_LINE} sourceUrl={CHANGE_SOURCE.landing} downloadFilename={`${imageName}-${p.to}`} />
+  </figure>
+  <details class="pc-details">
+    <summary>Table: how mid-{p.from} becomes mid-{p.to}</summary>
+    <div class="pc-scroll" tabindex="0" role="region" aria-label={`How mid-${p.from} becomes mid-${p.to}, table`}>
+      <table class="pc-table">
+        <caption>{change.name}, twelve months to 30 June {p.to}. The parts add up exactly to the change. Source: {CHANGE_SOURCE_LINE}.</caption>
+        <thead><tr><th scope="col">Part</th><th scope="col">People</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Mid-{p.from} population</th><td>{n(p.start)}</td></tr>
+          {COMPONENT_ROWS.map((r) => <tr><th scope="row">{r.key === "internal" ? internalLabel(change) : r.label}</th><td>{signed(r.value(p))}</td></tr>)}
+          <tr class="pc-sum"><th scope="row">Total change</th><td>{signed(p.change)}</td></tr>
+          <tr class="pc-sum"><th scope="row">Mid-{p.to} population</th><td>{n(p.end)}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</section>
+
+<section class="pop-change" aria-labelledby={id("years-heading")}>
+  <Heading id={id("years-heading")} class="pc-heading">Every year since mid-{CHANGE_BASE_YEAR}</Heading>
+  <figure class="pc-figure">
+    <div class="pc-plot" style={`aspect-ratio: ${years.width} / ${years.height}`} set:html={years.svg} />
+    <ChartActions source={CHANGE_SOURCE_LINE} sourceUrl={CHANGE_SOURCE.landing} downloadFilename={`${imageName}-${CHANGE_BASE_YEAR}-${CHANGE_LATEST_YEAR}`} />
+  </figure>
+  <details class="pc-details">
+    <summary>Table: the net parts of each year</summary>
+    <div class="pc-scroll" tabindex="0" role="region" aria-label={`Net parts of each year, table`}>
+      <table class="pc-table">
+        <caption>{change.name}, each twelve months to 30 June. Source: {CHANGE_SOURCE_LINE}.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Year to mid</th>
+            <th scope="col">Births minus deaths</th>
+            <th scope="col">{whole ? "Rest of the UK, net" : "Within the UK, net"}</th>
+            <th scope="col">International, net</th>
+            <th scope="col">Other</th>
+            <th scope="col">Total change</th>
+            <th scope="col">Population at mid-year</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <th scope="row">{r.to}</th>
+              <td>{signed(r.natural)}</td>
+              <td>{signed(r.internalNet)}</td>
+              <td>{signed(r.internationalNet)}</td>
+              <td>{signed(r.other)}</td>
+              <td>{signed(r.change)}</td>
+              <td>{n(r.end)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <details class="pc-details">
+    <summary>Table: births, deaths and moves {whole ? "in and out of the UK" : "in and out"}, each year</summary>
+    <div class="pc-scroll" tabindex="0" role="region" aria-label={`Births, deaths and moves each year, table`}>
+      <table class="pc-table">
+        <caption>{change.name}, each twelve months to 30 June. Moves are counted as moves, so one person who moves twice counts twice.{whole && " Moves between councils cancel out for England and Wales as a whole, so only the net figure for the rest of the UK is shown, in the table above."} Source: {CHANGE_SOURCE_LINE}.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Year to mid</th>
+            <th scope="col">Births</th>
+            <th scope="col">Deaths</th>
+            {!whole && <th scope="col">Moves in from the UK</th>}
+            {!whole && <th scope="col">Moves out to the UK</th>}
+            <th scope="col">Moves in from outside the UK</th>
+            <th scope="col">Moves out of the UK</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <th scope="row">{r.to}</th>
+              <td>{n(r.births)}</td>
+              <td>{n(r.deaths)}</td>
+              {!whole && <td>{n(r.internalIn)}</td>}
+              {!whole && <td>{n(r.internalOut)}</td>}
+              <td>{n(r.internationalIn)}</td>
+              <td>{n(r.internationalOut)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</section>
+
+<style is:global>
+  .pop-change { margin: var(--space-6, 1.5rem) 0; }
+  .pop-change .pc-heading { font-size: 1.25rem; margin: 0 0 0.75rem; }
+  .pop-change .pc-figure { margin: 0; min-width: 0; max-width: 34rem; }
+  /* ChartActions fades its source line to 70 per cent, which fails contrast; here it is shown at full strength. */
+  .pop-change .pc-figure .chart-source { opacity: 1; }
+  .pop-change .pc-plot svg { display: block; width: 100%; height: 100%; }
+  .pop-change .pc-ground { fill: transparent; }
+  .pop-change .pc-t { fill: var(--text); }
+  .pop-change :is(.pc-sub, .pc-tick, .pc-source) { fill: var(--text-muted); }
+  .pop-change .pc-part { fill: var(--series-1); }
+  .pop-change .pc-total { fill: var(--text); }
+  .pop-change :is(.pc-rule, .pc-grid) { stroke: var(--border); }
+  .pop-change .pc-zero { stroke: var(--text); }
+  .pop-change .pc-details { margin-top: 1rem; max-width: 46rem; }
+  .pop-change .pc-details summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: 0.6rem 0; min-height: 44px; }
+  .pop-change .pc-details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .pop-change .pc-scroll { overflow-x: auto; max-width: 100%; }
+  .pop-change .pc-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .pop-change .pc-table { border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+  .pop-change .pc-table caption { caption-side: bottom; text-align: left; font-size: 0.8rem; color: var(--text-muted); padding-top: 0.5rem; }
+  .pop-change .pc-table th, .pop-change .pc-table td { padding: 0.3rem 0.6rem; border-bottom: 1px solid var(--border); text-align: right; vertical-align: bottom; }
+  .pop-change .pc-table tbody th, .pop-change .pc-table thead th:first-child { text-align: left; font-weight: 400; }
+  .pop-change .pc-table thead th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; }
+  .pop-change .pc-table .pc-sum th, .pop-change .pc-table .pc-sum td { font-weight: 600; }
+  @media print {
+    .pop-change .pc-details { display: block; }
+  }
+</style>
