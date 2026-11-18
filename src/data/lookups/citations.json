@@ -1,0 +1,32 @@
+{
+  "note": "Documents by other bodies that cite ukdemographics.co.uk as a source. Each entry is read from the document's own text, not a summary: page, paragraph and footnote are the citing document's own numbering. A copy of the same document circulated by another body goes under alsoIn, not as a separate citation. checked is the date the cited figures were compared with the site's data.",
+  "citations": [
+    {
+      "id": "basingstoke-iia-scoping-2026-10",
+      "title": "Basingstoke and Deane New Local Plan Integrated Impact Assessment Scoping Report",
+      "reference": "UK0028504.1063",
+      "author": "WSP UK Limited",
+      "preparedFor": "Basingstoke and Deane Borough Council",
+      "datePublished": "2026-10-02",
+      "dateLabel": "October 2026",
+      "url": "https://consult.basingstoke.gov.uk/system/files/materials/16177/Basingstoke%20and%20Deane%20Local%20Plan%20Integrated%20Impact%20Assessment%20%20IIA%20Scoping%20Report.pdf",
+      "page": 83,
+      "location": "paragraphs 3.8.10 and 3.8.11, footnote 118",
+      "used": "the projected ethnic group composition of the borough to 2061 and its religious composition to 2051",
+      "ukdPath": "/places/basingstoke-and-deane/#religion",
+      "ukdLabel": "Basingstoke and Deane profile, religion section",
+      "accessedByAuthor": "2026-09-11",
+      "checked": "2026-11-15",
+      "checkedNote": "The figures in paragraphs 3.8.10 and 3.8.11 match the site's projections, model 8.0, after rounding to whole percentages.",
+      "alsoIn": [
+        {
+          "body": "Newbury Town Council",
+          "title": "Planning & Highways Committee agenda papers, 26 October 2026",
+          "url": "https://www.newbury.gov.uk/media/a0ohismg/0-agenda-papers-p-h-26102026.pdf",
+          "page": 191,
+          "note": "reproduces the full report"
+        }
+      ]
+    }
+  ]
+}
