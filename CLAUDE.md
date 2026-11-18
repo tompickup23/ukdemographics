@@ -44,7 +44,7 @@ One SVG renderer for the web map (`inline`, 600-unit viewBox), county and region
 ## Rules
 
 - **No AI tells, no hedging.** Findings use declarative voice. Numbers cross-reference the data files. Sources cited with exact NOMIS / ONS / DWP table.
-- **Anonymous.** No "Tom Pickup" attribution anywhere user-facing (footer/privacy/terms/accessibility/JSON-LD all use "an independent demographic research project" + "© ukdemographics.co.uk"). The `tompickup23` GitHub URLs in data sources are kept as functional links.
+- **Attribution in the footer only (15 Nov 2026).** The site footer (`BaseLayout.astro`, `MapLayout.astro`) says "An independent demographic research project by Tom Pickup", linked to tompickup.co.uk, which already lists the site as his. Nowhere else: page copy, privacy/terms/about, JSON-LD and OG cards keep "an independent demographic research project" + "© ukdemographics.co.uk". `tests/anonymity.test.ts` and `scripts/check/published-anonymity.mjs` enforce this, reading every file and page with the `<footer>` taken out. The `tompickup23` GitHub URLs in data sources are kept as functional links.
 - **British English** throughout.
 - **Mobile-first** — every chart `viewBox`-sized; no horizontal scroll allowed (Playwright enforces ≤2px tolerance).
 - **NOMIS sub-level codes have a leading underscore** (`_1, _2, ...`). Don't assume bare digits.
@@ -52,6 +52,7 @@ One SVG renderer for the web map (`inline`, 600-unit viewBox), county and region
 - **Findings collection schema is fixed** — see enum above. Build will fail fast if you use a new value.
 - **Design tokens, no Tailwind.** Use `--space-*`, `--text-*`, `--accent`, `--status-*`, `--surface`, `--panel`, `--ink-*`, `--muted`, `--border*`, `--shadow*`, `--radius*`. Light mode via `@media (prefers-color-scheme: light)`. Hover backgrounds use `color-mix(in srgb, var(--accent) 8%, transparent)` so they adapt.
 - **Components**: `StatCard.astro`, `RaceBar.astro`, `HeroClock.astro` — use these for any new big-number / categorical-share / hero-stat surfaces. CSS classes live in global.css (`.stat-card`, `.stat-card-row`, `.hero-race`, `.hero-clock`).
+- **Distributions**: `DistributionChart.astro` (binning in `src/lib/distribution.ts`, tests in `tests/distribution.test.ts`) draws how many councils fall in each range of one measure, with the counts in a table beneath. It names and orders no area, so it keeps to `tests/area-order.test.ts`; use it where a dashboard needs a chart of all councils. Text is 13 units on a 480-unit viewBox, 10 px on a 390 px phone.
 - **OG cards on shared standard** with UKE + AS — dark gradient, 40×40 brand tile, hero block, single-line footer. Render pipeline: Satori → @resvg/resvg-js.
 - **GH Pages, not CF.** Don't run a "remove oversized files" step pattern from AI DOGE.
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPublicPlaceAreas, getPublicPlaceRegions, buildPublicPlaceRegionPath } from "../lib/site";
+import { coveredSeries, MYE_SERIES_SOURCE_LINE } from "../lib/population-headline";
 
 const areas = getPublicPlaceAreas();
 const regions = getPublicPlaceRegions();
@@ -14,6 +15,29 @@ const regionStats = regions.map((region) => {
     : 0;
   return { ...region, totalPop, weightedWbi, areaCount: regionAreas.length };
 }).sort((a, b) => a.regionName.localeCompare(b.regionName));
+
+// Population change by region from the ONS mid-year estimates (R636): each region is the
+// exact sum of the councils this site covers in it, and coveredSeries throws if any
+// council lacks any year. Regions stay in A to Z order; the bars are never re-ordered.
+const regionChange = regionStats.map((r) => {
+  const codes = areas.filter((a) => a.regionName === r.regionName).map((a) => a.areaCode);
+  const s = coveredSeries(codes);
+  return { name: r.regionName, base: s.base, latest: s.latest, change: s.change, changePct: s.changePct };
+});
+const baseYear = regionChange[0].base.year;
+const latestYear = regionChange[0].latest.year;
+const fmtInt = (n: number) => Math.round(n).toLocaleString("en-GB");
+const fmtSignedPct = (n: number) => `${n < 0 ? "−" : "+"}${Math.abs(n).toFixed(1)}%`;
+
+// Horizontal bars from zero. Text is 13 units on a 480-unit viewBox (9 px or more on a phone).
+const CW = 480, ROW = 30, CL = 178, CR = 60, CT = 8;
+const CH = CT + regionChange.length * ROW + 30;
+const pctMin = Math.min(0, ...regionChange.map((r) => r.changePct));
+const pctMax = Math.max(0, ...regionChange.map((r) => r.changePct));
+const axisMax = Math.ceil(pctMax / 5) * 5 || 5;
+const axisMin = Math.floor(pctMin / 5) * 5;
+const cx = (v: number) => CL + ((v - axisMin) / (axisMax - axisMin)) * (CW - CL - CR);
+const axisTicks = Array.from({ length: (axisMax - axisMin) / 5 + 1 }, (_, i) => axisMin + i * 5);
 ---
 
 <BaseLayout
@@ -21,8 +45,51 @@ const regionStats = regions.map((region) => {
   description={`Demographic composition by region across ${regions.length} regions and ${areas.length} local authorities.`}
 >
   <h1>Regional demographic overview</h1>
-  <p class="desc">Population-weighted White British share by region, Census 2021. Click a region for local authority detail.</p>
+  <p class="desc">Population change from the ONS mid-year estimates, then the population-weighted White British share at Census 2021, for each region of England and for Wales.</p>
 
+  <figure class="region-chart" aria-labelledby="region-change-title">
+    <figcaption id="region-change-title" class="region-chart-title">Population change by region, mid-{baseYear} to mid-{latestYear}</figcaption>
+    <svg
+      viewBox={`0 0 ${CW} ${CH}`}
+      role="img"
+      aria-label={`Bar chart of population change between mid-${baseYear} and mid-${latestYear} for each region of England and for Wales, in alphabetical order. ${regionChange.map((r) => `${r.name} ${fmtSignedPct(r.changePct)}`).join("; ")}.`}
+    >
+      {axisTicks.map((t) => (
+        <g class="rc-grid">
+          <line x1={cx(t)} x2={cx(t)} y1={CT} y2={CH - 24} />
+          <text x={cx(t)} y={CH - 8} text-anchor="middle">{t === 0 ? "0" : `${t < 0 ? "−" : "+"}${Math.abs(t)}%`}</text>
+        </g>
+      ))}
+      {regionChange.map((r, i) => {
+        const y0 = CT + i * ROW;
+        const x0 = cx(Math.min(0, r.changePct));
+        const x1 = cx(Math.max(0, r.changePct));
+        return (
+          <g class="rc-row">
+            <text class="rc-name" x={CL - 8} y={y0 + ROW / 2 + 4.5} text-anchor="end">{r.name}</text>
+            <rect class="rc-bar" x={x0} y={y0 + 6} width={Math.max(1, x1 - x0)} height={ROW - 12}>
+              <title>{r.name}: {fmtInt(r.base.population)} at mid-{baseYear}, {fmtInt(r.latest.population)} at mid-{latestYear}</title>
+            </rect>
+            <text class="rc-value" x={x1 + 6} y={y0 + ROW / 2 + 4.5}>{fmtSignedPct(r.changePct)}</text>
+          </g>
+        );
+      })}
+    </svg>
+    <details class="rc-table">
+      <summary>The figures as a table</summary>
+      <table>
+        <thead><tr><th scope="col">Region</th><th scope="col" class="num">Mid-{baseYear}</th><th scope="col" class="num">Mid-{latestYear}</th><th scope="col" class="num">Change</th></tr></thead>
+        <tbody>
+          {regionChange.map((r) => (
+            <tr><td>{r.name}</td><td class="num">{fmtInt(r.base.population)}</td><td class="num">{fmtInt(r.latest.population)}</td><td class="num">{fmtSignedPct(r.changePct)}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </details>
+    <p class="region-chart-source">Source: {MYE_SERIES_SOURCE_LINE}. Each region is the sum of the councils this site covers in it. Regions are listed A to Z, not by size of change.</p>
+  </figure>
+
+  <h2 class="region-section-title">White British share by region, Census 2021</h2>
   <div class="region-grid">
     {regionStats.map((region) => (
       <div class="region-card">
@@ -37,6 +104,21 @@ const regionStats = regions.map((region) => {
 <style>
   h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin: 0 0 0.5rem; }
   .desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
+  .region-chart { margin: 0 0 2.5rem; max-width: 640px; }
+  .region-chart-title, .region-section-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--ink); margin: 0 0 0.75rem; }
+  .region-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .rc-grid line { stroke: var(--border); stroke-width: 1; }
+  .rc-grid text { fill: var(--muted); font-size: 13px; }
+  .rc-name { fill: var(--ink-soft); font-size: 13px; }
+  .rc-value { fill: var(--ink); font-size: 13px; font-weight: 600; font-family: var(--font-display); }
+  .rc-bar { fill: var(--accent); }
+  .rc-table { margin-top: 0.5rem; font-size: 0.85rem; }
+  .rc-table summary { cursor: pointer; color: var(--accent); }
+  .rc-table table { border-collapse: collapse; margin-top: 0.5rem; width: 100%; max-width: 32rem; }
+  .rc-table th, .rc-table td { text-align: left; padding: 0.3rem 0.5rem 0.3rem 0; border-bottom: 1px solid var(--border); color: var(--ink-soft); }
+  .rc-table th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .rc-table .num { text-align: right; font-family: var(--font-display); }
+  .region-chart-source { font-size: 0.8rem; color: var(--muted); margin: 0.5rem 0 0; line-height: 1.5; }
   .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; }
   .region-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.25rem; }
   .region-name { font-weight: 600; font-size: 1rem; color: var(--ink); }
