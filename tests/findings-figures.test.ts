@@ -8,6 +8,7 @@ import rawProjections from "../src/data/live/ethnic-projections.json";
 import { plausibleThrough } from "../src/lib/projection-plausibility";
 import { getPublicPlaceAreas } from "../src/lib/site";
 import { nationalWhiteBritishAggregate } from "../src/lib/national-share";
+import { crossingDecade } from "../src/lib/crossing";
 
 /**
  * Figures quoted in findings prose, checked against the data file each one comes
@@ -191,6 +192,47 @@ describe("Blackburn finding against ethnic-projections.json", () => {
     const text = prose(read("blackburn-minority-wb-2027"));
     const [share] = grab(text, /Down from ([\d.]+)% in 2011/, "2011 share");
     expect(share).toBe(areas.E06000008.baseline.groups.white_british.toFixed(1));
+  });
+
+  // Corrected 23 November 2026: the piece printed single crossing years read off a
+  // straight line between projection decades. Each crossing is now the decade
+  // crossingDecade() returns, the same rule the place pages use.
+  const towns: Record<string, string> = {
+    Pendle: "E07000122",
+    Preston: "E07000123",
+    Burnley: "E07000117",
+  };
+
+  it("gives each crossing as the decade crossingDecade returns, never a single year", () => {
+    const raw = read("blackburn-minority-wb-2027");
+    const text = prose(raw);
+    expect(text).not.toMatch(/(approximately|around|about|by) 20(2[2-9]|3[02-9]|4[02-9]|5[02-9]|6[02-9])\b/);
+    expect(frontmatter(raw, "summary")).not.toMatch(/approximately|around/);
+    const bwd = crossingDecade(areas.E06000008);
+    expect(bwd).not.toBeNull();
+    expect(bwd).not.toBe("already");
+    const [from, to] = grab(text, /Projected below 50% between (\d{4}) and (\d{4})\. Pendle/, "Blackburn decade");
+    expect([Number(from), Number(to)]).toEqual([(bwd as any).from, (bwd as any).to]);
+    for (const [name, code] of Object.entries(towns)) {
+      expect(areas[code].areaName).toBe(name);
+      const d = crossingDecade(areas[code]) as any;
+      const [f, t] = grab(text, new RegExp(`${name}\\. [\\d.]+% White British \\(2021\\)\\. Projected below 50% between (\\d{4}) and (\\d{4})`), `${name} decade`);
+      expect([Number(f), Number(t)]).toEqual([d.from, d.to]);
+    }
+  });
+
+  it("quotes Burnley's 2051 projection, band and cohort-component figure from the file", () => {
+    const b = areas[towns.Burnley];
+    const text = prose(read("blackburn-minority-wb-2027"));
+    const [p, lo, hi, cc] = grab(
+      text,
+      /The projection for 2051 is ([\d.]+)%, and the model's 95% band for that year runs from ([\d.]+)% to ([\d.]+)%\. The cohort-component model gives ([\d.]+)%/,
+      "Burnley close call",
+    );
+    expect(p).toBe(b.projections["2051"].white_british.toFixed(1));
+    expect(Number(lo)).toBe(b.confidenceBand2051.ci95[0]);
+    expect(Number(hi)).toBe(b.confidenceBand2051.ci95[1]);
+    expect(Number(cc)).toBe(b.modelSpread2051.cohortComponent);
   });
 });
 
