@@ -358,19 +358,19 @@
       }
     },
     "mhclg-ctb": {
-      "label": "MHCLG Council Taxbase 2025",
+      "label": "MHCLG Council Taxbase 2026",
       "publisher": "MHCLG",
-      "lastUpdated": "2026-01-21",
-      "lastUpdatedNote": "revised; first published 6 November 2025",
+      "lastUpdated": "2026-11-18",
+      "lastUpdatedNote": "first published 18 November 2026",
       "editionFrom": "src/data/live/council-tax-spd.json firstPublished and lastUpdated",
-      "sourceUrl": "https://www.gov.uk/government/statistics/council-taxbase-2025-in-england",
+      "sourceUrl": "https://www.gov.uk/government/statistics/council-taxbase-2026-in-england",
       "next": {
-        "stated": "18 November 2026",
-        "isoDate": "2026-11-18",
-        "status": "confirmed",
-        "url": "https://www.gov.uk/government/statistics/announcements/council-taxbase-2026-in-england",
-        "quote": "Release date: 18 November 2026 9:30am (confirmed) These statistics will be released on 18 November 2026 9:30am",
-        "accessed": "2026-11-04"
+        "stated": "November 2027",
+        "isoDate": null,
+        "status": "provisional",
+        "url": "https://www.gov.uk/government/statistics/announcements/council-taxbase-2027-in-england",
+        "quote": "Release date: November 2027 (provisional) These statistics will be released in November 2027",
+        "accessed": "2026-11-27"
       }
     },
     "ons-mye": {
