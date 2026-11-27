@@ -1,0 +1,8 @@
+{
+  "status": "awaiting",
+  "note": "No figures yet. ONS releases mid-2025 estimates for Parliamentary constituencies in England and Wales on 1 December 2026 at 9:30am. scripts/build/build-pcon-population.mjs replaces this file whole once the table is held.",
+  "source": null,
+  "referenceDate": null,
+  "englandAndWales": null,
+  "seats": {}
+}

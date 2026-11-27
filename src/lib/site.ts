@@ -338,6 +338,8 @@ interface ConstituencyStructuredDataOptions {
   description: string;
   snapshotDate: string | null;
   generalElectionYear: number | null;
+  /** True when the page carries the ONS estimate for the seat itself. */
+  officialPopulation?: boolean;
 }
 
 /**
@@ -399,8 +401,9 @@ export function buildConstituencyStructuredData(
         "Sitting MP",
         "General election vote shares",
         "PIP claimants",
-        "Ethnic composition (estimated from council figures)",
-        "Country of birth (estimated from council figures)"
+        ...(options.officialPopulation
+          ? ["Population by age and sex (ONS mid-year estimate)"]
+          : ["Ethnic composition (estimated from council figures)", "Country of birth (estimated from council figures)"])
       ]
     }
   ];

@@ -271,6 +271,8 @@ count is a separate change, to test after this one.
     `06d4059a`, run 46043612420 green at 17:54 UTC on 27 November. It changes `/national/`,
     `/releases/` and `/feed.xml` only. No place page changes; `/places/burnley/` read live
     after the deploy does not carry the figure.
+  - PR 177 (this log, docs only): merged `b01bcb7c`, run 46068772355 green at 21:31 UTC on 27
+    November. No page changes; `/places/burnley/` read live after the deploy is unchanged.
 - None of these changes a place page title or meta description, and each change after 5
   November reached every arm alike. Read the arms as planned and report these dates beside
   the result.
