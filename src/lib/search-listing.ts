@@ -315,14 +315,15 @@ export function pconDatasetDate(): string | null {
 
 export function buildConstituencyDescription(
   name: string,
-  has: { mp: boolean; pip: boolean; demographics: boolean; localAuthorities: boolean }
+  has: { mp: boolean; pip: boolean; demographics: boolean; localAuthorities: boolean; populationLabel?: string | null }
 ): string {
   const ge = generalElectionYear();
   const parts = [
     has.mp ? "the sitting MP" : "",
     ge != null ? `the ${ge} general election result` : "the general election result",
     has.pip ? "PIP claimants" : "",
-    has.demographics ? "a demographic snapshot" : "",
+    // An ONS estimate for the seat itself comes before, and replaces, the snapshot built from council figures.
+    has.populationLabel ? `population and age at ${has.populationLabel}` : has.demographics ? "a demographic snapshot" : "",
     has.localAuthorities ? "the local authorities it covers, with links to their full profiles" : "",
   ];
   return `${name} constituency: ${joinList(parts)}. Sources include the UK Parliament, DWP and ONS.`;
