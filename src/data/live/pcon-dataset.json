@@ -1,7 +1,7 @@
 {
   "source": "Composite: GE 2024 shares from UKE backtest, PCON↔LAD24/LAD25 crosswalk from ONS, PCON names from DWP Stat-Xplore (via PIP)",
-  "generatedAt": "2026-05-19T17:49:39.651Z",
-  "constituencyCount": 631,
+  "generatedAt": "2026-11-27T21:13:09.375Z",
+  "constituencyCount": 632,
   "unmatchedSlugs": [
     "belfast-east",
     "belfast-north",
@@ -20,8 +20,7 @@
     "south-down",
     "strangford",
     "upper-bann",
-    "west-tyrone",
-    "ynys-mon"
+    "west-tyrone"
   ],
   "pcons": {
     "W07000081": {
@@ -19184,6 +19183,36 @@
       "constituentLas": [
         {
           "ladCode": "E06000066",
+          "postcodeShare": 1
+        }
+      ]
+    },
+    "W07000112": {
+      "code": "W07000112",
+      "name": "Ynys Môn",
+      "slug": "ynys-mon",
+      "country": "Wales",
+      "ge2024": {
+        "shares": {
+          "Plaid Cymru": 0.32456785582934905,
+          "Conservative": 0.30504474684320215,
+          "Labour": 0.23351109476523232,
+          "Reform UK": 0.09878018879490008,
+          "Green Party": 0.01851170773568714,
+          "Liberal Democrats": 0.0134547014833885,
+          "The Official Monster Raving Loony Party": 0.004781169547627804,
+          "Libertarian Party": 0.0013485350006129705
+        },
+        "totalVotes": 32628,
+        "winner": "Plaid Cymru",
+        "winnerSharePct": 32.46,
+        "runnerUp": "Conservative",
+        "runnerUpSharePct": 30.5,
+        "majorityPp": 1.95
+      },
+      "constituentLas": [
+        {
+          "ladCode": "W06000001",
           "postcodeShare": 1
         }
       ]
