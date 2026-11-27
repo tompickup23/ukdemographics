@@ -1,0 +1,36 @@
+{
+  "usage": "The ONS provisional estimate of the UK population, entered by hand from the bulletin named in source. One figure for the whole UK: ONS publishes no breakdown by council, age or sex. Replace the whole file when ONS publishes the next edition; do not edit single values.",
+  "source": {
+    "publisher": "Office for National Statistics",
+    "title": "Provisional population estimate for the UK: mid-2026",
+    "type": "Statistical bulletin",
+    "sections": "sections 1 (Main points) and 2 (Data sources and quality)",
+    "published": "2026-11-26",
+    "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/provisionalpopulationestimatefortheuk/mid2026",
+    "readOn": "2026-11-27",
+    "nextRelease": "To be announced",
+    "replacedBy": "ONS aims to publish mid-2026 population estimates, including local authorities by single year of age and sex, in summer 2027."
+  },
+  "geography": "United Kingdom",
+  "provisional": true,
+  "rounding": "ONS gives each figure in the bulletin to the nearest thousand.",
+  "referenceDate": "2026-06-30",
+  "population": 69564000,
+  "yearEnding": "2026-06-30",
+  "births": 646000,
+  "deaths": 643000,
+  "netInternationalMigration": 77000,
+  "previous": {
+    "referenceDate": "2025-06-30",
+    "population": 69484000,
+    "statedIn": "The same bulletin, section 2, as the base for the provisional estimate.",
+    "title": "Population estimates for the UK, England, Wales, Scotland and Northern Ireland: mid-2025",
+    "published": "2026-10-01",
+    "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/mid2025"
+  },
+  "checks": {
+    "arithmetic": "69,484,000 plus 646,000 births, less 643,000 deaths, plus 77,000 net international migration, gives 69,564,000.",
+    "migration": "The same net migration figure, 77,000 for the year ending June 2026, is in ONS, Long-term international migration, provisional: year ending June 2026, section 1, released 26 November 2026.",
+    "previous": "The mid-2025 bulletin's country table gives the UK as 69,483,900 and its revisions section rounds it to 69,484,000."
+  }
+}

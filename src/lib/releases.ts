@@ -23,6 +23,12 @@ export const RELEASES_DESCRIPTION =
 
 const ENTRIES: ReleaseEntry[] = [
   {
+    date: "2026-11-27",
+    title: "The latest UK population figure, the ONS provisional estimate for mid-2026, on the national page",
+    summary: "The national page now gives the latest official population figure for the whole UK: 69,564,000 people at 30 June 2026, from the ONS statistical bulletin Provisional population estimate for the UK: mid-2026, released 26 November 2026. ONS starts from its mid-2025 estimate of 69,484,000, adds 646,000 births, takes off 643,000 deaths and adds long-term net international migration of 77,000 for the year to 30 June 2026. The figure is provisional and ONS gives each part to the nearest thousand. It covers the UK and has no breakdown by council, age or sex, so no place page changes, and the projections on the national page still cover England and Wales only. ONS aims to publish full mid-2026 estimates, with local authorities, in summer 2027.",
+    sourceUrl: "https://ukdemographics.co.uk/national/#uk-latest-estimate"
+  },
+  {
     date: "2026-11-18",
     title: "Why the population changed: births, deaths and migration for every council",
     summary: `Each council now has a population change page (for example /places/burnley/population-change/). It shows births, deaths, moves within the UK, international migration and the other changes ONS records, and the parts add up exactly to the change in the ONS estimate, for the latest year and for every year since mid-2011. The figures are from ONS table MYEB3, published ${CHANGE_PUBLISHED_DAY}. A hub at /population-change/ lists every council A to Z, and each council has a CSV of the same figures. These are observed estimates: there is no projection and no breakdown by ethnic group.`,

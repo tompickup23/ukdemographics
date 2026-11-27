@@ -8,6 +8,21 @@ import rawProjections from "../data/live/ethnic-projections.json";
 import { getPublicPlaceAreas, slugifyAreaName } from "../lib/site";
 import ninoHistorical from "../data/live/nino-historical.json";
 import birthsHistory from "../data/live/births-history-national.json";
+import {
+  UK_COMPONENTS_SUM,
+  UK_ESTIMATE,
+  UK_ESTIMATE_ANCHOR,
+  UK_ESTIMATE_CHANGE,
+  UK_ESTIMATE_DAY,
+  UK_ESTIMATE_LABEL,
+  UK_ESTIMATE_PUBLISHED_DAY,
+  UK_ESTIMATE_READ_DAY,
+  UK_NATURAL_CHANGE,
+  UK_PREVIOUS_LABEL,
+  UK_PREVIOUS_PUBLISHED_DAY,
+  formatMillions,
+  formatWhole,
+} from "../lib/uk-provisional-estimate";
 
 const projData = rawProjections as any;
 const areas = getPublicPlaceAreas();
@@ -82,6 +97,23 @@ const bhPctPath = bhNonUkPct
   .map((v, i) => `${i === 0 ? "M" : "L"}${bhX(i)},${bhY(v ?? 0)}`)
   .join(" ");
 
+// --- UK provisional estimate (ONS, one figure for the whole UK) ---
+// The sentence is written for either direction so that a year in which the
+// population falls, or deaths exceed births, still reads correctly.
+const ukYearEndDay = UK_ESTIMATE_DAY;
+const ukChangeText = `${formatWhole(Math.abs(UK_ESTIMATE_CHANGE))} ${UK_ESTIMATE_CHANGE >= 0 ? "more" : "fewer"} than`;
+const ukNaturalText =
+  UK_NATURAL_CHANGE >= 0
+    ? `births exceeded deaths by ${formatWhole(UK_NATURAL_CHANGE)}`
+    : `deaths exceeded births by ${formatWhole(-UK_NATURAL_CHANGE)}`;
+const ukMigration = UK_ESTIMATE.netInternationalMigration;
+const ukMigrationText =
+  ukMigration >= 0
+    ? `long-term net international migration added ${formatWhole(ukMigration)}`
+    : `long-term net international migration took off ${formatWhole(-ukMigration)}`;
+// The parts are shown as adding up only when they do.
+const ukPartsAddUp = UK_COMPONENTS_SUM === UK_ESTIMATE_CHANGE;
+
 function fmtCompact(n: number) {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(2)}M`;
   if (n >= 1_000) return `${(n / 1_000).toFixed(0)}k`;
@@ -99,6 +131,8 @@ function fmtCompact(n: number) {
   <DataFreshness updated={projData.lastUpdated ?? "2026-04-14"} source="Census 2021, ONS SNPP, DWP NINo, ONS births by parents' COB" sourceUrl="https://www.ons.gov.uk/census" />
 
   <p class="desc">For age and sex year by year, see the <a href="/population-pyramids/">population pyramids</a> for England and Wales and for each council. For births, deaths and migration each year, see <a href="/population-change/">population change</a>.</p>
+
+  <p class="desc">The latest official figure for the whole UK is {formatWhole(UK_ESTIMATE.population)} people at {ukYearEndDay}, a provisional ONS estimate released {UK_ESTIMATE_PUBLISHED_DAY}. <a href={`#${UK_ESTIMATE_ANCHOR}`}>See the source and the parts behind it</a>.</p>
 
   <section class="stat-card-row">
     <StatCard
@@ -147,6 +181,32 @@ function fmtCompact(n: number) {
       />
     </section>
   )}
+
+  <section class="chart-section uk-estimate" id={UK_ESTIMATE_ANCHOR}>
+    <h2>UK population at {UK_ESTIMATE_LABEL}: {formatMillions(UK_ESTIMATE.population)}, provisional <span class="scope-tag">{UK_ESTIMATE.geography}</span></h2>
+    <p class="section-desc">ONS estimates that <strong>{formatWhole(UK_ESTIMATE.population)}</strong> people lived in the UK on {ukYearEndDay}. That is {ukChangeText} its estimate for {UK_PREVIOUS_LABEL} ({formatWhole(UK_ESTIMATE.previous.population)}). Over the year to {ukYearEndDay}, {ukNaturalText} and {ukMigrationText}.</p>
+    <div class="stat-card-row">
+      <StatCard
+        value={formatWhole(UK_ESTIMATE.population)}
+        label={`UK population, ${ukYearEndDay}`}
+        note="Provisional"
+      />
+      <StatCard
+        value={formatWhole(UK_ESTIMATE.births)}
+        label={`Births, year to ${ukYearEndDay}`}
+      />
+      <StatCard
+        value={formatWhole(UK_ESTIMATE.deaths)}
+        label={`Deaths, year to ${ukYearEndDay}`}
+      />
+      <StatCard
+        value={formatWhole(ukMigration)}
+        label={`Long-term net international migration, year to ${ukYearEndDay}`}
+      />
+    </div>
+    <p class="section-note">Source: {UK_ESTIMATE.source.publisher}, <a href={UK_ESTIMATE.source.url} rel="noopener"><cite data-dash-ok>{UK_ESTIMATE.source.title}</cite></a>, {UK_ESTIMATE.source.type.toLowerCase()}, {UK_ESTIMATE.source.sections}, released {UK_ESTIMATE_PUBLISHED_DAY} and read {UK_ESTIMATE_READ_DAY}. The estimate is provisional and ONS gives each figure to the nearest thousand.{ukPartsAddUp && ` The change from ${UK_PREVIOUS_LABEL} is the difference between the two estimates, and it equals births less deaths plus net migration.`} The {UK_PREVIOUS_LABEL} figure is the one the bulletin starts from; ONS first published it in <a href={UK_ESTIMATE.previous.url} rel="noopener"><cite data-dash-ok>{UK_ESTIMATE.previous.title}</cite></a> on {UK_PREVIOUS_PUBLISHED_DAY}.</p>
+    <p class="section-note">ONS publishes no breakdown of this figure by council, age or sex, so it appears on no place page, and ONS says it should not be compared with earlier estimates for smaller areas. {UK_ESTIMATE.source.replacedBy} Those estimates will replace this one. The projections on this page cover England and Wales only; this figure also covers Scotland and Northern Ireland.</p>
+  </section>
 
   <section class="chart-section">
     <h2>NINo registrations from overseas: 24-year arc <span class="scope-tag">United Kingdom</span></h2>
@@ -225,6 +285,12 @@ function fmtCompact(n: number) {
 
   .chart-section { margin-top: 2.5rem; }
   .chart-section h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin: 0 0 0.5rem; }
+
+  /* The UK estimate cards carry eight-digit figures, so each card is wider than
+     the default: one column on a phone, four on a desktop. The anchor sits
+     clear of the sticky header. */
+  .uk-estimate { scroll-margin-top: 7.5rem; }
+  .uk-estimate .stat-card-row { grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); max-width: 60rem; }
 
   /* Geography tag. The three sections on this page run on three different
      footprints: the projections are England and Wales, births are England and
