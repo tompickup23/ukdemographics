@@ -13,8 +13,11 @@
  * tests/coverage.test.ts fails the build if a hard-coded count comes back.
  *
  * 650 is the size of the House of Commons, not a count of anything in the data,
- * so it stays a literal here. 631 of those 650 have a page because the PCON
- * dataset is built from the seats the GE 2024 join resolves.
+ * so it stays a literal here. 632 of those 650 have a page because the PCON
+ * dataset is built from the seats the GE 2024 join resolves: every seat in
+ * Great Britain. The 18 in Northern Ireland are not in the DWP list the join
+ * takes its codes from. It was 631 until 27 November 2026, when Ynys Môn was
+ * found to have been dropped by a slug rule that turned its ô into a hyphen.
  *
  * This module reads ethnic-projections.json rather than calling
  * getPublicPlaceAreas() from src/lib/site.ts, because site.ts imports this
@@ -52,8 +55,8 @@ export function formatPlaceCount(noun = "local authorities"): string {
 }
 
 /**
- * The count with its denominator, "631 of 650" plus the noun. The denominator
- * is always shown, because 631 on its own reads as a claim to cover every seat.
+ * The count with its denominator, "632 of 650" plus the noun. The denominator
+ * is always shown, because 632 on its own reads as a claim to cover every seat.
  */
 export function formatPconCount(noun = "seats"): string {
   return `${PCON_COUNT} of ${PCON_UNIVERSE} ${noun}`;

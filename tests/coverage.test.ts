@@ -85,8 +85,21 @@ describe("coverage counts", () => {
   });
 
   it("derives the constituency count from the PCON dataset", () => {
-    expect(PCON_COUNT).toBe(631);
+    // 631 until 27 November 2026: Ynys Môn was missing (build-pcon-dataset.mjs slug rule).
+    expect(PCON_COUNT).toBe(632);
     expect(PCON_COUNT).toBe(getAllPcons().length);
+  });
+
+  it("has a page for every seat in Great Britain, and leaves out only Northern Ireland", () => {
+    // DWP's list (pip-pcon.json) names every seat in England, Wales and Scotland.
+    // A seat on that list with no page was dropped by the join, as Ynys Môn was.
+    const read = (p: string) => JSON.parse(fs.readFileSync(path.resolve(p), "utf8"));
+    const listed = Object.keys(read("src/data/live/pip-pcon.json").byPconCode).filter((c) => /^(E14|W07|S14)\d{6}$/.test(c));
+    const dataset = read("src/data/live/pcon-dataset.json");
+    expect(listed.filter((c) => !dataset.pcons[c])).toEqual([]);
+    expect(listed).toHaveLength(PCON_COUNT);
+    expect(dataset.unmatchedSlugs).toHaveLength(PCON_UNIVERSE - PCON_COUNT);
+    expect(getAllPcons().find((p) => p.code === "W07000112")?.slug).toBe("ynys-mon");
   });
 
   it("keeps the Commons at 650 seats and the coverage below it", () => {
@@ -97,8 +110,8 @@ describe("coverage counts", () => {
   it("formats both counts for copy", () => {
     expect(formatPlaceCount()).toBe("318 local authorities");
     expect(formatPlaceCount("councils")).toBe("318 councils");
-    expect(formatPconCount()).toBe("631 of 650 seats");
-    expect(formatPconCount("UK seats")).toBe("631 of 650 UK seats");
+    expect(formatPconCount()).toBe("632 of 650 seats");
+    expect(formatPconCount("UK seats")).toBe("632 of 650 UK seats");
   });
 
   it("has no hard-coded coverage counts left in src or public", () => {

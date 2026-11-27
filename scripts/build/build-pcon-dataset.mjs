@@ -45,7 +45,12 @@ const pipByCode = JSON.parse(
 // Build a slug → code lookup from PIP. PIP uses E14XXXXXXX codes (English),
 // S14/W14/N06 for Scotland/Wales/Northern Ireland.
 function slugify(name) {
+  // Accents are folded to their base letter first, so "Ynys Môn" gives
+  // "ynys-mon", the slug UK Elections uses. Without this the ô became a hyphen,
+  // the seat matched nothing and it was left out (found 27 November 2026).
   return name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/&/g, "and")
     .replace(/[''.,]/g, "")
@@ -116,7 +121,7 @@ for (const [ballotKey, ballot] of Object.entries(pconBallots)) {
 }
 
 const result = {
-  source: "Composite — GE 2024 shares from UKE backtest, PCON↔LAD24/LAD25 crosswalk from ONS, PCON names from DWP Stat-Xplore (via PIP)",
+  source: "Composite: GE 2024 shares from UKE backtest, PCON↔LAD24/LAD25 crosswalk from ONS, PCON names from DWP Stat-Xplore (via PIP)",
   generatedAt: new Date().toISOString(),
   constituencyCount: Object.keys(out).length,
   unmatchedSlugs: unmatched,
