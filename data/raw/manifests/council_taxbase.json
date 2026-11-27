@@ -6,12 +6,12 @@
   "discovery": "https://www.gov.uk/api/search.json?filter_organisations=ministry-of-housing-communities-local-government&filter_content_store_document_type=official_statistics&q=council+taxbase&count=50&fields=title,link,public_timestamp",
   "note": "Stored under a stable stem; the publisher's file name is published_file_name. Edition, snapshot date and figures are read from the workbook by scripts/transform/transform_council_tax_spd.py.",
   "current": {
-    "fileName": "council-taxbase-la-level_2025.xlsx",
-    "fileSha256": "9fd74444f25278b53f7666dc23ff060d1996adcfe27e74caf63aef2b5b19af06",
-    "sizeBytes": 1800242,
-    "sourceUrl": "https://assets.publishing.service.gov.uk/media/696f605ff6aa424b452e3359/2025_Local_Authority_Drop_Down.xlsx",
-    "edition": "Council Taxbase 2025 in England",
-    "landingPage": "https://www.gov.uk/government/statistics/council-taxbase-2025-in-england"
+    "fileName": "council-taxbase-la-level_2026.xlsx",
+    "fileSha256": "e0af5c99cb79d30dc77da12c189f58d8cf04ff41bd443fcae8f8782d5c944644",
+    "sizeBytes": 1802906,
+    "sourceUrl": "https://assets.publishing.service.gov.uk/media/6afc29ac47f792f4fbe08886/2026_Local_Authority_Drop_Down.xlsx",
+    "edition": "Council Taxbase 2026 in England",
+    "landingPage": "https://www.gov.uk/government/statistics/council-taxbase-2026-in-england"
   },
   "attempts": [
     {
@@ -127,6 +127,25 @@
       "edition_updated_at": "2026-01-21T09:30:00+00:00",
       "etag": "\"696f605f-1b7832\"",
       "last_modified": "Tue, 20 Jan 2026 11:00:47 GMT"
+    },
+    {
+      "url": "https://assets.publishing.service.gov.uk/media/6afc29ac47f792f4fbe08886/2026_Local_Authority_Drop_Down.xlsx",
+      "attempted_at": "2026-11-23T20:03:56.992Z",
+      "outcome": "stored",
+      "http_status": 200,
+      "robots_status": "absent",
+      "blob_sha256": "e0af5c99cb79d30dc77da12c189f58d8cf04ff41bd443fcae8f8782d5c944644",
+      "bytes": 1802906,
+      "user_agent": "ukdemographics-data-fetch",
+      "file_name": "council-taxbase-la-level_2026.xlsx",
+      "published_file_name": "2026_Local_Authority_Drop_Down.xlsx",
+      "attachment_title": "Council Taxbase: Local authority level data for 2026",
+      "landing_page": "https://www.gov.uk/government/statistics/council-taxbase-2026-in-england",
+      "edition": "Council Taxbase 2026 in England",
+      "edition_first_published_at": "2026-11-18T09:30:02+00:00",
+      "edition_updated_at": "2026-11-18T09:30:02+00:00",
+      "etag": "\"6afc29ac-1b829a\"",
+      "last_modified": "Tue, 17 Nov 2026 10:17:16 GMT"
     }
   ]
 }
