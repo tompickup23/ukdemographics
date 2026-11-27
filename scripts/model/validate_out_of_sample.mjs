@@ -45,14 +45,77 @@
  *   CCR_SHRINKAGE=1 CCR_SHRINK_K=10 node ...                      # shrinkage variant
  *   CCR_CEILING=3 node ...                                        # tighter ceiling
  *   node scripts/model/validate_out_of_sample.mjs --json          # machine-readable
+ *
+ * Coverage options (21 Oct 2026, V81_READINESS.md blocker 3). With none the
+ * scored set and every number are v8.0's: English authorities whose code is the
+ * same in all three censuses (285).
+ *
+ *   --countries E[,W]       code prefixes read from ST101 and DC2101EW (default E).
+ *                           W adds the 22 Welsh authorities, which both files hold.
+ *   --successors on|off     default off. On: an authority whose code changed after
+ *                           2011 (scripts/model/geography/lad11-successors.json and
+ *                           the April 2023 changes in src/data/lookups/lad22-to-lad23.json,
+ *                           through lib/geography.mjs successors2011()) is scored on
+ *                           the summed counts of its 2011 districts, on both sides:
+ *                           DC2101EW for 2011 and ST101 for 2001. ST101 is published
+ *                           on the same 2011 local authority geography as DC2101EW
+ *                           (the held files list the same 348 codes), so the 2001
+ *                           side uses the same districts. A successor is scored only
+ *                           if every one of its districts is in both files; any that
+ *                           is not is listed under coverage.successorGaps, never
+ *                           filled in.
+ *   --actual <file>         the Census 2021 shares scored against. Default
+ *                           src/data/live/ethnic-projections.json (current.groups).
+ *                           A base file from build_single_year_base.mjs (it has
+ *                           ethnicGroups) is read instead as 20 groups summed to six;
+ *                           its estimatedAreas are listed under coverage, since their
+ *                           cells are IPF fits whose group totals are RM032's.
+ *   --site-input <file>     the site file read for area names (and the default actual)
+ *   --st101 <file>, --dc2101ew <file>   the census files
+ *   --out <file>            where --write writes (default src/data/live/out-of-sample-validation.json)
+ *
+ *   node scripts/model/validate_out_of_sample.mjs --countries E,W --successors on \
+ *     --actual /tmp/v81/base_single_year_2021_v81.json --json > /tmp/v81/oos.json
  */
 import { readFileSync, existsSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { successors2011 } from "./lib/geography.mjs";
 
-const ST101 = path.resolve("data/raw/census_2001_ethnicity_age/st101_ethnicity_sex_age_la.csv");
-const DC2101EW = path.resolve("data/raw/census_2011_ethnicity_age/dc2101ew_ethnicity_sex_age_la.csv");
-const PROJ = path.resolve("src/data/live/ethnic-projections.json");
-const OUT = path.resolve("src/data/live/out-of-sample-validation.json");
+const argv = process.argv.slice(2);
+const flag = (name, fallback) => {
+  const i = argv.indexOf(`--${name}`);
+  if (i < 0) return fallback;
+  const v = argv[i + 1];
+  if (v === undefined || v.startsWith("--")) {
+    console.error(`--${name} needs a value`);
+    process.exit(2);
+  }
+  return v;
+};
+const KNOWN = new Set(["json", "write", "countries", "successors", "actual", "site-input", "st101", "dc2101ew", "out"]);
+for (const a of argv) {
+  if (a.startsWith("--") && !KNOWN.has(a.slice(2))) {
+    console.error(`unknown flag ${a}`);
+    process.exit(2);
+  }
+}
+
+const ST101 = path.resolve(flag("st101", "data/raw/census_2001_ethnicity_age/st101_ethnicity_sex_age_la.csv"));
+const DC2101EW = path.resolve(flag("dc2101ew", "data/raw/census_2011_ethnicity_age/dc2101ew_ethnicity_sex_age_la.csv"));
+const PROJ = path.resolve(flag("site-input", "src/data/live/ethnic-projections.json"));
+const ACTUAL = path.resolve(flag("actual", PROJ));
+const OUT = path.resolve(flag("out", "src/data/live/out-of-sample-validation.json"));
+const COUNTRIES = flag("countries", "E").split(",").map((c) => c.trim()).filter(Boolean);
+const SUCCESSORS = (() => {
+  const v = flag("successors", "off");
+  if (!["on", "off"].includes(v)) {
+    console.error(`--successors: expected on or off, got "${v}"`);
+    process.exit(2);
+  }
+  return v === "on";
+})();
+// Every coverage option at its default: the v8.0 test, whose output must not change.
+const DEFAULT_COVERAGE = COUNTRIES.join(",") === "E" && !SUCCESSORS && ACTUAL === PROJ;
 
 for (const [p, label] of [[ST101, "Census 2001 ST101"], [DC2101EW, "Census 2011 DC2101EW"]]) {
   if (!existsSync(p)) {
@@ -62,8 +125,8 @@ for (const [p, label] of [[ST101, "Census 2001 ST101"], [DC2101EW, "Census 2011 
   }
 }
 
-const asJson = process.argv.includes("--json");
-const writeOut = process.argv.includes("--write");
+const asJson = argv.includes("--json");
+const writeOut = argv.includes("--write");
 
 // Guardrail settings under test. The defaults mirror run_hp_single_year.mjs so
 // that running this with no environment set validates the model as published.
@@ -191,7 +254,7 @@ function loadCensus(file, ethMap, bands, cols) {
     if (!line.trim()) continue;
     const f = parseCsvLine(line);
     const code = f[cols.geo];
-    if (!code || !code.startsWith("E")) continue;
+    if (!code || !COUNTRIES.some((p) => code.startsWith(p))) continue;
     const group = ethMap[Number(f[cols.eth])];
     if (!group) continue;
     const band = bands[Number(f[cols.age])];
@@ -219,12 +282,84 @@ console.error("Loading Census 2011 DC2101EW...");
 const c2011 = loadCensus(DC2101EW, GROUPING === "detailed" ? ETH2011_DETAILED : ETH2011, BANDS_2011, { geo: 0, eth: 2, sex: 4, age: 6, val: 8 });
 console.error(`  ${c2011.areas.size} areas`);
 
+// Successors: the summed counts of their 2011 districts, on both sides. Only a
+// successor whose code neither file holds, and all of whose districts both files
+// hold, is summed; anything else is reported, not estimated.
+const successorsSummed = [];
+const successorGaps = [];
+if (SUCCESSORS) {
+  const sumInto = (census, succ, preds) => {
+    const add = new Map();
+    for (const [key, v] of census.pop) {
+      const bar = key.indexOf("|");
+      if (preds.includes(key.slice(0, bar))) {
+        const k = succ + key.slice(bar);
+        add.set(k, (add.get(k) || 0) + v);
+      }
+    }
+    for (const [k, v] of add) census.pop.set(k, v);
+    census.areas.add(succ);
+  };
+  for (const [succ, preds] of Object.entries(successors2011())) {
+    if (!COUNTRIES.some((p) => succ.startsWith(p))) continue;
+    const in01 = c2001.areas.has(succ), in11 = c2011.areas.has(succ);
+    if (in01 && in11) continue; // held under its current code in both files
+    if (in01 !== in11) {
+      successorGaps.push({ code: succ, reason: `held under its current code in ${in01 ? "ST101" : "DC2101EW"} only` });
+      continue;
+    }
+    const missing = [
+      ...preds.filter((p) => !c2001.areas.has(p)).map((p) => `${p} (ST101)`),
+      ...preds.filter((p) => !c2011.areas.has(p)).map((p) => `${p} (DC2101EW)`),
+    ];
+    if (!preds.length || missing.length) {
+      successorGaps.push({ code: succ, reason: preds.length ? `2011 districts missing: ${missing.join(", ")}` : "no 2011 districts listed" });
+      continue;
+    }
+    sumInto(c2001, succ, preds);
+    sumInto(c2011, succ, preds);
+    successorsSummed.push({ code: succ, districts2011: preds });
+  }
+  console.error(`  ${successorsSummed.length} successors summed from their 2011 districts in both censuses; ${successorGaps.length} gaps`);
+  for (const g of successorGaps) console.error(`  gap: ${g.code} ${g.reason}`);
+}
+
 const projections = JSON.parse(readFileSync(PROJ, "utf8")).areas;
+
+// The Census 2021 shares scored against: the site file's current.groups, or a
+// 2021 base file summed from 20 groups to six.
+const BROAD_OF_20 = {
+  WBI: "white_british", WIR: "white_other", WGT: "white_other", WRO: "white_other", WHO: "white_other",
+  MWA: "mixed", MWF: "mixed", MWC: "mixed", MOM: "mixed",
+  IND: "asian", PAK: "asian", BAN: "asian", CHI: "asian", OAS: "asian",
+  BAF: "black", BCA: "black", OBL: "black",
+  ARB: "other", OOT: "other"
+};
+const actualDoc = ACTUAL === PROJ ? null : JSON.parse(readFileSync(ACTUAL, "utf8"));
+const actualFromBase = Array.isArray(actualDoc?.ethnicGroups);
+const actualGroups = new Map();
+for (const [code, area] of Object.entries(actualDoc ? actualDoc.areas : projections)) {
+  if (!actualFromBase) {
+    if (area?.current?.groups?.white_british != null) actualGroups.set(code, area.current.groups);
+    continue;
+  }
+  const sums = Object.fromEntries(SIMPLE.map((g) => [g, 0]));
+  let total = 0;
+  for (const eth of actualDoc.ethnicGroups) {
+    const v = (area[eth]?.M?.total || 0) + (area[eth]?.F?.total || 0);
+    if (!BROAD_OF_20[eth]) throw new Error(`${ACTUAL}: unknown group ${eth}`);
+    sums[BROAD_OF_20[eth]] += v;
+    total += v;
+  }
+  if (total <= 0) continue;
+  // Rounded as run_hp_single_year.mjs rounds current.groups.
+  actualGroups.set(code, Object.fromEntries(SIMPLE.map((g) => [g, Math.round(sums[g] / total * 10000) / 100])));
+}
 
 // Scored set: present in both censuses and carrying a Census 2021 observation.
 const codes = [...c2001.areas]
   .filter((c) => c2011.areas.has(c))
-  .filter((c) => projections[c]?.current?.groups?.white_british != null)
+  .filter((c) => actualGroups.has(c))
   .sort();
 console.error(`  ${codes.length} areas scored\n`);
 
@@ -307,11 +442,11 @@ for (const code of codes) {
   }
   if (total <= 0) continue;
 
-  const actual = projections[code].current.groups;
+  const actual = actualGroups.get(code);
   const predicted = {};
   for (const g of SIMPLE) predicted[g] = (totals[g] / total) * 100;
 
-  const row = { code, areaName: projections[code].areaName, predicted: {}, actual: {}, error: {} };
+  const row = { code, areaName: projections[code]?.areaName ?? null, predicted: {}, actual: {}, error: {} };
   for (const g of SIMPLE) {
     row.predicted[g] = Math.round(predicted[g] * 100) / 100;
     row.actual[g] = actual[g] ?? null;
@@ -364,6 +499,25 @@ const out = {
   summary,
   areas: results
 };
+if (!DEFAULT_COVERAGE) {
+  // Kept out of the default output so the v8.0 file is unchanged.
+  const summedCodes = new Set(successorsSummed.map((s) => s.code));
+  for (const r of results) if (summedCodes.has(r.code)) r.basis = "summed 2011 districts in 2001 and 2011";
+  out.coverage = {
+    countries: COUNTRIES,
+    successors: SUCCESSORS,
+    actual: actualFromBase ? `2021 base ${path.basename(ACTUAL)} (20 groups summed to six)` : `current.groups of ${path.basename(ACTUAL)}`,
+    successorsSummed: successorsSummed.filter((s) => results.some((r) => r.code === s.code)),
+    successorGaps,
+    estimatedActual: actualFromBase ? Object.keys(actualDoc.estimatedAreas ?? {}).filter((c) => results.some((r) => r.code === c)) : [],
+    byCountry: Object.fromEntries(COUNTRIES.map((p) => [p, results.filter((r) => r.code.startsWith(p)).length])),
+  };
+  out.design +=
+    " Coverage extended: " +
+    (COUNTRIES.includes("W") ? "Welsh authorities included; " : "") +
+    (SUCCESSORS ? "authorities whose code changed after 2011 are scored on the summed counts of their 2011 districts in both ST101 and DC2101EW; " : "") +
+    `actual shares from ${out.coverage.actual}.`;
+}
 
 if (writeOut) {
   writeFileSync(OUT, JSON.stringify(out, null, 2), "utf8");

@@ -12,14 +12,56 @@
  * the CCRs for young cohorts need adjustment.
  *
  * Output: src/data/live/school-validation.json
+ *
+ * OPTIONS (21 Oct 2026, V81_READINESS.md blocker 4). With none the run is the
+ * v8.0 one: same inputs, same output path.
+ *
+ *   --base <file>         2021 single-year base (default data/model/base_single_year_2021.json);
+ *                         for v8.1 the base from build_single_year_base.mjs --include-wales
+ *                         --geography 2023 --fallback rm032, so the calibration covers
+ *                         the authorities v8.0 did not model
+ *   --dfe <file>          DfE pupils by ethnicity CSV (default data/raw/dfe_schools/spc_pupils_ethnicity_and_language.csv)
+ *   --projections <file>  the site file read for names and totals (default src/data/live/ethnic-projections.json)
+ *   --output <file>       where to write (default src/data/live/school-validation.json);
+ *                         point it at a scratch file until the result is to be published
+ *
+ *   node scripts/model/validate_schools.mjs --base /tmp/v81/base_single_year_2021_v81.json --output /tmp/v81/school-validation.json
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, lstatSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
-const DFE_CSV = path.resolve("data/raw/dfe_schools/spc_pupils_ethnicity_and_language.csv");
-const PROJECTIONS = path.resolve("src/data/live/ethnic-projections.json");
-const BASE_POP = path.resolve("data/model/base_single_year_2021.json");
-const OUTPUT = path.resolve("src/data/live/school-validation.json");
+const argv = process.argv.slice(2);
+const FLAGS = {};
+for (let i = 0; i < argv.length; i++) {
+  const a = argv[i];
+  const [name, inline] = a.startsWith("--") ? a.slice(2).split("=", 2) : [null];
+  if (!["base", "dfe", "projections", "output"].includes(name)) {
+    console.error(`unknown argument "${a}" (flags: --base, --dfe, --projections, --output)`);
+    process.exit(2);
+  }
+  const value = inline ?? argv[++i];
+  if (value === undefined) {
+    console.error(`--${name} needs a value`);
+    process.exit(2);
+  }
+  FLAGS[name] = value;
+}
+
+const DEFAULT_BASE = path.resolve("data/model/base_single_year_2021.json");
+const DFE_CSV = path.resolve(FLAGS.dfe ?? "data/raw/dfe_schools/spc_pupils_ethnicity_and_language.csv");
+const PROJECTIONS = path.resolve(FLAGS.projections ?? "src/data/live/ethnic-projections.json");
+const BASE_POP = path.resolve(FLAGS.base ?? DEFAULT_BASE);
+const OUTPUT = path.resolve(FLAGS.output ?? "src/data/live/school-validation.json");
+if (existsSync(OUTPUT) && lstatSync(OUTPUT).isSymbolicLink()) {
+  console.error(`Refusing to write through a symlink: ${OUTPUT}`);
+  process.exit(2);
+}
+if (FLAGS.base && !existsSync(BASE_POP)) {
+  // The default run carries on without a base (total-population comparison
+  // only); a base asked for by name must exist.
+  console.error(`--base: ${BASE_POP} not found`);
+  process.exit(2);
+}
 
 // Map DfE ethnicity categories to our 6-group model
 const ETH_MAP = {
@@ -360,6 +402,10 @@ const output = {
   validationStats: stats,
   areas: validationResults
 };
+if (BASE_POP !== DEFAULT_BASE) {
+  // Recorded only for a non-default base, so the default output is unchanged.
+  output.base = { file: BASE_POP, source: basePop?.source ?? null, estimatedAreas: Object.keys(basePop?.estimatedAreas ?? {}) };
+}
 
 writeFileSync(OUTPUT, JSON.stringify(output, null, 2), "utf8");
 

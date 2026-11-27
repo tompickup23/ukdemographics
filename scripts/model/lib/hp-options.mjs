@@ -26,6 +26,13 @@
  *   --model-version <string>        HP_MODEL_VERSION       8.0-out-of-sample-calibrated
  *   --run-record <file>             HP_RUN_RECORD          <output>.run.json, or data/model/runs/ for a site write
  *
+ * run_stochastic_hp.mjs reads the same options through this parser, so its
+ * bands are drawn around the projection these options produce. It adds two of
+ * its own, passed in as extraFlags:
+ *
+ *   --simulations <n>               HP_SIMULATIONS         1000
+ *   --noise on|off                  HP_NOISE               on (off: the zero-noise check)
+ *
  * "all-persons" sums the 20 groups into one before ratios are computed, which is
  * the economy model's use of this engine (UK State plan, E1 part 2). The Brexit
  * damp and the School Census calibration act on named ethnic groups and cannot
@@ -56,7 +63,14 @@ const onOff = (value, name) => {
   throw new Error(`${name}: expected on or off, got "${value}"`);
 };
 
-export function parseHpOptions(argv = process.argv.slice(2), env = process.env) {
+/**
+ * @param {object} [spec]
+ * @param {string[]} [spec.extraFlags]  further flags the calling script accepts;
+ *   their raw values (flag, else HP_<NAME> in the environment) come back in opts.extra
+ * @param {string} [spec.recordPrefix]  file-name prefix of a site run's record
+ *   in data/model/runs/ (default "hp")
+ */
+export function parseHpOptions(argv = process.argv.slice(2), env = process.env, spec = {}) {
   const flags = {};
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -70,6 +84,7 @@ export function parseHpOptions(argv = process.argv.slice(2), env = process.env) 
     "groups", "snpp-cap", "cap-mode", "control-totals", "brexit-damp", "school-calibration",
     "base", "dc2101ew", "newethpop-2011", "countries-2011", "successors-2011", "school-validation", "site-input",
     "output", "format", "model-version", "run-record",
+    ...(spec.extraFlags ?? []),
   ]);
   for (const k of Object.keys(flags)) if (!known.has(k)) throw new Error(`unknown flag --${k}`);
 
@@ -124,11 +139,16 @@ export function parseHpOptions(argv = process.argv.slice(2), env = process.env) 
     format,
     modelVersion: pick("model-version", "HP_MODEL_VERSION", DEFAULTS.modelVersion),
   };
+  opts.extra = {};
+  for (const f of spec.extraFlags ?? []) {
+    const v = pick(f, `HP_${f.toUpperCase().replace(/-/g, "_")}`, undefined);
+    if (v !== undefined) opts.extra[f] = v;
+  }
   const record = pick("run-record", "HP_RUN_RECORD", undefined);
   opts.runRecord = record
     ? resolve(record)
     : output === siteInput
-      ? resolve(`data/model/runs/hp-${new Date().toISOString().replace(/[:.]/g, "-")}.json`)
+      ? resolve(`data/model/runs/${spec.recordPrefix ?? "hp"}-${new Date().toISOString().replace(/[:.]/g, "-")}.json`)
       : `${output}.run.json`;
   return opts;
 }
