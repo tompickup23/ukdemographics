@@ -3,7 +3,7 @@
  * ONS small area release (register row R629).
  *
  * The figures are ONS's, by single year of age and sex, exactly as published. The file
- * is built by scripts/build/build-pcon-population.mjs from a table downloaded by hand
+ * is built by scripts/build/build-pcon-population.mjs from one query in the Nomis query tool, made in a browser,
  * and holds no seat until that has run: `status` is "awaiting" and every lookup here
  * returns null, so the constituency page draws nothing new. Scottish seats are not in
  * this release and never have a figure.

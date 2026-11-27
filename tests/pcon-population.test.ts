@@ -32,8 +32,9 @@ import { getAllPcons } from "../src/lib/pcon-data";
  * Constituency population and age from the ONS small area release (register row R629).
  *
  * No published figure is pinned here. The reader is tested on tables made up in this
- * file, because no real table had been seen when it was written; the made-up counts
- * never leave the tests. The data file is checked in whichever state it is in: empty
+ * file; the made-up counts never leave the tests. One of them copies the shape of the
+ * CSV the Nomis query tool gave for mid-2024 on 27 November 2026, line for line. The
+ * data file is checked in whichever state it is in: empty
  * while the release is awaited, and against the mid-year estimates file once built.
  */
 
@@ -79,6 +80,20 @@ function wideTable(codes: string[], style: "joined" | "split"): string {
   return lines.join("\r\n") + "\r\n";
 }
 
+/** The shape of the query tool's CSV: a block per sex, name then code then "All Ages" then the ages. */
+function nomisTable(codes: string[], year = "2025"): string {
+  const ages = Array.from({ length: AGE_COUNT }, (_, age) => `"${ageLabel(age)}"`);
+  const lines: string[] = [];
+  for (const [label, sex] of [["Male", "M"], ["Female", "F"]] as const) {
+    lines.push("", '"Population estimates - small area (2021 based) by single year of age - England and Wales"', '"ONS Crown Copyright Reserved [from Nomis on 27 November 2026]"');
+    lines.push(`"Date       :","${year}"`, `"Gender     :","${label}"`, "");
+    lines.push(['"Westminster Parliamentary Constituency (July 2024)"', '"mnemonic"', '"All Ages"', ...ages].join(","), "");
+    codes.forEach((code, seat) => lines.push([`"Seat ${seat}, North"`, `"${code}"`, sum(counts(seat, sex)), ...counts(seat, sex)].join(",")));
+    lines.push("", "", "");
+  }
+  return lines.join("\n") + "\n";
+}
+
 describe("reading a constituency table", () => {
   it("reads age and sex labels and nothing else as a single year of age", () => {
     expect(ageFromLabel("Age 0")).toBe(0);
@@ -114,6 +129,19 @@ describe("reading a constituency table", () => {
     }
   });
 
+  it("reads the query tool's own CSV shape, with each row's figure for all ages", () => {
+    const table = readPconTable(nomisTable([englishCode(0), englishCode(1), welshCode(31)]));
+    expect(table.layout).toBe("wide");
+    expect(table.dates).toEqual(["2025"]);
+    expect([...table.seats.keys()]).toEqual([englishCode(0), englishCode(1), welshCode(31)]);
+    const seat = table.seats.get(welshCode(31));
+    expect(seat.name).toBe("Seat 2, North");
+    expect(seat.M).toEqual(counts(2, "M"));
+    expect(seat.F).toEqual(counts(2, "F"));
+    expect(table.sexTotals.get(`${welshCode(31)} F`)).toBe(sum(counts(2, "F")));
+    expect(table.sexTotals.size).toBe(6);
+  });
+
   it("stops on a table it cannot read, and on a value that is not a count", () => {
     expect(() => readPconTable("Area,Value\nBurnley,1\n")).toThrow(/no constituency rows found/);
     expect(() => readPconTable(longTable([englishCode(0)]).replace(/,Male,Age 5,Value,\d+/, ",Male,Age 5,Value,c"))).toThrow(/is not a count/);
@@ -147,20 +175,30 @@ describe("checks before any figure is written", () => {
     expect(off[0]).toMatch(/Welsh seats add to/);
   });
 
+  it("names a seat whose ages for one sex do not add to that row's figure for all ages", () => {
+    const whole = readPconTable(nomisTable(allCodes));
+    expect(checkPconTable(whole, { countryTotals })).toEqual([]);
+    const stated = sum(counts(3, "M"));
+    const text = nomisTable(allCodes).replace(`"${englishCode(3)}",${stated},`, `"${englishCode(3)}",${stated + 2},`);
+    const problems = checkPconTable(readPconTable(text));
+    expect(problems).toHaveLength(1);
+    expect(problems[0]).toMatch(new RegExp(`${englishCode(3)}: sex M ages add to ${stated}, the table's own figure for all ages is ${stated + 2}`));
+  });
+
   it("names a seat whose ages do not add to the table's own total", () => {
     const text = longTable(allCodes).replace(new RegExp(`(${englishCode(9)},Total,All Ages,Value,)(\\d+)`), (_, lead, n) => `${lead}${Number(n) + 5}`);
     expect(checkPconTable(readPconTable(text)).join("; ")).toMatch(new RegExp(`${englishCode(9)}: ages add to`));
   });
 });
 
-describe("the script that records a hand download", () => {
+describe("the script that records the downloaded table", () => {
   const script = "scripts/fetch/adopt-ons-pcon-estimates.mjs";
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "pcon-adopt-"));
   // fetch() is replaced before the script loads: any request ends the run with 99.
   const trap = path.join(dir, "trap.mjs");
   fs.writeFileSync(trap, 'globalThis.fetch = () => { process.stderr.write("FETCH CALLED\\n"); process.exit(99); };\n');
   const run = (args: string[]) => spawnSync(process.execPath, ["--import", trap, script, ...args], { cwd: path.resolve("."), encoding: "utf8" });
-  const flags = ["--reference-date", "2025-06-30", "--retrieved-at", "2026-12-01T10:00:00Z", "--retrieved-by", "hand", "--dry-run"];
+  const flags = ["--reference-date", "2025-06-30", "--retrieved-at", "2026-12-01T10:00:00Z", "--retrieved-by", "a test", "--dry-run"];
 
   it("reads the file, reports it and writes nothing on a dry run, with no request", () => {
     const file = path.join(dir, "sample.csv");
@@ -177,7 +215,7 @@ describe("the script that records a hand download", () => {
     fs.writeFileSync(book, "not a table");
     expect(run(["--adopt", book, ...flags]).status).toBe(2);
     const file = path.join(dir, "sample.csv");
-    expect(run(["--adopt", file, "--reference-date", "2025-12-31", "--retrieved-at", "2026-12-01", "--retrieved-by", "hand"]).status).toBe(2);
+    expect(run(["--adopt", file, "--reference-date", "2025-12-31", "--retrieved-at", "2026-12-01", "--retrieved-by", "a test"]).status).toBe(2);
     expect(run(["--adopt", file]).status).toBe(2);
   });
 

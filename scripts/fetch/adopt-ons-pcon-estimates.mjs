@@ -1,17 +1,20 @@
 /**
- * Records a hand-downloaded table of ONS population estimates for Westminster
- * constituencies by single year of age and sex. It makes no request of any kind.
+ * Records a table of ONS population estimates for Westminster constituencies by
+ * single year of age and sex, downloaded in a browser. It makes no request of any kind.
  *
- * Why by hand: on 25 November 2024 ONS stopped releasing constituency estimates on
- * ons.gov.uk ("Parliamentary Constituency population estimates are no longer released
- * on this page. Latest estimates, and all data for 2012 onwards, are available on the
- * Nomis website", read 27 November 2026 on the dataset page). The Nomis dataset is
- * "Population estimates - small area" (reference PESTOA2021). Its robots.txt disallows
- * /query/ and the dataset interface for all agents (read 27 November 2026), so no
- * script here fetches it. A person using the query tool in a browser is not a robot.
+ * Why not a fetch script: on 25 November 2024 ONS stopped releasing constituency
+ * estimates on ons.gov.uk ("Parliamentary Constituency population estimates are no
+ * longer released on this page. Latest estimates, and all data for 2012 onwards, are
+ * available on the Nomis website", read 27 November 2026 on the dataset page). The
+ * Nomis dataset is "Population estimates - small area" (reference PESTOA2021). Its
+ * robots.txt disallows /query/ and the dataset interface for all agents (read 27
+ * November 2026), so no script here requests it. The table comes from one query in
+ * the query tool, in a browser, once a year. --retrieved-by says who made it and how:
+ * on 27 November 2026 Tom had the mid-2024 sample made in his own Chrome by Claude.
  *
  *   node scripts/fetch/adopt-ons-pcon-estimates.mjs --adopt <file> \
- *     --reference-date 2025-06-30 --retrieved-at <iso> --retrieved-by hand [--dry-run]
+ *     --reference-date 2025-06-30 --retrieved-at <iso> \
+ *     --retrieved-by "<who, and how>" [--dry-run]
  *
  * The file is copied to data/raw/ons_pcon_estimates/ (not in git) and its hash, size
  * and the facts above go to data/raw/manifests/ons_pcon_estimates.json (in git).
@@ -38,7 +41,7 @@ const rawDir = path.resolve("data/raw/ons_pcon_estimates");
 const manifestPath = path.resolve("data/raw/manifests/ons_pcon_estimates.json");
 
 if (!adoptPath || !referenceDate || !retrievedAt || !retrievedBy) {
-  console.error("Needs --adopt <file> --reference-date <yyyy-06-30> --retrieved-at <iso> --retrieved-by <hand|name of the route>");
+  console.error("Needs --adopt <file> --reference-date <yyyy-06-30> --retrieved-at <iso> --retrieved-by <who made the query, and how>");
   process.exit(2);
 }
 if (!/^\d{4}-06-30$/.test(referenceDate)) {
@@ -62,7 +65,7 @@ const table = readPconTable(bytes.toString("utf8"));
 
 const attempt = {
   attempted_at: new Date().toISOString(),
-  outcome: "adopted_hand_download",
+  outcome: "adopted_browser_download",
   retrieved_at: retrievedAt,
   retrieved_by: retrievedBy,
   reference_date: referenceDate,
@@ -86,7 +89,7 @@ const manifest = {
   release: "Population estimates by output areas, electoral, health and other geographies, England and Wales",
   cadence: "annual",
   landing: "https://www.nomisweb.co.uk/datasets/pestoa2021",
-  route: "Downloaded by hand from the publisher's query tool. No script requests it: robots.txt disallows the query tool and the dataset interface.",
+  route: "One query in the publisher's query tool, made in a browser. No script requests it: robots.txt disallows the query tool and the dataset interface to all agents. retrievedBy says who made the query and how.",
   current: { fileName: name, fileSha256: attempt.blob_sha256, sizeBytes: attempt.bytes, referenceDate, retrievedAt, retrievedBy },
   attempts
 };

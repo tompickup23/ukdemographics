@@ -1,17 +1,17 @@
 /**
  * Reads a table of population by single year of age and sex for Westminster
- * constituencies, as downloaded by hand from the publisher's query tool.
+ * constituencies, as the publisher's query tool gives it.
  *
  * ONS stopped publishing constituency estimates as workbooks on ons.gov.uk on
- * 25 November 2024 and sends users to Nomis. Nomis's robots.txt disallows both its
- * query tool and its dataset interface to scripts, so a person downloads the table
- * and scripts/fetch/adopt-ons-pcon-estimates.mjs records it. No real file had been
- * seen when this was written (27 November 2026), so the reader takes the two shapes
- * a table of this kind can have and stops, saying what it found, on anything else:
+ * 25 November 2024 and sends users to Nomis. The table comes from one query in the
+ * Nomis query tool, made in a browser, and scripts/fetch/adopt-ons-pcon-estimates.mjs
+ * records the file. No script requests it. The reader takes two shapes and stops,
+ * saying what it found, on anything else:
  *
+ *   wide   what the query tool gives as CSV (seen 27 November 2026, mid-2024 table):
+ *          a block per sex under a line such as "Gender     :","Male", a row per
+ *          constituency (name, code, "All Ages", then a column per age)
  *   long   one row per constituency, sex and age, with a header naming the columns
- *   wide   one block per sex, a row per constituency and a column per age, with
- *          the sex named on a line above the block
  *
  * Nothing here estimates or fills a gap. A seat without all 91 ages for both sexes
  * fails the build.
@@ -119,14 +119,16 @@ function readLong(rows, headerAt) {
     seat[sex][age] = value;
     seats.set(code, seat);
   }
-  return { layout: "long", seats, dates: [...dates], totals };
+  return { layout: "long", seats, dates: [...dates], totals, sexTotals: new Map() };
 }
 
 function readWide(rows) {
   const seats = new Map();
   const dates = new Set();
+  const sexTotals = new Map();
   let sex = null;
   let ages = null;
+  let allAgesAt = -1;
   for (const r of rows) {
     const cells = r.filter((c) => c !== "");
     if (cells.length === 0) continue;
@@ -137,14 +139,20 @@ function readWide(rows) {
     const dateLine = /^(date|year)\s*:?\s*(.+)$/i.exec(flat);
     if (dateLine && cells.length <= 2) { dates.add(dateLine[2].trim()); continue; }
     const ageCols = r.map((c) => ageFromLabel(c));
-    if (ageCols.filter((a) => a !== null).length >= AGE_COUNT) { ages = ageCols; continue; }
+    if (ageCols.filter((a) => a !== null).length >= AGE_COUNT) {
+      ages = ageCols;
+      allAgesAt = r.findIndex((c) => /^all ages$/i.test(c));
+      continue;
+    }
     const codeAt = r.findIndex((c) => PCON_CODE.test(c));
     if (codeAt < 0) continue;
     if (!ages) throw new Error(`wide table: a constituency row before any row of age headings: [${r.slice(0, 4).join(" | ")}]`);
     if (!sex) throw new Error(`wide table: a constituency row before any line naming the sex: [${r.slice(0, 4).join(" | ")}]`);
     if (sex === "T") continue;
     const code = PCON_CODE.exec(r[codeAt])[1];
-    const name = r[codeAt].replace(code, "").replace(/^[\s:,-]+|[\s:,-]+$/g, "") || (r[codeAt + 1] && countFrom(r[codeAt + 1]) === null ? r[codeAt + 1] : "");
+    // The name shares the code's cell, or sits in the cell before it or after it.
+    const beside = [r[codeAt - 1], r[codeAt + 1]].find((c) => c && countFrom(c) === null && ageFromLabel(c) === null);
+    const name = r[codeAt].replace(code, "").replace(/^[\s:,-]+|[\s:,-]+$/g, "") || beside || "";
     const seat = seats.get(code) ?? { name, M: [], F: [] };
     if (seat[sex].length) throw new Error(`${code}: two rows for sex ${sex}`);
     ages.forEach((age, i) => {
@@ -154,8 +162,11 @@ function readWide(rows) {
       seat[sex][age] = value;
     });
     seats.set(code, seat);
+    // The block's own "All Ages" figure for this sex, where it has one.
+    const stated = allAgesAt >= 0 ? countFrom(r[allAgesAt] ?? "") : null;
+    if (stated !== null) sexTotals.set(`${code} ${sex}`, stated);
   }
-  return { layout: "wide", seats, dates: [...dates], totals: new Map() };
+  return { layout: "wide", seats, dates: [...dates], totals: new Map(), sexTotals };
 }
 
 /** Reads either shape. Throws, naming what it saw, when the text is neither. */
@@ -192,6 +203,10 @@ export function checkPconTable(table, { countryTotals } = {}) {
     const seat = table.seats.get(code);
     for (const sex of ["M", "F"]) {
       if (!complete(seat[sex])) problems.push(`${code}: sex ${sex} does not have ${AGE_COUNT} whole, non-negative counts`);
+      const stated = table.sexTotals.get(`${code} ${sex}`);
+      if (stated !== undefined && complete(seat[sex]) && stated !== sum(seat[sex])) {
+        problems.push(`${code}: sex ${sex} ages add to ${sum(seat[sex])}, the table's own figure for all ages is ${stated}`);
+      }
     }
     const published = table.totals.get(code);
     if (published !== undefined && complete(seat.M) && complete(seat.F) && published !== sum(seat.M) + sum(seat.F)) {

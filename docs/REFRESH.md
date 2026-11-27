@@ -72,29 +72,40 @@ python3 scripts/transform/transform_asc.py
 
 A local run writes to the manifests. Commit them only with the data they describe, as the workflow does.
 
-## Constituency population: one hand download a year
+## Constituency population: one browser download a year
 
 `src/data/live/pcon-population.json` holds the ONS estimate of population by single year of age and sex for each Westminster constituency in England and Wales (register row R629). It is not part of the weekly run and no script fetches it.
 
-Why by hand. On 25 November 2024 ONS stopped releasing constituency estimates as workbooks on ons.gov.uk; the dataset page there says the latest estimates are on Nomis. The Nomis dataset is "Population estimates - small area" (reference PESTOA2021, `nomisweb.co.uk/datasets/pestoa2021`). Nomis's robots.txt disallows `/query/` and its dataset interface for all agents (both read 27 November 2026), so a person downloads the table in a browser and the repo records it.
+Why not a fetch script. On 25 November 2024 ONS stopped releasing constituency estimates as workbooks on ons.gov.uk; the dataset page there says the latest estimates are on Nomis. The Nomis dataset is "Population estimates - small area" (reference PESTOA2021, `nomisweb.co.uk/datasets/pestoa2021`), and its only download routes are the query tool and the dataset interface. Nomis's robots.txt disallows both for all agents (read 27 November 2026). So no script in this repo requests the table. It comes from one query a year in the query tool, in a browser.
+
+Who makes the query is recorded with the file. On 27 November 2026 Tom chose to have the mid-2024 sample made in his own Chrome by Claude: one query, no sign-in, 105,800 cells, a CSV of 467 KB. That sample proved the reader and is not published or committed.
 
 On the day of the release (mid-2025: 1 December 2026 at 9:30am, per the ONS release page):
 
 1. Check the ONS release page is published and copy its title and date.
-2. In a browser, open the Nomis dataset and query it for: geography, every 2024 parliamentary constituency in England and Wales (575 seats); date, the new mid-year; sex, male and female; age, every single year from 0 to 89 and 90 and over. Download as CSV. Totals and age bands may be left in: the reader ignores them, apart from checking a seat's own total where the table gives one.
+2. Open `nomisweb.co.uk/datasets/pestoa2021`, choose "Query data", then:
+   - Geography: set "Westminster Parliamentary Constituencies (July 2024)" to "All" (575 seats).
+   - Date: the new mid-year.
+   - Age: under "Individual ages and 5 year age bands", tick the third quick-select box, "Select all Individual age at this level (91 selections)". That is Age 0 to Age 89 and Aged 90+. "All Ages" may stay ticked.
+   - Sex: tick Male and Female, untick Total.
+   - Format / Layout: "Comma separated values (.csv)", columns Age, rows geography, round to nearest 0, and tick "Include area codes".
+   - "Download Data", then the "Download data (.csv)" link.
 3. Record the file, then build:
 
 ```sh
 node scripts/fetch/adopt-ons-pcon-estimates.mjs --adopt <file.csv> \
-  --reference-date 2025-06-30 --retrieved-at <iso time of the download> --retrieved-by hand
+  --reference-date 2025-06-30 --retrieved-at <iso time of the download> \
+  --retrieved-by "<who made the query, and how>"
 node scripts/build/build-pcon-population.mjs --published 2026-12-01 \
   --release-title "<title copied from the ONS release page>" --release-url <the ONS release page>
 npm test
 ```
 
-The reader (`scripts/lib/pcon-population.mjs`) takes a long table (a row per seat, sex and age) or a wide one (a block per sex, a column per age). It was written before any real file had been seen, so if it stops it prints the first lines it found: adjust the reader, never the file. The build writes nothing unless all 575 seats have 91 ages for both sexes and the seats in each country add exactly to that country's mid-year estimate in `population-estimates.json`. If that last check fails, find out why before publishing anything.
+The reader (`scripts/lib/pcon-population.mjs`) takes the query tool's CSV: a block per sex, and in each a row per seat with its name, code, a figure for all ages and a column per age. It also takes a long table (a row per seat, sex and age). If it stops it prints the first lines it found: adjust the reader, never the file.
 
-Until the build has run the file says `"status": "awaiting"` and constituency pages are unchanged. Once it has, each English and Welsh constituency page shows the ONS figure in place of the snapshot estimated from council figures. Scottish seats are not in the release. Ynys Môn (W07000112) is in the release but has no page: it is missing from `pcon-dataset.json`.
+The build writes nothing unless all 575 seats have 91 ages for both sexes, each row's ages add to its own figure for all ages, and the seats in each country add exactly to that country's mid-year estimate in `population-estimates.json`. The last check held on the mid-2024 sample: its seats add to 58,620,101 for England and 3,186,581 for Wales, the mid-2024 estimates as ONS published them in July 2025 (held in `population-estimates.json` under `revisions`). If it fails on a new edition, find out why before publishing anything.
+
+Until the build has run the file says `"status": "awaiting"` and constituency pages are unchanged. Once it has, each English and Welsh constituency page shows the ONS figure in place of the snapshot estimated from council figures (Tom's decision, 27 November 2026). Scottish seats are not in the release. Ynys Môn (W07000112) is in the release but has no page: it is missing from `pcon-dataset.json`.
 
 ## Datasets that need a key
 
