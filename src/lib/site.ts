@@ -15,6 +15,11 @@ export const DEFAULT_SOCIAL_IMAGE_PATH = "/og-card.png";
 
 export type StructuredDataNode = Record<string, unknown>;
 
+/** The release diary and its feed. The entries are in src/lib/releases.ts. */
+export const RELEASES_PATH = "/releases/";
+export const FEED_PATH = "/feed.xml";
+export const FEED_TITLE = `${SITE_NAME} releases`;
+
 export interface ReleaseEntry {
   date: string;
   title: string;

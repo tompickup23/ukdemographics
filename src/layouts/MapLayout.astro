@@ -4,6 +4,8 @@ import {
   DEFAULT_DESCRIPTION,
   DEFAULT_SOCIAL_IMAGE_PATH,
   SITE_NAME,
+  FEED_PATH,
+  FEED_TITLE,
   SITE_URL,
   normalisePageTitle,
   type StructuredDataNode
@@ -42,6 +44,7 @@ const pageTitle = normalisePageTitle(title);
 // The default card shows the page title on the brand ground (maps plan v2.2, I25: no pseudo-dash).
 const socialImageAlt = imageAlt ?? `Share card: ${pageTitle}`;
 const canonicalUrl = new URL(pathname, siteOrigin).toString();
+const feedUrl = new URL(FEED_PATH, siteOrigin).toString();
 const socialImageUrl = /^https?:\/\//.test(image) ? image : new URL(image, siteOrigin).toString();
 const robotsContent = noIndex ? "noindex,follow,max-image-preview:large" : "index,follow,max-image-preview:large";
 const socialImageMime = socialImageUrl.endsWith(".png")
@@ -119,6 +122,7 @@ const structuredData = [
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" type="application/rss+xml" title={FEED_TITLE} href={feedUrl} />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE_NAME} />

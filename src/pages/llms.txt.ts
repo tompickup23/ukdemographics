@@ -38,6 +38,7 @@ Observed figures (ONS, DfE, DWP, Home Office, DHSC) and projections are labelled
 - [Methodology](${SITE_URL}/methodology/): projection model, inputs and limitations
 - [Sources](${SITE_URL}/sources/): primary datasets
 - [Releases](${SITE_URL}/releases/): change log of data releases
+- [Releases feed](${SITE_URL}/feed.xml): the same change log as RSS, one item per release
 - [Glossary](${SITE_URL}/glossary/)
 
 ## Findings

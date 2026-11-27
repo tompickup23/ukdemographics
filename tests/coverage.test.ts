@@ -30,11 +30,12 @@ const LITERAL_COUNT_FILES = [
 /**
  * Directories and files that are allowed to carry a stale count.
  *
- * src/data holds generated datasets, and src/pages/releases.astro is verbatim
- * version history: a release note records what was published at the time, so
- * editing it would break traceability rather than fix an error.
+ * src/data holds generated datasets, and src/lib/releases.ts is verbatim
+ * version history (the entries shown on /releases/ and in /feed.xml): a release
+ * note records what was published at the time, so editing it would break
+ * traceability rather than fix an error.
  */
-const EXCLUDED = [path.join(SRC_ROOT, "data"), path.join(SRC_ROOT, "pages", "releases.astro")];
+const EXCLUDED = [path.join(SRC_ROOT, "data"), path.join(SRC_ROOT, "lib", "releases.ts")];
 
 /**
  * The four numbers that were published as coverage and were not. 320 is the
