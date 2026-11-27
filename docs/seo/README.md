@@ -258,13 +258,19 @@ count is a separate change, to test after this one.
     `/population-change/`, and changes no place page; like the pyramids, they fall outside the arms.
   - The weekly data refresh of 16 November (`c1ee115`, run 43927316550, 18:29 UTC) changed
     stop and search and SEN data only.
-- After that list, from `gh run list` on 27 November 2026 (no other deploy run between the two):
+- After that list, from `gh run list` on 27 November 2026 (no other deploy run between 18 and 27 November):
   - PR 170 (this log, docs only): merged `e83645ed`, run 44337961955 green at 15:57 UTC on 18
     November. No page changes.
   - PR 173 (releases feed and the releases page, R950): merged `a086296b`, run 45996725907
     green at 12:26 UTC on 27 November. It adds `/feed.xml`, brings `/releases/` up to date and
     puts one feed link tag in the head of every page, place pages included. No place page
     title, meta description or body text changes.
+  - PR 174 (this log, docs only): merged `246ec9a4`, run 46021354058 green at 15:16 UTC on 27
+    November. No page changes.
+  - PR 176 (the ONS provisional UK population for mid-2026 on `/national/`, R951): merged
+    `06d4059a`, run 46043612420 green at 17:54 UTC on 27 November. It changes `/national/`,
+    `/releases/` and `/feed.xml` only. No place page changes; `/places/burnley/` read live
+    after the deploy does not carry the figure.
 - None of these changes a place page title or meta description, and each change after 5
   November reached every arm alike. Read the arms as planned and report these dates beside
   the result.
